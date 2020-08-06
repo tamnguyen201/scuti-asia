@@ -154,6 +154,7 @@
       <script src="https://medialoot.com/preview/lumino/js/easypiechart.js"></script>
       <script src="https://medialoot.com/preview/lumino/js/easypiechart-data.js"></script>
       <script src="https://medialoot.com/preview/lumino/js/bootstrap-datepicker.js"></script>
+      <script src="https://medialoot.com/preview/lumino/js/bootstrap-table.js"></script>
       <script src="https://medialoot.com/preview/lumino/js/custom.js"></script>
    </body>
 </html>
