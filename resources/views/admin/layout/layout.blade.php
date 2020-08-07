@@ -3,18 +3,19 @@
    <head>
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
+      <base href="{{asset('')}}">
       <title>Lumino UI Elements</title>
-      <link href="https://medialoot.com/preview/lumino/css/bootstrap.min.css" rel="stylesheet">
+      <link href="adminAsset/css/bootstrap.min.css" rel="stylesheet">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-      <link href="https://medialoot.com/preview/lumino/css/font-awesome.min.css" rel="stylesheet">
-      <link href="https://medialoot.com/preview/lumino/css/datepicker3.css" rel="stylesheet">
-      <link href="https://medialoot.com/preview/lumino/css/styles.css" rel="stylesheet">
+      <link href="adminAsset/css/font-awesome.min.css" rel="stylesheet">
+      <link href="adminAsset/css/datepicker3.css" rel="stylesheet">
+      <link href="adminAsset/css/styles.css" rel="stylesheet">
       <!--Custom Font-->
       <link href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
       <!--[if lt IE 9]>
-      <script src="https://medialoot.com/preview/lumino/js/html5shiv.js"></script>
-      <script src="https://medialoot.com/preview/lumino/js/respond.min.js"></script>
+      <script src="adminAsset/js/html5shiv.js"></script>
+      <script src="adminAsset/js/respond.min.js"></script>
       <![endif]-->
    </head>
    <body>
@@ -147,14 +148,14 @@
       </div>
       <!-- /.row -->
       </div><!--/.main-->
-      <script src="https://medialoot.com/preview/lumino/js/jquery-1.11.1.min.js"></script>
-      <script src="https://medialoot.com/preview/lumino/js/bootstrap.min.js"></script>
-      <script src="https://medialoot.com/preview/lumino/js/chart.min.js"></script>
-      <script src="https://medialoot.com/preview/lumino/js/chart-data.js"></script>
-      <script src="https://medialoot.com/preview/lumino/js/easypiechart.js"></script>
-      <script src="https://medialoot.com/preview/lumino/js/easypiechart-data.js"></script>
-      <script src="https://medialoot.com/preview/lumino/js/bootstrap-datepicker.js"></script>
-      <script src="https://medialoot.com/preview/lumino/js/bootstrap-table.js"></script>
-      <script src="https://medialoot.com/preview/lumino/js/custom.js"></script>
+      <script src="adminAsset/js/jquery-1.11.1.min.js"></script>
+      <script src="adminAsset/js/bootstrap.min.js"></script>
+      <script src="adminAsset/js/chart.min.js"></script>
+      <script src="adminAsset/js/chart-data.js"></script>
+      <script src="adminAsset/js/easypiechart.js"></script>
+      <script src="adminAsset/js/easypiechart-data.js"></script>
+      <script src="adminAsset/js/bootstrap-datepicker.js"></script>
+      <script src="adminAsset/js/bootstrap-table.js"></script>
+      <script src="adminAsset/js/custom.js"></script>
    </body>
 </html>
