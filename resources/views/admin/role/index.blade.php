@@ -88,4 +88,9 @@
        </div>
     </div>
  </div>
+    <ul>
+        @foreach ($roles as $item)
+        <li>{{$itme->name}}</li>
+        @endforeach
+    </ul>
 @endsection
