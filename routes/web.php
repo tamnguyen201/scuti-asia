@@ -35,5 +35,25 @@ Route::group(['prefix'=>'admin'], function(){
         // Route::post('edit/{id}', ['as'=>'admin.users.edit','uses'=>'UserController@update']);
         // Route::post('delete/{id}', ['as'=>'admin.users.delete','uses'=>'UserController@delete']);
     });
+
+    Route::group(['prefix' => 'categories'], function () {
+        Route::get('/', [
+            'as' => 'categories.index',
+            'uses' => 'CategoryController@index'
+        ]);
+    });
+
+    Route::group(['prefix' => 'locations'], function () {
+        Route::get('/', [
+            'as' => 'location.index',
+            'uses' => 'LocationController@index'
+        ]);
+    });
     
+    Route::group(['prefix' => 'jobs'], function () {
+        Route::get('/', [
+            'as' => 'job.index',
+            'uses' => 'JobController@index'
+        ]);
+    });
 });
