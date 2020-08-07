@@ -3,19 +3,18 @@
    <head>
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
+      <base href="{{asset('')}}">
       <title>Lumino UI Elements</title>
-      <link href="https://medialoot.com/preview/lumino/css/bootstrap.min.css" rel="stylesheet">
+      <link href="adminAsset/css/bootstrap.min.css" rel="stylesheet">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-      <link href="https://medialoot.com/preview/lumino/css/font-awesome.min.css" rel="stylesheet">
-      <link href="https://medialoot.com/preview/lumino/css/datepicker3.css" rel="stylesheet">
-      <link href="https://medialoot.com/preview/lumino/css/styles.css" rel="stylesheet">
+      <link href="adminAsset/css/font-awesome.min.css" rel="stylesheet">
+      <link href="adminAsset/css/datepicker3.css" rel="stylesheet">
+      <link href="adminAsset/css/styles.css" rel="stylesheet">
       <!--Custom Font-->
       <link href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
-      <!--[if lt IE 9]>
-      <script src="https://medialoot.com/preview/lumino/js/html5shiv.js"></script>
-      <script src="https://medialoot.com/preview/lumino/js/respond.min.js"></script>
-      <![endif]-->
+      @yield('css')
+
    </head>
    <body>
       <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
@@ -99,46 +98,9 @@
          </div>
          <!-- /.container-fluid -->
       </nav>
-      <div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
-         <div class="profile-sidebar">
-            <div class="profile-userpic">
-               <img src="http://placehold.it/50/30a5ff/fff" class="img-responsive" alt="">
-            </div>
-            <div class="profile-usertitle">
-               <div class="profile-usertitle-name">Username</div>
-               <div class="profile-usertitle-status"><span class="indicator label-success"></span>Online</div>
-            </div>
-            <div class="clear"></div>
-         </div>
-         <div class="divider"></div>
-         <ul class="nav menu">
-            <li><a href="index.html"><em class="fa fa-dashboard">&nbsp;</em> Dashboard</a></li>
-            <li><a href="widgets.html"><em class="fa fa-calendar">&nbsp;</em> Widgets</a></li>
-            <li><a href="charts.html"><em class="fa fa-bar-chart">&nbsp;</em> Charts</a></li>
-            <li class="active"><a href="elements.html"><em class="fa fa-toggle-off">&nbsp;</em> UI Elements</a></li>
-            <li><a href="panels.html"><em class="fa fa-clone">&nbsp;</em> Alerts &amp; Panels</a></li>
-            <li class="parent ">
-               <a data-toggle="collapse" href="#sub-item-1">
-               <em class="fa fa-navicon">&nbsp;</em> Multilevel <span data-toggle="collapse" href="#sub-item-1" class="icon pull-right"><em class="fa fa-plus"></em></span>
-               </a>
-               <ul class="children collapse" id="sub-item-1">
-                  <li><a class="" href="#">
-                     <span class="fa fa-arrow-right">&nbsp;</span> Sub Item 1
-                     </a>
-                  </li>
-                  <li><a class="" href="#">
-                     <span class="fa fa-arrow-right">&nbsp;</span> Sub Item 2
-                     </a>
-                  </li>
-                  <li><a class="" href="#">
-                     <span class="fa fa-arrow-right">&nbsp;</span> Sub Item 3
-                     </a>
-                  </li>
-               </ul>
-            </li>
-            <li><a href="login.html"><em class="fa fa-power-off">&nbsp;</em> Logout</a></li>
-         </ul>
-      </div>
+
+      @include('admin.layout.sideBar')
+      
       <!--/.sidebar-->
       <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
          
@@ -147,13 +109,16 @@
       </div>
       <!-- /.row -->
       </div><!--/.main-->
-      <script src="https://medialoot.com/preview/lumino/js/jquery-1.11.1.min.js"></script>
-      <script src="https://medialoot.com/preview/lumino/js/bootstrap.min.js"></script>
-      <script src="https://medialoot.com/preview/lumino/js/chart.min.js"></script>
-      <script src="https://medialoot.com/preview/lumino/js/chart-data.js"></script>
-      <script src="https://medialoot.com/preview/lumino/js/easypiechart.js"></script>
-      <script src="https://medialoot.com/preview/lumino/js/easypiechart-data.js"></script>
-      <script src="https://medialoot.com/preview/lumino/js/bootstrap-datepicker.js"></script>
-      <script src="https://medialoot.com/preview/lumino/js/custom.js"></script>
+      <script src="adminAsset/js/jquery-1.11.1.min.js"></script>
+      <script src="adminAsset/js/bootstrap.min.js"></script>
+      <script src="adminAsset/js/chart.min.js"></script>
+      <script src="adminAsset/js/chart-data.js"></script>
+      <script src="adminAsset/js/easypiechart.js"></script>
+      <script src="adminAsset/js/easypiechart-data.js"></script>
+      <script src="adminAsset/js/bootstrap-datepicker.js"></script>
+      <script src="adminAsset/js/bootstrap-table.js"></script>
+      <script src="adminAsset/js/custom.js"></script>
+      @yield('script')
+
    </body>
 </html>
