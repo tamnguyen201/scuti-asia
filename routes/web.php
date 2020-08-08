@@ -15,12 +15,26 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'HomeController@index');
 
-Route::get('/login','AdminController@login');
-Route::get('/forgot','AdminController@forgot');
 
 Route::group(['prefix'=>'admin'], function(){
+    Route::get('/login',[
+        'as' => 'login',
+        'uses' => 'AdminController@login'
+    ]);
+    Route::post('/login',[
+        'as' => 'post-login',
+        'uses' => 'AdminController@postLoginAdmin'
+    ]);
+    Route::get('/logout',[
+        'as' => 'admin.logout',
+        'uses' => 'AdminController@getLogOut'
+    ]);
+    Route::get('/forgot','AdminController@forgot');
 
-    Route::get('/','AdminController@index');
+    Route::get('/',[
+        'as' => 'admin.home',
+        'uses' => 'AdminController@index'
+    ]);
 
     Route::group(['prefix' => 'roles'], function () {
         Route::get('/', ['as'=>'admin.roles','uses'=>'RoleController@index']);
