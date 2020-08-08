@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Model\User;
 use App\Model\Role;
+Use Alert;
+
 use Illuminate\Http\Request;
 
 class EmployeeController extends Controller
