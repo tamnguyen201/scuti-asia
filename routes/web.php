@@ -24,9 +24,9 @@ Route::group(['prefix'=>'admin'], function(){
 
     Route::group(['prefix' => 'roles'], function () {
         Route::get('/', ['as'=>'admin.roles','uses'=>'RoleController@index']);
-        // Route::get('edit/{id}', ['as'=>'admin.roles.edit','uses'=>'UserController@edit']);
-        // Route::post('edit/{id}', ['as'=>'admin.roles.edit','uses'=>'UserController@update']);
-        // Route::post('delete/{id}', ['as'=>'admin.roles.delete','uses'=>'UserController@delete']);
+        Route::get('edit/{id}', ['as'=>'admin.roles.edit','uses'=>'UserController@edit']);
+        Route::post('edit/{id}', ['as'=>'admin.roles.edit','uses'=>'UserController@update']);
+        Route::post('delete/{id}', ['as'=>'admin.roles.delete','uses'=>'UserController@delete']);
     });
 
     Route::group(['prefix' => 'users'], function () {
@@ -34,6 +34,12 @@ Route::group(['prefix'=>'admin'], function(){
         // Route::get('edit/{id}', ['as'=>'admin.users.edit','uses'=>'UserController@edit']);
         // Route::post('edit/{id}', ['as'=>'admin.users.edit','uses'=>'UserController@update']);
         // Route::post('delete/{id}', ['as'=>'admin.users.delete','uses'=>'UserController@delete']);
+    });
+
+    Route::group(['prefix' => 'employees'], function () {
+        Route::get('/', ['as'=>'admin.employees','uses'=>'EmployeeController@index']);
+        Route::get('/add', ['as'=>'admin.employees.add','uses'=>'EmployeeController@create']);
+
     });
     
 });

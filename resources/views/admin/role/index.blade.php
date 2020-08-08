@@ -1,4 +1,5 @@
 @extends('admin.layout.layout')
+@section('title', 'Roles Manage')
 @section('content')
 <div class="row">
     <ol class="breadcrumb">
@@ -19,18 +20,7 @@
        <div class="panel-body">
             <div class="bootstrap-table">
                 <div class="fixed-table-toolbar">
-                    <div class="columns btn-group pull-right">
-                    <button class="btn btn-default" type="button" name="refresh" title="Refresh"><i class="glyphicon glyphicon-refresh icon-refresh"></i></button><button class="btn btn-default" type="button" name="toggle" title="Toggle"><i class="glyphicon glyphicon glyphicon-list-alt icon-list-alt"></i></button>
-                    <div class="keep-open btn-group" title="Columns">
-                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-th icon-th"></i> <span class="caret"></span></button>
-                        <ul class="dropdown-menu" role="menu">
-                            <li><label><input type="checkbox" data-field="id" value="1" checked="checked"> Item ID</label></li>
-                            <li><label><input type="checkbox" data-field="name" value="2" checked="checked"> Item Name</label></li>
-                            <li><label><input type="checkbox" data-field="price" value="3" checked="checked"> Item Price</label></li>
-                        </ul>
-                    </div>
-                    </div>
-                    <div class="pull-right search"><input class="form-control" type="text" placeholder="Search"></div>
+                    <button class="btn btn-success" style="float: right">Add New</button>
                 </div>
                 <div class="fixed-table-container">
                     <div class="fixed-table-header">
@@ -54,7 +44,7 @@
                                 <div class="fht-cell"></div>
                                 </th>
                                 <th style="">
-                                <div class="th-inner sortable">Item Price</div>
+                                <div class="th-inner sortable text-center">Action</div>
                                 <div class="fht-cell"></div>
                                 </th>
                             </tr>
@@ -66,11 +56,11 @@
                                 <td>{{$item->id}}</td>
                                 <td>{{$item->name}}</td>
                                 <td class="text-center">
-                                    {{-- <a href="{!! URL::route('admin.users.edit', $item['id']) !!}" class="btn btn-primary text-light"><em class="far fa-edit"></em></a> 
-                                    <form action="{!! URL::route('admin.users.delete', $item['id']) !!}" method="post">
+                                    <a href="{!! URL::route('admin.roles.edit', $item['id']) !!}" class="btn btn-primary text-light"><em class="far fa-edit"></em></a> 
+                                    <form action="{!! URL::route('admin.roles.delete', $item['id']) !!}" method="post">
                                         @csrf
                                         <button class="btn btn-danger text-light" onclick="return confirm('Bạn có muốn xóa không?')"><em class="fas fa-trash-alt"></em></button>
-                                    </form> --}}
+                                    </form>
                                 </td>
                             </tr>
                             @endforeach
@@ -88,9 +78,4 @@
        </div>
     </div>
  </div>
-    <ul>
-        @foreach ($roles as $item)
-        <li>{{$itme->name}}</li>
-        @endforeach
-    </ul>
 @endsection

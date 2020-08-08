@@ -16,7 +16,10 @@ class RoleController extends Controller
 
     public function store(Request $request)
     {
-        //
+        Role::create(
+            $request->only('name')
+        );
+
     }
 
     public function show($id)
@@ -26,7 +29,10 @@ class RoleController extends Controller
 
     public function update(Request $request, $id)
     {
-        //
+        Role::findOrFail($id)->update(
+            $request->only('name')
+        );
+
     }
 
     public function destroy($id)
