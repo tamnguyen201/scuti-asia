@@ -14,8 +14,8 @@ class UpdateRoleInUserTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->foreignId('role')->after('password')->nullable();
-            $table->foreign('role')->references('id')->on('roles')->onDelete('cascade');
+            $table->foreignId('role_id')->after('password')->nullable();
+            $table->foreign('role_id')->references('id')->on('roles')->onDelete('cascade');
         });
     }
 
@@ -27,7 +27,7 @@ class UpdateRoleInUserTable extends Migration
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn('role');
+            $table->dropColumn('role_id');
         });
     }
 }

@@ -16,13 +16,13 @@ class CreateCanidateEvaluateTable extends Migration
         Schema::create('canidate_evaluate', function (Blueprint $table) {
             $table->id();
             $table->foreignId('canidate_id');
-            $table->boolean('stage1')->default(0);
-            $table->boolean('stage2')->default(0);
-            $table->string('comment2');
-            $table->boolean('stage3')->default(0);
-            $table->string('comment3');
-            $table->boolean('stage4')->default(0);
-            $table->string('comment4');
+            $table->boolean('stage1');
+            $table->boolean('stage2')->nullable();
+            $table->string('comment2')->nullable();
+            $table->boolean('stage3')->nullable();
+            $table->string('comment3')->nullable();
+            $table->boolean('stage4')->nullable();
+            $table->string('comment4')->nullable();
             $table->timestamps();
 
             $table->foreign('canidate_id')->references('id')->on('canidates')->onDelete('cascade');

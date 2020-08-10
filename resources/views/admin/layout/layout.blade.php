@@ -5,6 +5,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <base href="{{asset('')}}">
       <title> Admin | @yield('title') </title>
+      <meta name="csrf-token" content="{{ csrf_token() }}">
       <link href="adminAsset/css/bootstrap.min.css" rel="stylesheet">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -122,7 +123,16 @@
       <script src="adminAsset/js/bootstrap-table.js"></script>
       <script src="adminAsset/js/custom.js"></script>
       <script src="https://unpkg.com/sweetalert2@7.18.0/dist/sweetalert2.all.js"></script>
-
+      <script>
+         $(function () {
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+         })
+      </script>
+      
       @yield('script')
 
    </body>

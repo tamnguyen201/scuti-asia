@@ -10,9 +10,9 @@ class Repository implements RepositoryInterface
     protected $model;
 
     // Constructor to bind model to repo
-    public function __construct($model)
+    public function __construct()
     {
-        $this->setModel($model);
+        $this->setModel();
     }
 
     // Get all instances of model
@@ -57,10 +57,11 @@ class Repository implements RepositoryInterface
     }
 
     // Set the associated model
-    public function setModel($model)
+    public function setModel()
     {
-        $this->model = $model;
-        return $this;
+        $this->model = app()->make(
+            $this->getModel()
+        );
     }
 
     // Eager load database relationships
