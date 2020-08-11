@@ -9,7 +9,7 @@ class Role extends Model
     protected $timestamp = false;
     public function user()
     {
-        return $this->belongsTo('App\User');
+        return $this->belongsTo('App\Model\User');
     }
 
 }

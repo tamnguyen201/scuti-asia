@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\RoleRequest;
 use Illuminate\Http\Request;
 use App\Model\Role;
 use App\Repositories\Role\RoleRepositoryInterface;
@@ -21,22 +22,21 @@ class RoleController extends Controller
         return view("admin.role.index", compact('roles'));
     }
 
-    public function store(Request $request)
+    public function edit($id)
     {
-        $request->validate(
-            [
-                'name' => 'required|unique:roles,name',
-            ],
-            [
-                'required' => 'Trường :attribute không được để trống!'
-            ]
-        );
+        $role = $this->roleRepo->show($id);
+        return response()->json($role);
+    }
 
-        $this->roleRepo->create(
-            $request->only('name')
-        );
+    public function store(RoleRequest $request)
+    {
+        if ($request->ajax()) {
+            $results = $this->roleRepo->create(
+                $request->all()
+            );
 
-        return redirect()->route('admin.roles')->with('success','Thanh cong');
+            return response()->json($results);
+        }
 
     }
 
@@ -47,10 +47,14 @@ class RoleController extends Controller
 
     public function update(Request $request, $id)
     {
-        $this->roleRepo->update(
-            $request->only('name'),
-            $id,
-        );
+        if ($request->ajax()) {
+            $results = $this->roleRepo->update(
+                $request->all(),
+                $id
+            );
+
+            return response()->json($results);
+        }
 
     }
 

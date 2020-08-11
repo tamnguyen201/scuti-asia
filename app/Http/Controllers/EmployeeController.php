@@ -2,60 +2,105 @@
 
 namespace App\Http\Controllers;
 
-use App\Model\User;
-use App\Model\Role;
 Use Alert;
 
 use Illuminate\Http\Request;
+use App\Repositories\Role\RoleRepositoryInterface;
+use App\Repositories\Employee\EmployeeRepositoryInterface;
 
 class EmployeeController extends Controller
 {
+    protected $employeeRepo;
+    protected $roleRepo;
+
+    public function __construct(
+        EmployeeRepositoryInterface $employeeRepo,
+        RoleRepositoryInterface $roleRepo
+    )
+    {
+        $this->roleRepo = $roleRepo;
+        $this->employeeRepo = $employeeRepo;
+    }
+    
     public function index()
     {
-        $employees = User::where('role','<>',4)
-                        ->paginate(10);
-        if (1<2) {
-            alert('Post Created','Successfully', 'success');
-        } else {
-            alert()->error('Post Created', 'Something went wrong!'); // hoặc có thể dùng alert('Post Created','Something went wrong!', 'error');
-        }
+        $employees = $this->employeeRepo->paginate(10);
         return view('admin.staff.index', compact('employees'));
 
     }
 
+    public function show($id)
+    {
+        $employee = $this->employeeRepo->show($id);
+        return response()->json($employee);
+    }
+
     public function create()
     {
-        $roles = Role::all();
+        $roles = $this->roleRepo->all();
         return view('admin.staff.add', compact('roles'));
     }
 
     public function store(Request $request)
     {
-        User::create(
-            $request->only('name')
+        $request->validate(
+            [
+                'name' => 'required',
+                'email' => 'required|email|unique:users,email',
+                //'phone' => 'required',
+                //'avatar' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+            ],
+            [
+                'required' => 'Trường :attribute không được để trống!',
+                'email.email' => 'Vui lòng nhập đúng định dạng Email'
+            ]
         );
-        return redirect()->route('admin.employees');
+ 
+        if ($files = $request->file('avatar')) {
+            $destinationPath = 'image/';
+            $profileImage = date('YmdHis') . "." . $files->getClientOriginalExtension();
+            $files->move($destinationPath, $profileImage);
+            $insert['avatar'] = $profileImage;
+        }
+ 
+        $this->employeeRepo->create($request->all());
+    
+        return redirect('/admin/employees')
+                ->with('success', 'Created successfully.');
     }
 
     public function edit($id)   
     {
-        User::findOrFail($id);
-        return view('admin.employee.edit', compact('employee'));
+        $data['employRoles'] = $this->roleRepo->all();
+        $data['employee'] = $this->employeeRepo->show($id);
+        return view('admin.staff.edit', compact('data'));
     }
 
     public function update(Request $request, $id)   
     {
-        User::update(
-            $request->only('name')
+        $request->validate(
+            [
+                'name' => 'required',
+                'email' => 'required|email|unique:users,email,'.$id,
+                //'phone' => 'required',
+                //'avatar' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+            ],
+            [
+                'required' => 'Trường :attribute không được để trống!',
+                'email.email' => 'Vui lòng nhập đúng định dạng Email'
+            ]
         );
-        return redirect()->route('admin.employees');
+
+        // $this->employeeRepo->update($request->all());
+
+        return redirect()->route('admin.employees')->with('success','Thanh Cong!');
 
     }
 
-    public function delete($id)   
+    public function delete(Request $request)   
     {
-        User::destroy($id);
-        return back()->with('message','Succesfully!');
+        $this->employeeRepo->delete($request->id);
+        return back()->with('success','Delete Successfully!');
     }
 
 }
