@@ -62,6 +62,21 @@ Route::group(['prefix'=>'admin'], function(){
             'as' => 'location.index',
             'uses' => 'LocationController@index'
         ]);
+        
+        Route::post('/store', [
+            'as' => 'location.store',
+            'uses' => 'LocationController@store'
+        ]);
+
+        Route::post('/edit', [
+            'as' => 'location.edit',
+            'uses' => 'LocationController@edit'
+        ]);
+
+        Route::post('/delete', [
+            'as' => 'location.delete',
+            'uses' => 'LocationController@destroy'
+        ]);
     });
     
     Route::group(['prefix' => 'jobs'], function () {
