@@ -46,7 +46,8 @@ class Repository implements RepositoryInterface
         return $this->model->findOrFail($id);
     }
 
-    public function paginate($perPage = 15, $columns = array('*')) {
+    public function paginate($perPage = 15, $columns = array('*'))
+    {
         return $this->model->paginate($perPage, $columns);
     }
 

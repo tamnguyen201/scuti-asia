@@ -21,6 +21,7 @@
             <div class="col-md-12">
                 <form role="form" action="{{route('admin.employees.update',$data['employee']->id)}}" method="POST" enctype="multipart/form-data">
                     @csrf
+                    @method('PUT')
                     <div class="col-md-6">
                         <div class="form-group @error('name') has-error @enderror">
                             <label>Full Name</label>

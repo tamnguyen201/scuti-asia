@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\RoleRequest;
+use App\Http\Requests\RoleUpdateRequest;
 use Illuminate\Http\Request;
 use App\Model\Role;
 use App\Repositories\Role\RoleRepositoryInterface;
@@ -30,37 +31,27 @@ class RoleController extends Controller
 
     public function store(RoleRequest $request)
     {
-        if ($request->ajax()) {
-            $results = $this->roleRepo->create(
-                $request->all()
-            );
+        $results = $this->roleRepo->create(
+            $request->all()
+        );
 
-            return response()->json($results);
-        }
-
+        return response()->json($results);
     }
 
-    public function show($id)
+    public function update(RoleUpdateRequest $request)
     {
-        //
-    }
+        $this->roleRepo->update(
+            $request->all(),
+            $request->id
+        );
+        $results = $this->roleRepo->show($request->id);
 
-    public function update(Request $request, $id)
-    {
-        if ($request->ajax()) {
-            $results = $this->roleRepo->update(
-                $request->all(),
-                $id
-            );
-
-            return response()->json($results);
-        }
-
+        return response()->json($results);
     }
 
     public function destroy($id)
     {
         $this->roleRepo->delete($id);
-        return redirect()->back()->with('success','Thanh cong!');
+        return redirect()->back()->with('success', 'Thành công!');
     }
 }

@@ -20,7 +20,7 @@
        <div class="panel-body">
             <div class="bootstrap-table">
                 <div class="fixed-table-toolbar">
-                    <button class="btn btn-primary" data-toggle="modal" data-target="#myModal" style="float: right"><span class="fa fa-plus"></span> Add New</button>
+                    <button class="btn btn-primary btn-add-form" style="float: right"><span class="fa fa-plus"></span> Add New</button>
                 </div>
                 <div class="fixed-table-container">
                     <div class="fixed-table-header">
@@ -45,16 +45,17 @@
                                 </th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody class="table-list-role">
                             @php $stt =1; @endphp
                             @foreach($roles as $item)
-                            <tr data-index="0">
+                            <tr class="data-role-{{$item->id}}">
                                 <td>{{$stt++}}</td>
                                 <td>{{$item->name}}</td>
                                 <td class="text-center">
-                                    <a href="{{route('admin.roles.edit', $item['id'])}}" class="btn btn-primary text-light"><em class="far fa-edit"></em></a> 
-                                    <form action="{{route('admin.roles.delete', $item['id'])}}" method="post" class="form-delete-{{$item->id}}" style="display: inline">
+                                    <a href="{{route('admin.roles.edit', $item['id'])}}" class="btn btn-primary text-light btn-edit-form"><em class="far fa-edit"></em></a> 
+                                    <form action="{{route('admin.roles.destroy', $item['id'])}}" method="post" class="form-delete-{{$item->id}}" style="display: inline">
                                         @csrf
+                                        @method('DELETE')
                                         <button class="btn btn-danger text-light delete-confirm" idDelete={{$item->id}}><em class="fas fa-trash-alt"></em></button>
                                     </form>
                                 </td>
@@ -81,14 +82,14 @@
                   </button>
                 </div>
                 <div class="modal-body">
-                  <form>
-                    <div class="form-group">
-                      <label for="recipient-name" class="col-form-label">Name</label>
-                      <input type="text" name="name" class="form-control" id="recipient-name">
-                      <span class="error-form text-danger"></span>
-                    </div>
-                    <button type="button" class="btn btn-primary btn-add-role">Submit</button>
-                  </form>
+                    <form>
+                        <div class="form-group">
+                          <label for="recipient-name" class="col-form-label">Name</label>
+                          <input type="text" name="name" class="form-control" id="recipient-name">
+                          <span class="error-form text-danger"></span>
+                        </div>
+                        <button type="button" class="btn btn-primary btn-add-role">Submit</button>
+                      </form>
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -102,7 +103,21 @@
 @endsection
 @section('script')
     <script type="text/javascript">
-        $('.btn.btn-primary.btn-add-role').click(function (e) {
+        $('.btn.btn-primary.btn-add-form').click(function () {
+            $(".modal-body").html(
+                    `<form>
+                    <div class="form-group">
+                      <label for="recipient-name" class="col-form-label">Name</label>
+                      <input type="text" name="name" class="form-control" id="recipient-name">
+                      <span class="error-form text-danger"></span>
+                    </div>
+                    <button type="button" class="btn btn-primary btn-add-role">Submit</button>
+                  </form>`
+                );
+            $("#myModal").modal('show');
+        });
+
+        $("body").on("click", ".btn.btn-primary.btn-add-role", function (e) {
             e.preventDefault();
             let domForm = $(this).closest('form');
             $.ajax({
@@ -110,9 +125,26 @@
                 data: domForm.serialize(),
                 method: "POST",
             }).done(function (results) {
-                console.log(results);
                 $("#myModal").modal('hide');
-                domForm.reset();
+                $(".table-list-role").append(`
+                    <tr class="data-role-${results.id}">
+                        <td>${results.id}</td>
+                        <td>${results.name}</td>
+                        <td class="text-center">
+                            <a href="/admin/roles/${results.id}/edit" class="btn btn-primary text-light btn-edit-form"><em class="far fa-edit"></em></a> 
+                            <form action="/admin/roles/${results.id}" method="post" class="form-delete-${results.id}" style="display: inline">
+                                @csrf
+                                @method('DELETE')
+                                <button class="btn btn-danger text-light delete-confirm" idDelete=${results.id}><em class="fas fa-trash-alt"></em></button>
+                            </form>
+                        </td>
+                    </tr>
+                `);
+                Swal.fire(
+                    'Thành công!',
+                    'Dữ liệu đã được cập nhật lại!',
+                    'success'
+                )
             }).fail(function (data) {
                 var errors = data.responseJSON;
                 $.each(errors.errors, function (i, val) {
@@ -121,8 +153,69 @@
             });
         });
 
-        $('.delete-confirm').on('click', function (event) {
-            event.preventDefault();
+        $("body").on("click", ".btn-edit-form", function (e) {
+            e.preventDefault();
+            let url = $(this).attr('href');
+            $.ajax({
+                url: url,
+                method: "GET",
+            }).done(function (results) {
+                $(".modal-body").html(
+                    `<form>
+                    <input type="hidden" name="id" id="id-update" value="${results.id}">
+                    <div class="form-group">
+                      <label for="recipient-name" class="col-form-label">Name</label>
+                      <input type="text" name="name" value="${results.name}" class="form-control" id="recipient-name">
+                      <span class="error-form text-danger"></span>
+                    </div>
+                    <button type="button" class="btn btn-primary btn-edit-role">Submit</button>
+                  </form>`
+                );
+                $("#myModal").modal('show');
+            }).fail(function (data) {
+                console.log(data);
+            });
+        });
+
+        $("body").on("click", ".btn.btn-primary.btn-edit-role", function (e) {
+            e.preventDefault();
+            let domForm = $(this).closest('form');
+            let id = $('#id-update').val();
+            $.ajax({
+                url: `/admin/roles/${id}`,
+                data: domForm.serialize(),
+                method: "PUT",
+            }).done(function (results) {
+                $("#myModal").modal('hide');
+                $(`.data-role-${results.id}`).replaceWith(`
+                    <tr class="data-role-${results.id}">
+                        <td>${results.id}</td>
+                        <td>${results.name}</td>
+                        <td class="text-center">
+                            <a href="/admin/roles/${results.id}/edit" class="btn btn-primary text-light btn-edit-form"><em class="far fa-edit"></em></a> 
+                            <form action="/admin/roles/${results.id}" method="post" class="form-delete-${results.id}" style="display: inline">
+                                @csrf
+                                @method('DELETE')
+                                <button class="btn btn-danger text-light delete-confirm" idDelete=${results.id}><em class="fas fa-trash-alt"></em></button>
+                            </form>
+                        </td>
+                    </tr>
+                `);
+                Swal.fire(
+                    'Thành công!',
+                    'Dữ liệu đã được cập nhật lại!',
+                    'success'
+                )
+            }).fail(function (data) {
+                var errors = data.responseJSON;
+                $.each(errors.errors, function (i, val) {
+                    domForm.find('input[name=' + i + ']').siblings('.error-form.text-danger').text(val[0]);
+                });
+            });
+        });
+
+        $("body").on("click", ".delete-confirm", function (e) {
+            e.preventDefault();
             let id = $(this).attr('idDelete');
             let form = $('.form-delete-'+id);
             swal({
@@ -143,38 +236,5 @@
         });
 
        
-    </script>
-    <script>
-         $(document).ready(function() {
-            $("#btn-add").click(function() {
-                $.ajaxSetup({
-                    headers: {
-                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                    }
-                });
-                $.ajax({
-                    type: 'POST',
-                    url: '/tasks',
-                    data: {
-                        task: $("#frmAddTask input[name=task]").val(),
-                        description: $("#frmAddTask input[name=description]").val(),
-                    },
-                    dataType: 'json',
-                    success: function(data) {
-                        $('#frmAddTask').trigger("reset");
-                        $("#frmAddTask .close").click();
-                        window.location.reload();
-                    },
-                    error: function(data) {
-                        var errors = $.parseJSON(data.responseText);
-                        $('#add-task-errors').html('');
-                        $.each(errors.messages, function(key, value) {
-                            $('#add-task-errors').append('' + value + '');
-                        }); 
-                        $("#add-error-bag").show(); 
-                    } 
-                }); 
-            }); 
-        });
     </script>
 @endsection

@@ -8,5 +8,5 @@ return [
         'BackOffice'    => 3,
         'User'          => 4,
 
-    ]   
+    ]
 ];

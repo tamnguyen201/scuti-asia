@@ -5,7 +5,7 @@ namespace App\Http\Requests;
 use Illuminate\Foundation\Http\FormRequest;
 use Symfony\Component\HttpFoundation\Request;
 
-class RoleRequest extends FormRequest
+class RoleUpdateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,7 +25,7 @@ class RoleRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|unique:roles,name',
+            'name' => 'required|unique:roles,name,' . $this->id,
         ];
     }
 
