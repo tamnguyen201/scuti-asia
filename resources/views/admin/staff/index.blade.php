@@ -20,7 +20,7 @@
         <div class="panel-body">
                 <div class="bootstrap-table">
                     <div class="fixed-table-toolbar">
-                        <a href="{{route('admin.employees.create')}}" class="btn btn-primary" style="float: right"><span class="fa fa-plus"></span> Add New</a>
+                        <a href="{{route('employees.create')}}" class="btn btn-primary" style="float: right"><span class="fa fa-plus"></span> Add New</a>
                     </div>
                     <div class="fixed-table-container">
                         <div class="fixed-table-header">

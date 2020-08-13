@@ -24,6 +24,7 @@ class UserController extends Controller
     public function show($id)
     {
         $user = $this->userRepo->show($id);
-        return response()->json($user);
+        $html = view('admin.user.profile', compact('user'))->render();
+        return response()->json($html);
     }
 }

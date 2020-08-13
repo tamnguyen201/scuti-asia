@@ -32,8 +32,8 @@ class RoleUpdateRequest extends FormRequest
     public function messages()
     {
         return [
-            'required' => 'Trường :attribute không được để trống!',
-            'unique' => 'Tên này đã được sử dụng!'
+            'required' => trans('validation.required'),
+            'unique' => trans('validation.unique'),
         ];
     }
 }

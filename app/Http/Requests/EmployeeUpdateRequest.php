@@ -34,8 +34,8 @@ class EmployeeRequest extends FormRequest
     public function messages()
     {
         return [
-            'required' => 'Trường :attribute không được để trống!',
-            'email.email' => 'Vui lòng nhập đúng định dạng Email'
+            'required' => trans('validation.required'),
+            'email.unique' => trans('validation.unique'),
         ];
     }
 }

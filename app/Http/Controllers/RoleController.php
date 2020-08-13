@@ -23,30 +23,33 @@ class RoleController extends Controller
         return view("admin.role.index", compact('roles'));
     }
 
+    public function create()
+    {
+        $html = view('admin.role.add')->render();
+        return response()->json($html);
+    }
+
     public function edit($id)
     {
         $role = $this->roleRepo->show($id);
-        return response()->json($role);
+        $html = view('admin.role.edit', compact('role'))->render();
+        return response()->json($html);
     }
 
     public function store(RoleRequest $request)
     {
-        $results = $this->roleRepo->create(
-            $request->all()
-        );
-
-        return response()->json($results);
+        $this->roleRepo->create($request->all());
+        $roles = $this->roleRepo->paginate(10);
+        $html = view('admin.role.list', compact('roles'))->render();
+        return response()->json($html);
     }
 
     public function update(RoleUpdateRequest $request)
     {
-        $this->roleRepo->update(
-            $request->all(),
-            $request->id
-        );
-        $results = $this->roleRepo->show($request->id);
-
-        return response()->json($results);
+        $this->roleRepo->update($request->all(), $request->id);
+        $roles = $this->roleRepo->paginate(10);
+        $html = view('admin.role.list', compact('roles'))->render();
+        return response()->json($html);
     }
 
     public function destroy($id)

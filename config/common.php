@@ -8,5 +8,9 @@ return [
         'BackOffice'    => 3,
         'User'          => 4,
 
+    ],
+
+    'message_content' => [
+        'success' => 'Thành công!',
     ]
 ];

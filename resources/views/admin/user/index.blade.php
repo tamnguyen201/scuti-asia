@@ -54,7 +54,7 @@
                                 <td>{{$item->name}}</td>
                                 <td>{{$item->email}}</td>
                                 <td class="text-center">
-                                    <a href="{{route('admin.users.show', $item['id'])}}" class="btn btn-primary text-light view-profile"><em class="fa fa-eye"></em></a>
+                                    <a href="{{route('users.show', $item['id'])}}" class="btn btn-primary text-light view-profile"><em class="fa fa-eye"></em></a>
                                 </td>
                             </tr>
                             @endforeach
@@ -96,37 +96,9 @@
         $('.view-profile').on('click', function (event) {
             event.preventDefault();
             let url = $(this).attr('href');
-            $.ajax({
-                url: url,
-                method: "GET",
-            }).done(function (results) {
-                $(".modal-body").html(
-                    `<div class="col-lg-3">
-                        <img src="default-img.png" class="img-responsive" alt="">
-                    </div>
-                    <div class="col-lg-9">
-                        <table class="table table-hover">
-                            <tbody>
-                                <tr>
-                                    <td>Full Name</td>
-                                    <td>${results.name}</td>
-                                </tr>
-                                <tr>
-                                    <td>Email</td>
-                                    <td>${results.email}</td>
-                                </tr>
-                                <tr>
-                                    <td>Phone</td>
-                                    <td>${results.name}</td>
-                                </tr>
-                                <tr>
-                                    <td>Address</td>
-                                    <td>${results.email}</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>`
-                );
+            $.get(url)
+            .done(function (results) {
+                $(".modal-body").html(results);
                 $("#exampleModalCenter").modal('show');
             }).fail(function (data) {
                 console.log(data);
