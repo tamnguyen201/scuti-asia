@@ -29,12 +29,18 @@ class LocationController extends Controller
         
     }
 
+    public function create()
+    {
+        $html = view('admin.location.add')->render();
+        return response()->json($html);
+    }
+
     public function store(LocationRequest $request)
     {
-        $results = $this->locationRepo->create([
-            'name' => $request->name
-        ]);
-        return response()->json($results);
+        $this->locationRepo->create($request->all());
+        $locations = $this->locationRepo->paginate(10);
+        $html = view('admin.location.list', compact('locations'))->render();
+        return response()->json($html);
     }
 
 }
