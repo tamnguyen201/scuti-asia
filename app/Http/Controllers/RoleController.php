@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\RoleRequest;
+use App\Http\Requests\RoleUpdateRequest;
 use Illuminate\Http\Request;
 use App\Model\Role;
 use App\Repositories\Role\RoleRepositoryInterface;
@@ -22,45 +23,38 @@ class RoleController extends Controller
         return view("admin.role.index", compact('roles'));
     }
 
+    public function create()
+    {
+        $html = view('admin.role.add')->render();
+        return response()->json($html);
+    }
+
     public function edit($id)
     {
         $role = $this->roleRepo->show($id);
-        return response()->json($role);
+        $html = view('admin.role.edit', compact('role'))->render();
+        return response()->json($html);
     }
 
     public function store(RoleRequest $request)
     {
-        if ($request->ajax()) {
-            $results = $this->roleRepo->create(
-                $request->all()
-            );
-
-            return response()->json($results);
-        }
-
+        $this->roleRepo->create($request->all());
+        $roles = $this->roleRepo->paginate(10);
+        $html = view('admin.role.list', compact('roles'))->render();
+        return response()->json($html);
     }
 
-    public function show($id)
+    public function update(RoleUpdateRequest $request)
     {
-        //
-    }
-
-    public function update(Request $request, $id)
-    {
-        if ($request->ajax()) {
-            $results = $this->roleRepo->update(
-                $request->all(),
-                $id
-            );
-
-            return response()->json($results);
-        }
-
+        $this->roleRepo->update($request->all(), $request->id);
+        $roles = $this->roleRepo->paginate(10);
+        $html = view('admin.role.list', compact('roles'))->render();
+        return response()->json($html);
     }
 
     public function destroy($id)
     {
         $this->roleRepo->delete($id);
-        return redirect()->back()->with('success','Thanh cong!');
+        return redirect()->back()->with('success', config('common.alert_messages.success'));
     }
 }

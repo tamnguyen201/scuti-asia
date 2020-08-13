@@ -20,7 +20,7 @@
         <div class="panel-body">
                 <div class="bootstrap-table">
                     <div class="fixed-table-toolbar">
-                        <a href="{{route('admin.employees.add')}}" class="btn btn-primary" style="float: right"><span class="fa fa-plus"></span> Add New</a>
+                        <a href="{{route('employees.create')}}" class="btn btn-primary" style="float: right"><span class="fa fa-plus"></span> Add New</a>
                     </div>
                     <div class="fixed-table-container">
                         <div class="fixed-table-header">
@@ -59,8 +59,9 @@
                                     <td class="text-center">
                                         <a href="{{route('admin.employees.show', $item['id'])}}" class="btn btn-primary text-light view-profile"><em class="fa fa-eye"></em></a>
                                         <a href="{{route('admin.employees.edit', $item['id'])}}" class="btn btn-primary text-light"><em class="far fa-edit"></em></a> 
-                                        <form action="{{route('admin.employees.delete', $item['id'])}}" method="post" class="form-delete-{{$item->id}}" style="display: inline">
+                                        <form action="{{route('admin.employees.destroy', $item['id'])}}" method="post" class="form-delete-{{$item->id}}" style="display: inline">
                                             @csrf
+                                            @method('DELETE')
                                             <button class="btn btn-danger text-light delete-confirm" idDelete={{$item->id}}><em class="fas fa-trash-alt"></em></button>
                                         </form>
                                     </td>

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-Use Alert;
+use Alert;
 use App\Repositories\User\UserRepositoryInterface;
 
 class UserController extends Controller
@@ -19,13 +19,12 @@ class UserController extends Controller
     {
         $users = $this->userRepo->paginate(10);
         return view('admin.user.index', compact('users'));
-
     }
 
     public function show($id)
     {
         $user = $this->userRepo->show($id);
-        return response()->json($user);
+        $html = view('admin.user.profile', compact('user'))->render();
+        return response()->json($html);
     }
-
 }

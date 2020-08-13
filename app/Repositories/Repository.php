@@ -46,7 +46,8 @@ class Repository implements RepositoryInterface
         return $this->model->findOrFail($id);
     }
 
-    public function paginate($perPage = 15, $columns = array('*')) {
+    public function paginate($perPage = 15, $columns = array('*'))
+    {
         return $this->model->paginate($perPage, $columns);
     }
 
@@ -68,5 +69,14 @@ class Repository implements RepositoryInterface
     public function with($relations)
     {
         return $this->model->with($relations);
+    }
+
+    // Upload File to public/image
+    public function upload($file)
+    {
+        $destinationPath = 'image/';
+        $image = date('YmdHis') . "." . $file->getClientOriginalExtension();
+        $file->move($destinationPath, $image);
+        return $image;
     }
 }

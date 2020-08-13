@@ -3,9 +3,8 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Symfony\Component\HttpFoundation\Request;
 
-class RoleRequest extends FormRequest
+class EmployeeRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,7 +24,10 @@ class RoleRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|unique:roles,name',
+            'name' => 'required',
+            'email' => 'required|email|unique:users,email',
+            'phone' => 'required',
+            'avatar' => 'required|image|mimes:jpeg,png,jpg|max:2048',
         ];
     }
 
@@ -33,7 +35,7 @@ class RoleRequest extends FormRequest
     {
         return [
             'required' => trans('validation.required'),
-            'unique' => trans('validation.unique'),
+            'email.unique' => trans('validation.unique'),
         ];
     }
 }

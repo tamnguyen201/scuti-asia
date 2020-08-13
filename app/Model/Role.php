@@ -6,7 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Role extends Model
 {
-    protected $timestamp = false;
+    protected $fillable = ['name'];
+    public $timestamps = false;
+
     public function user()
     {
         return $this->belongsTo('App\Model\User');
