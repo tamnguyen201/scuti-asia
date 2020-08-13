@@ -15,14 +15,17 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'HomeController@index');
 
-Route::get('/login', 'AdminController@login');
+Route::get('/login', 'AdminController@login')->name('login');
+Route::post('/login','AdminController@postLogin')->name('post-login');
+Route::get('/logout', 'AdminController@logout')->name('logout');
 Route::get('/forgot', 'AdminController@forgot');
 
 Route::group(
     ['prefix'=>'admin'], function () {
 
-        Route::get('/', 'AdminController@index');
+        Route::get('/', 'AdminController@index')->name('admin.home');
 
+        Route::get('/logout', 'AdminController@logout')->name('admin.logout');
         Route::resource('roles', 'RoleController')->except(['show']);
         Route::resource('users', 'UserController')->only(['index', 'show']);
         Route::resource('employees', 'EmployeeController');
