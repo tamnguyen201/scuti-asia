@@ -42,17 +42,14 @@ class EmployeeController extends Controller
 
     public function store(EmployeeRequest $request)
     {
-        if ($files = $request->file('avatar')) {
-            $destinationPath = 'image/';
-            $avatar = date('YmdHis') . "." . $files->getClientOriginalExtension();
-            $files->move($destinationPath, $avatar);
-            $insert['avatar'] = $avatar;
+        if ($file = $request->file('avatar')) {
+            $data['image'] = $this->employeeRepo->upload($file);
         }
  
         $this->employeeRepo->create($request->all());
     
-        return redirect('/admin/employees')
-                ->with('success', 'Created successfully.');
+        return redirect()->route('employees.index')
+                ->with('success', config('common.alert_messages.success'));
     }
 
     public function edit($id)
@@ -66,12 +63,12 @@ class EmployeeController extends Controller
     {
         $this->employeeRepo->update($request->all(), $id);
 
-        return redirect()->route('admin.employees')->with('success', 'Thanh Cong!');
+        return redirect()->route('employees.index')->with('success', config('common.alert_messages.success'));
     }
 
     public function destroy(Request $request)
     {
         $this->employeeRepo->delete($request->id);
-        return back()->with('success', 'Delete Successfully!');
+        return back()->with('success', config('common.alert_messages.success'));
     }
 }

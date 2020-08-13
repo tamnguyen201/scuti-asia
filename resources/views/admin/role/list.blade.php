@@ -1,17 +1,17 @@
-<table data-toggle="table" data-url="tables/data1.json" data-show-refresh="true" data-show-toggle="true" data-show-columns="true" data-search="true" data-select-item-name="toolbar1" data-pagination="true" data-sort-name="name" data-sort-order="desc" class="table table-hover">
+<table class="table table-hover">
     <thead>
         <tr>
             <th style="">
-            <div class="th-inner sortable">Stt</div>
-            <div class="fht-cell"></div>
+                <div class="th-inner sortable">Stt</div>
+                <div class="fht-cell"></div>
             </th>
             <th style="">
-            <div class="th-inner sortable">Role Name<span class="order"><span class="caret" style="margin: 10px 5px;"></span></span></div>
-            <div class="fht-cell"></div>
+                <div class="th-inner sortable">Role Name<span class="order"><span class="caret" style="margin: 10px 5px;"></span></span></div>
+                <div class="fht-cell"></div>
             </th>
             <th style="">
-            <div class="th-inner sortable text-center">Action</div>
-            <div class="fht-cell"></div>
+                <div class="th-inner sortable text-center">Action</div>
+                <div class="fht-cell"></div>
             </th>
         </tr>
     </thead>

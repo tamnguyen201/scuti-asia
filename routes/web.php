@@ -24,9 +24,7 @@ Route::group(
         Route::get('/', 'AdminController@index');
 
         Route::resource('roles', 'RoleController')->except(['show']);
-
         Route::resource('users', 'UserController')->only(['index', 'show']);
-
         Route::resource('employees', 'EmployeeController');
     }
 );

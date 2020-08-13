@@ -55,6 +55,6 @@ class RoleController extends Controller
     public function destroy($id)
     {
         $this->roleRepo->delete($id);
-        return redirect()->back()->with('success', 'Thành công!');
+        return redirect()->back()->with('success', config('common.alert_messages.success'));
     }
 }

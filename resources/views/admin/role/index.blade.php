@@ -24,20 +24,20 @@
                 </div>
                 <div class="fixed-table-container">
                     <div class="fixed-table-body">
-                        <table data-toggle="table" data-url="tables/data1.json" data-show-refresh="true" data-show-toggle="true" data-show-columns="true" data-search="true" data-select-item-name="toolbar1" data-pagination="true" data-sort-name="name" data-sort-order="desc" class="table table-hover">
+                        <table class="table table-hover">
                             <thead>
                                 <tr>
                                     <th style="">
-                                    <div class="th-inner sortable">Stt</div>
-                                    <div class="fht-cell"></div>
+                                        <div class="th-inner sortable">Stt</div>
+                                        <div class="fht-cell"></div>
                                     </th>
                                     <th style="">
-                                    <div class="th-inner sortable">Role Name<span class="order"><span class="caret" style="margin: 10px 5px;"></span></span></div>
-                                    <div class="fht-cell"></div>
+                                        <div class="th-inner sortable">Role Name<span class="order"><span class="caret" style="margin: 10px 5px;"></span></span></div>
+                                        <div class="fht-cell"></div>
                                     </th>
                                     <th style="">
-                                    <div class="th-inner sortable text-center">Action</div>
-                                    <div class="fht-cell"></div>
+                                        <div class="th-inner sortable text-center">Action</div>
+                                        <div class="fht-cell"></div>
                                     </th>
                                 </tr>
                             </thead>
@@ -70,19 +70,18 @@
             <div class="clearfix"></div>
             <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-md" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Role Manage</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Role Manage</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body"></div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </div>
                     </div>
-                    <div class="modal-body">
-                    </div>
-                    <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    </div>
-                </div>
                 </div>
             </div>
         </div>
@@ -169,12 +168,12 @@
             let id = $(this).attr('idDelete');
             let form = $('.form-delete-'+id);
             swal({
-                title: "Are you sure?",
-                text: "You will not be able to restore this record!",
+                title: "Xác nhận xóa?",
+                text: "Bản ghi này sẽ không thể khôi phục!",
                 type: "warning",
                 showCancelButton: true,
                 confirmButtonColor: '#DD6B55',
-                confirmButtonText: 'Yes, I am sure!',
+                confirmButtonText: 'OK!',
                 cancelButtonText: "Cancel!",
                 closeOnConfirm: false,
                 closeOnCancel: false
@@ -185,6 +184,5 @@
             });
         });
 
-       
     </script>
 @endsection

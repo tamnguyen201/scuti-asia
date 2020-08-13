@@ -10,7 +10,7 @@ return [
 
     ],
 
-    'message_content' => [
+    'alert_messages' => [
         'success' => 'Thành công!',
     ]
 ];
