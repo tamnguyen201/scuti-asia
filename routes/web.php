@@ -57,27 +57,37 @@ Route::group(['prefix'=>'admin'], function(){
         ]);
     });
 
-    Route::group(['prefix' => 'locations'], function () {
-        Route::get('/', [
-            'as' => 'location.index',
-            'uses' => 'LocationController@index'
-        ]);
+    // Route::group(['prefix' => 'locations'], function () {
+    //     Route::get('/', [
+    //         'as' => 'location.index',
+    //         'uses' => 'LocationController@index'
+    //     ]);
         
-        Route::post('/store', [
-            'as' => 'location.store',
-            'uses' => 'LocationController@store'
-        ]);
+    //     Route::post('/store', [
+    //         'as' => 'location.store',
+    //         'uses' => 'LocationController@store'
+    //     ]);
 
-        Route::post('/edit', [
-            'as' => 'location.edit',
-            'uses' => 'LocationController@edit'
-        ]);
+    //     Route::post('/edit', [
+    //         'as' => 'location.edit',
+    //         'uses' => 'LocationController@edit'
+    //     ]);
 
-        Route::post('/delete', [
-            'as' => 'location.delete',
-            'uses' => 'LocationController@destroy'
-        ]);
-    });
+    //     Route::post('/delete', [
+    //         'as' => 'location.delete',
+    //         'uses' => 'LocationController@destroy'
+    //     ]);
+    // });
+
+    Route::resource('locations', 'LocationController')->names(
+        [
+        'index' => 'location.index',
+        'store' => 'location.store',
+        'edit' => 'location.edit',
+        'update' => 'location.update',
+        'destroy' => 'location.destroy',
+        ]
+    );
     
     Route::group(['prefix' => 'jobs'], function () {
         Route::get('/', [

@@ -3,21 +3,25 @@
 namespace App\Http\Controllers;
 
 use App\Model\Locations;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use App\Http\Requests\LocationRequest;
+use App\Repositories\Locations\LocationRepositoryInterface;
 
 
 class LocationController extends Controller
 {
-    private $locations;
+    protected $locationRepo;
 
-    public function __construct(Locations $location)
+    public function __construct(LocationRepositoryInterface $locationRepo)
     {
-        $this->locations = $locations;
+        $this->locationRepo = $locationRepo;
     }
 
     public function index()
     {
-        
+        $locations = $this->locationRepo->paginate(10);
+        return view("admin.location.index", compact('locations'));
     }
 
     public function edit($id)
@@ -27,17 +31,13 @@ class LocationController extends Controller
 
     public function store(LocationRequest $request)
     {
-        
+        $results = $this->locationRepo->create([
+            'name' => $request->name,
+            'slug' => Str::slug($request->name)
+        ]);
+        return response()->json($results);
     }
 
-    public function update(LocationUpdateRequest $request)
-    {
-        
-    }
-
-    public function destroy($id)
-    {
-       
-    }
+   
 
 }
