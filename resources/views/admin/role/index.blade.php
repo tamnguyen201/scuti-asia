@@ -98,7 +98,6 @@
             $(".modal-body").html(results);
             $("#myModal").modal('show');
             }).fail(function (data) {
-                console.log(data);
             });
         });
 
@@ -134,7 +133,6 @@
                 $(".modal-body").html(results);
                 $("#myModal").modal('show');
             }).fail(function (data) {
-                console.log(data);
             });
         });
 

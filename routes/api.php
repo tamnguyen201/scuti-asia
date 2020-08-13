@@ -20,8 +20,3 @@ Route::middleware('auth:api')->get(
     }
 );
 
-//Route::apiResource('recruitments','API\RecruitmentController');
-// Route::apiResources([
-//     'departments' => 'API\DepartmentController',
-//     'posts' => 'API\DepartmentController',
-// ]);
