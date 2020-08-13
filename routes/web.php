@@ -17,6 +17,7 @@ Route::get('/', 'HomeController@index');
 
 Route::get('/login', 'AdminController@login')->name('login');
 Route::post('/login','AdminController@postLogin')->name('post-login');
+Route::get('/logout', 'AdminController@logout')->name('logout');
 Route::get('/forgot', 'AdminController@forgot');
 
 Route::group(

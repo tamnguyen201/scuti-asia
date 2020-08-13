@@ -16,7 +16,7 @@ class AdminController extends Controller
 
     public function login() 
     {
-        if (!auth()->check()) {
+        if (auth()->check()) {
             return redirect()->route('admin.home');
         }
 
@@ -41,9 +41,9 @@ class AdminController extends Controller
         if ($validator->fails()) {
             return redirect()->route('login')->withErrors($validator)->withInput();
         }
-            $remember = $request->has('remember_me') ? true : false;
-            $email = $request->input('email');
-            $password = $request->input('password');
+        $remember = $request->has('remember_me') ? true : false;
+        $email = $request->input('email');
+        $password = $request->input('password');
         if (Auth::attempt(['email' => $email,'password' => $password], $remember)) {
             return redirect()->route('admin.home');
         }
