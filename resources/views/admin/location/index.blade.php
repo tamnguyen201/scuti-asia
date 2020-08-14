@@ -47,8 +47,8 @@
                                     <td>{{$stt++}}</td>
                                     <td>{{$item->name}}</td>
                                     <td class="text-center">
-                                        <a href="{{route('roles.edit', $item['id'])}}" class="btn btn-primary text-light btn-edit-form"><em class="far fa-edit"></em></a> 
-                                        <form action="{{route('roles.destroy', $item['id'])}}" method="post" class="form-delete-{{$item->id}}" style="display: inline">
+                                        <a href="{{route('locations.edit', $item['id'])}}" class="btn btn-primary text-light btn-edit-form"><em class="far fa-edit"></em></a> 
+                                        <form action="{{route('locations.destroy', $item['id'])}}" method="post" class="form-delete-{{$item->id}}" style="display: inline">
                                             @csrf
                                             @method('DELETE')
                                             <button class="btn btn-danger text-light delete-confirm" idDelete={{$item->id}}><em class="fas fa-trash-alt"></em></button>
@@ -132,5 +132,63 @@
                 });
             });
         });
+
+        $("body").on("click", ".btn-edit-form", function (e) {
+            e.preventDefault();
+            let url = $(this).attr('href');
+            $.get(url)
+            .done(function (results) {
+                $(".modal-body").html(results);
+                $("#myModal").modal('show');
+            }).fail(function (data) {
+            });
+        });
+
+        $("body").on("click", ".btn.btn-primary.btn-edit-location", function (e) {
+            e.preventDefault();
+            let domForm = $(this).closest('form');
+            let id = $('#id-update').val();
+            $.ajax({
+                url: `/admin/locations/${id}`,
+                data: domForm.serialize(),
+                method: "PUT",
+            }).done(function (results) {
+                $("#myModal").modal('hide');
+                $('.fixed-table-body').html(results);
+                swal({
+                    title: 'Thành công!',
+                    text: 'Dữ liệu đã được cập nhật lại!',
+                    type: 'success',
+                    icon: 'success'
+                })
+            }).fail(function (data) {
+                var errors = data.responseJSON;
+                $.each(errors.errors, function (i, val) {
+                    domForm.find('input[name=' + i + ']').siblings('.error-form.text-danger').text(val[0]);
+                });
+            });
+        });
+
+        $("body").on("click", ".delete-confirm", function (e) {
+            e.preventDefault();
+            let id = $(this).attr('idDelete');
+            let form = $('.form-delete-'+id);
+            swal({
+                title: "Xác nhận xóa?",
+                text: "Bản ghi này sẽ không thể khôi phục!",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonColor: '#DD6B55',
+                confirmButtonText: 'OK!',
+                cancelButtonText: "Cancel!",
+                closeOnConfirm: false,
+                closeOnCancel: false
+            }).then(function(value) {
+                if (value.value == true) {
+                    form.submit();
+                }
+            });
+        });
+        
     </script>
 @endsection

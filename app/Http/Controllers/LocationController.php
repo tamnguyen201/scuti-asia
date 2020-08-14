@@ -6,8 +6,8 @@ use App\Model\Locations;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Requests\LocationRequest;
+use App\Http\Requests\LocationUpdateRequest;
 use App\Repositories\Locations\LocationRepositoryInterface;
-
 
 class LocationController extends Controller
 {
@@ -26,7 +26,9 @@ class LocationController extends Controller
 
     public function edit($id)
     {
-        
+        $location = $this->locationRepo->show($id);
+        $html = view('admin.location.edit', compact('location'))->render();
+        return response()->json($html);
     }
 
     public function create()
@@ -43,4 +45,17 @@ class LocationController extends Controller
         return response()->json($html);
     }
 
+    public function update(LocationUpdateRequest $request)
+    {
+        $this->locationRepo->update($request->all(), $request->id);
+        $locations = $this->locationRepo->paginate(10);
+        $html = view('admin.location.list', compact('locations'))->render();
+        return response()->json($html);
+    }
+
+    public function destroy($id)
+    {
+        $this->locationRepo->delete($id);
+        return redirect()->back()->with('success', config('common.alert_messages.success'));
+    }
 }
