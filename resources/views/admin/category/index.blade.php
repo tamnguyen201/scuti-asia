@@ -160,5 +160,62 @@
             });
         });
 
+        $("body").on("click", ".btn-edit-form", function (e) {
+            e.preventDefault();
+            let url = $(this).attr('href');
+            $.get(url)
+            .done(function (results) {
+                $(".modal-body").html(results);
+                $("#myModal").modal('show');
+            }).fail(function (data) {
+            });
+        });
+
+        $("body").on("click", ".btn.btn-primary.btn-edit-category", function (e) {
+            e.preventDefault();
+            let domForm = $(this).closest('form');
+            let id = $('#id-update').val();
+            $.ajax({
+                url: `/admin/categories/${id}`,
+                data: domForm.serialize(),
+                method: "PUT",
+            }).done(function (results) {
+                $("#myModal").modal('hide');
+                $('.fixed-table-body').html(results);
+                swal({
+                    title: 'Thành công!',
+                    text: 'Dữ liệu đã được cập nhật lại!',
+                    type: 'success',
+                    icon: 'success'
+                })
+            }).fail(function (data) {
+                var errors = data.responseJSON;
+                $.each(errors.errors, function (i, val) {
+                    domForm.find('input[name=' + i + ']').siblings('.error-form.text-danger').text(val[0]);
+                });
+            });
+        });
+
+        $("body").on("click", ".delete-confirm", function (e) {
+            e.preventDefault();
+            let id = $(this).attr('idDelete');
+            let form = $('.form-delete-'+id);
+            swal({
+                title: "Xác nhận xóa?",
+                text: "Bản ghi này sẽ không thể khôi phục!",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonColor: '#DD6B55',
+                confirmButtonText: 'OK!',
+                cancelButtonText: "Cancel!",
+                closeOnConfirm: false,
+                closeOnCancel: false
+            }).then(function(value) {
+                if (value.value == true) {
+                    form.submit();
+                }
+            });
+        });
+
     </script>
 @endsection
