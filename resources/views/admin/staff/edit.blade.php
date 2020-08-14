@@ -19,32 +19,32 @@
         <div class="panel-heading">Forms</div>
         <div class="panel-body">
             <div class="col-md-12">
-                <form role="form" action="{{route('employees.update',$data['manager_edit_id'])}}" method="POST" enctype="multipart/form-data">
+                <form role="form" action="{{route('employees.update',$manager->id)}}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
-                    <input type="hidden" name="user_id" value="{{$data['user']->id}}">
+                    <input type="hidden" name="user_id" value="{{$manager->user->id}}">
                     <div class="col-md-9">
                         <div class="col-md-4">
-                            <img src="{{asset($data['user']->avatar)}}" class="img-responsive" alt="">
+                            <img src="{{asset($manager->user->avatar)}}" class="img-responsive" alt="">
                         </div>
                         <div class="col-md-8">
                             <table class="table table-hover">
                                 <tbody>
                                     <tr>
                                         <td>Full Name</td>
-                                        <td>{{$data['user']->name}}</td>
+                                        <td>{{$manager->user->name}}</td>
                                     </tr>
                                     <tr>
                                         <td>Email</td>
-                                        <td>{{$data['user']->email}}</td>
+                                        <td>{{$manager->user->email}}</td>
                                     </tr>
                                     <tr>
                                         <td>Phone</td>
-                                        <td>{{($data['user']->phone) ? $data['user']->phone : 'null'}}</td>
+                                        <td>{{($manager->user->phone) ? $manager->user->phone : 'null'}}</td>
                                     </tr>
                                     <tr>
                                         <td>Address</td>
-                                        <td>{{($data['user']->address) ? $data['user']->address : 'null'}}</td>
+                                        <td>{{($manager->user->address) ? $manager->user->address : 'null'}}</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -54,8 +54,8 @@
                         <div class="form-group">
                             <label>Role</label>
                             <select name="role_id" class="form-control">
-                                @foreach ($data['roles'] as $item)
-                                <option value="{{$item->id}}" @if($data['manager_id'] == $item->id) selected @endif>{{$item->name}}</option>
+                                @foreach ($roles as $item)
+                                <option value="{{$item->id}}" @if($manager->role_id == $item->id) selected @endif>{{$item->name}}</option>
                                 @endforeach
                             </select>
                         </div>

@@ -51,7 +51,7 @@ class EmployeeController extends Controller
     public function store(EmployeeRequest $request)
     {
         $data = $request->all();
-        $data['password'] = \Str::random(15);
+        $data['password'] = \Str::random(8);
         $member = $this->userRepository->create($data);
         $this->employeeRepository->sendMail($request->email, $data['password']);
 
@@ -64,12 +64,9 @@ class EmployeeController extends Controller
     public function edit($id)
     {
         $manager = $this->employeeRepository->show($id);
-        $data['manager_edit_id'] = $id;
-        $data['user'] = $this->userRepository->show($manager->user->id);
-        $data['roles'] = $this->roleRepository->all();
-        $data['manager_id'] = $manager->role_id;
+        $roles = $this->roleRepository->all();
 
-        return view('admin.staff.edit', compact('data'));
+        return view('admin.staff.edit', compact('manager', 'roles'));
     }
 
     public function update(Request $request, $id)
