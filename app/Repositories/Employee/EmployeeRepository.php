@@ -38,9 +38,10 @@ class EmployeeRepository extends Repository implements EmployeeRepositoryInterfa
             $member = $this->userRepository->create($data);
             $manager = ['user_id' => $member->id, 'role_id' => $data['role_id']];
             $this->create($manager);
-            $this->sendMail($data['email'], $data['password']);
             
             DB::commit();
+            $this->sendMail($data['email'], $data['password']);
+
         } catch (Exception $e) {
             DB::rollBack();
             
