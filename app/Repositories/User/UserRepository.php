@@ -22,12 +22,16 @@ class UserRepository extends Repository implements UserRepositoryInterface
 
     public function all()
     {
-        return $this->model->where('role_id', $this->UserRole)->get();
+        return $this->model->all();
     }
     
     public function paginate($perPage = 15, $columns = array('*'))
     {
-        return $this->model->where('role_id', $this->UserRole)->paginate($perPage, $columns);
+        return $this->model->paginate($perPage, $columns);
     }
 
+    public function show($id)
+    {
+        return $this->model->findOrFail($id);
+    }
 }

@@ -1,17 +1,17 @@
 @extends('admin.layout.layout')
-@section('title', 'Roles Manage')
+@section('title', 'categories Manage')
 @section('content')
 <div class="row">
     <ol class="breadcrumb">
         <li><a href="#">
             <em class="fa fa-home"></em>
         </a></li>
-        <li class="active">Roles</li>
+        <li class="active">categories</li>
     </ol>
 </div>
 <div class="row">
     <div class="col-lg-12">
-        <h1 class="page-header">Roles Manage</h1>
+        <h1 class="page-header">categories Manage</h1>
     </div>
 </div>
 <div class="col-lg-12">
@@ -20,7 +20,7 @@
         <div class="panel-body">
             <div class="bootstrap-table">
                 <div class="fixed-table-toolbar">
-                    <a href="{{route('roles.create')}}" class="btn btn-primary btn-add-form" style="float: right"><span class="fa fa-plus"></span> Add New</a>
+                    <a href="{{route('categories.create')}}" class="btn btn-primary btn-add-form" style="float: right"><span class="fa fa-plus"></span> Add New</a>
                 </div>
                 <div class="fixed-table-container">
                     <div class="fixed-table-body">
@@ -43,13 +43,13 @@
                             </thead>
                             <tbody class="table-list-role">
                                 @php $stt =1; @endphp
-                                @foreach($roles as $item)
+                                @foreach($categories as $item)
                                 <tr class="data-role-{{$item->id}}">
                                     <td>{{$stt++}}</td>
                                     <td>{{$item->name}}</td>
                                     <td class="text-center">
-                                        <a href="{{route('roles.edit', $item['id'])}}" class="btn btn-primary text-light btn-edit-form"><em class="far fa-edit"></em></a> 
-                                        <form action="{{route('roles.destroy', $item['id'])}}" method="post" class="form-delete-{{$item->id}}" style="display: inline">
+                                        <a href="{{route('categories.edit', $item['id'])}}" class="btn btn-primary text-light btn-edit-form"><em class="far fa-edit"></em></a> 
+                                        <form action="{{route('categories.destroy', $item['id'])}}" method="post" class="form-delete-{{$item->id}}" style="display: inline">
                                             @csrf
                                             @method('DELETE')
                                             <button class="btn btn-danger text-light delete-confirm" idDelete={{$item->id}}><em class="fas fa-trash-alt"></em></button>
@@ -61,7 +61,7 @@
                         </table>
                         <div class="fixed-table-pagination">
                             <div class="pull-right pagination">
-                                {{$roles->links()}}
+                                {{$categories->links()}}
                             </div>
                         </div>
                     </div>
@@ -101,11 +101,11 @@
             });
         });
 
-        $("body").on("click", ".btn.btn-primary.btn-add-role", function (e) {
+        $("body").on("click", ".btn.btn-primary.btn-add-category", function (e) {
             e.preventDefault();
             let domForm = $(this).closest('form');
             $.ajax({
-                url: "{{ route('roles.store') }}",
+                url: "{{ route('categories.store') }}",
                 data: domForm.serialize(),
                 method: "POST",
             }).done(function (results) {
@@ -136,12 +136,12 @@
             });
         });
 
-        $("body").on("click", ".btn.btn-primary.btn-edit-role", function (e) {
+        $("body").on("click", ".btn.btn-primary.btn-edit-category", function (e) {
             e.preventDefault();
             let domForm = $(this).closest('form');
             let id = $('#id-update').val();
             $.ajax({
-                url: `/admin/roles/${id}`,
+                url: `/admin/categories/${id}`,
                 data: domForm.serialize(),
                 method: "PUT",
             }).done(function (results) {

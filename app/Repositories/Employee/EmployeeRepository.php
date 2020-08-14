@@ -19,17 +19,39 @@ class EmployeeRepository extends Repository implements EmployeeRepositoryInterfa
 
     public function getModel()
     {
-        return \App\Model\User::class;
+        return \App\Model\Manager::class;
     }
 
     public function all()
     {
-        return $this->model->whereIn('role_id', $this->EmployeeRole)->get();
+        return $this->model->with(['user','role'])->all();
     }
     
     public function paginate($perPage = 15, $columns = array('*'))
     {
-        return $this->model->whereIn('role_id', $this->EmployeeRole)->paginate($perPage, $columns);
+        return $this->model->with(['user','role'])->paginate($perPage, $columns);
+    }
+
+    public function show($id)
+    {
+        return $this->model->with(['user', 'role'])->findOrFail($id);
+    }
+
+    public function FunctionName(Type $var = null)
+    {
+        # code...
+    }
+
+    public function sendMail($user, $password)
+    {
+        $details = [
+            'title' => 'Mail from Scuti-asia.com',
+            'body' => 'Bạn vừa được tạo tài khoản thành viên quản trị website!',
+            'user_name' => $user,
+            'password' => $password,
+        ];
+    
+        \Mail::to($user)->send(new \App\Mail\AdminAccountMail($details));
     }
 
 }

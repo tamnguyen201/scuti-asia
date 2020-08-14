@@ -16,8 +16,8 @@
 </div>
 <div class="col-lg-12">
     <div class="panel panel-default">
-       <div class="panel-heading">Data Table</div>
-       <div class="panel-body">
+        <div class="panel-heading">Data Table</div>
+        <div class="panel-body">
             <div class="bootstrap-table">
                 <div class="fixed-table-container">
                     <div class="fixed-table-header">
@@ -68,28 +68,26 @@
                     </div>
                 </div>
             </div>
-          <div class="clearfix"></div>
-          <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLongTitle">User Profile</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
+            <div class="clearfix"></div>
+            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">User Profile</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    </div>
+                    <div class="modal-body"></div>
+                    <div class="modal-footer" style="border-top: none">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
                 </div>
-                <div class="modal-body">
-                    
                 </div>
-                <div class="modal-footer" style="border-top: none">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                </div>
-              </div>
             </div>
-          </div>
-       </div>
+        </div>
     </div>
- </div>
+</div>
 @endsection
 @section('script')
     <script>

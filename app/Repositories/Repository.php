@@ -77,6 +77,6 @@ class Repository implements RepositoryInterface
         $destinationPath = 'image/';
         $image = date('YmdHis') . "." . $file->getClientOriginalExtension();
         $file->move($destinationPath, $image);
-        return $image;
+        return $destinationPath . $image;
     }
 }

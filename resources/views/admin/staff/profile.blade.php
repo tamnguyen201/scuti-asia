@@ -1,24 +1,24 @@
 <div class="col-lg-3">
-    <img src="{{asset($user->avatar)}}" class="img-responsive" alt="">
+    <img src="{{asset($employee->avatar)}}" class="img-responsive" alt="">
 </div>
 <div class="col-lg-9">
     <table class="table table-hover">
         <tbody>
             <tr>
                 <td>Full Name</td>
-                <td>{{$user->name}}</td>
+                <td>{{$employee->name}}</td>
             </tr>
             <tr>
                 <td>Email</td>
-                <td>{{$user->email}}</td>
+                <td>{{$employee->email}}</td>
             </tr>
             <tr>
                 <td>Phone</td>
-                <td>{{$user->phone}}</td>
+                <td>{{$employee->phone}}</td>
             </tr>
             <tr>
                 <td>Address</td>
-                <td>{{$user->address}}</td>
+                <td>{{$employee->address}}</td>
             </tr>
         </tbody>
     </table>

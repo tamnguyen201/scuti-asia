@@ -19,7 +19,7 @@
         <div class="panel-heading">Forms</div>
         <div class="panel-body">
             <div class="col-md-12">
-                <form role="form" action="{{route('admin.employees.store')}}" method="POST" enctype="multipart/form-data">
+                <form role="form" action="{{route('employees.store')}}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="col-md-6">
                         <div class="form-group @error('name') has-error @enderror">
@@ -43,10 +43,10 @@
                             <span class="help-block"> {{$message}} </span>
                             @enderror
                         </div>
-                        <div class="form-group @error('password') has-error @enderror">
-                            <label>Password</label>
-                            <input type="password" name="password" value="{{old('password')}}" class="form-control" placeholder="Please enter password">
-                            @error('password') 
+                        <div class="form-group @error('address') has-error @enderror">
+                            <label>Address</label>
+                            <input type="text" name="address" value="{{old('address')}}" class="form-control" placeholder="Please enter address">
+                            @error('address') 
                             <span class="help-block"> {{$message}} </span>
                             @enderror
                         </div>
@@ -54,7 +54,7 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label>Role</label>
-                            <select class="form-control">
+                            <select name="role_id" class="form-control">
                                 @foreach ($roles as $item)
                                 <option value="{{$item->id}}">{{$item->name}}</option>
                                 @endforeach
@@ -72,7 +72,7 @@
                     <div class="col-md-12 text-center">
                         <button type="submit" class="btn btn-primary">Submit</button>
                         <button type="reset" class="btn btn-default">Reset</button>
-                        <a href="{{route('admin.employees')}}" class="btn btn-danger">Cancel</a>
+                        <a href="{{route('employees.index')}}" class="btn btn-danger">Cancel</a>
                     </div>
                 </form>
             </div>
@@ -83,18 +83,21 @@
 @section('script')
     <script>
         function encodeImageFileAsURL(element) {
-        var file = element.files[0];
-        if(file === undefined){
-            $(".preview-img img").attr('src', "default-img.png");
-        }else{
-            var reader = new FileReader();
-            reader.onloadend = function() {
-                if(reader.result){
-                    $(".preview-img img").attr('src', reader.result);
+            var file = element.files[0];
+            if(file === undefined){
+                $(".preview-img").html(`<img src="default-img.png" alt="your image" class="img-responsive" />`);
+                $(".preview-img img").attr('src', "default-img.png");
+            } else if(file.type.indexOf('image/') == -1){
+                $(".preview-img").html(`<span class="text-danger">Vui lòng chọn file đúng định dạng ảnh</span>`);
+            } else {
+                var reader = new FileReader();
+                reader.onloadend = function() {
+                    if(reader.result){
+                        $(".preview-img img").attr('src', reader.result);
+                    }
                 }
+                reader.readAsDataURL(file);
             }
-            reader.readAsDataURL(file);
         }
-    }
     </script>
 @endsection

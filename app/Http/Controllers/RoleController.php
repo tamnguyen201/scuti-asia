@@ -10,16 +10,16 @@ use App\Repositories\Role\RoleRepositoryInterface;
 
 class RoleController extends Controller
 {
-    protected $roleRepo;
+    protected $roleRepository;
 
-    public function __construct(RoleRepositoryInterface $roleRepo)
+    public function __construct(RoleRepositoryInterface $roleRepository)
     {
-        $this->roleRepo = $roleRepo;
+        $this->roleRepository = $roleRepository;
     }
 
     public function index()
     {
-        $roles = $this->roleRepo->paginate(10);
+        $roles = $this->roleRepository->paginate(10);
         return view("admin.role.index", compact('roles'));
     }
 
@@ -31,30 +31,30 @@ class RoleController extends Controller
 
     public function edit($id)
     {
-        $role = $this->roleRepo->show($id);
+        $role = $this->roleRepository->show($id);
         $html = view('admin.role.edit', compact('role'))->render();
         return response()->json($html);
     }
 
     public function store(RoleRequest $request)
     {
-        $this->roleRepo->create($request->all());
-        $roles = $this->roleRepo->paginate(10);
+        $this->roleRepository->create($request->all());
+        $roles = $this->roleRepository->paginate(10);
         $html = view('admin.role.list', compact('roles'))->render();
         return response()->json($html);
     }
 
     public function update(RoleUpdateRequest $request)
     {
-        $this->roleRepo->update($request->all(), $request->id);
-        $roles = $this->roleRepo->paginate(10);
+        $this->roleRepository->update($request->all(), $request->id);
+        $roles = $this->roleRepository->paginate(10);
         $html = view('admin.role.list', compact('roles'))->render();
         return response()->json($html);
     }
 
     public function destroy($id)
     {
-        $this->roleRepo->delete($id);
+        $this->roleRepository->delete($id);
         return redirect()->back()->with('success', config('common.alert_messages.success'));
     }
 }
