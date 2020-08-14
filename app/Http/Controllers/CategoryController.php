@@ -50,4 +50,27 @@ class CategoryController extends Controller
         $category->save();
         return response()->json(['success' => config('common.alert_messages.success')]);
     }
+
+    public function edit($id)
+    {
+        $category = $this->categoryRepository->show($id);
+        $html = view('admin.category.edit', compact('category'))->render();
+        return response()->json($html);
+    }
+
+    public function update(CategoryUpdateRequest $request)
+    {
+        $this->categoryRepository->update([
+            'category_name' => $request->name,
+        ], $request->id);
+        $categories = $this->categoryRepository->paginate(10);
+        $html = view('admin.category.list', compact('categories'))->render();
+        return response()->json($html);
+    }
+
+    public function destroy($id)
+    {
+        $this->categoryRepository->delete($id);
+        return redirect()->back()->with('success', config('common.alert_messages.success'));
+    }
 }
