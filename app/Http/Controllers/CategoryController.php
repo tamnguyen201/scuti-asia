@@ -34,9 +34,9 @@ class CategoryController extends Controller
     {
         $this->categoryRepository->create([
             'category_name' => $request->name,
-            'status'=>0,
+            'status'=> 0,
             'slug' => Str::slug($request->name),
-            'user_id'=>auth()->id()
+            'user_id'=> auth()->id()
         ]);
         $categories = $this->categoryRepository->paginate(10);
         $html = view('admin.category.list', compact('categories'))->render();
@@ -48,6 +48,6 @@ class CategoryController extends Controller
         $category = $this->categoryRepository->show($request->category_id);
         $category->status = $request->status;
         $category->save();
-        return response()->json(['success'=>'Status change successfully.']);
+        return response()->json(['success' => config('common.alert_messages.success')]);
     }
 }
