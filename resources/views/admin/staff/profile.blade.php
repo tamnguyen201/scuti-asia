@@ -14,11 +14,11 @@
             </tr>
             <tr>
                 <td>Phone</td>
-                <td>{{$employee->phone}}</td>
+                <td>{{($employee->phone) ? $employee->phone : 'null'}}</td>
             </tr>
             <tr>
                 <td>Address</td>
-                <td>{{$employee->address}}</td>
+                <td>{{($employee->address) ? $employee->address : 'null'}}</td>
             </tr>
         </tbody>
     </table>

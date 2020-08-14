@@ -26,9 +26,6 @@ class EmployeeRequest extends FormRequest
         return [
             'name' => 'required',
             'email' => 'required|email|unique:users,email',
-            // 'phone' => 'required|regex:/(09|01[2|6|8|9])+([0-9]{8})\b/g',
-            // 'address' => 'required',
-            // 'avatar' => 'sometimes|mimes:jpeg,png,jpg|max:2048',
         ];
     }
 
@@ -36,9 +33,7 @@ class EmployeeRequest extends FormRequest
     {
         return [
             'required' => trans('validation.required'),
-            'email.unique' => trans('validation.unique'),
-            // 'mimes' => trans('validation.mimes'),
-            // 'max' => trans('validation.max'),
+            'email.unique' => trans('validation.unique')
         ];
     }
 }

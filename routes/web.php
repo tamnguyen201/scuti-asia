@@ -26,6 +26,6 @@ Route::group(
         Route::resource('roles', 'RoleController')->except(['show']);
         Route::resource('users', 'UserController')->only(['index', 'show']);
         Route::resource('employees', 'EmployeeController');
-        Route::resource('categories', 'CategoriesController')->except(['show']);
+        
     }
 );
