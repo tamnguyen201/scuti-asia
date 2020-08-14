@@ -28,20 +28,20 @@
                     <table data-toggle="table" data-url="tables/data1.json" data-show-refresh="true" data-show-toggle="true" data-show-columns="true" data-search="true" data-select-item-name="toolbar1" data-pagination="true" data-sort-name="name" data-sort-order="desc" class="table table-hover">
                         <thead>
                             <tr>
-                                <th style="">
-                                <div class="th-inner sortable">STT</div>
+                                <th>
+                                <div class="th-inner sortable">{{trans('custom.stt')}}</div>
                                 <div class="fht-cell"></div>
                                 </th>
-                                <th style="">
-                                    <div class="th-inner sortable">User Name<span class="order"><span class="caret" style="margin: 10px 5px;"></span></span></div>
+                                <th>
+                                    <div class="th-inner sortable">{{trans('custom.name')}}</div>
                                     <div class="fht-cell"></div>
                                 </th>
-                                <th style="">
-                                    <div class="th-inner sortable">Email<span class="order"><span class="caret" style="margin: 10px 5px;"></span></span></div>
+                                <th>
+                                    <div class="th-inner sortable">{{trans('custom.email')}}</div>
                                     <div class="fht-cell"></div>
                                 </th>
-                                <th style="">
-                                    <div class="th-inner sortable text-center">Action</div>
+                                <th>
+                                    <div class="th-inner sortable text-center">{{trans('custom.action')}}</div>
                                     <div class="fht-cell"></div>
                                 </th>
                             </tr>
@@ -70,17 +70,17 @@
             </div>
             <div class="clearfix"></div>
             <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                <div class="modal-dialog modal-dialog-centered modal-md" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle">User Profile</h5>
+                    <h5 class="modal-title" id="exampleModalLongTitle">{{trans('custom.profile')}}</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                     </div>
                     <div class="modal-body"></div>
                     <div class="modal-footer" style="border-top: none">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">{{trans('custom.cancel')}}</button>
                     </div>
                 </div>
                 </div>

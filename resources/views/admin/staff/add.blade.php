@@ -23,15 +23,15 @@
                     @csrf
                     <div class="col-md-6">
                         <div class="form-group @error('name') has-error @enderror">
-                            <label>Full Name</label>
-                            <input type="text" name="name" value="{{old('name')}}" class="form-control" placeholder="Please enter full name">
+                            <label>{{trans('custom.name')}}</label>
+                            <input type="text" name="name" value="{{old('name')}}" class="form-control">
                             @error('name') 
                             <span class="help-block"> {{$message}} </span>
                             @enderror
                         </div>
                         <div class="form-group @error('email') has-error @enderror">
-                            <label>Email</label>
-                            <input type="email" name="email" value="{{old('email')}}" class="form-control" placeholder="Please enter email">
+                            <label>{{trans('custom.email')}}</label>
+                            <input type="email" name="email" value="{{old('email')}}" class="form-control">
                             @error('email') 
                             <span class="help-block"> {{$message}} </span>
                             @enderror
@@ -39,7 +39,7 @@
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label>Role</label>
+                            <label>{{trans('custom.role')}}</label>
                             <select name="role_id" class="form-control">
                                 @foreach ($roles as $item)
                                 <option value="{{$item->id}}">{{$item->name}}</option>
@@ -49,9 +49,9 @@
                     </div>
                     
                     <div class="col-md-12 text-center">
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                        <button type="reset" class="btn btn-default">Reset</button>
-                        <a href="{{route('employees.index')}}" class="btn btn-danger">Cancel</a>
+                        <button type="submit" class="btn btn-primary">{{trans('custom.submit')}}</button>
+                        <button type="reset" class="btn btn-default">{{trans('custom.reset')}}</button>
+                        <a href="{{route('employees.index')}}" class="btn btn-danger">{{trans('custom.cancel')}}</a>
                     </div>
                 </form>
             </div>

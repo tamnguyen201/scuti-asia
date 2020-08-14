@@ -22,29 +22,29 @@
                 <form role="form" action="{{route('employees.update',$manager->id)}}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
-                    <input type="hidden" name="user_id" value="{{$manager->user->id}}">
+                    <input type="hidden" name="user_id" value="{{$manager->user_id}}">
                     <div class="col-md-9">
                         <div class="col-md-4">
-                            <img src="{{asset($manager->user->avatar)}}" class="img-responsive" alt="">
+                            <img src="{{asset($manager->avatar)}}" class="img-responsive" alt="">
                         </div>
                         <div class="col-md-8">
                             <table class="table table-hover">
                                 <tbody>
                                     <tr>
-                                        <td>Full Name</td>
+                                        <td>{{trans('custom.name')}}</td>
                                         <td>{{$manager->user->name}}</td>
                                     </tr>
                                     <tr>
-                                        <td>Email</td>
+                                        <td>{{trans('custom.email')}}</td>
                                         <td>{{$manager->user->email}}</td>
                                     </tr>
                                     <tr>
-                                        <td>Phone</td>
-                                        <td>{{($manager->user->phone) ? $manager->user->phone : 'null'}}</td>
+                                        <td>{{trans('custom.phone')}}</td>
+                                        <td>{{($manager->phone) ? $manager->phone : 'null'}}</td>
                                     </tr>
                                     <tr>
-                                        <td>Address</td>
-                                        <td>{{($manager->user->address) ? $manager->user->address : 'null'}}</td>
+                                        <td>{{trans('custom.address')}}</td>
+                                        <td>{{($manager->address) ? $manager->address : 'null'}}</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -52,7 +52,7 @@
                     </div>
                     <div class="col-md-3">
                         <div class="form-group">
-                            <label>Role</label>
+                            <label>{{trans('custom.role')}}</label>
                             <select name="role_id" class="form-control">
                                 @foreach ($roles as $item)
                                 <option value="{{$item->id}}" @if($manager->role_id == $item->id) selected @endif>{{$item->name}}</option>
@@ -61,9 +61,9 @@
                         </div>
                     </div>
                     <div class="col-md-12 text-center">
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                        <button type="reset" class="btn btn-default">Reset</button>
-                        <a href="{{route('employees.index')}}" class="btn btn-danger">Cancel</a>
+                        <button type="submit" class="btn btn-primary">{{trans('custom.submit')}}</button>
+                        <button type="reset" class="btn btn-default">{{trans('custom.reset')}}</button>
+                        <a href="{{route('employees.index')}}" class="btn btn-danger">{{trans('custom.cancel')}}</a>
                     </div>
                 </form>
             </div>

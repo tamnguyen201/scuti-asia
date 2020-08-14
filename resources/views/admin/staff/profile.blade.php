@@ -5,19 +5,19 @@
     <table class="table table-hover">
         <tbody>
             <tr>
-                <td>Full Name</td>
-                <td>{{$employee->name}}</td>
+                <td>{{trans('custom.name')}}</td>
+                <td>{{$employee->user->name}}</td>
             </tr>
             <tr>
-                <td>Email</td>
-                <td>{{$employee->email}}</td>
+                <td>{{trans('custom.email')}}</td>
+                <td>{{$employee->user->email}}</td>
             </tr>
             <tr>
-                <td>Phone</td>
+                <td>{{trans('custom.phone')}}</td>
                 <td>{{($employee->phone) ? $employee->phone : 'null'}}</td>
             </tr>
             <tr>
-                <td>Address</td>
+                <td>{{trans('custom.address')}}</td>
                 <td>{{($employee->address) ? $employee->address : 'null'}}</td>
             </tr>
         </tbody>

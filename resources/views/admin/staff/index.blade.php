@@ -28,23 +28,23 @@
                                 <thead>
                                     <tr>
                                         <th>
-                                            <div class="th-inner sortable">STT</div>
+                                            <div class="th-inner sortable">{{trans('custom.stt')}}</div>
                                             <div class="fht-cell"></div>
                                         </th>
                                         <th>
-                                            <div class="th-inner sortable">Name<span class="order"><span class="caret" style="margin: 10px 5px;"></span></span></div>
+                                            <div class="th-inner sortable">{{trans('custom.name')}}</div>
                                             <div class="fht-cell"></div>
                                         </th>
                                         <th>
-                                            <div class="th-inner sortable">Email<span class="order"><span class="caret" style="margin: 10px 5px;"></span></span></div>
+                                            <div class="th-inner sortable">{{trans('custom.email')}}</div>
                                             <div class="fht-cell"></div>
                                         </th>
                                         <th>
-                                            <div class="th-inner sortable">Role<span class="order"><span class="caret" style="margin: 10px 5px;"></span></span></div>
+                                            <div class="th-inner sortable">{{trans('custom.role')}}</div>
                                             <div class="fht-cell"></div>
                                         </th>
                                         <th>
-                                            <div class="th-inner sortable text-center">Action</div>
+                                            <div class="th-inner sortable text-center">{{trans('custom.action')}}</div>
                                             <div class="fht-cell"></div>
                                         </th>
                                     </tr>
@@ -83,16 +83,14 @@
                 <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle">User Profile</h5>
+                    <h5 class="modal-title" id="exampleModalLongTitle">{{trans('custom.profile')}}</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                     </div>
-                    <div class="modal-body">
-                        
-                    </div>
+                    <div class="modal-body"></div>
                     <div class="modal-footer" style="border-top: none">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">{{trans('custom.cancel')}}</button>
                     </div>
                 </div>
                 </div>
@@ -111,7 +109,6 @@
                 $(".modal-body").html(results);
                 $("#exampleModalCenter").modal('show');
             }).fail(function (data) {
-                console.log(data);
             });
         });
 
@@ -120,8 +117,8 @@
             let id = $(this).attr('idDelete');
             let form = $('.form-delete-'+id);
             swal({
-                title: "Are you sure?",
-                text: "You will not be able to restore this record!",
+                title: "Xác nhận xóa?",
+                text: "Bản ghi này sẽ không thể khôi phục!",
                 type: "warning",
                 showCancelButton: true,
                 confirmButtonColor: '#DD6B55',

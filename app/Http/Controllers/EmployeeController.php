@@ -35,7 +35,7 @@ class EmployeeController extends Controller
 
     public function show($id)
     {
-        $employee = $this->userRepository->show($id);
+        $employee = $this->employeeRepository->show($id);
         $html = view('admin.staff.profile', compact('employee'))->render();
 
         return response()->json($html);
@@ -50,14 +50,8 @@ class EmployeeController extends Controller
 
     public function store(EmployeeRequest $request)
     {
-        $data = $request->all();
-        $data['password'] = \Str::random(8);
-        $member = $this->userRepository->create($data);
-        $this->employeeRepository->sendMail($request->email, $data['password']);
-
-        $manager = ['user_id' => $member->id, 'role_id' => $request->role_id];
-        $this->employeeRepository->create($manager);
-    
+        $this->employeeRepository->store($request->all());
+        
         return redirect()->route('employees.index')->with('success', config('common.alert_messages.success'));
     }
 
@@ -71,14 +65,14 @@ class EmployeeController extends Controller
 
     public function update(Request $request, $id)
     {
-        $this->employeeRepository->update($request->all(), $id);
+        $this->employeeRepository->update(['role_id' => $request->role_id], $id);
     
         return redirect()->route('employees.index')->with('success', config('common.alert_messages.success'));
     }
 
     public function destroy($id)
     {
-        $this->userRepository->delete($id);
+        $this->employeeRepository->delete($id);
 
         return back()->with('success', config('common.alert_messages.success'));
     }

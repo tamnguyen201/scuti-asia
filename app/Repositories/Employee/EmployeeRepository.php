@@ -2,17 +2,22 @@
 namespace App\Repositories\Employee;
 
 use App\Repositories\Repository;
+use Symfony\Component\HttpFoundation\Request;
+use Illuminate\Support\Facades\DB;
+use App\Repositories\User\UserRepositoryInterface;
 
 class EmployeeRepository extends Repository implements EmployeeRepositoryInterface
 {
+    protected $userRepository;
+
+    public function __construct(userRepositoryInterface $userRepository) {
+        $this->userRepository = $userRepository;
+        parent::__construct();
+    }
+
     public function getModel()
     {
         return \App\Model\Manager::class;
-    }
-
-    public function all()
-    {
-        return $this->model->with(['user','role'])->all();
     }
     
     public function paginate($perPage = 15, $columns = array('*'))
@@ -23,6 +28,24 @@ class EmployeeRepository extends Repository implements EmployeeRepositoryInterfa
     public function show($id)
     {
         return $this->model->with(['user', 'role'])->findOrFail($id);
+    }
+
+    public function store($data)
+    {
+        DB::beginTransaction();
+        try {
+            $data['password'] = \Str::random(8);
+            $member = $this->userRepository->create($data);
+            $manager = ['user_id' => $member->id, 'role_id' => $data['role_id']];
+            $this->create($manager);
+            $this->sendMail($data['email'], $data['password']);
+            
+            DB::commit();
+        } catch (Exception $e) {
+            DB::rollBack();
+            
+            throw new Exception($e->getMessage());
+        }
     }
 
     public function sendMail($user, $password)
@@ -36,4 +59,5 @@ class EmployeeRepository extends Repository implements EmployeeRepositoryInterfa
     
         \Mail::to($user)->send(new \App\Mail\AdminAccountMail($details));
     }
+
 }

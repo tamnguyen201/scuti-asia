@@ -17,6 +17,9 @@ class CreateManagerTable extends Migration
             $table->id();
             $table->foreignId('user_id');
             $table->foreignId('role_id');
+            $table->string('avatar')->default('default-img.png');
+            $table->string('phone')->nullable();
+            $table->string('address')->nullable();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('role_id')->references('id')->on('roles')->onDelete('cascade');
