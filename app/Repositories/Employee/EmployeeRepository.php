@@ -5,18 +5,6 @@ use App\Repositories\Repository;
 
 class EmployeeRepository extends Repository implements EmployeeRepositoryInterface
 {
-    protected $EmployeeRole;
-
-    public function __construct()
-    {
-        $this->EmployeeRole = [
-            config('common.role.Administrator'),
-            config('common.role.Interviewer'),
-            config('common.role.BackOffice'),
-        ];
-        return parent::__construct();
-    }
-
     public function getModel()
     {
         return \App\Model\Manager::class;
@@ -35,11 +23,6 @@ class EmployeeRepository extends Repository implements EmployeeRepositoryInterfa
     public function show($id)
     {
         return $this->model->with(['user', 'role'])->findOrFail($id);
-    }
-
-    public function FunctionName(Type $var = null)
-    {
-        # code...
     }
 
     public function sendMail($user, $password)
