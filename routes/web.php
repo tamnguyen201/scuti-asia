@@ -30,5 +30,7 @@ Route::group(
         Route::resource('users', 'UserController')->only(['index', 'show']);
         Route::resource('employees', 'EmployeeController');
         Route::resource('locations', 'LocationController');
+        Route::resource('categories', 'CategoryController');
+        Route::get('/changeCategoryStatus', 'CategoryController@changeStatus');
     }
 );
