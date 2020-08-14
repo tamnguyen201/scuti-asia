@@ -51,10 +51,6 @@ class EmployeeController extends Controller
     public function store(EmployeeRequest $request)
     {
         $data = $request->all();
-        if ($file = $request->file('avatar')) {
-            $data['avatar'] = $this->employeeRepository->upload($file);
-        }
-
         $data['password'] = \Str::random(15);
         $member = $this->userRepository->create($data);
         $this->employeeRepository->sendMail($request->email, $data['password']);
