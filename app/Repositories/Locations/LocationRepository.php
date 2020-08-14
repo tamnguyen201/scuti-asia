@@ -9,6 +9,4 @@ class LocationRepository extends Repository implements LocationRepositoryInterfa
     {
         return \App\Model\Locations::class;
     }
-
-
 }

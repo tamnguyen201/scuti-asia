@@ -29,14 +29,6 @@ Route::group(
         Route::resource('roles', 'RoleController')->except(['show']);
         Route::resource('users', 'UserController')->only(['index', 'show']);
         Route::resource('employees', 'EmployeeController');
-        Route::resource('locations', 'LocationController')->names(
-            [
-            'index' => 'location.index',
-            'store' => 'location.store',
-            'edit' => 'location.edit',
-            'update' => 'location.update',
-            'destroy' => 'location.destroy',
-            ]
-        );
+        Route::resource('locations', 'LocationController');
     }
 );

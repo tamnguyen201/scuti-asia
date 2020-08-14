@@ -3,9 +3,8 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Symfony\Component\HttpFoundation\Request;
 
-class LocationRequest extends FormRequest
+class LocationUpdateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,7 +24,7 @@ class LocationRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|unique:locations,name',
+            'name' => 'required|unique:locations,name,' . $this->id,
         ];
     }
 
