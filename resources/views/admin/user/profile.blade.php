@@ -1,11 +1,11 @@
 <table class="table table-hover">
     <tbody>
         <tr>
-            <td>Full Name</td>
+            <td>{{trans('custom.name')}}</td>
             <td>{{$user->name}}</td>
         </tr>
         <tr>
-            <td>Email</td>
+            <td>{{trans('custom.email')}}</td>
             <td>{{$user->email}}</td>
         </tr>
     </tbody>
