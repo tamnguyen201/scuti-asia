@@ -36,5 +36,4 @@ class EmployeeRepository extends Repository implements EmployeeRepositoryInterfa
     
         \Mail::to($user)->send(new \App\Mail\AdminAccountMail($details));
     }
-
 }
