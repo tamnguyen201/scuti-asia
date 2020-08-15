@@ -12,5 +12,24 @@ return [
     'profile' => 'Thông tin cá nhân',
     'submit' => 'Gửi',
     'cancel' => 'Hủy',
-    'reset' => 'Làm mới'
+    'reset' => 'Làm mới',
+
+    'menu' => [
+        'online' => 'Hoạt Động',
+        'dashboard' => 'Bảng điều khiển',
+        'member' => 'Thành Viên',
+        'manager' => 'Quản Trị Viên',
+        'user' => 'Người Dùng',
+        'canidate' => 'Ứng Viên',
+        'calendar' => 'Lịch',
+        'list' => 'Danh Sách',
+        'company_info' => 'Công Ty',
+        'logout' => 'Đăng Xuất',
+    ],
+
+    'title' => [
+        'user_manage' => 'Quản Lý Người Dùng',
+        'employee_manage' => 'Quản Lý QTV',
+    ]
+
 ];

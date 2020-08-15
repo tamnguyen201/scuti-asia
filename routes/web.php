@@ -21,7 +21,7 @@ Route::get('/forgot', 'AdminController@forgot');
 Route::group(
     ['prefix'=>'admin'], function () {
 
-        Route::get('/', 'AdminController@index');
+        Route::get('/', 'AdminController@index')->name('admin.index');
 
         Route::resource('roles', 'RoleController')->except(['show']);
         Route::resource('users', 'UserController')->only(['index', 'show']);
