@@ -32,6 +32,8 @@ Route::group(
         Route::resource('locations', 'LocationController');
         Route::resource('categories', 'CategoryController');
         Route::get('/changeCategoryStatus', 'CategoryController@changeStatus');
-        Route::resource('company', 'CompanyController');
+        Route::resource('companies', 'CompanyController');
+        Route::resource('company_images', 'CompanyImagesController');
+        Route::resource('partner_companies', 'PartnerCompaniesController');
     }
 );

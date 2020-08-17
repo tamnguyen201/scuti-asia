@@ -53,23 +53,19 @@
       </li>
       <li class="parent ">
          <a data-toggle="collapse" href="#sub-item-3">
-         <em class="fa fa-navicon">&nbsp;</em> @lang('custom.menu.company_info') <span data-toggle="collapse" href="#sub-item-3" class="icon pull-right"><em class="fa fa-plus"></em></span>
+         <em class="fa fa-navicon">&nbsp;</em> @lang('custom.menu.company') <span data-toggle="collapse" href="#sub-item-3" class="icon pull-right"><em class="fa fa-plus"></em></span>
          </a>
          <ul class="children collapse" id="sub-item-3">
-            <li><a class="" href="{{route('users.index')}}">
-               <span class="fa fa-arrow-right">&nbsp;</span> @lang('custom.menu.list')
+            <li><a class="" href="{{route('companies.index')}}">
+               <span class="fa fa-arrow-right">&nbsp;</span> @lang('custom.menu.company_info')
                </a>
             </li>
-            <li><a class="" href="{{route('users.index')}}">
-               <span class="fa fa-arrow-right">&nbsp;</span> Image
+            <li><a class="" href="{{route('company_images.index')}}">
+               <span class="fa fa-arrow-right">&nbsp;</span> @lang('custom.menu.company_images')
                </a>
             </li>
-            <li><a class="" href="{{route('users.index')}}">
-               <span class="fa fa-arrow-right">&nbsp;</span> Social
-               </a>
-            </li>
-            <li><a class="" href="{{route('users.index')}}">
-               <span class="fa fa-arrow-right">&nbsp;</span> Đối Tác
+            <li><a class="" href="{{route('partner_companies.index')}}">
+               <span class="fa fa-arrow-right">&nbsp;</span> @lang('custom.menu.partner')
                </a>
             </li>
          </ul>
