@@ -4,7 +4,9 @@
         <img src="http://placehold.it/50/30a5ff/fff" class="img-responsive" alt="">
      </div>
      <div class="profile-usertitle">
-        <div class="profile-usertitle-name">Username</div>
+        <a href="{{ route('profile.index') }}">
+            <div class="profile-usertitle-name">{{ auth()->user()->name }}</div>
+        </a>
         <div class="profile-usertitle-status"><span class="indicator label-success"></span>Online</div>
      </div>
      <div class="clear"></div>

@@ -32,5 +32,6 @@ Route::group(
         Route::resource('locations', 'LocationController');
         Route::resource('categories', 'CategoryController');
         Route::get('/changeCategoryStatus', 'CategoryController@changeStatus');
+        Route::resource('profile', 'ProfileController')->except(['create','store','delete']);
     }
 );
