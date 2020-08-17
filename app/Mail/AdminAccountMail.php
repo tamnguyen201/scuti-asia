@@ -29,7 +29,7 @@ class AdminAccountMail extends Mailable
      */
     public function build()
     {
-        return $this->from('tam2012000@gmail.com')
+        return $this->from(env('MAIL_USERNAME'))
                     ->subject('Mail from Scuti-asia.com')
                     ->view('email.AdminAccountMail');
     }

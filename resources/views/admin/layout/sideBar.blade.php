@@ -5,7 +5,7 @@
       </div>
       <div class="profile-usertitle">
          <div class="profile-usertitle-name">Username</div>
-         <div class="profile-usertitle-status"><span class="indicator label-success"></span>Online</div>
+         <div class="profile-usertitle-status"><span class="indicator label-success"></span>@lang('custom.menu.online')</div>
       </div>
       <div class="clear"></div>
    </div>
@@ -74,6 +74,6 @@
             </li>
          </ul>
       </li>
-      <li><a href="login.html"><em class="fa fa-power-off">&nbsp;</em> Logout</a></li>
+      <li><a href="login.html"><em class="fa fa-power-off">&nbsp;</em> @lang('custom.menu.logout')</a></li>
    </ul>
 </div>
