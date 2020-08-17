@@ -7,6 +7,8 @@ return [
     'phone' => 'SĐT',
     'address' => 'Địa chỉ',
     'avatar' => 'Ảnh đại diện',
+    'logo' => 'Ảnh Logo',
+    'description' => 'Mô Tả',
     'role' => 'Quyền',
     'action' => 'Thao tác',
     'profile' => 'Thông tin cá nhân',

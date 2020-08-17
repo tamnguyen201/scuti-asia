@@ -11,7 +11,7 @@
    </div>
    <div class="divider"></div>
    <ul class="nav menu">
-      <li class="active"><a href="{{route('admin.index')}}"><em class="fa fa-dashboard">&nbsp;</em> @lang('custom.menu.dashboard')</a></li>
+      <li class="active"><a href="{{route('admin.home')}}"><em class="fa fa-dashboard">&nbsp;</em> @lang('custom.menu.dashboard')</a></li>
       <li><a href="widgets.html"><em class="fa fa-calendar">&nbsp;</em> @lang('custom.menu.calendar') </a></li>
       <li class="parent ">
          <a data-toggle="collapse" href="#sub-item-1">

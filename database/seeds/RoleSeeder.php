@@ -16,11 +16,13 @@ class RoleSeeder extends Seeder
         \App\Model\Role::truncate();
         \App\Model\User::truncate();
         \App\Model\Manager::truncate();
+        \App\Model\Company::truncate();
+        \App\Model\CompanyImages::truncate();
+        \App\Model\PartnerCompanies::truncate();
         DB::table('roles')->insert([
             ['id'=>1, 'name' => 'Administrator'],
             ['id'=>2, 'name' => 'Interviewer'],
             ['id'=>3, 'name' => 'Back Office'],
-            ['id'=>4, 'name' => 'User'],
         ]);
         DB::table('users')->insert([
             ['id'=>1, 'name' => 'Tam Nguyen','email' => 'tam2012000@gmail.com','password'=> Hash::make('123456')],
@@ -38,6 +40,23 @@ class RoleSeeder extends Seeder
             ['id'=>2, 'user_id' => 2, 'role_id' => 1, 'phone'=>'0366668888', 'address'=>'68 Nguyễn Cơ Thạch, Nam Từ Liêm, Hn', 'avatar'=>'http://congstudio.vn/product_images/uploaded_images/chup_anh_profile_chuyen_nghiep_cong_studio_1_aztl4.jpg'],
             ['id'=>3, 'user_id' => 3, 'role_id' => 2, 'phone'=>'0366668888', 'address'=>'68 Nguyễn Cơ Thạch, Nam Từ Liêm, Hn', 'avatar'=>'http://congstudio.vn/product_images/z/320/chup_anh_profile_tai_ha_noi_cong_studio_4__09337_thumb.jpg'],
             ['id'=>4, 'user_id' => 5, 'role_id' => 3, 'phone'=>'0366668888', 'address'=>'68 Nguyễn Cơ Thạch, Nam Từ Liêm, Hn', 'avatar'=>'http://congstudio.vn/product_images/z/320/chup_anh_profile_tai_ha_noi_cong_studio_4__09337_thumb.jpg'],
+        ]);
+        DB::table('company_information')->insert([
+            ['id'=>1, 'name' => 'scuti', 'description' => 'Make service people love!', 'email' => 'scuti-asia@gmail.com', 'phone'=>'0999999999', 'address'=>'68 Nguyễn Cơ Thạch, Nam Từ Liêm, Hn', 'logo'=>'https://miro.medium.com/max/1200/1*Eu6cAGjXNa0-ct_hlsH1yQ.jpeg', 'facebook_page' => 'https://fb.com/scuti', 'youtube_page' => 'youtube.com.vn/scuti'],
+        ]);
+        DB::table('company_images')->insert([
+            ['id'=>1, 'image_url'=>'https://miro.medium.com/max/1200/1*Eu6cAGjXNa0-ct_hlsH1yQ.jpeg'],
+            ['id'=>2, 'image_url'=>'http://congstudio.vn/product_images/uploaded_images/chup_anh_profile_chuyen_nghiep_cong_studio_1_aztl4.jpg'],
+            ['id'=>3, 'image_url'=>'http://congstudio.vn/product_images/z/320/chup_anh_profile_tai_ha_noi_cong_studio_4__09337_thumb.jpg'],
+            ['id'=>4, 'image_url'=>'http://congstudio.vn/product_images/z/320/chup_anh_profile_tai_ha_noi_cong_studio_4__09337_thumb.jpg'],
+            ['id'=>5, 'image_url'=>'http://congstudio.vn/product_images/z/320/chup_anh_profile_tai_ha_noi_cong_studio_4__09337_thumb.jpg'],
+        ]);
+        DB::table('partner_companies')->insert([
+            ['id'=>1, 'name' => 'FPT', 'logo'=>'https://miro.medium.com/max/1200/1*Eu6cAGjXNa0-ct_hlsH1yQ.jpeg'],
+            ['id'=>2, 'name' => 'TGDD', 'logo'=>'http://congstudio.vn/product_images/uploaded_images/chup_anh_profile_chuyen_nghiep_cong_studio_1_aztl4.jpg'],
+            ['id'=>3, 'name' => 'Viettel', 'logo'=>'http://congstudio.vn/product_images/z/320/chup_anh_profile_tai_ha_noi_cong_studio_4__09337_thumb.jpg'],
+            ['id'=>4, 'name' => 'Shopee', 'logo'=>'http://congstudio.vn/product_images/z/320/chup_anh_profile_tai_ha_noi_cong_studio_4__09337_thumb.jpg'],
+            ['id'=>5, 'name' => 'Tiki', 'logo'=>'http://congstudio.vn/product_images/z/320/chup_anh_profile_tai_ha_noi_cong_studio_4__09337_thumb.jpg'],
         ]);
         Schema::enableForeignKeyConstraints();
     }
