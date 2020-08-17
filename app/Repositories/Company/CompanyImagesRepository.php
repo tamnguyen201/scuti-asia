@@ -12,15 +12,21 @@ class CompanyImagesRepository extends Repository implements CompanyImagesReposit
 
     public function create($results)
     {
-        $data['image_url'] = $this->upload($results['image_url']);
+        $data = $results;
+        if(in_array("image_url", $results)) {
+            $data['image_url'] = $this->upload($results['image_url']);
+        }
         
         return $this->model->create($data);
     }
 
     public function update($results, $id)
     {
-        $data['image_url'] = $this->upload($results['image_url']);
-        
-        return $this->model->update($data, $id);
+        $data = $results;
+        if(in_array("image_url", $results)) {
+            $data['image_url'] = $this->upload($results['image_url']);
+        }
+
+        return $this->show($id)->update($data);
     }
 }

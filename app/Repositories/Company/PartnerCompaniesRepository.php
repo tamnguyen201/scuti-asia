@@ -12,15 +12,21 @@ class PartnerCompaniesRepository extends Repository implements PartnerCompaniesR
 
     public function create($results)
     {
-        $data['logo'] = $this->upload($results['logo']);
+        $data = $results;
+        if(in_array("logo", $results)) {
+            $data['logo'] = $this->upload($results['logo']);
+        }
         
         return $this->model->create($data);
     }
 
     public function update($results, $id)
     {
-        $data['logo'] = $this->upload($results['logo']);
+        $data = $results;
+        if(in_array("logo", $results)) {
+            $data['logo'] = $this->upload($results['logo']);
+        }
         
-        return $this->model->update($data, $id);
+        return $this->show($id)->update($data);
     }
 }

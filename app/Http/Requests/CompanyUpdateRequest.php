@@ -25,10 +25,10 @@ class CompanyUpdateRequest extends FormRequest
     {
         return [
             'name' => 'required',
-            // 'logo' => 'required',
+            'logo' => 'nullable|mimes:jpeg,jpg,png,gif|max:10000',
             'description' => 'required',
             'email' => 'required|email',
-            //'phone' => 'required|regex:/(09|01[2|3|6|8|9])+([0-9]{8})/',
+            'phone' => ['required','regex:/(09|01[2|3|6|8|9])+([0-9]{8})/'],
             'address' => 'required',
             'facebook_page' => 'required',
             'youtube_page' => 'required',
@@ -39,6 +39,8 @@ class CompanyUpdateRequest extends FormRequest
     {
         return [
             'required' => trans('validation.required'),
+            'logo.mimes' => trans('validation.mimes'),
+            'logo.max' => trans('validation.max'),
             'email.email' => trans('validation.email'),
             'regex' => trans('validation.regex'),
         ];

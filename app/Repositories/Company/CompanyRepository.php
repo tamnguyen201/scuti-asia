@@ -27,7 +27,7 @@ class CompanyRepository extends Repository implements CompanyRepositoryInterface
     public function create($results)
     {
         $data = $results;
-        if($results['logo']) {
+        if(in_array("logo", $results)) {
             $data['logo'] = $this->upload($results['logo']);
         }
 
@@ -37,10 +37,10 @@ class CompanyRepository extends Repository implements CompanyRepositoryInterface
     public function update($results, $id)
     {
         $data = $results;
-        if($results['logo']) {
+        if(in_array("logo", $results)) {
             $data['logo'] = $this->upload($results['logo']);
         }
-
-        return $this->model->update($data, $id);
+        
+        return $this->show($id)->update($data);
     }
 }

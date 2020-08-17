@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CompanyRequest extends FormRequest
+class PartnerCompaniesUpdateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,14 +24,8 @@ class CompanyRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required',
-            'logo' => 'required|mimes:jpeg,jpg,png,gif|max:10000',
-            'description' => 'required',
-            'email' => 'required|email',
-            'phone' => ['required','regex:/(09|01[2|3|6|8|9])+([0-9]{8})/'],
-            'address' => 'required',
-            'facebook_page' => 'required',
-            'youtube_page' => 'required',
+            'name' => 'required|unique:partner_companies, name,' . $this->id,
+            'logo' => 'nullable|mimes:jpeg,jpg,png,gif|max:10000',
         ];
     }
 
@@ -41,8 +35,6 @@ class CompanyRequest extends FormRequest
             'required' => trans('validation.required'),
             'logo.mimes' => trans('validation.mimes'),
             'logo.max' => trans('validation.max'),
-            'email.email' => trans('validation.email'),
-            'regex' => trans('validation.regex'),
         ];
     }
 }

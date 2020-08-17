@@ -62,7 +62,7 @@ return [
 
     'alert_messages' => [
         'success' => 'Thành công!',
-        'warning' => 'Cảnh báo!',
+        'warning' => 'Cảnh báo dữ liệu này đã có sẵn, vui lòng không tạo mới!',
         'error' => 'Lỗi',
     ]
 
