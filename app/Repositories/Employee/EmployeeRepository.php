@@ -52,8 +52,8 @@ class EmployeeRepository extends Repository implements EmployeeRepositoryInterfa
     public function sendMail($user, $password)
     {
         $details = [
-            'title' => 'Mail from Scuti-asia.com',
-            'body' => 'Bạn vừa được tạo tài khoản thành viên quản trị website!',
+            'title' => trans('custom.create_admin_account.title'),
+            'body' => trans('custom.create_admin_account.body'),
             'user_name' => $user,
             'password' => $password,
         ];

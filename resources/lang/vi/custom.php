@@ -30,6 +30,13 @@ return [
     'title' => [
         'user_manage' => 'Quản Lý Người Dùng',
         'employee_manage' => 'Quản Lý QTV',
+    ],
+
+    'email' => [
+        'create_admin_account' => [
+            'title' => 'Mail from Scuti-asia.com',
+            'body' => 'Bạn vừa được tạo tài khoản thành viên quản trị website!',
+        ]
     ]
 
 ];
