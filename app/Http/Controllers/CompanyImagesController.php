@@ -47,6 +47,6 @@ class CompanyImagesController extends Controller
     {
         $this->CompanyImagesRepository->delete($id);
 
-        return redirect()->back()->with('success', trans('custom.alert_messages.success'));
+        return redirect()->route('company_images.index')->with('success', trans('custom.alert_messages.success'));
     }
 }
