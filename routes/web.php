@@ -32,5 +32,7 @@ Route::group(
         Route::resource('locations', 'LocationController');
         Route::resource('categories', 'CategoryController');
         Route::get('/changeCategoryStatus', 'CategoryController@changeStatus');
+        Route::resource('jobs', 'JobController');
+        Route::get('jobs/information', 'JobController@informationJob');
     }
 );
