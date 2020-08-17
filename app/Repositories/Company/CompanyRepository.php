@@ -24,6 +24,16 @@ class CompanyRepository extends Repository implements CompanyRepositoryInterface
         return $this->model->first();
     }
 
+    public function create($results)
+    {
+        $data = $results;
+        if($results['logo']) {
+            $data['logo'] = $this->upload($results['logo']);
+        }
+
+        return $this->model->create($data);
+    }
+
     public function update($results, $id)
     {
         $data = $results;

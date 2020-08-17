@@ -2,15 +2,15 @@
     <thead>
         <tr>
             <th>
-                <div class="th-inner sortable">{{trans('custom.stt')}}</div>
+                <div class="th-inner sortable">@lang('custom.stt')</div>
                 <div class="fht-cell"></div>
             </th>
             <th>
-                <div class="th-inner sortable">{{trans('custom.name')}}</div>
+                <div class="th-inner sortable">@lang('custom.name')</div>
                 <div class="fht-cell"></div>
             </th>
             <th>
-                <div class="th-inner sortable text-center">{{trans('custom.action')}}</div>
+                <div class="th-inner sortable text-center">@lang('custom.action')</div>
                 <div class="fht-cell"></div>
             </th>
         </tr>

@@ -23,14 +23,14 @@
                     @csrf
                     <div class="col-md-6">
                         <div class="form-group @error('name') has-error @enderror">
-                            <label>{{trans('custom.name')}}</label>
+                            <label>@lang('custom.name')</label>
                             <input type="text" name="name" value="{{old('name')}}" class="form-control">
                             @error('name') 
                             <span class="help-block"> {{$message}} </span>
                             @enderror
                         </div>
                         <div class="form-group @error('email') has-error @enderror">
-                            <label>{{trans('custom.email')}}</label>
+                            <label>@lang('custom.email')</label>
                             <input type="email" name="email" value="{{old('email')}}" class="form-control">
                             @error('email') 
                             <span class="help-block"> {{$message}} </span>
@@ -39,7 +39,7 @@
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label>{{trans('custom.role')}}</label>
+                            <label>@lang('custom.role')</label>
                             <select name="role_id" class="form-control">
                                 @foreach ($roles as $item)
                                 <option value="{{$item->id}}">{{$item->name}}</option>
@@ -49,9 +49,9 @@
                     </div>
                     
                     <div class="col-md-12 text-center">
-                        <button type="submit" class="btn btn-primary">{{trans('custom.submit')}}</button>
-                        <button type="reset" class="btn btn-default">{{trans('custom.reset')}}</button>
-                        <a href="{{route('employees.index')}}" class="btn btn-danger">{{trans('custom.cancel')}}</a>
+                        <button type="submit" class="btn btn-primary">@lang('custom.button.submit')</button>
+                        <button type="reset" class="btn btn-default">@lang('custom.button.reset')</button>
+                        <a href="{{route('employees.index')}}" class="btn btn-danger">@lang('custom.button.cancel')</a>
                     </div>
                 </form>
             </div>

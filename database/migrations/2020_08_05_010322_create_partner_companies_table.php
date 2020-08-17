@@ -17,6 +17,7 @@ class CreatePartnerCompaniesTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('logo');
+            $table->string('description')->nullable();
             $table->timestamps();
         });
     }

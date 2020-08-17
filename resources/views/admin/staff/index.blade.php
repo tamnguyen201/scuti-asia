@@ -20,7 +20,7 @@
         <div class="panel-body">
                 <div class="bootstrap-table">
                     <div class="fixed-table-toolbar">
-                        <a href="{{route('employees.create')}}" class="btn btn-primary" style="float: right"><span class="fa fa-plus"></span> Add New</a>
+                        <a href="{{route('employees.create')}}" class="btn btn-primary" style="float: right"><span class="fa fa-plus"></span> @lang('custom.button.add')</a>
                     </div>
                     <div class="fixed-table-container">
                         <div class="fixed-table-body">
@@ -28,23 +28,23 @@
                                 <thead>
                                     <tr>
                                         <th>
-                                            <div class="th-inner sortable">{{trans('custom.stt')}}</div>
+                                            <div class="th-inner sortable">@lang('custom.stt')</div>
                                             <div class="fht-cell"></div>
                                         </th>
                                         <th>
-                                            <div class="th-inner sortable">{{trans('custom.name')}}</div>
+                                            <div class="th-inner sortable">@lang('custom.name')</div>
                                             <div class="fht-cell"></div>
                                         </th>
                                         <th>
-                                            <div class="th-inner sortable">{{trans('custom.email')}}</div>
+                                            <div class="th-inner sortable">@lang('custom.email')</div>
                                             <div class="fht-cell"></div>
                                         </th>
                                         <th>
-                                            <div class="th-inner sortable">{{trans('custom.role')}}</div>
+                                            <div class="th-inner sortable">@lang('custom.role')</div>
                                             <div class="fht-cell"></div>
                                         </th>
                                         <th>
-                                            <div class="th-inner sortable text-center">{{trans('custom.action')}}</div>
+                                            <div class="th-inner sortable text-center">@lang('custom.action')</div>
                                             <div class="fht-cell"></div>
                                         </th>
                                     </tr>
@@ -83,14 +83,14 @@
                 <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle">{{trans('custom.profile')}}</h5>
+                    <h5 class="modal-title" id="exampleModalLongTitle">@lang('custom.page_title.profile')</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                     </div>
                     <div class="modal-body"></div>
                     <div class="modal-footer" style="border-top: none">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">{{trans('custom.cancel')}}</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">@lang('custom.button.close')</button>
                     </div>
                 </div>
                 </div>

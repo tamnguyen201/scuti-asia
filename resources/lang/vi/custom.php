@@ -20,7 +20,8 @@ return [
         'profile' => 'Thông tin cá nhân',
         'role_manage' => 'Quản Lý Quyền',
         'company_manage' => 'Quản Lý Thông Tin Công Ty',
-        'company_image_manage' => 'Quản Lý Ảnh Công Ty'
+        'company_image_manage' => 'Quản Lý Ảnh Công Ty',
+        'partner_companies_manage' => 'Quản Lý Thông Tin Đốí Tác'
     ],
 
     'table_lable' => [
