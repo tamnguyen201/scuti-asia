@@ -9,9 +9,9 @@ class Role extends Model
     protected $fillable = ['name'];
     public $timestamps = false;
 
-    public function user()
+    public function manager()
     {
-        return $this->belongsTo('App\Model\User');
+        return $this->belongsToMany('App\Model\Manager');
     }
 
 }

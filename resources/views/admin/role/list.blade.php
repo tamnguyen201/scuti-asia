@@ -1,16 +1,16 @@
 <table class="table table-hover">
     <thead>
         <tr>
-            <th style="">
-                <div class="th-inner sortable">Stt</div>
+            <th>
+                <div class="th-inner sortable">{{trans('custom.stt')}}</div>
                 <div class="fht-cell"></div>
             </th>
-            <th style="">
-                <div class="th-inner sortable">Role Name<span class="order"><span class="caret" style="margin: 10px 5px;"></span></span></div>
+            <th>
+                <div class="th-inner sortable">{{trans('custom.name')}}</div>
                 <div class="fht-cell"></div>
             </th>
-            <th style="">
-                <div class="th-inner sortable text-center">Action</div>
+            <th>
+                <div class="th-inner sortable text-center">{{trans('custom.action')}}</div>
                 <div class="fht-cell"></div>
             </th>
         </tr>
