@@ -32,5 +32,8 @@ Route::group(
         Route::resource('locations', 'LocationController');
         Route::resource('categories', 'CategoryController');
         Route::get('/changeCategoryStatus', 'CategoryController@changeStatus');
+        Route::get('/showinformation', 'ProfileController@showInformation')->name('admin.information');
+        Route::get('/updateformation/{id}', 'ProfileController@editInformation')->name('admin.information.edit');
+        Route::post('/updateformation/{id}', 'ProfileController@updateInformation')->name('admin.information.update');
     }
 );
