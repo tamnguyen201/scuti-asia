@@ -20,20 +20,19 @@
         <div class="panel-heading">Forms</div>
         <div class="panel-body">
             <div class="col-md-12">
-                <form role="form" action="{{route('companies.store')}}" method="POST" enctype="multipart/form-data">
+                <form role="form" action="{{route('partner_companies.store')}}" method="POST" enctype="multipart/form-data">
                     @csrf
-                    @method('PUT')
                     <div class="col-md-6">
                         <div class="form-group @error('name') has-error @enderror">
                             <label>@lang('custom.name')</label>
-                            <input type="text" name="name" class="form-control" placeholder="Please enter full name">
+                            <input type="text" name="name" class="form-control" value="{{old('name')}}" placeholder="Please enter full name">
                             @error('name') 
                             <span class="help-block"> {{$message}} </span>
                             @enderror
                         </div>
                         <div class="form-group @error('description') has-error @enderror">
                             <label>@lang('custom.description')</label>
-                            <textarea name="description" cols="30" rows="10" class="form-control" placeholder="Please enter description"> </textarea>
+                            <textarea name="description" cols="30" rows="10" class="form-control" placeholder="Please enter description"> {{old('description')}} </textarea>
                             @error('description') 
                             <span class="help-block"> {{$message}} </span>
                             @enderror
@@ -68,11 +67,12 @@
         function encodeImageFileAsURL(element) {
             var file = element.files[0];
             if(file === undefined){
-                $(".preview-img").html(<img src="default-img.png" alt="your image" class="img-responsive" />);
+                $(".preview-img").html(`<img src="default-img.png" alt="your image" class="img-responsive" />`);
                 $(".preview-img img").attr('src', "default-img.png");
             } else if(file.type.indexOf('image/') == -1){
-                $(".preview-img").html(<span class="text-danger">Vui lòng chọn file đúng định dạng ảnh</span>);
+                $(".preview-img").html(`<span class="text-danger">Vui lòng chọn file đúng định dạng ảnh</span>`);
             } else {
+                $(".preview-img").html(`<img src="default-img.png" alt="your image" class="img-responsive" />`);
                 var reader = new FileReader();
                 reader.onloadend = function() {
                     if(reader.result){

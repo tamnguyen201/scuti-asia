@@ -13,7 +13,7 @@ class CompanyImagesRepository extends Repository implements CompanyImagesReposit
     public function create($results)
     {
         $data = $results;
-        if(in_array("image_url", $results)) {
+        if(array_key_exists("image_url", $results)) {
             $data['image_url'] = $this->upload($results['image_url']);
         }
         
@@ -23,7 +23,7 @@ class CompanyImagesRepository extends Repository implements CompanyImagesReposit
     public function update($results, $id)
     {
         $data = $results;
-        if(in_array("image_url", $results)) {
+        if(array_key_exists("image_url", $results)) {
             $data['image_url'] = $this->upload($results['image_url']);
         }
 

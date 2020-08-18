@@ -24,7 +24,7 @@ class PartnerCompaniesUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|unique:partner_companies, name,' . $this->id,
+            'name' => 'required|unique:partner_companies,name,' . $this->id,
             'logo' => 'nullable|mimes:jpeg,jpg,png,gif|max:10000',
         ];
     }

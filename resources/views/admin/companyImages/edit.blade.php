@@ -24,19 +24,10 @@
                     @csrf
                     @method('PUT')
                     <div class="col-md-6">
-                        <div class="form-group @error('name') has-error @enderror">
-                            <label>@lang('custom.name')</label>
-                            <input type="text" name="name" value="{{$image->name}}" class="form-control" placeholder="Please enter full name">
-                            @error('name') 
-                            <span class="help-block"> {{$message}} </span>
-                            @enderror
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group @error('logo') has-error @enderror">
-                            <label>@lang('custom.logo')</label>
-                            <input type="file" onchange="encodeImageFileAsURL(this)" name="logo">
-                            @error('logo') 
+                        <div class="form-group @error('image_url') has-error @enderror">
+                            <label>@lang('custom.image_url')</label>
+                            <input type="file" onchange="encodeImageFileAsURL(this)" name="image_url">
+                            @error('image_url') 
                             <span class="help-block"> {{$message}} </span>
                             @enderror
                         </div>
@@ -61,11 +52,12 @@
         function encodeImageFileAsURL(element) {
             var file = element.files[0];
             if(file === undefined){
-                $(".preview-img").html(<img src="default-img.png" alt="your image" class="img-responsive" />);
+                $(".preview-img").html(`<img src="default-img.png" alt="your image" class="img-responsive" />`);
                 $(".preview-img img").attr('src', "default-img.png");
             } else if(file.type.indexOf('image/') == -1){
-                $(".preview-img").html(<span class="text-danger">Vui lòng chọn file đúng định dạng ảnh</span>);
+                $(".preview-img").html(`<span class="text-danger">Vui lòng chọn file đúng định dạng ảnh</span>`);
             } else {
+                $(".preview-img").html(`<img src="default-img.png" alt="your image" class="img-responsive" />`);
                 var reader = new FileReader();
                 reader.onloadend = function() {
                     if(reader.result){

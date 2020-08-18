@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Requests\CompanyImagesRequest;
+use App\Http\Requests\CompanyImagesUpdateRequest;
 use App\Repositories\Company\CompanyImagesRepositoryInterface;
 
 class CompanyImagesController extends Controller

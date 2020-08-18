@@ -24,7 +24,7 @@ class CompanyController extends Controller
 
     public function create()
     {
-        if($this->companyRepository->count()) {
+        if(!$this->companyRepository->count()) {
             return redirect()->route('companies.index')->with('warning', trans('custom.alert_messages.warning'));
         }
 
@@ -33,7 +33,7 @@ class CompanyController extends Controller
 
     public function store(CompanyRequest $request)
     {
-        $this->roleRepository->create($request->all());
+        $this->companyRepository->create($request->all());
         return redirect()->route('companies.index')->with('success', trans('custom.alert_messages.success'));
 
     }

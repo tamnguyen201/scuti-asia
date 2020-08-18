@@ -68,11 +68,12 @@
         function encodeImageFileAsURL(element) {
             var file = element.files[0];
             if(file === undefined){
-                //$(".preview-img").html(<img src="default-img.png" alt="your image" class="img-responsive" />);
+                $(".preview-img").html(`<img src="default-img.png" alt="your image" class="img-responsive" />`);
                 $(".preview-img img").attr('src', "default-img.png");
-            // } else if(file.type.indexOf('image/') == -1){
-            //     $(".preview-img").html(<span class="text-danger">Vui lòng chọn file đúng định dạng ảnh</span>);
+            } else if(file.type.indexOf('image/') == -1){
+                $(".preview-img").html(`<span class="text-danger">Vui lòng chọn file đúng định dạng ảnh</span>`);
             } else {
+                $(".preview-img").html(`<img src="default-img.png" alt="your image" class="img-responsive" />`);
                 var reader = new FileReader();
                 reader.onloadend = function() {
                     if(reader.result){

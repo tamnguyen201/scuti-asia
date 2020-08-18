@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\PartnerCompaniesRequest;
+use App\Http\Requests\PartnerCompaniesUpdateRequest;
 use App\Repositories\Company\PartnerCompaniesRepositoryInterface;
 
 class PartnerCompaniesController extends Controller
@@ -26,11 +28,11 @@ class PartnerCompaniesController extends Controller
         return view("admin.partnerCompanies.add");
     }
 
-    public function store(partnersRequest $request)
+    public function store(PartnerCompaniesRequest $request)
     {
         $this->partnerCompaniesRepository->create($request->all());
 
-        return view('admin.partnerCompanies.index')->with('success', trans('custom.alert_messages.success'));
+        return redirect()->route('partner_companies.index')->with('success', trans('custom.alert_messages.success'));
     }
 
     public function edit($id)
@@ -40,11 +42,11 @@ class PartnerCompaniesController extends Controller
         return view("admin.partnerCompanies.edit", compact('partner'));
     }
 
-    public function update(PartnersUpdateRequest $request, $id)
+    public function update(PartnerCompaniesUpdateRequest $request, $id)
     {
         $this->partnerCompaniesRepository->update($request->all(), $id);
         
-        return rederect()->route("partnerCompanies.index")->with('success', trans('custom.alert_messages.success'));;
+        return rederect()->route("partner_companies.index")->with('success', trans('custom.alert_messages.success'));;
     }
 
     public function destroy($id)

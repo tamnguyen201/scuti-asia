@@ -24,7 +24,7 @@ class PartnerCompaniesRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|unique:partner_companies, name',
+            'name' => 'required|unique:partner_companies,name',
             'logo' => 'required|mimes:jpeg,jpg,png,gif|max:10000'
         ];
     }

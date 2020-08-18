@@ -13,7 +13,7 @@ class PartnerCompaniesRepository extends Repository implements PartnerCompaniesR
     public function create($results)
     {
         $data = $results;
-        if(in_array("logo", $results)) {
+        if(array_key_exists("logo", $results)) {
             $data['logo'] = $this->upload($results['logo']);
         }
         
@@ -23,7 +23,7 @@ class PartnerCompaniesRepository extends Repository implements PartnerCompaniesR
     public function update($results, $id)
     {
         $data = $results;
-        if(in_array("logo", $results)) {
+        if(array_key_exists("logo", $results)) {
             $data['logo'] = $this->upload($results['logo']);
         }
         
