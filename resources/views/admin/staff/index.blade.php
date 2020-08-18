@@ -19,9 +19,11 @@
         <div class="panel-heading">Data Table</div>
         <div class="panel-body">
                 <div class="bootstrap-table">
+                    @if(Auth::user()->hasRole(config('common.role.Administrator')))
                     <div class="fixed-table-toolbar">
                         <a href="{{route('employees.create')}}" class="btn btn-primary" style="float: right"><span class="fa fa-plus"></span> @lang('custom.button.add')</a>
                     </div>
+                    @endif
                     <div class="fixed-table-container">
                         <div class="fixed-table-body">
                             <table class="table table-hover">
@@ -59,12 +61,14 @@
                                         <td>{{$item->role->name}}</td>
                                         <td class="text-center">
                                             <a href="{{route('employees.show', $item->user->id)}}" class="btn btn-primary text-light view-profile"><em class="fa fa-eye"></em></a>
+                                            @if(Auth::user()->hasRole(config('common.role.Administrator')))
                                             <a href="{{route('employees.edit', $item->id)}}" class="btn btn-primary text-light"><em class="far fa-edit"></em></a> 
                                             <form action="{{route('employees.destroy', $item->user->id)}}" method="post" class="form-delete-{{$item->id}}" style="display: inline">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button class="btn btn-danger text-light delete-confirm" idDelete={{$item->id}}><em class="fas fa-trash-alt"></em></button>
                                             </form>
+                                            @endif
                                         </td>
                                     </tr>
                                     @endforeach

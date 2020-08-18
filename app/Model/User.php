@@ -52,4 +52,15 @@ class User extends Authenticatable
         return $this->hasOne('App\Model\Candidate');
     }
 
+    public function hasRole($role)
+    {
+        return \App\Model\Manager::where('user_id', \auth()->id)->where('role_id', $role)->first() ? true : false;
+    }
+
+    public function hasAnyRole($roles)
+    {
+        $userRole = \App\Model\Manager::where('user_id', \auth()->id())->first()->role_id;
+        
+        return in_array($userRole, $roles) ? true : false;
+    }
 }
