@@ -8,9 +8,13 @@ return [
     'address' => 'Địa chỉ',
     'avatar' => 'Ảnh đại diện',
     'image_url' => 'File Ảnh',
+    'cv_url' => 'File CV',
     'logo' => 'Ảnh Logo',
     'description' => 'Mô Tả',
     'role' => 'Quyền',
+    'view_more' => 'Xem Chi Tiết',
+    'letter' => 'Lời Cảm Ơn',
+    'category' => 'Bộ Phận Ứng Tuyển',
     'action' => 'Thao tác',
     'facebook' => 'Nhóm Facebook',
     'youtube' => 'Kênh Youttube',
@@ -22,7 +26,8 @@ return [
         'role_manage' => 'Quản Lý Quyền',
         'company_manage' => 'Quản Lý Thông Tin Công Ty',
         'company_image_manage' => 'Quản Lý Ảnh Công Ty',
-        'partner_companies_manage' => 'Quản Lý Thông Tin Đốí Tác'
+        'partner_companies_manage' => 'Quản Lý Thông Tin Đốí Tác',
+        'candidate_manage' => 'Quản Lý Thông Tin Ứng Viên'
     ],
 
     'table_lable' => [
@@ -51,6 +56,9 @@ return [
         'company_info' => 'Thông Tin Công Ty',
         'company_images' => 'Ảnh Công Ty',
         'partner' => 'Đối Tác',
+        'evaluating' => 'Đang Đánh Giá',
+        'finishing' => 'Hoàn Tất',
+        'failed' => 'Loại',
         'logout' => 'Đăng Xuất',
     ],
 

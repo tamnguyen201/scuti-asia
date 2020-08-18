@@ -47,4 +47,9 @@ class User extends Authenticatable
         return $this->hasOne('App\Model\Manager');
     }
 
+    public function candidate()
+    {
+        return $this->hasOne('App\Model\Candidate');
+    }
+
 }

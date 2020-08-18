@@ -15,10 +15,10 @@ class CreateCandidateTable extends Migration
     {
         Schema::create('candidates', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('email');
+            $table->string('avatar')->default('default-img.png');
             $table->string('phone');
-            $table->string('letter');
+            $table->string('address');
+            $table->string('letter')->nullable();
             $table->foreignId('category_id');
             $table->foreignId('user_id');
             $table->foreignId('cv_id');

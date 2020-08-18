@@ -35,5 +35,6 @@ Route::group(
         Route::resource('companies', 'CompanyController');
         Route::resource('company_images', 'CompanyImagesController');
         Route::resource('partner_companies', 'PartnerCompaniesController');
+        Route::resource('candidates', 'CandidateController')->only(['index', 'show']);
     }
 );

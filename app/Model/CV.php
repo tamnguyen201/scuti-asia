@@ -6,7 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class CV extends Model
 {
-    protected $fillable = [
-        
-    ];
+    protected $table = 'cvs';
+    protected $fillable = ['cv_url', 'user_id'];
+
+    public function candidate()
+    {
+        return $this->hasOne('App\Model\Candidate');
+    }
 }
