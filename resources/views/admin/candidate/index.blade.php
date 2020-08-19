@@ -33,7 +33,7 @@
                                     <div class="fht-cell"></div>
                                 </th>
                                 <th>
-                                    <div class="th-inner sortable">@lang('custom.category')</div>
+                                    <div class="th-inner sortable">@lang('custom.email')</div>
                                     <div class="fht-cell"></div>
                                 </th>
                                 <th>
@@ -48,10 +48,9 @@
                             <tr>
                                 <td>{{$stt++}}</td>
                                 <td>{{$item->user->name}}</td>
-                                <td>{{$item->letter}}</td>
+                                <td>{{$item->user->email}}</td>
                                 <td class="text-center">
                                     <a href="{{route('candidates.show', $item['id'])}}" class="btn btn-info text-light view-profile" title="Xem"><em class="fa fa-eye"></em></a>
-                                    <a href="{{route('candidates.show', $item['id'])}}" class="btn btn-primary text-light" title="Xem"><em class="fa fa-random"></em></a>
                                 </td>
                             </tr>
                             @endforeach
@@ -96,7 +95,6 @@
                 $(".modal-body").html(results);
                 $("#exampleModalCenter").modal('show');
             }).fail(function (data) {
-                console.log(data);
             });
         });
 

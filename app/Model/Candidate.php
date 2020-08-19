@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Candidate extends Model
 {
-    protected $fillable = ['phone', 'address','letter', 'user_id', 'cv_id', 'job_id'];
+    protected $fillable = ['avatar', 'phone', 'address', 'user_id'];
     
     public function user()
     {
@@ -15,11 +15,6 @@ class Candidate extends Model
 
     public function cv()
     {
-        return $this->belongsTo('App\Model\CV');
+        return $this->hasMany('App\Model\CV');
     }
-
-    // public function job()
-    // {
-    //     return $this->belongsTo('App\Model\Job');
-    // }
 }
