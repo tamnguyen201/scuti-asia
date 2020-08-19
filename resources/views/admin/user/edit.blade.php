@@ -20,7 +20,7 @@
     <div class="panel panel-default">
        <div class="panel-heading">@lang('custom.page_title.information')</div>
        <div class="panel-body">
-            <form action="{{ route('admin.information.update', ['id'=>$informations->id]) }}" method="post" enctype="multipart/form-data">
+            <form action="{{ route('admin.information.update', ['id'=>$manager_information->id]) }}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="form-row">
                     <div class="col-md-6 mb-3">
@@ -31,8 +31,8 @@
                 <div class="form-row">
                     <div class="col-md-6 mb-3">
                         <label for="validationTooltip01">{{trans('custom.name')}} :</label>
-                        <input name="name" type="text" class="form-control" @error('name') is-invalid @enderror id="validationTooltip01" value="{{ $user_name }}" required>
-                        <input name="user_id"" type="hidden" class="form-control" id="validationTooltip01" value="{{ $user_id }}">
+                        <input name="name" type="text" class="form-control" @error('name') is-invalid @enderror id="validationTooltip01" value="{{ auth()->user()->name }}" required>
+                        <input name="user_id"" type="hidden" class="form-control" id="validationTooltip01" value="{{ $manager_information->user_id }}">
                         @error('name')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -43,7 +43,7 @@
                 <div class="form-row">
                     <div class="col-md-6 mb-3">
                         <label for="validationTooltip03">{{trans('custom.address')}} :</label>
-                        <input name="address" type="text" class="form-control" @error('address') is-invalid @enderror id="validationTooltip03" value="{{ $informations->address }}">
+                        <input name="address" type="text" class="form-control" @error('address') is-invalid @enderror id="validationTooltip03" value="{{ $manager_information->address }}">
                         @error('address')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -54,7 +54,7 @@
                 <div class="form-row">
                     <div class="col-md-6 mb-3">
                         <label for="validationTooltip03">{{trans('custom.phone')}} :</label>
-                        <input name="phone" type="text" class="form-control" @error('phone') is-invalid @enderror id="validationTooltip03" value="{{ $informations->phone }}">
+                        <input name="phone" type="text" class="form-control" @error('phone') is-invalid @enderror id="validationTooltip03" value="{{ $manager_information->phone }}">
                         @error('phone')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>

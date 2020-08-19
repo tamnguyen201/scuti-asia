@@ -25,10 +25,8 @@ class ProfileController extends Controller
 
     public function editInformation($id)
     {
-        $user_name = $this->managerRepository->show(1)->user->name;
-        $user_id = $this->managerRepository->show(1)->user->id;
-        $informations = $this->managerRepository->show($id);
-        return view('admin.user.edit', compact('informations', 'user_name', 'user_id'));
+        $manager_information = $this->managerRepository->show($id);
+        return view('admin.user.edit', compact('manager_information'));
     }
 
     public function updateInformation(ManagerRequest $request, $id)
