@@ -1,17 +1,17 @@
 @extends('admin.layout.layout')
-@section('title', 'Employees Manage')
+@section('title', trans('custom.page_title.company_image_manage'))
 @section('content')
 <div class="row">
     <ol class="breadcrumb">
         <li><a href="#">
             <em class="fa fa-home"></em>
         </a></li>
-        <li class="active">Images</li>
+        <li class="active">@lang('custom.page_title.company_image_manage')</li>
     </ol>
 </div>
 <div class="row">
     <div class="col-lg-12">
-        <h1 class="page-header">Images Manage</h1>
+        <h1 class="page-header">@lang('custom.page_title.company_image_manage')</h1>
     </div>
 </div>
 <div class="col-lg-12">
@@ -22,7 +22,7 @@
                 @csrf
                 <p>Upload new files:</p>
                 <label class="btn btn-default">
-                    <input type="file" name="image_url">
+                    <input type="file" name="image_url" accept="image/*">
                 </label>
                 <button class="btn btn-default">@lang('custom.button.submit')</button>
                 @error('image_url') 
