@@ -11,6 +11,6 @@ class CV extends Model
 
     public function candidate()
     {
-        return $this->hasOne('App\Model\Candidate');
+        return $this->belongsTo('App\Model\Candidate');
     }
 }
