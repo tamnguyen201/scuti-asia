@@ -54,7 +54,7 @@ class User extends Authenticatable
 
     public function hasRole($role)
     {
-        return \App\Model\Manager::where('user_id', \auth()->id)->where('role_id', $role)->first() ? true : false;
+        return \App\Model\Manager::where('user_id', \auth()->id())->where('role_id', $role)->first() ? true : false;
     }
 
     public function hasAnyRole($roles)

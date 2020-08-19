@@ -12,7 +12,7 @@ class CandidateRepository extends Repository implements CandidateRepositoryInter
 
     public function paginate($perPage = 15, $columns = array('*'))
     {
-        return $this->model->with(['user','category'])->paginate($perPage, $columns);
+        return $this->model->with(['user'])->paginate($perPage, $columns);
     }
 
     public function show($id)

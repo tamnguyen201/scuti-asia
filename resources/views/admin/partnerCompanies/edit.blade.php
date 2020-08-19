@@ -17,7 +17,7 @@
 </div>
 <div class="col-lg-12">
     <div class="panel panel-default">
-        <div class="panel-heading">Forms</div>
+        <div class="panel-heading">@lang('custom.page_title.form')</div>
         <div class="panel-body">
             <div class="col-md-12">
                 <form role="form" action="{{route('partner_companies.update', $partner->id)}}" method="POST" enctype="multipart/form-data">
@@ -42,7 +42,7 @@
                     <div class="col-md-6">
                         <div class="form-group @error('logo') has-error @enderror">
                             <label>@lang('custom.logo')</label>
-                            <input type="file" onchange="encodeImageFileAsURL(this)" name="logo">
+                            <input type="file" onchange="encodeImageFileAsURL(this)" name="logo" accept="image/*">
                             @error('logo') 
                             <span class="help-block"> {{$message}} </span>
                             @enderror
@@ -64,24 +64,5 @@
 </div>
 @endsection
 @section('script')
-    <script>
-        function encodeImageFileAsURL(element) {
-            var file = element.files[0];
-            if(file === undefined){
-                $(".preview-img").html(`<img src="default-img.png" alt="your image" class="img-responsive" />`);
-                $(".preview-img img").attr('src', "default-img.png");
-            } else if(file.type.indexOf('image/') == -1){
-                $(".preview-img").html(`<span class="text-danger">Vui lòng chọn file đúng định dạng ảnh</span>`);
-            } else {
-                $(".preview-img").html(`<img src="default-img.png" alt="your image" class="img-responsive" />`);
-                var reader = new FileReader();
-                reader.onloadend = function() {
-                    if(reader.result){
-                        $(".preview-img img").attr('src', reader.result);
-                    }
-                }
-                reader.readAsDataURL(file);
-            }
-        }
-    </script>
+    @include('admin.preview-img')
 @endsection

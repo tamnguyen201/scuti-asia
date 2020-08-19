@@ -27,7 +27,9 @@ return [
         'company_manage' => 'Quản Lý Thông Tin Công Ty',
         'company_image_manage' => 'Quản Lý Ảnh Công Ty',
         'partner_companies_manage' => 'Quản Lý Thông Tin Đốí Tác',
-        'candidate_manage' => 'Quản Lý Thông Tin Ứng Viên'
+        'candidate_manage' => 'Quản Lý Thông Tin Ứng Viên',
+        'data_table' => 'Bảng dữ liệu',
+        'form' => 'Mẫu điền thông tin',
     ],
 
     'table_lable' => [
