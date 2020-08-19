@@ -4,7 +4,9 @@
          <img src="http://placehold.it/50/30a5ff/fff" class="img-responsive" alt="">
       </div>
       <div class="profile-usertitle">
-         <div class="profile-usertitle-name">Username</div>
+         <a href="{{ route('admin.information') }}">
+            <div class="profile-usertitle-name">{{ auth()->user()->name }}</div>
+         </a>
          <div class="profile-usertitle-status"><span class="indicator label-success"></span>@lang('custom.menu.online')</div>
       </div>
       <div class="clear"></div>
@@ -73,3 +75,4 @@
       <li><a href="{{route('logout')}}"><em class="fa fa-power-off">&nbsp;</em> @lang('custom.menu.logout')</a></li>
    </ul>
 </div>
+
