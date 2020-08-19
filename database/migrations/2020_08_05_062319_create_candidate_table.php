@@ -19,12 +19,12 @@ class CreateCandidateTable extends Migration
             $table->string('phone');
             $table->string('address');
             $table->string('letter')->nullable();
-            $table->foreignId('category_id');
+            $table->foreignId('job_id');
             $table->foreignId('user_id');
             $table->foreignId('cv_id');
             $table->timestamps();
 
-            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
+            $table->foreign('job_id')->references('id')->on('jobs')->onDelete('cascade');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('cv_id')->references('id')->on('cvs')->onDelete('cascade');
         });

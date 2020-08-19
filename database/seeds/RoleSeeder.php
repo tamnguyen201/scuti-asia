@@ -20,6 +20,7 @@ class RoleSeeder extends Seeder
         \App\Model\CompanyImages::truncate();
         \App\Model\PartnerCompanies::truncate();
         \App\Model\Category::truncate();
+        //\App\Model\Job::truncate();
         \App\Model\CV::truncate();
         \App\Model\Candidate::truncate();
         DB::table('roles')->insert([
@@ -68,6 +69,13 @@ class RoleSeeder extends Seeder
             ['id'=>4,'user_id' => 1, 'category_name'=>'Html Css', 'slug' => 'html-css', 'status' => 1],
             ['id'=>5,'user_id' => 1, 'category_name'=>'ReactJs', 'slug' => 'reactjs', 'status' => 1],
         ]);
+        DB::table('jobs')->insert([
+            ['id'=>1,'category_id' => 1, 'name'=>'PHP job', 'slug' => 'abc', 'description'=> 'mô tả', 'location_id' => 1, 'expireDay' => '2020/08/15', 'status' =>1],
+            ['id'=>2,'category_id' => 2, 'name'=>'Node job', 'slug' => 'abc', 'description'=> 'mô tả', 'location_id' => 1, 'expireDay' => '2020/08/15', 'status' =>1],
+            ['id'=>3,'category_id' => 3, 'name'=>'java job', 'slug' => 'abc', 'description'=> 'mô tả', 'location_id' => 1, 'expireDay' => '2020/08/15', 'status' =>1],
+            ['id'=>4,'category_id' => 4, 'name'=>'FE job', 'slug' => 'abc', 'description'=> 'mô tả', 'location_id' => 1, 'expireDay' => '2020/08/15', 'status' =>1],
+            ['id'=>5,'category_id' => 5, 'name'=>'React job', 'slug' => 'abc', 'description'=> 'mô tả', 'location_id' => 1, 'expireDay' => '2020/08/15', 'status' =>1],
+        ]);
         DB::table('cvs')->insert([
             ['id'=>1,'user_id' => 5, 'cv_url'=>'https://miro.medium.com/max/1200/1*Eu6cAGjXNa0-ct_hlsH1yQ.jpeg'],
             ['id'=>2,'user_id' => 6, 'cv_url'=>'http://congstudio.vn/product_images/uploaded_images/chup_anh_profile_chuyen_nghiep_cong_studio_1_aztl4.jpg'],
@@ -76,11 +84,11 @@ class RoleSeeder extends Seeder
             ['id'=>5,'user_id' => 9, 'cv_url'=>'http://congstudio.vn/product_images/z/320/chup_anh_profile_tai_ha_noi_cong_studio_4__09337_thumb.jpg'],
         ]);
         DB::table('candidates')->insert([
-            ['id'=>1, 'phone'=>'0345678966', 'address' => 'HN', 'letter'=> 'Cảm ơn!', 'user_id'=> 5, 'cv_id' => 1, 'category_id' => 1],
-            ['id'=>2, 'phone'=>'0345678966', 'address' => 'HN', 'letter'=> 'Cảm ơn!', 'user_id'=> 6, 'cv_id' => 2, 'category_id' => 2],
-            ['id'=>3, 'phone'=>'0345678966', 'address' => 'HN', 'letter'=> 'Cảm ơn!', 'user_id'=> 7, 'cv_id' => 3, 'category_id' => 3],
-            ['id'=>4, 'phone'=>'0345678966', 'address' => 'HN', 'letter'=> 'Cảm ơn!', 'user_id'=> 8, 'cv_id' => 4, 'category_id' => 4],
-            ['id'=>5, 'phone'=>'0345678966', 'address' => 'HN', 'letter'=> 'Cảm ơn!', 'user_id'=> 9, 'cv_id' => 5, 'category_id' => 5],
+            ['id'=>1, 'phone'=>'0345678966', 'address' => 'HN', 'letter'=> 'Cảm ơn!', 'user_id'=> 5, 'cv_id' => 1, 'job_id' => 1],
+            ['id'=>2, 'phone'=>'0345678966', 'address' => 'HN', 'letter'=> 'Cảm ơn!', 'user_id'=> 6, 'cv_id' => 2, 'job_id' => 2],
+            ['id'=>3, 'phone'=>'0345678966', 'address' => 'HN', 'letter'=> 'Cảm ơn!', 'user_id'=> 7, 'cv_id' => 3, 'job_id' => 3],
+            ['id'=>4, 'phone'=>'0345678966', 'address' => 'HN', 'letter'=> 'Cảm ơn!', 'user_id'=> 8, 'cv_id' => 4, 'job_id' => 4],
+            ['id'=>5, 'phone'=>'0345678966', 'address' => 'HN', 'letter'=> 'Cảm ơn!', 'user_id'=> 9, 'cv_id' => 5, 'job_id' => 5],
         ]);
         Schema::enableForeignKeyConstraints();
     }

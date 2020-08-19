@@ -18,8 +18,8 @@ class Candidate extends Model
         return $this->belongsTo('App\Model\CV');
     }
 
-    public function category()
+    public function job()
     {
-        return $this->belongsTo('App\Model\Category');
+        return $this->belongsTo('App\Model\Job');
     }
 }

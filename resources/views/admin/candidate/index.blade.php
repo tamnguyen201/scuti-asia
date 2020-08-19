@@ -48,7 +48,7 @@
                             <tr>
                                 <td>{{$stt++}}</td>
                                 <td>{{$item->user->name}}</td>
-                                <td>{{$item->category->category_name}}</td>
+                                <td>{{$item->job->name}}</td>
                                 <td class="text-center">
                                     <a href="{{route('candidates.show', $item['id'])}}" class="btn btn-info text-light view-profile" title="Xem"><em class="fa fa-eye"></em></a>
                                     <a href="{{route('candidates.show', $item['id'])}}" class="btn btn-primary text-light" title="Xem"><em class="fa fa-random"></em></a>
