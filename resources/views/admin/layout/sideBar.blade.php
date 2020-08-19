@@ -70,6 +70,6 @@
             </li>
          </ul>
       </li>
-      <li><a href="login.html"><em class="fa fa-power-off">&nbsp;</em> @lang('custom.menu.logout')</a></li>
+      <li><a href="{{route('logout')}}"><em class="fa fa-power-off">&nbsp;</em> @lang('custom.menu.logout')</a></li>
    </ul>
 </div>

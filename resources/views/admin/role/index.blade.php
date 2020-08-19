@@ -1,26 +1,26 @@
 @extends('admin.layout.layout')
-@section('title', 'Roles Manage')
+@section('title', trans('custom.page_title.role_manage'))
 @section('content')
 <div class="row">
     <ol class="breadcrumb">
         <li><a href="#">
             <em class="fa fa-home"></em>
         </a></li>
-        <li class="active">Roles</li>
+        <li class="active">@lang('custom.page_title.role_manage')</li>
     </ol>
 </div>
 <div class="row">
     <div class="col-lg-12">
-        <h1 class="page-header">Roles Manage</h1>
+        <h1 class="page-header">@lang('custom.page_title.role_manage')</h1>
     </div>
 </div>
 <div class="col-lg-12">
     <div class="panel panel-default">
-        <div class="panel-heading">Data Table</div>
+        <div class="panel-heading">@lang('custom.page_title.data_table')</div>
         <div class="panel-body">
             <div class="bootstrap-table">
                 <div class="fixed-table-toolbar">
-                    <a href="{{route('roles.create')}}" class="btn btn-primary btn-add-form" style="float: right"><span class="fa fa-plus"></span> Add New</a>
+                    <a href="{{route('roles.create')}}" class="btn btn-primary btn-add-form" style="float: right"><span class="fa fa-plus"></span> @lang('custom.button.add')</a>
                 </div>
                 <div class="fixed-table-container">
                     <div class="fixed-table-body">
@@ -28,15 +28,15 @@
                             <thead>
                                 <tr>
                                     <th>
-                                        <div class="th-inner sortable">{{trans('custom.stt')}}</div>
+                                        <div class="th-inner sortable">@lang('custom.stt')</div>
                                         <div class="fht-cell"></div>
                                     </th>
                                     <th>
-                                        <div class="th-inner sortable">{{trans('custom.name')}}</div>
+                                        <div class="th-inner sortable">@lang('custom.name')</div>
                                         <div class="fht-cell"></div>
                                     </th>
                                     <th>
-                                        <div class="th-inner sortable text-center">{{trans('custom.action')}}</div>
+                                        <div class="th-inner sortable text-center">@lang('custom.action')</div>
                                         <div class="fht-cell"></div>
                                     </th>
                                 </tr>
@@ -79,7 +79,7 @@
                         </div>
                         <div class="modal-body"></div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">{{trans('custom.cancel')}}</button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">@lang('custom.button.close')</button>
                         </div>
                     </div>
                 </div>

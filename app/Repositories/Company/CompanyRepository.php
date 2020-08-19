@@ -12,11 +12,11 @@ class CompanyRepository extends Repository implements CompanyRepositoryInterface
 
     public function count()
     {
-        if($this->first()->count() == 1) {
-            return false;
+        if($this->first()->count() == 0) {
+            return true;
         }
 
-        return true;
+        return false;
     }
 
     public function first()
@@ -24,13 +24,23 @@ class CompanyRepository extends Repository implements CompanyRepositoryInterface
         return $this->model->first();
     }
 
-    public function update($results, $id)
+    public function create($results)
     {
         $data = $results;
-        if($results['logo']) {
+        if(array_key_exists("logo", $results)) {
             $data['logo'] = $this->upload($results['logo']);
         }
 
-        return $this->model->update($data, $id);
+        return $this->model->create($data);
+    }
+
+    public function update($results, $id)
+    {
+        $data = $results;
+        if(array_key_exists("logo", $results)) {
+            $data['logo'] = $this->upload($results['logo']);
+        }
+        
+        return $this->show($id)->update($data);
     }
 }

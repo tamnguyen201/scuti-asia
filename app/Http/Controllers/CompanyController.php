@@ -24,7 +24,7 @@ class CompanyController extends Controller
 
     public function create()
     {
-        if($this->companyRepository->count()) {
+        if(!$this->companyRepository->count()) {
             return redirect()->route('companies.index')->with('warning', trans('custom.alert_messages.warning'));
         }
 
@@ -33,10 +33,9 @@ class CompanyController extends Controller
 
     public function store(CompanyRequest $request)
     {
-        $this->roleRepository->create($request->all());
-        $roles = $this->roleRepository->paginate(10);
-        $html = view('admin.role.list', compact('roles'))->render();
-        return response()->json($html);
+        $this->companyRepository->create($request->all());
+        return redirect()->route('companies.index')->with('success', trans('custom.alert_messages.success'));
+
     }
 
     public function edit($id)
@@ -51,7 +50,7 @@ class CompanyController extends Controller
         
         $this->companyRepository->update($request->all(), $id);
 
-        return redirect()->view('admin.company.index')->with('success', config('common.success'));
+        return redirect()->route('companies.index')->with('success', trans('custom.alert_messages.success'));
     }
 
 }

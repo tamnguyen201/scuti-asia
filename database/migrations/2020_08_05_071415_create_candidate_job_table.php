@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCalidateJobTable extends Migration
+class CreateCandidateJobTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class CreateCalidateJobTable extends Migration
      */
     public function up()
     {
-        Schema::create('calidate_job', function (Blueprint $table) {
+        Schema::create('candidate_job', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('canidate_id');
+            $table->foreignId('candidate_id');
             $table->foreignId('job_id');
 
-            $table->foreign('canidate_id')->references('id')->on('canidates')->onDelete('cascade');
+            $table->foreign('candidate_id')->references('id')->on('candidates')->onDelete('cascade');
             $table->foreign('job_id')->references('id')->on('jobs')->onDelete('cascade');
         });
     }
@@ -30,6 +30,6 @@ class CreateCalidateJobTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('calidate_job');
+        Schema::dropIfExists('candidate_job');
     }
 }

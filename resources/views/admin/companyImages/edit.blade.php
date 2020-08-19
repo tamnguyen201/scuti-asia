@@ -1,0 +1,52 @@
+
+@extends('admin.layout.layout')
+@section('title', trans('custom.page_title.company_image_manage'))
+@section('content')
+<div class="row">
+    <ol class="breadcrumb">
+        <li><a href="#">
+            <em class="fa fa-home"></em>
+        </a></li>
+        <li class="active">@lang('custom.page_title.company_image_manage')</li>
+    </ol>
+</div>
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">@lang('custom.page_title.company_image_manage')</h1>
+    </div>
+</div>
+<div class="col-lg-12">
+    <div class="panel panel-default">
+        <div class="panel-heading">@lang('custom.page_title.form')</div>
+        <div class="panel-body">
+            <div class="col-md-12">
+                <form role="form" action="{{route('company_images.update', $image->id)}}" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    @method('PUT')
+                    <div class="col-md-6">
+                        <div class="form-group @error('image_url') has-error @enderror">
+                            <label>@lang('custom.image_url')</label>
+                            <input type="file" onchange="encodeImageFileAsURL(this)" name="image_url" accept="image/*">
+                            @error('image_url') 
+                            <span class="help-block"> {{$message}} </span>
+                            @enderror
+                        </div>
+                        <div class="form-group preview-img">
+                            <img src="{{$image->image_url}}" alt="your image" class="img-responsive" />
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-12 text-center">
+                        <button type="submit" class="btn btn-primary">@lang('custom.button.submit')</button>
+                        <button type="reset" class="btn btn-default">@lang('custom.button.reset')</button>
+                        <a href="{{route('company_images.index')}}" class="btn btn-danger">@lang('custom.button.cancel')</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+@endsection
+@section('script')
+    @include('admin.preview-img')
+@endsection

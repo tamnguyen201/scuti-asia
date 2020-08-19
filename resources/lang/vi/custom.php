@@ -7,6 +7,7 @@ return [
     'phone' => 'SĐT',
     'address' => 'Địa chỉ',
     'avatar' => 'Ảnh đại diện',
+    'image_url' => 'File Ảnh',
     'logo' => 'Ảnh Logo',
     'description' => 'Mô Tả',
     'role' => 'Quyền',
@@ -20,7 +21,10 @@ return [
         'profile' => 'Thông tin cá nhân',
         'role_manage' => 'Quản Lý Quyền',
         'company_manage' => 'Quản Lý Thông Tin Công Ty',
-        'company_image_manage' => 'Quản Lý Ảnh Công Ty'
+        'company_image_manage' => 'Quản Lý Ảnh Công Ty',
+        'partner_companies_manage' => 'Quản Lý Thông Tin Đốí Tác',
+        'data_table' => 'Bảng dữ liệu',
+        'form' => 'Mẫu điền thông tin',
     ],
 
     'table_lable' => [
@@ -61,7 +65,7 @@ return [
 
     'alert_messages' => [
         'success' => 'Thành công!',
-        'warning' => 'Cảnh báo!',
+        'warning' => 'Cảnh báo dữ liệu này đã có sẵn, vui lòng không tạo mới!',
         'error' => 'Lỗi',
     ]
 
