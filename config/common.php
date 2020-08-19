@@ -1,16 +1,10 @@
 <?php
 
 return [
-
     'role' => [
+        'User'          => 0,
         'Administrator' => 1,
         'Interviewer'   => 2,
         'BackOffice'    => 3,
-        'User'          => 4,
-
     ],
-
-    'alert_messages' => [
-        'success' => 'Thành công!',
-    ]
 ];
