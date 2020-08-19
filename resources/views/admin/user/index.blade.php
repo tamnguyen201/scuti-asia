@@ -6,17 +6,17 @@
         <li><a href="#">
             <em class="fa fa-home"></em>
         </a></li>
-        <li class="active">Users</li>
+        <li class="active">@lang('custom.page_title.user')</li>
     </ol>
 </div>
 <div class="row">
     <div class="col-lg-12">
-        <h1 class="page-header">Users Manage</h1>
+        <h1 class="page-header">@lang('custom.page_title.user_manager')</h1>
     </div>
 </div>
 <div class="col-lg-12">
     <div class="panel panel-default">
-        <div class="panel-heading">Data Table</div>
+        <div class="panel-heading">@lang('custom.page_title.data_table')</div>
         <div class="panel-body">
             <div class="bootstrap-table">
                 <div class="fixed-table-container">

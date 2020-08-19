@@ -17,5 +17,6 @@ return [
     'sent' => 'Chúng tôi đã gửi cho bạn đường dẫn thay đổi mật khẩu!',
     'token' => 'Mã xác nhận mật khẩu không hợp lệ.',
     'user' => 'Không tìm thấy thành viên với địa chỉ email này.',
+    'match' => 'Mật khẩu không khớp với mật khẩu cũ'
 
 ];

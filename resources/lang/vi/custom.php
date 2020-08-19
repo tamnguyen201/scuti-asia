@@ -18,6 +18,9 @@ return [
     'action' => 'Thao tác',
     'facebook' => 'Nhóm Facebook',
     'youtube' => 'Kênh Youttube',
+    'old_pass' =>'Mật khẩu cũ',
+    'new_pass' =>'Mật khẩu mới',
+    'confirm_pass' =>'Xác nhận mật khẩu',
     
     'page_title' => [
         'user_manage' => 'Quản Lý Người Dùng',
@@ -30,6 +33,13 @@ return [
         'candidate_manage' => 'Quản Lý Thông Tin Ứng Viên',
         'data_table' => 'Bảng dữ liệu',
         'form' => 'Mẫu điền thông tin',
+        'user' =>'Người dùng',
+        'user_update_profile' => 'Cập nhật thông tin người dùng',
+        'update_manager'=>'Quản lý cập nhật',
+        'change_password' =>'Đổi mật khẩu',
+        'user_profile'=>'Thông tin người dùng',
+        'information'=>'Thông tin',
+        'user_manager'=>'Quản lý người dùng'
     ],
 
     'table_lable' => [
@@ -42,7 +52,9 @@ return [
         'submit' => 'Gửi',
         'cancel' => 'Hủy',
         'reset' => 'Làm mới',
-        'close' => 'Đóng'
+        'close' => 'Đóng',
+        'update_information' => 'Đổi thông tin',
+        'change_password' =>'Đổi mật khẩu'
     ],
 
     'menu' => [
