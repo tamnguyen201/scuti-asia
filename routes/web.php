@@ -37,5 +37,8 @@ Route::group(
         Route::post('/updateformation/{id}', 'ProfileController@updateInformation')->name('admin.information.update');
         Route::get('change-password', 'ChangePasswordController@index')->name('change.password');
         Route::post('change-password', 'ChangePasswordController@store')->name('changed.password');
+        Route::resource('companies', 'CompanyController');
+        Route::resource('company_images', 'CompanyImagesController');
+        Route::resource('partner_companies', 'PartnerCompaniesController');
     }
 );

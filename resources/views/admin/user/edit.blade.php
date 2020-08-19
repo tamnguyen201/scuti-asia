@@ -8,17 +8,17 @@
         <li><a href="#">
             <em class="fa fa-home"></em>
         </a></li>
-        <li class="active">User Profile</li>
+        <li class="active">@lang('custom.page_title.user_profile')</li>
     </ol>
 </div>
 <div class="row">
     <div class="col-lg-12">
-        <h1 class="page-header">User Profile Manage</h1>
+        <h1 class="page-header">@lang('custom.page_title.user_profile')</h1>
     </div>
 </div>
 <div class="col-lg-12">
     <div class="panel panel-default">
-       <div class="panel-heading">Information</div>
+       <div class="panel-heading">@lang('custom.page_title.information')</div>
        <div class="panel-body">
             <form action="{{ route('admin.information.update', ['id'=>$informations->id]) }}" method="post" enctype="multipart/form-data">
                 @csrf
@@ -63,7 +63,7 @@
                     </div>
                 </div>
                 <div class="col-md-12">
-                    <button class="btn-editInfor btn btn-primary ml-4" type="submit">{{trans('custom.submit')}}</button>
+                    <button class="btn-editInfor btn btn-primary ml-4" type="submit">{{trans('custom.button.submit')}}</button>
                 </div> 
             </form>
         </div>

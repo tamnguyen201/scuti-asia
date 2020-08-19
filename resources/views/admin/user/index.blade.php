@@ -6,17 +6,17 @@
         <li><a href="#">
             <em class="fa fa-home"></em>
         </a></li>
-        <li class="active">Users</li>
+        <li class="active">@lang('custom.page_title.user')</li>
     </ol>
 </div>
 <div class="row">
     <div class="col-lg-12">
-        <h1 class="page-header">Users Manage</h1>
+        <h1 class="page-header">@lang('custom.page_title.user_manager')</h1>
     </div>
 </div>
 <div class="col-lg-12">
     <div class="panel panel-default">
-        <div class="panel-heading">Data Table</div>
+        <div class="panel-heading">@lang('custom.page_title.data_table')</div>
         <div class="panel-body">
             <div class="bootstrap-table">
                 <div class="fixed-table-container">
@@ -29,19 +29,19 @@
                         <thead>
                             <tr>
                                 <th>
-                                <div class="th-inner sortable">{{trans('custom.stt')}}</div>
+                                <div class="th-inner sortable">@lang('custom.stt')</div>
                                 <div class="fht-cell"></div>
                                 </th>
                                 <th>
-                                    <div class="th-inner sortable">{{trans('custom.name')}}</div>
+                                    <div class="th-inner sortable">@lang('custom.name')</div>
                                     <div class="fht-cell"></div>
                                 </th>
                                 <th>
-                                    <div class="th-inner sortable">{{trans('custom.email')}}</div>
+                                    <div class="th-inner sortable">@lang('custom.email')</div>
                                     <div class="fht-cell"></div>
                                 </th>
                                 <th>
-                                    <div class="th-inner sortable text-center">{{trans('custom.action')}}</div>
+                                    <div class="th-inner sortable text-center">@lang('custom.action')</div>
                                     <div class="fht-cell"></div>
                                 </th>
                             </tr>
@@ -60,10 +60,10 @@
                             @endforeach
                         </tbody>
                     </table>
-                    </div>
                     <div class="fixed-table-pagination">
-                    <div class="pull-right pagination">
-                        {{$users->links()}}
+                        <div class="pull-right pagination">
+                            {{$users->links()}}
+                        </div>
                     </div>
                     </div>
                 </div>
@@ -73,14 +73,14 @@
                 <div class="modal-dialog modal-dialog-centered modal-md" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle">{{trans('custom.profile')}}</h5>
+                    <h5 class="modal-title" id="exampleModalLongTitle">@lang('custom.page_title.profile')</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                     </div>
                     <div class="modal-body"></div>
                     <div class="modal-footer" style="border-top: none">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">{{trans('custom.cancel')}}</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">@lang('custom.button.close')</button>
                     </div>
                 </div>
                 </div>
