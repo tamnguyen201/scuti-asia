@@ -35,5 +35,7 @@ Route::group(
         Route::get('/showinformation', 'ProfileController@showInformation')->name('admin.information');
         Route::get('/updateformation/{id}', 'ProfileController@editInformation')->name('admin.information.edit');
         Route::post('/updateformation/{id}', 'ProfileController@updateInformation')->name('admin.information.update');
+        Route::get('change-password', 'ChangePasswordController@index')->name('change.password');
+        Route::post('change-password', 'ChangePasswordController@store')->name('changed.password');
     }
 );

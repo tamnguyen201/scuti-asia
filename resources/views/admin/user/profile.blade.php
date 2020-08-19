@@ -49,7 +49,7 @@
                             <a href="{{ route('admin.information.edit', ['id'=> $item->id]) }}" class="btn btn-primary btn-add-form"><i class="fa fa-edit"> Update Information</i></a>
                         </div>
                         <div class="col-md-4">
-                            <a href="" class="btn btn-primary btn-add-form"><i class="fa fa-unlock"> Change password</i></a>
+                            <a href="{{ route('change.password') }}" class="btn btn-primary btn-add-form"><i class="fa fa-unlock"> Change password</i></a>
                         </div>
                     </div>
                 </div>
