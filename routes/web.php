@@ -21,7 +21,7 @@ Route::get('/logout', 'AdminController@logout')->name('logout');
 Route::get('/forgot', 'AdminController@forgot');
 
 Route::group(
-        ['prefix'=>'admin'], function () {
+        ['prefix'=>'admin', 'middleware' => 'CheckManager'], function () {
 
         Route::get('/', 'AdminController@index')->name('admin.home');
 
@@ -40,5 +40,6 @@ Route::group(
         Route::resource('companies', 'CompanyController');
         Route::resource('company_images', 'CompanyImagesController');
         Route::resource('partner_companies', 'PartnerCompaniesController');
+        Route::resource('candidates', 'CandidateController')->only(['index', 'show']);
     }
 );

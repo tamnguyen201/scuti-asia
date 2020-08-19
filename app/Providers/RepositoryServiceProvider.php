@@ -50,6 +50,10 @@ class RepositoryServiceProvider extends ServiceProvider
             \App\Repositories\Company\PartnerCompaniesRepository::class,
 
         );
+        $this->app->singleton(
+            \App\Repositories\Candidate\CandidateRepositoryInterface::class,
+            \App\Repositories\Candidate\CandidateRepository::class,
+        );
     }
 
     /**

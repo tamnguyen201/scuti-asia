@@ -17,7 +17,7 @@
       <li><a href="widgets.html"><em class="fa fa-calendar">&nbsp;</em> @lang('custom.menu.calendar') </a></li>
       <li class="parent ">
          <a data-toggle="collapse" href="#sub-item-1">
-         <em class="fa fa-users">&nbsp;</em> @lang('custom.menu.member') <span data-toggle="collapse" href="#sub-item-1" class="icon pull-right"><em class="fa fa-plus"></em></span>
+            <em class="fa fa-users">&nbsp;</em> @lang('custom.menu.member') <span data-toggle="collapse" href="#sub-item-1" class="icon pull-right"><em class="fa fa-plus"></em></span>
          </a>
          <ul class="children collapse" id="sub-item-1">
             <li><a class="" href="{{route('employees.index')}}">
@@ -32,23 +32,23 @@
       </li>
       <li class="parent ">
          <a data-toggle="collapse" href="#sub-item-2">
-         <em class="fa fa-child">&nbsp;</em> @lang('custom.menu.canidate') <span data-toggle="collapse" href="#sub-item-2" class="icon pull-right"><em class="fa fa-plus"></em></span>
+            <em class="fa fa-child">&nbsp;</em> @lang('custom.menu.canidate') <span data-toggle="collapse" href="#sub-item-2" class="icon pull-right"><em class="fa fa-plus"></em></span>
          </a>
          <ul class="children collapse" id="sub-item-2">
-            <li><a class="" href="{{route('users.index')}}">
+            <li><a class="" href="{{route('candidates.index')}}">
                <span class="fa fa-arrow-right">&nbsp;</span> @lang('custom.menu.list')
                </a>
             </li>
             <li><a class="" href="{{route('users.index')}}">
-               <span class="fa fa-arrow-right">&nbsp;</span> Evaluating
+               <span class="fa fa-arrow-right">&nbsp;</span> @lang('custom.menu.evaluating')
                </a>
             </li>
             <li><a class="" href="{{route('users.index')}}">
-               <span class="fa fa-arrow-right">&nbsp;</span> Finishing
+               <span class="fa fa-arrow-right">&nbsp;</span> @lang('custom.menu.finishing')
                </a>
             </li>
             <li><a class="" href="{{route('users.index')}}">
-               <span class="fa fa-arrow-right">&nbsp;</span> Failed
+               <span class="fa fa-arrow-right">&nbsp;</span> @lang('custom.menu.failed')
                </a>
             </li>
          </ul>

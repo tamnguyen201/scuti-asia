@@ -19,6 +19,10 @@ class RoleSeeder extends Seeder
         \App\Model\Company::truncate();
         \App\Model\CompanyImages::truncate();
         \App\Model\PartnerCompanies::truncate();
+        \App\Model\Category::truncate();
+        //\App\Model\Job::truncate();
+        \App\Model\Candidate::truncate();
+        \App\Model\CV::truncate();
         DB::table('roles')->insert([
             ['id'=>1, 'name' => 'Administrator'],
             ['id'=>2, 'name' => 'Interviewer'],
@@ -39,7 +43,7 @@ class RoleSeeder extends Seeder
             ['id'=>1, 'user_id' => 1, 'role_id' => 1, 'phone'=>'0366668888', 'address'=>'68 Nguyễn Cơ Thạch, Nam Từ Liêm, Hn', 'avatar'=>'https://miro.medium.com/max/1200/1*Eu6cAGjXNa0-ct_hlsH1yQ.jpeg'],
             ['id'=>2, 'user_id' => 2, 'role_id' => 1, 'phone'=>'0366668888', 'address'=>'68 Nguyễn Cơ Thạch, Nam Từ Liêm, Hn', 'avatar'=>'http://congstudio.vn/product_images/uploaded_images/chup_anh_profile_chuyen_nghiep_cong_studio_1_aztl4.jpg'],
             ['id'=>3, 'user_id' => 3, 'role_id' => 2, 'phone'=>'0366668888', 'address'=>'68 Nguyễn Cơ Thạch, Nam Từ Liêm, Hn', 'avatar'=>'http://congstudio.vn/product_images/z/320/chup_anh_profile_tai_ha_noi_cong_studio_4__09337_thumb.jpg'],
-            ['id'=>4, 'user_id' => 5, 'role_id' => 3, 'phone'=>'0366668888', 'address'=>'68 Nguyễn Cơ Thạch, Nam Từ Liêm, Hn', 'avatar'=>'http://congstudio.vn/product_images/z/320/chup_anh_profile_tai_ha_noi_cong_studio_4__09337_thumb.jpg'],
+            ['id'=>4, 'user_id' => 4, 'role_id' => 3, 'phone'=>'0366668888', 'address'=>'68 Nguyễn Cơ Thạch, Nam Từ Liêm, Hn', 'avatar'=>'http://congstudio.vn/product_images/z/320/chup_anh_profile_tai_ha_noi_cong_studio_4__09337_thumb.jpg'],
         ]);
         DB::table('companies')->insert([
             ['id'=>1, 'name' => 'scuti', 'description' => 'Make service people love!', 'email' => 'scuti-asia@gmail.com', 'phone'=>'0999999999', 'address'=>'68 Nguyễn Cơ Thạch, Nam Từ Liêm, Hn', 'logo'=>'https://miro.medium.com/max/1200/1*Eu6cAGjXNa0-ct_hlsH1yQ.jpeg', 'facebook_page' => 'https://fb.com/scuti', 'youtube_page' => 'youtube.com.vn/scuti'],
@@ -57,6 +61,34 @@ class RoleSeeder extends Seeder
             ['id'=>3, 'name' => 'Viettel', 'logo'=>'http://congstudio.vn/product_images/z/320/chup_anh_profile_tai_ha_noi_cong_studio_4__09337_thumb.jpg'],
             ['id'=>4, 'name' => 'Shopee', 'logo'=>'http://congstudio.vn/product_images/z/320/chup_anh_profile_tai_ha_noi_cong_studio_4__09337_thumb.jpg'],
             ['id'=>5, 'name' => 'Tiki', 'logo'=>'http://congstudio.vn/product_images/z/320/chup_anh_profile_tai_ha_noi_cong_studio_4__09337_thumb.jpg'],
+        ]);
+        DB::table('categories')->insert([
+            ['id'=>1,'user_id' => 1, 'category_name'=>'PHP', 'slug' => 'php', 'status' => 1],
+            ['id'=>2,'user_id' => 1, 'category_name'=>'NodeJs', 'slug' => 'nodejs', 'status' => 1],
+            ['id'=>3,'user_id' => 1, 'category_name'=>'Java', 'slug' => 'java', 'status' => 1],
+            ['id'=>4,'user_id' => 1, 'category_name'=>'Html Css', 'slug' => 'html-css', 'status' => 1],
+            ['id'=>5,'user_id' => 1, 'category_name'=>'ReactJs', 'slug' => 'reactjs', 'status' => 1],
+        ]);
+        DB::table('jobs')->insert([
+            ['id'=>1,'category_id' => 1, 'name'=>'PHP job', 'slug' => 'abc', 'description'=> 'mô tả', 'location_id' => 1, 'expireDay' => '2020/08/15', 'status' =>1],
+            ['id'=>2,'category_id' => 2, 'name'=>'Node job', 'slug' => 'abc', 'description'=> 'mô tả', 'location_id' => 1, 'expireDay' => '2020/08/15', 'status' =>1],
+            ['id'=>3,'category_id' => 3, 'name'=>'java job', 'slug' => 'abc', 'description'=> 'mô tả', 'location_id' => 1, 'expireDay' => '2020/08/15', 'status' =>1],
+            ['id'=>4,'category_id' => 4, 'name'=>'FE job', 'slug' => 'abc', 'description'=> 'mô tả', 'location_id' => 1, 'expireDay' => '2020/08/15', 'status' =>1],
+            ['id'=>5,'category_id' => 5, 'name'=>'React job', 'slug' => 'abc', 'description'=> 'mô tả', 'location_id' => 1, 'expireDay' => '2020/08/15', 'status' =>1],
+        ]);
+        DB::table('candidates')->insert([
+            ['id'=>1, 'phone'=>'0345678966', 'address' => 'HN', 'user_id'=> 5],
+            ['id'=>2, 'phone'=>'0345678966', 'address' => 'HN', 'user_id'=> 6],
+            ['id'=>3, 'phone'=>'0345678966', 'address' => 'HN', 'user_id'=> 7],
+            ['id'=>4, 'phone'=>'0345678966', 'address' => 'HN', 'user_id'=> 8],
+            ['id'=>5, 'phone'=>'0345678966', 'address' => 'HN', 'user_id'=> 9],
+        ]);
+        DB::table('cvs')->insert([
+            ['id'=>1,'candidate_id' => 1, 'cv_url'=>'https://miro.medium.com/max/1200/1*Eu6cAGjXNa0-ct_hlsH1yQ.jpeg'],
+            ['id'=>2,'candidate_id' => 2, 'cv_url'=>'http://congstudio.vn/product_images/uploaded_images/chup_anh_profile_chuyen_nghiep_cong_studio_1_aztl4.jpg'],
+            ['id'=>3,'candidate_id' => 3, 'cv_url'=>'http://congstudio.vn/product_images/z/320/chup_anh_profile_tai_ha_noi_cong_studio_4__09337_thumb.jpg'],
+            ['id'=>4,'candidate_id' => 4, 'cv_url'=>'http://congstudio.vn/product_images/z/320/chup_anh_profile_tai_ha_noi_cong_studio_4__09337_thumb.jpg'],
+            ['id'=>5,'candidate_id' => 5, 'cv_url'=>'http://congstudio.vn/product_images/z/320/chup_anh_profile_tai_ha_noi_cong_studio_4__09337_thumb.jpg'],
         ]);
         Schema::enableForeignKeyConstraints();
     }
