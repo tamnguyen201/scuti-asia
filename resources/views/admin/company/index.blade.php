@@ -16,7 +16,7 @@
 </div>
 <div class="col-lg-12">
     <div class="panel panel-default">
-        <div class="panel-heading">Data Table</div>
+        <div class="panel-heading">@lang('custom.page_title.data_table')</div>
         <div class="panel-body">
             <div class="bootstrap-table">
                 <div class="fixed-table-toolbar">

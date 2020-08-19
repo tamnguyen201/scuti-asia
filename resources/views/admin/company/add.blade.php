@@ -17,7 +17,7 @@
 </div>
 <div class="col-lg-12">
     <div class="panel panel-default">
-        <div class="panel-heading">Forms</div>
+        <div class="panel-heading">@lang('custom.page_title.form')</div>
         <div class="panel-body">
             <div class="col-md-12">
                 <form role="form" action="{{route('companies.store')}}" method="POST" enctype="multipart/form-data">

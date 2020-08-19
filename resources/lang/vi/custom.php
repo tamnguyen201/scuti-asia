@@ -22,7 +22,9 @@ return [
         'role_manage' => 'Quản Lý Quyền',
         'company_manage' => 'Quản Lý Thông Tin Công Ty',
         'company_image_manage' => 'Quản Lý Ảnh Công Ty',
-        'partner_companies_manage' => 'Quản Lý Thông Tin Đốí Tác'
+        'partner_companies_manage' => 'Quản Lý Thông Tin Đốí Tác',
+        'data_table' => 'Bảng dữ liệu',
+        'form' => 'Mẫu điền thông tin',
     ],
 
     'table_lable' => [
