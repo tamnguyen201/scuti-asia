@@ -45,6 +45,10 @@ class RepositoryServiceProvider extends ServiceProvider
             \App\Repositories\Company\PartnerCompaniesRepositoryInterface::class,
             \App\Repositories\Company\PartnerCompaniesRepository::class,
         );
+        $this->app->singleton(
+            \App\Repositories\Manager\ManagerRepositoryInterface::class,
+            \App\Repositories\Manager\ManagerRepository::class
+        );
     }
 
     /**

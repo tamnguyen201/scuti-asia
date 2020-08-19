@@ -32,7 +32,7 @@
                                             <div class="fht-cell"></div>
                                         </th>
                                         <th>
-                                            <div class="th-inner sortable">{{trans('custom.name')}}</div>
+                                            <div class="th-inner sortable"></div>
                                             <div class="fht-cell"></div>
                                         </th>
                                         <th>

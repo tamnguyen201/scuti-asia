@@ -35,5 +35,8 @@ Route::group(
         Route::resource('companies', 'CompanyController');
         Route::resource('company_images', 'CompanyImagesController');
         Route::resource('partner_companies', 'PartnerCompaniesController');
+        Route::get('/showinformation', 'ProfileController@showInformation')->name('admin.information');
+        Route::get('/updateformation/{id}', 'ProfileController@editInformation')->name('admin.information.edit');
+        Route::post('/updateformation/{id}', 'ProfileController@updateInformation')->name('admin.information.update');
     }
 );
