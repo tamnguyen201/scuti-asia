@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Model\Job;
 use App\Model\Category;
 use Illuminate\Support\Str;
+use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 use App\Http\Requests\JobRequest;
 use App\Http\Requests\JobUpdateRequest;
 use App\Repositories\Job\JobRepositoryInterface;
@@ -21,9 +22,9 @@ class JobController extends Controller
     private $htmlSelectLocation;
 
     public function __construct(
-    JobRepositoryInterface $jobRepository,
-    CategoryRepositoryInterface $categoryRepository,
-    LocationRepositoryInterface $locationRepository)
+        JobRepositoryInterface $jobRepository,
+        CategoryRepositoryInterface $categoryRepository,
+        LocationRepositoryInterface $locationRepository)
     {
         $this->jobRepository = $jobRepository;
         $this->categoryRepository = $categoryRepository;
@@ -42,25 +43,19 @@ class JobController extends Controller
     {
         $htmlOptionCategory = $this->getCategory();
         $htmlOptionLocation = $this->getLocation();
-        return view("admin.job.create", compact('htmlOptionCategory','htmlOptionLocation'));
+        return view("admin.job.create", compact('htmlOptionCategory', 'htmlOptionLocation'));
     }
 
     public function getCategory()
     {
         $data = $this->categoryRepository->all();
-        foreach ($data as $value) {
-            $this->htmlSelectCategory .= "<option value='" . $value['id'] . "'>"  . $value['category_name'] . "</option>";
-        }
-        return $this->htmlSelectCategory;
+        return $this->jobRepository->getListCategoryAdd($data);
     }
 
     public function getLocation()
     {
         $data = $this->locationRepository->all();
-        foreach ($data as $value) {
-            $this->htmlSelectLocation .= "<option value='" . $value['id'] . "'>"  . $value['name'] . "</option>";
-        }
-        return $this->htmlSelectLocation;
+        return $this->jobRepository->getListLocationAdd($data);
     }
 
     public function store(JobRequest $request)
@@ -73,6 +68,21 @@ class JobController extends Controller
             'expireDay' => $request->expire_date,
             'description' => $request->description
         ]);
-        dd($dataCreate);
+        return redirect()->route('jobs.index');
+    }
+
+    public function updateStatus(Request $request)
+    {
+        $job = $this->jobRepository->show($request->job_id);
+        $job->status = $request->status;
+        $job->save();
+
+        return response()->json(['success' => config('common.alert_messages.success')]);
+    }
+
+    public function detail($id)
+    {
+        $jobById = $this->jobRepository->show($id);
+        return view("admin.job.detail", compact('jobById'));
     }
 }

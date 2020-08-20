@@ -37,6 +37,23 @@ class RepositoryServiceProvider extends ServiceProvider
             \App\Repositories\Job\JobRepositoryInterface::class,
             \App\Repositories\Job\JobRepository::class
         );
+        $this->app->singleton(
+            \App\Repositories\Manager\ManagerRepositoryInterface::class,
+            \App\Repositories\Manager\ManagerRepository::class
+        );
+        $this->app->singleton(
+            \App\Repositories\Company\CompanyRepositoryInterface::class,
+            \App\Repositories\Company\CompanyRepository::class,
+        );
+        $this->app->singleton(
+            \App\Repositories\Company\CompanyImagesRepositoryInterface::class,
+            \App\Repositories\Company\CompanyImagesRepository::class,
+        );
+        $this->app->singleton(
+            \App\Repositories\Company\PartnerCompaniesRepositoryInterface::class,
+            \App\Repositories\Company\PartnerCompaniesRepository::class,
+
+        );
     }
 
     /**

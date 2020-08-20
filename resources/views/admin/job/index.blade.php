@@ -1,4 +1,8 @@
 @extends('admin.layout.layout')
+@section('css')
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/switchery/0.8.2/switchery.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+@endsection
 @section('content')
 <div class="row">
     <ol class="breadcrumb">
@@ -35,7 +39,7 @@
                                         <div class="fht-cell"></div>
                                     </th>
                                     <th style="">
-                                        <div class="th-inner sortable">Location :<span class="order"><span class="caret" style="margin: 10px 5px;"></span></span></div>
+                                        <div class="th-inner sortable">Status :<span class="order"><span class="caret" style="margin: 10px 5px;"></span></span></div>
                                         <div class="fht-cell"></div>
                                     </th>
                                     <th style="">
@@ -45,12 +49,24 @@
                                 </tr>
                             </thead>
                             <tbody class="table-list-role">
-                                {{-- @foreach($categories as $item) --}}
+                                @foreach($jobs as $item)
                                 <tr class="data-role-">
-                                    <td></td>
-                                    <td></td>
+                                    <td>{{ $item->name }}</td>
+                                    <td>{{ $item->category->category_name }}</td>
+                                    <td>
+                                        <input type="checkbox" data-id="{{ $item->id }}" name="status" class="js-switch" {{ $item->status == 1 ? 'checked' : '' }}>
+                                    </td>
+                                    <td class="text-center">
+                                        <a href="{{ route('job.detail', ['id' => $item->id]) }}" class="btn btn-primary text-light view-profile"><em class="fa fa-eye"></em></a>
+                                        <a href="" class="btn btn-primary text-light"><em class="far fa-edit"></em></a> 
+                                        <form action="" method="post" class="form-delete-{{$item->id}}" style="display: inline">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button class="btn btn-danger text-light delete-confirm" idDelete={{$item->id}}><em class="fas fa-trash-alt"></em></button>
+                                        </form>
+                                    </td>
                                 </tr>
-                                {{-- @endforeach --}}
+                                @endforeach
                             </tbody>
                         </table>
                         <div class="fixed-table-pagination">
@@ -90,4 +106,33 @@
        </div>
     </div>
  </div>
+@endsection
+@section('script')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/switchery/0.8.2/switchery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script>
+        let elems = Array.prototype.slice.call(document.querySelectorAll('.js-switch'));
+        elems.forEach(function(html) {
+            let switchery = new Switchery(html,  { size: 'small' });
+        });
+
+        $(document).ready(function(){
+            $('.js-switch').change(function () {
+                let status = $(this).prop('checked') === true ? 1 : 0;
+                let job_id = $(this).data('id');
+                $.ajax({
+                    type: "GET",
+                    dataType: "json",
+                    url: '{{ route('job.update.status') }}',
+                    data: {'status': status, 'job_id': job_id},
+                    success: function (data) {
+                        toastr.options.closeButton = true;
+                        toastr.options.closeMethod = 'fadeOut';
+                        toastr.options.closeDuration = 100;
+                        toastr.success(data.success);
+                    }
+                });
+            });
+        });
+    </script>
 @endsection

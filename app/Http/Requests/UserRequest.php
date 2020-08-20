@@ -3,8 +3,9 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use App\Rules\MatchOldPassword;
 
-class EmployeeRequest extends FormRequest
+class UserRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,10 +25,9 @@ class EmployeeRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required',
-            'email' => 'required|email|unique:users,email' . $this->id,
-            'phone' => 'required',
-            'avatar' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+            'current_password' => ['required', new MatchOldPassword],
+            'new_password' => ['required'],
+            'new_confirm_password' => ['same:new_password'],
         ];
     }
 
@@ -35,7 +35,6 @@ class EmployeeRequest extends FormRequest
     {
         return [
             'required' => trans('validation.required'),
-            'email.unique' => trans('validation.unique'),
         ];
     }
 }

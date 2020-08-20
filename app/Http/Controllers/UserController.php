@@ -8,22 +8,22 @@ use App\Repositories\User\UserRepositoryInterface;
 
 class UserController extends Controller
 {
-    protected $userRepo;
+    protected $userRepository;
 
-    public function __construct(UserRepositoryInterface $userRepo)
+    public function __construct(UserRepositoryInterface $userRepository)
     {
-        $this->userRepo = $userRepo;
+        $this->userRepository = $userRepository;
     }
     
     public function index()
     {
-        $users = $this->userRepo->paginate(10);
+        $users = $this->userRepository->paginate(10);
         return view('admin.user.index', compact('users'));
     }
 
     public function show($id)
     {
-        $user = $this->userRepo->show($id);
+        $user = $this->userRepository->show($id);
         $html = view('admin.user.profile', compact('user'))->render();
         return response()->json($html);
     }

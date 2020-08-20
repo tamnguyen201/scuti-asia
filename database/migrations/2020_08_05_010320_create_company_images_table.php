@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCvsTable extends Migration
+class CreateCompanyImagesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,10 @@ class CreateCvsTable extends Migration
      */
     public function up()
     {
-        Schema::create('cvs', function (Blueprint $table) {
+        Schema::create('company_images', function (Blueprint $table) {
             $table->id();
-            $table->string('cv_url');
-            $table->foreignId('user_id');
+            $table->string('image_url');
             $table->timestamps();
-
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
@@ -30,6 +27,6 @@ class CreateCvsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cvs');
+        Schema::dropIfExists('company_images');
     }
 }

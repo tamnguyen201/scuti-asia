@@ -4,11 +4,9 @@ namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Department extends Model
+class CV extends Model
 {
     protected $fillable = [
         
     ];
-    public $timestamps = false;
-    
 }

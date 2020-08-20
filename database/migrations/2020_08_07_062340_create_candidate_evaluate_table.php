@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCanidateEvaluateTable extends Migration
+class CreateCandidateEvaluateTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class CreateCanidateEvaluateTable extends Migration
      */
     public function up()
     {
-        Schema::create('canidate_evaluate', function (Blueprint $table) {
+        Schema::create('candidate_evaluate', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('canidate_id');
+            $table->foreignId('candidate_id');
             $table->boolean('stage1');
             $table->boolean('stage2')->nullable();
             $table->string('comment2')->nullable();
@@ -25,7 +25,7 @@ class CreateCanidateEvaluateTable extends Migration
             $table->string('comment4')->nullable();
             $table->timestamps();
 
-            $table->foreign('canidate_id')->references('id')->on('canidates')->onDelete('cascade');
+            $table->foreign('candidate_id')->references('id')->on('candidates')->onDelete('cascade');
         });
     }
 
@@ -36,6 +36,6 @@ class CreateCanidateEvaluateTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('canidate_evaluate');
+        Schema::dropIfExists('candidate_evaluate');
     }
 }
