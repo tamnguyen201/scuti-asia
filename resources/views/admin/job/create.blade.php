@@ -35,11 +35,11 @@
                     <div class="category form-group row">
                         <div class="col-md-8">
                             <label for="inputCategory">@lang('custom.category') :</label>
-                            <select name="category_id" id="inputCategory" class="form-control" @error('category') is-invalid @enderror>
+                            <select name="category_id" id="inputCategory" class="form-control" @error('category_id') is-invalid @enderror>
                                 <option value="null" disabled="disabled" selected>Choose...</option>
                                 {!! $htmlOptionCategory !!}
                             </select>
-                            @error('category')
+                            @error('category_id')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
@@ -49,11 +49,11 @@
                     <div class="location form-group row">
                         <div class="col-md-8">
                             <label for="inputLocation">@lang('custom.location') :</label>
-                            <select name="location_id" id="inputLocation" class="form-control" @error('location') is-invalid @enderror>
+                            <select name="location_id" id="inputLocation" class="form-control" @error('location_id') is-invalid @enderror>
                                 <option value="null" disabled="disabled" selected>Choose Location...</option>
                                 {!! $htmlOptionLocation !!}
                             </select>
-                            @error('location')
+                            @error('location_id')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>

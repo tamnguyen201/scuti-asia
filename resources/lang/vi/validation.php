@@ -147,8 +147,8 @@ return [
     */
 
     'attributes' => [
-        'location'=>'địa chỉ',
-        'category'=>'tên danh mục',
+        'location_id'=>'địa chỉ',
+        'category_id'=>'tên danh mục',
         'expire_date'=>'ngày hết hạn',
         'name' => 'tên',
         'username' => 'tên đăng nhập',
