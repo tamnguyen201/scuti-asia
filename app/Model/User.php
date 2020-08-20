@@ -17,7 +17,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'phone', 'address', 'avatar',
+        'name', 'email', 'password', 'phone', 'address', 'avatar', 'role'
     ];
 
     /**
@@ -52,15 +52,14 @@ class User extends Authenticatable
         return $this->hasOne('App\Model\Candidate');
     }
 
-    public function hasRole($role)
+    public function roleName()
     {
-        return \App\Model\Manager::where('user_id', \auth()->id())->where('role_id', $role)->first() ? true : false;
-    }
-
-    public function hasAnyRole($roles)
-    {
-        $userRole = \App\Model\Manager::where('user_id', \auth()->id())->first()->role_id;
-        
-        return in_array($userRole, $roles) ? true : false;
+        if ($this->role == config('common.role.Administrator')) {
+            return 'Admin';
+        } else if ($this->role == config('common.role.Interviewer')) {
+            return 'Interviewer';
+        } else if ($this->role == config('common.role.BackOffice')) {
+            return 'BackOffice';
+        }
     }
 }

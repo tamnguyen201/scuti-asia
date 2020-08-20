@@ -22,7 +22,7 @@
                 <form role="form" action="{{route('employees.update',$manager->id)}}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
-                    <input type="hidden" name="user_id" value="{{$manager->user_id}}">
+                    <input type="hidden" name="user_id" value="{{$manager->user->id}}">
                     <div class="col-md-9">
                         <div class="col-md-4">
                             <img src="{{asset($manager->avatar)}}" class="img-responsive" alt="">
@@ -53,9 +53,11 @@
                     <div class="col-md-3">
                         <div class="form-group">
                             <label>@lang('custom.role')</label>
-                            <select name="role_id" class="form-control">
-                                @foreach ($roles as $item)
-                                <option value="{{$item->id}}" @if($manager->role_id == $item->id) selected @endif>{{$item->name}}</option>
+                            <select name="role" class="form-control">
+                                @foreach (config('common.role') as $key => $item)
+                                @if($key != 'User')
+                                    <option value="{{$item}}" @if($manager->user->role == $item) selected @endif>{{$key}}</option>
+                                @endif
                                 @endforeach
                             </select>
                         </div>

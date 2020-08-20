@@ -23,7 +23,7 @@
         </tbody>
     </table>
 </div>
-<div class="col-lg-12">
+<div class="col-lg-12" style="white-space: nowrap;max-width: 95%;overflow: hidden;text-overflow: ellipsis;">
 <label>@lang('custom.page_title.data_table')</label>
     <table class="table table-hover">
         <thead>
@@ -43,7 +43,7 @@
             @foreach($candidate->cv as $item)
             <tr>
                 <td>{{$stt++}}</td>
-                <td><a href="{{asset($item->cv_url)}}" target="_blank">@lang('custom.view_more')</a></td>
+                <td><a href="{{asset($item->cv_url)}}" target="_blank">{{asset($item->cv_url)}}</a></td>
             </tr>
             @endforeach
         </tbody>

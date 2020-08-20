@@ -16,13 +16,7 @@ class CheckManager
      */
     public function handle($request, Closure $next)
     {
-        $roles = [
-            config('common.role.Administrator'),
-            config('common.role.Interviewer'),
-            config('common.role.BackOffice'),
-        ];
-        
-        if(Auth::check() && Auth::user()->hasAnyRole($roles))
+        if(Auth::check() && Auth::user()->role != config('common.role.User'))
         {
             return $next($request);
         }

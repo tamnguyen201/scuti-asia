@@ -22,12 +22,12 @@ class EmployeeRepository extends Repository implements EmployeeRepositoryInterfa
     
     public function paginate($perPage = 15, $columns = array('*'))
     {
-        return $this->model->with(['user','role'])->paginate($perPage, $columns);
+        return $this->model->with(['user'])->paginate($perPage, $columns);
     }
 
     public function show($id)
     {
-        return $this->model->with(['user', 'role'])->findOrFail($id);
+        return $this->model->with(['user'])->findOrFail($id);
     }
 
     public function store($data)
@@ -36,7 +36,7 @@ class EmployeeRepository extends Repository implements EmployeeRepositoryInterfa
         try {
             $data['password'] = \Str::random(8);
             $member = $this->userRepository->create($data);
-            $manager = ['user_id' => $member->id, 'role_id' => $data['role_id']];
+            $manager = ['user_id' => $member->id];
             $this->create($manager);
             
             DB::commit();
@@ -52,8 +52,8 @@ class EmployeeRepository extends Repository implements EmployeeRepositoryInterfa
     public function sendMail($user, $password)
     {
         $details = [
-            'title' => trans('custom.email.create_admin_account.title'),
-            'body' => trans('custom.email.create_admin_account.body'),
+            'title' => trans('custom.email_template.create_admin_account.title'),
+            'body' => trans('custom.email_template.create_admin_account.body'),
             'user_name' => $user,
             'password' => $password,
         ];

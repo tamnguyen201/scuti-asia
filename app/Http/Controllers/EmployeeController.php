@@ -6,7 +6,6 @@ use Alert;
 
 use Illuminate\Http\Request;
 use App\Http\Requests\EmployeeRequest;
-use App\Repositories\Role\RoleRepositoryInterface;
 use App\Repositories\Employee\EmployeeRepositoryInterface;
 use App\Repositories\User\UserRepositoryInterface;
 
@@ -14,14 +13,11 @@ class EmployeeController extends Controller
 {
     protected $employeeRepository;
     protected $userRepository;
-    protected $roleRepository;
 
     public function __construct(
         EmployeeRepositoryInterface $employeeRepository,
-        UserRepositoryInterface $userRepository,
-        RoleRepositoryInterface $roleRepository
+        UserRepositoryInterface $userRepository
     ) {
-        $this->roleRepository = $roleRepository;
         $this->userRepository = $userRepository;
         $this->employeeRepository = $employeeRepository;
     }
@@ -43,37 +39,36 @@ class EmployeeController extends Controller
 
     public function create()
     {
-        $roles = $this->roleRepository->all();
-
-        return view('admin.staff.add', compact('roles'));
+        return view('admin.staff.add');
     }
 
     public function store(EmployeeRequest $request)
     {
         $this->employeeRepository->store($request->all());
         
-        return redirect()->route('employees.index')->with('success', config('common.alert_messages.success'));
+        return redirect()->route('employees.index')->with('success', trans('custom.alert_messages.success'));
     }
 
     public function edit($id)
     {
         $manager = $this->employeeRepository->show($id);
-        $roles = $this->roleRepository->all();
 
-        return view('admin.staff.edit', compact('manager', 'roles'));
+        return view('admin.staff.edit', compact('manager'));
     }
 
     public function update(Request $request, $id)
     {
-        $this->employeeRepository->update(['role_id' => $request->role_id], $id);
+        $this->userRepository->update(['role' => $request->role], $request->user_id);
     
-        return redirect()->route('employees.index')->with('success', config('common.alert_messages.success'));
+        return redirect()->route('employees.index')->with('success', trans('custom.alert_messages.success'));
     }
 
     public function destroy($id)
     {
+        $manager = $this->employeeRepository->show($id);
         $this->employeeRepository->delete($id);
+        $this->userRepository->delete($manager->user_id);
 
-        return back()->with('success', config('common.alert_messages.success'));
+        return back()->with('success', trans('custom.alert_messages.success'));
     }
 }
