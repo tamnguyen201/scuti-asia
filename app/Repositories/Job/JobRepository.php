@@ -34,4 +34,28 @@ class JobRepository extends Repository implements JobRepositoryInterface
         }
         return $this->htmlSelectLocation;
     }
+
+    public function getCategoryEdit($data, $id)
+    { 
+        foreach ($data as $value) {
+            if($id == $value->id) {
+                $this->htmlSelectCategory .= "<option selected value='" . $value['id'] . "'>"  . $value['category_name'] . "</option>";
+            } else {
+                $this->htmlSelectCategory .= "<option value='" . $value->id . "'>"  . $value->category_name . "</option>";
+            }
+        }
+        return $this->htmlSelectCategory;
+    }
+
+    public function getLocationEdit($data, $id)
+    { 
+        foreach ($data as $value) {
+            if($id == $value->id) {
+                $this->htmlSelectLocation .= "<option selected value='" . $value['id'] . "'>"  . $value['name'] . "</option>";
+            } else {
+                $this->htmlSelectCategory .= "<option value='" . $value->id . "'>"  . $value->category_name . "</option>";
+            }
+        }
+        return $this->htmlSelectLocation;
+    }
 }

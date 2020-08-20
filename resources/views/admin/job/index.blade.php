@@ -58,8 +58,8 @@
                                     </td>
                                     <td class="text-center">
                                         <a href="{{ route('job.detail', ['id' => $item->id]) }}" class="btn btn-primary text-light view-profile"><em class="fa fa-eye"></em></a>
-                                        <a href="" class="btn btn-primary text-light"><em class="far fa-edit"></em></a> 
-                                        <form action="" method="post" class="form-delete-{{$item->id}}" style="display: inline">
+                                        <a href="{{ route('jobs.edit', $item->id) }}" class="btn btn-primary text-light"><em class="far fa-edit"></em></a> 
+                                        <form action="{{ route('jobs.destroy',$item->id) }}" method="post" class="form-delete-{{$item->id}}" style="display: inline">
                                             @csrf
                                             @method('DELETE')
                                             <button class="btn btn-danger text-light delete-confirm" idDelete={{$item->id}}><em class="fas fa-trash-alt"></em></button>

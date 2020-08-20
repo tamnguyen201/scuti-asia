@@ -85,4 +85,35 @@ class JobController extends Controller
         $jobById = $this->jobRepository->show($id);
         return view("admin.job.detail", compact('jobById'));
     }
+
+    public function edit($id)
+    {
+        $htmlOptionCategory = $this->getSelectedCategory($id);
+        $htmlOptionLocation = $this->getSelectedLocation($id);
+        $jobById = $this->jobRepository->show($id);
+        return view('admin.job.edit', compact('jobById','htmlOptionLocation','htmlOptionCategory'));
+    }
+
+    public function getSelectedCategory($id)
+    {
+        $data = $this->categoryRepository->all();
+        return $this->jobRepository->getCategoryEdit($data, $id);
+    }
+
+    public function getSelectedLocation($id)
+    {
+        $data = $this->locationRepository->all();
+        return $this->jobRepository->getLocationEdit($data, $id);
+    }
+
+    public function update(Request $request, $id)
+    {
+        dd($request->all());
+    }
+
+    public function destroy($id)
+    {
+
+    }
+
 }
