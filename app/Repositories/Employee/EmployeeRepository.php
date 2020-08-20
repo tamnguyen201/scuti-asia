@@ -52,8 +52,8 @@ class EmployeeRepository extends Repository implements EmployeeRepositoryInterfa
     public function sendMail($user, $password)
     {
         $details = [
-            'title' => trans('custom.email.create_admin_account.title'),
-            'body' => trans('custom.email.create_admin_account.body'),
+            'title' => trans('custom.email_template.create_admin_account.title'),
+            'body' => trans('custom.email_template.create_admin_account.body'),
             'user_name' => $user,
             'password' => $password,
         ];
