@@ -17,7 +17,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'phone', 'address', 'avatar',
+        'name', 'email', 'password', 'phone', 'address', 'avatar', 'role'
     ];
 
     /**
@@ -47,4 +47,19 @@ class User extends Authenticatable
         return $this->hasOne('App\Model\Manager');
     }
 
+    public function candidate()
+    {
+        return $this->hasOne('App\Model\Candidate');
+    }
+
+    public function roleName()
+    {
+        if ($this->role == config('common.role.Administrator')) {
+            return 'Admin';
+        } else if ($this->role == config('common.role.Interviewer')) {
+            return 'Interviewer';
+        } else if ($this->role == config('common.role.BackOffice')) {
+            return 'BackOffice';
+        }
+    }
 }

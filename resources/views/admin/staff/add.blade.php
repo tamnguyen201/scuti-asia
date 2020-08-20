@@ -40,9 +40,11 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label>@lang('custom.role')</label>
-                            <select name="role_id" class="form-control">
-                                @foreach ($roles as $item)
-                                <option value="{{$item->id}}">{{$item->name}}</option>
+                            <select name="role" class="form-control">
+                                @foreach (config('common.role') as $key => $item)
+                                @if($key != 'User')
+                                    <option value="{{$item}}">{{$key}}</option>
+                                @endif
                                 @endforeach
                             </select>
                         </div>

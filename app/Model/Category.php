@@ -8,4 +8,9 @@ class Category extends Model
 {
     protected $fillable = ['category_name','slug','user_id','status'];
     public $timestamps = false;
+
+    public function candidate()
+    {
+        return $this->belongsToMany('App\Model\Candidate');
+    }
 }
