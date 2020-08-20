@@ -26,7 +26,6 @@ Route::group(
         Route::get('/', 'AdminController@index')->name('admin.home');
 
         Route::get('/logout', 'AdminController@logout')->name('admin.logout');
-        Route::resource('roles', 'RoleController')->except(['show']);
         Route::resource('users', 'UserController')->only(['index', 'show']);
         Route::resource('employees', 'EmployeeController');
         Route::resource('locations', 'LocationController');
