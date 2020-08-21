@@ -1,4 +1,7 @@
 @extends('admin.layout.layout')
+@section('css')
+    <link rel="stylesheet" href="{{ asset('adminAsset/css/job.css') }}">
+@endsection
 @section('content')
 <div class="row">
     <ol class="breadcrumb">
@@ -53,7 +56,7 @@
                 <div class="title col-md-3">
                     <h4>Description</h4>
                 </div>
-                <div class="content col-md-8">
+                <div class="content col-md-8" >
                     <p>{{ $jobById->description }}</p>
                 </div>
             </div>

@@ -76,7 +76,6 @@ class JobController extends Controller
         $job = $this->jobRepository->show($request->job_id);
         $job->status = $request->status;
         $job->save();
-
         return response()->json(['success' => config('common.alert_messages.success')]);
     }
 
@@ -88,9 +87,9 @@ class JobController extends Controller
 
     public function edit($id)
     {
-        $htmlOptionCategory = $this->getSelectedCategory($id);
-        $htmlOptionLocation = $this->getSelectedLocation($id);
         $jobById = $this->jobRepository->show($id);
+        $htmlOptionCategory = $this->getSelectedCategory($jobById->category_id);
+        $htmlOptionLocation = $this->getSelectedLocation($jobById->location_id);
         return view('admin.job.edit', compact('jobById','htmlOptionLocation','htmlOptionCategory'));
     }
 
@@ -106,14 +105,23 @@ class JobController extends Controller
         return $this->jobRepository->getLocationEdit($data, $id);
     }
 
-    public function update(Request $request, $id)
+    public function update(JobUpdateRequest $request, $id)
     {
-        dd($request->all());
+        $this->jobRepository->update([
+            'name' => $request->name,
+            'category_id' => $request->category_id,
+            'location_id' => $request->location_id,
+            'expireDay' => $request->expire_date,
+            'description' => $request->description
+        ], $id);
+
+        return redirect()->route('jobs.index');
     }
 
     public function destroy($id)
     {
-
+        $this->jobRepository->delete($id);
+        return redirect()->back()->with('success', config('common.alert_messages.success'));
     }
 
 }

@@ -53,7 +53,7 @@ class JobRepository extends Repository implements JobRepositoryInterface
             if($id == $value->id) {
                 $this->htmlSelectLocation .= "<option selected value='" . $value['id'] . "'>"  . $value['name'] . "</option>";
             } else {
-                $this->htmlSelectCategory .= "<option value='" . $value->id . "'>"  . $value->category_name . "</option>";
+                $this->htmlSelectLocation .= "<option value='" . $value->id . "'>"  . $value->name . "</option>";
             }
         }
         return $this->htmlSelectLocation;
