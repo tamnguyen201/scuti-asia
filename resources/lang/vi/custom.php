@@ -46,6 +46,7 @@ return [
         'user_manager'=>'Quản lý người dùng',
         'job' => 'Việc làm',
         'job_add' =>'Thêm mới công việc',
+        'job_edit' =>'Sửa Job',
         'add'=>'Tạo mới'
         
     ],

@@ -73,7 +73,7 @@
                     </div>
                     <div class="form-group">
                         <label>@lang('custom.description') : </label>
-                        <textarea name="description" class="form-control" @error('description') is-invalid @enderror id="exampleFormControlTextarea1" rows="3"></textarea>
+                        <textarea name="description" class="form-control" @error('description') is-invalid @enderror id="exampleFormControlTextarea1" rows="4"></textarea>
                         @error('description')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -88,5 +88,12 @@
  </div>
 @endsection
 @section('script')
+    <script src={{ url('ckeditor/ckeditor.js') }}></script>
+    <script>
+    CKEDITOR.replace( 'description', {
+        filebrowserBrowseUrl: '{{ route('jobs.create') }}',
 
+    } );
+    </script>
+    @include('ckfinder::setup')
 @endsection

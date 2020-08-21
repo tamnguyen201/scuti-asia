@@ -8,17 +8,17 @@
             <em class="fa fa-home"></em>
         </a></li>
         <li class="active">@lang('custom.page_title.job')</li>
-        <li class="active">@lang('custom.page_title.job_add')</li>
+        <li class="active">@lang('custom.page_title.job_edit')</li>
     </ol>
 </div>
 <div class="row">
     <div class="col-lg-12">
-        <h1 class="page-header">@lang('custom.page_title.job_add')</h1>
+        <h1 class="page-header">@lang('custom.page_title.job_edit')</h1>
     </div>
 </div>
 <div class="col-lg-12">
     <div class="panel panel-default">
-       <div class="panel-heading">@lang('custom.page_title.add')</div>
+       <div class="panel-heading">@lang('custom.page_title.edit')</div>
        <div class="panel-body">
            <div class="col-md-8">
                 <form method="post" action="{{ route('jobs.update', $jobById->id) }}">
@@ -59,7 +59,9 @@
                     </div>
                     <div class="form-group">
                         <label>@lang('custom.description') : </label>
-                        <textarea name="description" class="form-control" @error('description') is-invalid @enderror id="exampleFormControlTextarea1" rows="3"></textarea>
+                        <textarea name="description" class="form-control" @error('description') is-invalid @enderror id="exampleFormControlTextarea1" rows="3">
+                            {{ $jobById->description }}
+                        </textarea>
                         @error('description')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -74,5 +76,12 @@
  </div>
 @endsection
 @section('script')
+    <script src={{ url('ckeditor/ckeditor.js') }}></script>
+    <script>
+    CKEDITOR.replace( 'description', {
+        filebrowserBrowseUrl: '{{ route('jobs.edit', $jobById->id) }}',
 
+    } );
+    </script>
+    @include('ckfinder::setup')
 @endsection

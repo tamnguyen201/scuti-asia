@@ -57,7 +57,7 @@
                     <h4>Description</h4>
                 </div>
                 <div class="content col-md-8" >
-                    <p>{{ $jobById->description }}</p>
+                    <p>{!! $jobById->description !!}</p>
                 </div>
             </div>
         </div>
