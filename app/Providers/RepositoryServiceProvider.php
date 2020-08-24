@@ -30,6 +30,10 @@ class RepositoryServiceProvider extends ServiceProvider
             \App\Repositories\Category\CategoryRepository::class
         );
         $this->app->singleton(
+            \App\Repositories\Job\JobRepositoryInterface::class,
+            \App\Repositories\Job\JobRepository::class
+        );
+        $this->app->singleton(
             \App\Repositories\Manager\ManagerRepositoryInterface::class,
             \App\Repositories\Manager\ManagerRepository::class
         );

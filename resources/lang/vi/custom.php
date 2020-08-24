@@ -21,6 +21,11 @@ return [
     'old_pass' =>'Mật khẩu cũ',
     'new_pass' =>'Mật khẩu mới',
     'confirm_pass' =>'Xác nhận mật khẩu',
+    'title' =>'Tiêu đề',
+    'category'=>'Danh mục',
+    'location'=>'Địa điểm',
+    'expire_day'=>'Ngày hết hạn',
+    'status'=>'Trạng thái',
     
     'page_title' => [
         'user_manage' => 'Quản Lý Người Dùng',
@@ -39,7 +44,15 @@ return [
         'change_password' =>'Đổi mật khẩu',
         'user_profile'=>'Thông tin người dùng',
         'information'=>'Thông tin',
-        'user_manager'=>'Quản lý người dùng'
+        'user_manager'=>'Quản lý người dùng',
+        'job' => 'Việc làm',
+        'job_add' =>'Thêm mới công việc',
+        'add'=>'Tạo mới',
+        'jobs' =>'Danh sách các Job',
+        'jobs_manage'=>'Quản lý danh sách Job',
+        'jobs_detail'=>'Thông tin Job',
+        'show_infor'=>'Thông tin'
+        
     ],
 
     'table_lable' => [
