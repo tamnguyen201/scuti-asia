@@ -17,7 +17,7 @@ class CompanyController extends Controller
 
     public function index()
     {
-        $company = $this->CompanyService->index();
+        $company = $this->CompanyService->first();
 
         return view('admin.company.index', compact('company'));
     }

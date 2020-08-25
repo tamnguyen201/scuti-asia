@@ -12,7 +12,7 @@ class CompanyService
         $this->CompanyRepository = $CompanyRepository;
     }
 
-    public function index()
+    public function first()
     {
         $Company = $this->CompanyRepository->first();
 
