@@ -2,13 +2,23 @@
 
 namespace App\Http\Controllers;
 
+use App\Model\User;
 use Illuminate\Http\Request;
+use App\Http\Requests\AdminRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
+use App\Repositories\User\UserRepositoryInterface;
 
 class AdminController extends Controller
 {
+    protected $userRepository;
+
+    public function __construct(UserRepositoryInterface $userRepository)
+    {
+        $this->userRepository = $userRepository;
+    }
+    
     public function index()
     {
         return view('admin.pages.dashboard');
@@ -50,14 +60,35 @@ class AdminController extends Controller
         return redirect()->route('login');
     }
 
-    public function forgot()
-    {
-        return view('admin.auth.forgotPw');
-    }
+    // public function forgot()
+    // {
+    //     return view('admin.auth.forgotPw');
+    // }
+
+    // public function getForgotPassword(AdminRequest $request)
+    // {
+    //     if ($this->userRepository->getPassword($request->email) == true) {
+    //         return redirect()->route('admin.forgot_password.confirmOTP');
+    //     } else {
+    //         return redirect()->back()->withErrors(['error' => trans('A Network Error occurred. Please try again.')]);
+    //     }
+        
+    // }
+
+    // public function postConfirmOTP(AdminRequest $request){
+    //     $this->$this->userRepository->postConfirmOTP($request->code);
+    // }
 
     public function logout()
     {
         auth()->logout();
         return redirect()->route('login');
     }
+
+    // public function confirmOTP()
+    // {
+    //     return view('admin.auth.enter_passwordtoken');
+    // }
+
+
 }

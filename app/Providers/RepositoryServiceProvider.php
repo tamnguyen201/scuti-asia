@@ -54,6 +54,10 @@ class RepositoryServiceProvider extends ServiceProvider
             \App\Repositories\Candidate\CandidateRepositoryInterface::class,
             \App\Repositories\Candidate\CandidateRepository::class,
         );
+        $this->app->singleton(
+            \App\Repositories\PWReset\PWResetRepositoryInterface::class,
+            \App\Repositories\PWReset\PWResetRepository::class,
+        );
     }
 
     /**

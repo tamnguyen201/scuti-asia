@@ -18,7 +18,7 @@
       <div class="container">
          <!-- Outer Row -->
          <div class="row justify-content-center">
-            <div class="col-xl-10 col-lg-12 col-md-9">
+            <div class="">
                <div class="card o-hidden border-0 shadow-lg my-5">
                   <div class="card-body p-0">
                      <!-- Nested Row within Card Body -->
@@ -28,35 +28,32 @@
                            </div>
                            <div class="p-3">
                               <div class="text-center">
-                                 <h1 class="h4 text-gray-900 mb-2">@lang('custom.button.forgot_password')?</h1>
-                                 <p class="mb-4">
-                                    Chúng tôi hiểu, đó là điều có thể sảy ra, Nhập email của bạn dưới đây và chúng tôi sẽ gửi cho bạn mã reset mật khẩu!
-                                 </p>
+                                 <h1 class="h4 text-gray-900 mb-2">Đổi mật khẩu</h1>
+                                 <p class="mb-4">Vui lòng thay đổi mật khẩu</p>
                               </div>
-                              <form class="user" method="POST" action="{{ route('admin.forgot_password') }}">
+                              <form class="user" method="POST" action="{{ route('admin.forgot_password.newPW', ['email'=>$email]) }}">
                                  @csrf
+                                 @if ($errors->any())
+                                    <ul>
+                                       @foreach ($errors->all() as $error)
+                                          <li>{{ $error }}</li>
+                                       @endforeach
+                                    </ul>
+                                 @endif
                                  <div class="form-group">
-                                    <input name="email" type="email" class="form-control @error('email') is-invalid @enderror form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Enter Email Address...">
-                                    {{-- @error('email')
-                                       <span class="invalid-feedback" role="alert">
-                                          <strong>{{ $message }}</strong>
-                                          {!! session()->get('error') !!}
-                                       </span>
-                                    @enderror --}}
-                                    @if ($errors->any())
-                                          <ul>
-                                             @foreach ($errors->all() as $error)
-                                                <li>{{ $error }}</li>
-                                             @endforeach
-                                          </ul>
-                                    @endif
+                                    <label for="password" class="col-md-4 col-form-label">@lang('custom.new_pass')</label>
+                                    <input name="new_password" type="password" class="form-control form-control-user" @error('new_password') is-invalid @enderror id="exampleInputEmail">
                                  </div>
-                                 <button class="btn btn-primary btn-user btn-block">@lang('custom.button.reset_password')</button>
+                                 <div class="form-group">
+                                    <label for="password" class="col-md-4 col-form-label">
+                                       @lang('custom.confirm_pass')
+                                    </label>
+                                    <input name="new_confirm_password" type="password" class="form-control form-control-user" @error('new_confirm_password') is-invalid @enderror id="exampleInputEmail" >
+                                    
+                                 </div>
+                                 <button class="btn btn-primary btn-user btn-block">Enter</button>
                               </form>
                               <hr>
-                              <div class="text-center">
-                                 <a class="small" href="{{url('/login')}}">@lang('custom.button.had_password')</a>
-                              </div>
                            </div>
                         </div>
                   </div>

@@ -47,8 +47,8 @@ return [
         'job' => 'Việc làm',
         'job_add' =>'Thêm mới công việc',
         'job_edit' =>'Sửa Job',
-        'add'=>'Tạo mới'
-        
+        'add'=>'Tạo mới',
+        'enter_code'=>'Nhập mã code của bạn',
     ],
 
     'table_lable' => [
@@ -63,7 +63,13 @@ return [
         'reset' => 'Làm mới',
         'close' => 'Đóng',
         'update_information' => 'Đổi thông tin',
-        'change_password' =>'Đổi mật khẩu'
+        'change_password' =>'Đổi mật khẩu',
+        'login'=>'Đăng nhập',
+        'remember_me'=>'Ghi nhớ tôi',
+        'forgot_password'=>'Quên mật khẩu',
+        'reset_password'=>'Reset lại mật khẩu',
+        'had_password'=>'Bạn đã có tài khoản, đăng nhập tại đây',
+        'enter'=>'Nhập'
     ],
 
     'menu' => [
@@ -89,6 +95,10 @@ return [
         'create_admin_account' => [
             'title' => 'Mail from Scuti-asia.com',
             'body' => 'Bạn vừa được tạo tài khoản thành viên quản trị website!',
+        ],
+        'forgot_password' => [
+            'title' => 'Mail from Scuti-asia.com',
+            'body' => 'Bạn đã yêu cầu cấp lại mật khẩu!',
         ]
     ],
 
@@ -96,6 +106,8 @@ return [
         'success' => 'Thành công!',
         'warning' => 'Cảnh báo dữ liệu này đã có sẵn, vui lòng không tạo mới!',
         'error' => 'Lỗi',
+        'not_found'=>'Không tìm thấy hoặc nhập sai',
+        'fail'=>'Không thành công'
     ]
 
 ];

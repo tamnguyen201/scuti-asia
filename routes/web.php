@@ -18,7 +18,12 @@ Route::get('/', 'HomeController@index');
 Route::get('/login', 'AdminController@login')->name('login');
 Route::post('/login','AdminController@postLogin')->name('post-login');
 Route::get('/logout', 'AdminController@logout')->name('logout');
-Route::get('/forgot', 'AdminController@forgot');
+Route::get('/forgot', 'ResetPasswordController@forgot');
+Route::post('/forgot','ResetPasswordController@getForgotPassword')->name('admin.forgot_password');
+Route::get('/confirmOTP/{email}', 'ResetPasswordController@confirmOTP')->name('admin.forgot_password.confirmOTP');
+Route::post('/confirmOTP/{email}','ResetPasswordController@postConfirmOTP')->name('post.confirmOTP');
+Route::get('forgot/change-password/{email}', 'ResetPasswordController@formNewPW')->name('admin.forgot_password.show_form_changePW');
+Route::post('forgot/change-password/{email}', 'ResetPasswordController@storeNewPW')->name('admin.forgot_password.newPW');
 
 Route::group(
         ['prefix'=>'admin', 'middleware' => 'CheckManager'], function () {
@@ -26,7 +31,6 @@ Route::group(
         Route::get('/', 'AdminController@index')->name('admin.home');
 
         Route::get('/logout', 'AdminController@logout')->name('admin.logout');
-        // Route::resource('roles', 'RoleController')->except(['show']);
         Route::resource('users', 'UserController')->only(['index', 'show']);
         Route::resource('employees', 'EmployeeController');
         Route::resource('locations', 'LocationController');

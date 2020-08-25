@@ -28,35 +28,24 @@
                            </div>
                            <div class="p-3">
                               <div class="text-center">
-                                 <h1 class="h4 text-gray-900 mb-2">@lang('custom.button.forgot_password')?</h1>
-                                 <p class="mb-4">
-                                    Chúng tôi hiểu, đó là điều có thể sảy ra, Nhập email của bạn dưới đây và chúng tôi sẽ gửi cho bạn mã reset mật khẩu!
-                                 </p>
+                                 <h1 class="h4 text-gray-900 mb-2">@lang('custom.page_title.enter_code')</h1>
+                                 <p class="mb-4">Mã OTP vừa được gửi vào email của bạn! Vui lòng kiểm tra và nhập lại mã</p>
                               </div>
-                              <form class="user" method="POST" action="{{ route('admin.forgot_password') }}">
+                              <form class="user" method="POST" action="{{ route('post.confirmOTP',$email) }}">
                                  @csrf
                                  <div class="form-group">
-                                    <input name="email" type="email" class="form-control @error('email') is-invalid @enderror form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Enter Email Address...">
-                                    {{-- @error('email')
-                                       <span class="invalid-feedback" role="alert">
-                                          <strong>{{ $message }}</strong>
-                                          {!! session()->get('error') !!}
-                                       </span>
-                                    @enderror --}}
+                                    <input name="code" type="text" class="form-control form-control-user" @error('code') is-invalid @enderror id="exampleInputEmail" placeholder="Enter Your OTP Code">
                                     @if ($errors->any())
-                                          <ul>
-                                             @foreach ($errors->all() as $error)
-                                                <li>{{ $error }}</li>
-                                             @endforeach
-                                          </ul>
+                                    <ul>
+                                       @foreach ($errors->all() as $error)
+                                          <li>{{ $error }}</li>
+                                       @endforeach
+                                    </ul>
                                     @endif
                                  </div>
-                                 <button class="btn btn-primary btn-user btn-block">@lang('custom.button.reset_password')</button>
+                                 <button class="btn btn-primary btn-user btn-block">@lang('custom.button.enter')</button>
                               </form>
                               <hr>
-                              <div class="text-center">
-                                 <a class="small" href="{{url('/login')}}">@lang('custom.button.had_password')</a>
-                              </div>
                            </div>
                         </div>
                   </div>
