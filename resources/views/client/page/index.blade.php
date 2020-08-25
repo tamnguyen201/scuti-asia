@@ -58,9 +58,9 @@
             </div> <!-- end of row -->
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="cards-container ">
+                    <div class="cards-container row">
 
-                        <div class="card" style="max-width: 300px; margin-right: 1rem">
+                        <div class="card col-md-6 col-lg-4">
                             <div class="card-image">
                                 <img class="img-fluid" src="https://inovatik.com/juno-landing-page/images/product-1.jpg" alt="alternative">
                             </div>
@@ -68,7 +68,7 @@
                                 <p>Use our software application to </p>
                             </div>
                         </div>
-                        <div class="card" style="max-width: 300px; margin-right: 1rem">
+                        <div class="card col-md-6 col-lg-4">
                             <div class="card-image">
                                 <img class="img-fluid" src="https://inovatik.com/juno-landing-page/images/product-1.jpg" alt="alternative">
                             </div>
@@ -76,7 +76,7 @@
                                 <p>Use our software application to </p>
                             </div>
                         </div>
-                        <div class="card" style="max-width: 300px; margin-right: 1rem">
+                        <div class="card col-md-6 col-lg-4">
                             <div class="card-image">
                                 <img class="img-fluid" src="https://inovatik.com/juno-landing-page/images/product-1.jpg" alt="alternative">
                             </div>
@@ -84,7 +84,7 @@
                                 <p>Use our software application to </p>
                             </div>
                         </div>
-                        <div class="card" style="max-width: 300px; margin-right: 1rem">
+                        <div class="card col-md-6 col-lg-4">
                             <div class="card-image">
                                 <img class="img-fluid" src="https://inovatik.com/juno-landing-page/images/product-1.jpg" alt="alternative">
                             </div>
@@ -283,9 +283,9 @@
                 </div> <!-- end of col -->
             </div> <!-- end of row -->
             <div class="row">
-                <div class="col-lg-12 d-flex">
+                <div class="col-lg-12 d-md-flex">
                     <!-- Filter -->
-                    <div class="col-3 button-group filters-button-group">
+                    <div class="col-lg-3 col-md-4 col-12 button-group filters-button-group">
                         <a class="d-block button text-decoration-none is-checked"><span>DEPARTMENT</span></a>
                         <a class="d-block button text-decoration-none"><span>DESIGN</span></a>
                         <a class="d-block button text-decoration-none"><span>DEVELOPMENT</span></a>
@@ -293,57 +293,80 @@
                         <a class="d-block button text-decoration-none"><span>SEO</span></a>
                         <a class="d-block button text-decoration-none" href=""><span>SHOW ALL</span></a>
                     </div> <!-- end of button group -->
-                    <div class="col-9 list-group">
-                        <div style="padding: 15px;margin-bottom: 15px;border: 1px dotted #e0e0e0;border-radius: 5px;" class="list-group-item d-flex col-12 development">
-                            <div class="col-lg-8">
-                            <a class="popup-with-move-anim" href="https://inovatik.com/juno-landing-page/#project-1">
+                    <div class="col-lg-9 col-md-8 col-12 list-group">
+
+                        <div class="list-group-item d-md-flex col-12 development">
+                            <div class="col-md-8 col-12">
                                 <div class="mb-block cell name-job">
-                                    <h4 class="title-h4"><a style="font-weight: normal;color: #f4511e; text-decoration: none" href="#">[Đà Nẵng] CTV - Account Manager</a>
-                                    </h4>
+                                    <h4 class="title-h4"><a style="font-weight: normal;color: #f4511e; text-decoration: none" href="#">[Đà Nẵng] CTV - Account Manager</a></h4>
                                     <span class="desc-job inline"><span class="-ap icon-access_time"></span>07/08 — 31/12/2020 <span class="job-type">Freelancer</span></span>
                                     <p class="desc-job"><span class="-ap icon-coin-dollar"></span>Thỏa thuận</p>
                                 </div>
-                            </a>
                             </div>
-                            <div class="col-lg-4 text-right">
-                                <a href="http://tuyendung.luxstay.com/job/hoi-anda-latda-nang-ctv-account-manager-20488?apply=1" class="btn-apply-main btn-apply" style="background-color: #f4511e;border: 1px solid rgba(0, 0, 0, 0.1);padding: 7px 15px;font-size: 13px;white-space: nowrap;color: #fff;border-radius: 3px;text-decoration:none">Ứng tuyển</a>
+                            <div class="col-md-4 col-12 text-md-right text-center">
+                                <a href="http://tuyendung.luxstay.com/job/hoi-anda-latda-nang-ctv-account-manager-20488?apply=1" class="btn-apply-main btn-apply">Ứng tuyển</a>
                             </div>
                         </div>
-                        <div style="padding: 15px;margin-bottom: 15px;border: 1px dotted #e0e0e0;border-radius: 5px;" class="list-group-item d-flex col-12 development">
-                            <div class="col-lg-8">
-                            <a class="popup-with-move-anim" href="https://inovatik.com/juno-landing-page/#project-1">
+
+                        <div class="list-group-item d-md-flex col-12 development">
+                            <div class="col-md-8 col-12">
                                 <div class="mb-block cell name-job">
-                                    <h4 class="title-h4"><a style="font-weight: normal;color: #f4511e; text-decoration: none" href="#">[Hội An] CTV - Account Manager</a>
-                                    </h4>
+                                    <h4 class="title-h4"><a style="font-weight: normal;color: #f4511e; text-decoration: none" href="#">[Đà Nẵng] CTV - Account Manager</a></h4>
                                     <span class="desc-job inline"><span class="-ap icon-access_time"></span>07/08 — 31/12/2020 <span class="job-type">Freelancer</span></span>
                                     <p class="desc-job"><span class="-ap icon-coin-dollar"></span>Thỏa thuận</p>
                                 </div>
-                            </a>
                             </div>
-                            <div class="col-lg-4 text-right">
-                                <a href="http://tuyendung.luxstay.com/job/hoi-anda-latda-nang-ctv-account-manager-20488?apply=1" class="btn-apply-main btn-apply" style="background-color: #f4511e;border: 1px solid rgba(0, 0, 0, 0.1);padding: 7px 15px;font-size: 13px;white-space: nowrap;color: #fff;border-radius: 3px;text-decoration:none">Ứng tuyển</a>
+                            <div class="col-md-4 col-12 text-md-right text-center">
+                                <a href="http://tuyendung.luxstay.com/job/hoi-anda-latda-nang-ctv-account-manager-20488?apply=1" class="btn-apply-main btn-apply">Ứng tuyển</a>
                             </div>
                         </div>
-                        <div style="padding: 15px;margin-bottom: 15px;border: 1px dotted #e0e0e0;border-radius: 5px;" class="list-group-item d-flex col-12 development">
-                            <div class="col-lg-8">
-                            <a class="popup-with-move-anim" href="https://inovatik.com/juno-landing-page/#project-1">
+                        <div class="list-group-item d-md-flex col-12 development">
+                            <div class="col-md-8 col-12">
                                 <div class="mb-block cell name-job">
-                                    <h4 class="title-h4"><a style="font-weight: normal;color: #f4511e; text-decoration: none" href="#">[Đà Lạt] CTV - Account Manager</a>
-                                    </h4>
+                                    <h4 class="title-h4"><a style="font-weight: normal;color: #f4511e; text-decoration: none" href="#">[Đà Nẵng] CTV - Account Manager</a></h4>
                                     <span class="desc-job inline"><span class="-ap icon-access_time"></span>07/08 — 31/12/2020 <span class="job-type">Freelancer</span></span>
                                     <p class="desc-job"><span class="-ap icon-coin-dollar"></span>Thỏa thuận</p>
                                 </div>
-                            </a>
                             </div>
-                            <div class="col-lg-4 text-right">
-                                <a href="http://tuyendung.luxstay.com/job/hoi-anda-latda-nang-ctv-account-manager-20488?apply=1" class="btn-apply-main btn-apply" style="background-color: #f4511e;border: 1px solid rgba(0, 0, 0, 0.1);padding: 7px 15px;font-size: 13px;white-space: nowrap;color: #fff;border-radius: 3px;text-decoration:none">Ứng tuyển</a>
+                            <div class="col-md-4 col-12 text-md-right text-center">
+                                <a href="http://tuyendung.luxstay.com/job/hoi-anda-latda-nang-ctv-account-manager-20488?apply=1" class="btn-apply-main btn-apply">Ứng tuyển</a>
                             </div>
                         </div>
-                    </div> <!-- end of grid -->
-                    <!-- end of filter -->
-                    
+                        <div class="list-group-item d-md-flex col-12 development">
+                            <div class="col-md-8 col-12">
+                                <div class="mb-block cell name-job">
+                                    <h4 class="title-h4"><a style="font-weight: normal;color: #f4511e; text-decoration: none" href="#">[Đà Nẵng] CTV - Account Manager</a></h4>
+                                    <span class="desc-job inline"><span class="-ap icon-access_time"></span>07/08 — 31/12/2020 <span class="job-type">Freelancer</span></span>
+                                    <p class="desc-job"><span class="-ap icon-coin-dollar"></span>Thỏa thuận</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-12 text-md-right text-center">
+                                <a href="http://tuyendung.luxstay.com/job/hoi-anda-latda-nang-ctv-account-manager-20488?apply=1" class="btn-apply-main btn-apply">Ứng tuyển</a>
+                            </div>
+                        </div>
+                        <div class="list-group-item d-md-flex col-12 development">
+                            <div class="col-md-8 col-12">
+                                <div class="mb-block cell name-job">
+                                    <h4 class="title-h4"><a style="font-weight: normal;color: #f4511e; text-decoration: none" href="#">[Đà Nẵng] CTV - Account Manager</a></h4>
+                                    <span class="desc-job inline"><span class="-ap icon-access_time"></span>07/08 — 31/12/2020 <span class="job-type">Freelancer</span></span>
+                                    <p class="desc-job"><span class="-ap icon-coin-dollar"></span>Thỏa thuận</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-12 text-md-right text-center">
+                                <a href="http://tuyendung.luxstay.com/job/hoi-anda-latda-nang-ctv-account-manager-20488?apply=1" class="btn-apply-main btn-apply">Ứng tuyển</a>
+                            </div>
+                        </div>
+
+                    </div>
                 </div> <!-- end of col -->
             </div> <!-- end of row -->
 		</div> <!-- end of container -->
     </div> <!-- end of filter -->
+@endsection
+@section('script')
+    <script src="clientAsset/js/swiper.min.js"></script> 
+    <!-- <script src="https://inovatik.com/juno-landing-page/js/jquery.magnific-popup.js"></script>  -->
+    <script src="https://inovatik.com/juno-landing-page/js/isotope.pkgd.min.js"></script>
+    <script src="https://inovatik.com/juno-landing-page/js/validator.min.js"></script>
+    <script src="clientAsset/js/scripts.js"></script>
 @endsection

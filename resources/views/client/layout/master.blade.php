@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
@@ -29,7 +28,9 @@
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>    
     <link href="clientAsset/css/swiper.css" rel="stylesheet">
 	<link href="clientAsset/css/magnific-popup.css" rel="stylesheet">
-	<link href="clientAsset/css/styles.css" rel="stylesheet">
+    <link href="clientAsset/css/styles.css" rel="stylesheet">
+    
+    @yield('css')
 	
 </head>
 <body data-spy="scroll" data-target=".fixed-top">
@@ -38,5 +39,13 @@
     @yield('content')
 
     @include('client.layout.footer')
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.4.4/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+
+    @yield('script')
+
 </body> 
 </html>

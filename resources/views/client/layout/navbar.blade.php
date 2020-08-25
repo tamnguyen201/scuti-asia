@@ -1,14 +1,3 @@
-<!-- Preloader -->
-<div class="spinner-wrapper">
-    <div class="spinner">
-        <div class="bounce1"></div>
-        <div class="bounce2"></div>
-        <div class="bounce3"></div>
-    </div>
-</div>
-<!-- end of preloader -->
-
-<!-- Navbar -->
 <nav class="navbar navbar-expand-md navbar-dark navbar-custom fixed-top">
     <!-- Image Logo -->
     <a class="navbar-brand logo-image color" href="/"><img src="https://scontent.fhan3-1.fna.fbcdn.net/v/t31.0-0/p370x247/12622243_1526863174310176_5792404773815484011_o.png?_nc_cat=110&_nc_sid=85a577&_nc_ohc=Ytta26wUm-MAX95QAPU&_nc_ht=scontent.fhan3-1.fna&oh=514584ef7414730723e84bb9b802005f&oe=5F6947F6" alt="alternative"></a>
@@ -40,5 +29,4 @@
             </li>
         </ul>
     </div>
-</nav> <!-- end of navbar -->
-<!-- end of navbar -->
+</nav>

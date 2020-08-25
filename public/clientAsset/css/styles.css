@@ -869,9 +869,9 @@ input[type='checkbox'] {
 /*     06. Services     */
 /************************/
 .basic-2 {
-	padding-top: 7rem;
+	padding-top: 4rem;
 	padding-bottom: 3.75rem;
-	background-color: #ffffff;
+	background: #f9fafc;
 }
 
 .basic-2 h2 {
@@ -921,8 +921,8 @@ input[type='checkbox'] {
 /*     07. Description     */
 /***************************/
 .slider-1 {
-	padding-top: 7.625rem;
-	padding-bottom: 7.5rem;
+	padding-top: 3.625rem;
+	padding-bottom: 3.5rem;
 	background-color: #f9fafc;
 }
 
@@ -1173,9 +1173,8 @@ input[type='checkbox'] {
 /*     10. Pricing     */
 /***********************/
 .cards-1 {
-	padding-top: 7rem;
+	padding-top: 4rem;
 	padding-bottom: 2.5rem;
-	background-color: #f9fafc;
 }
 
 .cards-1 h2 {
@@ -1265,9 +1264,8 @@ input[type='checkbox'] {
 /*     12. Projects     */
 /************************/
 .filter {
-	padding-top: 7rem;
-	padding-bottom: 7.5rem;
-	background: #f9fafc;
+	padding-top: 4rem;
+	padding-bottom: 3.5rem;
 }
 
 .filter h2 {
@@ -1303,56 +1301,26 @@ input[type='checkbox'] {
 	color: #fff;
 }
 
-.filter .grid {
-	margin-top: 1.5rem;
-	border-radius: 0.375rem;
+.filter .list-group .list-group-item {
+	padding: 15px;
+	margin-bottom: 15px;
+	border: 1px dotted #e0e0e0;
+	border-radius: 5px;
 }
 
-/* Hover Animation */
-.filter .element-item {
-	position: relative;
-	float: left;
-	overflow: hidden;
-	width: 50%;
-	background-color: #000; /* to hide 1px white margin in IE */
+.filter .list-group-item .btn-apply {
+	background-color: #f5764f;
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	padding: 7px 15px;font-size: 13px;
+	white-space: nowrap;color: #fff;
+	border-radius: 3px;
+	text-decoration:none;
 }
 
-.filter .element-item img {
-	max-width: 100%;
-	margin: 0px;
-	transition: all 0.3s;
+.filter .list-group-item .btn-apply:hover {
+	background-color: #f4511e;
+	color: #000;
 }
-
-.filter .element-item:hover img {
-	-moz-transform: scale(1.15);
-	-webkit-transform: scale(1.15);
-	transform: scale(1.15);
-} 
-/* end of hover animation */
-
-.filter .element-item .element-item-overlay { 
-	position: absolute;
-	z-index: 2;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	background-color: rgba(0, 0, 0, 0.4);
-	opacity: 1;
-	text-align: center;
-	transition: all 0.3s;
-}
-
-.filter .element-item .element-item-overlay span { 
-	position: absolute;
-	z-index: 3;
-	top: 42%;
-	right: 0;
-	left: 0;
-	color: #fff;
-	font: 700 1.125rem/1.625rem "Raleway", sans-serif;
-}
-
 
 /**********************************/
 /*     13. Project Lightboxes     */
@@ -1437,8 +1405,9 @@ input[type='checkbox'] {
 /*     14. Products     */
 /************************/
 .cards-2 {
-	padding-top: 7rem;
-	padding-bottom: 7.5rem;
+	padding-top: 4rem;
+	padding-bottom: 0.5rem;
+	background-color: #f9fafc;
 }
 
 .cards-2 h2 {
@@ -1452,9 +1421,8 @@ input[type='checkbox'] {
 
 .cards-2 .card {
 	max-width: 20rem;
-	margin-right: auto;
-	margin-bottom: 5rem;
-	margin-left: auto;
+	margin: auto;
+	margin-bottom: 1rem;
 	border: none;
 	text-align: center;
 	vertical-align: top;
@@ -1671,8 +1639,8 @@ input[type='checkbox'] {
 /*     17. About     */
 /*********************/
 .basic-4 {
-	padding-top: 7rem;
-	padding-bottom: 6.625rem;
+	padding-top: 3rem;
+	padding-bottom: 3.625rem;
 }
 
 .basic-4 h2 {
@@ -1816,9 +1784,8 @@ input[type='checkbox'] {
 /*     20. Contact     */
 /***********************/
 .form-2 {
-	padding-top: 7rem;
-	padding-bottom: 6.25rem;
-	background-color: #f9fafc;
+	padding-top: 4rem;
+	padding-bottom: 3.25rem;
 }
 
 .form-2 h2 {
@@ -2466,12 +2433,6 @@ a:hover.back-to-top {
 	}
 	/* end of details 2 */
 
-
-	/* Pricing */
-	.cards-1 {
-		padding-bottom: 7.5rem;
-	}
-
 	.cards-1 .card {
 		display: inline-block;
 		width: 45%;
@@ -2539,7 +2500,7 @@ a:hover.back-to-top {
 
 	/* About */
 	.basic-4 {
-		padding-bottom: 7.5rem;
+		padding-bottom: 3.5rem;
 	}
 
 	.basic-4 .image-container {
@@ -2707,9 +2668,7 @@ a:hover.back-to-top {
 
 	/* Products */
 	.cards-2 .card {
-		max-width: 18rem;
-		margin-right: 2.375rem;
-		margin-left: 2.375rem;
+		max-width: 20rem;
 	}
 	/* end of products */
 
