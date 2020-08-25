@@ -84,6 +84,10 @@ class RoleSeeder extends Seeder
             ['id'=>4,'candidate_id' => 4, 'cv_url'=>'http://congstudio.vn/product_images/z/320/chup_anh_profile_tai_ha_noi_cong_studio_4__09337_thumb.jpg'],
             ['id'=>5,'candidate_id' => 5, 'cv_url'=>'http://congstudio.vn/product_images/z/320/chup_anh_profile_tai_ha_noi_cong_studio_4__09337_thumb.jpg'],
         ]);
+        DB::table('locations')->insert([
+            ['id'=>1, 'name'=>'Hà Nội'],
+            ['id'=>2, 'name'=>'Tp.Hồ Chí Minh'],
+        ]);
         Schema::enableForeignKeyConstraints();
     }
 }

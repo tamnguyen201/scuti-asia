@@ -9,21 +9,21 @@
         <li><a href="#">
             <em class="fa fa-home"></em>
         </a></li>
-        <li class="active">Jobs</li>
+        <li class="active">@lang('custom.page_title.jobs')</li>
     </ol>
 </div>
 <div class="row">
     <div class="col-lg-12">
-        <h1 class="page-header">Jobs Manage</h1>
+        <h1 class="page-header">@lang('custom.page_title.jobs_manage')</h1>
     </div>
 </div>
 <div class="col-lg-12">
     <div class="panel panel-default">
-       <div class="panel-heading">Data Table</div>
+       <div class="panel-heading">@lang('custom.page_title.jobs')</div>
        <div class="panel-body">
             <div class="bootstrap-table">
                 <div class="fixed-table-toolbar">
-                    <a href="{{ route('jobs.create') }}" class="btn btn-primary btn-add-form" style="float: right"><span class="fa fa-plus"></span> Add New</a>
+                    <a href="{{ route('jobs.create') }}" class="btn btn-primary btn-add-form" style="float: right"><span class="fa fa-plus"></span> @lang('custom.button.add')</a>
                 </div>
                 <div class="fixed-table-container">
                     <div class="fixed-table-body">
@@ -31,19 +31,19 @@
                             <thead>
                                 <tr>
                                     <th style="">
-                                        <div class="th-inner sortable">Title :<span class="order"><span class="caret" style="margin: 10px 5px;"></span></span></div>
+                                        <div class="th-inner sortable">@lang('custom.title') :<span class="order"><span class="caret" style="margin: 10px 5px;"></span></span></div>
                                         <div class="fht-cell"></div>
                                     </th>
                                     <th style="">
-                                        <div class="th-inner sortable">Category :<span class="order"><span class="caret" style="margin: 10px 5px;"></span></span></div>
+                                        <div class="th-inner sortable">@lang('custom.category') :<span class="order"><span class="caret" style="margin: 10px 5px;"></span></span></div>
                                         <div class="fht-cell"></div>
                                     </th>
                                     <th style="">
-                                        <div class="th-inner sortable">Status :<span class="order"><span class="caret" style="margin: 10px 5px;"></span></span></div>
+                                        <div class="th-inner sortable">@lang('custom.status') :<span class="order"><span class="caret" style="margin: 10px 5px;"></span></span></div>
                                         <div class="fht-cell"></div>
                                     </th>
                                     <th style="">
-                                        <div class="th-inner sortable text-center">Action</div>
+                                        <div class="th-inner sortable text-center">@lang('custom.action')</div>
                                         <div class="fht-cell"></div>
                                     </th>
                                 </tr>

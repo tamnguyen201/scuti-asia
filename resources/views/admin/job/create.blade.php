@@ -37,7 +37,9 @@
                             <label for="inputCategory">@lang('custom.category') :</label>
                             <select name="category_id" id="inputCategory" class="form-control" @error('category_id') is-invalid @enderror>
                                 <option value="null" disabled="disabled" selected>Choose...</option>
-                                {!! $htmlOptionCategory !!}
+                                @foreach ($dataCategory as $value)
+                                <option value="{{ $value->id }}">{{ $value->category_name }}</option>
+                                @endforeach
                             </select>
                             @error('category_id')
                             <span class="invalid-feedback" role="alert">
@@ -51,7 +53,9 @@
                             <label for="inputLocation">@lang('custom.location') :</label>
                             <select name="location_id" id="inputLocation" class="form-control" @error('location_id') is-invalid @enderror>
                                 <option value="null" disabled="disabled" selected>Choose Location...</option>
-                                {!! $htmlOptionLocation !!}
+                                @foreach ($dataLocation as $value)
+                                <option value="{{ $value->id }}">{{ $value->name }}</option>
+                                @endforeach
                             </select>
                             @error('location_id')
                             <span class="invalid-feedback" role="alert">

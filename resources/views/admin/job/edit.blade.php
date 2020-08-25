@@ -21,12 +21,20 @@
        <div class="panel-heading">@lang('custom.page_title.add')</div>
        <div class="panel-body">
            <div class="col-md-8">
+<<<<<<< HEAD
                 <form method="post" action="{{ route('jobs.update', $jobById->id) }}">
                     @method('PUT')
                     @csrf
                     <div class="form-group">
                         <label>@lang('custom.title') : </label>
                         <input value="{{ $jobById->name }}" name="name" type="text" class="form-control" @error('name') is-invalid @enderror placeholder="Enter title">
+=======
+                <form action="{{ route('jobs.store') }}" method="post">
+                    @csrf
+                    <div class="form-group">
+                        <label>@lang('custom.title') : </label>
+                        <input name="name" type="text" class="form-control" @error('name') is-invalid @enderror placeholder="Enter title">
+>>>>>>> 6b8622b693b31a96c70ead3ba0c46fba66f7fb6d
                         @error('name')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>

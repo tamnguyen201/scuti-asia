@@ -998,6 +998,11 @@ h1.page-header {
 .table {
   background: #fff; }
 
+.fixed-table-toolbar .btn.btn-primary {
+  float: right; 
+  margin: 1rem;
+}
+
 .fixed-table-container {
   border: 1px solid #e9ecf2; }
 
