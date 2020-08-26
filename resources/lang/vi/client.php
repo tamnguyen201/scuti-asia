@@ -7,6 +7,10 @@ return [
             'title' => 'Trang Chủ'
         ],
 
+        'login' => [
+            'title' => 'Đăng Nhập'
+        ],
+
         'profile' => [
             'title' => 'Thông Tin Cá Nhân',
             'side_bar' => [
@@ -25,6 +29,7 @@ return [
         'benefits' => 'Quyền Lợi',
         'recruitment' => 'Tin Tuyển Dụng',
         'contact' => 'Liên Hệ',
+        'login' => 'Đăng Nhập',
         'profile' => 'Thông Tin tài Khoản',
         'logout' => 'Đăng Xuất'
     ],
@@ -49,6 +54,8 @@ return [
         'recruitment' => [
             'title' => 'Tin Tuyển Dụng',
             'description' => 'Chúng tôi luôn tìm kiếm những người tuyệt vời! Nếu bạn chưa tìm thấy cơ hội phù hợp hiện tại, nhưng tin rằng bạn có thể trở thành 1 phần của Scuti, hãy gửi thông tin cho chúng tôi.',
+            'menu_title' => 'Phòng Ban',
+            'end_menu' => 'Xem Tất Cả'
         ],
 
         'working_environment' => [
@@ -59,6 +66,7 @@ return [
         'about' => [
             'title' => 'Về Chúng Tôi',
             'description' => 'Chúng tôi tin rằng xây dựng được hạnh phúc, chú trọng con đường sự nghiệp cho nhân viên, sự hài lòng trong công việc và môi trường tích cực sẽ là nền tảng lâu dài cho sự phát triển bền vững của Scuti.',
+            'sub_title' => 'Những giải thưởng Scuti đã vinh dự đạt được!'
         ],
 
         'newspaper' => [

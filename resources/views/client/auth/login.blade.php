@@ -3,9 +3,8 @@
 @section('content')
 <div class="basic-2" style="margin-top: 3.5rem">
     <div class="col-lg-4 mx-auto">
-        <!-- Get Quote Form -->
         <div class="form-container">
-            <h1 style="text-align: center;margin-bottom: 40px;color: #868686;letter-spacing: 3px;">Login</h1>
+            <h1 style="text-align: center;margin-bottom: 40px;color: #868686;letter-spacing: 3px;">@lang('client.page.login.title')</h1>
             <form action="{{route('login')}}" method="post">
                 @csrf
                 <div class="form-group">
@@ -36,8 +35,6 @@
                     <a href="" class="form-control-social-login"><i class="fab fa-google fa-fw"></i> Đăng nhập với Google</a>
                 </div>
             </form>
-        </div> <!-- end of form-container -->
-        <!-- end of get quote form -->
-    </div> <!-- end of col -->
+        </div>
 </div>
 @endsection
