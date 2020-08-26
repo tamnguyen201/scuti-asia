@@ -44,6 +44,7 @@ return [
         'user_profile'=>'Thông tin người dùng',
         'information'=>'Thông tin',
         'user_manager'=>'Quản lý người dùng',
+        'job_manage' =>'Quản lý Jobs',
         'job' => 'Việc làm',
         'job_add' =>'Thêm mới công việc',
         'job_edit' =>'Sửa Job',

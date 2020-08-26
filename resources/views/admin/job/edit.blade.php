@@ -18,7 +18,7 @@
 </div>
 <div class="col-lg-12">
     <div class="panel panel-default">
-       <div class="panel-heading">@lang('custom.page_title.edit')</div>
+       <div class="panel-heading">@lang('custom.page_title.job_edit')</div>
        <div class="panel-body">
            <div class="col-md-8">
                 <form method="post" action="{{ route('jobs.update', $jobById->id) }}">
