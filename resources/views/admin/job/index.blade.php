@@ -71,7 +71,6 @@
                         </table>
                         <div class="fixed-table-pagination">
                             <div class="pull-right pagination">
-                                {{-- {{$categories->links()}} --}}
                             </div>
                         </div>
                     </div>
