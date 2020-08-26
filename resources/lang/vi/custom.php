@@ -25,6 +25,7 @@ return [
     'category'=>'Danh mục',
     'location'=>'Địa điểm',
     'expire_day'=>'Ngày hết hạn',
+    'status'=>'Trạng thái',
     
     'page_title' => [
         'user_manage' => 'Quản Lý Người Dùng',
@@ -48,7 +49,11 @@ return [
         'job' => 'Việc làm',
         'job_add' =>'Thêm mới công việc',
         'job_edit' =>'Sửa Job',
-        'add'=>'Tạo mới'
+        'add'=>'Tạo mới',
+        'jobs' =>'Danh sách các Job',
+        'jobs_manage'=>'Quản lý danh sách Job',
+        'jobs_detail'=>'Thông tin Job',
+        'show_infor'=>'Thông tin'
         
     ],
 

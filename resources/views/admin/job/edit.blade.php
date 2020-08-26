@@ -38,7 +38,13 @@
                             <label for="inputCategory">@lang('custom.category') :</label>
                             <select name="category_id" id="inputCategory" class="form-control" @error('category') is-invalid @enderror>
                                 <option value="null" disabled="disabled" selected>Choose...</option>
-                                {!! $htmlOptionCategory !!}
+                                @foreach ($dataCategory as $item)
+                                    @if ($item->id == $jobById->category_id)
+                                        <option value="{{ $item->id }}" selected>{{ $item->category_name }}</option>
+                                    @else
+                                        <option value="{{ $item->id }}">{{ $item->category_name }}</option>
+                                    @endif
+                                @endforeach
                             </select>
                         </div>
                     </div>
@@ -47,7 +53,13 @@
                             <label for="inputLocation">@lang('custom.location') :</label>
                             <select name="location_id" id="inputLocation" class="form-control" @error('location') is-invalid @enderror>
                                 <option value="null" disabled="disabled" selected>Choose Location...</option>
-                                {!! $htmlOptionLocation !!}
+                                @foreach ($dataLocation as $item)
+                                    @if ($item->id == $jobById->location_id)
+                                        <option value="{{ $item->id }}" selected>{{ $item->name }}</option>
+                                    @else
+                                        <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                    @endif
+                                @endforeach
                             </select>
                         </div>
                     </div>
