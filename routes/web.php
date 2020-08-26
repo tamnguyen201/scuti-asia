@@ -14,9 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'HomeController@index');
-Route::get('/a', function(){
-    return view('client.page.profile');
-});
+
 Route::get('/login', 'AdminController@login')->name('login');
 Route::post('/login','AdminController@postLogin')->name('post-login');
 Route::get('/logout', 'AdminController@logout')->name('logout');
