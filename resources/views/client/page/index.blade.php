@@ -138,8 +138,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <h2>Báo Chí nói về chúng tôi</h2>
-                    <p class="p-heading p-large">We're focused on setting new industry standards with high quality business services. Find more details below</p>
+                    <h2>@lang('client.section.newspaper.title')</h2>
+                    <p class="p-heading p-large">@lang('client.section.newspaper.description')</p>
                     <hr class="line-heading">
                 </div> <!-- end of col -->
             </div> <!-- end of row -->
@@ -278,7 +278,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <h2>@lang('client.section.recruitment.title')</h2>
-                    <p class="p-heading p-large">@lang('client.section.recruitment.description')<strong>lightboxes</strong> and the other four redirect to the <strong>project details</strong> extra page</p>
+                    <p class="p-heading p-large">@lang('client.section.recruitment.description')</p>
                     <hr class="line-heading">
                 </div> <!-- end of col -->
             </div> <!-- end of row -->

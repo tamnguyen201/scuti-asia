@@ -2,6 +2,10 @@
 
 return [
 
+    'page_title' => [
+        'home' => 'Trang Chủ'
+    ],
+
     'nav' => [
         'home' => 'Trang Chủ',
         'about' => 'Về Chúng Tôi',
@@ -44,8 +48,13 @@ return [
             'description' => 'Hãy đến với chúng tôi khi nhận thấy những giá trị này phù hợp với bạn!',
         ],
 
+        'newspaper' => [
+            'title' => 'Báo Chí Nói Về Chúng Tôi',
+            'description' => 'Hãy đến với chúng tôi khi nhận thấy những giá trị này phù hợp với bạn!',
+        ],
+
         'visit_us' => [
-            'title' => 'Ghé Thăm CHúng Tôi',
+            'title' => 'Ghé Thăm Chúng Tôi',
             'description' => 'Hãy đến với chúng tôi khi nhận thấy những giá trị này phù hợp với bạn!',
         ]
     ],
