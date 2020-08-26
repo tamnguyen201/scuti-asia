@@ -273,7 +273,7 @@
 @section('script')
     <script src="clientAsset/js/swiper.min.js"></script> 
     <!-- <script src="https://inovatik.com/juno-landing-page/js/jquery.magnific-popup.js"></script>  -->
-    <script src="https://inovatik.com/juno-landing-page/js/isotope.pkgd.min.js"></script>
+    <script src="common/js/isotope.pkgd.min.js"></script>
     <script src="https://inovatik.com/juno-landing-page/js/validator.min.js"></script>
     <script src="clientAsset/js/scripts.js"></script>
 @endsection

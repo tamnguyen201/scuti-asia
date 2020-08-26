@@ -24,7 +24,7 @@
     <base href="{{asset('')}}">
     <!-- Styles -->
     <link href="https://fonts.googleapis.com/css?family=Raleway:400,400i,700,700i&amp;subset=latin-ext" rel="stylesheet">
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="common/css/bs4.5.2.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>    
     <link href="clientAsset/css/swiper.css" rel="stylesheet">
 	<link href="clientAsset/css/magnific-popup.css" rel="stylesheet">
@@ -42,10 +42,10 @@
     
     @include('client.layout.footer')
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.4.4/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+    <script src="common/js/jq3.5.1.min.js"></script>
+    <script src="common/js/popper.min.js"></script>
+    <script src="common/js/bs4.5.2.min.js"></script>
+    <script src="common/js/jquery.easing.min.js"></script>
     <script>
         $(function () {
             $.ajaxSetup({
