@@ -23,8 +23,8 @@ Route::post('/login','AdminController@postLogin')->name('post-login');
 Route::get('/logout', 'AdminController@logout')->name('logout');
 Route::get('/forgot', 'AdminController@forgot');
 
-Route::get('/auth/{provider}', 'SocialAuthController@redirectToProvider');
-Route::get('/auth/{provide}/callback', 'SocialAuthController@handleProviderCallback');
+Route::get('/auth/redirect/{provider}', 'SocialController@redirect');
+Route::get('/callback/{provider}', 'SocialController@callback');
 
 Route::group(
         ['prefix'=>'admin', 'middleware' => 'CheckManager'], function () {

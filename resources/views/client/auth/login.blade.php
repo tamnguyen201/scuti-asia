@@ -32,7 +32,7 @@
                     <p>- Hoặc -</p>
                 </div>
                 <div class="form-group">
-                    <a href="" class="form-control-social-login"><i class="fab fa-google fa-fw"></i> Đăng nhập với Google</a>
+                    <a href="{{ url('/auth/redirect/google') }}" class="form-control-social-login"><i class="fab fa-google fa-fw"></i> Đăng nhập với Google</a>
                 </div>
             </form>
         </div>
