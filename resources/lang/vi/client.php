@@ -2,8 +2,21 @@
 
 return [
 
-    'page_title' => [
-        'home' => 'Trang Chủ'
+    'page' => [
+        'home' => [
+            'title' => 'Trang Chủ'
+        ],
+
+        'profile' => [
+            'title' => 'Thông Tin Cá Nhân',
+            'side_bar' => [
+                'profile' => 'Thông Tin Cá Nhân',
+                'cv' => 'Hồ Sơ Cá Nhân',
+                'job_applied' => 'Công Việc Đã Ứng Tuyển',
+                'change_info' => 'Đổi Thông Tin Cá Nhân',
+                'change_password' => 'Đổi Mật Khẩu'
+            ]
+        ],
     ],
 
     'nav' => [
@@ -30,12 +43,12 @@ return [
 
         'recruitment_flow' => [
             'title' => 'Quá Trình Tuyển Dụng',
-            'description' => 'Hãy đến với chúng tôi khi nhận thấy những giá trị này phù hợp với bạn!',
+            'description' => 'Chúng tôi luôn tìm kiếm những người tuyệt vời! Nếu bạn chưa tìm thấy cơ hội phù hợp hiện tại, nhưng tin rằng bạn có thể trở thành 1 phần của Scuti, hãy gửi thông tin cho chúng tôi.',
         ],
 
         'recruitment' => [
             'title' => 'Tin Tuyển Dụng',
-            'description' => 'Hãy đến với chúng tôi khi nhận thấy những giá trị này phù hợp với bạn!',
+            'description' => 'Chúng tôi luôn tìm kiếm những người tuyệt vời! Nếu bạn chưa tìm thấy cơ hội phù hợp hiện tại, nhưng tin rằng bạn có thể trở thành 1 phần của Scuti, hãy gửi thông tin cho chúng tôi.',
         ],
 
         'working_environment' => [
@@ -45,17 +58,17 @@ return [
 
         'about' => [
             'title' => 'Về Chúng Tôi',
-            'description' => 'Hãy đến với chúng tôi khi nhận thấy những giá trị này phù hợp với bạn!',
+            'description' => 'Chúng tôi tin rằng xây dựng được hạnh phúc, chú trọng con đường sự nghiệp cho nhân viên, sự hài lòng trong công việc và môi trường tích cực sẽ là nền tảng lâu dài cho sự phát triển bền vững của Scuti.',
         ],
 
         'newspaper' => [
             'title' => 'Báo Chí Nói Về Chúng Tôi',
-            'description' => 'Hãy đến với chúng tôi khi nhận thấy những giá trị này phù hợp với bạn!',
+            'description' => 'SCUTI đã vinh dự nhận được nhiều bằng khen, giải thưởng các cấp vinh danh những đóng góp và thành tích của công ty trong hoạt động sản xuất kinh doanh, hoạt động cộng đồng xã hội và sự nghiệp xây dựng, bảo vệ Tổ quốc.',
         ],
 
         'visit_us' => [
             'title' => 'Ghé Thăm Chúng Tôi',
-            'description' => 'Hãy đến với chúng tôi khi nhận thấy những giá trị này phù hợp với bạn!',
+            'description' => 'Đừng ngần ngại gọi cho chúng tôi hoặc gửi tin nhắn liên hệ cho chúng tôi!',
         ]
     ],
     

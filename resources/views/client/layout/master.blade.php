@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- SEO Meta Tags -->
     <meta name="description" content="Juno business HTML landing page template helps you easily create efficient compact websites for businesses and present your services to the online audience.">
     <meta name="author" content="Inovatik">
@@ -46,6 +46,15 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.4.4/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+    <script>
+        $(function () {
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+        })
+    </script>
 
     @yield('script')
 

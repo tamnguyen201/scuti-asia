@@ -14,11 +14,17 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'HomeController@index');
-
+Route::get('/a', 'HomeController@profile');
+Route::get('/aa', 'HomeController@profile2');
+Route::get('/aaa', 'HomeController@profile3');
+Route::get('/li', 'HomeController@login');
 Route::get('/login', 'AdminController@login')->name('login');
 Route::post('/login','AdminController@postLogin')->name('post-login');
 Route::get('/logout', 'AdminController@logout')->name('logout');
 Route::get('/forgot', 'AdminController@forgot');
+
+Route::get('/auth/{provider}', 'SocialAuthController@redirectToProvider');
+Route::get('/auth/{provide}/callback', 'SocialAuthController@handleProviderCallback');
 
 Route::group(
         ['prefix'=>'admin', 'middleware' => 'CheckManager'], function () {

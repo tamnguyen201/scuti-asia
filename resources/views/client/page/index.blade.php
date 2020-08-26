@@ -169,7 +169,7 @@
                 <div class="col-lg-12">
                     <h2>@lang('client.section.visit_us.title')</h2>
                     <ul class="list-unstyled li-space-lg">
-                        <li class="address">Don't hesitate to give us a call or send us a contact form message</li>
+                        <li class="address">@lang('client.section.visit_us.description')</li>
                         <li><i class="fas fa-map-marker-alt"></i>22 Innovative Area, San Francisco, CA 94043, US</li>
                         <li><i class="fas fa-phone"></i><a class="orange" href="https://inovatik.com/juno-landing-page/tel:003024630820">+81 720 2212</a></li>
                         <li><i class="fas fa-envelope"></i><a class="orange" href="https://inovatik.com/juno-landing-page/mailto:office@junobs.com">office@junobs.com</a></li>
@@ -260,26 +260,33 @@
                 <div class="col-lg-12 d-md-flex">
                     <!-- Filter -->
                     <div class="col-lg-3 col-md-4 col-12 button-group filters-button-group">
-                        <a class="d-block button text-decoration-none is-checked"><span>DEPARTMENT</span></a>
-                        <a class="d-block button text-decoration-none"><span>DESIGN</span></a>
+                        <h3 class="is-checked"><span>DEPARTMENT</span></h3>
+
+                        <a class="d-block button text-decoration-none"  id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="true"><span>DESIGN</span></a>
                         <a class="d-block button text-decoration-none"><span>DEVELOPMENT</span></a>
-                        <a class="d-block button text-decoration-none"><span>MARKETING</span></a>
-                        <a class="d-block button text-decoration-none"><span>SEO</span></a>
+                        
                         <a class="d-block button text-decoration-none" href=""><span>SHOW ALL</span></a>
                     </div> <!-- end of button group -->
                     <div class="col-lg-9 col-md-8 col-12 list-group">
+                        <div class="tab-content" id="v-pills-tabContent">
 
-                        <div class="list-group-item d-md-flex col-12 development">
-                            <div class="col-md-8 col-12">
-                                <div class="mb-block cell name-job">
-                                    <h4 class="title-h4"><a style="font-weight: normal;color: #f4511e; text-decoration: none" href="#">[Đà Nẵng] CTV - Account Manager</a></h4>
-                                    <span class="desc-job inline"><span class="-ap icon-access_time"></span>07/08 — 31/12/2020 <span class="job-type">Freelancer</span></span>
-                                    <p class="desc-job"><span class="-ap icon-coin-dollar"></span>Thỏa thuận</p>
+                            <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+                                
+                                <div class="list-group-item d-md-flex col-12 development">
+                                    <div class="col-md-8 col-12">
+                                        <div class="mb-block cell name-job">
+                                            <h4 class="title-h4"><a style="font-weight: normal;color: #f4511e; text-decoration: none" href="#">[Đà Nẵng] CTV - Account Manager</a></h4>
+                                            <span class="desc-job inline"><span class="-ap icon-access_time"></span>07/08 — 31/12/2020 <span class="job-type">Freelancer</span></span>
+                                            <p class="desc-job"><span class="-ap icon-coin-dollar"></span>Thỏa thuận</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 col-12 text-md-right text-center">
+                                        <a href="http://tuyendung.luxstay.com/job/hoi-anda-latda-nang-ctv-account-manager-20488?apply=1" class="btn-apply-main btn-apply">Ứng tuyển</a>
+                                    </div>
                                 </div>
+
                             </div>
-                            <div class="col-md-4 col-12 text-md-right text-center">
-                                <a href="http://tuyendung.luxstay.com/job/hoi-anda-latda-nang-ctv-account-manager-20488?apply=1" class="btn-apply-main btn-apply">Ứng tuyển</a>
-                            </div>
+
                         </div>
 
                     </div>
