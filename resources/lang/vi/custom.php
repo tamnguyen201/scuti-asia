@@ -100,6 +100,9 @@ return [
         'success' => 'Thành công!',
         'warning' => 'Cảnh báo dữ liệu này đã có sẵn, vui lòng không tạo mới!',
         'error' => 'Lỗi',
+        'invalid' => 'Tài khoản hoặc mật khẩu không đúng! Vui lòng thử lại.',
+        'same' => 'Mật khẩu mới trung với mật khẩu hiện tại! Vui lòng thử lại.',
+        'not_same' => 'Mật khẩu hiện tại không chính sác! Vui lòng thử lại.',
     ]
 
 ];

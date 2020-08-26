@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\ChangePasswordRequest;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
@@ -25,30 +28,21 @@ class AuthController extends Controller
         return redirect()->route('login')->with('error', 'Email or password invalidate');
     }
 
-    public function changePassword(Request $request){
-
-        if (!(Hash::check($request->get('current-password'), Auth::user()->password))) {
-            // The passwords matches
-            return redirect()->back()->with("error","Your current password does not matches with the password you provided. Please try again.");
+    public function changePassword(ChangePasswordRequest $request)
+    {
+        if (!(Hash::check($request->password, Auth::user()->password))) {
+            return redirect()->back()->with("error", trans('custom.alert_messages.not_same'));
         }
 
-        if(strcmp($request->get('current-password'), $request->get('new-password')) == 0){
-            //Current password and new password are same
-            return redirect()->back()->with("error","New Password cannot be same as your current password. Please choose a different password.");
+        if(strcmp($request->password, $request->new_password) == 0){
+            return redirect()->back()->with("error", trans('custom.alert_messages.same'));
         }
 
-        $validatedData = $request->validate([
-            'current-password' => 'required',
-            'new-password' => 'required|string|min:6|confirmed',
-        ]);
-
-        //Change Password
         $user = Auth::user();
-        $user->password = bcrypt($request->get('new-password'));
+        $user->password = $request->new_password;
         $user->save();
 
         return redirect()->back()->with("success","Password changed successfully !");
-
     }
 
     public function forgot()

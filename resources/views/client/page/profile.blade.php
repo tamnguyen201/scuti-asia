@@ -167,14 +167,12 @@
         $("body").on("click", ".btn-reset-pw", function (e) {
             e.preventDefault();
             let domForm = $(this).closest('form');
-            let id = $('#id-update').val();
             $.ajax({
-                url: `/admin/categories/${id}`,
+                url: `/cpw`,
                 data: domForm.serialize(),
-                method: "PUT",
+                method: "POST",
             }).done(function (results) {
                 $("#myModal").modal('hide');
-                $('.fixed-table-body').html(results);
                 swal({
                     title: 'Thành công!',
                     text: 'Dữ liệu đã được cập nhật lại!',
@@ -184,7 +182,7 @@
             }).fail(function (data) {
                 var errors = data.responseJSON;
                 $.each(errors.errors, function (i, val) {
-                    domForm.find('input[name=' + i + ']').siblings('.error-form.text-danger').text(val[0]);
+                    domForm.find('input[name=' + i + ']').siblings('.text-danger').text(val[0]);
                 });
             });
         });

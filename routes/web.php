@@ -18,6 +18,7 @@ Route::get('/a', 'HomeController@profile');
 Route::get('/aa', 'HomeController@profile2');
 Route::get('/aaa', 'HomeController@profile3');
 Route::get('/li', 'AuthController@login');
+Route::post('/cpw','AuthController@changePassword');
 Route::get('/login', 'AdminController@login')->name('login');
 Route::post('/login','AdminController@postLogin')->name('post-login');
 Route::get('/logout', 'AdminController@logout')->name('logout');
