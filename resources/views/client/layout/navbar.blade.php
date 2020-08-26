@@ -13,27 +13,27 @@
     <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-                <a class="nav-link page-scroll" href="#header">HOME <span class="sr-only">(current)</span></a>
+                <a class="nav-link page-scroll" href="#header"> @lang('client.nav.home')<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link page-scroll" href="#services">ABOUT</a>
+                <a class="nav-link page-scroll" href="#services">@lang('client.nav.about')</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link page-scroll" href="#details">JOBS</a>
+                <a class="nav-link page-scroll" href="#details">@lang('client.nav.recruitment')</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link page-scroll" href="#pricing">SERVICE</a>
+                <a class="nav-link page-scroll" href="#pricing">@lang('client.nav.benefits')</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link page-scroll" href="#projects">CONTACT</a>
+                <a class="nav-link page-scroll" href="#projects">@lang('client.nav.contact')</a>
             </li>
             @auth
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle page-scroll text-uppercase" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">{{Auth::user()->name}}</a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href=""><span class="item-text">PROFILE</span></a>
+                    <a class="dropdown-item" href=""><span class="item-text">@lang('client.nav.profile')</span></a>
                     <div class="dropdown-items-divide-hr"></div>
-                    <a class="dropdown-item" href=""><span class="item-text">LOGOUT</span></a>
+                    <a class="dropdown-item" href=""><span class="item-text">@lang('client.nav.logout')</span></a>
                 </div>
             </li>
             @endauth

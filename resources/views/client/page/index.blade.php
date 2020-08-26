@@ -7,8 +7,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <h2>Scuti mang lại cho bạn</h2>
-                    <p class="p-heading p-large">We've launched 2 years ago and since then we never stopped delivering great business services</p>
+                    <h2>@lang('client.section.benefit.title')</h2>
+                    <p class="p-heading p-large">@lang('client.section.benefit.description')</p>
                     <hr class="line-heading">
                 </div> <!-- end of col -->
             </div> <!-- end of row -->
@@ -51,8 +51,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <h2>môi trường làm việc</h2>
-                    <p class="p-heading p-large">We're focused on setting new industry standards with high quality business services. Find more details below</p>
+                    <h2>@lang('client.section.working_environment.title')</h2>
+                    <p class="p-heading p-large">@lang('client.section.working_environment.description')</p>
                     <hr class="line-heading">
                 </div> <!-- end of col -->
             </div> <!-- end of row -->
@@ -107,8 +107,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <h2>ABOUT</h2>
-                    <p class="p-heading p-large">We've launched 2 years ago and since then we never stopped delivering great business services</p>
+                    <h2>@lang('client.section.about.title')</h2>
+                    <p class="p-heading p-large">@lang('client.section.about.description')</p>
                     <hr class="line-heading">
                 </div> <!-- end of div -->
             </div> <!-- end of row -->
@@ -193,7 +193,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <h2>CONTACT</h2>
+                    <h2>@lang('client.section.visit_us.title')</h2>
                     <ul class="list-unstyled li-space-lg">
                         <li class="address">Don't hesitate to give us a call or send us a contact form message</li>
                         <li><i class="fas fa-map-marker-alt"></i>22 Innovative Area, San Francisco, CA 94043, US</li>
@@ -260,8 +260,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <h2>Quy trình tuyển dụng</h2>
-                    <p class="p-heading p-large">We're focused on setting new industry standards with high quality business services. Find more details below</p>
+                    <h2>@lang('client.section.recruitment_flow.title')</h2>
+                    <p class="p-heading p-large">@lang('client.section.recruitment_flow.description')</p>
                     <hr class="line-heading">
                 </div> <!-- end of col -->
             </div> <!-- end of row -->
@@ -277,8 +277,8 @@
 		<div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <h2>JOBS</h2>
-                    <p class="p-heading p-large">Click on the projects, first four open in <strong>lightboxes</strong> and the other four redirect to the <strong>project details</strong> extra page</p>
+                    <h2>@lang('client.section.recruitment.title')</h2>
+                    <p class="p-heading p-large">@lang('client.section.recruitment.description')<strong>lightboxes</strong> and the other four redirect to the <strong>project details</strong> extra page</p>
                     <hr class="line-heading">
                 </div> <!-- end of col -->
             </div> <!-- end of row -->

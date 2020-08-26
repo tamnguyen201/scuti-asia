@@ -4,9 +4,9 @@
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <div class="text-container">
-                        <h1 class="h1-large">Trở thành thành viên trong gia đình Scuti</h1>
-                        <p class="p-large">Hãy đến với chúng tôi khi nhận thấy những giá trị này phù hợp với bạn!</p>
-                        <a class="btn-outline-lg page-scroll" href="#services">Ứng Tuyển Ngay</a>
+                        <h1 class="h1-large">@lang('client.header.title')</h1>
+                        <p class="p-large">@lang('client.header.description')</p>
+                        <a class="btn-outline-lg page-scroll" href="#services">@lang('client.header.apply')</a>
                     </div>
                 </div>
             </div>
