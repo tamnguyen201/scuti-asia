@@ -16,30 +16,13 @@ class AuthController extends Controller
 
     public function postLogin(Request $request)
     {
-        //Validate form input
-        $rules = [
-            'email' => 'required|email',
-            'password' => 'required'
-        ];
-        //Custom errors
-        $messages = [
-            'email.required' => 'Email is required',
-            'email.email' => 'Email invalidate',
-            'password.required' => 'Password is required'
-        ];
-        $validator = Validator::make($request->all(), $rules, $messages);
+        $remember = $request->has('remember') ? true : false;
 
-        if ($validator->fails()) {
-            return redirect()->route('login')->withErrors($validator)->withInput();
-        }
-        $remember = $request->has('remember_me') ? true : false;
-        $email = $request->input('email');
-        $password = $request->input('password');
-        if (Auth::attempt(['email' => $email,'password' => $password], $remember)) {
+        if (Auth::attempt(['email' => $request->email,'password' => $request->password], $remember)) {
             return redirect()->route('admin.home');
         }
-        Session::flash('error', 'Email or password invalidate');
-        return redirect()->route('login');
+
+        return redirect()->route('login')->with('error', 'Email or password invalidate');
     }
 
     public function changePassword(Request $request){
