@@ -68,32 +68,6 @@
                                 <p>Use our software application to </p>
                             </div>
                         </div>
-                        <div class="card col-md-6 col-lg-4">
-                            <div class="card-image">
-                                <img class="img-fluid" src="https://inovatik.com/juno-landing-page/images/product-1.jpg" alt="alternative">
-                            </div>
-                            <div class="card-body">
-                                <p>Use our software application to </p>
-                            </div>
-                        </div>
-                        <div class="card col-md-6 col-lg-4">
-                            <div class="card-image">
-                                <img class="img-fluid" src="https://inovatik.com/juno-landing-page/images/product-1.jpg" alt="alternative">
-                            </div>
-                            <div class="card-body">
-                                <p>Use our software application to </p>
-                            </div>
-                        </div>
-                        <div class="card col-md-6 col-lg-4">
-                            <div class="card-image">
-                                <img class="img-fluid" src="https://inovatik.com/juno-landing-page/images/product-1.jpg" alt="alternative">
-                            </div>
-                            <div class="card-body">
-                                <p>Use our software application to </p>
-                            </div>
-                        </div>
-
-                        
                         
                     </div> <!-- end of cards-container -->
                 </div> <!-- end of col -->
@@ -295,55 +269,6 @@
                     </div> <!-- end of button group -->
                     <div class="col-lg-9 col-md-8 col-12 list-group">
 
-                        <div class="list-group-item d-md-flex col-12 development">
-                            <div class="col-md-8 col-12">
-                                <div class="mb-block cell name-job">
-                                    <h4 class="title-h4"><a style="font-weight: normal;color: #f4511e; text-decoration: none" href="#">[Đà Nẵng] CTV - Account Manager</a></h4>
-                                    <span class="desc-job inline"><span class="-ap icon-access_time"></span>07/08 — 31/12/2020 <span class="job-type">Freelancer</span></span>
-                                    <p class="desc-job"><span class="-ap icon-coin-dollar"></span>Thỏa thuận</p>
-                                </div>
-                            </div>
-                            <div class="col-md-4 col-12 text-md-right text-center">
-                                <a href="http://tuyendung.luxstay.com/job/hoi-anda-latda-nang-ctv-account-manager-20488?apply=1" class="btn-apply-main btn-apply">Ứng tuyển</a>
-                            </div>
-                        </div>
-
-                        <div class="list-group-item d-md-flex col-12 development">
-                            <div class="col-md-8 col-12">
-                                <div class="mb-block cell name-job">
-                                    <h4 class="title-h4"><a style="font-weight: normal;color: #f4511e; text-decoration: none" href="#">[Đà Nẵng] CTV - Account Manager</a></h4>
-                                    <span class="desc-job inline"><span class="-ap icon-access_time"></span>07/08 — 31/12/2020 <span class="job-type">Freelancer</span></span>
-                                    <p class="desc-job"><span class="-ap icon-coin-dollar"></span>Thỏa thuận</p>
-                                </div>
-                            </div>
-                            <div class="col-md-4 col-12 text-md-right text-center">
-                                <a href="http://tuyendung.luxstay.com/job/hoi-anda-latda-nang-ctv-account-manager-20488?apply=1" class="btn-apply-main btn-apply">Ứng tuyển</a>
-                            </div>
-                        </div>
-                        <div class="list-group-item d-md-flex col-12 development">
-                            <div class="col-md-8 col-12">
-                                <div class="mb-block cell name-job">
-                                    <h4 class="title-h4"><a style="font-weight: normal;color: #f4511e; text-decoration: none" href="#">[Đà Nẵng] CTV - Account Manager</a></h4>
-                                    <span class="desc-job inline"><span class="-ap icon-access_time"></span>07/08 — 31/12/2020 <span class="job-type">Freelancer</span></span>
-                                    <p class="desc-job"><span class="-ap icon-coin-dollar"></span>Thỏa thuận</p>
-                                </div>
-                            </div>
-                            <div class="col-md-4 col-12 text-md-right text-center">
-                                <a href="http://tuyendung.luxstay.com/job/hoi-anda-latda-nang-ctv-account-manager-20488?apply=1" class="btn-apply-main btn-apply">Ứng tuyển</a>
-                            </div>
-                        </div>
-                        <div class="list-group-item d-md-flex col-12 development">
-                            <div class="col-md-8 col-12">
-                                <div class="mb-block cell name-job">
-                                    <h4 class="title-h4"><a style="font-weight: normal;color: #f4511e; text-decoration: none" href="#">[Đà Nẵng] CTV - Account Manager</a></h4>
-                                    <span class="desc-job inline"><span class="-ap icon-access_time"></span>07/08 — 31/12/2020 <span class="job-type">Freelancer</span></span>
-                                    <p class="desc-job"><span class="-ap icon-coin-dollar"></span>Thỏa thuận</p>
-                                </div>
-                            </div>
-                            <div class="col-md-4 col-12 text-md-right text-center">
-                                <a href="http://tuyendung.luxstay.com/job/hoi-anda-latda-nang-ctv-account-manager-20488?apply=1" class="btn-apply-main btn-apply">Ứng tuyển</a>
-                            </div>
-                        </div>
                         <div class="list-group-item d-md-flex col-12 development">
                             <div class="col-md-8 col-12">
                                 <div class="mb-block cell name-job">

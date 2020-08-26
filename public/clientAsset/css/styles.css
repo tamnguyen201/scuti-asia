@@ -1890,8 +1890,8 @@ input[type='checkbox'] {
 /*     22. Copyright     */
 /*************************/
 .copyright {
-	padding-top: 1rem;
-	padding-bottom: 0.5rem;
+	padding-top: 0.1rem;
+	padding-bottom: 0.1rem;
 	background-color: #2f3a43;
 	text-align: center;
 }
