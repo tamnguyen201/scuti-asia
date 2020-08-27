@@ -66,12 +66,12 @@ return [
         'about' => [
             'title' => 'Về Chúng Tôi',
             'description' => 'Chúng tôi tin rằng xây dựng được hạnh phúc, chú trọng con đường sự nghiệp cho nhân viên, sự hài lòng trong công việc và môi trường tích cực sẽ là nền tảng lâu dài cho sự phát triển bền vững của Scuti.',
-            'sub_title' => 'Những giải thưởng Scuti đã vinh dự đạt được!'
+            'sub_title' => 'Quá trình thành lập và phát triển Scuti!'
         ],
 
         'newspaper' => [
             'title' => 'Báo Chí Nói Về Chúng Tôi',
-            'description' => 'SCUTI đã vinh dự nhận được nhiều bằng khen, giải thưởng các cấp vinh danh những đóng góp và thành tích của công ty trong hoạt động sản xuất kinh doanh, hoạt động cộng đồng xã hội và sự nghiệp xây dựng, bảo vệ Tổ quốc.',
+            'description' => 'Scuti đã vinh dự nhận được nhiều bằng khen, giải thưởng các cấp vinh danh những đóng góp và thành tích của công ty trong hoạt động sản xuất kinh doanh, hoạt động cộng đồng xã hội và sự nghiệp xây dựng, bảo vệ Tổ quốc.',
         ],
 
         'visit_us' => [

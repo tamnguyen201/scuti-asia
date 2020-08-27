@@ -11,7 +11,7 @@
     <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-                <a class="nav-link page-scroll text-uppercase" href="/"> @lang('client.nav.home')<span class="sr-only">(current)</span></a>
+                <a class="nav-link page-scroll text-uppercase" href="{{route('home')}}"> @lang('client.nav.home')<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link page-scroll text-uppercase" href="#benefits">@lang('client.nav.benefits')</a>
@@ -31,7 +31,7 @@
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item text-uppercase" href=""><span class="item-text">@lang('client.nav.profile')</span></a>
                     <div class="dropdown-items-divide-hr"></div>
-                    <a class="dropdown-item text-uppercase" href=""><span class="item-text">@lang('client.nav.logout')</span></a>
+                    <a class="dropdown-item text-uppercase" href="{{route('logout')}}"><span class="item-text">@lang('client.nav.logout')</span></a>
                 </div>
             </li>
             @endauth
