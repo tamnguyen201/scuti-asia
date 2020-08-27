@@ -25,6 +25,8 @@ return [
     'category'=>'Danh mục',
     'location'=>'Địa điểm',
     'expire_day'=>'Ngày hết hạn',
+    'CV_status'=> 'Trạng thái',
+    'applied_job'=>'Công việc đã ứng tuyển',
     
     'page_title' => [
         'user_manage' => 'Quản Lý Người Dùng',

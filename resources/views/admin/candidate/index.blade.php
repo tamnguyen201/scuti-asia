@@ -51,6 +51,8 @@
                                 <td>{{$item->user->email}}</td>
                                 <td class="text-center">
                                     <a href="{{route('candidates.show', $item['id'])}}" class="btn btn-info text-light view-profile" title="Xem"><em class="fa fa-eye"></em></a>
+                                    <a href="{{route('evaluate.candidate.show', $item['id'])}}" class="btn btn-info text-light" title="Xem"><em class="fa fa-random"></em></a>
+                                    
                                 </td>
                             </tr>
                             @endforeach

@@ -49,5 +49,8 @@ Route::group(
         Route::resource('company_images', 'CompanyImagesController');
         Route::resource('partner_companies', 'PartnerCompaniesController');
         Route::resource('candidates', 'CandidateController')->only(['index', 'show']);
+        Route::group(['prefix' => 'evaluate'], function () {
+            Route::get('candidate/{id}', 'EvaluateController@show')->name('evaluate.candidate.show');
+        });
     }
 );
