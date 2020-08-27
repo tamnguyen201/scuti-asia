@@ -88,7 +88,7 @@
  </div>
 @endsection
 @section('script')
-    <script src="//cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>
+<script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
     <script>
     CKEDITOR.replace( 'description', {
         filebrowserBrowseUrl: '{{ route('jobs.edit', $jobById->id) }}',
