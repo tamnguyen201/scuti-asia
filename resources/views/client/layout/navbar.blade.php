@@ -29,7 +29,7 @@
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle page-scroll text-uppercase" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">{{Auth::user()->name}}</a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item text-uppercase" href=""><span class="item-text">@lang('client.nav.profile')</span></a>
+                    <a class="dropdown-item text-uppercase" href="/client/profile"><span class="item-text">@lang('client.nav.profile')</span></a>
                     <div class="dropdown-items-divide-hr"></div>
                     <a class="dropdown-item text-uppercase" href="{{route('logout')}}"><span class="item-text">@lang('client.nav.logout')</span></a>
                 </div>

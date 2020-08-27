@@ -14,10 +14,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'HomeController@index')->name('home');;
-Route::get('/a', 'HomeController@profile');
-Route::get('/aa', 'HomeController@profile2');
-Route::get('/aaa', 'HomeController@profile3');
-Route::get('/li', 'AuthController@login');
+Route::get('/client/profile', 'HomeController@profile');
+Route::get('/client/changeInfo', 'HomeController@profile2');
+Route::get('/client/changePass', 'HomeController@profile3');
+Route::get('/client/login', 'AuthController@login');
 Route::post('/cpw','AuthController@changePassword');
 
 Route::get('/login', 'AdminController@login')->name('login');

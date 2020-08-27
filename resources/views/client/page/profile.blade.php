@@ -23,8 +23,8 @@
                                 <a class="nav-link active" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="true">@lang('client.page.profile.side_bar.profile')</a>
                                 <a class="nav-link" id="v-pills-cv-tab" data-toggle="pill" href="#v-pills-cv" role="tab" aria-controls="v-pills-cv" aria-selected="false">@lang('client.page.profile.side_bar.cv')</a>
                                 <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">@lang('client.page.profile.side_bar.job_applied')</a>
-                                <a class="nav-link" href="#settings">@lang('client.page.profile.side_bar.change_info')</a>
-                                <a class="nav-link btn-add-form" href="/aaa">@lang('client.page.profile.side_bar.change_password')</a>
+                                <a class="nav-link" href="/client/changeInfo">@lang('client.page.profile.side_bar.change_info')</a>
+                                <a class="nav-link btn-add-form" href="/client/changePass">@lang('client.page.profile.side_bar.change_password')</a>
                             </div>
                         </div>
                         <div class="col-9">

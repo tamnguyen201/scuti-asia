@@ -15,7 +15,8 @@
 <div class="basic-2">
     <div class="col-lg-8 mx-auto">
         <div class="form-container">
-            <form id="getQuoteForm" class="col-lg-12 row" data-toggle="validator" data-focus="false">
+            <form action="" class="col-lg-12 row" method="post">
+                @csrf
                 <div class="col-md-7">
                     <div class="form-group @error('name') has-error @enderror">
                         <label>@lang('custom.name')</label>
@@ -55,7 +56,7 @@
                         @enderror
                     </div>
                     <div class="form-group preview-img">
-                        <img src="{{Auth::user()->avatar}}" alt="your image" class="img-fluid" />
+                        <img src="{{(Auth::user()->avatar) ? Auth::user()->avatar : 'default-img.png'}}" alt="your image" class="img-fluid" />
                     </div>
                 </div>
                 
