@@ -1,17 +1,17 @@
 <form>
     <div class="form-group">
-        <label>@lang('custom.name')</label>
-        <input type="password" name="password" class="form-control" placeholder="Please enter full name">
+        <label>@lang('custom.old_pass')</label>
+        <input type="password" name="password" class="form-control">
         <span class="help-block text-danger"></span>
     </div>
     <div class="form-group">
-        <label>@lang('custom.email')</label>
-        <input type="password" name="new_password" class="form-control" placeholder="Please enter email">
+        <label>@lang('custom.new_pass')</label>
+        <input type="password" name="new_password" class="form-control">
         <span class="help-block text-danger"></span>
     </div>
     <div class="form-group">
-        <label>@lang('custom.phone')</label>
-        <input type="password" name="new_password_confirmation" class="form-control" placeholder="Please enter phone">
+        <label>@lang('custom.confirm_pass')</label>
+        <input type="password" name="new_password_confirmation" class="form-control">
         <span class="help-block text-danger"></span>
     </div>
     

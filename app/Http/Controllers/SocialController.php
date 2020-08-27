@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Socialite, Auth, Redirect, Session, URL;
+use Socialite;
 use App\Model\User;
 
 class SocialController extends Controller

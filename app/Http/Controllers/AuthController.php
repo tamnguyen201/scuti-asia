@@ -14,6 +14,7 @@ class AuthController extends Controller
         if (auth()->check()) {
             return redirect()->route('home');
         }
+
         return view('client.auth.login');
     }
 
@@ -25,24 +26,24 @@ class AuthController extends Controller
             return redirect()->route('admin.home');
         }
 
-        return redirect()->route('login')->with('error', 'Email or password invalidate');
+        Session::flash('error', trans('custom.alert_messages.invalid'));
+
+        return redirect()->route('login');
     }
 
     public function changePassword(ChangePasswordRequest $request)
     {
         if (!(Hash::check($request->password, Auth::user()->password))) {
-            return redirect()->back()->with("error", trans('custom.alert_messages.not_same'));
+            return response()->json(["error" => trans('custom.alert_messages.not_same')]);
         }
 
         if(strcmp($request->password, $request->new_password) == 0){
-            return redirect()->back()->with("error", trans('custom.alert_messages.same'));
+            return response()->json(["error" => trans('custom.alert_messages.same')]);
         }
 
-        $user = Auth::user();
-        $user->password = $request->new_password;
-        $user->save();
+        Auth::user()->update([ 'password' => $request->new_password ]);
 
-        return redirect()->back()->with("success","Password changed successfully !");
+        return response()->json(["success" => trans('custom.alert_messages.success')]);
     }
 
     public function forgot()

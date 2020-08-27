@@ -130,20 +130,13 @@
     <div class="modal-dialog modal-md">
         <div class="modal-content">
         <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Categories Manage</h5>
+            <h5 class="modal-title" id="exampleModalLabel">@lang('custom.page_title.change_password')</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
+                <span aria-hidden="true">&times;</span>
             </button>
         </div>
+        <span class="text-center text-danger show-errors"></span>
         <div class="modal-body">
-            <form>
-                <div class="form-group">
-                    <label for="recipient-name" class="col-form-label">Name</label>
-                    <input type="text" name="name" class="form-control" id="recipient-name">
-                    <span class="error-form text-danger"></span>
-                </div>
-                <button type="button" class="btn btn-primary btn-add-location">Submit</button>
-                </form>
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -159,8 +152,9 @@
             let url = $(this).attr('href');
             $.get(url)
             .done(function (results) {
-            $(".modal-body").html(results);
-            $("#myModal").modal('show');
+                $('.text-danger').text('');
+                $(".modal-body").html(results);
+                $("#myModal").modal('show');
             }).fail(function (data) {});
         });
 
@@ -172,15 +166,21 @@
                 data: domForm.serialize(),
                 method: "POST",
             }).done(function (results) {
-                $("#myModal").modal('hide');
-                swal({
-                    title: 'Thành công!',
-                    text: 'Dữ liệu đã được cập nhật lại!',
-                    type: 'success',
-                    icon: 'success'
-                })
+                $('.text-danger').text('');
+                if(results.success){
+                    $("#myModal").modal('hide');
+                    swal({
+                        title: 'Thành công!',
+                        text: 'Dữ liệu đã được cập nhật lại!',
+                        type: 'success',
+                        icon: 'success'
+                    })
+                } else {
+                    $('.text-danger.show-errors').text(results.error);
+                }
             }).fail(function (data) {
                 var errors = data.responseJSON;
+                $('.text-danger').text('');
                 $.each(errors.errors, function (i, val) {
                     domForm.find('input[name=' + i + ']').siblings('.text-danger').text(val[0]);
                 });
