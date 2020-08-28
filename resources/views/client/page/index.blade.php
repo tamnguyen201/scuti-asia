@@ -13,6 +13,7 @@
                 </div>
             </div>
             <div class="row">
+                <!-- {!! $data['benefits'] !!} -->
                 <div class="col-lg-4">
                     <div class="text-container">
                         <h3>Môi Trường Lí Tưởng</h3>
@@ -37,7 +38,6 @@
             </div>
             <div class="row">
                 <div class="col-12">
-                    
                     <img src="https://www.scuti.asia/uploads/6/1/9/4/61941893/scuti-recruitment-pitch-2019-video_orig.jpg" class="img-fluid" alt="">
                 </div>
             </div>
@@ -82,6 +82,7 @@
                 </div>
             </div>
             <div class="row">
+                <!-- {!! $data['about_us'] !!} -->
                 <div class="col-lg-6">
                     <div class="image-container">
                         <img class="img-fluid" src="https://inovatik.com/juno-landing-page/images/about.jpg" alt="alternative">
@@ -111,12 +112,10 @@
             </div>
             <div class="row">
                 <div class="col-lg-12">      
-                    
-
                     <div class="slider-container">
                         <div class="swiper-container text-slider">
                             <div class="swiper-wrapper">
-                                
+                                @foreach($data['new_spaper'] as $item )
                                 <div class="swiper-slide">
                                     <div class="row">
                                         <div class="col-lg-6">
@@ -133,7 +132,7 @@
                                         </div>
                                     </div>
                                 </div>
-
+                                @endforeach
                             </div>
 
                             <div class="swiper-button-next"></div>
@@ -141,7 +140,6 @@
 
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
@@ -154,9 +152,9 @@
                     <h2>@lang('client.section.visit_us.title')</h2>
                     <ul class="list-unstyled li-space-lg">
                         <li class="address">@lang('client.section.visit_us.description')</li>
-                        <li><i class="fas fa-map-marker-alt"></i>22 Innovative Area, San Francisco, CA 94043, US</li>
-                        <li><i class="fas fa-phone"></i><a class="orange" href="https://inovatik.com/juno-landing-page/tel:003024630820">+81 720 2212</a></li>
-                        <li><i class="fas fa-envelope"></i><a class="orange" href="https://inovatik.com/juno-landing-page/mailto:office@junobs.com">office@junobs.com</a></li>
+                        <li><i class="fas fa-map-marker-alt"></i> <!-- {{ $data_share->address }} --></li>
+                        <li><i class="fas fa-phone"></i><a class="orange" href="tel:<!--{{ $data_share->phone }} -->"><!--{{ $data_share->phone }} --></a></li>
+                        <li><i class="fas fa-envelope"></i><a class="orange" href="mailto:<!--{{ $data_share->email }} -->"><!--{{ $data_share->email }} --></a></li>
                     </ul>
                     <hr class="line-heading">
                 </div>
@@ -164,6 +162,7 @@
             <div class="row">
                 <div class="col-lg-6">
                     <div class="map-responsive">
+                        <!-- {{ $data_share->map_url }} -->
                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3723.962023272904!2d105.76304874986745!3d21.034205492900966!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x313454b947cd6e49%3A0x6a87974c6b44d671!2zNjggUGjhu5EgTmd1eeG7hW4gQ8ahIFRo4bqhY2gsIE3hu7kgxJDDrG5oLCBU4burIExpw6ptLCBIw6AgTuG7mWksIFZp4buHdCBOYW0!5e0!3m2!1svi!2s!4v1598327887854!5m2!1svi!2s" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
                     </div>
                 </div>
@@ -218,7 +217,7 @@
                 </div>
             </div>
             <div class="row">
-
+                <!-- {!! $data['recruitment_flow'] !!} -->
             </div>
         </div>
     </div>
@@ -236,34 +235,51 @@
                 <div class="col-lg-12 d-md-flex">
                     <div class="col-lg-3 col-md-4 col-12 button-group filters-button-group">
                         <h3 class="is-checked"><span>@lang('client.section.recruitment.menu_title')</span></h3>
-
-                        <a class="d-block button text-decoration-none"  id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="true"><span>DESIGN</span></a>
-                        <a class="d-block button text-decoration-none"><span>DEVELOPMENT</span></a>
-                        
-                        <a class="d-block button text-decoration-none" href=""><span>@lang('client.section.recruitment.end_menu')</span></a>
+                        @foreach($data['categories'] as $category)
+                        <a class="d-block button text-decoration-none" id="v-pills-{{$category->category_name}}-tab" data-toggle="pill" href="#v-pills-{{$category->category_name}}" role="tab" aria-controls="v-pills-{{$category->category_name}}" aria-selected="true"><span>{{$category->category_name}}</span></a>
+                        @endforeach
+                        <a class="d-block button text-decoration-none" href="{{route('client.jobs')}}"><span>@lang('client.section.recruitment.end_menu')</span></a>
                     </div>
                     <div class="col-lg-9 col-md-8 col-12 list-group">
                         <div class="tab-content" id="v-pills-tabContent">
-
-                            <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
-                                
+                        @foreach($data['categories'] as $category)
+                            <div class="tab-pane fade" id="v-pills-{{$category->category_name}}" role="tabpanel" aria-labelledby="v-pills-{{$category->category_name}}-tab">
+                                @foreach($data['jobs'] as $job)    
+                                @if($job->category->id == $category->id)
                                 <div class="list-group-item d-md-flex col-12 development">
                                     <div class="col-md-8 col-12">
                                         <div class="mb-block cell name-job">
-                                            <h4 class="title-h4"><a style="font-weight: normal;color: #f4511e; text-decoration: none" href="#">[Đà Nẵng] CTV - Account Manager</a></h4>
+                                            <h4 class="title-h4"><a style="font-weight: normal;color: #f4511e; text-decoration: none" href="{{route('job-detail', [$job->slug, $job->id])}}">[Đà Nẵng] {{$job->name}}</a></h4>
                                             <span class="desc-job inline"><span class="-ap icon-access_time"></span>07/08 — 31/12/2020 <span class="job-type">Freelancer</span></span>
                                             <p class="desc-job"><span class="-ap icon-coin-dollar"></span>Thỏa thuận</p>
                                         </div>
                                     </div>
                                     <div class="col-md-4 col-12 text-md-right text-center">
-                                        <a href="http://tuyendung.luxstay.com/job/hoi-anda-latda-nang-ctv-account-manager-20488?apply=1" class="btn-apply-main btn-apply">Ứng tuyển</a>
+                                        <a href="{{route('client.applied', [$job->slug, $job->id])}}" class="btn-apply-main btn-apply">@lang('client.section.recruitment.apply')</a>
                                     </div>
                                 </div>
-
+                                @endif
+                                @endforeach
                             </div>
+                            @endforeach
 
+                            <div class="tab-pane fade show active" id="v-pills-all" role="tabpanel" aria-labelledby="v-pills-all-tab">
+                                @foreach($data['hotJobs'] as $job)
+                                <div class="list-group-item d-md-flex col-12 development">
+                                    <div class="col-md-8 col-12">
+                                        <div class="mb-block cell name-job">
+                                            <h4 class="title-h4"><a style="font-weight: normal;color: #f4511e; text-decoration: none" href="{{route('job-detail', [$job->slug, $job->id])}}">[Đà Nẵng] {{$job->name}}</a></h4>
+                                            <span class="desc-job inline"><span class="-ap icon-access_time"></span>07/08 — 31/12/2020 <span class="job-type">Freelancer</span></span>
+                                            <p class="desc-job"><span class="-ap icon-coin-dollar"></span>Thỏa thuận</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 col-12 text-md-right text-center">
+                                        <a href="{{route('client.applied', [$job->slug, $job->id])}}" class="btn-apply-main btn-apply">@lang('client.section.recruitment.apply')</a>
+                                    </div>
+                                </div>
+                                @endforeach
+                            </div>
                         </div>
-
                     </div>
                 </div>
             </div>
@@ -273,7 +289,7 @@
 @section('script')
     <script src="clientAsset/js/swiper.min.js"></script> 
     <!-- <script src="https://inovatik.com/juno-landing-page/js/jquery.magnific-popup.js"></script>  -->
-    <script src="https://inovatik.com/juno-landing-page/js/isotope.pkgd.min.js"></script>
+    <script src="common/js/isotope.pkgd.min.js"></script>
     <script src="https://inovatik.com/juno-landing-page/js/validator.min.js"></script>
     <script src="clientAsset/js/scripts.js"></script>
 @endsection

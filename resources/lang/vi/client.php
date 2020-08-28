@@ -8,14 +8,20 @@ return [
         ],
 
         'login' => [
-            'title' => 'Đăng Nhập'
+            'title' => 'Đăng Nhập',
+            'email' => 'Tài Khoản',
+            'password' => 'Mật Khẩu',
+            'remember' => 'Ghi nhớ đăng nhập!',
+            'submit' => 'Đăng Nhập',
+            'or' => 'Hoặc',
+            'google_login' => 'Đăng Nhập Với Google'
         ],
 
         'profile' => [
             'title' => 'Thông Tin Cá Nhân',
             'side_bar' => [
                 'profile' => 'Thông Tin Cá Nhân',
-                'cv' => 'Hồ Sơ Cá Nhân',
+                'cv' => 'Quản Lí Hồ Sơ',
                 'job_applied' => 'Công Việc Đã Ứng Tuyển',
                 'change_info' => 'Đổi Thông Tin Cá Nhân',
                 'change_password' => 'Đổi Mật Khẩu'
@@ -30,7 +36,7 @@ return [
         'recruitment' => 'Tin Tuyển Dụng',
         'contact' => 'Liên Hệ',
         'login' => 'Đăng Nhập',
-        'profile' => 'Thông Tin tài Khoản',
+        'profile' => 'Tài Khoản',
         'logout' => 'Đăng Xuất'
     ],
 
@@ -55,7 +61,8 @@ return [
             'title' => 'Tin Tuyển Dụng',
             'description' => 'Chúng tôi luôn tìm kiếm những người tuyệt vời! Nếu bạn chưa tìm thấy cơ hội phù hợp hiện tại, nhưng tin rằng bạn có thể trở thành 1 phần của Scuti, hãy gửi thông tin cho chúng tôi.',
             'menu_title' => 'Phòng Ban',
-            'end_menu' => 'Xem Tất Cả'
+            'end_menu' => 'Xem Tất Cả',
+            'apply' => 'Ứng Tuyển',
         ],
 
         'working_environment' => [
@@ -66,12 +73,12 @@ return [
         'about' => [
             'title' => 'Về Chúng Tôi',
             'description' => 'Chúng tôi tin rằng xây dựng được hạnh phúc, chú trọng con đường sự nghiệp cho nhân viên, sự hài lòng trong công việc và môi trường tích cực sẽ là nền tảng lâu dài cho sự phát triển bền vững của Scuti.',
-            'sub_title' => 'Những giải thưởng Scuti đã vinh dự đạt được!'
+            'sub_title' => 'Quá trình thành lập và phát triển Scuti!'
         ],
 
         'newspaper' => [
             'title' => 'Báo Chí Nói Về Chúng Tôi',
-            'description' => 'SCUTI đã vinh dự nhận được nhiều bằng khen, giải thưởng các cấp vinh danh những đóng góp và thành tích của công ty trong hoạt động sản xuất kinh doanh, hoạt động cộng đồng xã hội và sự nghiệp xây dựng, bảo vệ Tổ quốc.',
+            'description' => 'Scuti đã vinh dự nhận được nhiều bằng khen, giải thưởng các cấp vinh danh những đóng góp và thành tích của công ty trong hoạt động sản xuất kinh doanh, hoạt động cộng đồng xã hội và sự nghiệp xây dựng, bảo vệ Tổ quốc.',
         ],
 
         'visit_us' => [
