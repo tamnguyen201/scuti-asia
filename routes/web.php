@@ -15,17 +15,20 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'HomeController@index');
 
-Route::get('/login', 'AdminController@login')->name('login');
-Route::post('/login','AdminController@postLogin')->name('post-login');
-Route::get('/logout', 'AdminController@logout')->name('logout');
-Route::get('/forgot', 'AdminController@forgot');
+
 
 Route::group(
-        ['prefix'=>'admin', 'middleware' => 'CheckManager'], function () {
-
+        ['prefix'=>'admin'], function () {
+        
         Route::get('/', 'AdminController@index')->name('admin.home');
+        
+        Route::get('login', 'Auth\AdminLoginController@login')->name('admin.login');
+        Route::post('login','Auth\AdminLoginController@postLogin')->name('admin.post-login');
+        Route::get('logout', 'Auth\AdminLoginController@logout')->name('admin.logout');
+        Route::get('/forgot', 'Auth\AdminLoginController@forgot');
 
-        Route::get('/logout', 'AdminController@logout')->name('admin.logout');
+    Route::group(['middleware' => ['CheckManager']], function () {
+
         Route::resource('users', 'UserController')->only(['index', 'show']);
         Route::resource('employees', 'EmployeeController');
         Route::resource('locations', 'LocationController');
@@ -44,5 +47,6 @@ Route::group(
         Route::resource('company_images', 'CompanyImagesController');
         Route::resource('partner_companies', 'PartnerCompaniesController');
         Route::resource('candidates', 'CandidateController')->only(['index', 'show']);
+    });
     }
 );

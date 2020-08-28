@@ -15,12 +15,12 @@ class CreateCandidateJobTable extends Migration
     {
         Schema::create('candidate_job', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('candidate_id');
+            $table->foreignId('user_id');
             $table->foreignId('job_id');
             $table->foreignId('cv_id');
             $table->string('letter');
 
-            $table->foreign('candidate_id')->references('id')->on('candidates')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('job_id')->references('id')->on('jobs')->onDelete('cascade');
             $table->foreign('cv_id')->references('id')->on('cvs')->onDelete('cascade');
         });

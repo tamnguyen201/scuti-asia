@@ -5,7 +5,7 @@
         </div>
         <div class="profile-usertitle">
             <a href="{{ route('admin.information') }}">
-                <div class="profile-usertitle-name">{{ auth()->user()->name }}</div>
+                <div class="profile-usertitle-name"></div>
             </a>
             <div class="profile-usertitle-status"><span class="indicator label-success"></span>@lang('custom.menu.online')</div>
         </div>
@@ -58,7 +58,7 @@
                 </li>
             </ul>
         </li>
-        <li><a href="{{route('logout')}}"><em class="fa fa-power-off">&nbsp;</em> @lang('custom.menu.logout')</a></li>
+        <li><a href="{{route('admin.logout')}}"><em class="fa fa-power-off">&nbsp;</em> @lang('custom.menu.logout')</a></li>
     </ul>
 </div>
 

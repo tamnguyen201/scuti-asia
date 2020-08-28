@@ -14,13 +14,13 @@ class CheckManager
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle($request, Closure $next)
+    public function handle($request, Closure $next, $guard = null)
     {
-        if(Auth::check() && Auth::user()->role != config('common.role.User'))
+        if(Auth::guard($guard)->check() && Auth::guard($guard)->role != config('common.role.User'))
         {
             return $next($request);
         }
 
-        return redirect('/');
+        return redirect()->route('admin.login');
     }
 }
