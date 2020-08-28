@@ -18,7 +18,7 @@ class AdminLoginController extends Controller
     }
 
     public function login() 
-    {
+    {   
         return view('admin.auth.login');
     }
 
@@ -28,6 +28,7 @@ class AdminLoginController extends Controller
         $email = $request->input('email');
         $password = $request->input('password');
         if (Auth::guard('admin')->attempt(['email' => $email,'password' => $password], $remember)) {
+            
             return redirect()->intended('/admin');
         }
         Session::flash('error', trans('custom.alert_message.invalid'));
@@ -36,12 +37,13 @@ class AdminLoginController extends Controller
 
     public function forgot()
     {
-        return view('admin.auth.forgotPw');
+        return view('admin.auth.forgot_password');
     }
 
     public function logout()
     {
         Auth::guard('admin')->logout();
+        
         return redirect()->route('admin.login');
     }
 }

@@ -34,13 +34,16 @@ class Admin extends Authenticatable
 
     public function roleName()
     {
-        if ($this->role == config('common.role.Administrator')) {
-            return 'Admin';
-        } else if ($this->role == config('common.role.Interviewer')) {
-            return 'Interviewer';
-        } else if ($this->role == config('common.role.BackOffice')) {
-            return 'BackOffice';
-        }
+        switch ($this->role) {
+            case config('common.role.Administrator'):
+                return 'Admin';
+            case config('common.role.Interviewer'):
+                return 'Interviewer';
+            case config('common.role.BackOffice'):
+                return 'BackOffice';
+            default:
+              break;
+          }
     }
 
 }

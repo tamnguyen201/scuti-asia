@@ -62,7 +62,7 @@
                               <form class="user" action="{{ route('admin.post-login') }}" method="post">
                                  @csrf
                                  <div class="form-group">
-                                    <input name="email" type="email" class="form-control form-control-user"  @error('email') is-invalid @enderror id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Enter Email Address...">
+                                    <input name="email" type="email" class="form-control form-control-user"  @error('email') is-invalid @enderror id="exampleInputEmail" aria-describedby="emailHelp">
                                     @error('email')
                                        <span class="invalid-feedback" role="alert">
                                           <strong>{{ $message }}</strong>
@@ -70,7 +70,7 @@
                                     @enderror
                                  </div>
                                  <div class="form-group">
-                                    <input name="password" type="password" class="form-control form-control-user"  @error('password') is-invalid @enderror id="exampleInputPassword" placeholder="Password">
+                                    <input name="password" type="password" class="form-control form-control-user"  @error('password') is-invalid @enderror id="exampleInputPassword">
                                     @error('password')
                                     <span class="invalid-feedback" role="alert">
                                        <strong>{{ $message }}</strong>
