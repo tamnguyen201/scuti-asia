@@ -14,9 +14,9 @@ class CheckManager
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle($request, Closure $next, $guard = null)
+    public function handle($request, Closure $next, $guard = 'admin')
     {
-        if(Auth::guard($guard)->check() && Auth::guard($guard)->role != config('common.role.User'))
+        if(Auth::guard($guard)->check() && Auth::guard($guard)->user()->role != config('common.role.User'))
         {
             return $next($request);
         }
