@@ -3,19 +3,24 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers;
+use App\Http\Requests\CompanyRequest;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
     public function index()
     {
-        return view('client.page.index');
+        $data['categories'] = \App\Model\Category::all();
+        $data['jobs'] = \App\Model\Job::all();
+        $data['hotJobs'] = \App\Model\Job::all();
+
+        return view('client.page.index', compact('data'));
     }
 
     public function jobs()
     {
         $data['categories'] = \App\Model\Category::all();
-        $data['jobs'] = \App\Model\Job::with('category')->paginate(10);
+        $data['jobs'] = \App\Model\Job::with('category')->paginate(5);
 
         return view('client.page.jobs', compact('data'));
     }
@@ -25,6 +30,23 @@ class HomeController extends Controller
         $data['job'] = \App\Model\Job::find($id);
 
         return view('client.page.jobDetail', compact('data'));
+    }
+
+    public function jobApply($slug, $id)
+    {
+        if (!auth()->check()) {
+            return redirect()->route('login');
+        }
+        
+        $data['job'] = \App\Model\Job::find($id);
+
+        return view('client.page.jobApply', compact('data'));
+    }
+
+    public function userApplyJob(CompanyRequest $request)
+    {
+        
+        return back()->with('success', trans('custom.alert_messages.success'));
     }
 
     public function login()
@@ -46,6 +68,5 @@ class HomeController extends Controller
     {
         return view('client.page.changePassword');
     }
-
     
 }

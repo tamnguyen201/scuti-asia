@@ -18,12 +18,11 @@ Route::get('/a', 'HomeController@profile');
 Route::get('/aa', 'HomeController@profile2');
 Route::get('/aaa', 'HomeController@profile3');
 Route::get('/li', 'AuthController@login');
-Route::get('/z', function (){
-    return view('client.page.jobDetail');
-});
-
-Route::get('/jobs', 'HomeController@jobs');
-Route::get('/jobs/{slug}-{id}.html', 'HomeController@jobDetail')->name('job-detail');;
+Route::get('/apply', 'HomeController@apply')->name('client.apply');
+Route::get('/jobs', 'HomeController@jobs')->name('client.jobs');
+Route::get('/jobs/{slug}-{id}.html', 'HomeController@jobDetail')->name('job-detail');
+Route::get('/jobs/apply/{slug}-{id}.html', 'HomeController@jobApply')->name('client.applied');
+Route::post('/apply','HomeController@userApplyJob')->name('client.apply.job');
 
 Route::get('/login', 'AdminController@login')->name('login');
 Route::post('/login','AdminController@postLogin')->name('post-login');

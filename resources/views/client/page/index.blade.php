@@ -37,7 +37,6 @@
             </div>
             <div class="row">
                 <div class="col-12">
-                    
                     <img src="https://www.scuti.asia/uploads/6/1/9/4/61941893/scuti-recruitment-pitch-2019-video_orig.jpg" class="img-fluid" alt="">
                 </div>
             </div>
@@ -236,34 +235,51 @@
                 <div class="col-lg-12 d-md-flex">
                     <div class="col-lg-3 col-md-4 col-12 button-group filters-button-group">
                         <h3 class="is-checked"><span>@lang('client.section.recruitment.menu_title')</span></h3>
-
-                        <a class="d-block button text-decoration-none"  id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="true"><span>DESIGN</span></a>
-                        <a class="d-block button text-decoration-none"><span>DEVELOPMENT</span></a>
-                        
-                        <a class="d-block button text-decoration-none" href=""><span>@lang('client.section.recruitment.end_menu')</span></a>
+                        @foreach($data['categories'] as $category)
+                        <a class="d-block button text-decoration-none" id="v-pills-{{$category->category_name}}-tab" data-toggle="pill" href="#v-pills-{{$category->category_name}}" role="tab" aria-controls="v-pills-{{$category->category_name}}" aria-selected="true"><span>{{$category->category_name}}</span></a>
+                        @endforeach
+                        <a class="d-block button text-decoration-none" href="{{route('client.jobs')}}"><span>@lang('client.section.recruitment.end_menu')</span></a>
                     </div>
                     <div class="col-lg-9 col-md-8 col-12 list-group">
                         <div class="tab-content" id="v-pills-tabContent">
-
-                            <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
-                                
+                        @foreach($data['categories'] as $category)
+                            <div class="tab-pane fade" id="v-pills-{{$category->category_name}}" role="tabpanel" aria-labelledby="v-pills-{{$category->category_name}}-tab">
+                                @foreach($data['jobs'] as $job)    
+                                @if($job->category->id == $category->id)
                                 <div class="list-group-item d-md-flex col-12 development">
                                     <div class="col-md-8 col-12">
                                         <div class="mb-block cell name-job">
-                                            <h4 class="title-h4"><a style="font-weight: normal;color: #f4511e; text-decoration: none" href="#">[Đà Nẵng] CTV - Account Manager</a></h4>
+                                            <h4 class="title-h4"><a style="font-weight: normal;color: #f4511e; text-decoration: none" href="{{route('job-detail', [$job->slug, $job->id])}}">[Đà Nẵng] {{$job->name}}</a></h4>
                                             <span class="desc-job inline"><span class="-ap icon-access_time"></span>07/08 — 31/12/2020 <span class="job-type">Freelancer</span></span>
                                             <p class="desc-job"><span class="-ap icon-coin-dollar"></span>Thỏa thuận</p>
                                         </div>
                                     </div>
                                     <div class="col-md-4 col-12 text-md-right text-center">
-                                        <a href="http://tuyendung.luxstay.com/job/hoi-anda-latda-nang-ctv-account-manager-20488?apply=1" class="btn-apply-main btn-apply">Ứng tuyển</a>
+                                        <a href="{{route('client.applied', [$job->slug, $job->id])}}" class="btn-apply-main btn-apply">@lang('client.section.recruitment.apply')</a>
                                     </div>
                                 </div>
-
+                                @endif
+                                @endforeach
                             </div>
-
+                            @endforeach
                         </div>
 
+                        <div class="tab-pane fade show active" id="v-pills-all" role="tabpanel" aria-labelledby="v-pills-all-tab">
+                                @foreach($data['hotJobs'] as $job)
+                                <div class="list-group-item d-md-flex col-12 development">
+                                    <div class="col-md-8 col-12">
+                                        <div class="mb-block cell name-job">
+                                            <h4 class="title-h4"><a style="font-weight: normal;color: #f4511e; text-decoration: none" href="{{route('job-detail', [$job->slug, $job->id])}}">[Đà Nẵng] {{$job->name}}</a></h4>
+                                            <span class="desc-job inline"><span class="-ap icon-access_time"></span>07/08 — 31/12/2020 <span class="job-type">Freelancer</span></span>
+                                            <p class="desc-job"><span class="-ap icon-coin-dollar"></span>Thỏa thuận</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 col-12 text-md-right text-center">
+                                        <a href="{{route('client.applied', [$job->slug, $job->id])}}" class="btn-apply-main btn-apply">@lang('client.section.recruitment.apply')</a>
+                                    </div>
+                                </div>
+                                @endforeach
+                            </div>
                     </div>
                 </div>
             </div>

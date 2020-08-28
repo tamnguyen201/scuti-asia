@@ -1325,7 +1325,8 @@ input[type='checkbox'] {
 
 .filter .list-group .list-group-item {
 	max-height: 11.5rem;
-	padding: 15px;
+	padding: 15px 0 15px 0;
+	margin-bottom: 1rem;
 	border: 1px dotted #e0e0e0;
 	border-radius: 5px;
 }

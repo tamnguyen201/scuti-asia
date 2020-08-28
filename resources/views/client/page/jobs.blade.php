@@ -35,7 +35,7 @@
                                         </div>
                                     </div>
                                     <div class="col-md-4 col-12 text-md-right text-center">
-                                        <a href="" class="btn-apply-main btn-apply">Ứng tuyển</a>
+                                        <a href="" class="btn-apply-main btn-apply">@lang('client.section.recruitment.aplly')</a>
                                     </div>
                                 </div>
                                 @endif
@@ -54,11 +54,11 @@
                                         </div>
                                     </div>
                                     <div class="col-md-4 col-12 text-md-right text-center">
-                                        <a href="" class="btn-apply-main btn-apply">Ứng tuyển</a>
+                                        <a href="" class="btn-apply-main btn-apply">@lang('client.section.recruitment.aplly')</a>
                                     </div>
                                 </div>
                                 @endforeach
-                                <div class="row my-3 offset-lg-4 offset-md-3 offset-1">
+                                <div class="row my-3 justify-content-center">
                                     {{$data['jobs']->links()}}
                                 </div>
                             </div>

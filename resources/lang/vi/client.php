@@ -55,7 +55,8 @@ return [
             'title' => 'Tin Tuyển Dụng',
             'description' => 'Chúng tôi luôn tìm kiếm những người tuyệt vời! Nếu bạn chưa tìm thấy cơ hội phù hợp hiện tại, nhưng tin rằng bạn có thể trở thành 1 phần của Scuti, hãy gửi thông tin cho chúng tôi.',
             'menu_title' => 'Phòng Ban',
-            'end_menu' => 'Xem Tất Cả'
+            'end_menu' => 'Xem Tất Cả',
+            'apply' => 'Ứng Tuyển',
         ],
 
         'working_environment' => [
