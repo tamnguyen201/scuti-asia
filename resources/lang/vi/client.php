@@ -8,14 +8,20 @@ return [
         ],
 
         'login' => [
-            'title' => 'Đăng Nhập'
+            'title' => 'Đăng Nhập',
+            'email' => 'Tài Khoản',
+            'password' => 'Mật Khẩu',
+            'remember' => 'Ghi nhớ đăng nhập!',
+            'submit' => 'Đăng Nhập',
+            'or' => 'Hoặc',
+            'google_login' => 'Đăng Nhập Với Google'
         ],
 
         'profile' => [
             'title' => 'Thông Tin Cá Nhân',
             'side_bar' => [
                 'profile' => 'Thông Tin Cá Nhân',
-                'cv' => 'Hồ Sơ Cá Nhân',
+                'cv' => 'Quản Lí Hồ Sơ',
                 'job_applied' => 'Công Việc Đã Ứng Tuyển',
                 'change_info' => 'Đổi Thông Tin Cá Nhân',
                 'change_password' => 'Đổi Mật Khẩu'
@@ -30,7 +36,7 @@ return [
         'recruitment' => 'Tin Tuyển Dụng',
         'contact' => 'Liên Hệ',
         'login' => 'Đăng Nhập',
-        'profile' => 'Thông Tin tài Khoản',
+        'profile' => 'Tài Khoản',
         'logout' => 'Đăng Xuất'
     ],
 

@@ -15,7 +15,7 @@ class CreateCandidateEvaluateTable extends Migration
     {
         Schema::create('candidate_evaluate', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('candidate_id');
+            $table->foreignId('user_id');
             $table->boolean('stage1');
             $table->boolean('stage2')->nullable();
             $table->string('comment2')->nullable();
@@ -25,7 +25,7 @@ class CreateCandidateEvaluateTable extends Migration
             $table->string('comment4')->nullable();
             $table->timestamps();
 
-            $table->foreign('candidate_id')->references('id')->on('candidates')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

@@ -17,7 +17,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'provider', 'provider_id', 'role'
+        'name', 'email', 'password', 'provider', 'provider_id', 'phone', 'address', 'avatar',
     ];
 
     /**
@@ -42,24 +42,4 @@ class User extends Authenticatable
         $this->attributes['password'] = Hash::make($value);
     }
 
-    public function manager()
-    {
-        return $this->hasOne('App\Model\Manager');
-    }
-
-    public function candidate()
-    {
-        return $this->hasOne('App\Model\Candidate');
-    }
-
-    public function roleName()
-    {
-        if ($this->role == config('common.role.Administrator')) {
-            return 'Admin';
-        } else if ($this->role == config('common.role.Interviewer')) {
-            return 'Interviewer';
-        } else if ($this->role == config('common.role.BackOffice')) {
-            return 'BackOffice';
-        }
-    }
 }
