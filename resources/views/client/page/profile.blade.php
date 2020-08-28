@@ -24,7 +24,9 @@
                                 <a class="nav-link" id="v-pills-cv-tab" data-toggle="pill" href="#v-pills-cv" role="tab" aria-controls="v-pills-cv" aria-selected="false">@lang('client.page.profile.side_bar.cv')</a>
                                 <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">@lang('client.page.profile.side_bar.job_applied')</a>
                                 <a class="nav-link" href="{{route('client.change_info')}}">@lang('client.page.profile.side_bar.change_info')</a>
+                                @if(auth()->user()->password)
                                 <a class="nav-link btn-add-form" href="{{route('client.change_password')}}">@lang('client.page.profile.side_bar.change_password')</a>
+                                @endif
                             </div>
                         </div>
                         <div class="col-9">
@@ -32,7 +34,7 @@
                                 <div class="tab-pane fade show active" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
                                     <div class="row">
                                         <div class="col-md-3">
-                                            <h5>Avatar</h5>
+                                            <h5>@lang('custom.avatar')</h5>
                                             <img src="default-img.png" class="img-fluid" alt="">
                                         </div>
                                         <div class="col-md-9">
@@ -61,6 +63,7 @@
                                     </div>
                                 </div>
                                 <div class="tab-pane fade" id="v-pills-cv" role="tabpanel" aria-labelledby="v-pills-cv-tab">
+                                    @if(auth()->user()->cv->count() > 0)
                                     <table class="table table-hover">
                                         <thead>
                                             <tr>
@@ -90,8 +93,12 @@
                                             @endforeach
                                         </tbody>
                                     </table>
+                                    @else
+                                    <p>@lang('client.page.profile.empty_cv')</p>
+                                    @endif
                                 </div>
                                 <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
+                                    @if(auth()->user()->cv->count() > 0)
                                     <table class="table table-hover">
                                         <thead>
                                             <tr>
@@ -121,6 +128,11 @@
                                             @endforeach
                                         </tbody>
                                     </table>
+                                    @else
+                                    <p>@lang('client.page.profile.empty_job_applied')
+                                        <a href="{{route('client.jobs')}}">@lang('client.page.profile.apply_job')</a>
+                                    </p>
+                                    @endif
                                 </div>
                             </div>
                         </div>

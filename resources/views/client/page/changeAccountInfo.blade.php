@@ -15,33 +15,33 @@
 <div class="basic-2">
     <div class="col-lg-8 mx-auto">
         <div class="form-container">
-            <form action="{{route('client.update_info')}}" class="col-lg-12 row" method="post">
+            <form action="{{route('client.update_info')}}" class="col-lg-12 row" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="col-md-7">
                     <div class="form-group">
                         <label>@lang('custom.name')</label>
-                        <input type="text" name="name" value="{{Auth::user()->name}}" class="form-control" placeholder="Please enter full name">
+                        <input type="text" name="name" value="{{Auth::user()->name}}" class="form-control">
                         @error('name') 
                         <span class="text-danger"> {{$message}} </span>
                         @enderror
                     </div>
                     <div class="form-group">
                         <label>@lang('custom.email')</label>
-                        <input type="text" name="email" value="{{Auth::user()->email}}" class="form-control" placeholder="Please enter email">
+                        <input type="text" name="email" value="{{Auth::user()->email}}" class="form-control">
                         @error('email') 
                         <span class="text-danger"> {{$message}} </span>
                         @enderror
                     </div>
                     <div class="form-group">
                         <label>@lang('custom.phone')</label>
-                        <input type="text" name="phone" value="{{Auth::user()->phone}}" class="form-control" placeholder="Please enter phone">
+                        <input type="text" name="phone" value="{{Auth::user()->phone}}" class="form-control">
                         @error('phone') 
                         <span class="text-danger"> {{$message}} </span>
                         @enderror
                     </div>
                     <div class="form-group">
                         <label>@lang('custom.address')</label>
-                        <input type="text" name="address" value="{{Auth::user()->address}}" class="form-control" placeholder="Please enter address">
+                        <input type="text" name="address" value="{{Auth::user()->address}}" class="form-control">
                         @error('address') 
                         <span class="text-danger"> {{$message}} </span>
                         @enderror
@@ -49,9 +49,9 @@
                 </div>
                 <div class="col-md-5">
                     <div class="form-group">
-                        <label>@lang('custom.logo')</label>
-                        <input type="file" onchange="encodeImageFileAsURL(this)" name="logo" accept="image/*">
-                        @error('logo') 
+                        <label>@lang('custom.avatar')</label>
+                        <input type="file" onchange="encodeImageFileAsURL(this)" name="avatar" accept="image/*">
+                        @error('avatar') 
                         <span class="text-danger"> {{$message}} </span>
                         @enderror
                     </div>
