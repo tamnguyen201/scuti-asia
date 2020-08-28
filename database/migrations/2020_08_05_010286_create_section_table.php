@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateRecruitmentFlowTable extends Migration
+class CreateSectionTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,12 @@ class CreateRecruitmentFlowTable extends Migration
      */
     public function up()
     {
-        Schema::create('recruitment_flow', function (Blueprint $table) {
+        Schema::create('section', function (Blueprint $table) {
             $table->id();
-            $table->string('body');
+            $table->string('content');
+            $table->string('image')->nullable();
+            $table->string('map_url')->nullable();
+            $table->string('field');
             $table->timestamps();
         });
     }
@@ -27,6 +30,6 @@ class CreateRecruitmentFlowTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('recruitment_flow');
+        Schema::dropIfExists('section');
     }
 }
