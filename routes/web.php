@@ -21,6 +21,10 @@ Route::get('/li', 'AuthController@login');
 Route::get('/z', function (){
     return view('client.page.jobDetail');
 });
+
+Route::get('/jobs', 'HomeController@jobs');
+Route::get('/jobs/{slug}-{id}.html', 'HomeController@jobDetail')->name('job-detail');;
+
 Route::get('/login', 'AdminController@login')->name('login');
 Route::post('/login','AdminController@postLogin')->name('post-login');
 Route::get('/logout', 'AdminController@logout')->name('logout');

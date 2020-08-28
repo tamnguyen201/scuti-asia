@@ -12,6 +12,21 @@ class HomeController extends Controller
         return view('client.page.index');
     }
 
+    public function jobs()
+    {
+        $data['categories'] = \App\Model\Category::all();
+        $data['jobs'] = \App\Model\Job::with('category')->paginate(10);
+
+        return view('client.page.jobs', compact('data'));
+    }
+
+    public function jobDetail($slug, $id)
+    {
+        $data['job'] = \App\Model\Job::find($id);
+
+        return view('client.page.jobDetail', compact('data'));
+    }
+
     public function login()
     {
         return view('client.login');

@@ -7,7 +7,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="breadcrumbs">
-                        <a href="index.html">Home</a><i class="fa fa-angle-double-right"></i><span>Longer Project Title Should Definitely Go Here</span>
+                        <a href="index.html">Home</a><i class="fa fa-angle-double-right"></i><span>{{$data['job']->name}}</span>
                     </div> <!-- end of breadcrumbs -->
                 </div> <!-- end of col -->
             </div> <!-- end of row -->
@@ -22,7 +22,7 @@
                         <img class="img-fluid" src="images/project-details-large.jpg" alt="alternative">
                     </div>
                     <div class="text-container">
-                        <h3>Business Analysis And Reporting Tools</h3>
+                        <h3>{{$data['job']->name}}</h3>
                         <p>When you first register for a Juno account, and when you use the Services, we collect some <a class="orange" href="#your-link">Personal Information</a> about you such as:</p>
                         <div class="row">
                             
