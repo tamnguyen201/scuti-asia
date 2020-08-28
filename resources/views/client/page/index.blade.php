@@ -13,6 +13,7 @@
                 </div>
             </div>
             <div class="row">
+                <!-- {!! $data['benefits'] !!} -->
                 <div class="col-lg-4">
                     <div class="text-container">
                         <h3>Môi Trường Lí Tưởng</h3>
@@ -81,6 +82,7 @@
                 </div>
             </div>
             <div class="row">
+                <!-- {!! $data['about_us'] !!} -->
                 <div class="col-lg-6">
                     <div class="image-container">
                         <img class="img-fluid" src="https://inovatik.com/juno-landing-page/images/about.jpg" alt="alternative">
@@ -110,12 +112,10 @@
             </div>
             <div class="row">
                 <div class="col-lg-12">      
-                    
-
                     <div class="slider-container">
                         <div class="swiper-container text-slider">
                             <div class="swiper-wrapper">
-                                
+                                @foreach($data['new_spaper'] as $item )
                                 <div class="swiper-slide">
                                     <div class="row">
                                         <div class="col-lg-6">
@@ -132,7 +132,7 @@
                                         </div>
                                     </div>
                                 </div>
-
+                                @endforeach
                             </div>
 
                             <div class="swiper-button-next"></div>
@@ -140,7 +140,6 @@
 
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
@@ -153,9 +152,9 @@
                     <h2>@lang('client.section.visit_us.title')</h2>
                     <ul class="list-unstyled li-space-lg">
                         <li class="address">@lang('client.section.visit_us.description')</li>
-                        <li><i class="fas fa-map-marker-alt"></i>22 Innovative Area, San Francisco, CA 94043, US</li>
-                        <li><i class="fas fa-phone"></i><a class="orange" href="https://inovatik.com/juno-landing-page/tel:003024630820">+81 720 2212</a></li>
-                        <li><i class="fas fa-envelope"></i><a class="orange" href="https://inovatik.com/juno-landing-page/mailto:office@junobs.com">office@junobs.com</a></li>
+                        <li><i class="fas fa-map-marker-alt"></i> <!-- {{ $data_share->address }} --></li>
+                        <li><i class="fas fa-phone"></i><a class="orange" href="tel:<!--{{ $data_share->phone }} -->"><!--{{ $data_share->phone }} --></a></li>
+                        <li><i class="fas fa-envelope"></i><a class="orange" href="mailto:<!--{{ $data_share->email }} -->"><!--{{ $data_share->email }} --></a></li>
                     </ul>
                     <hr class="line-heading">
                 </div>
@@ -163,6 +162,7 @@
             <div class="row">
                 <div class="col-lg-6">
                     <div class="map-responsive">
+                        <!-- {{ $data_share->map_url }} -->
                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3723.962023272904!2d105.76304874986745!3d21.034205492900966!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x313454b947cd6e49%3A0x6a87974c6b44d671!2zNjggUGjhu5EgTmd1eeG7hW4gQ8ahIFRo4bqhY2gsIE3hu7kgxJDDrG5oLCBU4burIExpw6ptLCBIw6AgTuG7mWksIFZp4buHdCBOYW0!5e0!3m2!1svi!2s!4v1598327887854!5m2!1svi!2s" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
                     </div>
                 </div>
@@ -217,7 +217,7 @@
                 </div>
             </div>
             <div class="row">
-
+                <!-- {!! $data['recruitment_flow'] !!} -->
             </div>
         </div>
     </div>
@@ -262,9 +262,8 @@
                                 @endforeach
                             </div>
                             @endforeach
-                        </div>
 
-                        <div class="tab-pane fade show active" id="v-pills-all" role="tabpanel" aria-labelledby="v-pills-all-tab">
+                            <div class="tab-pane fade show active" id="v-pills-all" role="tabpanel" aria-labelledby="v-pills-all-tab">
                                 @foreach($data['hotJobs'] as $job)
                                 <div class="list-group-item d-md-flex col-12 development">
                                     <div class="col-md-8 col-12">
@@ -280,6 +279,7 @@
                                 </div>
                                 @endforeach
                             </div>
+                        </div>
                     </div>
                 </div>
             </div>
