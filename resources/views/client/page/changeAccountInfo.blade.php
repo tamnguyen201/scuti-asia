@@ -63,7 +63,7 @@
                 <div class="col-md-12 text-center">
                     <button type="submit" class="btn btn-success">@lang('custom.button.submit')</button>
                     <button type="reset" class="btn btn-primary">@lang('custom.button.reset')</button>
-                    <a href="{{route('partner_companies.index')}}" class="btn btn-danger">@lang('custom.button.cancel')</a>
+                    <a href="{{route('client.profile')}}" class="btn btn-danger">@lang('custom.button.cancel')</a>
                 </div>
             </form>
         </div>

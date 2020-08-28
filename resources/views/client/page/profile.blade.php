@@ -69,7 +69,7 @@
                                                     <div class="fht-cell"></div>
                                                 </th>
                                                 <th>
-                                                    <div class="th-inner">@lang('custom.logo')</div>
+                                                    <div class="th-inner">@lang('custom.name')</div>
                                                     <div class="fht-cell"></div>
                                                 </th>
                                                 <th>
@@ -79,18 +79,20 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-
+                                            @php $stt = 0; @endphp
+                                            @foreach(auth()->user()->cv as $item)
+                                            @php $stt++ @endphp
                                             <tr>
-                                                <td>{{1}}</td>
-                                                <td>@lang('custom.email')</td>
-                                                <td>{{auth()->user()->email}}</td>
+                                                <td>{{$stt}}</td>
+                                                <td>{{$item->cv_url}}</td>
+                                                <td>{{$item->cv_url}}</td>
                                             </tr>
-                                            
+                                            @endforeach
                                         </tbody>
                                     </table>
                                 </div>
                                 <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
-                                <table class="table table-hover">
+                                    <table class="table table-hover">
                                         <thead>
                                             <tr>
                                                 <th>
@@ -108,13 +110,15 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-
+                                            @php $stt = 0; @endphp
+                                            @foreach(auth()->user()->cv as $item)
+                                            @php $stt++ @endphp
                                             <tr>
-                                                <td>{{1}}</td>
+                                                <td>{{$stt}}</td>
                                                 <td>@lang('custom.name')</td>
                                                 <td>{{auth()->user()->name}}</td>
                                             </tr>
-
+                                            @endforeach
                                         </tbody>
                                     </table>
                                 </div>

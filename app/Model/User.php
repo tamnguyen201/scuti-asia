@@ -42,4 +42,8 @@ class User extends Authenticatable
         $this->attributes['password'] = Hash::make($value);
     }
 
+    public function cv()
+    {
+        return $this->hasMany('App\Model\CV');
+    }
 }

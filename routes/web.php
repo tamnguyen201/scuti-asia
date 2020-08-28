@@ -30,7 +30,6 @@ Route::get('/callback/{provider}', 'SocialController@callback');
 Route::group(
         ['prefix'=>'admin'], function () {
         
-            
         Route::get('login', 'Auth\AdminLoginController@login')->name('admin.login');
         Route::post('login','Auth\AdminLoginController@postLogin')->name('admin.post-login');
         Route::get('logout', 'Auth\AdminLoginController@logout')->name('admin.logout');
@@ -39,6 +38,7 @@ Route::group(
     Route::group(['middleware' => ['CheckManager']], function () {
         Route::get('/', 'AdminController@index')->name('admin.home');
 
+        Route::get('/', 'AdminController@index')->name('admin.home');
         Route::resource('users', 'UserController')->only(['index', 'show']);
         Route::resource('employees', 'EmployeeController');
         Route::resource('locations', 'LocationController');

@@ -31,7 +31,7 @@ class AdminLoginController extends Controller
             
             return redirect()->intended('/admin');
         }
-        Session::flash('error', trans('custom.alert_message.invalid'));
+        Session::flash('error', trans('custom.alert_messages.invalid'));
         return redirect()->route('admin.login');
     }
 

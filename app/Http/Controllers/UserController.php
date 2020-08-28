@@ -29,9 +29,9 @@ class UserController extends Controller
         return response()->json($html);
     }
 
-    public function update(UserUpdateRequest $request, $id)
+    public function update(UserUpdateRequest $request)
     {
-        $this->userRespository->update($request->all(), $id);
+        $this->userRepository->update($request->all(), auth()->user()->id);
 
         return redirect()->back()->with('success', trans('custom.alert_messages.success'));
     }
