@@ -1,24 +1,18 @@
 <form>
-    <div class="form-group @error('name') has-error @enderror">
-        <label>@lang('custom.name')</label>
-        <input type="text" name="name" value="{{Auth::user()->name}}" class="form-control" placeholder="Please enter full name">
-        @error('name') 
-        <span class="help-block"> {{$message}} </span>
-        @enderror
+    <div class="form-group">
+        <label>@lang('custom.old_pass')</label>
+        <input type="password" name="password" class="form-control">
+        <span class="help-block text-danger"></span>
     </div>
-    <div class="form-group @error('email') has-error @enderror">
-        <label>@lang('custom.email')</label>
-        <input type="text" name="email" value="{{Auth::user()->email}}" class="form-control" placeholder="Please enter email">
-        @error('email') 
-        <span class="help-block"> {{$message}} </span>
-        @enderror
+    <div class="form-group">
+        <label>@lang('custom.new_pass')</label>
+        <input type="password" name="new_password" class="form-control">
+        <span class="help-block text-danger"></span>
     </div>
-    <div class="form-group @error('phone') has-error @enderror">
-        <label>@lang('custom.phone')</label>
-        <input type="text" name="phone" value="{{Auth::user()->phone}}" class="form-control" placeholder="Please enter phone">
-        @error('phone') 
-        <span class="help-block"> {{$message}} </span>
-        @enderror
+    <div class="form-group">
+        <label>@lang('custom.confirm_pass')</label>
+        <input type="password" name="new_password_confirmation" class="form-control">
+        <span class="help-block text-danger"></span>
     </div>
     
     <div class="col-md-12 text-center">

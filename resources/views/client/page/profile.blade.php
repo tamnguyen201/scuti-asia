@@ -6,7 +6,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="breadcrumbs">
-                    <a href="/">@lang('client.page.home.title')</a><i class="fa fa-angle-double-right"></i><span>@lang('client.page.profile.title')</span>
+                    <a href="{{route('home')}}">@lang('client.page.home.title')</a><i class="fa fa-angle-double-right"></i><span>@lang('client.page.profile.title')</span>
                 </div>
             </div>
         </div>
@@ -23,8 +23,8 @@
                                 <a class="nav-link active" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="true">@lang('client.page.profile.side_bar.profile')</a>
                                 <a class="nav-link" id="v-pills-cv-tab" data-toggle="pill" href="#v-pills-cv" role="tab" aria-controls="v-pills-cv" aria-selected="false">@lang('client.page.profile.side_bar.cv')</a>
                                 <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">@lang('client.page.profile.side_bar.job_applied')</a>
-                                <a class="nav-link" href="#settings">@lang('client.page.profile.side_bar.change_info')</a>
-                                <a class="nav-link btn-add-form" href="/aaa">@lang('client.page.profile.side_bar.change_password')</a>
+                                <a class="nav-link" href="{{route('client.change_info')}}">@lang('client.page.profile.side_bar.change_info')</a>
+                                <a class="nav-link btn-add-form" href="{{route('client.change_password')}}">@lang('client.page.profile.side_bar.change_password')</a>
                             </div>
                         </div>
                         <div class="col-9">
@@ -69,7 +69,7 @@
                                                     <div class="fht-cell"></div>
                                                 </th>
                                                 <th>
-                                                    <div class="th-inner">@lang('custom.logo')</div>
+                                                    <div class="th-inner">@lang('custom.name')</div>
                                                     <div class="fht-cell"></div>
                                                 </th>
                                                 <th>
@@ -79,18 +79,20 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-
+                                            @php $stt = 0; @endphp
+                                            @foreach(auth()->user()->cv as $item)
+                                            @php $stt++ @endphp
                                             <tr>
-                                                <td>{{1}}</td>
-                                                <td>@lang('custom.email')</td>
-                                                <td>{{auth()->user()->email}}</td>
+                                                <td>{{$stt}}</td>
+                                                <td>{{$item->cv_url}}</td>
+                                                <td>{{$item->cv_url}}</td>
                                             </tr>
-                                            
+                                            @endforeach
                                         </tbody>
                                     </table>
                                 </div>
                                 <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
-                                <table class="table table-hover">
+                                    <table class="table table-hover">
                                         <thead>
                                             <tr>
                                                 <th>
@@ -108,13 +110,15 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-
+                                            @php $stt = 0; @endphp
+                                            @foreach(auth()->user()->cv as $item)
+                                            @php $stt++ @endphp
                                             <tr>
-                                                <td>{{1}}</td>
+                                                <td>{{$stt}}</td>
                                                 <td>@lang('custom.name')</td>
                                                 <td>{{auth()->user()->name}}</td>
                                             </tr>
-
+                                            @endforeach
                                         </tbody>
                                     </table>
                                 </div>
@@ -130,20 +134,13 @@
     <div class="modal-dialog modal-md">
         <div class="modal-content">
         <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Categories Manage</h5>
+            <h5 class="modal-title" id="exampleModalLabel">@lang('custom.page_title.change_password')</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
+                <span aria-hidden="true">&times;</span>
             </button>
         </div>
+        <span class="text-center text-danger show-errors"></span>
         <div class="modal-body">
-            <form>
-                <div class="form-group">
-                    <label for="recipient-name" class="col-form-label">Name</label>
-                    <input type="text" name="name" class="form-control" id="recipient-name">
-                    <span class="error-form text-danger"></span>
-                </div>
-                <button type="button" class="btn btn-primary btn-add-location">Submit</button>
-                </form>
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -159,32 +156,37 @@
             let url = $(this).attr('href');
             $.get(url)
             .done(function (results) {
-            $(".modal-body").html(results);
-            $("#myModal").modal('show');
+                $('.text-danger').text('');
+                $(".modal-body").html(results);
+                $("#myModal").modal('show');
             }).fail(function (data) {});
         });
 
         $("body").on("click", ".btn-reset-pw", function (e) {
             e.preventDefault();
             let domForm = $(this).closest('form');
-            let id = $('#id-update').val();
             $.ajax({
-                url: `/admin/categories/${id}`,
+                url: "{{route('client.update_password')}}",
                 data: domForm.serialize(),
-                method: "PUT",
+                method: "POST",
             }).done(function (results) {
-                $("#myModal").modal('hide');
-                $('.fixed-table-body').html(results);
-                swal({
-                    title: 'Thành công!',
-                    text: 'Dữ liệu đã được cập nhật lại!',
-                    type: 'success',
-                    icon: 'success'
-                })
+                $('.text-danger').text('');
+                if(results.success){
+                    $("#myModal").modal('hide');
+                    swal({
+                        title: 'Thành công!',
+                        text: 'Dữ liệu đã được cập nhật lại!',
+                        type: 'success',
+                        icon: 'success'
+                    })
+                } else {
+                    $('.text-danger.show-errors').text(results.error);
+                }
             }).fail(function (data) {
                 var errors = data.responseJSON;
+                $('.text-danger').text('');
                 $.each(errors.errors, function (i, val) {
-                    domForm.find('input[name=' + i + ']').siblings('.error-form.text-danger').text(val[0]);
+                    domForm.find('input[name=' + i + ']').siblings('.text-danger').text(val[0]);
                 });
             });
         });

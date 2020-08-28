@@ -3,6 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\ChangePasswordRequest;
+use App\Http\Requests\LoginRequest;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class AuthController extends Controller
 {
@@ -11,61 +16,36 @@ class AuthController extends Controller
         if (auth()->check()) {
             return redirect()->route('home');
         }
+
         return view('client.auth.login');
     }
 
-    public function postLogin(Request $request)
+    public function postLogin(LoginRequest $request)
     {
-        //Validate form input
-        $rules = [
-            'email' => 'required|email',
-            'password' => 'required'
-        ];
-        //Custom errors
-        $messages = [
-            'email.required' => 'Email is required',
-            'email.email' => 'Email invalidate',
-            'password.required' => 'Password is required'
-        ];
-        $validator = Validator::make($request->all(), $rules, $messages);
+        $remember = $request->has('remember') ? true : false;
 
-        if ($validator->fails()) {
-            return redirect()->route('login')->withErrors($validator)->withInput();
+        if (Auth::attempt(['email' => $request->email,'password' => $request->password], $remember)) {
+            return redirect()->route('home');
         }
-        $remember = $request->has('remember_me') ? true : false;
-        $email = $request->input('email');
-        $password = $request->input('password');
-        if (Auth::attempt(['email' => $email,'password' => $password], $remember)) {
-            return redirect()->route('admin.home');
-        }
-        Session::flash('error', 'Email or password invalidate');
-        return redirect()->route('login');
+
+        Session::flash('error', trans('custom.alert_messages.invalid'));
+
+        return redirect()->route('client.login');
     }
 
-    public function changePassword(Request $request){
-
-        if (!(Hash::check($request->get('current-password'), Auth::user()->password))) {
-            // The passwords matches
-            return redirect()->back()->with("error","Your current password does not matches with the password you provided. Please try again.");
+    public function changePassword(ChangePasswordRequest $request)
+    {
+        if (!(Hash::check($request->password, Auth::user()->password))) {
+            return response()->json(["error" => trans('custom.alert_messages.not_same')]);
         }
 
-        if(strcmp($request->get('current-password'), $request->get('new-password')) == 0){
-            //Current password and new password are same
-            return redirect()->back()->with("error","New Password cannot be same as your current password. Please choose a different password.");
+        if(strcmp($request->password, $request->new_password) == 0){
+            return response()->json(["error" => trans('custom.alert_messages.same')]);
         }
 
-        $validatedData = $request->validate([
-            'current-password' => 'required',
-            'new-password' => 'required|string|min:6|confirmed',
-        ]);
+        Auth::user()->update([ 'password' => $request->new_password ]);
 
-        //Change Password
-        $user = Auth::user();
-        $user->password = bcrypt($request->get('new-password'));
-        $user->save();
-
-        return redirect()->back()->with("success","Password changed successfully !");
-
+        return response()->json(["success" => trans('custom.alert_messages.success')]);
     }
 
     public function forgot()
@@ -77,6 +57,6 @@ class AuthController extends Controller
     {
         auth()->logout();
 
-        return redirect()->route('login');
+        return redirect()->route('home');
     }
 }

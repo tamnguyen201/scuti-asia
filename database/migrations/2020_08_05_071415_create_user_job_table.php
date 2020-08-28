@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateManagerTable extends Migration
+class CreateUserJobTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,16 @@ class CreateManagerTable extends Migration
      */
     public function up()
     {
-        Schema::create('managers', function (Blueprint $table) {
+        Schema::create('user_job', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id');
-            $table->string('avatar')->default('default-img.png');
-            $table->string('phone')->nullable();
-            $table->string('address')->nullable();
-            $table->timestamps();
+            $table->foreignId('job_id');
+            $table->foreignId('cv_id');
+            $table->string('letter');
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('job_id')->references('id')->on('jobs')->onDelete('cascade');
+            $table->foreign('cv_id')->references('id')->on('cvs')->onDelete('cascade');
         });
     }
 
@@ -32,6 +33,6 @@ class CreateManagerTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('managers');
+        Schema::dropIfExists('user_job');
     }
 }
