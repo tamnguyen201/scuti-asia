@@ -22,9 +22,9 @@ class RedirectIfAuthenticated
           switch ($guard) {
             case 'admin':
               return redirect()->route('admin.home');
+            
             default :
               return redirect('/');
-              break;
           }
         }
 
