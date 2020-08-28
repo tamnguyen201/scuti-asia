@@ -40,7 +40,7 @@ class RoleSeeder extends Seeder
             ['id'=>4, 'user_id' => 4, 'phone'=>'0366668888', 'address'=>'68 Nguyễn Cơ Thạch, Nam Từ Liêm, Hn', 'avatar'=>'http://congstudio.vn/product_images/z/320/chup_anh_profile_tai_ha_noi_cong_studio_4__09337_thumb.jpg'],
         ]);
         DB::table('companies')->insert([
-            ['id'=>1, 'name' => 'scuti', 'description' => 'Make service people love!', 'email' => 'scuti-asia@gmail.com', 'phone'=>'0999999999', 'address'=>'68 Nguyễn Cơ Thạch, Nam Từ Liêm, Hn', 'logo'=>'https://miro.medium.com/max/1200/1*Eu6cAGjXNa0-ct_hlsH1yQ.jpeg', 'facebook_page' => 'https://fb.com/scuti', 'youtube_page' => 'youtube.com.vn/scuti'],
+            ['id'=>1, 'name' => 'Scuti co., ltd', 'description' => 'Make service people love!', 'email' => 'scuti-asia@gmail.com', 'phone'=>'0999999999', 'address'=>'68 Nguyễn Cơ Thạch, Nam Từ Liêm, Hn', 'logo'=>'https://scontent.fhan3-1.fna.fbcdn.net/v/t31.0-0/p370x247/12622243_1526863174310176_5792404773815484011_o.png?_nc_cat=110&_nc_sid=85a577&_nc_ohc=Ytta26wUm-MAX95QAPU&_nc_ht=scontent.fhan3-1.fna&oh=514584ef7414730723e84bb9b802005f&oe=5F6947F6', 'facebook_page' => 'https://fb.com/scuti', 'youtube_page' => 'youtube.com.vn/scuti'],
         ]);
         DB::table('company_images')->insert([
             ['id'=>1, 'image_url'=>'https://miro.medium.com/max/1200/1*Eu6cAGjXNa0-ct_hlsH1yQ.jpeg'],
