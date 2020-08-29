@@ -7,5 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 class NewSpaper extends Model
 {
     protected $table = 'new_spapers';
-    protected $fillable = ['title', 'image', 'description', 'url'];
+    protected $fillable = ['name', 'email', 'type', 'message'];
 }
