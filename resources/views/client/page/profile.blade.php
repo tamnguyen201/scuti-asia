@@ -64,6 +64,7 @@
                                 </div>
                                 <div class="tab-pane fade" id="v-pills-cv" role="tabpanel" aria-labelledby="v-pills-cv-tab">
                                     @if(auth()->user()->cv->count() > 0)
+                                    <h5 class="mb-4"> @lang('client.page.profile.manage_cv') <a href="{{route('client.create_cv')}}" class="btn btn-primary float-right btn-upload-form">@lang('client.page.profile.create_cv')</a></h5>
                                     <table class="table table-hover">
                                         <thead>
                                             <tr>
@@ -73,6 +74,10 @@
                                                 </th>
                                                 <th>
                                                     <div class="th-inner">@lang('custom.name')</div>
+                                                    <div class="fht-cell"></div>
+                                                </th>
+                                                <th>
+                                                    <div class="th-inner text-center">@lang('custom.cv_url')</div>
                                                     <div class="fht-cell"></div>
                                                 </th>
                                                 <th>
@@ -89,12 +94,19 @@
                                                 <td>{{$stt}}</td>
                                                 <td>{{$item->cv_url}}</td>
                                                 <td>{{$item->cv_url}}</td>
+                                                <td>    
+                                                    <form action="{{route('client.destroy_cv', $item['id'])}}" method="post" class="form-delete-cv-{{$item->id}}" style="display: inline">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button class="btn btn-danger text-light delete-cv-confirm" idDelete={{$item->id}}><em class="fas fa-trash-alt"></em></button>
+                                                    </form>
+                                                </td>
                                             </tr>
                                             @endforeach
                                         </tbody>
                                     </table>
                                     @else
-                                    <p>@lang('client.page.profile.empty_cv')</p>
+                                    <p>@lang('client.page.profile.empty_cv') <a href="{{route('client.create_cv')}}" class="btn btn-primary mx-5 btn-upload-form">@lang('client.page.profile.create_cv')</a></p>
                                     @endif
                                 </div>
                                 <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
@@ -202,6 +214,72 @@
                 });
             });
         });
+        
+        $('.btn-upload-form').click(function (e) {
+            e.preventDefault();
+            let url = $(this).attr('href');
+            $.get(url)
+            .done(function (results) {
+                if(results.success){
+                    $('.text-danger').text('');
+                    $(".modal-body").html(results);
+                    $("#myModal").modal('show');
+                } else {
+                    swal({
+                        title: 'Cảnh Báo!',
+                        text: results.warning,
+                        type: 'warning',
+                        icon: 'warning'
+                    })
+                }
+            }).fail(function (data) {});
+        });
 
+        $("body").on("click", ".btn-upload-cv", function (e) {
+            e.preventDefault();
+            let domForm = $(this).closest('form');
+            $.ajax({
+                url: "{{route('client.upload_cv')}}",
+                data: domForm.serialize(),
+                dataType:'JSON',
+                method: "POST",
+            }).done(function (results) {
+                $('.text-danger').text('');
+                $("#myModal").modal('hide');
+                swal({
+                    title: 'Thành công!',
+                    text: 'Dữ liệu đã được cập nhật lại!',
+                    type: 'success',
+                    icon: 'success'
+                })
+            }).fail(function (data) {
+                var errors = data.responseJSON;
+                $('.text-danger').text('');
+                $.each(errors.errors, function (i, val) {
+                    domForm.find('input[name=' + i + ']').siblings('.text-danger').text(val[0]);
+                });
+            });
+        });
+
+        $("body").on("click", ".delete-cv-confirm", function (e) {
+            e.preventDefault();
+            let id = $(this).attr('idDelete');
+            let form = $('.form-delete-cv-'+id);
+            swal({
+                title: "Xác nhận xóa?",
+                text: "Bản ghi này sẽ không thể khôi phục!",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonColor: '#DD6B55',
+                confirmButtonText: 'OK!',
+                cancelButtonText: "Cancel!",
+                closeOnConfirm: false,
+                closeOnCancel: false
+            }).then(function(value) {
+                if (value.value == true) {
+                    form.submit();
+                }
+            });
+        });
     </script>
 @endsection

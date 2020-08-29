@@ -20,6 +20,9 @@ Route::get('/logout', 'AuthController@logout')->name('client.logout');
 Route::get('/profile', 'HomeController@profile')->name('client.profile');
 Route::get('/changeInfo', 'HomeController@profile2')->name('client.change_info');
 Route::post('/changeInfo', 'UserController@update')->name('client.update_info');
+Route::get('/uploadCV', 'CVController@create')->name('client.create_cv');
+Route::post('/uploadCV', 'CVController@store')->name('client.upload_cv');
+Route::delete('/delete/{id}', 'CVController@destroy')->name('client.destroy_cv');
 Route::get('/changePass', 'HomeController@profile3')->name('client.change_password');
 Route::post('/changePass','AuthController@changePassword')->name('client.update_password');
 
