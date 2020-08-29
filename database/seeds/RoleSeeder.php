@@ -16,6 +16,7 @@ class RoleSeeder extends Seeder
         \App\Model\User::truncate();
         \App\Model\Admin::truncate();
         \App\Model\Company::truncate();
+        \App\Model\Locations::truncate();
         \App\Model\CompanyImages::truncate();
         \App\Model\PartnerCompanies::truncate();
         \App\Model\Category::truncate();
@@ -37,7 +38,7 @@ class RoleSeeder extends Seeder
         DB::table('companies')->insert([
             ['id'=>1, 'name' => 'scuti', 'description' => 'Make service people love!', 'email' => 'scuti-asia@gmail.com', 'phone'=>'0999999999', 'address'=>'68 Nguyễn Cơ Thạch, Nam Từ Liêm, Hn', 'logo'=>'https://miro.medium.com/max/1200/1*Eu6cAGjXNa0-ct_hlsH1yQ.jpeg', 'facebook_page' => 'https://fb.com/scuti', 'youtube_page' => 'youtube.com.vn/scuti'],
         ]);
-        DB::table('companies')->insert([
+        DB::table('locations')->insert([
             ['id'=>1, 'name' => 'HN'],
         ]);
         DB::table('company_images')->insert([
