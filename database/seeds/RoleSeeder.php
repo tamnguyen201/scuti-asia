@@ -37,6 +37,9 @@ class RoleSeeder extends Seeder
         DB::table('companies')->insert([
             ['id'=>1, 'name' => 'scuti', 'description' => 'Make service people love!', 'email' => 'scuti-asia@gmail.com', 'phone'=>'0999999999', 'address'=>'68 Nguyễn Cơ Thạch, Nam Từ Liêm, Hn', 'logo'=>'https://miro.medium.com/max/1200/1*Eu6cAGjXNa0-ct_hlsH1yQ.jpeg', 'facebook_page' => 'https://fb.com/scuti', 'youtube_page' => 'youtube.com.vn/scuti'],
         ]);
+        DB::table('companies')->insert([
+            ['id'=>1, 'name' => 'HN'],
+        ]);
         DB::table('company_images')->insert([
             ['id'=>1, 'image_url'=>'https://miro.medium.com/max/1200/1*Eu6cAGjXNa0-ct_hlsH1yQ.jpeg'],
             ['id'=>2, 'image_url'=>'http://congstudio.vn/product_images/uploaded_images/chup_anh_profile_chuyen_nghiep_cong_studio_1_aztl4.jpg'],
