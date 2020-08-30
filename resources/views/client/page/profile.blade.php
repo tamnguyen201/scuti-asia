@@ -18,7 +18,7 @@
             <div class="col-lg-12">
                 <div class="text-container">
                     <div class="row">
-                        <div class="col-3">
+                        <div class="col-12 col-md-3 mb-3 mb-md-0">
                             <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                                 <a class="nav-link active" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="true">@lang('client.page.profile.side_bar.profile')</a>
                                 <a class="nav-link" id="v-pills-cv-tab" data-toggle="pill" href="#v-pills-cv" role="tab" aria-controls="v-pills-cv" aria-selected="false">@lang('client.page.profile.side_bar.cv')</a>
@@ -29,7 +29,7 @@
                                 @endif
                             </div>
                         </div>
-                        <div class="col-9">
+                        <div class="col-12 col-md-9">
                             <div class="tab-content" id="v-pills-tabContent">
                                 <div class="tab-pane fade show active" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
                                     <div class="row">
@@ -62,7 +62,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="tab-pane fade" id="v-pills-cv" role="tabpanel" aria-labelledby="v-pills-cv-tab">
+                                <div class="tab-pane fade table-responsive" id="v-pills-cv" role="tabpanel" aria-labelledby="v-pills-cv-tab">
                                     @if(auth()->user()->cv->count() > 0)
                                     <h5 class="mb-4"> @lang('client.page.profile.manage_cv') <a href="{{route('client.create_cv')}}" class="btn btn-primary float-right btn-upload-form">@lang('client.page.profile.create_cv')</a></h5>
                                     <table class="table table-hover">
@@ -109,7 +109,7 @@
                                     <p>@lang('client.page.profile.empty_cv') <a href="{{route('client.create_cv')}}" class="btn btn-primary mx-5 btn-upload-form">@lang('client.page.profile.create_cv')</a></p>
                                     @endif
                                 </div>
-                                <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
+                                <div class="tab-pane fade table-responsive" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
                                     @if(auth()->user()->cv->count() > 0)
                                     <table class="table table-hover">
                                         <thead>
