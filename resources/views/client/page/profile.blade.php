@@ -92,7 +92,7 @@
                                             @php $stt++ @endphp
                                             <tr>
                                                 <td>{{$stt}}</td>
-                                                <td>{{$item->cv_url}}</td>
+                                                <td>{{$item->name}}</td>
                                                 <td>{{$item->cv_url}}</td>
                                                 <td>    
                                                     <form action="{{route('client.destroy_cv', $item['id'])}}" method="post" class="form-delete-cv-{{$item->id}}" style="display: inline">
@@ -220,17 +220,17 @@
             let url = $(this).attr('href');
             $.get(url)
             .done(function (results) {
-                if(results.success){
-                    $('.text-danger').text('');
-                    $(".modal-body").html(results);
-                    $("#myModal").modal('show');
-                } else {
+                if(results.warning){
                     swal({
                         title: 'Cảnh Báo!',
                         text: results.warning,
                         type: 'warning',
                         icon: 'warning'
                     })
+                } else {
+                    $('.text-danger').text('');
+                    $(".modal-body").html(results);
+                    $("#myModal").modal('show');
                 }
             }).fail(function (data) {});
         });
@@ -245,6 +245,7 @@
                 method: "POST",
             }).done(function (results) {
                 $('.text-danger').text('');
+                $('#v-pills-cv').text(results);
                 $("#myModal").modal('hide');
                 swal({
                     title: 'Thành công!',

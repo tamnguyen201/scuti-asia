@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CVRequest;
+use App\Http\Requests\CVUpdateRequest;
 use Illuminate\Http\Request;
 
 class CVController extends Controller
@@ -15,25 +17,36 @@ class CVController extends Controller
 
     public function create()
     {
-        $CVlimit = 0;
+        $CVlimit = 3;
 
-        if (auth()->user()->cv->count() <= $CVlimit) {
+        if (auth()->user()->cv->count() < $CVlimit) {
             return view('client.page.upload_cv');
         }
 
         return response()->json(['warning' => trans('custom.alert_messages.warning_limit_cv')]);
     }
 
-    public function store(Request $request)
+    public function store(CVRequest $request)
     {
-        $this->CVService->store($request->all());
+        $this->CVService->create($request->all());
+        $html = view('client.page.list_cv')->render();
+        
+        return response()->json($html);
+    }
 
-        return response()->json([
-            'message'   => trans('custom.alert_messages.success'),
-            'class_name'  => 'success'
-        ]);
+    public function edit($id)
+    {
+        $cv = $this->CVService->show($id);
 
-        return response()->json(['success' => trans('custom.alert_messages.success')]);
+        return view('client.page.edit_cv', compact('cv'));
+    }
+
+    public function update(CVUpdateRequest $request, $id)
+    {
+        $this->CVService->update($request->all(), $id);
+        $html = view('client.page.list_cv')->render();
+        
+        return response()->json($html);
     }
 
     public function destroy($id)
