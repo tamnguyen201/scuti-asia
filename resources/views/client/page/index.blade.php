@@ -76,8 +76,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <h2>@lang('client.section.about.title')</h2>
-                    <p class="p-heading p-large">@lang('client.section.about.description')</p>
+                    <h2>@lang('client.section.about_us.title')</h2>
+                    <p class="p-heading p-large">@lang('client.section.about_us.description')</p>
                     <hr class="line-heading">
                 </div>
             </div>
@@ -90,7 +90,7 @@
                 </div>
                 <div class="col-lg-6">
                     <div class="text-container">
-                        <h4>@lang('client.section.about.sub_title')</h4>
+                        <h4>@lang('client.section.about_us.sub_title')</h4>
                         <p>Having good knowledge about the resources you need to carry out your plan is very important. We can help you establish them, just give us a call or use the contact form below in the contact section.</p>
                         <p class="milestone"><strong>2012 - 2014</strong>: our manager setup the business and started work</p>
                         <p class="milestone"><strong>2014 - 2017</strong>: we've hired more colleagues and grown as a team</p>

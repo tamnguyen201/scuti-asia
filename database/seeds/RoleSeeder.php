@@ -17,7 +17,9 @@ class RoleSeeder extends Seeder
         \App\Model\Admin::truncate();
         \App\Model\Company::truncate();
         \App\Model\CompanyImages::truncate();
-        \App\Model\PartnerCompanies::truncate();
+        \App\Model\NewSpaper::truncate();
+        \App\Model\AboutUs::truncate();
+        \App\Model\Section::truncate();
         \App\Model\Category::truncate();
         \App\Model\Job::truncate();
         \App\Model\CV::truncate();
@@ -48,6 +50,16 @@ class RoleSeeder extends Seeder
             ['id'=>1, 'title' => 'FPT', 'image'=>'https://miro.medium.com/max/1200/1*Eu6cAGjXNa0-ct_hlsH1yQ.jpeg', 'description' => 'Mô tả', 'url' => 'abc.com'],
             ['id'=>2, 'title' => 'TGDD', 'image'=>'http://congstudio.vn/product_images/uploaded_images/chup_anh_profile_chuyen_nghiep_cong_studio_1_aztl4.jpg', 'description' => 'Mô tả', 'url' => 'abc.com'],
             ['id'=>3, 'title' => 'Viettel', 'image'=>'http://congstudio.vn/product_images/z/320/chup_anh_profile_tai_ha_noi_cong_studio_4__09337_thumb.jpg', 'description' => 'Mô tả', 'url' => 'abc.com'],
+        ]);
+        DB::table('sections')->insert([
+            ['id'=>1, 'content' => 'FPT', 'image'=>'https://miro.medium.com/max/1200/1*Eu6cAGjXNa0-ct_hlsH1yQ.jpeg', 'field' => 'benefits'],
+            ['id'=>2, 'content' => 'TGDD', 'field' => 'recruitment_flow'],
+            ['id'=>3, 'content' => 'TGDD', 'image'=>'https://miro.medium.com/max/1200/1*Eu6cAGjXNa0-ct_hlsH1yQ.jpeg', 'field' => 'about_us'],
+            ['id'=>4, 'map_url' => 'd', 'field' => 'visit_us'],
+        ]);
+        DB::table('about_us')->insert([
+            ['id'=>1, 'name'=>'Hà Nội', 'emai' => 'customer@gmail.com', 'message' => 'Qua chơi', 'type' => 'coffee'],
+            ['id'=>2, 'name'=>'Tp.Hồ Chí Minh', 'emai' => 'customer2@gmail.com', 'message' => 'Qua chơi', 'type' => 'Trà Đá'],
         ]);
         DB::table('categories')->insert([
             ['id'=>1,'user_id' => 1, 'category_name'=>'PHP', 'slug' => 'php', 'status' => 1],

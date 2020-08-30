@@ -15,7 +15,7 @@ class CreateSectionTable extends Migration
     {
         Schema::create('section', function (Blueprint $table) {
             $table->id();
-            $table->string('content');
+            $table->string('content')->nullable();
             $table->string('image')->nullable();
             $table->string('map_url')->nullable();
             $table->string('field');
