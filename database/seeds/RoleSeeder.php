@@ -66,15 +66,28 @@ class RoleSeeder extends Seeder
             ['id'=>5,'category_id' => 5, 'name'=>'React job', 'slug' => 'abc', 'description'=> 'mô tả', 'location_id' => 1, 'expireDay' => '2020/08/15', 'status' =>1],
         ]);
         DB::table('cvs')->insert([
-            ['id'=>1,'user_id' => 1, 'cv_url'=>'https://miro.medium.com/max/1200/1*Eu6cAGjXNa0-ct_hlsH1yQ.jpeg'],
-            ['id'=>2,'user_id' => 2, 'cv_url'=>'http://congstudio.vn/product_images/uploaded_images/chup_anh_profile_chuyen_nghiep_cong_studio_1_aztl4.jpg'],
-            ['id'=>3,'user_id' => 3, 'cv_url'=>'http://congstudio.vn/product_images/z/320/chup_anh_profile_tai_ha_noi_cong_studio_4__09337_thumb.jpg'],
-            ['id'=>4,'user_id' => 4, 'cv_url'=>'http://congstudio.vn/product_images/z/320/chup_anh_profile_tai_ha_noi_cong_studio_4__09337_thumb.jpg'],
-            ['id'=>5,'user_id' => 5, 'cv_url'=>'http://congstudio.vn/product_images/z/320/chup_anh_profile_tai_ha_noi_cong_studio_4__09337_thumb.jpg'],
+            ['id'=>1,'job_id' => 1,'status'=>'Applied', 'cv_url'=>'https://miro.medium.com/max/1200/1*Eu6cAGjXNa0-ct_hlsH1yQ.jpeg'],
+            ['id'=>2,'job_id' => 2,'status'=>'Applied', 'cv_url'=>'http://congstudio.vn/product_images/uploaded_images/chup_anh_profile_chuyen_nghiep_cong_studio_1_aztl4.jpg'],
+            ['id'=>3,'job_id' => 3,'status'=>'Applied', 'cv_url'=>'http://congstudio.vn/product_images/z/320/chup_anh_profile_tai_ha_noi_cong_studio_4__09337_thumb.jpg'],
+            ['id'=>4,'job_id' => 4,'status'=>'Applied', 'cv_url'=>'http://congstudio.vn/product_images/z/320/chup_anh_profile_tai_ha_noi_cong_studio_4__09337_thumb.jpg'],
+            ['id'=>5,'job_id' => 5,'status'=>'Applied', 'cv_url'=>'http://congstudio.vn/product_images/z/320/chup_anh_profile_tai_ha_noi_cong_studio_4__09337_thumb.jpg'],
         ]);
         DB::table('locations')->insert([
             ['id'=>1, 'name'=>'Hà Nội'],
             ['id'=>2, 'name'=>'Tp.Hồ Chí Minh'],
+        ]);
+        DB::table('user_job')->insert([
+            ['id'=>1, 'user_id'=>1, 'job_id'=>1,'letter'=>'Xin chào Scuti'],
+            ['id'=>2, 'user_id'=>2, 'job_id'=>2,'letter'=>'Xin chào Scuti'],
+            ['id'=>3, 'user_id'=>3, 'job_id'=>3,'letter'=>'Xin chào Scuti'],
+            ['id'=>4, 'user_id'=>4, 'job_id'=>4,'letter'=>'Xin chào Scuti'],
+            ['id'=>5, 'user_id'=>5, 'job_id'=>5,'letter'=>'Xin chào Scuti'],
+        ]);
+        DB::table('process')->insert([
+            ['id'=>1, 'name'=>'Checking'],
+            ['id'=>2, 'name'=>'Interview'],
+            ['id'=>3, 'name'=>'Hired'],
+            ['id'=>4, 'name'=>'Rejected'],
         ]);
         Schema::enableForeignKeyConstraints();
     }

@@ -54,6 +54,14 @@ class RepositoryServiceProvider extends ServiceProvider
             \App\Repositories\Candidate\CandidateRepositoryInterface::class,
             \App\Repositories\Candidate\CandidateRepository::class,
         );
+        $this->app->singleton(
+            \App\Repositories\Process\ProcessRepositoryInterface::class,
+            \App\Repositories\Process\ProcessRepository::class,
+        );
+        $this->app->singleton(
+            \App\Repositories\Evaluate\EvaluateRepositoryInterface::class,
+            \App\Repositories\Evaluate\EvaluateRepository::class,
+        );
     }
 
     /**

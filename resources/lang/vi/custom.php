@@ -26,6 +26,7 @@ return [
     'location'=>'Địa điểm',
     'expire_day'=>'Ngày hết hạn',
     'status'=>'Trạng thái',
+    'job'=>'job',
     
     'page_title' => [
         'user_manage' => 'Quản Lý Người Dùng',

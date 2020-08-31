@@ -9,16 +9,16 @@ class CandidateController extends Controller
 {
     protected $candidateRepository;
 
-    public function __construct(CandidateRepositoryInterface $candidateRepository)
+    public function __construct(CandidateRepositoryInterface $candidateRepository) 
     {
         $this->candidateRepository = $candidateRepository;
     }
 
     public function index()
     {
-        $candidates = $this->candidateRepository->paginate(10);
-
-        return view("admin.candidate.index", compact('candidates'));
+        $user = $this->candidateRepository->paginate(10);
+        
+        return view('admin.candidate.index', compact('user'));
     }
 
     public function show($id)

@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Hash;
 class User extends Authenticatable
 {
     use Notifiable;
+    use \Staudenmeir\EloquentHasManyDeep\HasRelationships;
 
     /**
      * The attributes that are mass assignable.
@@ -42,8 +43,13 @@ class User extends Authenticatable
         $this->attributes['password'] = Hash::make($value);
     }
 
+    public function job()
+    {
+        return $this->belongsToMany('App\Model\Job', 'user_job', 'user_id', 'job_id')->withPivot('letter');
+    }
+
     public function cv()
     {
-        return $this->hasMany('App\Model\CV');
+        return $this->hasManyDeep('App\Model\CV', ['user_job', 'App\Model\Job']);
     }
 }

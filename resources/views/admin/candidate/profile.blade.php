@@ -31,7 +31,7 @@
                 <th>
                     <div class="th-inner sortable">@lang('custom.stt')</div>
                     <div class="fht-cell"></div>
-                </th>
+                </th> 
                 <th>
                     <div class="th-inner sortable">@lang('custom.cv_url')</div>
                     <div class="fht-cell"></div>
@@ -48,4 +48,14 @@
             @endforeach
         </tbody>
     </table>
+
+    <label>Note :</label>
+    <br>
+    <form action="{{ route('evaluate.checking', $candidate->id) }}" method="post">
+        @csrf
+        <textarea name="comment" id="" cols="85" rows="2"></textarea>
+        <br>
+        <button class="btn btn-success" type="submit">Submit</button>
+    </form>
 </div>
+

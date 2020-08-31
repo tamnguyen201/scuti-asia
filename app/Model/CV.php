@@ -13,4 +13,5 @@ class CV extends Model
     {
         return $this->belongsTo('App\Model\Candidate');
     }
+
 }

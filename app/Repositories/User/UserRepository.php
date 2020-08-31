@@ -9,4 +9,5 @@ class UserRepository extends Repository implements UserRepositoryInterface
     {
         return \App\Model\User::class;
     }
+
 }

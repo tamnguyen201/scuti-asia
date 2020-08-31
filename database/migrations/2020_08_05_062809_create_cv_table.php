@@ -16,9 +16,9 @@ class CreateCvTable extends Migration
         Schema::create('cvs', function (Blueprint $table) {
             $table->id();
             $table->string('cv_url');
-            $table->foreignId('user_id');
+            $table->string('status');
+            $table->integer('job_id');
 
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

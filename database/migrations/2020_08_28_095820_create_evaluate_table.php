@@ -15,10 +15,9 @@ class CreateEvaluateTable extends Migration
     {
         Schema::create('evaluate', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('process_step_id');
+            $table->integer('user_id');
             $table->text('comment')->nullable;
-            $table->text('reason')->nullable;
-            $table->boolean('status')->default(false);
+            $table->string('status');
         });
     }
 

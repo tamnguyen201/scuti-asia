@@ -46,6 +46,12 @@ Route::group(
         Route::resource('company_images', 'CompanyImagesController');
         Route::resource('partner_companies', 'PartnerCompaniesController');
         Route::resource('candidates', 'CandidateController')->only(['index', 'show']);
+        Route::group(['prefix' => 'evaluate'], function () {
+            Route::post('/checking/{id}',  'EvaluateController@checking')->name('evaluate.checking');
+            // Route::get('/checking','EvaluateController@getChecking')->name('evaluate.checking');
+            Route::get('/send-email/{id}',  'EvaluateController@sendEmail')->name('evaluate.send-email');
+
+        });
     });
     }
 );
