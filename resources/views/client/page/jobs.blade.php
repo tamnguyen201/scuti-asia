@@ -69,7 +69,7 @@
 		</div>
     </div>
 
-    <div class="basic-2">
+    <div id="services" class="basic-2">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -79,7 +79,7 @@
                 </div>
             </div>
             <div class="row">
-
+                {!! $data['recruitment_flow']->content !!}
             </div>
         </div>
     </div>

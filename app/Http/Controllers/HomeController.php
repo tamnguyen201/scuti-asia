@@ -33,6 +33,7 @@ class HomeController extends Controller
 
     public function jobs()
     {
+        $data['recruitment_flow'] = \App\Model\Section::where('field', 'recruitment_flow')->first();
         $data['categories'] = \App\Model\Category::all();
         $data['jobs'] = \App\Model\Job::with('category')->paginate(5);
 
@@ -49,9 +50,10 @@ class HomeController extends Controller
     public function jobApply($slug, $id)
     {
         if (!auth()->check()) {
-            return redirect()->route('login');
+            return redirect()->route('client.login');
         }
-        
+
+        $data['recruitment_flow'] = \App\Model\Section::where('field', 'recruitment_flow')->first();
         $data['job'] = \App\Model\Job::find($id);
 
         return view('client.page.jobApply', compact('data'));
