@@ -33,6 +33,10 @@ return [
             'empty_job_applied' => 'Bạn Chưa Ứng Tuyển Công Việc Nào.',
             'apply_job' => 'Tìm Việc Phù Hợp Ngay!',
         ],
+        'apply' => [
+            'title' => '',
+            'form_title' => 'Mẫu Đăng Kí Ứng Tuyển'
+        ]
     ],
 
     'nav' => [

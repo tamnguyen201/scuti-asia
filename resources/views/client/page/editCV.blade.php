@@ -1,7 +1,7 @@
 <form enctype="multipart/form-data">
     <div class="form-group">
         <label>@lang('custom.image_url')</label>
-        <input type="text" value="{{$cv->name}}" class="form-control" name="name">
+        <input type="text" value="{{$cv->cv_name}}" class="form-control" name="name">
         <span class="help-block text-danger"> </span>
     </div>
     <div class="form-group">

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers;
 use App\Http\Requests\ContactRequest;
+use App\Http\Requests\ClientApplyJobRequest;
+use App\Services\ApplyJobService;
 use App\Repositories\Client\SectionRepositoryInterface;
 use App\Repositories\Company\CompanyImagesRepositoryInterface;
 use App\Repositories\Company\ContactRepositoryInterface;
@@ -20,6 +22,7 @@ class HomeController extends Controller
     protected $CategoryRepository;
     protected $JobRepository;
     protected $ContactRepository;
+    protected $ApplyJobService;
 
     public function __construct(
         SectionRepositoryInterface $SectionRepository,
@@ -27,7 +30,8 @@ class HomeController extends Controller
         NewSpaperRepositoryInterface $NewSpaperRepository,
         CategoryRepositoryInterface $CategoryRepository,
         JobRepositoryInterface $JobRepository,
-        ContactRepositoryInterface $ContactRepository
+        ContactRepositoryInterface $ContactRepository,
+        ApplyJobService $ApplyJobService
     )
     {
         $this->SectionRepository = $SectionRepository;
@@ -35,6 +39,7 @@ class HomeController extends Controller
         $this->CategoryRepository = $CategoryRepository;
         $this->NewSpaperRepository = $NewSpaperRepository;
         $this->JobRepository = $JobRepository;
+        $this->ApplyJobService = $ApplyJobService;
     }
 
     public function index()
@@ -87,10 +92,12 @@ class HomeController extends Controller
         return view('client.page.jobApply', compact('data'));
     }
 
-    public function userApplyJob(CompanyRequest $request)
+    public function userApplyJob(ClientApplyJobRequest $request)
     {
+        $this->ApplyJobService->create($request->all());
+        alert(trans('custom.alert_messages.contact_alert.title'), trans('custom.alert_messages.contact_alert.text'), 'success');
         
-        return back()->with('success', trans('custom.alert_messages.success'));
+        return back();
     }
 
     public function login()
