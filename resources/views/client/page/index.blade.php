@@ -69,7 +69,6 @@
                 </div>
                 <div class="col-lg-6">
                     <div class="text-container mt-0">
-                        <h4>@lang('client.section.about_us.sub_title')</h4>
                         {!! $data['about_us']->content !!}
                     </div>
                 </div>

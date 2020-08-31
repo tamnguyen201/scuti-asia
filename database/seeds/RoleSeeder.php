@@ -52,7 +52,7 @@ class RoleSeeder extends Seeder
             ['id'=>5,'name' => 'Môi trường làm việc', 'image_url'=>'http://congstudio.vn/product_images/z/320/chup_anh_profile_tai_ha_noi_cong_studio_4__09337_thumb.jpg'],
         ]);
         DB::table('new_spapers')->insert([
-            ['id'=>1, 'title' => 'FPT', 'image'=>'https://miro.medium.com/max/1200/1*Eu6cAGjXNa0-ct_hlsH1yQ.jpeg', 'description' => 'Mô tả', 'url' => 'abc.com'],
+            ['id'=>1, 'title' => 'Dev Candidates Tour- Hành Trình Trở Thành Lập Trình Viên', 'image'=>'https://miro.medium.com/max/1200/1*Eu6cAGjXNa0-ct_hlsH1yQ.jpeg', 'description' => 'Dev Candidates Tour tháng 6/2017 là sự kiện kết nối giữa các doanh nghiệp công nghệ phần mềm và các ứng viên tiềm năng. Các nhà tuyển dụng luôn luôn tìm kiếm các ứng viên tài năng nhưng dường như trong quy trình tuyển dụng luôn thiếu một bước nào đó để họ tiếp cận được với các nhân tài, hãy cùng Dev Candidates Tour giao lưu và lắng nghe ý kiến trực tiếp của các ứng viên và nâng cao hiệu quả quy trình tuyển dụng của doanh nghiệp.', 'url' => 'https://www.facebook.com/events/136182586941319/'],
             ['id'=>2, 'title' => 'TGDD', 'image'=>'http://congstudio.vn/product_images/z/320/chup_anh_profile_tai_ha_noi_cong_studio_4__09337_thumb.jpg', 'description' => 'Mô tả', 'url' => 'abc.com'],
             ['id'=>3, 'title' => 'Viettel', 'image'=>'http://congstudio.vn/product_images/z/320/chup_anh_profile_tai_ha_noi_cong_studio_4__09337_thumb.jpg', 'description' => 'Mô tả', 'url' => 'abc.com'],
         ]);
@@ -110,7 +110,8 @@ class RoleSeeder extends Seeder
                         </div>', 
                         'image' => '', 'map_url' => '', 'field' => 'recruitment_flow'],
             ['id'=>3, 'content' => 
-                        '<ul>
+                        '<h4>Quá trình thành lập và phát triển Scuti!</h4>
+                        <ul>
                             <li>Feb 2016&nbsp;<a href="http://ezukatechnight.com/events/ezukatecknight/vol-35-report/#.WLjwbmSLTAc" target="_blank">e-ZUKA Tech Night vol.35</a></li>
                             <li>Jul 2016&nbsp;<a href="https://techsauce.co/en/thailand-en/why-you-should-definitely-be-at-the-techsauce-summit-2016-asias-hottest-tech-conference-in-thailand/" target="_blank">Tech Source Summit 2016 in Bangkok</a>&nbsp;&lt;<a href="http://blog.scuti.asia/2016/07/the-extremely-rapid-report-of.html" target="_blank">Blog</a>&gt;</li>
                             <li>Sep 2016&nbsp;<a href="http://blog.innovatube.com/geek-talk-vol-01/" target="_blank">GEEK TALK VOL.01</a></li>

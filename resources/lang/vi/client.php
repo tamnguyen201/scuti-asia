@@ -79,7 +79,6 @@ return [
         'about_us' => [
             'title' => 'Về Chúng Tôi',
             'description' => 'Chúng tôi tin rằng xây dựng được hạnh phúc, chú trọng con đường sự nghiệp cho nhân viên, sự hài lòng trong công việc và môi trường tích cực sẽ là nền tảng lâu dài cho sự phát triển bền vững của Scuti.',
-            'sub_title' => 'Quá trình thành lập và phát triển Scuti!'
         ],
 
         'newspaper' => [

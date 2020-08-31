@@ -17,7 +17,7 @@ class CreateNewSpaperTable extends Migration
             $table->id();
             $table->string('title');
             $table->text('image');
-            $table->string('description');
+            $table->text('description');
             $table->text('url');
             $table->timestamps();
         });

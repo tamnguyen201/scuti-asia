@@ -14,23 +14,19 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::get('/login', 'AdminController@login')->name('login');
-Route::post('/login','AdminController@postLogin')->name('post-login');
-Route::get('/logout', 'AdminController@logout')->name('logout');
-Route::get('/forgot', 'AdminController@forgot');
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/login', 'AuthController@login')->name('client.login');
 Route::post('/login', 'AuthController@postLogin')->name('client.postLogin');
 Route::get('/logout', 'AuthController@logout')->name('client.logout');
 Route::get('/profile', 'HomeController@profile')->name('client.profile');
-Route::get('/changeInfo', 'HomeController@profile2')->name('client.change_info');
+Route::get('/changeInfo', 'HomeController@changeAccountInfo')->name('client.change_info');
 Route::post('/changeInfo', 'UserController@update')->name('client.update_info');
 Route::get('/uploadCV', 'CVController@create')->name('client.create_cv');
 Route::post('/uploadCV', 'CVController@store')->name('client.upload_cv');
 Route::get('/editCV/{id}', 'CVController@edit')->name('client.edit_cv');
 Route::post('/updateCV/{id}', 'CVController@update')->name('client.update_cv');
 Route::delete('/deleteCV/{id}', 'CVController@destroy')->name('client.destroy_cv');
-Route::get('/changePass', 'HomeController@profile3')->name('client.change_password');
+Route::get('/changePass', 'HomeController@changePassword')->name('client.change_password');
 Route::post('/changePass','AuthController@changePassword')->name('client.update_password');
 
 Route::post('/visit-us','AuthController@changePassword')->name('client.visit_us');

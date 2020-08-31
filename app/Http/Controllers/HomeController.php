@@ -4,45 +4,63 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers;
 use App\Http\Requests\CompanyRequest;
-use App\Repositories\Company\CompanyRepositoryInterface;
+use App\Repositories\Client\SectionRepositoryInterface;
+use App\Repositories\Company\CompanyImagesRepositoryInterface;
+use App\Repositories\Company\PartnerCompaniesRepositoryInterface as NewSpaperRepositoryInterface;
+use App\Repositories\Category\CategoryRepositoryInterface;
+use App\Repositories\Job\JobRepositoryInterface;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    protected $a;
+    protected $SectionRepository;
+    protected $CompanyImagesRepository;
+    protected $NewSpaperRepository;
+    protected $CategoryRepository;
+    protected $JobRepository;
 
-    public function __construct(CompanyRepositoryInterface $repository)
+    public function __construct(
+        SectionRepositoryInterface $SectionRepository,
+        CompanyImagesRepositoryInterface $CompanyImagesRepository,
+        NewSpaperRepositoryInterface $NewSpaperRepository,
+        CategoryRepositoryInterface $CategoryRepository,
+        JobRepositoryInterface $JobRepository
+    )
     {
-        $this->a = $repository;
+        $this->SectionRepository = $SectionRepository;
+        $this->CompanyImagesRepository = $CompanyImagesRepository;
+        $this->CategoryRepository = $CategoryRepository;
+        $this->NewSpaperRepository = $NewSpaperRepository;
+        $this->JobRepository = $JobRepository;
     }
 
     public function index()
     {
-        $data['benefits'] = \App\Model\Section::where('field', 'benefits')->first();
-        $data['recruitment_flow'] = \App\Model\Section::where('field', 'recruitment_flow')->first();
-        $data['working_environment'] =\App\Model\CompanyImages::all();
-        $data['about_us'] = \App\Model\Section::where('field', 'about_us')->first();
-        $data['new_spaper'] = \App\Model\NewSpaper::all();
-        $data['visit_us'] = \App\Model\Section::where('field', 'visit_us')->first();
-        $data['categories'] = \App\Model\Category::all();
-        $data['jobs'] = \App\Model\Job::with('category')->get();
-        $data['hotJobs'] = \App\Model\Job::all();
+        $data['benefits'] = $this->SectionRepository->where('field', '=', 'benefits');
+        $data['recruitment_flow'] = $this->SectionRepository->where('field', '=', 'recruitment_flow');
+        $data['working_environment'] = $this->CompanyImagesRepository->all();
+        $data['about_us'] = $this->SectionRepository->where('field', '=', 'about_us');
+        $data['new_spaper'] = $this->NewSpaperRepository->all();
+        $data['visit_us'] = $this->SectionRepository->where('field', '=', 'visit_us');
+        $data['categories'] = $this->CategoryRepository->all();
+        $data['jobs'] = $this->JobRepository->with('category')->get();
+        $data['hotJobs'] = $this->JobRepository->all();
 
         return view('client.page.index', compact('data'));
     }
 
     public function jobs()
     {
-        $data['recruitment_flow'] = \App\Model\Section::where('field', 'recruitment_flow')->first();
-        $data['categories'] = \App\Model\Category::all();
-        $data['jobs'] = \App\Model\Job::with('category')->paginate(5);
+        $data['recruitment_flow'] = $this->SectionRepository->where('field', '=', 'recruitment_flow');
+        $data['categories'] = $this->CategoryRepository->all();
+        $data['jobs'] = $this->JobRepository->with('category')->paginate(5);
 
         return view('client.page.jobs', compact('data'));
     }
 
     public function jobDetail($slug, $id)
     {
-        $data['job'] = \App\Model\Job::find($id);
+        $data['job'] = $this->JobRepository->show($id);
 
         return view('client.page.jobDetail', compact('data'));
     }
@@ -53,8 +71,8 @@ class HomeController extends Controller
             return redirect()->route('client.login');
         }
 
-        $data['recruitment_flow'] = \App\Model\Section::where('field', 'recruitment_flow')->first();
-        $data['job'] = \App\Model\Job::find($id);
+        $data['recruitment_flow'] = $this->SectionRepository->where('field', '=', 'recruitment_flow');
+        $data['job'] = $this->JobRepository->show($id);
 
         return view('client.page.jobApply', compact('data'));
     }
@@ -75,12 +93,12 @@ class HomeController extends Controller
         return view('client.page.profile');
     }
 
-    public function profile2()
+    public function changeAccountInfo()
     {
         return view('client.page.changeAccountInfo');
     }
 
-    public function profile3()
+    public function changePassword()
     {
         return view('client.page.changePassword');
     }
