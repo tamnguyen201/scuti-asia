@@ -36,7 +36,7 @@
                 <div class="col-lg-12">
                     <div class="cards-container row">
                         @foreach($data['working_environment'] as $item)
-                        <div class="card col-md-6 col-lg-4">
+                        <div class="card col-md-6 col-lg-4 px-0">
                             <div class="card-image">
                                 <img class="img-fluid" src="{{$item->image_url}}" alt="{{$item->name}}">
                             </div>
