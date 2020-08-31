@@ -119,6 +119,14 @@ a:hover {
 	text-decoration: underline;
 }
 
+a:focus {
+	outline: none;
+}
+
+button:focus {
+	outline: none;
+}
+
 a.orange {
 	color: #fd6f2d;
 }

@@ -24,7 +24,10 @@ class ClientApplyJobRequest extends FormRequest
     public function rules()
     {
         return [
-            // 'leter' => 'required',
+            'name' => 'required',
+            'email' => 'required|email',
+            // 'logo' => 'required|mimes:application/pdf|max:10000',
+            'leter' => 'required',
         ];
     }
 

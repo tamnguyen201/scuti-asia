@@ -20,19 +20,18 @@
                     <label>@lang('client.page.login.email')</label>
                     <input type="email" class="form-control @error('email') has-error @enderror" name="email">
                     @error('email') 
-                        <span class="help-block with-errors"> {{$message}} </span>
+                        <span class="help-block with-errors text-danger"> {{$message}} </span>
                     @enderror
                 </div>
                 <div class="form-group">
                     <label>@lang('client.page.login.password')</label>
                     <input type="password" class="form-control @error('password') has-error @enderror" name="password">
                     @error('password') 
-                        <span class="help-block with-errors"> {{$message}} </span>
+                        <span class="help-block with-errors text-danger"> {{$message}} </span>
                     @enderror
                 </div>
                 <div class="form-group checkbox">
                     <input type="checkbox" name="remember"> @lang('client.page.login.remember')
-                    <div class="help-block with-errors"></div>
                 </div>
                 <div class="form-group">
                     <button type="submit" class="form-control-submit-button">@lang('client.page.login.submit')</button>

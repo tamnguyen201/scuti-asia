@@ -16,7 +16,7 @@
     </div>
     
     <div class="col-md-12 text-center">
-        <button type="submit" class="btn btn-success btn-reset-pw">@lang('custom.button.submit')</button>
-        <button type="reset" class="btn btn-primary">@lang('custom.button.reset')</button>
+        <button type="submit" class="btn btn-outline-reg btn-reset-pw">@lang('custom.button.submit')</button>
+        <button type="reset" class="btn btn-outline-reg">@lang('custom.button.reset')</button>
     </div>
 </form>
