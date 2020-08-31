@@ -38,7 +38,7 @@ class RoleSeeder extends Seeder
             ['id'=>4, 'name' => 'BackOffice','email' => 'backoffice@gmail.com','password'=> Hash::make('123456'), 'phone'=> '1234567890','address'=>'HN', 'role' => 3],
         ]);
         DB::table('companies')->insert([
-            ['id'=>1, 'name' => 'Scuti co., ltd', 'description' => 'Make service people love!', 'email' => 'scuti-asia@gmail.com', 'phone'=>'0999999999', 'address'=>'68 Nguyễn Cơ Thạch, Nam Từ Liêm, Hn', 'logo'=>'https://scontent.fhan3-1.fna.fbcdn.net/v/t31.0-0/p370x247/12622243_1526863174310176_5792404773815484011_o.png?_nc_cat=110&_nc_sid=85a577&_nc_ohc=Ytta26wUm-MAX95QAPU&_nc_ht=scontent.fhan3-1.fna&oh=514584ef7414730723e84bb9b802005f&oe=5F6947F6', 'facebook_page' => 'https://fb.com/scuti', 'youtube_page' => 'youtube.com.vn/scuti'],
+            ['id'=>1, 'name' => 'Scuti co., ltd', 'description' => 'Make service people love!', 'email' => 'scuti-asia@gmail.com', 'phone'=>'0999999999', 'address'=>'68 Nguyễn Cơ Thạch, Nam Từ Liêm, Hn', 'logo'=>'logo.png', 'facebook_page' => 'https://fb.com/scuti', 'youtube_page' => 'youtube.com.vn/scuti'],
         ]);
         DB::table('locations')->insert([
             ['id'=>1, 'name'=>'Hà Nội'],
