@@ -32,6 +32,10 @@ return [
             'create_cv' => 'Thêm Mới!',
             'empty_job_applied' => 'Bạn Chưa Ứng Tuyển Công Việc Nào.',
             'apply_job' => 'Tìm Việc Phù Hợp Ngay!',
+            'manage_pw' => 'Quản Lí Mật Khẩu',
+        ],
+        'job' => [
+            'title' => 'Tin Tuyển Dụng'
         ],
         'apply' => [
             'title' => '',

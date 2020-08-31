@@ -24,7 +24,7 @@ class CVUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required',
+            'cv_name' => 'required',
             'cv_url' => 'nullable|mimes:application/pdf|max:10000'
         ];
     }

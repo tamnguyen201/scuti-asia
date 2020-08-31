@@ -1,13 +1,12 @@
 @extends('client.layout.master')
-@section('title', trans('custom.page_title.company_manage'))
+@section('title', trans('client.page.job.title'))
 @section('content')
-    @include('client.layout.header')
     <div class="ex-basic-1">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
                     <div class="breadcrumbs">
-                        <a href="{{route('home')}}">Home</a><i class="fa fa-angle-double-right"></i><span>{{$data['job']->name}}</span>
+                        <a href="{{route('home')}}">@lang('client.page.home.title')</a><i class="fa fa-angle-double-right"></i><a href="{{route('client.jobs')}}">@lang('client.page.job.title')</a><i class="fa fa-angle-double-right"></i><span>{{$data['job']->name}}</span>
                     </div>
                 </div>
             </div>

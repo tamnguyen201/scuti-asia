@@ -1,8 +1,19 @@
 @extends('client.layout.master')
-@section('title', trans('custom.page_title.company_manage'))
+@section('title', trans('client.page.job.title'))
 @section('content')
+    <div class="ex-basic-1">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumbs">
+                    <a href="{{route('home')}}">@lang('client.page.home.title')</a><i class="fa fa-angle-double-right"></i><span>@lang('client.page.job.title')</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-	<div class="filter" style="padding-top: 8rem">
+	<div class="filter">
 		<div class="container">
             <div class="row">
                 <div class="col-lg-12">

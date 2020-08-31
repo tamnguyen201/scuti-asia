@@ -1,7 +1,7 @@
 @extends('client.layout.master')
 @section('title', trans('custom.page_title.company_manage'))
 @section('content')
-<div class="ex-basic-1"  style="padding-top: 7rem">
+<div class="ex-basic-1">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
@@ -64,7 +64,7 @@
                                 </div>
                                 <div class="tab-pane fade table-responsive" id="v-pills-cv" role="tabpanel" aria-labelledby="v-pills-cv-tab">
                                     @if(auth()->user()->cv->count() > 0)
-                                    <h5 class="mb-4"> @lang('client.page.profile.manage_cv') <a href="{{route('client.create_cv')}}" class="btn btn-primary float-right btn-upload-form">@lang('client.page.profile.create_cv')</a></h5>
+                                    <h5 class="mb-4"> @lang('client.page.profile.manage_cv') <a href="{{route('client.create_cv')}}" class="btn btn-primary text-white float-right btn-upload-form">@lang('client.page.profile.create_cv')</a></h5>
                                     <table class="table table-hover">
                                         <thead>
                                             <tr>
@@ -157,18 +157,6 @@
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-md">
         <div class="modal-content">
-        <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">@lang('custom.page_title.change_password')</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-        <span class="text-center text-danger show-errors"></span>
-        <div class="modal-body">
-        </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        </div>
         </div>
     </div>
 </div>
@@ -181,7 +169,7 @@
             $.get(url)
             .done(function (results) {
                 $('.text-danger').text('');
-                $(".modal-body").html(results);
+                $(".modal-content").html(results);
                 $("#myModal").modal('show');
             }).fail(function (data) {});
         });
@@ -229,7 +217,7 @@
                     })
                 } else {
                     $('.text-danger').text('');
-                    $(".modal-body").html(results);
+                    $(".modal-content").html(results);
                     $("#myModal").modal('show');
                 }
             }).fail(function (data) {});

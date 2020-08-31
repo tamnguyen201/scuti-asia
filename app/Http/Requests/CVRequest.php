@@ -24,7 +24,7 @@ class CVRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required',
+            'cv_name' => 'required',
             'cv_url' => 'required|mimes:application/pdf|max:10000'
         ];
     }

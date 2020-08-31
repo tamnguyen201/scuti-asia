@@ -26,8 +26,9 @@ class CVController extends Controller
         return response()->json(['warning' => trans('custom.alert_messages.warning_limit_cv')]);
     }
 
-    public function store(CVRequest $request)
+    public function store(Request $request)
     {
+        dd($request->all());
         $this->CVService->create($request->all());
         $html = view('client.page.list_cv')->render();
         
