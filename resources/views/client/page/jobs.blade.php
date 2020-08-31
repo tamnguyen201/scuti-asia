@@ -35,7 +35,7 @@
                                         </div>
                                     </div>
                                     <div class="col-md-4 col-12 text-md-right text-center">
-                                        <a href="" class="btn-apply-main btn-apply">@lang('client.section.recruitment.aplly')</a>
+                                        <a href="{{route('client.applied', [$job->slug, $job->id])}}" class="btn-apply-main btn-apply">@lang('client.section.recruitment.apply')</a>
                                     </div>
                                 </div>
                                 @endif
@@ -54,7 +54,7 @@
                                         </div>
                                     </div>
                                     <div class="col-md-4 col-12 text-md-right text-center">
-                                        <a href="" class="btn-apply-main btn-apply">@lang('client.section.recruitment.aplly')</a>
+                                        <a href="{{route('client.applied', [$job->slug, $job->id])}}" class="btn-apply-main btn-apply">@lang('client.section.recruitment.apply')</a>
                                     </div>
                                 </div>
                                 @endforeach

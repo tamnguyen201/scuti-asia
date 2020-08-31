@@ -7,11 +7,11 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="breadcrumbs">
-                        <a href="/">Home</a><i class="fa fa-angle-double-right"></i><span>{{$data['job']->name}}</span>
-                    </div> <!-- end of breadcrumbs -->
-                </div> <!-- end of col -->
-            </div> <!-- end of row -->
-        </div> <!-- end of container -->
+                        <a href="{{route('home')}}">Home</a><i class="fa fa-angle-double-right"></i><span>{{$data['job']->name}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <div class="ex-basic-2">

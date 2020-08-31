@@ -54,10 +54,10 @@
                                 </div>
                             </div>
                             <div class="col-md-12 text-center">
-                                <div class="form-group @error('description') has-error @enderror">
-                                    <label>@lang('custom.description')</label>
-                                    <textarea name="description" class="form-control" cols="30" rows="10">{{old('description')}} </textarea>
-                                    @error('description') 
+                                <div class="form-group @error('letter') has-error @enderror">
+                                    <label>@lang('custom.letter')</label>
+                                    <textarea name="letter" class="form-control" cols="30" rows="10">{{old('letter')}} </textarea>
+                                    @error('letter') 
                                     <span class="text-danger"> {{$message}} </span>
                                     @enderror
                                 </div>
