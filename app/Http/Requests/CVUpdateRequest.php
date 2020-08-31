@@ -3,9 +3,8 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Symfony\Component\HttpFoundation\Request;
 
-class UserUpdateRequest extends FormRequest
+class CVUpdateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -26,7 +25,7 @@ class UserUpdateRequest extends FormRequest
     {
         return [
             'name' => 'required',
-            'email' => 'required|unique:users,email,' . auth()->user()->id,
+            'cv_url' => 'nullable|mimes:application/pdf|max:10000'
         ];
     }
 
@@ -34,7 +33,8 @@ class UserUpdateRequest extends FormRequest
     {
         return [
             'required' => trans('validation.required'),
-            'unique' => trans('validation.unique'),
+            'cv_url.mimes' => trans('validation.mimes'),
+            'cv_url.max' => trans('validation.max'),
         ];
     }
 }

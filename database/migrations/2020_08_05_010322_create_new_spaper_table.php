@@ -16,9 +16,9 @@ class CreateNewSpaperTable extends Migration
         Schema::create('new_spapers', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('image');
+            $table->text('image');
             $table->string('description');
-            $table->string('url');
+            $table->text('url');
             $table->timestamps();
         });
     }

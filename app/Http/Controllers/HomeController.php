@@ -18,11 +18,12 @@ class HomeController extends Controller
 
     public function index()
     {
-        $data['benefits'] = 1;
-        $data['recruitment_flow'] = 1;
-        $data['working_environment'] =1;
-        $data['about_us'] = 1;
-        $data['new_spaper'] = \App\Model\Category::all();
+        $data['benefits'] = \App\Model\Section::where('field', 'benefits')->first();
+        $data['recruitment_flow'] = \App\Model\Section::where('field', 'recruitment_flow')->first();
+        $data['working_environment'] =\App\Model\CompanyImages::all();
+        $data['about_us'] = \App\Model\Section::where('field', 'about_us')->first();
+        $data['new_spaper'] = \App\Model\NewSpaper::all();
+        $data['visit_us'] = \App\Model\Section::where('field', 'visit_us')->first();
         $data['categories'] = \App\Model\Category::all();
         $data['jobs'] = \App\Model\Job::with('category')->get();
         $data['hotJobs'] = \App\Model\Job::all();

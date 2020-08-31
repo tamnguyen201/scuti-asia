@@ -13,32 +13,11 @@
                 </div>
             </div>
             <div class="row">
-                <!-- {!! $data['benefits'] !!} -->
-                <div class="col-lg-4">
-                    <div class="text-container">
-                        <h3>Môi Trường Lí Tưởng</h3>
-                        <p>Our packages are designed to fit the budgets of all companies from startups to well established organizations looking for premium services.</p>
-                        <p>Each version has flexible options that can be ticked on or off your services list.</p>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="text-container">
-                        <h3>Cơ hội phát triển </h3>
-                        <p>Our packages are designed to fit the budgets of all companies from startups to well established organizations looking for premium services.</p>
-                        <p>Each version has flexible options that can be ticked on or off your services list.</p>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="text-container">
-                        <h3>Thoải mái sáng tạo</h3>
-                        <p>Our packages are designed to fit the budgets of all companies from startups to well established organizations looking for premium services.</p>
-                        <p>Each version has flexible options that can be ticked on or off your services list.</p>
-                    </div>
-                </div>
+                {!! $data['benefits']->content !!}
             </div>
             <div class="row">
                 <div class="col-12">
-                    <img src="https://www.scuti.asia/uploads/6/1/9/4/61941893/scuti-recruitment-pitch-2019-video_orig.jpg" class="img-fluid" alt="">
+                    <img src="{{$data['benefits']->image}}" class="img-fluid" alt="">
                 </div>
             </div>
         </div>
@@ -56,16 +35,16 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="cards-container row">
-
+                        @foreach($data['working_environment'] as $item)
                         <div class="card col-md-6 col-lg-4">
                             <div class="card-image">
-                                <img class="img-fluid" src="https://inovatik.com/juno-landing-page/images/product-1.jpg" alt="alternative">
+                                <img class="img-fluid" src="{{$item->image_url}}" alt="{{$item->name}}">
                             </div>
                             <div class="card-body">
-                                <p>Use our software application to </p>
+                                <p>{{$item->name}}</p>
                             </div>
                         </div>
-                        
+                        @endforeach
                     </div>
                 </div>
             </div>
@@ -85,16 +64,13 @@
                 <!-- {!! $data['about_us'] !!} -->
                 <div class="col-lg-6">
                     <div class="image-container">
-                        <img class="img-fluid" src="https://inovatik.com/juno-landing-page/images/about.jpg" alt="alternative">
+                        <img class="img-fluid" src="{{$data['about_us']->image}}" alt="alternative">
                     </div>
                 </div>
                 <div class="col-lg-6">
-                    <div class="text-container">
+                    <div class="text-container mt-0">
                         <h4>@lang('client.section.about_us.sub_title')</h4>
-                        <p>Having good knowledge about the resources you need to carry out your plan is very important. We can help you establish them, just give us a call or use the contact form below in the contact section.</p>
-                        <p class="milestone"><strong>2012 - 2014</strong>: our manager setup the business and started work</p>
-                        <p class="milestone"><strong>2014 - 2017</strong>: we've hired more colleagues and grown as a team</p>
-                        <p class="milestone"><strong>2017 - 2019</strong>: business services have been acknowledged as great</p>
+                        {!! $data['about_us']->content !!}
                     </div>
                 </div>
             </div>
@@ -120,14 +96,14 @@
                                     <div class="row">
                                         <div class="col-lg-6">
                                             <div class="image-container">
-                                                <img class="img-fluid" src="https://inovatik.com/juno-landing-page/images/description-1.jpg" alt="alternative">
+                                                <img class="img-fluid" src="{{$item->image}}" alt="alternative">
                                             </div>
                                         </div>
                                         <div class="col-lg-6">
                                             <div class="text-container">
-                                                <h3>Market Analysis</h3>
-                                                <p>The best place to start is in your market. Analyse your customer profile, current positioning and your main competitors. This will be the starting foundation for our common business action plan.</p>
-                                                <a class="btn-outline-reg" href="https://inovatik.com/juno-landing-page/#your-link">DETAILS</a>
+                                                <h3>{{$item->title}}</h3>
+                                                <p>{{$item->description}}</p>
+                                                <a class="btn-outline-reg" target="_blank" href="{{$item->url}}">DETAILS</a>
                                             </div>
                                         </div>
                                     </div>
@@ -152,9 +128,9 @@
                     <h2>@lang('client.section.visit_us.title')</h2>
                     <ul class="list-unstyled li-space-lg">
                         <li class="address">@lang('client.section.visit_us.description')</li>
-                        <li><i class="fas fa-map-marker-alt"></i> <!-- {{ $data_share->address }} --></li>
-                        <li><i class="fas fa-phone"></i><a class="orange" href="tel:<!--{{ $data_share->phone }} -->"><!--{{ $data_share->phone }} --></a></li>
-                        <li><i class="fas fa-envelope"></i><a class="orange" href="mailto:<!--{{ $data_share->email }} -->"><!--{{ $data_share->email }} --></a></li>
+                        <li><i class="fas fa-map-marker-alt"></i>  {{ $data_share->address }} </li>
+                        <li><i class="fas fa-phone"></i><a class="orange" href="tel:{{ $data_share->phone }} ">{{ $data_share->phone }} </a></li>
+                        <li><i class="fas fa-envelope"></i><a class="orange" href="mailto:{{ $data_share->email }} ">{{ $data_share->email }} </a></li>
                     </ul>
                     <hr class="line-heading">
                 </div>
@@ -162,20 +138,19 @@
             <div class="row">
                 <div class="col-lg-6">
                     <div class="map-responsive">
-                        <!-- {{ $data_share->map_url }} -->
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3723.962023272904!2d105.76304874986745!3d21.034205492900966!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x313454b947cd6e49%3A0x6a87974c6b44d671!2zNjggUGjhu5EgTmd1eeG7hW4gQ8ahIFRo4bqhY2gsIE3hu7kgxJDDrG5oLCBU4burIExpw6ptLCBIw6AgTuG7mWksIFZp4buHdCBOYW0!5e0!3m2!1svi!2s!4v1598327887854!5m2!1svi!2s" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                        {!! $data['visit_us']->map_url !!}
                     </div>
                 </div>
                 <div class="col-lg-6">
-                    <form id="contactForm" data-toggle="validator" data-focus="false">
+                    <form action="{{route('client.visit_us')}}" id="contactForm" data-toggle="validator" data-focus="false">
                         <div class="form-group">
                             <input type="text" class="form-control-input" id="cname" required>
-                            <label class="label-control" for="cname">Name</label>
+                            <label class="label-control" for="cname">@lang('custom.name')</label>
                             <div class="help-block with-errors"></div>
                         </div>
                         <div class="form-group">
                             <input type="email" class="form-control-input" id="cemail" required>
-                            <label class="label-control" for="cemail">Email</label>
+                            <label class="label-control" for="cemail">@lang('custom.email')</label>
                             <div class="help-block with-errors"></div>
                         </div>
                         <div class="form-group">
@@ -196,7 +171,7 @@
                             <div class="help-block with-errors"></div>
                         </div>
                         <div class="form-group">
-                            <button type="submit" class="form-control-submit-button">SUBMIT MESSAGE</button>
+                            <button type="submit" class="form-control-submit-button">@lang('custom.button.submit')</button>
                         </div>
                         <div class="form-message">
                             <div id="cmsgSubmit" class="h3 text-center hidden"></div>
@@ -217,7 +192,7 @@
                 </div>
             </div>
             <div class="row">
-                <!-- {!! $data['recruitment_flow'] !!} -->
+                {!! $data['recruitment_flow']->content !!}
             </div>
         </div>
     </div>

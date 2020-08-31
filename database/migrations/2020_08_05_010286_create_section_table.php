@@ -13,11 +13,11 @@ class CreateSectionTable extends Migration
      */
     public function up()
     {
-        Schema::create('section', function (Blueprint $table) {
+        Schema::create('sections', function (Blueprint $table) {
             $table->id();
-            $table->string('content')->nullable();
-            $table->string('image')->nullable();
-            $table->string('map_url')->nullable();
+            $table->text('content')->nullable();
+            $table->text('image')->nullable();
+            $table->text('map_url')->nullable();
             $table->string('field');
             $table->timestamps();
         });
@@ -30,6 +30,6 @@ class CreateSectionTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('section');
+        Schema::dropIfExists('sections');
     }
 }
