@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers;
-use App\Http\Requests\CompanyRequest;
+use App\Http\Requests\ContactRequest;
 use App\Repositories\Client\SectionRepositoryInterface;
 use App\Repositories\Company\CompanyImagesRepositoryInterface;
+use App\Repositories\Company\ContactRepositoryInterface;
 use App\Repositories\Company\PartnerCompaniesRepositoryInterface as NewSpaperRepositoryInterface;
 use App\Repositories\Category\CategoryRepositoryInterface;
 use App\Repositories\Job\JobRepositoryInterface;
@@ -18,13 +19,15 @@ class HomeController extends Controller
     protected $NewSpaperRepository;
     protected $CategoryRepository;
     protected $JobRepository;
+    protected $ContactRepository;
 
     public function __construct(
         SectionRepositoryInterface $SectionRepository,
         CompanyImagesRepositoryInterface $CompanyImagesRepository,
         NewSpaperRepositoryInterface $NewSpaperRepository,
         CategoryRepositoryInterface $CategoryRepository,
-        JobRepositoryInterface $JobRepository
+        JobRepositoryInterface $JobRepository,
+        ContactRepositoryInterface $ContactRepository
     )
     {
         $this->SectionRepository = $SectionRepository;
@@ -47,6 +50,13 @@ class HomeController extends Controller
         $data['hotJobs'] = $this->JobRepository->all();
 
         return view('client.page.index', compact('data'));
+    }
+
+    public function visit_us(ContactRequest $request)
+    {
+        $this->ContactRepository->create($request->all());
+
+        return back()->with('success', trans('custom.alert_messages.success'));
     }
 
     public function jobs()

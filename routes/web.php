@@ -29,7 +29,7 @@ Route::delete('/deleteCV/{id}', 'CVController@destroy')->name('client.destroy_cv
 Route::get('/changePass', 'HomeController@changePassword')->name('client.change_password');
 Route::post('/changePass','AuthController@changePassword')->name('client.update_password');
 
-Route::post('/visit-us','AuthController@changePassword')->name('client.visit_us');
+Route::post('/visit-us','HomeController@visit_us')->name('client.visit_us');
 Route::get('/apply', 'HomeController@apply')->name('client.apply');
 Route::get('/jobs', 'HomeController@jobs')->name('client.jobs');
 Route::get('/jobs/{slug}-{id}.html', 'HomeController@jobDetail')->name('job-detail');

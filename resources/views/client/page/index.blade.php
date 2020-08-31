@@ -61,7 +61,6 @@
                 </div>
             </div>
             <div class="row">
-                <!-- {!! $data['about_us'] !!} -->
                 <div class="col-lg-6">
                     <div class="image-container">
                         <img class="img-fluid" src="{{$data['about_us']->image}}" alt="alternative">
@@ -141,39 +140,38 @@
                     </div>
                 </div>
                 <div class="col-lg-6">
-                    <form action="{{route('client.visit_us')}}" id="contactForm" data-toggle="validator" data-focus="false">
+                    <form action="{{route('client.visit_us')}}" id="contactForm" method="post">
+                        @csrf
                         <div class="form-group">
-                            <input type="text" class="form-control-input" id="cname" required>
+                            <input type="text" class="form-control-input" name="name">
                             <label class="label-control" for="cname">@lang('custom.name')</label>
-                            <div class="help-block with-errors"></div>
+                            <div class="help-block text-danger with-errors"></div>
                         </div>
                         <div class="form-group">
-                            <input type="email" class="form-control-input" id="cemail" required>
+                            <input type="email" class="form-control-input" name="email">
                             <label class="label-control" for="cemail">@lang('custom.email')</label>
-                            <div class="help-block with-errors"></div>
+                            <div class="help-block text-danger with-errors"></div>
                         </div>
                         <div class="form-group">
                             <div class="form-check">
                                 <label class="form-check-label">
-                                    <input type="radio" class="form-check-input" name="optradio">Coffee
+                                    <input type="radio" class="form-check-input" name="type" value="coffe">Coffee
                                 </label>
                             </div>
                             <div class="form-check">
                                 <label class="form-check-label">
-                                    <input type="radio" class="form-check-input" name="optradio">Trà Đá
+                                    <input type="radio" class="form-check-input" name="type" value="trà đá">Trà Đá
+                                    <div class="ml-n3 help-block text-danger with-errors"></div>
                                 </label>
                             </div>
                         </div>
                         <div class="form-group">
-                            <textarea class="form-control-textarea" id="cmessage" required></textarea>
+                            <textarea class="form-control-textarea" name="message"></textarea>
                             <label class="label-control" for="cmessage">Your message</label>
-                            <div class="help-block with-errors"></div>
+                            <div class="help-block text-danger with-errors"></div>
                         </div>
                         <div class="form-group">
                             <button type="submit" class="form-control-submit-button">@lang('custom.button.submit')</button>
-                        </div>
-                        <div class="form-message">
-                            <div id="cmsgSubmit" class="h3 text-center hidden"></div>
                         </div>
                     </form>
                 </div>
@@ -266,4 +264,32 @@
     <script src="common/js/isotope.pkgd.min.js"></script>
     <script src="https://inovatik.com/juno-landing-page/js/validator.min.js"></script>
     <script src="clientAsset/js/scripts.js"></script>
+    <script>
+        $("#contactForm").on("submit", function(event) {
+            event.preventDefault();
+            let domForm = $(this);
+            let url = $(this).attr('action');
+            $.ajax({
+                url: url,
+                data: domForm.serialize(),
+                method: "POST",
+            }).done(function (results) {
+                $('.text-danger.with-errors').text('');
+                swal({
+                    title: "{{trans('custom.alert_messages.contact_alert.title')}}",
+                    text: "{{trans('custom.alert_messages.contact_alert.text')}}",
+                    type: 'success',
+                    icon: 'success'
+                })
+            }).fail(function (data) {
+                var errors = data.responseJSON;
+                $('.text-danger.with-errors').text('');
+                $.each(errors.errors, function (i, val) {
+                    domForm.find('input[name=' + i + ']').siblings('.text-danger.with-errors').text(val[0]);
+                    domForm.find('textarea[name=' + i + ']').siblings('.text-danger.with-errors').text(val[0]);
+                });
+            });
+        });
+
+    </script>
 @endsection
