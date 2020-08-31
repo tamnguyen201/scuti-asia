@@ -835,11 +835,13 @@ input[type='checkbox'] {
 
 .header .btn-outline-lg {
 	border-color: #fff;
-	color: #fff;
+	background-color: #fff;
+	opacity: 0.8;	
 }
 
 .header .btn-outline-lg:hover {
 	background-color: #fff;
+	opacity: 1;	
 	color: #fd6f2d;
 }
 
