@@ -9,7 +9,7 @@ use App\Services\ApplyJobService;
 use App\Repositories\Client\SectionRepositoryInterface;
 use App\Repositories\Company\CompanyImagesRepositoryInterface;
 use App\Repositories\Company\ContactRepositoryInterface;
-use App\Repositories\Company\PartnerCompaniesRepositoryInterface as NewSpaperRepositoryInterface;
+use App\Repositories\Company\NewSpaperRepositoryInterface;
 use App\Repositories\Category\CategoryRepositoryInterface;
 use App\Repositories\Job\JobRepositoryInterface;
 use Illuminate\Http\Request;

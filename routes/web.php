@@ -68,8 +68,10 @@ Route::group(
         Route::post('change-password', 'ChangePasswordController@store')->name('changed.password');
         Route::resource('companies', 'CompanyController');
         Route::resource('company_images', 'CompanyImagesController');
-        Route::resource('partner_companies', 'PartnerCompaniesController');
+        Route::resource('new_spaper', 'NewSpaperController');
         Route::resource('candidates', 'CandidateController')->only(['index', 'show']);
+        Route::resource('sections', 'SectionController');
+        Route::resource('contacts', 'ContactController')->only(['index', 'show']);
     });
     }
 );

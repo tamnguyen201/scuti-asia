@@ -19,7 +19,7 @@ class RoleSeeder extends Seeder
         \App\Model\Locations::truncate();
         \App\Model\CompanyImages::truncate();
         \App\Model\NewSpaper::truncate();
-        \App\Model\AboutUs::truncate();
+        \App\Model\VisitUs::truncate();
         \App\Model\Section::truncate();
         \App\Model\Category::truncate();
         \App\Model\Job::truncate();
@@ -126,7 +126,7 @@ class RoleSeeder extends Seeder
                         'image'=>'https://inovatik.com/juno-landing-page/images/about.jpg', 'map_url' => '', 'field' => 'about_us'],
             ['id'=>4, 'content' => '', 'image' => '', 'map_url' => '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3723.962023272904!2d105.76304874986745!3d21.034205492900966!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x313454b947cd6e49%3A0x6a87974c6b44d671!2zNjggUGjhu5EgTmd1eeG7hW4gQ8ahIFRo4bqhY2gsIE3hu7kgxJDDrG5oLCBU4burIExpw6ptLCBIw6AgTuG7mWksIFZp4buHdCBOYW0!5e0!3m2!1svi!2s!4v1598327887854!5m2!1svi!2s" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>', 'field' => 'visit_us'],
         ]);
-        DB::table('about_us')->insert([
+        DB::table('visit_us')->insert([
             ['id'=>1, 'name'=>'Hà Nội', 'email' => 'customer@gmail.com', 'message' => 'Qua chơi', 'type' => 'coffee'],
             ['id'=>2, 'name'=>'Tp.Hồ Chí Minh', 'email' => 'customer2@gmail.com', 'message' => 'Qua chơi', 'type' => 'Trà Đá'],
         ]);
