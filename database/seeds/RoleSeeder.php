@@ -44,13 +44,13 @@ class RoleSeeder extends Seeder
             ['id'=>1, 'name'=>'Hà Nội'],
             ['id'=>2, 'name'=>'Tp.Hồ Chí Minh'],
         ]);
-        DB::table('company_images')->insert([
-            ['id'=>1, "name" => "Môi trường làm việc", 'image_url'=>'https://miro.medium.com/max/1200/1*Eu6cAGjXNa0-ct_hlsH1yQ.jpeg'],
-            ['id'=>2, "name" => "Môi trường làm việc", 'image_url'=>'http://congstudio.vn/product_images/z/320/chup_anh_profile_tai_ha_noi_cong_studio_4__09337_thumb.jpg'],
-            ['id'=>3, "name" => "Môi trường làm việc", 'image_url'=>'http://congstudio.vn/product_images/z/320/chup_anh_profile_tai_ha_noi_cong_studio_4__09337_thumb.jpg'],
-            ['id'=>4, "name" => "Môi trường làm việc", 'image_url'=>'http://congstudio.vn/product_images/z/320/chup_anh_profile_tai_ha_noi_cong_studio_4__09337_thumb.jpg'],
-            ['id'=>5, "name" => "Môi trường làm việc", 'image_url'=>'http://congstudio.vn/product_images/z/320/chup_anh_profile_tai_ha_noi_cong_studio_4__09337_thumb.jpg'],
-        ]);
+        // DB::table('company_images')->insert([
+        //     ['id'=>1, "name" => "Môi trường làm việc", 'image_url'=>'https://miro.medium.com/max/1200/1*Eu6cAGjXNa0-ct_hlsH1yQ.jpeg'],
+        //     ['id'=>2, "name" => "Môi trường làm việc", 'image_url'=>'http://congstudio.vn/product_images/z/320/chup_anh_profile_tai_ha_noi_cong_studio_4__09337_thumb.jpg'],
+        //     ['id'=>3, "name" => "Môi trường làm việc", 'image_url'=>'http://congstudio.vn/product_images/z/320/chup_anh_profile_tai_ha_noi_cong_studio_4__09337_thumb.jpg'],
+        //     ['id'=>4, "name" => "Môi trường làm việc", 'image_url'=>'http://congstudio.vn/product_images/z/320/chup_anh_profile_tai_ha_noi_cong_studio_4__09337_thumb.jpg'],
+        //     ['id'=>5, "name" => "Môi trường làm việc", 'image_url'=>'http://congstudio.vn/product_images/z/320/chup_anh_profile_tai_ha_noi_cong_studio_4__09337_thumb.jpg'],
+        // ]);
         DB::table('new_spapers')->insert([
             ['id'=>1, 'title' => 'Dev Candidates Tour- Hành Trình Trở Thành Lập Trình Viên', 'image'=>'https://miro.medium.com/max/1200/1*Eu6cAGjXNa0-ct_hlsH1yQ.jpeg', 'description' => 'Dev Candidates Tour tháng 6/2017 là sự kiện kết nối giữa các doanh nghiệp công nghệ phần mềm và các ứng viên tiềm năng. Các nhà tuyển dụng luôn luôn tìm kiếm các ứng viên tài năng nhưng dường như trong quy trình tuyển dụng luôn thiếu một bước nào đó để họ tiếp cận được với các nhân tài, hãy cùng Dev Candidates Tour giao lưu và lắng nghe ý kiến trực tiếp của các ứng viên và nâng cao hiệu quả quy trình tuyển dụng của doanh nghiệp.', 'url' => 'https://www.facebook.com/events/136182586941319/'],
             ['id'=>2, 'title' => 'TGDD', 'image'=>'http://congstudio.vn/product_images/z/320/chup_anh_profile_tai_ha_noi_cong_studio_4__09337_thumb.jpg', 'description' => 'Mô tả', 'url' => 'abc.com'],
