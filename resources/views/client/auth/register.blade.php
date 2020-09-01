@@ -38,11 +38,8 @@
                     @enderror
                 </div>
                 <div class="form-group">
-                    <label>@lang('client.page.auth.password')</label>
+                    <label>@lang('client.page.auth.password_confirm')</label>
                     <input type="password" class="form-control" name="password_confirmation">
-                    @error('password') 
-                        <span class="help-block with-errors text-danger"> {{$message}} </span>
-                    @enderror
                 </div>
                 <div class="form-group">
                     <label>@lang('client.page.auth.phone')</label>

@@ -38,7 +38,7 @@
                         @foreach($data['working_environment'] as $item)
                         <div class="card col-md-6 col-lg-4 px-0">
                             <div class="card-image">
-                                <img class="img-fluid" src="{{$item->image_url}}" alt="{{$item->name}}">
+                                <img class="img-fluid" src="{{$item->image_url}}" style="max-width: 320px;max-height:205px" alt="{{$item->name}}">
                             </div>
                             <div class="card-body">
                                 <p>{{$item->name}}</p>

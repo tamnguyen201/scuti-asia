@@ -27,6 +27,7 @@ return [
             'name' => 'Họ Và Tên',
             'email' => 'Tài Khoản',
             'password' => 'Mật Khẩu',
+            'password_confirm' => 'Nhập Lại Mật Khẩu',
             'phone' => 'Số Điện Thoại',
             'address' => 'Địa Chỉ',
         ],
