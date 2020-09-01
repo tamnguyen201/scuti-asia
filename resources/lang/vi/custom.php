@@ -118,6 +118,10 @@ return [
             'title' => 'Thành Công',
             'text' => 'Chúng tôi sẽ trả lời bạn sớm nhất có thể!'
         ],
+        'register_alert' => [
+            'title' => 'Thành Công',
+            'text' => 'Bạn Vừa Tạo Tài Khoản Thành Công! Hãy Tìm Công Việc Phù Hợp Với Mình'
+        ],
     ]
 
 ];

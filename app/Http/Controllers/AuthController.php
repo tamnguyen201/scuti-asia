@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests\ChangePasswordRequest;
 use App\Http\Requests\LoginRequest;
+use App\Http\Requests\RegisterRequest;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
@@ -46,6 +47,18 @@ class AuthController extends Controller
         Auth::user()->update([ 'password' => $request->new_password ]);
 
         return response()->json(["success" => trans('custom.alert_messages.success')]);
+    }
+
+    public function register() 
+    {
+        return view('client.auth.register');
+    }
+
+    public function postRegister(RegisterRequest $request)
+    {
+        $user = \App\Model\User::create($request->all());
+
+        return redirect()->route('client.login')->with('success', trans('custom.alert_messages.success'));
     }
 
     public function forgot()
