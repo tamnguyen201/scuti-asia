@@ -26,8 +26,12 @@ class ClientApplyJobRequest extends FormRequest
         return [
             'name' => 'required',
             'email' => 'required|email',
-            // 'logo' => 'required|mimes:application/pdf|max:10000',
-            'leter' => 'required',
+            'phone' => ['required', 'digits:10', 'regex:/(02|03|07|08|09|[2|3|6|7|8|9])+([0-9]{7})\b/'],
+            'address' => 'required',
+            //'cv_name' => 'required',
+            // 'cv_url' => 'required|mimes:pdf|max:10000',
+            //'cv_id' => 'required',
+            'letter' => 'required',
         ];
     }
 
@@ -35,6 +39,10 @@ class ClientApplyJobRequest extends FormRequest
     {
         return [
             'required' => trans('validation.required'),
+            'email' => trans('validation.email'),
+            'regex' => trans('validation.regex'),
+            'digits' => trans('validation.digits'),
+            'max' => trans('validation.max'),
         ];
     }
 }

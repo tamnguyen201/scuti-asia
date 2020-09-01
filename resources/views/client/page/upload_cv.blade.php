@@ -6,7 +6,7 @@
 </div>
 <span class="text-center text-danger show-errors"></span>
 <div class="modal-body">
-    <form id="formUploadCV" enctype="multipart/form-data">
+    <form id="formUploadCV" enctype="multipart/form-data" method="post">
         <div class="form-group">
             <label>@lang('custom.name_cv')</label>
             <input type="text" class="form-control" name="cv_name">

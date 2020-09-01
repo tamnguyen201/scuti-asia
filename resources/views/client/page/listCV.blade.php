@@ -27,8 +27,7 @@
         @php $stt++ @endphp
         <tr>
             <td>{{$stt}}</td>
-            <td>{{$item->cv_name}}</td>
-            <td>{{$item->cv_url}}</td>
+            <td><a href="{{$item->cv_url}}" target="_blank">{{$item->cv_name}}</a></td>
             <td>    
                 <form action="{{route('client.destroy_cv', $item['id'])}}" method="post" class="form-delete-cv-{{$item->id}}" style="display: inline">
                     @csrf

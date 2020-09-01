@@ -73,15 +73,11 @@
                                                     <div class="fht-cell"></div>
                                                 </th>
                                                 <th>
-                                                    <div class="th-inner">@lang('custom.name')</div>
+                                                    <div class="th-inner">@lang('custom.cv_url')</div>
                                                     <div class="fht-cell"></div>
                                                 </th>
                                                 <th>
-                                                    <div class="th-inner text-center">@lang('custom.cv_url')</div>
-                                                    <div class="fht-cell"></div>
-                                                </th>
-                                                <th>
-                                                    <div class="th-inner text-center">@lang('custom.action')</div>
+                                                    <div class="th-inner">@lang('custom.action')</div>
                                                     <div class="fht-cell"></div>
                                                 </th>
                                             </tr>
@@ -91,9 +87,8 @@
                                             @foreach(auth()->user()->cv as $item)
                                             @php $stt++ @endphp
                                             <tr>
-                                                <td>{{$stt}}</td>
-                                                <td>{{$item->cv_name}}</td>
-                                                <td>{{$item->cv_url}}</td>
+                                            <td>{{$stt}}</td>
+                                            <td><a href="{{$item->cv_url}}" target="_blank">{{$item->cv_name}}</a></td>
                                                 <td>    
                                                     <form action="{{route('client.destroy_cv', $item['id'])}}" method="post" class="form-delete-cv-{{$item->id}}" style="display: inline">
                                                         @csrf
@@ -225,15 +220,20 @@
 
         $("body").on("click", ".btn-upload-cv", function (e) {
             e.preventDefault();
-            let domForm = $(this).closest('form');
+            let domForm = $("#formUploadCV");
+            let file = $('body').find('input[name=cv_url]')[0].files[0];
+            var postData = new FormData(domForm[0]);
             $.ajax({
                 url: "{{route('client.upload_cv')}}",
-                data: domForm.serialize(),
-                dataType:'JSON',
+                data: postData,
+                dataType: 'json',
+                cache : false,
+                processData: false,
+                contentType: false,
                 method: "POST",
             }).done(function (results) {
                 $('.text-danger').text('');
-                $('#v-pills-cv').text(results);
+                $('#v-pills-cv').html(results);
                 $("#myModal").modal('hide');
                 swal({
                     title: 'Thành công!',

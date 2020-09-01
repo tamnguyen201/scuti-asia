@@ -4,15 +4,16 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\CVRequest;
 use App\Http\Requests\CVUpdateRequest;
+use App\Services\CVService;
 use Illuminate\Http\Request;
 
 class CVController extends Controller
 {
     protected $CVService;
 
-    public function __construct()
+    public function __construct(CVService $CVService)
     {
-        $this->CVService = 1;
+        $this->CVService = $CVService;
     }
 
     public function create()
@@ -26,11 +27,10 @@ class CVController extends Controller
         return response()->json(['warning' => trans('custom.alert_messages.warning_limit_cv')]);
     }
 
-    public function store(Request $request)
+    public function store(CVRequest $request)
     {
-        dd($request->all());
         $this->CVService->create($request->all());
-        $html = view('client.page.list_cv')->render();
+        $html = view('client.page.listCV')->render();
         
         return response()->json($html);
     }
@@ -39,13 +39,13 @@ class CVController extends Controller
     {
         $cv = $this->CVService->show($id);
 
-        return view('client.page.edit_cv', compact('cv'));
+        return view('client.page.editCV', compact('cv'));
     }
 
     public function update(CVUpdateRequest $request, $id)
     {
         $this->CVService->update($request->all(), $id);
-        $html = view('client.page.list_cv')->render();
+        $html = view('client.page.listCV')->render();
         
         return response()->json($html);
     }
