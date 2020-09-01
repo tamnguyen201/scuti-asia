@@ -15,9 +15,9 @@ class CreateSectionTable extends Migration
     {
         Schema::create('sections', function (Blueprint $table) {
             $table->id();
-            $table->text('content')->nullable();
-            $table->text('image')->nullable();
-            $table->text('map_url')->nullable();
+            $table->longText('content')->nullable();
+            $table->longText('image')->nullable();
+            $table->longText('map_url')->nullable();
             $table->string('field');
             $table->timestamps();
         });
