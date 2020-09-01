@@ -6,12 +6,8 @@
         <div class="form-container">
             <h1 style="text-align: center;margin-bottom: 40px;color: #868686;letter-spacing: 3px;">@lang('client.page.auth.login.title')</h1>
             @if ( Session::has('error') )
-                <div class="alert alert-danger alert-dismissible" role="alert">
-                <strong>{{ Session::get('error') }}</strong>
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                    <span class="sr-only">Close</span>
-                </button>
+                <div class="text-danger">
+                    <strong>{{ Session::get('error') }}</strong>
                 </div>
             @endif
             <form action="{{route('client.postLogin')}}" method="post">
