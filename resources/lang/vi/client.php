@@ -11,6 +11,7 @@ return [
             'login' => [
                 'title' => 'Đăng Nhập',
                 'remember' => 'Ghi nhớ đăng nhập!',
+                'forgot_password' => 'Quên Mật Khẩu?',
                 'submit' => 'Đăng Nhập',
                 'or' => 'Hoặc',
                 'google_login' => 'Đăng Nhập Với Google',

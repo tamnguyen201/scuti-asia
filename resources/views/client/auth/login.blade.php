@@ -30,8 +30,13 @@
                         <span class="help-block with-errors text-danger"> {{$message}} </span>
                     @enderror
                 </div>
-                <div class="form-group checkbox">
-                    <input type="checkbox" name="remember"> @lang('client.page.auth.login.remember')
+                <div class="row justify-content-between col-lg-11 mx-auto px-0">
+                    <div class="form-group checkbox">
+                        <input type="checkbox" name="remember"> @lang('client.page.auth.login.remember')
+                    </div>
+                    <div class="form-group">
+                        <a href="{{route('client.register')}}">@lang('client.page.auth.login.forgot_password')</a>
+                    </div>
                 </div>
                 <div class="form-group">
                     <button type="submit" class="form-control-submit-button">@lang('client.page.auth.login.submit')</button>
