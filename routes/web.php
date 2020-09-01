@@ -50,7 +50,10 @@ Route::group(
             Route::post('/checking/{id}',  'EvaluateController@checking')->name('evaluate.checking');
             // Route::get('/checking','EvaluateController@getChecking')->name('evaluate.checking');
             Route::get('/send-email/{id}',  'EvaluateController@sendEmail')->name('evaluate.send-email');
-
+            Route::get('calendar', 'EvaluateController@showCalendar');
+            Route::post('calendar/create','EvaluateController@storeCalendar');
+            Route::post('calendar/update','EvaluateController@updateCalendar');
+            Route::post('calendar/delete','EvaluateController@destroyCalendar');
         });
     });
     }
