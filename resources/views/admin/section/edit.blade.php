@@ -51,7 +51,7 @@
                                 @enderror
                             </div>
                             <div class="form-group preview-img">
-                                <img src="{{$section->image}}" alt="your image" class="img-responsive" />
+                                <img src="{{($section->image) ? $section->image : 'default-img.png'}}" alt="your image" class="img-responsive" />
                             </div>
                             <div class="form-group @error('content') has-error @enderror">
                                 <label>@lang('custom.content')</label>
