@@ -110,6 +110,10 @@ return [
             'title' => 'Thành Công',
             'text' => 'Chúng tôi sẽ trả lời bạn sớm nhất có thể!'
         ],
+        'login_success' => [
+            'title' => 'Đăng Nhập Thành Công',
+            'text' => 'Bạn Đã Đăng Nhập Thành Công! Hãy Tìm Cho Mình Công Việc Phù Hợp.',
+        ],
     ]
 
 ];
