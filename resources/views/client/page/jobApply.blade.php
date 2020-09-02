@@ -239,10 +239,10 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="text-container col-lg-10 mx-auto">
+                    <div class="text-container col-lg-8 mx-auto">
                         @if(auth()->user()->id < 3)
                         <h3 class="text-center">@lang('client.page.apply.form_title')</h3>
-                        <form action="{{route('client.apply.job')}}" class="row" method="post">
+                        <form action="{{route('client.apply.job')}}" class="row mt-4" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="col-md-6">
                                 <div class="form-group @error('name') has-error @enderror">
@@ -252,22 +252,6 @@
                                     <span class="text-danger"> {{$message}} </span>
                                     @enderror
                                 </div>
-                                <div class="form-group @error('phone') has-error @enderror">
-                                    <label>@lang('custom.phone')</label>
-                                    <input type="text" name="phone" class="form-control" value="{{auth()->user()->phone}}" placeholder="Please enter phone">
-                                    @error('phone') 
-                                    <span class="text-danger"> {{$message}} </span>
-                                    @enderror
-                                </div>
-                                <div class="form-group @error('address') has-error @enderror">
-                                    <label>@lang('custom.address')</label>
-                                    <input type="text" name="address" class="form-control" value="{{auth()->user()->address}}" placeholder="Please enter address">
-                                    @error('address') 
-                                    <span class="text-danger"> {{$message}} </span>
-                                    @enderror
-                                </div>
-                            </div>
-                            <div class="col-md-6">
                                 <div class="form-group @error('email') has-error @enderror">
                                     <label>@lang('custom.email')</label>
                                     <input type="email" name="email" class="form-control" value="{{auth()->user()->email}}" readonly placeholder="Please enter email">
@@ -275,34 +259,43 @@
                                     <span class="text-danger"> {{$message}} </span>
                                     @enderror
                                 </div>
+                            </div>
+                            <div class="col-md-6">
                                 @if(auth()->user()->cv->count() > 0)
                                 <div class="form-group">
                                     <label>@lang('custom.choose_cv')</label>
-                                    @foreach(auth()->user()->cv as $item)
+                                    @foreach(auth()->user()->cv as $key => $value)
                                     <div class="form-check">
                                         <label class="form-check-label">
-                                            <input type="radio" class="form-check-input" name="cv_id" value="{{$item->id}}">{{$item->cv_name}}
+                                            <input type="radio" class="form-check-input" @if($key == 0) checked @endif name="cv_id" value="{{$value->id}}">{{$value->cv_name}}
                                         </label>
                                     </div>
                                     @endforeach
+                                    @error('cv_id') 
+                                    <span class="text-danger"> {{$message}} </span>
+                                    @enderror
                                 </div>
                                 @else
                                 <div class="form-group">
                                     <label>@lang('custom.name_cv')</label>
-                                    <input type="text" class="form-control" name="name">
-                                    <span class="help-block text-danger"> </span>
+                                    <input type="text" class="form-control" value="{{old('cv_name')}}" name="cv_name">
+                                    @error('cv_name') 
+                                    <span class="text-danger"> {{$message}} </span>
+                                    @enderror
                                 </div>
                                 <div class="form-group">
                                     <label>@lang('custom.cv_url')</label>
-                                    <input type="file" name="cv_url" accept="*">
-                                    <p class="help-block text-danger"> </p>
+                                    <input type="file" name="cv_url" accept="application/pdf,.doc,.docx,application/msword">
+                                    @error('cv_url') 
+                                    <p class="text-danger"> {{$message}} </p>
+                                    @enderror
                                 </div>
                                 @endif
                             </div>
                             <div class="col-md-12 text-center">
                                 <div class="form-group @error('letter') has-error @enderror">
                                     <label>@lang('custom.letter')</label>
-                                    <textarea name="letter" class="form-control" cols="30" rows="10"></textarea>
+                                    <textarea name="letter" class="form-control" cols="30" rows="10"> {{old('letter')}}</textarea>
                                     @error('letter') 
                                     <span class="text-danger"> {{$message}} </span>
                                     @enderror
@@ -393,14 +386,45 @@
                         </form>
                         @endif
                     </div>
-                    <div class="text-container col-lg-10 mx-auto">
-                        <h3>{{$data['job']->name}}</h3>
-                        <p>When you first register for a Juno account, and when you use the Services, we collect some <a class="orange" href="#your-link">Personal Information</a> about you such as:</p>
-                        <div class="row">
-                        {{$data['job']->description}}
+                </div>
+                <div class="row col-lg-12">
+                    <div class="col-lg-9 col-md-8">
+                        <div class="text-container">
+                            <h3>{{$data['job']->name}}</h3>
+                            <div class="">
+                            {{$data['job']->description}}
+                            </div>
                         </div>
                     </div>
-
+                    <div class="col-lg-3 col-md-4">
+                        <h4>@lang('client.page.apply.sidebar.title')</h4>
+                        <ul class="pl-0">
+                            <li class="row justify-content-between mx-0 mb-2">
+                                <b>@lang('client.page.apply.sidebar.level')</b>
+                                <div class="value">Nhân viên</div>
+                            </li>
+                            <li class="row justify-content-between mx-0 mb-2">
+                                <b>@lang('client.page.apply.sidebar.job')</b>
+                                <div class="value">Tự động hóa</div>
+                            </li>
+                            <li class="row justify-content-between mx-0 mb-2">
+                                <b>@lang('client.page.apply.sidebar.exp')</b>
+                                <div class="value">2 - 10 Năm</div>
+                            </li>
+                            <li class="row justify-content-between mx-0 mb-2">
+                                <b>@lang('client.page.apply.sidebar.salary')</b>
+                                <div class="value">Cạnh tranh</div>
+                            </li>
+                            <li class="row justify-content-between mx-0 mb-2">
+                                <b>@lang('client.page.apply.sidebar.work_place')</b>
+                                <div class="value">Bình Dương </div>
+                            </li>
+                            <li class="row justify-content-between mx-0 mb-2">
+                                <b>@lang('client.page.apply.sidebar.end_time')</b>
+                                <div class="value">30/09/2020</div>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>

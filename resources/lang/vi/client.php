@@ -19,7 +19,7 @@ return [
 
         'profile' => [
             'title' => 'Thông Tin Cá Nhân',
-            'side_bar' => [
+            'sidebar' => [
                 'profile' => 'Thông Tin Cá Nhân',
                 'cv' => 'Quản Lí Hồ Sơ',
                 'job_applied' => 'Công Việc Đã Ứng Tuyển',
@@ -39,8 +39,17 @@ return [
         ],
         'apply' => [
             'title' => '',
-            'form_title' => 'Mẫu Đăng Kí Ứng Tuyển'
-        ]
+            'form_title' => 'Mẫu Đăng Kí Ứng Tuyển',
+            'sidebar' => [
+                'title' => 'Thông Tin Tuyển Dụng',
+                'level' => 'Cấp Bậc',
+                'job' => 'Ngành Nghề',
+                'exp' => 'Kinh Nghiệm',
+                'salary' => 'Lương',
+                'work_place' => 'Nơi Làm Việc',
+                'end_time' => 'Ngày Hết Hạn'
+            ],
+        ],
     ],
 
     'nav' => [
