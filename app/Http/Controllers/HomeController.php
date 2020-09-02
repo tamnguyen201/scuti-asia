@@ -36,12 +36,12 @@ class HomeController extends Controller
 
     public function index()
     {
-        $data['benefits'] = $this->SectionRepository->where('field', '=', 'benefits');
-        $data['recruitment_flow'] = $this->SectionRepository->where('field', '=', 'recruitment_flow');
+        $data['benefits'] = $this->SectionRepository->where('name', '=', 'Benefits');
+        $data['recruitment_flow'] = $this->SectionRepository->where('name', '=', 'Recruitment Flow');
         $data['working_environment'] = $this->CompanyImagesRepository->all();
-        $data['about_us'] = $this->SectionRepository->where('field', '=', 'about_us');
+        $data['about_us'] = $this->SectionRepository->where('name', '=', 'About Us');
         $data['new_spaper'] = $this->NewSpaperRepository->all();
-        $data['visit_us'] = $this->SectionRepository->where('field', '=', 'visit_us');
+        $data['visit_us'] = $this->SectionRepository->where('name', '=', 'Visit Us');
         $data['categories'] = $this->CategoryRepository->all();
         $data['jobs'] = $this->JobRepository->with('category')->get();
         $data['hotJobs'] = $this->JobRepository->all();
@@ -51,7 +51,7 @@ class HomeController extends Controller
 
     public function jobs()
     {
-        $data['recruitment_flow'] = $this->SectionRepository->where('field', '=', 'recruitment_flow');
+        $data['recruitment_flow'] = $this->SectionRepository->where('name', '=', 'Recruitment Flow');
         $data['categories'] = $this->CategoryRepository->all();
         $data['jobs'] = $this->JobRepository->with('category')->paginate(5);
 
@@ -71,7 +71,7 @@ class HomeController extends Controller
             return redirect()->route('client.login');
         }
 
-        $data['recruitment_flow'] = $this->SectionRepository->where('field', '=', 'recruitment_flow');
+        $data['recruitment_flow'] = $this->SectionRepository->where('name', '=', 'Recruitment Flow');
         $data['job'] = $this->JobRepository->show($id);
 
         return view('client.page.jobApply', compact('data'));
