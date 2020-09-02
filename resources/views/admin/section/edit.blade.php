@@ -25,10 +25,10 @@
                         @csrf
                         @method('PUT')
                         <div class="col-md-6">
-                            <div class="form-group @error('field') has-error @enderror">
-                                <label>@lang('custom.field')</label>
-                                <input type="text" name="field" value="{{$section->field}}" class="form-control" placeholder="Please enter full field">
-                                @error('field') 
+                            <div class="form-group @error('name') has-error @enderror">
+                                <label>@lang('custom.name')</label>
+                                <input type="text" name="name" value="{{$section->name}}" class="form-control" placeholder="Please enter full name">
+                                @error('name') 
                                 <span class="help-block"> {{$message}} </span>
                                 @enderror
                             </div>
