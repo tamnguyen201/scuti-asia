@@ -57,7 +57,7 @@ class RoleSeeder extends Seeder
             ['id'=>3, 'title' => 'Viettel', 'image'=>'http://congstudio.vn/product_images/z/320/chup_anh_profile_tai_ha_noi_cong_studio_4__09337_thumb.jpg', 'description' => 'Mô tả', 'url' => 'abc.com'],
         ]);
         DB::table('sections')->insert([
-            ['id'=>1, 'content' => 
+            ['id'=>1, 'name' => 'Benefits', 'content' => 
                         '<div class="col-lg-4">
                             <div class="text-container">
                                 <h3>Môi Trường Lí Tưởng</h3>
@@ -76,8 +76,8 @@ class RoleSeeder extends Seeder
                                 <p>Đừng để mình bị gò bó trong những nguyên tắc cũ kỹ, cổ hủ. Những nguyên tắc đó sẽ giết dần giết mòn những suy nghĩ tích cực của bạn. Hãy mạnh dạn phá vỡ những điều từ xa xưa trong cuộc sống nếu nó không đúng.</p>
                             </div>
                         </div>',
-                        'image'=>'https://www.scuti.asia/uploads/6/1/9/4/61941893/scuti-recruitment-pitch-2019-video_orig.jpg', 'map_url' => '', 'field' => 'benefits'],
-            ['id'=>2, 'content' => 
+                        'image'=>'https://www.scuti.asia/uploads/6/1/9/4/61941893/scuti-recruitment-pitch-2019-video_orig.jpg', 'map_url' => ''],
+            ['id'=>2, 'name' => 'Recruitment Flow', 'content' => 
                         '<div class="col-lg-11 offset-lg-1 row my-3">
                             <div class="col-md-2 text-center pt-2 mb-3" style="font-size: 3.5rem">①</div>
                             <div class="col-md-10 text-center text-md-left">
@@ -108,8 +108,8 @@ class RoleSeeder extends Seeder
                                 <p>Nếu bạn đồng ý với tất cả các điều kiện của một lời mời làm việc, bạn bắt đầu làm việc với chúng tôi!</p>   
                             </div>
                         </div>', 
-                        'image' => '', 'map_url' => '', 'field' => 'recruitment_flow'],
-            ['id'=>3, 'content' => 
+                        'image' => '', 'map_url' => ''],
+            ['id'=>3, 'name' => 'About Us', 'content' => 
                         '<h4>Quá trình thành lập và phát triển Scuti!</h4>
                         <ul>
                             <li>Feb 2016&nbsp;<a href="http://ezukatechnight.com/events/ezukatecknight/vol-35-report/#.WLjwbmSLTAc" target="_blank">e-ZUKA Tech Night vol.35</a></li>
@@ -123,8 +123,8 @@ class RoleSeeder extends Seeder
                             <li>Jun 2018 <a href="https://www.techinasia.com/events/singapore" target="_blank">Tech in Asia Singapore 2018</a>&nbsp;&lt;<a href="http://blog.scuti.asia/2018/06/report-of-tech-in-asia-singapore.html" target="_blank">Blog</a>&gt;</li>
                             <li>Jun 2018 <a href="https://startupthailand.org/showcase/" target="_blank">Startup Thailand 2018</a>&nbsp;&lt;<a href="http://blog.scuti.asia/2018/06/report-of-startupthailand-2018.html" target="_blank">Blog</a>&gt;</li>
                         </ul>',
-                        'image'=>'https://inovatik.com/juno-landing-page/images/about.jpg', 'map_url' => '', 'field' => 'about_us'],
-            ['id'=>4, 'content' => '', 'image' => '', 'map_url' => '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3723.962023272904!2d105.76304874986745!3d21.034205492900966!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x313454b947cd6e49%3A0x6a87974c6b44d671!2zNjggUGjhu5EgTmd1eeG7hW4gQ8ahIFRo4bqhY2gsIE3hu7kgxJDDrG5oLCBU4burIExpw6ptLCBIw6AgTuG7mWksIFZp4buHdCBOYW0!5e0!3m2!1svi!2s!4v1598327887854!5m2!1svi!2s" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>', 'field' => 'visit_us'],
+                        'image'=>'https://inovatik.com/juno-landing-page/images/about.jpg', 'map_url' => ''],
+            ['id'=>4, 'name' => 'Visit Us', 'content' => '', 'image' => '', 'map_url' => '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3723.962023272904!2d105.76304874986745!3d21.034205492900966!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x313454b947cd6e49%3A0x6a87974c6b44d671!2zNjggUGjhu5EgTmd1eeG7hW4gQ8ahIFRo4bqhY2gsIE3hu7kgxJDDrG5oLCBU4burIExpw6ptLCBIw6AgTuG7mWksIFZp4buHdCBOYW0!5e0!3m2!1svi!2s!4v1598327887854!5m2!1svi!2s" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>'],
         ]);
         DB::table('about_us')->insert([
             ['id'=>1, 'name'=>'Hà Nội', 'email' => 'customer@gmail.com', 'message' => 'Qua chơi', 'type' => 'coffee'],

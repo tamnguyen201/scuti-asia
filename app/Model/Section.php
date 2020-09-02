@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Section extends Model
 {
-    protected $fillable = ['content', 'image', 'map_url', 'field'];
+    protected $fillable = ['name', 'content', 'image', 'map_url'];
 }
