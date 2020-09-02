@@ -23,10 +23,13 @@ class AuthController extends Controller
 
     public function postLogin(LoginRequest $request)
     {
+        $redirect = $request->redirect ? $request->redirect : route('home');
         $remember = $request->has('remember') ? true : false;
 
         if (Auth::attempt(['email' => $request->email,'password' => $request->password], $remember)) {
-            return redirect()->route('home');
+            Session::flash('login_success', true);
+            
+            return redirect($redirect);
         }
 
         Session::flash('error', trans('custom.alert_messages.invalid'));

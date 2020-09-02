@@ -120,8 +120,12 @@ return [
         ],
         'register_alert' => [
             'title' => 'Thành Công',
-            'text' => 'Bạn Vừa Tạo Tài Khoản Thành Công! Hãy Tìm Công Việc Phù Hợp Với Mình'
+            'text' => 'Bạn Vừa Tạo Tài Khoản Thành Công! Hãy Tìm Công Việc Phù Hợp Với Mình',
         ],
-    ]
+        'login_success' => [
+            'title' => 'Đăng Nhập Thành Công',
+            'text' => 'Bạn Đã Đăng Nhập Thành Công! Hãy Tìm Cho Mình Công Việc Phù Hợp.',
+        ],
+    ],
 
 ];

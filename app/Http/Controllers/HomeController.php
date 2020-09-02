@@ -83,7 +83,9 @@ class HomeController extends Controller
     public function jobApply($slug, $id)
     {
         if (!auth()->check()) {
-            return redirect()->route('client.login');
+            $redirect = route('client.applied', [$slug, $id]);
+
+            return redirect()->route('client.login')->with('redirect', $redirect);
         }
 
         $data['recruitment_flow'] = $this->SectionRepository->where('slug', '=', 'recruitment-low');
