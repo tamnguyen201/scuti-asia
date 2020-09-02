@@ -44,12 +44,12 @@ class HomeController extends Controller
 
     public function index()
     {
-        $data['benefits'] = $this->SectionRepository->where('name', '=', 'Benefits');
-        $data['recruitment_flow'] = $this->SectionRepository->where('name', '=', 'Recruitment Flow');
+        $data['benefits'] = $this->SectionRepository->where('slug', '=', 'benefits');
+        $data['recruitment_flow'] = $this->SectionRepository->where('slug', '=', 'recruitment-flow');
         $data['working_environment'] = $this->CompanyImagesRepository->all();
-        $data['about_us'] = $this->SectionRepository->where('name', '=', 'About Us');
+        $data['about_us'] = $this->SectionRepository->where('slug', '=', 'about-us');
         $data['new_spaper'] = $this->NewSpaperRepository->all();
-        $data['visit_us'] = $this->SectionRepository->where('name', '=', 'Visit Us');
+        $data['visit_us'] = $this->SectionRepository->where('slug', '=', 'visit-us');
         $data['categories'] = $this->CategoryRepository->all();
         $data['jobs'] = $this->JobRepository->with('category')->get();
         $data['hotJobs'] = $this->JobRepository->all();
@@ -66,7 +66,7 @@ class HomeController extends Controller
 
     public function jobs()
     {
-        $data['recruitment_flow'] = $this->SectionRepository->where('name', '=', 'Recruitment Flow');
+        $data['recruitment_flow'] = $this->SectionRepository->where('slug', '=', 'recruitment-flow');
         $data['categories'] = $this->CategoryRepository->all();
         $data['jobs'] = $this->JobRepository->with('category')->paginate(5);
 
@@ -86,7 +86,7 @@ class HomeController extends Controller
             return redirect()->route('client.login');
         }
 
-        $data['recruitment_flow'] = $this->SectionRepository->where('name', '=', 'Recruitment Flow');
+        $data['recruitment_flow'] = $this->SectionRepository->where('slug', '=', 'recruitment-low');
         $data['job'] = $this->JobRepository->show($id);
 
         return view('client.page.jobApply', compact('data'));

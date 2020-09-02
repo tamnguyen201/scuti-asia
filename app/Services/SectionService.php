@@ -25,8 +25,6 @@ class SectionService
             $data['image'] = $this->SectionRepository->upload($results['image']);
         }
 
-        $data['user_id'] = auth()->user()->id;
-
         return $this->SectionRepository->create($data);
     }
 
