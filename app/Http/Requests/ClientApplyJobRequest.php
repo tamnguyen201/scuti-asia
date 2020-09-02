@@ -24,14 +24,9 @@ class ClientApplyJobRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required',
-            'email' => 'required|email',
-            'phone' => ['required', 'digits:10', 'regex:/(02|03|07|08|09|[2|3|6|7|8|9])+([0-9]{7})\b/'],
-            'address' => 'required',
-            //'cv_name' => 'required',
-            // 'cv_url' => 'required|mimes:pdf|max:10000',
-            //'cv_id' => 'required',
-            'letter' => 'required',
+            'cv_id' => 'required_without_all:cv_name,cv_url',
+            'cv_name' => 'required_without:cv_id',
+            'cv_url' => 'required_without:cv_id|mimes:pdf,doc,docx|max:10000',
         ];
     }
 
@@ -40,8 +35,9 @@ class ClientApplyJobRequest extends FormRequest
         return [
             'required' => trans('validation.required'),
             'email' => trans('validation.email'),
-            'regex' => trans('validation.regex'),
-            'digits' => trans('validation.digits'),
+            'required_without' => trans('validation.required'),
+            'required_without_all' => trans('validation.required'),
+            'mimes' => trans('validation.mimes'),
             'max' => trans('validation.max'),
         ];
     }
