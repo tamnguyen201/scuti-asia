@@ -16,6 +16,9 @@
             @endif
             <form action="{{route('client.postLogin')}}" method="post">
                 @csrf
+                @if(Session('redirect'))
+                <input type="hidden" name="redirect" value="{{Session('redirect')}}" >
+                @endif
                 <div class="form-group">
                     <label>@lang('client.page.login.email')</label>
                     <input type="email" class="form-control @error('email') has-error @enderror" name="email">

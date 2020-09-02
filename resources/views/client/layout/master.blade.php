@@ -46,6 +46,7 @@
     <script src="common/js/popper.min.js"></script>
     <script src="common/js/bs4.5.2.min.js"></script>
     <script src="common/js/jquery.easing.min.js"></script>
+    <script src="https://unpkg.com/sweetalert2@7.18.0/dist/sweetalert2.all.js"></script>
     <script>
         $(function () {
             $.ajaxSetup({
@@ -54,8 +55,15 @@
                 }
             });
         })
+        @if(Session('login_success'))
+            swal({
+                title: "<?php echo trans('custom.alert_messages.login_success.title') ?>",
+                text: "<?php echo trans('custom.alert_messages.login_success.text') ?>",
+                type: 'success',
+                icon: 'success'
+            })
+        @endif
     </script>
-    <script src="https://unpkg.com/sweetalert2@7.18.0/dist/sweetalert2.all.js"></script>
 
     @yield('script')
 
