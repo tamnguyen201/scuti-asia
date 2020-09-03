@@ -89,7 +89,7 @@ class HomeController extends Controller
             return redirect()->route('client.login')->with('redirect', $redirect);
         }
 
-        $data['recruitment_flow'] = $this->SectionRepository->where('slug', '=', 'recruitment-low');
+        $data['recruitment_flow'] = $this->SectionRepository->where('slug', '=', 'recruitment-flow');
         $data['job'] = $this->JobRepository->show($id);
 
         return view('client.page.jobApply', compact('data'));
