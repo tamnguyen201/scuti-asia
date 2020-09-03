@@ -46,4 +46,9 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Model\CV');
     }
+
+    public function job()
+    {
+        return $this->belongsToMany('App\Model\Job', 'user_job');
+    }
 }
