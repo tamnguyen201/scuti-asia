@@ -50,7 +50,8 @@ return [
             'manage_pw' => 'Quản Lí Mật Khẩu',
         ],
         'job' => [
-            'title' => 'Tin Tuyển Dụng'
+            'title' => 'Tin Tuyển Dụng',
+            'related_job' => 'Công Việc Liên Quan',
         ],
         'apply' => [
             'title' => '',
@@ -63,6 +64,10 @@ return [
                 'salary' => 'Lương',
                 'work_place' => 'Nơi Làm Việc',
                 'end_time' => 'Ngày Hết Hạn'
+            ],
+            'process' => [
+                'title' => 'Bạn Đã Ứng Tuyển Cho Công Việc Này!',
+                'description' => 'Xem Chi Tiết Kết Quả Trong Quá Trình Đánh Giá Này.',
             ],
         ],
     ],

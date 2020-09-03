@@ -4,31 +4,32 @@ namespace App\Services;
 
 use Illuminate\Http\Request;
 use App\Repositories\Job\JobRepositoryInterface;
+use App\Repositories\User\UserRepositoryInterface;
 use App\Repositories\CV\CVRepositoryInterface;
 
 class ApplyJobService
 {
     public function __construct(
-        JobRepositoryInterface $JobAppliedRepository,
+        JobRepositoryInterface $JobRepository,
+        UserRepositoryInterface $UserRepository,
         CVRepositoryInterface $CVRepository
     )
     {
-        $this->JobAppliedRepository = $JobAppliedRepository;
+        $this->JobRepository = $JobRepository;
+        $this->UserRepository = $UserRepository;
         $this->CVRepository = $CVRepository;
     }
 
     public function create($results)
     {
         $data = $results;
-        $this->userUpdate($data);
-
-        if(array_key_exists("cv_url", $results)) {
-            $data['cv_id'] = $this->createCV($results)->id;
+        $data['user_id'] = auth()->user()->id;
+        
+        if(array_key_exists("cv_url", $data)) {
+            $data['cv_id'] = $this->createCV($data)->id;
         }
 
-        $data['user_id'] = auth()->user()->id;
-
-        return $this->JobAppliedRepository->create($data);
+        return \App\Model\UserJob::create($data);
     }
 
     public function createCV($results)
