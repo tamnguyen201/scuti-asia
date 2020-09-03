@@ -89,6 +89,7 @@ class HomeController extends Controller
             return redirect()->route('client.login')->with('redirect', $redirect);
         }
 
+        $data['apply'] = \App\Model\UserJob::where('user_id', auth()->user()->id)->where('job_id', $id)->first();
         $data['recruitment_flow'] = $this->SectionRepository->where('slug', '=', 'recruitment-flow');
         $data['job'] = $this->JobRepository->show($id);
 

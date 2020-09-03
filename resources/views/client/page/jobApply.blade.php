@@ -240,7 +240,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="text-container col-lg-8 mx-auto">
-                        @if(auth()->user()->job[0]->id != $data['job']->id)
+                        @if($data['apply'] == null)
                         <h3 class="text-center">@lang('client.page.apply.form_title')</h3>
                         <form action="{{route('client.apply.job')}}" class="row mt-4" method="post" enctype="multipart/form-data">
                             @csrf
