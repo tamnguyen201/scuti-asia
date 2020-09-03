@@ -52,4 +52,8 @@ class User extends Authenticatable
     {
         return $this->hasManyDeep('App\Model\CV', ['user_job', 'App\Model\Job']);
     }
+
+    public function events() {
+        return $this->hasMany('App\Model\Event');
+      }
 }

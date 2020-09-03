@@ -62,6 +62,7 @@
                                     <td class="text-center">
                                         <a href="{{route('candidates.show', $item['id'])}}" class="btn btn-info text-light view-profile" title="Xem"><em class="fa fa-file-text"></em></a> 
                                         <a href="{{route('evaluate.send-email', $item['id'])}}" class="btn btn-info text-light send-mail" title="Xem"><em class="fa fa-envelope-o"></em></a> 
+                                        <a href="{{route('evaluate.interview', $item['id'])}}"  title="Xem"><em class="fa fa-envelope-o"></em></a> 
                                     </td>
                                 </tr>
                                 @endforeach
@@ -80,7 +81,7 @@
                     <div class="modal-dialog modal-lg modal-md" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                        <h3 class="modal-title" id="exampleModalLongTitle">Gửi email tới ứng viên</h3>
+                        <h3 class="modal-title" id="exampleModalLongTitle">Thong tin ung vien</h3>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>

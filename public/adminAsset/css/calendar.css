@@ -1,0 +1,12 @@
+.panel-body{
+    background:white
+}
+
+.card-title{
+    font-weight: bold;
+}
+
+.list-title{
+    font-weight: bold;
+    text-transform: uppercase;
+}

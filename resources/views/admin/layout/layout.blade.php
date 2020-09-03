@@ -14,6 +14,8 @@
       <link href="adminAsset/css/styles.css" rel="stylesheet">
       <!--Custom Font-->
       <link href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+      <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+      <link rel="stylesheet" href="">
       @yield('css')
 
    </head>
@@ -122,6 +124,7 @@
       <script src="adminAsset/js/bootstrap-datepicker.js"></script>
       <script src="adminAsset/js/bootstrap-table.js"></script>
       <script src="adminAsset/js/custom.js"></script>
+      <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
       <script src="https://unpkg.com/sweetalert2@7.18.0/dist/sweetalert2.all.js"></script>
       <script>
          $(function () {

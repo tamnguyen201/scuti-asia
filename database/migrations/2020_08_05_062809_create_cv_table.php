@@ -16,9 +16,7 @@ class CreateCvTable extends Migration
         Schema::create('cvs', function (Blueprint $table) {
             $table->id();
             $table->string('cv_url');
-            $table->string('status');
-            $table->integer('job_id');
-
+            $table->integer('job_id')->nullable();
         });
     }
 
