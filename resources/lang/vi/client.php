@@ -25,7 +25,13 @@ return [
                 'job_applied' => 'Công Việc Đã Ứng Tuyển',
                 'change_info' => 'Đổi Thông Tin Cá Nhân',
                 'change_password' => 'Đổi Mật Khẩu'
-            ]
+            ],
+            'manage_cv' => 'Quản Lí Hồ Sơ',
+            'empty_cv' => 'Bạn Chưa Tạo Hồ Sơ Nào.',
+            'upload_cv' => 'Tạo Hồ Sơ Ngay!',
+            'create_cv' => 'Thêm Mới!',
+            'empty_job_applied' => 'Bạn Chưa Ứng Tuyển Công Việc Nào.',
+            'apply_job' => 'Tìm Việc Phù Hợp Ngay!',
         ],
     ],
 
