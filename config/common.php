@@ -7,4 +7,7 @@ return [
         'Interviewer'   => 2,
         'BackOffice'    => 3,
     ],
+    'alert_messages' => [
+        'success' => 'Thành công'
+    ]
 ];
