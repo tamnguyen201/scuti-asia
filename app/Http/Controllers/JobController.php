@@ -39,6 +39,7 @@ class JobController extends Controller
     {
         $dataCategory = $this->categoryRepository->all();
         $dataLocation = $this->locationRepository->all();
+
         return view("admin.job.create", compact('dataCategory', 'dataLocation'));
     }
 
@@ -52,6 +53,7 @@ class JobController extends Controller
             'expireDay' => $request->expire_date,
             'description' => $request->description
         ]);
+
         return redirect()->route('jobs.index');
     }
 
@@ -60,12 +62,55 @@ class JobController extends Controller
         $job = $this->jobRepository->show($request->job_id);
         $job->status = $request->status;
         $job->save();
+
         return response()->json(['success' => config('common.alert_messages.success')]);
     }
 
     public function detail($id)
     {
         $jobById = $this->jobRepository->show($id);
+
         return view("admin.job.detail", compact('jobById'));
     }
+
+    public function edit($id)
+    {
+        $jobById = $this->jobRepository->show($id);
+        $dataCategory = $this->getSelectedCategory();
+        $dataLocation = $this->getSelectedLocation();
+
+        return view('admin.job.edit', compact('jobById', 'dataCategory', 'dataLocation'));
+    }
+
+    public function getSelectedCategory()
+    {
+        $dataCategory = $this->categoryRepository->all();
+        return $dataCategory;
+    }
+
+    public function getSelectedLocation()
+    {
+        $dataLocation = $this->locationRepository->all();
+        return $dataLocation;
+    }
+
+    public function update(JobUpdateRequest $request, $id)
+    {
+        $this->jobRepository->update([
+            'name' => $request->name,
+            'category_id' => $request->category_id,
+            'location_id' => $request->location_id,
+            'expireDay' => $request->expire_date,
+            'description' => $request->description
+        ], $id);
+
+        return redirect()->route('jobs.index');
+    }
+
+    public function destroy($id)
+    {
+        $this->jobRepository->delete($id);
+        return redirect()->back()->with('success', config('common.alert_messages.success'));
+    }
+
 }
