@@ -17,7 +17,7 @@ class SectionController extends Controller
 
     public function index()
     {
-        $sections = $this->SectionService->paginate(10);
+        $sections = $this->SectionService->paginate();
 
         return view('admin.section.index', compact('sections'));
     }

@@ -47,6 +47,11 @@ class User extends Authenticatable
         return $this->hasMany('App\Model\CV');
     }
 
+    public function userjob()
+    {
+        return $this->hasMany('App\Model\UserJob');
+    }
+
     public function job()
     {
         return $this->belongsToMany('App\Model\Job', 'user_job');

@@ -18,7 +18,7 @@ class CompanyImagesController extends Controller
 
     public function index()
     {
-        $images = $this->CompanyImagesRepository->paginate(10);
+        $images = $this->CompanyImagesRepository->paginate();
         
         return view("admin.companyImages.index", compact('images'));
     }

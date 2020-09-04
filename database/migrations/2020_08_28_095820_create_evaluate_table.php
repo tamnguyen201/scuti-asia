@@ -13,7 +13,7 @@ class CreateEvaluateTable extends Migration
      */
     public function up()
     {
-        Schema::create('evaluate', function (Blueprint $table) {
+        Schema::create('evaluates', function (Blueprint $table) {
             $table->id();
             $table->text('comment')->nullable;
             $table->text('reason')->nullable;
@@ -31,6 +31,6 @@ class CreateEvaluateTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('evaluate');
+        Schema::dropIfExists('evaluates');
     }
 }

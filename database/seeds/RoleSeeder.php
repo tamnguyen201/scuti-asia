@@ -25,6 +25,9 @@ class RoleSeeder extends Seeder
         \App\Model\Category::truncate();
         \App\Model\Job::truncate();
         \App\Model\CV::truncate();
+        \App\Model\UserJob::truncate();
+        \App\Model\Process::truncate();
+        \App\Model\Evaluate::truncate();
         DB::table('users')->insert([
             ['id'=>1, 'name' => 'User1','email' => 'user1@gmail.com','password'=> Hash::make('123456'), 'phone'=> '1234567890','address'=>'HN'],
             ['id'=>2, 'name' => 'User2','email' => 'user2@gmail.com','password'=> Hash::make('123456'), 'phone'=> '1234567890','address'=>'HN'],
@@ -155,20 +158,29 @@ class RoleSeeder extends Seeder
         DB::table('user_job')->insert([
             ['id'=>1, 'user_id' => 1, 'cv_id' => 1, 'job_id' => 1],
             ['id'=>2, 'user_id' => 2, 'cv_id' => 2, 'job_id' => 2],
+            ['id'=>3, 'user_id' => 2, 'cv_id' => 2, 'job_id' => 3],
+            ['id'=>4, 'user_id' => 3, 'cv_id' => 3, 'job_id' => 4],
+            ['id'=>5, 'user_id' => 4, 'cv_id' => 4, 'job_id' => 5],
         ]);
         DB::table('process')->insert([
             ['id'=>1, 'step' => 1, 'name' => 'Checking', 'user_job_id' => 1],
             ['id'=>2, 'step' => 2, 'name' => 'Review', 'user_job_id' => 1],
-            ['id'=>3, 'step' => 3, 'name' => 'Interviewer', 'user_job_id' => 1],
-            ['id'=>4, 'step' => 4, 'name' => 'Make Offer', 'user_job_id' => 1],
-            ['id'=>5, 'step' => 1, 'name' => 'Checking', 'user_job_id' => 2],
+            ['id'=>3, 'step' => 1, 'name' => 'Checking', 'user_job_id' => 2],
+            ['id'=>4, 'step' => 1, 'name' => 'Checking', 'user_job_id' => 3],
+            ['id'=>5, 'step' => 1, 'name' => 'Checking', 'user_job_id' => 5],
+            ['id'=>6, 'step' => 2, 'name' => 'Review', 'user_job_id' => 5],
+            ['id'=>7, 'step' => 3, 'name' => 'Interviewer', 'user_job_id' => 5],
+            ['id'=>8, 'step' => 4, 'name' => 'Make Offer', 'user_job_id' => 5],
         ]);
-        DB::table('evaluate')->insert([
+        DB::table('evaluates')->insert([
             ['id'=>1, 'process_step_id' => 1,'comment' => '', 'reason' => 'Checking', 'status' => 1],
             ['id'=>2, 'process_step_id' => 2,'comment' => '', 'reason' => 'Review', 'status' => 1],
-            ['id'=>3, 'process_step_id' => 3,'comment' => '', 'reason' => 'Interviewer', 'status' => 1],
-            ['id'=>4, 'process_step_id' => 4,'comment' => '', 'reason' => 'Make Offer', 'status' => 1],
+            ['id'=>3, 'process_step_id' => 3,'comment' => '', 'reason' => 'Checking', 'status' => 1],
+            ['id'=>4, 'process_step_id' => 4,'comment' => '', 'reason' => 'Checking', 'status' => 1],
             ['id'=>5, 'process_step_id' => 5,'comment' => '', 'reason' => 'Checking', 'status' => 1],
+            ['id'=>6, 'process_step_id' => 6,'comment' => '', 'reason' => 'Review', 'status' => 1],
+            ['id'=>7, 'process_step_id' => 7,'comment' => '', 'reason' => 'Interviewer', 'status' => 1],
+            ['id'=>8, 'process_step_id' => 8,'comment' => '', 'reason' => 'Make Offer', 'status' => 0],
         ]);
         Schema::enableForeignKeyConstraints();
     }

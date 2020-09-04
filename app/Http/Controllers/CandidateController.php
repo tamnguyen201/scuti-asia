@@ -16,7 +16,7 @@ class CandidateController extends Controller
 
     public function index()
     {
-        $candidates = $this->candidateRepository->paginate(10);
+        $candidates = $this->candidateRepository->paginate();
 
         return view("admin.candidate.index", compact('candidates'));
     }
