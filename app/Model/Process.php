@@ -13,4 +13,9 @@ class Process extends Model
     {
         return $this->belongsTo('App\Model\UserJob');
     }
+
+    public function evaluate()
+    {
+        return $this->hasMany('App\Model\Evaluate');
+    }
 }

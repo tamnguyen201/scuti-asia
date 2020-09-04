@@ -173,14 +173,14 @@ class RoleSeeder extends Seeder
             ['id'=>8, 'step' => 4, 'name' => 'Make Offer', 'user_job_id' => 5],
         ]);
         DB::table('evaluates')->insert([
-            ['id'=>1, 'process_step_id' => 1,'comment' => '', 'reason' => 'Checking', 'status' => 1],
-            ['id'=>2, 'process_step_id' => 2,'comment' => '', 'reason' => 'Review', 'status' => 1],
-            ['id'=>3, 'process_step_id' => 3,'comment' => '', 'reason' => 'Checking', 'status' => 1],
-            ['id'=>4, 'process_step_id' => 4,'comment' => '', 'reason' => 'Checking', 'status' => 1],
-            ['id'=>5, 'process_step_id' => 5,'comment' => '', 'reason' => 'Checking', 'status' => 1],
-            ['id'=>6, 'process_step_id' => 6,'comment' => '', 'reason' => 'Review', 'status' => 1],
-            ['id'=>7, 'process_step_id' => 7,'comment' => '', 'reason' => 'Interviewer', 'status' => 1],
-            ['id'=>8, 'process_step_id' => 8,'comment' => '', 'reason' => 'Make Offer', 'status' => 0],
+            ['id'=>1, 'process_id' => 1,'comment' => '', 'reason' => 'Checking', 'status' => 1],
+            ['id'=>2, 'process_id' => 2,'comment' => '', 'reason' => 'Review', 'status' => 1],
+            ['id'=>3, 'process_id' => 3,'comment' => '', 'reason' => 'Checking', 'status' => 1],
+            ['id'=>4, 'process_id' => 4,'comment' => '', 'reason' => 'Checking', 'status' => 1],
+            ['id'=>5, 'process_id' => 5,'comment' => '', 'reason' => 'Checking', 'status' => 1],
+            ['id'=>6, 'process_id' => 6,'comment' => '', 'reason' => 'Review', 'status' => 1],
+            ['id'=>7, 'process_id' => 7,'comment' => '', 'reason' => 'Interviewer', 'status' => 1],
+            ['id'=>8, 'process_id' => 8,'comment' => '', 'reason' => 'Make Offer', 'status' => 0],
         ]);
         Schema::enableForeignKeyConstraints();
     }

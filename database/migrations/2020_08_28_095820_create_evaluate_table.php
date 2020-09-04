@@ -18,9 +18,9 @@ class CreateEvaluateTable extends Migration
             $table->text('comment')->nullable;
             $table->text('reason')->nullable;
             $table->boolean('status')->default(false);
-            $table->foreignId('process_step_id');
+            $table->foreignId('process_id');
 
-            $table->foreign('process_step_id')->references('id')->on('process')->onDelete('cascade');
+            $table->foreign('process_id')->references('id')->on('process')->onDelete('cascade');
         });
     }
 
