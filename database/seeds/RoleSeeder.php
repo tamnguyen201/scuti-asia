@@ -152,6 +152,24 @@ class RoleSeeder extends Seeder
             ['id'=>4,'user_id' => 4, 'cv_name' => 'CV4', 'cv_url'=>'http://congstudio.vn/product_images/z/320/chup_anh_profile_tai_ha_noi_cong_studio_4__09337_thumb.jpg'],
             ['id'=>5,'user_id' => 5, 'cv_name' => 'CV5', 'cv_url'=>'http://congstudio.vn/product_images/z/320/chup_anh_profile_tai_ha_noi_cong_studio_4__09337_thumb.jpg'],
         ]);
+        DB::table('user_job')->insert([
+            ['id'=>1, 'user_id' => 1, 'cv_id' => 1, 'job_id' => 1],
+            ['id'=>2, 'user_id' => 2, 'cv_id' => 2, 'job_id' => 2],
+        ]);
+        DB::table('process')->insert([
+            ['id'=>1, 'step' => 1, 'name' => 'Checking', 'user_job_id' => 1],
+            ['id'=>2, 'step' => 2, 'name' => 'Review', 'user_job_id' => 1],
+            ['id'=>3, 'step' => 3, 'name' => 'Interviewer', 'user_job_id' => 1],
+            ['id'=>4, 'step' => 4, 'name' => 'Make Offer', 'user_job_id' => 1],
+            ['id'=>5, 'step' => 1, 'name' => 'Checking', 'user_job_id' => 2],
+        ]);
+        DB::table('evaluate')->insert([
+            ['id'=>1, 'process_step_id' => 1,'comment' => '', 'reason' => 'Checking', 'status' => 1],
+            ['id'=>2, 'process_step_id' => 2,'comment' => '', 'reason' => 'Review', 'status' => 1],
+            ['id'=>3, 'process_step_id' => 3,'comment' => '', 'reason' => 'Interviewer', 'status' => 1],
+            ['id'=>4, 'process_step_id' => 4,'comment' => '', 'reason' => 'Make Offer', 'status' => 1],
+            ['id'=>5, 'process_step_id' => 5,'comment' => '', 'reason' => 'Checking', 'status' => 1],
+        ]);
         Schema::enableForeignKeyConstraints();
     }
 }

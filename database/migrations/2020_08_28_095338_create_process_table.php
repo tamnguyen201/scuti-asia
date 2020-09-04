@@ -14,9 +14,12 @@ class CreateProcessTable extends Migration
     public function up()
     {
         Schema::create('process', function (Blueprint $table) {
-            $table->increments('id');
+            $table->id();
             $table->integer('step');
             $table->string('name');
+            $table->foreignId('user_job_id');
+
+            $table->foreign('user_job_id')->references('id')->on('user_job')->onDelete('cascade');
         });
     }
 

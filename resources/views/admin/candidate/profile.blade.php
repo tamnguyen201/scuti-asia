@@ -6,11 +6,11 @@
         <tbody>
             <tr>
                 <td>@lang('custom.name')</td>
-                <td>{{$candidate->user->name}}</td>
+                <td>{{$candidate->name}}</td>
             </tr>
             <tr>
                 <td>@lang('custom.email')</td>
-                <td>{{$candidate->user->email}}</td>
+                <td>{{$candidate->email}}</td>
             </tr>
             <tr>
                 <td>@lang('custom.phone')</td>
@@ -43,7 +43,7 @@
             @foreach($candidate->cv as $item)
             <tr>
                 <td>{{$stt++}}</td>
-                <td><a href="{{asset($item->cv_url)}}" target="_blank">{{asset($item->cv_url)}}</a></td>
+                <td><a href="{{asset($item->cv_url)}}" target="_blank">{{$item->cv_name}}</a></td>
             </tr>
             @endforeach
         </tbody>

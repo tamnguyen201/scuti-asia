@@ -7,16 +7,16 @@ class CandidateRepository extends Repository implements CandidateRepositoryInter
 {
     public function getModel()
     {
-        return \App\Model\Candidate::class;
+        return \App\Model\User::class;
     }
 
     public function paginate($perPage = 15, $columns = array('*'))
     {
-        return $this->model->with(['user'])->paginate($perPage, $columns);
+        return $this->model->paginate($perPage, $columns);
     }
 
     public function show($id)
     {
-        return $this->model->with(['user','cv'])->findOrFail($id);
+        return $this->model->with(['cv'])->findOrFail($id);
     }
 }

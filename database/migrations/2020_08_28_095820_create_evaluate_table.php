@@ -14,11 +14,13 @@ class CreateEvaluateTable extends Migration
     public function up()
     {
         Schema::create('evaluate', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('process_step_id');
+            $table->id();
             $table->text('comment')->nullable;
             $table->text('reason')->nullable;
             $table->boolean('status')->default(false);
+            $table->foreignId('process_step_id');
+
+            $table->foreign('process_step_id')->references('id')->on('process')->onDelete('cascade');
         });
     }
 

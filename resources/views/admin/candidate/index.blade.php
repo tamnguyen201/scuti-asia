@@ -48,8 +48,8 @@
                                 @foreach($candidates as $item)
                                 <tr>
                                     <td>{{$stt++}}</td>
-                                    <td>{{$item->user->name}}</td>
-                                    <td>{{$item->user->email}}</td>
+                                    <td>{{$item->name}}</td>
+                                    <td>{{$item->email}}</td>
                                     <td class="text-center">
                                         <a href="{{route('candidates.show', $item['id'])}}" class="btn btn-info text-light view-profile" title="Xem"><em class="fa fa-eye"></em></a>
                                     </td>

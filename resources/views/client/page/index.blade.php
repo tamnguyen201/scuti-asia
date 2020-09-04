@@ -1,5 +1,5 @@
 @extends('client.layout.master')
-@section('title', trans('custom.page_title.company_manage'))
+@section('title', trans('client.page.home.title'))
 @section('content')
     @include('client.layout.header')
 
