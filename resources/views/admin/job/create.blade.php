@@ -94,7 +94,7 @@
 </div>
 @endsection
 @section('script')
-    <script src={{ url('ckeditor/ckeditor.js') }}></script>
+    <script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
     <script>
     CKEDITOR.replace( 'description', {
         filebrowserBrowseUrl: '{{ route('jobs.create') }}',

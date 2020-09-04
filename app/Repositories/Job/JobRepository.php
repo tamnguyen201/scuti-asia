@@ -14,5 +14,4 @@ class JobRepository extends Repository implements JobRepositoryInterface
     {
         return \App\Model\Job::class;
     }
-
 }

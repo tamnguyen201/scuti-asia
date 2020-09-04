@@ -32,6 +32,7 @@ class JobController extends Controller
     public function index()
     {
         $jobs = $this->jobRepository->paginate(10);
+
         return view("admin.job.index", compact('jobs'));
     }
 
@@ -39,6 +40,7 @@ class JobController extends Controller
     {
         $dataCategory = $this->categoryRepository->all();
         $dataLocation = $this->locationRepository->all();
+
         return view("admin.job.create", compact('dataCategory', 'dataLocation'));
     }
 
@@ -52,6 +54,7 @@ class JobController extends Controller
             'expireDay' => $request->expire_date,
             'description' => $request->description
         ]);
+
         return redirect()->route('jobs.index');
     }
 
@@ -60,33 +63,36 @@ class JobController extends Controller
         $job = $this->jobRepository->show($request->job_id);
         $job->status = $request->status;
         $job->save();
+
         return response()->json(['success' => config('common.alert_messages.success')]);
     }
 
     public function detail($id)
     {
         $jobById = $this->jobRepository->show($id);
+
         return view("admin.job.detail", compact('jobById'));
     }
 
     public function edit($id)
     {
         $jobById = $this->jobRepository->show($id);
-        $htmlOptionCategory = $this->getSelectedCategory($jobById->category_id);
-        $htmlOptionLocation = $this->getSelectedLocation($jobById->location_id);
-        return view('admin.job.edit', compact('jobById','htmlOptionLocation','htmlOptionCategory'));
+        $dataCategory = $this->getSelectedCategory();
+        $dataLocation = $this->getSelectedLocation();
+
+        return view('admin.job.edit', compact('jobById', 'dataCategory', 'dataLocation'));
     }
 
-    public function getSelectedCategory($id)
+    public function getSelectedCategory()
     {
-        $data = $this->categoryRepository->all();
-        return $this->jobRepository->getCategoryEdit($data, $id);
+        $dataCategory = $this->categoryRepository->all();
+        return $dataCategory;
     }
 
-    public function getSelectedLocation($id)
+    public function getSelectedLocation()
     {
-        $data = $this->locationRepository->all();
-        return $this->jobRepository->getLocationEdit($data, $id);
+        $dataLocation = $this->locationRepository->all();
+        return $dataLocation;
     }
 
     public function update(JobUpdateRequest $request, $id)

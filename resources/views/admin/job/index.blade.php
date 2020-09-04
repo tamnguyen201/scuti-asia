@@ -14,7 +14,7 @@
 </div>
 <div class="row">
     <div class="col-lg-12">
-        <h1 class="page-header">@lang('custom.page_title.jobs_manage')</h1>
+        <h1 class="page-header">@lang('custom.page_title.job_manage')</h1>
     </div>
 </div>
 <div class="row">
@@ -72,7 +72,6 @@
                         </table>
                         <div class="fixed-table-pagination">
                             <div class="pull-right pagination">
-                                {{-- {{$categories->links()}} --}}
                             </div>
                         </div>
                     </div>
