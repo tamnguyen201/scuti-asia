@@ -14,7 +14,7 @@
 </div>
 <div class="row">
     <div class="col-lg-12">
-        <h1 class="page-header">@lang('custom.page_title.jobs_manage')</h1>
+        <h1 class="page-header">@lang('custom.page_title.job_manage')</h1>
     </div>
 </div>
 <div class="col-lg-12">
@@ -58,8 +58,8 @@
                                     </td>
                                     <td class="text-center">
                                         <a href="{{ route('job.detail', ['id' => $item->id]) }}" class="btn btn-primary text-light view-profile"><em class="fa fa-eye"></em></a>
-                                        <a href="" class="btn btn-primary text-light"><em class="far fa-edit"></em></a> 
-                                        <form action="" method="post" class="form-delete-{{$item->id}}" style="display: inline">
+                                        <a href="{{ route('jobs.edit', $item->id) }}" class="btn btn-primary text-light"><em class="far fa-edit"></em></a> 
+                                        <form action="{{ route('jobs.destroy',$item->id) }}" method="post" class="form-delete-{{$item->id}}" style="display: inline">
                                             @csrf
                                             @method('DELETE')
                                             <button class="btn btn-danger text-light delete-confirm" idDelete={{$item->id}}><em class="fas fa-trash-alt"></em></button>
@@ -71,7 +71,6 @@
                         </table>
                         <div class="fixed-table-pagination">
                             <div class="pull-right pagination">
-                                {{-- {{$categories->links()}} --}}
                             </div>
                         </div>
                     </div>
@@ -132,6 +131,27 @@
                         toastr.success(data.success);
                     }
                 });
+            });
+        });
+
+        $("body").on("click", ".delete-confirm", function (e) {
+            e.preventDefault();
+            let id = $(this).attr('idDelete');
+            let form = $('.form-delete-'+id);
+            swal({
+                title: "Xác nhận xóa?",
+                text: "Bản ghi này sẽ không thể khôi phục!",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonColor: '#DD6B55',
+                confirmButtonText: 'OK!',
+                cancelButtonText: "Cancel!",
+                closeOnConfirm: false,
+                closeOnCancel: false
+            }).then(function(value) {
+                if (value.value == true) {
+                    form.submit();
+                }
             });
         });
     </script>

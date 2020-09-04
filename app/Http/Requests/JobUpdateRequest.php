@@ -24,7 +24,8 @@ class JobUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name' =>'min:5',
+            'description'=>'min:100'
         ];
     }
 }
