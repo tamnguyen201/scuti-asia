@@ -49,13 +49,13 @@
         </tbody>
     </table>
 
-    <label>Note :</label>
+    {{-- <label>Note :</label>
     <br>
     <form action="{{ route('evaluate.checking', $candidate->id) }}" method="post">
         @csrf
         <textarea name="comment" id="" cols="85" rows="2"></textarea>
         <br>
         <button class="btn btn-success" type="submit">Submit</button>
-    </form>
+    </form> --}}
 </div>
 

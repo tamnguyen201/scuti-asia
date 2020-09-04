@@ -16,6 +16,7 @@
         <h1 class="page-header">@lang('custom.page_title.job_add')</h1>
     </div>
 </div>
+<div class="row">
 <div class="col-lg-12">
     <div class="panel panel-default">
        <div class="panel-heading">@lang('custom.page_title.add')</div>
@@ -35,13 +36,13 @@
                     <div class="category form-group row">
                         <div class="col-md-8">
                             <label for="inputCategory">@lang('custom.category') :</label>
-                            <select name="category_id" id="inputCategory" class="form-control" @error('category') is-invalid @enderror>
+                            <select name="category_id" id="inputCategory" class="form-control" @error('category_id') is-invalid @enderror>
                                 <option value="null" disabled="disabled" selected>Choose...</option>
                                 @foreach ($dataCategory as $value)
                                 <option value="{{ $value->id }}">{{ $value->category_name }}</option>
                                 @endforeach
                             </select>
-                            @error('category')
+                            @error('category_id')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
@@ -51,13 +52,13 @@
                     <div class="location form-group row">
                         <div class="col-md-8">
                             <label for="inputLocation">@lang('custom.location') :</label>
-                            <select name="location_id" id="inputLocation" class="form-control" @error('location') is-invalid @enderror>
+                            <select name="location_id" id="inputLocation" class="form-control" @error('location_id') is-invalid @enderror>
                                 <option value="null" disabled="disabled" selected>Choose Location...</option>
                                 @foreach ($dataLocation as $value)
                                 <option value="{{ $value->id }}">{{ $value->name }}</option>
                                 @endforeach
                             </select>
-                            @error('location')
+                            @error('location_id')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
@@ -77,7 +78,7 @@
                     </div>
                     <div class="form-group">
                         <label>@lang('custom.description') : </label>
-                        <textarea name="description" class="form-control" @error('description') is-invalid @enderror id="exampleFormControlTextarea1" rows="3"></textarea>
+                        <textarea name="description" class="form-control" @error('description') is-invalid @enderror id="exampleFormControlTextarea1" rows="4"></textarea>
                         @error('description')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -90,7 +91,15 @@
        </div>
     </div>
  </div>
+</div>
 @endsection
 @section('script')
+    <script src={{ url('ckeditor/ckeditor.js') }}></script>
+    <script>
+    CKEDITOR.replace( 'description', {
+        filebrowserBrowseUrl: '{{ route('jobs.create') }}',
 
+    } );
+    </script>
+    @include('ckfinder::setup')
 @endsection

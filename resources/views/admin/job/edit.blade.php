@@ -8,24 +8,26 @@
             <em class="fa fa-home"></em>
         </a></li>
         <li class="active">@lang('custom.page_title.job')</li>
-        <li class="active">@lang('custom.page_title.job_add')</li>
+        <li class="active">@lang('custom.page_title.job_edit')</li>
     </ol>
 </div>
 <div class="row">
     <div class="col-lg-12">
-        <h1 class="page-header">@lang('custom.page_title.job_add')</h1>
+        <h1 class="page-header">@lang('custom.page_title.job_edit')</h1>
     </div>
 </div>
+<div class="row">
 <div class="col-lg-12">
     <div class="panel panel-default">
-       <div class="panel-heading">@lang('custom.page_title.add')</div>
+       <div class="panel-heading">@lang('custom.page_title.edit')</div>
        <div class="panel-body">
            <div class="col-md-8">
-                <form action="{{ route('jobs.store') }}" method="post">
+                <form method="post" action="{{ route('jobs.update', $jobById->id) }}">
+                    @method('PUT')
                     @csrf
                     <div class="form-group">
                         <label>@lang('custom.title') : </label>
-                        <input name="name" type="text" class="form-control" @error('name') is-invalid @enderror placeholder="Enter title">
+                        <input value="{{ $jobById->name }}" name="name" type="text" class="form-control" @error('name') is-invalid @enderror placeholder="Enter title">
                         @error('name')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -39,11 +41,6 @@
                                 <option value="null" disabled="disabled" selected>Choose...</option>
                                 {!! $htmlOptionCategory !!}
                             </select>
-                            @error('category')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                        @enderror
                         </div>
                     </div>
                     <div class="location form-group row">
@@ -53,27 +50,19 @@
                                 <option value="null" disabled="disabled" selected>Choose Location...</option>
                                 {!! $htmlOptionLocation !!}
                             </select>
-                            @error('location')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                        @enderror
                         </div>
                     </div>
                     <div class="form-group row">
                         <div class="col-md-4">
                             <label>@lang('custom.expire_day') : </label>
-                            <input name="expire_date" type="date" class="form-control" @error('expire_date') is-invalid @enderror placeholder="Enter expire date">
-                            @error('expire_date')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
+                            <input value="{{ $jobById->expireDay }}" name="expire_date" type="date" class="form-control" @error('expire_date') is-invalid @enderror placeholder="Enter expire date">
                         </div>
                     </div>
                     <div class="form-group">
                         <label>@lang('custom.description') : </label>
-                        <textarea name="description" class="form-control" @error('description') is-invalid @enderror id="exampleFormControlTextarea1" rows="3"></textarea>
+                        <textarea name="description" class="form-control" @error('description') is-invalid @enderror id="exampleFormControlTextarea1" rows="3">
+                            {{ $jobById->description }}
+                        </textarea>
                         @error('description')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -86,7 +75,15 @@
        </div>
     </div>
  </div>
+</div>
 @endsection
 @section('script')
+    <script src={{ url('ckeditor/ckeditor.js') }}></script>
+    <script>
+    CKEDITOR.replace( 'description', {
+        filebrowserBrowseUrl: '{{ route('jobs.edit', $jobById->id) }}',
 
+    } );
+    </script>
+    @include('ckfinder::setup')
 @endsection

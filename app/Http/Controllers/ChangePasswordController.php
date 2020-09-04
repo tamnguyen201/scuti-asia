@@ -20,6 +20,11 @@ class ChangePasswordController extends Controller
         return view('admin.user.changePassword');
     }
 
+    public function formChangePW()
+    {
+        return view('admin.auth.change-password');
+    }
+
     public function store(UserRequest $request)
     {
         User::find(auth()->user()->id)->update(['password'=> Hash::make($request->new_password)]);

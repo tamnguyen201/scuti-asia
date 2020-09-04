@@ -1,4 +1,7 @@
 @extends('admin.layout.layout')
+@section('css')
+    <link rel="stylesheet" href="{{ asset('adminAsset/css/job.css') }}">
+@endsection
 @section('content')
 <div class="row">
     <ol class="breadcrumb">
@@ -13,6 +16,7 @@
         <h1 class="page-header">@lang('custom.page_title.job_detail')</h1>
     </div>
 </div>
+<div class="row">
 <div class="col-lg-12">
     <div class="panel panel-default">
        <div class="panel-heading">@lang('custom.page_title.show_infor')</div>
@@ -53,11 +57,12 @@
                 <div class="title col-md-3">
                     <h4>@lang('custom.description')</h4>
                 </div>
-                <div class="content col-md-8">
-                    <p>{{ $jobById->description }}</p>
+                <div class="content col-md-8" >
+                    <p>{!! $jobById->description !!}</p>
                 </div>
             </div>
         </div>
     </div>
+</div>
 </div>
 @endsection

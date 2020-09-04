@@ -24,6 +24,11 @@ Route::group(
         Route::post('login','Auth\AdminLoginController@postLogin')->name('admin.post-login');
         Route::get('logout', 'Auth\AdminLoginController@logout')->name('admin.logout');
         Route::get('/forgot', 'Auth\AdminLoginController@forgot');
+        Route::post('/forgot','ResetPasswordController@getForgotPassword')->name('admin.forgot_password');
+        Route::get('/confirmOTP/{email}', 'ResetPasswordController@confirmOTP')->name('admin.forgot_password.confirmOTP');
+        Route::post('/confirmOTP/{email}','ResetPasswordController@postConfirmOTP')->name('post.confirmOTP');
+        Route::get('forgot/change-password/{email}', 'ResetPasswordController@formNewPW')->name('admin.forgot_password.show_form_changePW');
+        Route::post('forgot/change-password/{email}', 'ResetPasswordController@storeNewPW')->name('admin.forgot_password.newPW');
 
     Route::group(['middleware' => ['CheckManager']], function () {
 
@@ -33,7 +38,7 @@ Route::group(
         Route::resource('locations', 'LocationController');
         Route::resource('categories', 'CategoryController');
         Route::get('/changeCategoryStatus', 'CategoryController@changeStatus');
-        Route::resource('jobs', 'JobController');
+        Route::resource('jobs', 'JobController')->except(['show']);
         Route::get('jobs/detail/{id}','JobController@detail')->name('job.detail');
         Route::get('/changeJobStatus', 'JobController@updateStatus')->name('job.update.status');
         Route::get('jobs/information', 'JobController@informationJob');

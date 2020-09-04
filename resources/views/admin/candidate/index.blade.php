@@ -61,8 +61,8 @@
                                     </td>
                                     <td class="text-center">
                                         <a href="{{route('candidates.show', $item['id'])}}" class="btn btn-info text-light view-profile" title="Xem"><em class="fa fa-file-text"></em></a> 
-                                        <a href="{{route('evaluate.send-email', $item['id'])}}" class="btn btn-info text-light send-mail" title="Xem"><em class="fa fa-envelope-o"></em></a> 
-                                        <a href="{{route('evaluate.interview', $item['id'])}}"  title="Xem"><em class="fa fa-envelope-o"></em></a> 
+                                        {{-- <a href="{{route('evaluate.send-email', $item['id'])}}" class="btn btn-info text-light send-mail" title="Xem"><em class="fa fa-envelope-o"></em></a>  --}}
+                                        <a href="{{route('evaluate.interview', $item['id'])}}" class="btn btn-info text-light" ><em class="fa fa-calendar"></em></a> 
                                     </td>
                                 </tr>
                                 @endforeach
