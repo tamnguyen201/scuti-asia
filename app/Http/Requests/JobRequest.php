@@ -25,8 +25,8 @@ class JobRequest extends FormRequest
     {
         return [
             'name' =>'required|unique:jobs,name',
-            'location'=>'required',
-            'category'=>'required',
+            'location_id'=>'required',
+            'category_id'=>'required',
             'expire_date'=>'required',
             'description'=>'required'
         ];
