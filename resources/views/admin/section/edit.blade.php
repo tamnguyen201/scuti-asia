@@ -27,7 +27,7 @@
                         <div class="col-md-6">
                             <div class="form-group @error('name') has-error @enderror">
                                 <label>@lang('custom.name')</label>
-                                <input type="text" name="name" value="{{$section->name}}" class="form-control" placeholder="Please enter full name">
+                                <input type="text" name="name" value="{{$section->name}}" class="form-control" readonly>
                                 @error('name') 
                                 <span class="help-block"> {{$message}} </span>
                                 @enderror
