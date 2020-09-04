@@ -6,7 +6,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="breadcrumbs">
-                    <a href="index.html">Home</a><i class="fa fa-angle-double-right"></i><span>Profile</span>
+                    <a href="{{route('home')}}">Home</a><i class="fa fa-angle-double-right"></i><span>Profile</span>
                 </div>
             </div>
         </div>
@@ -15,54 +15,55 @@
 <div class="basic-2">
     <div class="col-lg-8 mx-auto">
         <div class="form-container">
-            <form id="getQuoteForm" class="col-lg-12 row" data-toggle="validator" data-focus="false">
+            <form action="{{route('client.update_info')}}" class="col-lg-12 row" method="post" enctype="multipart/form-data">
+                @csrf
                 <div class="col-md-7">
-                    <div class="form-group @error('name') has-error @enderror">
+                    <div class="form-group">
                         <label>@lang('custom.name')</label>
-                        <input type="text" name="name" value="{{Auth::user()->name}}" class="form-control" placeholder="Please enter full name">
+                        <input type="text" name="name" value="{{Auth::user()->name}}" class="form-control">
                         @error('name') 
-                        <span class="help-block"> {{$message}} </span>
+                        <span class="text-danger"> {{$message}} </span>
                         @enderror
                     </div>
-                    <div class="form-group @error('email') has-error @enderror">
+                    <div class="form-group">
                         <label>@lang('custom.email')</label>
-                        <input type="text" name="email" value="{{Auth::user()->email}}" class="form-control" placeholder="Please enter email">
+                        <input type="text" name="email" value="{{Auth::user()->email}}" class="form-control">
                         @error('email') 
-                        <span class="help-block"> {{$message}} </span>
+                        <span class="text-danger"> {{$message}} </span>
                         @enderror
                     </div>
-                    <div class="form-group @error('phone') has-error @enderror">
+                    <div class="form-group">
                         <label>@lang('custom.phone')</label>
-                        <input type="text" name="phone" value="{{Auth::user()->phone}}" class="form-control" placeholder="Please enter phone">
+                        <input type="text" name="phone" value="{{Auth::user()->phone}}" class="form-control">
                         @error('phone') 
-                        <span class="help-block"> {{$message}} </span>
+                        <span class="text-danger"> {{$message}} </span>
                         @enderror
                     </div>
-                    <div class="form-group @error('address') has-error @enderror">
+                    <div class="form-group">
                         <label>@lang('custom.address')</label>
-                        <input type="text" name="address" value="{{Auth::user()->address}}" class="form-control" placeholder="Please enter address">
+                        <input type="text" name="address" value="{{Auth::user()->address}}" class="form-control">
                         @error('address') 
-                        <span class="help-block"> {{$message}} </span>
+                        <span class="text-danger"> {{$message}} </span>
                         @enderror
                     </div>
                 </div>
                 <div class="col-md-5">
-                    <div class="form-group @error('logo') has-error @enderror">
-                        <label>@lang('custom.logo')</label>
-                        <input type="file" onchange="encodeImageFileAsURL(this)" name="logo" accept="image/*">
-                        @error('logo') 
-                        <span class="help-block"> {{$message}} </span>
+                    <div class="form-group">
+                        <label>@lang('custom.avatar')</label>
+                        <input type="file" onchange="encodeImageFileAsURL(this)" name="avatar" accept="image/*">
+                        @error('avatar') 
+                        <span class="text-danger"> {{$message}} </span>
                         @enderror
                     </div>
                     <div class="form-group preview-img">
-                        <img src="{{Auth::user()->avatar}}" alt="your image" class="img-fluid" />
+                        <img src="{{(Auth::user()->avatar) ? Auth::user()->avatar : 'default-img.png'}}" alt="your image" class="img-fluid" />
                     </div>
                 </div>
                 
                 <div class="col-md-12 text-center">
                     <button type="submit" class="btn btn-success">@lang('custom.button.submit')</button>
                     <button type="reset" class="btn btn-primary">@lang('custom.button.reset')</button>
-                    <a href="{{route('partner_companies.index')}}" class="btn btn-danger">@lang('custom.button.cancel')</a>
+                    <a href="{{route('client.profile')}}" class="btn btn-danger">@lang('custom.button.cancel')</a>
                 </div>
             </form>
         </div>

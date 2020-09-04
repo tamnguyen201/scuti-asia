@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Alert;
+use App\Http\Requests\UserUpdateRequest;
 use App\Repositories\User\UserRepositoryInterface;
 
 class UserController extends Controller
@@ -26,5 +27,12 @@ class UserController extends Controller
         $user = $this->userRepository->show($id);
         $html = view('admin.user.profile', compact('user'))->render();
         return response()->json($html);
+    }
+
+    public function update(UserUpdateRequest $request)
+    {
+        $this->userRepository->update($request->all(), auth()->user()->id);
+
+        return redirect()->back()->with('success', trans('custom.alert_messages.success'));
     }
 }

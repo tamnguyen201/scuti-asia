@@ -3,9 +3,8 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Symfony\Component\HttpFoundation\Request;
 
-class RoleUpdateRequest extends FormRequest
+class CVUpdateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,7 +24,8 @@ class RoleUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|unique:roles,name,' . $this->id,
+            'name' => 'required',
+            'cv_url' => 'nullable|mimes:application/pdf|max:10000'
         ];
     }
 
@@ -33,7 +33,8 @@ class RoleUpdateRequest extends FormRequest
     {
         return [
             'required' => trans('validation.required'),
-            'unique' => trans('validation.unique'),
+            'cv_url.mimes' => trans('validation.mimes'),
+            'cv_url.max' => trans('validation.max'),
         ];
     }
 }

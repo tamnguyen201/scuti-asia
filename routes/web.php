@@ -13,19 +13,37 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'HomeController@index');
+Route::get('/', 'HomeController@index')->name('home');
+Route::get('/login', 'AuthController@login')->name('client.login');
+Route::post('/login', 'AuthController@postLogin')->name('client.postLogin');
+Route::get('/logout', 'AuthController@logout')->name('client.logout');
+Route::get('/profile', 'HomeController@profile')->name('client.profile');
+Route::get('/changeInfo', 'HomeController@profile2')->name('client.change_info');
+Route::post('/changeInfo', 'UserController@update')->name('client.update_info');
+Route::get('/uploadCV', 'CVController@create')->name('client.create_cv');
+Route::post('/uploadCV', 'CVController@store')->name('client.upload_cv');
+Route::get('/editCV/{id}', 'CVController@edit')->name('client.edit_cv');
+Route::post('/updateCV/{id}', 'CVController@update')->name('client.update_cv');
+Route::delete('/deleteCV/{id}', 'CVController@destroy')->name('client.destroy_cv');
+Route::get('/changePass', 'HomeController@profile3')->name('client.change_password');
+Route::post('/changePass','AuthController@changePassword')->name('client.update_password');
 
-Route::get('/login', 'AdminController@login')->name('login');
-Route::post('/login','AdminController@postLogin')->name('post-login');
-Route::get('/logout', 'AdminController@logout')->name('logout');
-Route::get('/forgot', 'AdminController@forgot');
+
+Route::get('/auth/redirect/{provider}', 'SocialController@redirect');
+Route::get('/callback/{provider}', 'SocialController@callback');
 
 Route::group(
-        ['prefix'=>'admin', 'middleware' => 'CheckManager'], function () {
-
+        ['prefix'=>'admin'], function () {
+        
+        Route::get('login', 'Auth\AdminLoginController@login')->name('admin.login');
+        Route::post('login','Auth\AdminLoginController@postLogin')->name('admin.post-login');
+        Route::get('logout', 'Auth\AdminLoginController@logout')->name('admin.logout');
+        Route::get('/forgot', 'Auth\AdminLoginController@forgot');
+        
+    Route::group(['middleware' => ['CheckManager']], function () {
         Route::get('/', 'AdminController@index')->name('admin.home');
 
-        Route::get('/logout', 'AdminController@logout')->name('admin.logout');
+        Route::get('/', 'AdminController@index')->name('admin.home');
         Route::resource('users', 'UserController')->only(['index', 'show']);
         Route::resource('employees', 'EmployeeController');
         Route::resource('locations', 'LocationController');
@@ -44,5 +62,6 @@ Route::group(
         Route::resource('company_images', 'CompanyImagesController');
         Route::resource('partner_companies', 'PartnerCompaniesController');
         Route::resource('candidates', 'CandidateController')->only(['index', 'show']);
+    });
     }
 );

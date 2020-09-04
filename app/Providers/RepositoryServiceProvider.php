@@ -48,11 +48,14 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->singleton(
             \App\Repositories\Company\PartnerCompaniesRepositoryInterface::class,
             \App\Repositories\Company\PartnerCompaniesRepository::class,
-
         );
         $this->app->singleton(
             \App\Repositories\Candidate\CandidateRepositoryInterface::class,
             \App\Repositories\Candidate\CandidateRepository::class,
+        );
+        $this->app->singleton(
+            \App\Repositories\CV\CVRepositoryInterface::class,
+            \App\Repositories\CV\CVRepository::class,
         );
     }
 
