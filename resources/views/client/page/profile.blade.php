@@ -1,5 +1,12 @@
 @extends('client.layout.master')
 @section('title', trans('custom.page_title.company_manage'))
+@section('css')
+    <style>
+        .nav-pills .nav-link.active {
+            background-color: #fd6f2d;
+        }
+    </style>
+@endsection
 @section('content')
 <div class="ex-basic-1">
     <div class="container">
