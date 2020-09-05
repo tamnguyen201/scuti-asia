@@ -71,7 +71,10 @@ Route::group(
         Route::resource('companies', 'CompanyController');
         Route::resource('company_images', 'CompanyImagesController');
         Route::resource('new_spaper', 'NewSpaperController');
-        Route::resource('candidates', 'CandidateController')->only(['index', 'show']);
+        Route::get('candidates/evaluating', 'CandidateController@evaluating')->name('candidates.evaluating');
+        Route::get('candidates/finish', 'CandidateController@finish')->name('candidates.finish');
+        Route::get('candidates/failed', 'CandidateController@failed')->name('candidates.failed');
+        Route::resource('candidates', 'CandidateController');
         Route::resource('sections', 'SectionController');
         Route::resource('contacts', 'ContactController')->only(['index', 'show']);
     });

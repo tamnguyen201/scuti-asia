@@ -17,7 +17,7 @@ class EmployeeRepository extends Repository implements EmployeeRepositoryInterfa
 
     public function getModel()
     {
-        return \App\Model\Manager::class;
+        return \App\Model\Admin::class;
     }
     
     public function paginate($perPage = 15, $columns = array('*'))
