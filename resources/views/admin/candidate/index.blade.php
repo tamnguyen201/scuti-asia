@@ -38,7 +38,11 @@
                                         <div class="fht-cell"></div>
                                     </th>
                                     <th>
-                                        <div class="th-inner sortable">@lang('custom.job')</div>
+                                        <div class="th-inner sortable">@lang('custom.jobApplied')</div>
+                                        <div class="fht-cell"></div>
+                                    </th>
+                                    <th>
+                                        <div class="th-inner sortable">@lang('custom.process')</div>
                                         <div class="fht-cell"></div>
                                     </th>
                                     <th>
@@ -49,30 +53,30 @@
                             </thead>
                             <tbody>
                                 @php $stt = 1; @endphp
-                                @foreach($user as $item)
-                                <tr>
-                                    <td>{{$stt++}}</td>
-                                    <td>{{$item->name}}</td>
-                                    <td>{{$item->email}}</td>
-                                    <td>
-                                        @foreach ($item->job as $job)
-                                            {{ $job->name }}
-                                        @endforeach
-                                    </td>
-                                    <td class="text-center">
-                                        <a href="{{route('candidates.show', $item['id'])}}" class="btn btn-info text-light view-profile" title="Xem"><em class="fa fa-file-text"></em></a> 
-                                        {{-- <a href="{{route('evaluate.send-email', $item['id'])}}" class="btn btn-info text-light send-mail" title="Xem"><em class="fa fa-envelope-o"></em></a>  --}}
-                                        <a href="{{route('evaluate.interview', $item['id'])}}" class="btn btn-info text-light" ><em class="fa fa-calendar"></em></a> 
-                                    </td>
-                                </tr>
+                                @foreach($candidates as $candidate)
+                                    @foreach($candidate->job as $key => $item)
+                                    <tr>
+                                        <td>{{$stt++}}</td>
+                                        <td>{{$candidate->name}}</td>
+                                        <td>{{$candidate->email}}</td>
+                                        <td>{{$item->name}}</td>
+                                        @if($candidate->userjob[$key]->process->count() > 0)
+                                            @for($i = 0; $i <= $candidate->userjob[$key]->process->count(); $i++)
+                                                @if($i == $candidate->userjob[$key]->process->count() - 1)
+                                                <td>{{$candidate->userjob[$key]->process[$i]->name}}</td>
+                                                @endif
+                                            @endfor
+                                        @else
+                                        <td>@lang('custom.applied')</td>
+                                        @endif
+                                        <td class="text-center">
+                                            <a href="{{route('candidates.show', $candidate['id'])}}" class="btn btn-info text-light view-profile" title="Xem"><em class="fa fa-eye"></em></a>
+                                        </td>
+                                    </tr>
+                                    @endforeach
                                 @endforeach
                             </tbody>
                         </table>
-                        <div class="fixed-table-pagination">
-                            <div class="pull-right pagination">
-                                {{$user->links()}}
-                            </div>
-                        </div>
                         </div>
                     </div>
                 </div>

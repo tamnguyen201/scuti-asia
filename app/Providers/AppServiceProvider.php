@@ -2,7 +2,9 @@
 
 namespace App\Providers;
 
+use App\Model\Company;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\URL;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -14,7 +16,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-       
+        
     }
 
     /**
@@ -24,6 +26,12 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        if(env('REDIRECT_HTTPS') == true) {
+            URL::forceScheme('https');
+        }
         Schema::defaultStringLength(191);
+        $data_share = Company::first();
+
+        return view()->share('data_share', $data_share);
     }
 }

@@ -19,36 +19,20 @@
 <div class="row">
 <div class="col-lg-12">
     <div class="panel panel-default">
-<<<<<<< HEAD
-       <div class="panel-heading">@lang('custom.page_title.edit')</div>
-=======
        <div class="panel-heading">@lang('custom.page_title.job_edit')</div>
->>>>>>> update/delete_jobs
        <div class="panel-body">
            <div class="col-md-8">
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> feature/update_delete_jobs
                 <form method="post" action="{{ route('jobs.update', $jobById->id) }}">
                     @method('PUT')
                     @csrf
                     <div class="form-group">
                         <label>@lang('custom.title') : </label>
                         <input value="{{ $jobById->name }}" name="name" type="text" class="form-control" @error('name') is-invalid @enderror placeholder="Enter title">
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
                 <form action="{{ route('jobs.store') }}" method="post">
                     @csrf
                     <div class="form-group">
                         <label>@lang('custom.title') : </label>
                         <input name="name" type="text" class="form-control" @error('name') is-invalid @enderror placeholder="Enter title">
->>>>>>> 6b8622b693b31a96c70ead3ba0c46fba66f7fb6d
->>>>>>> feature/update_delete_jobs
-=======
->>>>>>> update/delete_jobs
                         @error('name')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -111,11 +95,7 @@
 </div>
 @endsection
 @section('script')
-<<<<<<< HEAD
-    <script src={{ url('ckeditor/ckeditor.js') }}></script>
-=======
 <script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
->>>>>>> update/delete_jobs
     <script>
     CKEDITOR.replace( 'description', {
         filebrowserBrowseUrl: '{{ route('jobs.edit', $jobById->id) }}',

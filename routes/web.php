@@ -14,6 +14,29 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'HomeController@index')->name('home');
+Route::get('/login', 'AuthController@login')->name('client.login');
+Route::post('/login', 'AuthController@postLogin')->name('client.postLogin');
+Route::get('/register', 'AuthController@register')->name('client.register');
+Route::post('/register', 'AuthController@postRegister')->name('client.postRegister');
+Route::get('/logout', 'AuthController@logout')->name('client.logout');
+Route::get('/profile', 'HomeController@profile')->name('client.profile');
+Route::get('/change-infomation', 'HomeController@changeAccountInfo')->name('client.change_info');
+Route::post('/change-infomation', 'UserController@update')->name('client.update_info');
+Route::get('/upload-cv', 'CVController@create')->name('client.create_cv');
+Route::post('/upload-cv', 'CVController@store')->name('client.upload_cv');
+Route::get('/edit-cv/{id}', 'CVController@edit')->name('client.edit_cv');
+Route::post('/update-cv/{id}', 'CVController@update')->name('client.update_cv');
+Route::delete('/delete-cv/{id}', 'CVController@destroy')->name('client.destroy_cv');
+Route::get('/change-password', 'HomeController@changePassword')->name('client.change_password');
+Route::post('/change-password','AuthController@changePassword')->name('client.update_password');
+Route::post('/visit-us','HomeController@visit_us')->name('client.visit_us');
+Route::get('/apply', 'HomeController@apply')->name('client.apply');
+Route::get('/jobs', 'HomeController@jobs')->name('client.jobs');
+Route::get('/jobs/{slug}-{id}.html', 'HomeController@jobDetail')->name('job-detail');
+Route::get('/jobs/apply/{slug}-{id}.html', 'HomeController@jobApply')->name('client.applied');
+Route::post('/apply','HomeController@userApplyJob')->name('client.apply.job');
+Route::get('/auth/redirect/{provider}', 'SocialController@redirect');
+Route::get('/callback/{provider}', 'SocialController@callback');
 
 
 
@@ -33,6 +56,7 @@ Route::group(
     Route::group(['middleware' => ['CheckManager']], function () {
 
         Route::get('/', 'AdminController@index')->name('admin.home');
+        Route::get('/logout', 'AdminController@logout')->name('admin.logout');
         Route::resource('users', 'UserController')->only(['index', 'show']);
         Route::resource('employees', 'EmployeeController');
         Route::resource('locations', 'LocationController');
@@ -60,6 +84,11 @@ Route::group(
         Route::post('fullcalendar/create','EvaluateController@storeCalendar')->name('store.event');
         Route::post('fullcalendar/update','EvaluateController@updateCalendar');
         Route::post('fullcalendar/delete','EvaluateController@destroyCalendar');
+
+        Route::resource('new_spaper', 'NewSpaperController');
+        Route::resource('candidates', 'CandidateController')->only(['index', 'show']);
+        Route::resource('sections', 'SectionController');
+        Route::resource('contacts', 'ContactController')->only(['index', 'show']);
 
         });
     }

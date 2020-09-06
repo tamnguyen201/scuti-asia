@@ -3,12 +3,15 @@
 return [
     'stt' => 'STT',
     'name' => 'Tên',
+    'name_cv' => 'Tên Hồ Sơ',
     'email' => 'Địa chỉ Email',
     'phone' => 'SĐT',
     'address' => 'Địa chỉ',
     'avatar' => 'Ảnh đại diện',
     'image_url' => 'File Ảnh',
     'cv_url' => 'File CV',
+    'url' => 'Đường Dẫn Bài Viết',
+    'choose_cv' => 'Chọn Hồ Sơ',
     'logo' => 'Ảnh Logo',
     'description' => 'Mô Tả',
     'role' => 'Quyền',
@@ -27,6 +30,13 @@ return [
     'expire_day'=>'Ngày hết hạn',
     'status'=>'Trạng thái',
     'job'=>'job',
+    'process' => 'Quá Trình Đánh Giá',
+    'jobApplied' => 'Công Việc Ứng Tuyển',
+    'applied' => 'Chưa Đánh Giá',
+    'field' => 'Tên Bố Cục',
+    'map_url' => 'Địa Chỉ Bản Đồ',
+    'content' => 'Nội Dung',
+    'visit_type' => 'Thể Loại',
     
     'page_title' => [
         'user_manage' => 'Quản Lý Người Dùng',
@@ -35,7 +45,7 @@ return [
         'role_manage' => 'Quản Lý Quyền',
         'company_manage' => 'Quản Lý Thông Tin Công Ty',
         'company_image_manage' => 'Quản Lý Ảnh Công Ty',
-        'partner_companies_manage' => 'Quản Lý Thông Tin Đốí Tác',
+        'new_spaper_manage' => 'Quản Lý Tin Tức Về Công Ty',
         'candidate_manage' => 'Quản Lý Thông Tin Ứng Viên',
         'data_table' => 'Bảng dữ liệu',
         'form' => 'Mẫu điền thông tin',
@@ -59,6 +69,8 @@ return [
         'job_edit' =>'Sửa Job',
         'add'=>'Tạo mới',
         'enter_code'=>'Nhập mã code của bạn',
+        'section_manage' => 'Quản Lí Bố Cục',
+        'contact_manage' => 'Quản Lí Liên Hệ',
     ],
 
     'table_lable' => [
@@ -87,6 +99,7 @@ return [
         'dashboard' => 'Bảng Điều Khiển',
         'member' => 'Thành Viên',
         'manager' => 'Quản Trị Viên',
+        'contact' => 'Liên Hệ',
         'user' => 'Người Dùng',
         'canidate' => 'Ứng Viên',
         'calendar' => 'Lịch',
@@ -95,6 +108,7 @@ return [
         'company_info' => 'Thông Tin Công Ty',
         'company_images' => 'Ảnh Công Ty',
         'partner' => 'Đối Tác',
+        'section' => 'Bố Cục',
         'evaluating' => 'Đang Đánh Giá',
         'finishing' => 'Hoàn Tất',
         'failed' => 'Loại',
@@ -117,7 +131,24 @@ return [
         'warning' => 'Cảnh báo dữ liệu này đã có sẵn, vui lòng không tạo mới!',
         'error' => 'Lỗi',
         'not_found'=>'Không tìm thấy hoặc nhập sai',
-        'fail'=>'Không thành công'
-    ]
+        'fail'=>'Không thành công',
+    ],
+        'invalid' => 'Tài khoản hoặc mật khẩu không đúng! Vui lòng thử lại.',
+        'same' => 'Mật khẩu mới trùng với mật khẩu hiện tại! Vui lòng thử lại.',
+        'not_same' => 'Mật khẩu hiện tại không chính sác! Vui lòng thử lại.',
+        'warning_limit_cv' => 'Cảnh báo bạn đã có số hồ sơ đạt giới hạn, vui lòng không tạo mới!',
+        'contact_alert' => [
+            'title' => 'Thành Công',
+            'text' => 'Chúng tôi sẽ trả lời bạn sớm nhất có thể!'
+        ],
+        'register_alert' => [
+            'title' => 'Thành Công',
+            'text' => 'Bạn Vừa Tạo Tài Khoản Thành Công! Hãy Tìm Công Việc Phù Hợp Với Mình',
+        ],
+        'login_success' => [
+            'title' => 'Đăng Nhập Thành Công',
+            'text' => 'Bạn Đã Đăng Nhập Thành Công! Hãy Tìm Cho Mình Công Việc Phù Hợp.',
+        ],
+    
 
 ];

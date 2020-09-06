@@ -46,9 +46,8 @@ class RepositoryServiceProvider extends ServiceProvider
             \App\Repositories\Company\CompanyImagesRepository::class,
         );
         $this->app->singleton(
-            \App\Repositories\Company\PartnerCompaniesRepositoryInterface::class,
-            \App\Repositories\Company\PartnerCompaniesRepository::class,
-
+            \App\Repositories\Company\NewSpaperRepositoryInterface::class,
+            \App\Repositories\Company\NewSpaperRepository::class,
         );
         $this->app->singleton(
             \App\Repositories\Candidate\CandidateRepositoryInterface::class,
@@ -65,6 +64,22 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->singleton(
             \App\Repositories\PWReset\PWResetRepositoryInterface::class,
             \App\Repositories\PWReset\PWResetRepository::class,
+        );
+        $this->app->singleton(
+            \App\Repositories\CV\CVRepositoryInterface::class,
+            \App\Repositories\CV\CVRepository::class,
+        );
+        $this->app->singleton(
+            \App\Repositories\Client\SectionRepositoryInterface::class,
+            \App\Repositories\Client\SectionRepository::class,
+        );
+        $this->app->singleton(
+            \App\Repositories\Company\ContactRepositoryInterface::class,
+            \App\Repositories\Company\ContactRepository::class,
+        );
+        $this->app->singleton(
+            \App\Repositories\Company\SectionRepositoryInterface::class,
+            \App\Repositories\Company\SectionRepository::class,
         );
     }
 

@@ -20,6 +20,6 @@ class Job extends Model
 
     public function user()
     {
-        return $this->belongsToMany('App\Model\User', 'user_job', 'job_id', 'user_id')->withPivot('letter');
+        return $this->belongsToMany('App\Model\User', 'user_job');
     }
 }

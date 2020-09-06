@@ -7,11 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 class CV extends Model
 {
     protected $table = 'cvs';
-    protected $fillable = ['cv_url', 'candidate_id'];
+    protected $fillable = ['cv_name', 'cv_url', 'user_id'];
+    public $timestamps = false;
 
-    public function candidate()
+    public function user()
     {
-        return $this->belongsTo('App\Model\Candidate');
+        return $this->belongsTo('App\Model\User');
     }
 
 }
