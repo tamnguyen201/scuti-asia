@@ -43,7 +43,7 @@
                                 <label>@lang('custom.role')</label>
                                 <select name="role" class="form-control">
                                     @foreach (config('common.role') as $key => $item)
-                                    @if($key != 'User')
+                                    @if($key != config('common.role.User'))
                                         <option value="{{$item}}">{{$key}}</option>
                                     @endif
                                     @endforeach

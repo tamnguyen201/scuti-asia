@@ -23,7 +23,7 @@
                     <form role="form" action="{{route('employees.update',$manager->id)}}" method="POST" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
-                        <input type="hidden" name="user_id" value="{{$manager->user->id}}">
+                        <input type="hidden" name="user_id" value="{{$manager->id}}">
                         <div class="col-md-9">
                             <div class="col-md-4">
                                 <img src="{{asset($manager->avatar)}}" class="img-responsive" alt="">
@@ -33,11 +33,11 @@
                                     <tbody>
                                         <tr>
                                             <td>@lang('custom.name')</td>
-                                            <td>{{$manager->user->name}}</td>
+                                            <td>{{$manager->name}}</td>
                                         </tr>
                                         <tr>
                                             <td>@lang('custom.email')</td>
-                                            <td>{{$manager->user->email}}</td>
+                                            <td>{{$manager->email}}</td>
                                         </tr>
                                         <tr>
                                             <td>@lang('custom.phone')</td>
@@ -57,7 +57,7 @@
                                 <select name="role" class="form-control">
                                     @foreach (config('common.role') as $key => $item)
                                     @if($key != 'User')
-                                        <option value="{{$item}}" @if($manager->user->role == $item) selected @endif>{{$key}}</option>
+                                        <option value="{{$item}}" @if($manager->role == $item) selected @endif>{{$key}}</option>
                                     @endif
                                     @endforeach
                                 </select>

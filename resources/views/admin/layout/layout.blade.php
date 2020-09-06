@@ -120,7 +120,6 @@
       <script src="adminAsset/js/easypiechart.js"></script>
       <script src="adminAsset/js/easypiechart-data.js"></script>
       <script src="adminAsset/js/bootstrap-datepicker.js"></script>
-      <script src="adminAsset/js/bootstrap-table.js"></script>
       <script src="adminAsset/js/custom.js"></script>
       <script src="https://unpkg.com/sweetalert2@7.18.0/dist/sweetalert2.all.js"></script>
       <script>
