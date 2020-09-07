@@ -16,9 +16,9 @@
     <div class="ex-basic-2">
         <div class="container">
             <div class="row">
-                <div class="col-lg-9 col-md-8">
+                <div class="col-md-8">
                     <div class="text-container">
-                        <h2>{{$data['job']->name}}</h2>
+                        <h2 class="mb-4">{{$data['job']->name}}</h2>
                         <div class="">
                         {!! $data['job']->description !!}
                         </div>
@@ -26,8 +26,8 @@
 
                     <a class="btn-outline-reg back" href="{{route('client.applied', [$data['job']->slug, $data['job']->id])}}">@lang('client.section.recruitment.apply')</a>
                 </div>
-                <div class="col-lg-3 col-md-4">
-                    <h4>@lang('client.page.apply.sidebar.title')</h4>
+                <div class="col-md-4">
+                    <h3>@lang('client.page.apply.sidebar.title')</h3>
                     <ul class="pl-0">
                         <li class="row justify-content-between mx-0 mb-2">
                             <b>@lang('client.page.apply.sidebar.level')</b>
