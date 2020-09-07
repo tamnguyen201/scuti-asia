@@ -39,6 +39,7 @@ return [
     'map_url' => 'Địa Chỉ Bản Đồ',
     'content' => 'Nội Dung',
     'visit_type' => 'Thể Loại',
+    'statistical' => 'Thống Kê Dữ Liệu',
     
     'page_title' => [
         'dashboard' => 'Bảng Điều Khiển',

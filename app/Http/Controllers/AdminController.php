@@ -16,28 +16,28 @@ class AdminController extends Controller
     }
 
     public function index()
-    {   
-        $range = \Carbon\Carbon::now()->subMonth(6);
-        $data['candidateMonth'] = \DB::table('users')
-                        ->select(\DB::raw('Month(created_at) as getMonth'), \DB::raw('COUNT(*) as value'))
-                        ->where('created_at', '>=', $range)
-                        ->groupBy('getMonth')
-                        ->orderBy('getMonth', 'ASC')
-                        ->get()
-                        ->toJSON();
-        $arrMonth = [];
-        $month = date('m');
-        $day = date('d');
-        $year = date('Y');
-        for ($i=1; $i <= 12; $i++) { 
-            $time = mktime(12,0,0, $i, $day, $year);
-            if(date('m', $time) >= $month - 6 && date('m', $time) < $month){
-                $arrMonth[] = date('M', $time);
-            }
+    {
+        $data['users'] = \App\Model\User::all();
+        $data['candidate_finish'] = \DB::table('user_job')->count();
+        $data['candidate_failed'] = \DB::table('user_job')->count();
+        $data['new_candidate'] = \DB::table('users')
+                                    ->whereMonth('created_at', '=', \Carbon\Carbon::now()->month)
+                                    ->get()
+                                    ->count();
+
+        for ($i=5; $i >= 0; $i--) { 
+            $arrMonth[] = \Carbon\Carbon::now()->subMonths($i)->format('F');
         }
-        // dd($arrMonth);
-        $data['listMonth'] = json_encode($arrMonth);
-        $data = 1;
+
+        $data['listMonth'] = $arrMonth;
+
+        foreach($arrMonth as $month){
+            $data['candidateByMonth'][] = \DB::table('users')
+                                            ->whereMonth('created_at', '=', \Carbon\Carbon::parse($month)->month)
+                                            ->get()
+                                            ->count();
+        }
+        
 
         return view('admin.pages.dashboard', compact('data'));
     }

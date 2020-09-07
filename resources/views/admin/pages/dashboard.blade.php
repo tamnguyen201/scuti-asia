@@ -3,9 +3,7 @@
 @section('content')
 <div class="row">
     <ol class="breadcrumb">
-        <li><a href="#">
-            <em class="fa fa-home"></em>
-        </a></li>
+        
         <li class="active">@lang('custom.page_title.dashboard')</li>
     </ol>
 </div>
@@ -17,33 +15,33 @@
 <div class="panel panel-container">
     <div class="row">
         <div class="col-xs-6 col-md-3 col-lg-3 no-padding">
+            <div class="panel panel-orange panel-widget border-right">
+                <div class="row no-padding"><em class="fa fa-xl fa-users color-teal"></em>
+                    <div class="large">{{$data['users']->count()}}</div>
+                    <div class="text-muted">Users</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-6 col-md-3 col-lg-3 no-padding">
             <div class="panel panel-teal panel-widget border-right">
-                <div class="row no-padding"><em class="fa fa-xl fa-shopping-cart color-blue"></em>
-                    <div class="large">120</div>
+                <div class="row no-padding"><em class="fa-xl fas fa-user-check color-blue"></em>
+                    <div class="large">{{$data['new_candidate']}}</div>
                     <div class="text-muted">New Orders</div>
                 </div>
             </div>
         </div>
         <div class="col-xs-6 col-md-3 col-lg-3 no-padding">
             <div class="panel panel-blue panel-widget border-right">
-                <div class="row no-padding"><em class="fa fa-xl fa-comments color-orange"></em>
-                    <div class="large">52</div>
+                <div class="row no-padding"><em class="fa fa-xl fa-user-plus color-orange"></em>
+                    <div class="large">{{$data['candidate_finish']}}</div>
                     <div class="text-muted">Comments</div>
                 </div>
             </div>
         </div>
         <div class="col-xs-6 col-md-3 col-lg-3 no-padding">
-            <div class="panel panel-orange panel-widget border-right">
-                <div class="row no-padding"><em class="fa fa-xl fa-users color-teal"></em>
-                    <div class="large">24</div>
-                    <div class="text-muted">New Users</div>
-                </div>
-            </div>
-        </div>
-        <div class="col-xs-6 col-md-3 col-lg-3 no-padding">
             <div class="panel panel-red panel-widget ">
-                <div class="row no-padding"><em class="fa fa-xl fa-search color-red"></em>
-                    <div class="large">25.2k</div>
+                <div class="row no-padding"><em class="fa fa-xl fa-user-times color-red"></em>
+                    <div class="large">{{$data['candidate_failed']}}</div>
                     <div class="text-muted">Page Views</div>
                 </div>
             </div>
@@ -54,7 +52,8 @@
     <div class="col-md-12">
         <div class="panel panel-default">
             <div class="panel-heading">
-                Site Traffic Overview
+                @lang('custom.statistical')
+            </div>
             <div class="panel-body">
                 <div class="canvas-wrapper">
                     <canvas class="chart" id="line-chart" height="336" width="1010" style="width: 1010px; height: 336px;"></canvas>
@@ -67,8 +66,21 @@
 @section('script')
 <script>
 	window.onload = function () {
+        let labels = [];
+        let data1 = [1,4,2,3,6,5];
+        let data2 = []
+        <?php foreach($data['listMonth'] as $item){ ?>
+            labels.push('<?php echo $item ?>')
+        <?php
+        }
+        ?>
+        <?php foreach($data['candidateByMonth'] as $candidateByMonth){ ?>
+            data2.push(<?php echo $candidateByMonth ?>)
+        <?php
+        }
+        ?>
         var lineChartData = {
-            labels : ["January","February","March","April","May","June"],
+            labels : labels,
             datasets : [
                 {
                     label: "My First dataset",
@@ -78,7 +90,7 @@
                     pointStrokeColor : "#fff",
                     pointHighlightFill : "#fff",
                     pointHighlightStroke : "rgba(220,220,220,1)",
-                    data : [randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor()]
+                    data : data1
                 },
                 {
                     label: "My Second dataset",
@@ -88,7 +100,7 @@
                     pointStrokeColor : "#fff",
                     pointHighlightFill : "#fff",
                     pointHighlightStroke : "rgba(48, 164, 255, 1)",
-                    data : [randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor()]
+                    data : data2
                 }
             ]
 

@@ -116,10 +116,6 @@
       <script src="adminAsset/js/jquery-1.11.1.min.js"></script>
       <script src="adminAsset/js/bootstrap.min.js"></script>
       <script src="adminAsset/js/chart.min.js"></script>
-      <script src="adminAsset/js/chart-data.js"></script>
-      <script src="adminAsset/js/easypiechart.js"></script>
-      <script src="adminAsset/js/easypiechart-data.js"></script>
-      <script src="adminAsset/js/bootstrap-datepicker.js"></script>
       <script src="adminAsset/js/custom.js"></script>
       <script src="https://unpkg.com/sweetalert2@7.18.0/dist/sweetalert2.all.js"></script>
       <script>
