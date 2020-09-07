@@ -335,9 +335,9 @@
                 <div class="row col-lg-12">
                     <div class="col-lg-9 col-md-8">
                         <div class="text-container">
-                            <h3>{{$data['job']->name}}</h3>
+                            <h2>{{$data['job']->name}}</h2>
                             <div class="">
-                            {{$data['job']->description}}
+                            {!! $data['job']->description !!}
                             </div>
                         </div>
                         <a href="{{route('client.jobs')}}" class="btn btn-outline-reg back" >@lang('client.page.apply.back')</a>
