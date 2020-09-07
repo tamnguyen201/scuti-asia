@@ -1,17 +1,17 @@
 @extends('admin.layout.layout')
-@section('title', 'Dashboard')
+@section('title', trans('custom.page_title.dashboard'))
 @section('content')
 <div class="row">
     <ol class="breadcrumb">
         <li><a href="#">
             <em class="fa fa-home"></em>
         </a></li>
-        <li class="active">Dashboard</li>
+        <li class="active">@lang('custom.page_title.dashboard')</li>
     </ol>
 </div>
 <div class="row">
     <div class="col-lg-12">
-        <h1 class="page-header">Dashboard</h1>
+        <h1 class="page-header">@lang('custom.page_title.dashboard')</h1>
     </div>
 </div>
 <div class="panel panel-container">
@@ -55,30 +55,6 @@
         <div class="panel panel-default">
             <div class="panel-heading">
                 Site Traffic Overview
-                <ul class="pull-right panel-settings panel-button-tab-right">
-                    <li class="dropdown"><a class="pull-right dropdown-toggle" data-toggle="dropdown" href="#">
-                        <em class="fa fa-cogs"></em>
-                    </a>
-                        <ul class="dropdown-menu dropdown-menu-right">
-                            <li>
-                                <ul class="dropdown-settings">
-                                    <li><a href="#">
-                                        <em class="fa fa-cog"></em> Settings 1
-                                    </a></li>
-                                    <li class="divider"></li>
-                                    <li><a href="#">
-                                        <em class="fa fa-cog"></em> Settings 2
-                                    </a></li>
-                                    <li class="divider"></li>
-                                    <li><a href="#">
-                                        <em class="fa fa-cog"></em> Settings 3
-                                    </a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-                <span class="pull-right clickable panel-toggle panel-button-tab-left"><em class="fa fa-toggle-up"></em></span></div>
             <div class="panel-body">
                 <div class="canvas-wrapper">
                     <canvas class="chart" id="line-chart" height="336" width="1010" style="width: 1010px; height: 336px;"></canvas>
@@ -89,5 +65,42 @@
 </div>
 @endsection
 @section('script')
+<script>
+	window.onload = function () {
+        var lineChartData = {
+            labels : ["January","February","March","April","May","June"],
+            datasets : [
+                {
+                    label: "My First dataset",
+                    fillColor : "rgba(220,220,220,0.2)",
+                    strokeColor : "rgba(220,220,220,1)",
+                    pointColor : "rgba(220,220,220,1)",
+                    pointStrokeColor : "#fff",
+                    pointHighlightFill : "#fff",
+                    pointHighlightStroke : "rgba(220,220,220,1)",
+                    data : [randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor()]
+                },
+                {
+                    label: "My Second dataset",
+                    fillColor : "rgba(48, 164, 255, 0.2)",
+                    strokeColor : "rgba(48, 164, 255, 1)",
+                    pointColor : "rgba(48, 164, 255, 1)",
+                    pointStrokeColor : "#fff",
+                    pointHighlightFill : "#fff",
+                    pointHighlightStroke : "rgba(48, 164, 255, 1)",
+                    data : [randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor()]
+                }
+            ]
 
+        }
+        var chart1 = document.getElementById("line-chart").getContext("2d");
+        window.myLine = new Chart(chart1).Line(lineChartData, {
+            responsive: true,
+            scaleLineColor: "rgba(0,0,0,.2)",
+            scaleGridLineColor: "rgba(0,0,0,.05)",
+            scaleFontColor: "#c5c7cc"
+        });
+        
+    };
+</script>
 @endsection

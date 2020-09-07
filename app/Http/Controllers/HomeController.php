@@ -50,7 +50,7 @@ class HomeController extends Controller
         $data['about_us'] = $this->SectionRepository->where('slug', '=', 'about-us');
         $data['new_spaper'] = $this->NewSpaperRepository->all();
         $data['visit_us'] = $this->SectionRepository->where('slug', '=', 'visit-us');
-        $data['categories'] = $this->CategoryRepository->all();
+        $data['categories'] = $this->CategoryRepository->where('status', '=', 1);
         $data['jobs'] = $this->JobRepository->with('category')->get();
         $data['hotJobs'] = $this->JobRepository->all();
 

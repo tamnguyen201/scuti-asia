@@ -41,6 +41,7 @@ return [
     'visit_type' => 'Thể Loại',
     
     'page_title' => [
+        'dashboard' => 'Bảng Điều Khiển',
         'user_manage' => 'Quản Lý Người Dùng',
         'employee_manage' => 'Quản Lý QTV',
         'profile' => 'Thông tin cá nhân',
