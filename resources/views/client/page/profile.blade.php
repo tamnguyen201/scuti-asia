@@ -1,5 +1,12 @@
 @extends('client.layout.master')
 @section('title', trans('custom.page_title.company_manage'))
+@section('css')
+    <style>
+        .nav-pills .nav-link.active {
+            background-color: #fd6f2d;
+        }
+    </style>
+@endsection
 @section('content')
 <div class="ex-basic-1">
     <div class="container">
@@ -105,7 +112,7 @@
                                     @endif
                                 </div>
                                 <div class="tab-pane fade table-responsive" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
-                                    @if(auth()->user()->cv->count() > 0)
+                                    @if(auth()->user()->job->count() > 0)
                                     <table class="table table-hover">
                                         <thead>
                                             <tr>
@@ -125,12 +132,12 @@
                                         </thead>
                                         <tbody>
                                             @php $stt = 0; @endphp
-                                            @foreach(auth()->user()->cv as $item)
+                                            @foreach(auth()->user()->job as $item)
                                             @php $stt++ @endphp
                                             <tr>
                                                 <td>{{$stt}}</td>
-                                                <td>@lang('custom.name')</td>
-                                                <td>{{auth()->user()->name}}</td>
+                                                <td>{{$item->name}}</td>
+                                                <td class="text-center"><a href="{{route('client.applied', [$item->slug, $item->id])}}" target="_blank" class="btn btn-info text-light view-profile" title="Xem"><em class="fa fa-eye"></em></a></td>
                                             </tr>
                                             @endforeach
                                         </tbody>

@@ -76,6 +76,7 @@ class HomeController extends Controller
     public function jobDetail($slug, $id)
     {
         $data['job'] = $this->JobRepository->show($id);
+        $data['related_job'] = $this->JobRepository->all();
 
         return view('client.page.jobDetail', compact('data'));
     }

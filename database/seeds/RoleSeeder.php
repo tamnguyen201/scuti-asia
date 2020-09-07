@@ -138,11 +138,136 @@ class RoleSeeder extends Seeder
             ['id'=>5,'user_id' => 1, 'category_name'=>'ReactJs', 'slug' => 'reactjs', 'status' => 1],
         ]);
         DB::table('jobs')->insert([
-            ['id'=>1,'category_id' => 1, 'name'=>'PHP job', 'slug' => 'abc', 'description'=> 'mô tả', 'location_id' => 1, 'expireDay' => '2020/08/15', 'status' =>1],
-            ['id'=>2,'category_id' => 2, 'name'=>'Node job', 'slug' => 'abc', 'description'=> 'mô tả', 'location_id' => 1, 'expireDay' => '2020/08/15', 'status' =>1],
-            ['id'=>3,'category_id' => 3, 'name'=>'java job', 'slug' => 'abc', 'description'=> 'mô tả', 'location_id' => 1, 'expireDay' => '2020/08/15', 'status' =>1],
-            ['id'=>4,'category_id' => 4, 'name'=>'FE job', 'slug' => 'abc', 'description'=> 'mô tả', 'location_id' => 1, 'expireDay' => '2020/08/15', 'status' =>1],
-            ['id'=>5,'category_id' => 5, 'name'=>'React job', 'slug' => 'abc', 'description'=> 'mô tả', 'location_id' => 1, 'expireDay' => '2020/08/15', 'status' =>1],
+            ['id'=>1,'category_id' => 1, 'name'=>'PHP job', 'slug' => 'abc', 'description'=> 
+                '<h3>Mô tả công việc</h3>
+                <p>
+                    - Quản trị web<br>
+                    - Tham gia xây dựng, phát triển các website sản phẩm, dịch vụ, tin tức.<br>
+                    - Xử lý các lỗi phát sinh trong quá trình vận hành website.<br>
+                    - Tối ưu hóa website chuẩn seo, giao diện thân thiện với mọi thiết bị. Code thêm các tính năng mới trên hệ thống web có sẵn của công ty.<br>
+                    - Tối ưu hóa code, tối ưu hóa truy xuất cơ sở dữ liệu để các website có thể chịu tải được nhiều lượt truy cập/ngày.<br>
+                    - Quản lý tên miền, hosting…<br>
+                    - Các công việc khác: Quản trị hệ thống mạng. Kiểm tra khắc phục nếu phát sinh lỗi<br>
+                    - Thực hiện báo cáo công việc hàng tuần với cấp trên.<br>
+                    - Thực hiện nhiệm vụ khác do cấp trên giao.<br>
+                </p>
+                <h3>Yêu cầu công việc</h3>
+                <p>
+                    - Thành thạo ngôn ngữ lập trình PHP, cơ sở dữ liệu MySQL;<br>
+                    - Tham gia lập trình website thương mại điện tử bằng WordPress<br>
+                    - Sử dụng theme, plugin để thiết kế Landingpage trên nền tảng Wordpress<br>
+                    - Hiểu biết jQuery,  HTML5, CSS, Javascript, Bootstrap<br>
+                    - Có kinh nghiệm với Laravel, Joomla là 1 lợi thế 
+                </p>
+                <h3>Quyền lợi</h3>
+                <p>
+					- Thu nhập từ 7 đến 12 triệu+ KPIs phụ thuộc vào năng lực<br>
+                    - Được nghỉ các ngày lễ, tết theo quy định, nghỉ phép 12ngày/năm, hưởng lương tháng 13.<br>
+                    - Nghỉ các ngày chủ nhật và 2 ngày thứ 7/tháng.<br>
+                    - Thu nhập xứng đáng với năng lực và hiệu quả công việc.<br>
+                    - Làm việc trong môi trường chuyên nghiệp, năng động vui vẻ.<br>
+                    - Có nhiều cơ hội học hỏi, nâng cao trình độ nghiệp vụ.<br>
+                    - Thăng tiến nhanh nếu chứng tỏ được năng lực bản thân. Lương sẽ lên cao đúng như năng lực chứng mình được trong thời gian làm việc.
+                </p>',
+                'location_id' => 1, 'expireDay' => '2020/08/15', 'status' =>1],
+            ['id'=>2,'category_id' => 2, 'name'=>'Node job', 'slug' => 'abc', 'description'=> 
+                '<h3>Mô tả công việc</h3>
+                <div class="description">
+                    <ul>
+                        <li>Tham gia xây dựng, phát triển backend cho các hệ thống xử lý dữ liệu lớn, hiệu năng cao: Social network, thương mại điện tử, quảng cáo trực tuyến, các hệ thống cho doanh nghiệp sản xuất phân phối.</li>
+                        <li>Tham gia vào quá trình tìm hiểu và phân tích yêu cầu, thiết kế và tối ưu hệ thống cho hệ thống dữ liệu lớn phục vụ hàng triệu người dùng.</li>
+                        <li>Làm việc với các phòng ban khác để tham gia phát triển các tính năng, sản phẩm mới.</li>
+                        <li>Tham gia các buổi đánh giá chất lượng công việc của các thành viên khác trong team, hỗ trợ các thành viên phát triển các module phức tạp.</li>
+                        <li>Tham gia training cho các bạn mới.</li>
+                    </ul>
+                </div>
+                <h3>Yêu cầu công việc</h3>
+                <div>
+                    <ul>
+                        <li><strong>UV có tối thiểu 1 năm kinh nghiệm lập trình NodeJS</strong></li>
+                        <li><strong>Độ tuổi: &lt;= 30 tuổi</strong></li>
+                        <li><strong>Thành thạo một trong các hệ quản trị CSDL: MySQL, MongoDB, Postgres, …</strong></li>
+                        <li><strong>Có kinh nghiệm với một trong các framework ExpressJS, Sails,...</strong></li>
+                        <li>Lập trình thuật toán tốt, có kinh nghiệm&nbsp; xử lý tốt với lượng dữ liệu lớn là một lợi thế</li>
+                        <li>Có kinh nghiệm làm việc với Redis, ElasticSearch, RabbitMQ,..</li>
+                        <li><strong>Có khả năng phân tích, thiết kế hệ thống hướng đối tượng (UML) là một lợi thế</strong></li>
+                        <li>Có khả năng làm độc lập, nghiên cứu tốt để giải quyết các vấn đề khó của dự án</li>
+                        <li>Có kinh nghiệm làm việc với Linux, hiểu biết về Docker và Kubernetes là một lợi thế</li>
+                        <li>Có khả năng đọc hiểu tiếng Anh.</li>
+                        <li>Có niềm đam mê, khám phá, học hỏi công nghệ mới. Sẵn sàng chuyển đổi công nghệ, ngôn ngữ mới.</li>
+                        <li>Nhiệt tình và cẩn thận trong công việc, teamwork với team tốt.</li>
+                    </ul>
+                </div>
+                <h3>Quyền lợi</h3>
+                <div>
+                    <ul>
+                        <li>Chính sách thưởng phong phú: Thưởng tháng lương 13 + thưởng nóng dự án + thưởng nhân viên xuất sắc + các khoản thưởng khác;</li><li>Xét tăng lương 2 lần/năm dựa trên hiệu quả công việc;</li><li>Hưởng đầy đủ các chế độ bảo hiểm theo quy định;</li><li>Được tặng quà, thăm hỏi nhân các dịp sinh nhật, cưới hỏi, hiếu hỉ, ốm đau…;</li><li>Làm việc trong môi trường hiện đại, trẻ trung, văn hóa mở với nhiều hoạt động văn hóa tinh thần: du lịch, nghỉ dưỡng, party sự kiện…</li>
+                    </ul>
+                </div',
+                'location_id' => 1, 'expireDay' => '2020/08/15', 'status' =>1],
+            ['id'=>3,'category_id' => 3, 'name'=>'java job', 'slug' => 'abc', 'description'=> 
+                '<h3>Mô tả công việc</h3>
+                <p>
+                    Công việc lập trình Winform ERP:<br>
+                    · Tham gia xây dựng Form nhập liệu, Form phân tích thống kê theo yêu cầu.<br>
+                    · Tham gia xây dựng biểu mẫu, báo cáo theo yêu cầu.<br>
+                    · Tham gia bảo trì hệ thống: Xử lý lỗi, Ưu hóa truy xuất CSDL, Ưu hóa các chức năng của hệ thống.<br>
+                    · Phối hợp với Đội Dự án để triển khai hệ thống.<br>
+                    Công việc kỹ thuật viên:<br>
+                    · Quản trị và bảo trì Hệ thống mạng, máy chủ, máy trạm, các thiết bị liên quan máy tính…<br>
+                    · Triển khai, giám sát Công trình ICT, Tổng đài VOIP, Hệ thống ảo hóa VMWare…<br>
+                    · Bảo trì các thiết bị CNTT: Máy chủ, máy trạm, máy in, các thiết bị liên quan máy tính…
+                </p>
+                <h3>Yêu cầu công việc</h3>
+                <p>
+                    · Tốt nghiệp CAO ĐẲNG trở lên chuyên ngành CNTT, Tự động hóa, Toán - Tin học hoặc các ngành liên quan…<br>
+                    · Anh văn tương đương bằng B.<br>
+                    · Yêu thích công việc lập trình và có tư duy logic trong toán học.<br>
+                    · Giao tiếp tốt, trình bày vấn đề rõ ràng, dễ hiểu.<br>
+                    · Ưu tiên ứng viên có hiểu biết về SQL Server / Database hoặc TCP/IP, Các loại thiết bị chia sẻ IP.
+                </p>
+                <h3>Quyền lợi</h3>
+                <p>
+					· Lương học việc: 6.000.000 /tháng.<br>
+                    · Lương chính thức: Từ 7.000.000 - 12.000.000<br>
+                    · Chế độ lương và thưởng: Lương cơ bản, Thưởng thâm niên, Thưởng hiệu quả, Thưởng lãnh đạo, Thưởng động viên, Thưởng khác, Phụ cấp cơm, Phụ cấp gửi xe….<br>
+                    · Công ty sẽ cung cấp máy tính làm việc.<br>
+                    · Có cơ hội phát triển vào các vị trí quản lý của các chi nhánh công ty ở nước ngoài (Đài Loan, Myanmar,…).<br>
+                    · Được đào tạo dựa trên công việc thực tế, giúp hội nhập nhanh và xử lý công việc hiệu quả.<br>
+                    · Được đào tạo về lập trình cơ sở dữ liệu và lập trình hướng đối tượng.<br>
+                    · Được đào tạo về nghiệp vụ và quy trình làm việc của hệ thống ERP.<br>
+                    · Có cơ hội phát triển vào các vị trí chuyên viên, quản lý của công ty.<br>
+                    · Có cơ hội làm việc và triển khai dự án cho các doanh nghiệp lớn.<br>
+                    · Hưởng chế độ theo quy định luật lao động và BHXH, BHYT, BHTN...<br>
+                    · Tham gia các hoạt động tinh thần: du lịch, giải trí do Công ty tổ chức…
+                </p>',
+                'location_id' => 1, 'expireDay' => '2020/08/15', 'status' =>1],
+            ['id'=>4,'category_id' => 4, 'name'=>'FE job', 'slug' => 'abc', 'description'=> 
+                '<h3>Mô tả công việc</h3>
+                <p>
+                - Sử dụng <strong>CMS (như WordPress)</strong> hoặc những kỹ thuật như <strong>HTML, CSS, JavaScript (ReactJS/ VueJS)</strong> v.v… để viết Code và tạo Website dành cho PC và Smartphone.<br>- Lên kế hoạch, thiết kế, tạo Website mới.<br>- Kiểm tra hiệu quả của trang web đã tạo.<br>- Chỉnh sửa, cập nhật những trang Web có sẵn.
+                </p>
+                <h3>Yêu cầu công việc</h3>
+                <p>✔️ Yêu cầu kỹ thuật:<br><br>- Có kinh nghiệm làm việc từ 4 năm trở lên với <strong>JavaScript</strong>, và trên 2 năm với phiên bản từ <strong>ES2015(ES6)</strong> trở lên).<br>- Có kinh nghiệm sử dụng FrameWork/Library như <strong>React/Vue </strong>để lập trình JavaScript.<br>- Có kinh nghiệm Coding bằng <strong>HTML5＋CSS3</strong> (kinh nghiệm làm việc thực tiễn từ 4 năm trở lên).<br>- Có kinh nghiệm sử dụng ngôn ngữ lập trình <strong>Meta (Sass (SCSS), Less, Stylus) </strong>để thiết kế CSS.<br>- Có kinh nghiệm tạo HTML/CSS theo các quy tắc chuẩn của Coding (Bao gồm kinh nghiệm sử dụng Quy tắc đặt tên phổ biến <strong>BEM</strong>.v.v...)<br>- Có kinh nghiệm sử dụng Tool quản lý version như <strong>Git</strong>, v.v...<br>- Có kinh nghiệm sử dụng Task runner.<br>- Có kinh nghiệm lập trình web với 2 front-end dev trở lên.<br><br>✔️ Yêu cầu khác:<br><br>- Có khả năng làm việc nhóm và thích giao tiếp<br>- Yêu thích những công việc mang tính chất tỉ mỉ, cẩn thận.<br>- Có tư duy tích cực, suy nghĩ có lập trường.<br>- Có khả năng thấu hiểu, nắm bắt và phác họa tốt những yêu cầu của khách hàng cũng như khả năng trình bày suy nghĩ, ý tưởng của bản thân.<br>- Có khả năng kiểm tra và chỉnh sửa Code sao cho chính xác, rõ ràng, dễ hiểu.<br>- Bắt kịp những xu hướng và kỹ thuật mới, chủ động mở rộng tầm nhìn và kiến thức.<br>- Có tinh thần hợp tác tốt và tính linh hoạt cao.
+                </p>
+                <h3>Quyền lợi</h3>
+                <p>- Thời gian làm việc: 8:00 ~ 17:00 từ thứ 2 đến thứ 6 (nghỉ Thứ Bảy, Chủ Nhật và các ngày Lễ, Tết)<br>- Thưởng: 2 lần/năm<br>- Ngoài các gói bảo hiểm cơ bản theo quy định của Luật Lao Động, bạn còn được tham gia gói bảo hiểm tai nạn lao động tại Lampart.<br>- Trà, sữa, coffee,... miễn phí<br>- Ngày nghỉ đặc biệt dành cho nhân viên nữ: 0.5 ngày/ tháng.<br>- Được hưởng những phúc lợi đặc biệt như chương trình quà tết, bánh trung thu, tiền mừng đám cưới (5,000,000 VND), tiền mừng khi sanh con (2,000,000 VND),…<br>- Đối với nhân viên ký hợp đồng không xác định thời hạn: từ thời điểm ký hợp đồng không xác định thời hạn, cứ mỗi năm được cộng thêm 1 ngày nghỉ phép. Ngày nghỉ phép không sử dụng hết trong năm sẽ trả vào lương tháng cuối cùng của năm.
+                </p>',
+                'location_id' => 1, 'expireDay' => '2020/08/15', 'status' =>1],
+            ['id'=>5,'category_id' => 5, 'name'=>'React job', 'slug' => 'abc', 'description'=> 
+                '<h3>Mô tả công việc</h3>
+                <div class="description">
+                    <p></p><ul><li>Xây dựng các sản phẩm phần mềm của công ty.</li><li>Đảm bảo chất lượng code.</li></ul><p></p>
+                </div>
+                <h3>Yêu cầu công việc</h3>
+                <div class="experience">
+                <p></p><ul><li>Có ít nhất 2 năm kinh nghiệm trong việc phát triển phần mềm&nbsp;</li><li>Có kinh nghiệm với React, ReactJS, AngularJS&nbsp;</li><li>Nhiều kinh nghiệm với CSS, HTML, Javascript&nbsp;</li><li>Có kinh nghiệm làm việc với NodeJS, PHP Có kinh nghiệm làm việc với MySQL.&nbsp;</li><li>Giao tiếp và làm việc nhóm tốt&nbsp;</li><li>Tiếng Anh giao tiếp tốt.&nbsp;</li><li>Trách nhiệm, cầu tiến trong công việc&nbsp;</li><li>Làm việc với quy trình Agile.&nbsp;</li><li>Có kinh nghiệm trong lĩnh vực F&amp;B là lợi thế</li></ul><p></p>
+                </div>
+                <h3>Quyền lợi</h3>
+                <div class="culture_description">
+                    <ul><li>Lương, thưởng cạnh tranh trên thị trường và công bằng trong nội bộ.</li><li>Được làm việc trong môi trường năng động, trẻ trung, đầy nhiệt huyết.</li><li>Cơ hội được làm việc trên một sản phẩm phát triển theo hướng B2B</li><li>Được tham gia các hoạt động team building của công ty.</li><li>Trợ cấp ăn trưa và đi lại.</li><li>Chế độ nghỉ lễ tết, BHYT/BHXH/BHTN theo quy định của luật lao động.</li></ul>
+                </div>',
+                'location_id' => 1, 'expireDay' => '2020/08/15', 'status' =>1],
         ]);
         DB::table('cvs')->insert([
             ['id'=>1,'user_id' => 1, 'cv_name' => 'CV1', 'cv_url'=>'https://miro.medium.com/max/1200/1*Eu6cAGjXNa0-ct_hlsH1yQ.jpeg'],

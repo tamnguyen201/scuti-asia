@@ -18,7 +18,7 @@
 
     #heading {
         text-transform: uppercase;
-        color: #673AB7;
+        color: #5cb85c;;
         font-weight: normal
     }
 
@@ -68,13 +68,13 @@
         -moz-box-shadow: none !important;
         -webkit-box-shadow: none !important;
         box-shadow: none !important;
-        border: 1px solid #673AB7;
+        border: 1px solid #5cb85c;;
         outline-width: 0
     }
 
     #msform .action-button {
         width: 100px;
-        background: #673AB7;
+        background: #5cb85c;;
         font-weight: bold;
         color: white;
         border: 0 none;
@@ -116,14 +116,14 @@
 
     .fs-title {
         font-size: 25px;
-        color: #673AB7;
+        color: #5cb85c;;
         margin-bottom: 15px;
         font-weight: normal;
         text-align: left
     }
 
     .purple-text {
-        color: #673AB7;
+        color: #5cb85c;;
         font-weight: normal
     }
 
@@ -147,7 +147,7 @@
     }
 
     #progressbar .active {
-        color: #673AB7
+        color: #5cb85c;
     }
 
     #progressbar li {
@@ -205,7 +205,7 @@
 
     #progressbar li.active:before,
     #progressbar li.active:after {
-        background: #673AB7
+        background: #5cb85c;
     }
 
     .progress {
@@ -213,7 +213,7 @@
     }
 
     .progress-bar {
-        background-color: #673AB7
+        background-color: #5cb85c;
     }
 
     .fit-image {
@@ -240,7 +240,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="text-container col-lg-8 mx-auto">
-                        @if(auth()->user()->id < 3)
+                        @if(auth()->user()->job[0]->id != $data['job']->id)
                         <h3 class="text-center">@lang('client.page.apply.form_title')</h3>
                         <form action="{{route('client.apply.job')}}" class="row mt-4" method="post" enctype="multipart/form-data">
                             @csrf
@@ -261,6 +261,7 @@
                                 </div>
                             </div>
                             <div class="col-md-6">
+                                <input type="hidden" name="job_id" value="{{$data['job']->id}}">
                                 @if(auth()->user()->cv->count() > 0)
                                 <div class="form-group">
                                     <label>@lang('custom.choose_cv')</label>
@@ -308,18 +309,15 @@
                             </div>
                         </form>
                         @else
-                        <h2 id="heading">Sign Up Your User Account</h2>
-                        <p>Fill all form field to go to next step</p>
+                        <h3 id="heading">@lang('client.page.apply.process.title')</h3>
+                        <p>@lang('client.page.apply.process.description')</p>
                         <form id="msform">
                             <ul id="progressbar">
-                                <li class="active" id="account"><strong>Account</strong></li>
-                                <li id="personal"><strong>Personal</strong></li>
-                                <li id="payment"><strong>Image</strong></li>
+                                <li class="active" id="account"><strong>Checking</strong></li>
+                                <li id="personal"><strong>Review</strong></li>
+                                <li id="payment"><strong>Interviewer</strong></li>
                                 <li id="confirm"><strong>Finish</strong></li>
                             </ul>
-                            <div class="progress">
-                                <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div> <br> <!-- fieldsets -->
                             <fieldset>
                                 <div class="form-card">
                                     <div class="row">
@@ -374,7 +372,7 @@
                                     </div> <br><br>
                                     <h2 class="purple-text text-center"><strong>SUCCESS !</strong></h2> <br>
                                     <div class="row justify-content-center">
-                                        <div class="col-3"> <img src="https://i.imgur.com/GwStPmg.png" class="fit-image"> </div>
+                                        <div class="col-3"> <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSMudI9BnTi2ZnfY_I_E5V4zOagiLTVSZPfgA&usqp=CAU" class="fit-image"> </div>
                                     </div> <br><br>
                                     <div class="row justify-content-center">
                                         <div class="col-7 text-center">
@@ -390,9 +388,9 @@
                 <div class="row col-lg-12">
                     <div class="col-lg-9 col-md-8">
                         <div class="text-container">
-                            <h3>{{$data['job']->name}}</h3>
+                            <h2>{{$data['job']->name}}</h2>
                             <div class="">
-                            {{$data['job']->description}}
+                            {!! $data['job']->description !!}
                             </div>
                         </div>
                     </div>
