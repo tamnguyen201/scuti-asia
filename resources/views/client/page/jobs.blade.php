@@ -27,15 +27,15 @@
                     <div class="col-lg-3 col-md-4 col-12 button-group filters-button-group">
                         <h3 class=""><span>@lang('client.section.recruitment.menu_title')</span></h3>
                         @foreach($data['categories'] as $category)
-                        <a class="d-block button text-decoration-none" id="v-pills-{{$category->category_name}}-tab" data-toggle="pill" href="#v-pills-{{$category->category_name}}" role="tab" aria-controls="v-pills-{{$category->category_name}}" aria-selected="true"><span>{{$category->category_name}}</span></a>
+                        <a class="d-block button text-decoration-none" id="v-pills-{{$category->slug}}-tab" data-toggle="pill" href="#v-pills-{{$category->slug}}" role="tab" aria-controls="v-pills-{{$category->slug}}" aria-selected="true"><span>{{$category->category_name}}</span></a>
                         @endforeach
                         <a class="d-block button is-checked text-decoration-none" id="v-pills-all-tab" data-toggle="pill" href="#v-pills-all" role="tab" aria-controls="v-pills-all" aria-selected="true"><span>@lang('client.section.recruitment.end_menu')</span></a>
                     </div>
                     <div class="col-lg-9 col-md-8 col-12 list-group">
                         <div class="tab-content" id="v-pills-tabContent">
                             @foreach($data['categories'] as $category)
-                            <div class="tab-pane fade" id="v-pills-{{$category->category_name}}" role="tabpanel" aria-labelledby="v-pills-{{$category->category_name}}-tab">
-                                @foreach($data['jobs'] as $job)    
+                            <div class="tab-pane fade" id="v-pills-{{$category->slug}}" role="tabpanel" aria-labelledby="v-pills-{{$category->slug}}-tab">
+                                @foreach($data['jobs'] as $job)
                                 @if($job->category->id == $category->id)
                                 <div class="list-group-item d-md-flex col-12 development">
                                     <div class="col-md-8 col-12">

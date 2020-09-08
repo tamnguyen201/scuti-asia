@@ -145,14 +145,14 @@ class RoleSeeder extends Seeder
             ['id'=>2, 'name'=>'Nguyễn Phú Tâm', 'email' => 'customer2@gmail.com', 'message' => 'Qua chơi', 'type' => 'Trà Đá'],
         ]);
         DB::table('categories')->insert([
-            ['id'=>1,'user_id' => 1, 'category_name'=>'PHP', 'slug' => 'php', 'status' => 1],
-            ['id'=>2,'user_id' => 1, 'category_name'=>'NodeJs', 'slug' => 'nodejs', 'status' => 1],
-            ['id'=>3,'user_id' => 1, 'category_name'=>'Java', 'slug' => 'java', 'status' => 1],
-            ['id'=>4,'user_id' => 1, 'category_name'=>'Html Css', 'slug' => 'html-css', 'status' => 1],
-            ['id'=>5,'user_id' => 1, 'category_name'=>'ReactJs', 'slug' => 'reactjs', 'status' => 1],
+            ['id'=>1,'user_id' => 1, 'category_name'=>'PHP', 'slug' => \Str::slug('PHP'), 'status' => 1],
+            ['id'=>2,'user_id' => 1, 'category_name'=>'NodeJs', 'slug' => \Str::slug('NodeJs'), 'status' => 1],
+            ['id'=>3,'user_id' => 1, 'category_name'=>'Java', 'slug' => \Str::slug('Java'), 'status' => 1],
+            ['id'=>4,'user_id' => 1, 'category_name'=>'Html Css', 'slug' => \Str::slug('Html Css'), 'status' => 1],
+            ['id'=>5,'user_id' => 1, 'category_name'=>'ReactJs', 'slug' => \Str::slug('ReactJs'), 'status' => 1],
         ]);
         DB::table('jobs')->insert([
-            ['id'=>1,'category_id' => 1, 'name'=>'PHP job', 'slug' => 'abc', 'description'=> 
+            ['id'=>1,'category_id' => 1, 'name'=>'PHP job', 'slug' => \Str::slug('PHP job'), 'description'=> 
                 '<h4>Mô tả công việc</h4>
                 <p>
                     - Quản trị web<br>
@@ -184,7 +184,7 @@ class RoleSeeder extends Seeder
                     - Thăng tiến nhanh nếu chứng tỏ được năng lực bản thân. Lương sẽ lên cao đúng như năng lực chứng mình được trong thời gian làm việc.
                 </p>',
                 'location_id' => 1, 'salary' => 'Thỏa Thuận', 'expireDay' => '2020/08/15', 'status' =>1],
-            ['id'=>2,'category_id' => 2, 'name'=>'Node job', 'slug' => 'abc', 'description'=> 
+            ['id'=>2,'category_id' => 2, 'name'=>'Node job', 'slug' => \Str::slug('Node job'), 'description'=> 
                 '<h4>Mô tả công việc</h4>
                 <div class="description">
                     <ul>
@@ -219,7 +219,7 @@ class RoleSeeder extends Seeder
                     </ul>
                 </div',
                 'location_id' => 1, 'salary' => 'Thỏa Thuận', 'expireDay' => '2020/08/15', 'status' =>1],
-            ['id'=>3,'category_id' => 3, 'name'=>'java job', 'slug' => 'abc', 'description'=> 
+            ['id'=>3,'category_id' => 3, 'name'=>'Java Job', 'slug' => \Str::slug('java job'), 'description'=> 
                 '<h4>Mô tả công việc</h4>
                 <p>
                     Công việc lập trình Winform ERP:<br>
@@ -256,7 +256,7 @@ class RoleSeeder extends Seeder
                     · Tham gia các hoạt động tinh thần: du lịch, giải trí do Công ty tổ chức…
                 </p>',
                 'location_id' => 1, 'salary' => 'Thỏa Thuận', 'expireDay' => '2020/08/15', 'status' =>1],
-            ['id'=>4,'category_id' => 4, 'name'=>'FE job', 'slug' => 'abc', 'description'=> 
+            ['id'=>4,'category_id' => 4, 'name'=>'FE job', 'slug' => \Str::slug('FE job'), 'description'=> 
                 '<h4>Mô tả công việc</h4>
                 <p>
                 - Sử dụng <strong>CMS (như WordPress)</strong> hoặc những kỹ thuật như <strong>HTML, CSS, JavaScript (ReactJS/ VueJS)</strong> v.v… để viết Code và tạo Website dành cho PC và Smartphone.<br>- Lên kế hoạch, thiết kế, tạo Website mới.<br>- Kiểm tra hiệu quả của trang web đã tạo.<br>- Chỉnh sửa, cập nhật những trang Web có sẵn.
@@ -268,7 +268,7 @@ class RoleSeeder extends Seeder
                 <p>- Thời gian làm việc: 8:00 ~ 17:00 từ thứ 2 đến thứ 6 (nghỉ Thứ Bảy, Chủ Nhật và các ngày Lễ, Tết)<br>- Thưởng: 2 lần/năm<br>- Ngoài các gói bảo hiểm cơ bản theo quy định của Luật Lao Động, bạn còn được tham gia gói bảo hiểm tai nạn lao động tại Lampart.<br>- Trà, sữa, coffee,... miễn phí<br>- Ngày nghỉ đặc biệt dành cho nhân viên nữ: 0.5 ngày/ tháng.<br>- Được hưởng những phúc lợi đặc biệt như chương trình quà tết, bánh trung thu, tiền mừng đám cưới (5,000,000 VND), tiền mừng khi sanh con (2,000,000 VND),…<br>- Đối với nhân viên ký hợp đồng không xác định thời hạn: từ thời điểm ký hợp đồng không xác định thời hạn, cứ mỗi năm được cộng thêm 1 ngày nghỉ phép. Ngày nghỉ phép không sử dụng hết trong năm sẽ trả vào lương tháng cuối cùng của năm.
                 </p>',
                 'location_id' => 1, 'salary' => 'Thỏa Thuận', 'expireDay' => '2020/08/15', 'status' =>1],
-            ['id'=>5,'category_id' => 5, 'name'=>'React job', 'slug' => 'abc', 'description'=> 
+            ['id'=>5,'category_id' => 5, 'name'=>'React job', 'slug' => \Str::slug('React job'), 'description'=> 
                 '<h4>Mô tả công việc</h4>
                 <div class="description">
                     <p></p><ul><li>Xây dựng các sản phẩm phần mềm của công ty.</li><li>Đảm bảo chất lượng code.</li></ul><p></p>
