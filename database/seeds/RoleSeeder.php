@@ -152,7 +152,7 @@ class RoleSeeder extends Seeder
             ['id'=>5,'user_id' => 1, 'category_name'=>'ReactJs', 'slug' => \Str::slug('ReactJs'), 'status' => 1],
         ]);
         DB::table('jobs')->insert([
-            ['id'=>1,'category_id' => 1, 'name'=>'PHP job', 'slug' => \Str::slug('PHP job'), 'description'=> 
+            ['id'=>1,'category_id' => 1, 'name'=>'PHP', 'slug' => \Str::slug('PHP'), 'description'=> 
                 '<h4>Mô tả công việc</h4>
                 <p>
                     - Quản trị web<br>
@@ -184,7 +184,7 @@ class RoleSeeder extends Seeder
                     - Thăng tiến nhanh nếu chứng tỏ được năng lực bản thân. Lương sẽ lên cao đúng như năng lực chứng mình được trong thời gian làm việc.
                 </p>',
                 'location_id' => 1, 'salary' => 'Thỏa Thuận', 'expireDay' => '2020/08/15', 'status' =>1],
-            ['id'=>2,'category_id' => 2, 'name'=>'Node job', 'slug' => \Str::slug('Node job'), 'description'=> 
+            ['id'=>2,'category_id' => 2, 'name'=>'Node', 'slug' => \Str::slug('Node'), 'description'=> 
                 '<h4>Mô tả công việc</h4>
                 <div class="description">
                     <ul>
@@ -219,7 +219,7 @@ class RoleSeeder extends Seeder
                     </ul>
                 </div',
                 'location_id' => 1, 'salary' => 'Thỏa Thuận', 'expireDay' => '2020/08/15', 'status' =>1],
-            ['id'=>3,'category_id' => 3, 'name'=>'Java Job', 'slug' => \Str::slug('java job'), 'description'=> 
+            ['id'=>3,'category_id' => 3, 'name'=>'Java', 'slug' => \Str::slug('java'), 'description'=> 
                 '<h4>Mô tả công việc</h4>
                 <p>
                     Công việc lập trình Winform ERP:<br>
@@ -256,7 +256,7 @@ class RoleSeeder extends Seeder
                     · Tham gia các hoạt động tinh thần: du lịch, giải trí do Công ty tổ chức…
                 </p>',
                 'location_id' => 1, 'salary' => 'Thỏa Thuận', 'expireDay' => '2020/08/15', 'status' =>1],
-            ['id'=>4,'category_id' => 4, 'name'=>'FE job', 'slug' => \Str::slug('FE job'), 'description'=> 
+            ['id'=>4,'category_id' => 4, 'name'=>'FE', 'slug' => \Str::slug('FE'), 'description'=> 
                 '<h4>Mô tả công việc</h4>
                 <p>
                 - Sử dụng <strong>CMS (như WordPress)</strong> hoặc những kỹ thuật như <strong>HTML, CSS, JavaScript (ReactJS/ VueJS)</strong> v.v… để viết Code và tạo Website dành cho PC và Smartphone.<br>- Lên kế hoạch, thiết kế, tạo Website mới.<br>- Kiểm tra hiệu quả của trang web đã tạo.<br>- Chỉnh sửa, cập nhật những trang Web có sẵn.
@@ -268,7 +268,7 @@ class RoleSeeder extends Seeder
                 <p>- Thời gian làm việc: 8:00 ~ 17:00 từ thứ 2 đến thứ 6 (nghỉ Thứ Bảy, Chủ Nhật và các ngày Lễ, Tết)<br>- Thưởng: 2 lần/năm<br>- Ngoài các gói bảo hiểm cơ bản theo quy định của Luật Lao Động, bạn còn được tham gia gói bảo hiểm tai nạn lao động tại Lampart.<br>- Trà, sữa, coffee,... miễn phí<br>- Ngày nghỉ đặc biệt dành cho nhân viên nữ: 0.5 ngày/ tháng.<br>- Được hưởng những phúc lợi đặc biệt như chương trình quà tết, bánh trung thu, tiền mừng đám cưới (5,000,000 VND), tiền mừng khi sanh con (2,000,000 VND),…<br>- Đối với nhân viên ký hợp đồng không xác định thời hạn: từ thời điểm ký hợp đồng không xác định thời hạn, cứ mỗi năm được cộng thêm 1 ngày nghỉ phép. Ngày nghỉ phép không sử dụng hết trong năm sẽ trả vào lương tháng cuối cùng của năm.
                 </p>',
                 'location_id' => 1, 'salary' => 'Thỏa Thuận', 'expireDay' => '2020/08/15', 'status' =>1],
-            ['id'=>5,'category_id' => 5, 'name'=>'React job', 'slug' => \Str::slug('React job'), 'description'=> 
+            ['id'=>5,'category_id' => 5, 'name'=>'React', 'slug' => \Str::slug('React'), 'description'=> 
                 '<h4>Mô tả công việc</h4>
                 <div class="description">
                     <p></p><ul><li>Xây dựng các sản phẩm phần mềm của công ty.</li><li>Đảm bảo chất lượng code.</li></ul><p></p>
@@ -297,16 +297,6 @@ class RoleSeeder extends Seeder
             ['id'=>4, 'user_id' => 3, 'cv_id' => 3, 'job_id' => 4, 'letter' => 'Cảm ơn', 'status' => 0, 'result' => 0],
             ['id'=>5, 'user_id' => 4, 'cv_id' => 4, 'job_id' => 5, 'letter' => 'Cảm ơn', 'status' => 1, 'result' => 1],
         ]);
-        // DB::table('evaluates')->insert([
-        //     ['id'=>1, 'process_step_id' => 1,'comment' => '', 'reason' => 'Checking', 'status' => 1],
-        //     ['id'=>2, 'process_step_id' => 2,'comment' => '', 'reason' => 'Review', 'status' => 0],
-        //     ['id'=>3, 'process_step_id' => 3,'comment' => '', 'reason' => 'Checking', 'status' => 1],
-        //     ['id'=>4, 'process_step_id' => 4,'comment' => '', 'reason' => 'Checking', 'status' => 1],
-        //     ['id'=>5, 'process_step_id' => 5,'comment' => '', 'reason' => 'Checking', 'status' => 1],
-        //     ['id'=>6, 'process_step_id' => 6,'comment' => '', 'reason' => 'Review', 'status' => 1],
-        //     ['id'=>7, 'process_step_id' => 7,'comment' => '', 'reason' => 'Interviewer', 'status' => 1],
-        //     ['id'=>8, 'process_step_id' => 8,'comment' => '', 'reason' => 'Make Offer', 'status' => 0],
-        // ]);
         DB::table('process')->insert([
             ['id'=>1, 'step' => 1, 'name' => 'Checking', 'user_job_id' => 1],
             ['id'=>2, 'step' => 2, 'name' => 'Review', 'user_job_id' => 1],

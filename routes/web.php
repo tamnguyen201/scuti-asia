@@ -73,6 +73,9 @@ Route::group(
         Route::resource('companies', 'CompanyController');
         Route::resource('company_images', 'CompanyImagesController');
         Route::resource('new_spaper', 'NewSpaperController');
+        Route::get('candidates/evaluating', 'CandidateController@evaluating')->name('candidates.evaluating');
+        Route::get('candidates/finish', 'CandidateController@finish')->name('candidates.finish');
+        Route::get('candidates/failed', 'CandidateController@failed')->name('candidates.failed');
         Route::resource('candidates', 'CandidateController')->only(['index', 'show']);
         Route::group(['prefix' => 'evaluate'], function () {
             Route::get('candidate/{id}', 'EvaluateController@show')->name('evaluate.candidate.show');
@@ -84,9 +87,6 @@ Route::group(
         // Route::post('fullcalendar/delete','EvaluateController@destroyCalendar');
 
         Route::resource('new_spaper', 'NewSpaperController');
-        Route::get('candidates/evaluating', 'CandidateController@evaluating')->name('candidates.evaluating');
-        Route::get('candidates/finish', 'CandidateController@finish')->name('candidates.finish');
-        Route::get('candidates/failed', 'CandidateController@failed')->name('candidates.failed');
         Route::resource('sections', 'SectionController');
         Route::resource('contacts', 'ContactController')->only(['index', 'show']);
         

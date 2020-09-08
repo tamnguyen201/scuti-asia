@@ -63,7 +63,7 @@
                                             <td>{{$item->name}}</td>
                                             @for($i = 0; $i <= $candidate->userjob[$key]->process->count(); $i++)
                                                 @if($i == $candidate->userjob[$key]->process->count() - 1)
-                                                <td>{{($candidate->userjob[$key]->process[$i]->status == 1) ? 'Đồng Ý' : 'Từ Chối'}}</td>
+                                                <td>{{($candidate->userjob[$key]->result == 1) ? 'Đồng Ý' : 'Từ Chối'}}</td>
                                                 @endif
                                             @endfor
                                             <td class="text-center">
@@ -77,7 +77,7 @@
                         </table>
                         <div class="fixed-table-pagination">
                             <div class="pull-right pagination">
-                                {{$candidates->links()}}
+                                <!-- {{$candidates->links()}} -->
                             </div>
                         </div>
                         </div>

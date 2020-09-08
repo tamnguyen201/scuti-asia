@@ -77,7 +77,7 @@
                         </table>
                         <div class="fixed-table-pagination">
                             <div class="pull-right pagination">
-                                {{$candidates->links()}}
+                                <!-- {{$candidates->links()}} -->
                             </div>
                         </div>
                         </div>

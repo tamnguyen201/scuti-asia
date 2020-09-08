@@ -147,7 +147,6 @@ return [
         'error' => 'Lỗi',
         'not_found'=>'Không tìm thấy hoặc nhập sai',
         'fail'=>'Không thành công',
-    ],
         'invalid' => 'Tài khoản hoặc mật khẩu không đúng! Vui lòng thử lại.',
         'same' => 'Mật khẩu mới trùng với mật khẩu hiện tại! Vui lòng thử lại.',
         'not_same' => 'Mật khẩu hiện tại không chính sác! Vui lòng thử lại.',
@@ -164,6 +163,7 @@ return [
             'title' => 'Đăng Nhập Thành Công',
             'text' => 'Bạn Đã Đăng Nhập Thành Công! Hãy Tìm Cho Mình Công Việc Phù Hợp.',
         ],
-    
+        
+    ],
 
 ];

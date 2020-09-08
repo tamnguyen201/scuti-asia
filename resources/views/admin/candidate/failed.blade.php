@@ -57,7 +57,7 @@
                                     @foreach($candidate->job as $key => $item)
                                         @if($candidate->userjob[$key]->process->count() > 0)
                                             @for($i = 0; $i < $candidate->userjob[$key]->process->count(); $i++)
-                                                @if(isset($candidate->userjob[$key]->process[$i]) && $candidate->userjob[$key]->process[$i]->evaluate[0]->status == 0)
+                                                @if(isset($candidate->userjob[$key]->process[$i]) && $candidate->userjob[$key]->process[$i]->evaluate->status == 0)
                                                 <tr>
                                                     <td>{{$stt++}}</td>
                                                     <td>{{$candidate->name}}</td>
@@ -77,7 +77,7 @@
                         </table>
                         <div class="fixed-table-pagination">
                             <div class="pull-right pagination">
-                                {{$candidates->links()}}
+                                <!-- {{$candidates->links()}} -->
                             </div>
                         </div>
                         </div>
