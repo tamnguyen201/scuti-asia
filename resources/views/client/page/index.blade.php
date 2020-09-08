@@ -221,7 +221,7 @@
                                 <div class="list-group-item d-md-flex col-12 development">
                                     <div class="col-md-8 col-12">
                                         <div class="mb-block cell name-job">
-                                            <h4 class="title-h4"><a style="font-weight: normal;color: #f4511e; text-decoration: none" href="{{route('job-detail', [$job->slug, $job->id])}}">[{{$job->location->name}}] {{$job->name}}</a></h4>
+                                            <h4 class="title-h4"><a style="font-weight: normal;color: #f4511e; text-decoration: none" href="{{route('job-detail', [$job->id, $job->slug])}}">[{{$job->location->name}}] {{$job->name}}</a></h4>
                                             <p class="desc-job">
                                                 <i class="far fa-money-bill-alt"></i> {{$job->salary}} <br>
                                                 <i class="fas fa-map-marker-alt"></i> {{$job->location->name}}
@@ -230,7 +230,7 @@
                                         </div>
                                     </div>
                                     <div class="col-md-4 col-12 text-md-right text-center">
-                                        <a href="{{route('client.applied', [$job->slug, $job->id])}}" class="btn-apply-main btn-apply">@lang('client.section.recruitment.apply')</a>
+                                        <a href="{{route('client.applied', [$job->id, $job->slug])}}" class="btn-apply-main btn-apply">@lang('client.section.recruitment.apply')</a>
                                     </div>
                                 </div>
                                 @endif
@@ -243,7 +243,7 @@
                                 <div class="list-group-item d-md-flex col-12 development">
                                     <div class="col-md-8 col-12">
                                         <div class="mb-block cell name-job">
-                                            <h4 class="title-h4"><a style="font-weight: normal;color: #f4511e; text-decoration: none" href="{{route('job-detail', [$job->slug, $job->id])}}">[Đà Nẵng] {{$job->name}}</a></h4>
+                                            <h4 class="title-h4"><a style="font-weight: normal;color: #f4511e; text-decoration: none" href="{{route('job-detail', [$job->id, $job->slug])}}">[{{$job->location->name}}] {{$job->name}}</a></h4>
                                             <p class="desc-job">
                                                 <i class="far fa-money-bill-alt"></i> {{$job->salary}} <br>
                                                 <i class="fas fa-map-marker-alt"></i> {{$job->location->name}}
@@ -252,7 +252,7 @@
                                         </div>
                                     </div>
                                     <div class="col-md-4 col-12 text-md-right text-center">
-                                        <a href="{{route('client.applied', [$job->slug, $job->id])}}" class="btn-apply-main btn-apply">@lang('client.section.recruitment.apply')</a>
+                                        <a href="{{route('client.applied', [$job->id, $job->slug])}}" class="btn-apply-main btn-apply">@lang('client.section.recruitment.apply')</a>
                                     </div>
                                 </div>
                                 @endforeach
