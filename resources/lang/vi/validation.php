@@ -117,6 +117,7 @@ return [
     'uploaded' => 'Trường :attribute không thể tải lên.',
     'url' => 'Trường :attribute không giống với định dạng một URL.',
     'uuid' => 'Trường :attribute không phải là một chuỗi UUID hợp lẹ.',
+    'not_found'=> 'Không tìm thấy trường bạn vừa nhập vào',
 
     /*
     |--------------------------------------------------------------------------

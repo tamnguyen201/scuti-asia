@@ -9,7 +9,7 @@ class CandidateController extends Controller
 {
     protected $candidateRepository;
 
-    public function __construct(CandidateRepositoryInterface $candidateRepository)
+    public function __construct(CandidateRepositoryInterface $candidateRepository) 
     {
         $this->candidateRepository = $candidateRepository;
     }

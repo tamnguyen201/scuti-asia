@@ -6,12 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Evaluate extends Model
 {
-    protected $table = 'evaluates';
-    protected $fillable = ['process_id', 'status', 'comment', 'reason'];
+    public $timestamps = false;
+    protected $fillable = ['process_step_id', 'status', 'comment', 'reason'];
 
     public function process()
     {
         return $this->belongsTo('App\Model\Process');
     }
-
 }

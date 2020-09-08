@@ -54,6 +54,18 @@ class RepositoryServiceProvider extends ServiceProvider
             \App\Repositories\Candidate\CandidateRepository::class,
         );
         $this->app->singleton(
+            \App\Repositories\Process\ProcessRepositoryInterface::class,
+            \App\Repositories\Process\ProcessRepository::class,
+        );
+        $this->app->singleton(
+            \App\Repositories\Evaluate\EvaluateRepositoryInterface::class,
+            \App\Repositories\Evaluate\EvaluateRepository::class,
+        );
+        $this->app->singleton(
+            \App\Repositories\PWReset\PWResetRepositoryInterface::class,
+            \App\Repositories\PWReset\PWResetRepository::class,
+        );
+        $this->app->singleton(
             \App\Repositories\CV\CVRepositoryInterface::class,
             \App\Repositories\CV\CVRepository::class,
         );

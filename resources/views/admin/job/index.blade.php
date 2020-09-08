@@ -17,13 +17,14 @@
         <h1 class="page-header">@lang('custom.page_title.job_manage')</h1>
     </div>
 </div>
+<div class="row">
 <div class="col-lg-12">
     <div class="panel panel-default">
        <div class="panel-heading">@lang('custom.page_title.jobs')</div>
        <div class="panel-body">
             <div class="bootstrap-table">
                 <div class="fixed-table-toolbar">
-                    <a href="{{ route('jobs.create') }}" class="btn btn-primary btn-add-form" style="float: right"><span class="fa fa-plus"></span> @lang('custom.button.add')</a>
+                    <a href="{{ route('jobs.create') }}" class="btn btn-primary btn-add-form" style="float: right; margin: 1rem"><span class="fa fa-plus"></span> Add New</a>
                 </div>
                 <div class="fixed-table-container">
                     <div class="fixed-table-body">
@@ -105,6 +106,7 @@
        </div>
     </div>
  </div>
+</div>
 @endsection
 @section('script')
     <script src="https://cdnjs.cloudflare.com/ajax/libs/switchery/0.8.2/switchery.min.js"></script>

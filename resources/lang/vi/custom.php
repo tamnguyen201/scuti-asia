@@ -29,6 +29,7 @@ return [
     'location'=>'Địa điểm',
     'expire_day'=>'Ngày hết hạn',
     'status'=>'Trạng thái',
+    'job'=>'job',
     'process' => 'Quá Trình Đánh Giá',
     'result' => 'Kết Quả',
     'process_failed' => 'Bước Đánh Giá Bị Loại',
@@ -44,6 +45,8 @@ return [
     'candidate_evaluated' => 'Ứng viên đang đánh giá',
     'candidate_accept' => 'Ứng viên đồng ý',
     'candidate_failed' => 'Ứng viên bị loại',
+    'CV_status'=> 'Trạng thái',
+    'applied_job'=>'Công việc đã ứng tuyển',
     
     'page_title' => [
         'dashboard' => 'Bảng Điều Khiển',
@@ -73,6 +76,10 @@ return [
         'jobs_manage'=>'Quản lý danh sách Job',
         'jobs_detail'=>'Thông tin Job',
         'show_infor'=>'Thông tin',
+        
+        'job_edit' =>'Sửa Job',
+        'add'=>'Tạo mới',
+        'enter_code'=>'Nhập mã code của bạn',
         'section_manage' => 'Quản Lí Bố Cục',
         'contact_manage' => 'Quản Lí Liên Hệ',
     ],
@@ -89,7 +96,14 @@ return [
         'reset' => 'Làm mới',
         'close' => 'Đóng',
         'update_information' => 'Đổi thông tin',
-        'change_password' =>'Đổi mật khẩu'
+        'change_password' =>'Đổi mật khẩu',
+        'login'=>'Đăng nhập',
+        'remember_me'=>'Ghi nhớ tôi',
+        'forgot_password'=>'Quên mật khẩu',
+        'reset_password'=>'Reset lại mật khẩu',
+        'had_password'=>'Bạn đã có tài khoản, đăng nhập tại đây',
+        'enter'=>'Nhập',
+        'start_process'=>'Bắt đầu đánh giá'
     ],
 
     'menu' => [
@@ -111,12 +125,19 @@ return [
         'finishing' => 'Hoàn Tất',
         'failed' => 'Loại',
         'logout' => 'Đăng Xuất',
+        'job'=>'Jobs',
+        'location'=>'Địa điểm',
+        'category'=>'Danh mục'
     ],
 
     'email_template' => [
         'create_admin_account' => [
             'title' => 'Mail from Scuti-asia.com',
             'body' => 'Bạn vừa được tạo tài khoản thành viên quản trị website!',
+        ],
+        'forgot_password' => [
+            'title' => 'Mail from Scuti-asia.com',
+            'body' => 'Bạn đã yêu cầu cấp lại mật khẩu!',
         ]
     ],
 
@@ -124,6 +145,9 @@ return [
         'success' => 'Thành công!',
         'warning' => 'Cảnh báo dữ liệu này đã có sẵn, vui lòng không tạo mới!',
         'error' => 'Lỗi',
+        'not_found'=>'Không tìm thấy hoặc nhập sai',
+        'fail'=>'Không thành công',
+    ],
         'invalid' => 'Tài khoản hoặc mật khẩu không đúng! Vui lòng thử lại.',
         'same' => 'Mật khẩu mới trùng với mật khẩu hiện tại! Vui lòng thử lại.',
         'not_same' => 'Mật khẩu hiện tại không chính sác! Vui lòng thử lại.',
@@ -140,6 +164,6 @@ return [
             'title' => 'Đăng Nhập Thành Công',
             'text' => 'Bạn Đã Đăng Nhập Thành Công! Hãy Tìm Cho Mình Công Việc Phù Hợp.',
         ],
-    ],
+    
 
 ];

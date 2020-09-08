@@ -13,6 +13,7 @@
         <h1 class="page-header">Locations Manage</h1>
     </div>
 </div>
+<div class="row">
 <div class="col-lg-12">
     <div class="panel panel-default">
        <div class="panel-heading">Data Table</div>
@@ -95,6 +96,7 @@
        </div>
     </div>
  </div>
+</div>
 @endsection
 @section('script')
     <script type="text/javascript">

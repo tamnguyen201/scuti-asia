@@ -16,6 +16,7 @@
         <h1 class="page-header">@lang('custom.page_title.job_edit')</h1>
     </div>
 </div>
+<div class="row">
 <div class="col-lg-12">
     <div class="panel panel-default">
        <div class="panel-heading">@lang('custom.page_title.job_edit')</div>
@@ -27,6 +28,11 @@
                     <div class="form-group">
                         <label>@lang('custom.title') : </label>
                         <input value="{{ $jobById->name }}" name="name" type="text" class="form-control" @error('name') is-invalid @enderror placeholder="Enter title">
+                <form action="{{ route('jobs.store') }}" method="post">
+                    @csrf
+                    <div class="form-group">
+                        <label>@lang('custom.title') : </label>
+                        <input name="name" type="text" class="form-control" @error('name') is-invalid @enderror placeholder="Enter title">
                         @error('name')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -86,9 +92,10 @@
        </div>
     </div>
  </div>
+</div>
 @endsection
 @section('script')
-    <script src="//cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>
+<script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
     <script>
     CKEDITOR.replace( 'description', {
         filebrowserBrowseUrl: '{{ route('jobs.edit', $jobById->id) }}',

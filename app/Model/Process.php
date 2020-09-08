@@ -8,6 +8,7 @@ class Process extends Model
 {
     protected $table = 'process';
     protected $fillable = ['step', 'name', 'user_job_id'];
+    public $timestamps = false;
 
     public function user_job()
     {
@@ -16,6 +17,6 @@ class Process extends Model
 
     public function evaluate()
     {
-        return $this->hasMany('App\Model\Evaluate');
+        return $this->hasOne('App\Model\Evaluate');
     }
 }

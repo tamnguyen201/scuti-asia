@@ -16,6 +16,7 @@
         <h1 class="page-header">@lang('custom.page_title.job_add')</h1>
     </div>
 </div>
+<div class="row">
 <div class="col-lg-12">
     <div class="panel panel-default">
        <div class="panel-heading">@lang('custom.page_title.add')</div>
@@ -90,9 +91,10 @@
        </div>
     </div>
  </div>
+</div>
 @endsection
 @section('script')
-    <script src="//cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>
+    <script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
     <script>
     CKEDITOR.replace( 'description', {
         filebrowserBrowseUrl: '{{ route('jobs.create') }}',
