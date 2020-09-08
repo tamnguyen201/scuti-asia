@@ -74,7 +74,7 @@ return [
         'add'=>'Tạo mới',
         'jobs' =>'Danh sách các Job',
         'jobs_manage'=>'Quản lý danh sách Job',
-        'jobs_detail'=>'Thông tin Job',
+        'job_detail'=>'Thông tin Job',
         'show_infor'=>'Thông tin',
         
         'job_edit' =>'Sửa Job',
