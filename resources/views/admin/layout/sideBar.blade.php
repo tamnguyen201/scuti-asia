@@ -54,7 +54,7 @@
                 </a>
                 </li>
                 <li><a class="" href="{{route('new_spaper.index')}}">
-                <span class="fa fa-arrow-right">&nbsp;</span> @lang('custom.menu.partner')
+                <span class="fa fa-arrow-right">&nbsp;</span> @lang('custom.menu.new_spaper')
                 </a>
                 </li>
                 <li><a class="" href="{{route('sections.index')}}">

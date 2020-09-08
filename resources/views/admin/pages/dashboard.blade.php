@@ -3,7 +3,9 @@
 @section('content')
 <div class="row">
     <ol class="breadcrumb">
-        
+        <li><a href="#">
+            <em class="fa fa-home"></em>
+        </a></li>
         <li class="active">@lang('custom.page_title.dashboard')</li>
     </ol>
 </div>

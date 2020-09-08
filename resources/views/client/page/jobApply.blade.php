@@ -337,7 +337,7 @@
                     </div>
                 </div>
                 <div class="row col-lg-12">
-                    <div class="col-lg-9 col-md-8">
+                    <div class="col-md-8">
                         <div class="text-container">
                             <h2 class="mb-4">{{$data['job']->name}}</h2>
                             <div class="">
@@ -346,8 +346,8 @@
                         </div>
                         <a href="{{route('client.jobs')}}" class="btn btn-outline-reg back" >@lang('client.page.apply.back')</a>
                     </div>
-                    <div class="col-lg-3 col-md-4">
-                        <h4>@lang('client.page.apply.sidebar.title')</h4>
+                    <div class="col-md-4">
+                        <h3>@lang('client.page.apply.sidebar.title')</h3>
                         <ul class="pl-0">
                             <li class="row justify-content-between mx-0 mb-2">
                                 <b>@lang('client.page.apply.sidebar.level')</b>

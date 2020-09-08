@@ -101,7 +101,7 @@ return [
         'company' => 'Công Ty',
         'company_info' => 'Thông Tin Công Ty',
         'company_images' => 'Ảnh Công Ty',
-        'partner' => 'Đối Tác',
+        'new_spaper' => 'Tin Tức Về Công Ty',
         'section' => 'Bố Cục',
         'evaluating' => 'Đang Đánh Giá',
         'finishing' => 'Hoàn Tất',
