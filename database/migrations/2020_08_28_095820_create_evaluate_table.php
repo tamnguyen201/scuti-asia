@@ -15,8 +15,8 @@ class CreateEvaluateTable extends Migration
     {
         Schema::create('evaluates', function (Blueprint $table) {
             $table->id();
-            $table->text('comment')->nullable;
-            $table->text('reason')->nullable;
+            $table->text('comment')->nullable();
+            $table->text('reason')->nullable();
             $table->boolean('status')->default(false);
             $table->foreignId('process_step_id');
 

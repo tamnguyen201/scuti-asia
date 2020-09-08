@@ -4,11 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Model\Event;
 use Redirect,Response;
+use App\Model\Evaluate;
 use Illuminate\Http\Request;
 use MaddHatter\LaravelFullcalendar\Facades\Calendar;
+use App\Repositories\Process\ProcessRepositoryInterface;
 use App\Repositories\Evaluate\EvaluateRepositoryInterface;
 use App\Repositories\Candidate\CandidateRepositoryInterface;
-
 
 class EvaluateController extends Controller
 {
@@ -16,13 +17,16 @@ class EvaluateController extends Controller
 
     protected $candidateRepository;
     protected $evaluateRepository;
+    protected $processRepository;
 
     public function __construct(
         EvaluateRepositoryInterface $evaluateRepository,
-        CandidateRepositoryInterface $candidateRepository)
+        CandidateRepositoryInterface $candidateRepository,
+        ProcessRepositoryInterface $processRepository)
     {
         $this->evaluateRepository = $evaluateRepository;
         $this->candidateRepository = $candidateRepository;
+        $this->processRepository = $processRepository;
     }
 
     public function checking($id, Request $request)
@@ -82,7 +86,8 @@ class EvaluateController extends Controller
                   })
             }'
         ]);
-        return view('admin.evaluate.calendar', compact('data','calendar','dataUser'));
+
+        return $calendar;
     }
 
 
@@ -96,9 +101,59 @@ class EvaluateController extends Controller
             'end' => $request->end,
             'color' => $request->color
         ];
-        $event = Event::updateOrCreate($insertArr);   
-        return redirect()->back();
+        $event = Event::updateOrCreate($insertArr);
+
+        return redirect()->route('evaluate.candidate.show',$request->process_id);
     }
      
+    public function show($id)
+    {
+        $processById = $this->processRepository->show($id);
+        $candidateById = $this->candidateRepository->where('id','=', $processById->user_job->user_id);
+        $calendar = $this->showCalendar($candidateById->id);
+        $dataUser =$this->candidateRepository->show($candidateById->id);
+        $data = Event::all();
+        
+        return view('admin.evaluate.evaluate_process', compact('processById','data','candidateById','calendar','dataUser'));
+    }
 
+    public function store(Request $request, $id)
+    {
+        $dataCurrentEvaluate = Evaluate::create([
+            'process_step_id' =>$id,
+            'comment' =>$request->comment,
+            'status' =>1
+        ]);
+        if($dataCurrentEvaluate['status'] == 1 ){
+            $processById = $this->evaluatePass($dataCurrentEvaluate);
+            $candidateById = $this->candidateRepository->where('id','=', $processById->user_job->user_id);
+            $calendar = $this->showCalendar($candidateById->id);
+            $dataUser =$this->candidateRepository->show($candidateById->id);
+            $data = Event::all();
+
+            return view('admin.evaluate.evaluate_process' , compact('processById','data','candidateById','calendar','dataUser'));
+        }
+    }
+
+    public function evaluatePass( $dataEvaluate ) {
+        $currentProcessId = $dataEvaluate->process_step_id;
+        $currentProcess = $this->processRepository->show( $currentProcessId );
+        if (0 < $currentProcess->step && $currentProcess->step < 4 ) {
+            $nextProcessStep = ( $currentProcess->step ) +1;
+            if( $nextProcessStep == 2 ){
+                $nextProcessName = 'Review';
+            }else if( $nextProcessStep== 3 ) {
+                $nextProcessName = 'Interview';
+            } else if( $nextProcessStep== 4 ) {
+                $nextProcessName = 'Hired';
+            };
+            $dataNextProcess = $this->processRepository->create([
+                'step'=>$nextProcessStep,
+                'name'=> $nextProcessName,
+                'user_job_id' =>$currentProcess->user_job_id
+            ]);
+        }
+    
+        return $dataNextProcess;
+    } 
 }

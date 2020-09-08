@@ -20,4 +20,8 @@ class CandidateRepository extends Repository implements CandidateRepositoryInter
         return $this->model->with(['cv'])->findOrFail($id);
     }
 
+    public function where($field, $opedaytor = '=' ,$condition)
+    {
+        return $this->model->where($field, $opedaytor ,$condition)->first();
+    }
 }

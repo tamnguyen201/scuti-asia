@@ -162,16 +162,16 @@ class RoleSeeder extends Seeder
             ['id'=>4, 'user_id' => 3, 'cv_id' => 3, 'job_id' => 4],
             ['id'=>5, 'user_id' => 4, 'cv_id' => 4, 'job_id' => 5],
         ]);
-        DB::table('evaluates')->insert([
-            ['id'=>1, 'process_step_id' => 1,'comment' => '', 'reason' => 'Checking', 'status' => 1],
-            ['id'=>2, 'process_step_id' => 2,'comment' => '', 'reason' => 'Review', 'status' => 1],
-            ['id'=>3, 'process_step_id' => 3,'comment' => '', 'reason' => 'Checking', 'status' => 1],
-            ['id'=>4, 'process_step_id' => 4,'comment' => '', 'reason' => 'Checking', 'status' => 1],
-            ['id'=>5, 'process_step_id' => 5,'comment' => '', 'reason' => 'Checking', 'status' => 1],
-            ['id'=>6, 'process_step_id' => 6,'comment' => '', 'reason' => 'Review', 'status' => 1],
-            ['id'=>7, 'process_step_id' => 7,'comment' => '', 'reason' => 'Interviewer', 'status' => 1],
-            ['id'=>8, 'process_step_id' => 8,'comment' => '', 'reason' => 'Make Offer', 'status' => 0],
-        ]);
+        // DB::table('evaluates')->insert([
+        //     ['id'=>1, 'process_step_id' => 1,'comment' => '', 'reason' => 'Checking', 'status' => 1],
+        //     ['id'=>2, 'process_step_id' => 2,'comment' => '', 'reason' => 'Review', 'status' => 0],
+        //     ['id'=>3, 'process_step_id' => 3,'comment' => '', 'reason' => 'Checking', 'status' => 1],
+        //     ['id'=>4, 'process_step_id' => 4,'comment' => '', 'reason' => 'Checking', 'status' => 1],
+        //     ['id'=>5, 'process_step_id' => 5,'comment' => '', 'reason' => 'Checking', 'status' => 1],
+        //     ['id'=>6, 'process_step_id' => 6,'comment' => '', 'reason' => 'Review', 'status' => 1],
+        //     ['id'=>7, 'process_step_id' => 7,'comment' => '', 'reason' => 'Interviewer', 'status' => 1],
+        //     ['id'=>8, 'process_step_id' => 8,'comment' => '', 'reason' => 'Make Offer', 'status' => 0],
+        // ]);
         DB::table('process')->insert([
             ['id'=>1, 'step' => 1, 'name' => 'Checking', 'user_job_id' => 1],
             ['id'=>2, 'step' => 2, 'name' => 'Review', 'user_job_id' => 1],

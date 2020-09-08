@@ -37,6 +37,8 @@ return [
     'map_url' => 'Địa Chỉ Bản Đồ',
     'content' => 'Nội Dung',
     'visit_type' => 'Thể Loại',
+    'CV_status'=> 'Trạng thái',
+    'applied_job'=>'Công việc đã ứng tuyển',
     
     'page_title' => [
         'user_manage' => 'Quản Lý Người Dùng',

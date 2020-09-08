@@ -63,7 +63,28 @@
                                         @if($candidate->userjob[$key]->process->count() > 0)
                                             @for($i = 0; $i <= $candidate->userjob[$key]->process->count(); $i++)
                                                 @if($i == $candidate->userjob[$key]->process->count() - 1)
-                                                <td>{{$candidate->userjob[$key]->process[$i]->name}}</td>
+                                                <td>
+                                                    <a href="{{ route('evaluate.candidate.show', $candidate->userjob[$key]->process[$i]->id) }}" style="text-decoration: none">
+                                                        <span @if ($candidate->userjob[$key]->process[$i])
+                                                            @switch($i)
+                                                                @case(0)
+                                                                    class="label label-primary"
+                                                                    @break
+                                                                @case(1)
+                                                                    class="label label-success"
+                                                                    @break
+                                                                @case(2)
+                                                                    class="label label-warning"
+                                                                    @break
+                                                                @case(3)
+                                                                    class="label label-info"
+                                                                    @break
+                                                            @endswitch
+                                                        @endif>
+                                                            {{$candidate->userjob[$key]->process[$i]->name}}
+                                                        </span>
+                                                    </a>
+                                                </td>
                                                 @endif
                                             @endfor
                                         @else
@@ -71,6 +92,7 @@
                                         @endif
                                         <td class="text-center">
                                             <a href="{{route('candidates.show', $candidate['id'])}}" class="btn btn-info text-light view-profile" title="Xem"><em class="fa fa-eye"></em></a>
+                                            <a href="{{route('evaluate.candidate.show', $item['id'])}}" class="btn btn-info text-light" title="Xem"><em class="fa fa-random"></em></a>
                                         </td>
                                     </tr>
                                     @endforeach

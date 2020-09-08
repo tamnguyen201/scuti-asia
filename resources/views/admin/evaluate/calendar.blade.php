@@ -1,17 +1,9 @@
-@extends('admin.layout.layout')
+{{-- @extends('admin.layout.layout')
 @section('css')
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.css" />
   <link rel="stylesheet" href="{{ asset('adminAsset/css/calendar.css') }}">
-@endsection
-@section('content')
-<div class="row">
-  <ol class="breadcrumb">
-      <li><a href="#">
-          <em class="fa fa-home"></em>
-      </a></li>
-      <li class="active">Lich phong van</li>
-  </ol>
-</div>
+@endsection --}}
+{{-- @section('content') --}}
 <div class="row">
   <div class="col-lg-12">
       <h1 class="page-header">Lich phong van</h1>
@@ -42,12 +34,14 @@
       {{-- day click dialog --}}
         <div id="dialog" style="display:none">
           <div id="dialog-body">
-            <form action="{{ route('store.event') }}" method="POST">
+            <form action="{{ url('admin/evaluate/process/calendar/create') }}" method="POST">
               @csrf
+              @method('POST')
               <div class="form-group col-md-6">
                 <label for="exampleFormControlTextarea1">Name :</label>
                 <br>
                 <input name="id" type="text" value="{{ $dataUser->id }}" hidden>
+                <input name="process_id" type="text" value="{{ $processById->id }}" hidden>
                 <p>{{ $dataUser->name }}</p>
               </div>
               <div class="form-group col-md-6">
@@ -86,11 +80,11 @@
           </div>
         </div>
       {{-- end day click dialog --}}
-@endsection
-@section('script')
+{{-- @endsection --}}
+{{-- @section('script')
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js" integrity="sha256-4iQZ6BVL4qNKlQ27TExEhBN1HFPvAvAMbFavKKosSWQ=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.js"></script>
 
       {!! $calendar->script() !!}
 @endsection
-</html>
+</html> --}}
