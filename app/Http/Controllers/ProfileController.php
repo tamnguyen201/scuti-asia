@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Model\Manager;
+use App\Model\Admin;
 use Illuminate\Support\Str;
 use App\Http\Requests\ManagerRequest;
 use App\Repositories\Manager\ManagerRepositoryInterface;

@@ -55,7 +55,7 @@
                 }
             });
         })
-        @if(Session('login_success'))
+        @if(Session('login_success') && Session('show_notice') == true)
             swal({
                 title: "<?php echo trans('custom.alert_messages.login_success.title') ?>",
                 text: "<?php echo trans('custom.alert_messages.login_success.text') ?>",

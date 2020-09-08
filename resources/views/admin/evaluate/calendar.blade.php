@@ -5,9 +5,6 @@
 @endsection --}}
 {{-- @section('content') --}}
 <div class="row">
-  <div class="col-lg-12">
-      <h1 class="page-header">Lich phong van</h1>
-  </div>
   <div class="col-md-8">
     <div class="panel-body">
       {!! $calendar->calendar() !!}
@@ -22,8 +19,8 @@
       <h4 class="card-title">{{ $item->title }}</h4>
       <h6 class="card-subtitle mb-2 text-muted">{{ $item->start }}</h6>
       <p class="card-text">{{ $item->note }}</p>
-      <a href="#" class="card-link col-md-6">Delete</a>
-      <a href="#" class="card-link col-md-6">Send Email</a>
+      {{-- <a href="#" class="card-link col-md-6">Delete</a>
+      <a href="#" class="card-link col-md-6">Send Email</a> --}}
     </div>
   </div>
   <hr>

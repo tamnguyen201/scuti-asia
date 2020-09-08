@@ -14,6 +14,10 @@
     <div class="divider"></div>
     <ul class="nav menu">
         <li class="active"><a href="{{route('admin.home')}}"><em class="fa fa-dashboard">&nbsp;</em> @lang('custom.menu.dashboard')</a></li>
+        <li><a href="{{route('employees.index')}}"><span class="fa fa-users">&nbsp;</span> @lang('custom.menu.manager')</a></li>
+        <li><a href="{{route('categories.index')}}"><span class="fa fa-tasks">&nbsp;</span> @lang('custom.menu.category')</a></li>
+        <li><a href="{{route('jobs.index')}}"><span class="fa fa-laptop">&nbsp;</span> @lang('custom.menu.job')</a></li>
+        <li><a href="{{route('locations.index')}}"><span class="fa fa-location-arrow">&nbsp;</span> @lang('custom.menu.location')</a></li>
         <li><a href="widgets.html"><em class="fa fa-calendar">&nbsp;</em> @lang('custom.menu.calendar') </a></li>
         <li><a href="{{route('employees.index')}}"><span class="fa fa-users">&nbsp;</span> @lang('custom.menu.manager')</a></li>
         <li><a href="{{route('contacts.index')}}"><span class="fa fa-phone">&nbsp;</span> @lang('custom.menu.contact')</a></li>
@@ -26,15 +30,15 @@
                 <span class="fa fa-arrow-right">&nbsp;</span> @lang('custom.menu.list')
                 </a>
                 </li>
-                <li><a class="" href="{{route('users.index')}}">
+                <li><a class="" href="{{route('candidates.evaluating')}}">
                 <span class="fa fa-arrow-right">&nbsp;</span> @lang('custom.menu.evaluating')
                 </a>
                 </li>
-                <li><a class="" href="{{route('users.index')}}">
+                <li><a class="" href="{{route('candidates.finish')}}">
                 <span class="fa fa-arrow-right">&nbsp;</span> @lang('custom.menu.finishing')
                 </a>
                 </li>
-                <li><a class="" href="{{route('users.index')}}">
+                <li><a class="" href="{{route('candidates.failed')}}">
                 <span class="fa fa-arrow-right">&nbsp;</span> @lang('custom.menu.failed')
                 </a>
                 </li>

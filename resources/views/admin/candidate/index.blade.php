@@ -60,7 +60,7 @@
                                         <td>{{$candidate->name}}</td>
                                         <td>{{$candidate->email}}</td>
                                         <td>{{$item->name}}</td>
-                                        @if($candidate->userjob[$key]->process->count() > 0)
+                                        @if(0 < $candidate->userjob[$key]->process->count() && $candidate->userjob[$key]->process->count() < 4)
                                             @for($i = 0; $i <= $candidate->userjob[$key]->process->count(); $i++)
                                                 @if($i == $candidate->userjob[$key]->process->count() - 1)
                                                 <td>
@@ -87,12 +87,20 @@
                                                 </td>
                                                 @endif
                                             @endfor
-                                        @else
-                                        <td>@lang('custom.applied')</td>
+                                        @elseif($candidate->userjob[$key]->process->count() == 4)
+                                            <td style="font-size: 75%;font-weight: bold; color: #5cb85c">@lang('custom.finished')</td>
+                                        @elseif($candidate->userjob[$key]->process->count() == 0)
+                                            <td style="font-size: 75%;font-weight: bold;color: red">@lang('custom.applied')</td>
                                         @endif
-                                        <td class="text-center">
+                                        <td>
                                             <a href="{{route('candidates.show', $candidate['id'])}}" class="btn btn-info text-light view-profile" title="Xem"><em class="fa fa-eye"></em></a>
-                                            <a href="{{route('evaluate.candidate.show', $item['id'])}}" class="btn btn-info text-light" title="Xem"><em class="fa fa-random"></em></a>
+                                            @if ($candidate->userjob[$key]->process->count() == 0)
+                                                <form action="{{route('start.evaluate', $candidate->userjob[$key]->id)}}" method="post" class="form-delete-{{$candidate->userjob[$key]->id}}" style="display: inline">
+                                                    @csrf
+                                                    @method('POST')
+                                                    <button class="btn btn-warning text-light start-confirm" idStart={{$candidate->userjob[$key]->id}} title="Bắt đầu đánh giá"><em class="fas fa-random"></em></button>
+                                                </form>
+                                            @endif
                                         </td>
                                     </tr>
                                     @endforeach
@@ -144,6 +152,28 @@
                 $(".modal-body").html(results);
                 $("#exampleModalCenter").modal('show');
             }).fail(function (data) {
+            });
+        });
+
+
+        $("body").on("click", ".start-confirm", function (e) {
+            e.preventDefault();
+            let id = $(this).attr('idStart');
+            let form = $('.form-delete-'+id);
+            swal({
+                title: "Xác nhận?",
+                text: "Bắt đầu đánh giá ứng viên này",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonColor: '#5cb85c',
+                confirmButtonText: 'OK!',
+                cancelButtonText: "Cancel!",
+                closeOnConfirm: false,
+                closeOnCancel: false
+            }).then(function(value) {
+                if (value.value == true) {
+                    form.submit();
+                }
             });
         });
     </script>

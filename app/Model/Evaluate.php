@@ -8,4 +8,9 @@ class Evaluate extends Model
 {
     public $timestamps = false;
     protected $fillable = ['process_step_id', 'status', 'comment', 'reason'];
+
+    public function process()
+    {
+        return $this->belongsTo('App\Model\Process');
+    }
 }

@@ -156,4 +156,15 @@ class EvaluateController extends Controller
     
         return $dataNextProcess;
     } 
+
+    public function startEvaluate($id)
+    {
+        $this->processRepository->create([
+            'step'=>1,
+            'name'=> 'Checking',
+            'user_job_id' =>$id
+        ]);
+
+        return redirect()->back();
+    }
 }

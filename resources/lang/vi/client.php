@@ -69,6 +69,7 @@ return [
                 'title' => 'Bạn Đã Ứng Tuyển Cho Công Việc Này!',
                 'description' => 'Xem Chi Tiết Kết Quả Trong Quá Trình Đánh Giá Này.',
             ],
+            'back' => 'Quay Lại',
         ],
     ],
 

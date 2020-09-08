@@ -57,8 +57,8 @@
                                     </div>
                                 </div>
                                     @include('admin.evaluate.calendar')
-                                    <input type="button" name="next" class="next action-button" value="Next" />
-                                    <input type="button" name="next" class="previous action-button" value="Back" />
+                                    {{-- <input type="button" name="next" class="next action-button" value="Next" /> --}}
+                                    {{-- <input type="button" name="next" class="previous action-button" value="Back" /> --}}
                             </fieldset>
                             @break
                         @case(3)

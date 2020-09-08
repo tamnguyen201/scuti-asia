@@ -31,8 +31,11 @@ return [
     'status'=>'Trạng thái',
     'job'=>'job',
     'process' => 'Quá Trình Đánh Giá',
+    'result' => 'Kết Quả',
+    'process_failed' => 'Bước Đánh Giá Bị Loại',
     'jobApplied' => 'Công Việc Ứng Tuyển',
     'applied' => 'Chưa Đánh Giá',
+    'finished' => 'Hoàn Thành',
     'field' => 'Tên Bố Cục',
     'map_url' => 'Địa Chỉ Bản Đồ',
     'content' => 'Nội Dung',
@@ -93,7 +96,8 @@ return [
         'forgot_password'=>'Quên mật khẩu',
         'reset_password'=>'Reset lại mật khẩu',
         'had_password'=>'Bạn đã có tài khoản, đăng nhập tại đây',
-        'enter'=>'Nhập'
+        'enter'=>'Nhập',
+        'start_process'=>'Bắt đầu đánh giá'
     ],
 
     'menu' => [
@@ -115,6 +119,9 @@ return [
         'finishing' => 'Hoàn Tất',
         'failed' => 'Loại',
         'logout' => 'Đăng Xuất',
+        'job'=>'Jobs',
+        'location'=>'Địa điểm',
+        'category'=>'Danh mục'
     ],
 
     'email_template' => [
