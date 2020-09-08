@@ -18,7 +18,9 @@ class CreateUserJobTable extends Migration
             $table->foreignId('user_id');
             $table->foreignId('job_id');
             $table->foreignId('cv_id');
+            $table->boolean('status')->default(0);
             $table->string('letter')->nullable();
+            $table->boolean('result')->default(0);
             $table->timestamps();
             
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');

@@ -40,6 +40,10 @@ return [
     'content' => 'Nội Dung',
     'visit_type' => 'Thể Loại',
     'statistical' => 'Thống Kê Dữ Liệu',
+    'candidate_total' => 'Tổng số ứng viên',
+    'candidate_evaluated' => 'Ứng viên đang đánh giá',
+    'candidate_accept' => 'Ứng viên đồng ý',
+    'candidate_failed' => 'Ứng viên bị loại',
     
     'page_title' => [
         'dashboard' => 'Bảng Điều Khiển',

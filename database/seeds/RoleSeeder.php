@@ -29,11 +29,21 @@ class RoleSeeder extends Seeder
         \App\Model\Process::truncate();
         \App\Model\Evaluate::truncate();
         DB::table('users')->insert([
-            ['id'=>1, 'name' => 'User1','email' => 'user1@gmail.com','password'=> Hash::make('123456'), 'phone'=> '1234567890','address'=>'HN', 'created_at' => \Carbon\Carbon::now()->format('Y-m-d H:i:s')],
-            ['id'=>2, 'name' => 'User2','email' => 'user2@gmail.com','password'=> Hash::make('123456'), 'phone'=> '1234567890','address'=>'HN', 'created_at' => \Carbon\Carbon::now()->format('Y-m-d H:i:s')],
-            ['id'=>3, 'name' => 'User3','email' => 'user3@gmail.com','password'=> Hash::make('123456'), 'phone'=> '1234567890','address'=>'HN', 'created_at' => \Carbon\Carbon::now()->format('Y-m-d H:i:s')],
-            ['id'=>4, 'name' => 'User4','email' => 'user4@gmail.com','password'=> Hash::make('123456'), 'phone'=> '1234567890','address'=>'HN', 'created_at' => \Carbon\Carbon::now()->format('Y-m-d H:i:s')],
-            ['id'=>5, 'name' => 'User5','email' => 'user5@gmail.com','password'=> Hash::make('123456'), 'phone'=> '1234567890','address'=>'HN', 'created_at' => \Carbon\Carbon::now()->format('Y-m-d H:i:s')],
+            ['id'=>1, 'name' => 'User1','email' => 'user1@gmail.com','password'=> Hash::make('123456'), 'phone'=> '1234567890','address'=>'HN', 'created_at' => \Carbon\Carbon::parse('11-05-2020 03:26:49')->format('Y-m-d H:i:s')],
+            ['id'=>2, 'name' => 'User2','email' => 'user2@gmail.com','password'=> Hash::make('123456'), 'phone'=> '1234567890','address'=>'HN', 'created_at' => \Carbon\Carbon::parse('15-06-2020 03:26:49')->format('Y-m-d H:i:s')],
+            ['id'=>3, 'name' => 'User3','email' => 'user3@gmail.com','password'=> Hash::make('123456'), 'phone'=> '1234567890','address'=>'HN', 'created_at' => \Carbon\Carbon::parse('21-06-2020 03:26:49')->format('Y-m-d H:i:s')],
+            ['id'=>4, 'name' => 'User4','email' => 'user4@gmail.com','password'=> Hash::make('123456'), 'phone'=> '1234567890','address'=>'HN', 'created_at' => \Carbon\Carbon::parse('30-06-2020 03:26:49')->format('Y-m-d H:i:s')],
+            ['id'=>5, 'name' => 'User5','email' => 'user5@gmail.com','password'=> Hash::make('123456'), 'phone'=> '1234567890','address'=>'HN', 'created_at' => \Carbon\Carbon::parse('06-07-2020 03:26:49')->format('Y-m-d H:i:s')],
+            ['id'=>6, 'name' => 'User6','email' => 'user6@gmail.com','password'=> Hash::make('123456'), 'phone'=> '1234567890','address'=>'HN', 'created_at' => \Carbon\Carbon::parse('18-07-2020 03:26:49')->format('Y-m-d H:i:s')],
+            ['id'=>7, 'name' => 'User7','email' => 'user7@gmail.com','password'=> Hash::make('123456'), 'phone'=> '1234567890','address'=>'HN', 'created_at' => \Carbon\Carbon::parse('03-08-2020 03:26:49')->format('Y-m-d H:i:s')],
+            ['id'=>8, 'name' => 'User8','email' => 'user8@gmail.com','password'=> Hash::make('123456'), 'phone'=> '1234567890','address'=>'HN', 'created_at' => \Carbon\Carbon::parse('15-08-2020 03:26:49')->format('Y-m-d H:i:s')],
+            ['id'=>9, 'name' => 'User9','email' => 'user9@gmail.com','password'=> Hash::make('123456'), 'phone'=> '1234567890','address'=>'HN', 'created_at' => \Carbon\Carbon::parse('16-08-2020 03:26:49')->format('Y-m-d H:i:s')],
+            ['id'=>10, 'name' => 'User10','email' => 'user10@gmail.com','password'=> Hash::make('123456'), 'phone'=> '1234567890','address'=>'HN', 'created_at' => \Carbon\Carbon::parse('27-08-2020 03:26:49')->format('Y-m-d H:i:s')],
+            ['id'=>11, 'name' => 'User11','email' => 'user11@gmail.com','password'=> Hash::make('123456'), 'phone'=> '1234567890','address'=>'HN', 'created_at' => \Carbon\Carbon::parse('01-09-2020 03:26:49')->format('Y-m-d H:i:s')],
+            ['id'=>12, 'name' => 'User12','email' => 'user12@gmail.com','password'=> Hash::make('123456'), 'phone'=> '1234567890','address'=>'HN', 'created_at' => \Carbon\Carbon::parse('03-09-2020 03:26:49')->format('Y-m-d H:i:s')],
+            ['id'=>13, 'name' => 'User13','email' => 'user13@gmail.com','password'=> Hash::make('123456'), 'phone'=> '1234567890','address'=>'HN', 'created_at' => \Carbon\Carbon::parse('05-09-2020 03:26:49')->format('Y-m-d H:i:s')],
+            ['id'=>14, 'name' => 'User14','email' => 'user14@gmail.com','password'=> Hash::make('123456'), 'phone'=> '1234567890','address'=>'HN', 'created_at' => \Carbon\Carbon::parse('06-09-2020 03:26:49')->format('Y-m-d H:i:s')],
+            ['id'=>15, 'name' => 'User15','email' => 'user15@gmail.com','password'=> Hash::make('123456'), 'phone'=> '1234567890','address'=>'HN', 'created_at' => \Carbon\Carbon::parse('08-09-2020 03:26:49')->format('Y-m-d H:i:s')],
         ]);
         DB::table('admins')->insert([
             ['id'=>1, 'name' => 'Tam Nguyen','email' => 'tam2012000@gmail.com','password'=> Hash::make('123456'), 'phone'=> '1234567890','address'=>'HN', 'role' => 1],
@@ -173,7 +183,7 @@ class RoleSeeder extends Seeder
                     - Có nhiều cơ hội học hỏi, nâng cao trình độ nghiệp vụ.<br>
                     - Thăng tiến nhanh nếu chứng tỏ được năng lực bản thân. Lương sẽ lên cao đúng như năng lực chứng mình được trong thời gian làm việc.
                 </p>',
-                'location_id' => 1, 'expireDay' => '2020/08/15', 'status' =>1],
+                'location_id' => 1, 'salary' => 'Thỏa Thuận', 'expireDay' => '2020/08/15', 'status' =>1],
             ['id'=>2,'category_id' => 2, 'name'=>'Node job', 'slug' => 'abc', 'description'=> 
                 '<h4>Mô tả công việc</h4>
                 <div class="description">
@@ -208,7 +218,7 @@ class RoleSeeder extends Seeder
                         <li>Chính sách thưởng phong phú: Thưởng tháng lương 13 + thưởng nóng dự án + thưởng nhân viên xuất sắc + các khoản thưởng khác;</li><li>Xét tăng lương 2 lần/năm dựa trên hiệu quả công việc;</li><li>Hưởng đầy đủ các chế độ bảo hiểm theo quy định;</li><li>Được tặng quà, thăm hỏi nhân các dịp sinh nhật, cưới hỏi, hiếu hỉ, ốm đau…;</li><li>Làm việc trong môi trường hiện đại, trẻ trung, văn hóa mở với nhiều hoạt động văn hóa tinh thần: du lịch, nghỉ dưỡng, party sự kiện…</li>
                     </ul>
                 </div',
-                'location_id' => 1, 'expireDay' => '2020/08/15', 'status' =>1],
+                'location_id' => 1, 'salary' => 'Thỏa Thuận', 'expireDay' => '2020/08/15', 'status' =>1],
             ['id'=>3,'category_id' => 3, 'name'=>'java job', 'slug' => 'abc', 'description'=> 
                 '<h4>Mô tả công việc</h4>
                 <p>
@@ -245,7 +255,7 @@ class RoleSeeder extends Seeder
                     · Hưởng chế độ theo quy định luật lao động và BHXH, BHYT, BHTN...<br>
                     · Tham gia các hoạt động tinh thần: du lịch, giải trí do Công ty tổ chức…
                 </p>',
-                'location_id' => 1, 'expireDay' => '2020/08/15', 'status' =>1],
+                'location_id' => 1, 'salary' => 'Thỏa Thuận', 'expireDay' => '2020/08/15', 'status' =>1],
             ['id'=>4,'category_id' => 4, 'name'=>'FE job', 'slug' => 'abc', 'description'=> 
                 '<h4>Mô tả công việc</h4>
                 <p>
@@ -257,7 +267,7 @@ class RoleSeeder extends Seeder
                 <h4>Quyền lợi</h4>
                 <p>- Thời gian làm việc: 8:00 ~ 17:00 từ thứ 2 đến thứ 6 (nghỉ Thứ Bảy, Chủ Nhật và các ngày Lễ, Tết)<br>- Thưởng: 2 lần/năm<br>- Ngoài các gói bảo hiểm cơ bản theo quy định của Luật Lao Động, bạn còn được tham gia gói bảo hiểm tai nạn lao động tại Lampart.<br>- Trà, sữa, coffee,... miễn phí<br>- Ngày nghỉ đặc biệt dành cho nhân viên nữ: 0.5 ngày/ tháng.<br>- Được hưởng những phúc lợi đặc biệt như chương trình quà tết, bánh trung thu, tiền mừng đám cưới (5,000,000 VND), tiền mừng khi sanh con (2,000,000 VND),…<br>- Đối với nhân viên ký hợp đồng không xác định thời hạn: từ thời điểm ký hợp đồng không xác định thời hạn, cứ mỗi năm được cộng thêm 1 ngày nghỉ phép. Ngày nghỉ phép không sử dụng hết trong năm sẽ trả vào lương tháng cuối cùng của năm.
                 </p>',
-                'location_id' => 1, 'expireDay' => '2020/08/15', 'status' =>1],
+                'location_id' => 1, 'salary' => 'Thỏa Thuận', 'expireDay' => '2020/08/15', 'status' =>1],
             ['id'=>5,'category_id' => 5, 'name'=>'React job', 'slug' => 'abc', 'description'=> 
                 '<h4>Mô tả công việc</h4>
                 <div class="description">
@@ -271,7 +281,7 @@ class RoleSeeder extends Seeder
                 <div class="culture_description">
                     <ul><li>Lương, thưởng cạnh tranh trên thị trường và công bằng trong nội bộ.</li><li>Được làm việc trong môi trường năng động, trẻ trung, đầy nhiệt huyết.</li><li>Cơ hội được làm việc trên một sản phẩm phát triển theo hướng B2B</li><li>Được tham gia các hoạt động team building của công ty.</li><li>Trợ cấp ăn trưa và đi lại.</li><li>Chế độ nghỉ lễ tết, BHYT/BHXH/BHTN theo quy định của luật lao động.</li></ul>
                 </div>',
-                'location_id' => 1, 'expireDay' => '2020/08/15', 'status' =>1],
+                'location_id' => 1, 'salary' => 'Thỏa Thuận', 'expireDay' => '2020/08/15', 'status' =>1],
         ]);
         DB::table('cvs')->insert([
             ['id'=>1,'user_id' => 1, 'cv_name' => 'CV1', 'cv_url'=>'https://miro.medium.com/max/1200/1*Eu6cAGjXNa0-ct_hlsH1yQ.jpeg'],
@@ -281,11 +291,11 @@ class RoleSeeder extends Seeder
             ['id'=>5,'user_id' => 5, 'cv_name' => 'CV5', 'cv_url'=>'http://congstudio.vn/product_images/z/320/chup_anh_profile_tai_ha_noi_cong_studio_4__09337_thumb.jpg'],
         ]);
         DB::table('user_job')->insert([
-            ['id'=>1, 'user_id' => 1, 'cv_id' => 1, 'job_id' => 1],
-            ['id'=>2, 'user_id' => 2, 'cv_id' => 2, 'job_id' => 2],
-            ['id'=>3, 'user_id' => 2, 'cv_id' => 2, 'job_id' => 3],
-            ['id'=>4, 'user_id' => 3, 'cv_id' => 3, 'job_id' => 4],
-            ['id'=>5, 'user_id' => 4, 'cv_id' => 4, 'job_id' => 5],
+            ['id'=>1, 'user_id' => 1, 'cv_id' => 1, 'job_id' => 1, 'letter' => 'Cảm ơn', 'status' => 0, 'result' => 0],
+            ['id'=>2, 'user_id' => 2, 'cv_id' => 2, 'job_id' => 2, 'letter' => 'Cảm ơn', 'status' => 0, 'result' => 0],
+            ['id'=>3, 'user_id' => 2, 'cv_id' => 2, 'job_id' => 3, 'letter' => 'Cảm ơn', 'status' => 0, 'result' => 0],
+            ['id'=>4, 'user_id' => 3, 'cv_id' => 3, 'job_id' => 4, 'letter' => 'Cảm ơn', 'status' => 0, 'result' => 0],
+            ['id'=>5, 'user_id' => 4, 'cv_id' => 4, 'job_id' => 5, 'letter' => 'Cảm ơn', 'status' => 1, 'result' => 1],
         ]);
         DB::table('process')->insert([
             ['id'=>1, 'step' => 1, 'name' => 'Checking', 'user_job_id' => 1],
@@ -305,7 +315,7 @@ class RoleSeeder extends Seeder
             ['id'=>5, 'process_id' => 5,'comment' => '', 'reason' => 'Checking', 'status' => 1],
             ['id'=>6, 'process_id' => 6,'comment' => '', 'reason' => 'Review', 'status' => 1],
             ['id'=>7, 'process_id' => 7,'comment' => '', 'reason' => 'Interviewer', 'status' => 1],
-            ['id'=>8, 'process_id' => 8,'comment' => '', 'reason' => 'Make Offer', 'status' => 0],
+            ['id'=>8, 'process_id' => 8,'comment' => '', 'reason' => 'Make Offer', 'status' => 1],
         ]);
         Schema::enableForeignKeyConstraints();
     }

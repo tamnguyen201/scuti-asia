@@ -30,28 +30,16 @@
                     <h3>@lang('client.page.apply.sidebar.title')</h3>
                     <ul class="pl-0">
                         <li class="row justify-content-between mx-0 mb-2">
-                            <b>@lang('client.page.apply.sidebar.level')</b>
-                            <div class="value">Nhân viên</div>
-                        </li>
-                        <li class="row justify-content-between mx-0 mb-2">
-                            <b>@lang('client.page.apply.sidebar.job')</b>
-                            <div class="value">Tự động hóa</div>
-                        </li>
-                        <li class="row justify-content-between mx-0 mb-2">
-                            <b>@lang('client.page.apply.sidebar.exp')</b>
-                            <div class="value">2 - 10 Năm</div>
+                            <b>@lang('client.page.apply.sidebar.location')</b>
+                            <div class="value">{{$data['job']->location->name}} </div>
                         </li>
                         <li class="row justify-content-between mx-0 mb-2">
                             <b>@lang('client.page.apply.sidebar.salary')</b>
-                            <div class="value">Cạnh tranh</div>
-                        </li>
-                        <li class="row justify-content-between mx-0 mb-2">
-                            <b>@lang('client.page.apply.sidebar.work_place')</b>
-                            <div class="value">Bình Dương </div>
+                            <div class="value">{{$data['job']->salary}}</div>
                         </li>
                         <li class="row justify-content-between mx-0 mb-2">
                             <b>@lang('client.page.apply.sidebar.end_time')</b>
-                            <div class="value">30/09/2020</div>
+                            <div class="value">{{$data['job']->formatExpireDay()}}</div>
                         </li>
                     </ul>
                     <div class="form-group">

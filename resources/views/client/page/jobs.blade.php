@@ -41,8 +41,11 @@
                                     <div class="col-md-8 col-12">
                                         <div class="mb-block cell name-job">
                                             <h4 class="title-h4"><a style="font-weight: normal;color: #f4511e; text-decoration: none" href="{{route('job-detail', [$job->slug, $job->id])}}">[Đà Nẵng] {{$job->name}}</a></h4>
-                                            <span class="desc-job inline"><span class="-ap icon-access_time"></span>07/08 — 31/12/2020 <span class="job-type">Freelancer</span></span>
-                                            <p class="desc-job"><span class="-ap icon-coin-dollar"></span>Thỏa thuận</p>
+                                            <p class="desc-job">
+                                                <i class="far fa-money-bill-alt"></i> {{$job->salary}} <br>
+                                                <i class="fas fa-map-marker-alt"></i> {{$job->location->name}}
+                                            </p>
+                                            <span class="desc-job inline"><i class="far fa-clock"></i> {{$job->formatExpireDay()}}</span>
                                         </div>
                                     </div>
                                     <div class="col-md-4 col-12 text-md-right text-center">
@@ -60,8 +63,11 @@
                                     <div class="col-md-8 col-12">
                                         <div class="mb-block cell name-job">
                                             <h4 class="title-h4"><a style="font-weight: normal;color: #f4511e; text-decoration: none" href="{{route('job-detail', [$job->slug, $job->id])}}">[Đà Nẵng] {{$job->name}}</a></h4>
-                                            <span class="desc-job inline"><span class="-ap icon-access_time"></span>07/08 — 31/12/2020 <span class="job-type">Freelancer</span></span>
-                                            <p class="desc-job"><span class="-ap icon-coin-dollar"></span>Thỏa thuận</p>
+                                            <p class="desc-job">
+                                                <i class="far fa-money-bill-alt"></i> {{$job->salary}} <br>
+                                                <i class="fas fa-map-marker-alt"></i> {{$job->location->name}}
+                                            </p>
+                                            <span class="desc-job inline"><i class="far fa-clock"></i> {{$job->formatExpireDay()}}</span>
                                         </div>
                                     </div>
                                     <div class="col-md-4 col-12 text-md-right text-center">

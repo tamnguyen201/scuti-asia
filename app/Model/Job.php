@@ -22,4 +22,9 @@ class Job extends Model
     {
         return $this->belongsToMany('App\Model\User', 'user_job');
     }
+
+    public function formatExpireDay()
+    {
+        return \Carbon\Carbon::parse($this->expireDay)->format('d/m/Y');
+    }
 }

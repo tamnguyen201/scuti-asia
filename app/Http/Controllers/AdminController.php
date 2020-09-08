@@ -18,12 +18,18 @@ class AdminController extends Controller
     public function index()
     {
         $data['users'] = \App\Model\User::all();
-        $data['candidate_finish'] = \DB::table('user_job')->count();
-        $data['candidate_failed'] = \DB::table('user_job')->count();
-        $data['new_candidate'] = \DB::table('users')
-                                    ->whereMonth('created_at', '=', \Carbon\Carbon::now()->month)
-                                    ->get()
-                                    ->count();
+        $data['candidate_evaluated'] = \DB::table('user_job')
+                                        ->where('status', '=', 0)
+                                        ->where('result', '=', 0)
+                                        ->count();
+        $data['candidate_accept'] = \DB::table('user_job')
+                                        ->where('status', '=', 1)
+                                        ->where('result', '=', 1)
+                                        ->count();
+        $data['candidate_failed'] = \DB::table('user_job')
+                                        ->where('status', '=', 1)
+                                        ->where('result', '=', 0)
+                                        ->count();
 
         for ($i=5; $i >= 0; $i--) { 
             $arrMonth[] = \Carbon\Carbon::now()->subMonths($i)->format('F');

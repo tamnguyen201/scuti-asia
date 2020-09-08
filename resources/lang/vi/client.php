@@ -59,11 +59,8 @@ return [
             'form_title' => 'Mẫu Đăng Kí Ứng Tuyển',
             'sidebar' => [
                 'title' => 'Thông Tin Tuyển Dụng',
-                'level' => 'Cấp Bậc',
-                'job' => 'Ngành Nghề',
-                'exp' => 'Kinh Nghiệm',
                 'salary' => 'Lương',
-                'work_place' => 'Nơi Làm Việc',
+                'location' => 'Nơi Làm Việc',
                 'end_time' => 'Ngày Hết Hạn'
             ],
             'process' => [

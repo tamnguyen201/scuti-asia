@@ -20,23 +20,23 @@
             <div class="panel panel-orange panel-widget border-right">
                 <div class="row no-padding"><em class="fa fa-xl fa-users color-teal"></em>
                     <div class="large">{{$data['users']->count()}}</div>
-                    <div class="text-muted">Users</div>
+                    <div class="text-muted">@lang('custom.candidate_total')</div>
                 </div>
             </div>
         </div>
         <div class="col-xs-6 col-md-3 col-lg-3 no-padding">
             <div class="panel panel-teal panel-widget border-right">
                 <div class="row no-padding"><em class="fa-xl fas fa-user-check color-blue"></em>
-                    <div class="large">{{$data['new_candidate']}}</div>
-                    <div class="text-muted">New Orders</div>
+                    <div class="large">{{$data['candidate_evaluated']}}</div>
+                    <div class="text-muted">@lang('custom.candidate_evaluated')</div>
                 </div>
             </div>
         </div>
         <div class="col-xs-6 col-md-3 col-lg-3 no-padding">
             <div class="panel panel-blue panel-widget border-right">
                 <div class="row no-padding"><em class="fa fa-xl fa-user-plus color-orange"></em>
-                    <div class="large">{{$data['candidate_finish']}}</div>
-                    <div class="text-muted">Comments</div>
+                    <div class="large">{{$data['candidate_accept']}}</div>
+                    <div class="text-muted">@lang('custom.candidate_accept')</div>
                 </div>
             </div>
         </div>
@@ -44,7 +44,7 @@
             <div class="panel panel-red panel-widget ">
                 <div class="row no-padding"><em class="fa fa-xl fa-user-times color-red"></em>
                     <div class="large">{{$data['candidate_failed']}}</div>
-                    <div class="text-muted">Page Views</div>
+                    <div class="text-muted">@lang('custom.candidate_failed')</div>
                 </div>
             </div>
         </div>
