@@ -30,8 +30,8 @@ class AppServiceProvider extends ServiceProvider
             URL::forceScheme('https');
         }
         Schema::defaultStringLength(191);
-        $data_share = Company::first();
+        // $data_share = Company::first();
 
-        return view()->share('data_share', $data_share);
+        // return view()->share('data_share', $data_share);
     }
 }
