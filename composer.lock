@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8c1adc1221b92b6a335e96920c8d84cf",
+    "content-hash": "e60b68845884cad8b084df478e769911",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -3338,120 +3338,6 @@
                 "v2"
             ],
             "time": "2019-12-04T08:18:17+00:00"
-        },
-        {
-            "name": "spatie/laravel-google-calendar",
-            "version": "3.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/spatie/laravel-google-calendar.git",
-                "reference": "611778384b3f0082133d20b60e9fbc84f6f7f103"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-google-calendar/zipball/611778384b3f0082133d20b60e9fbc84f6f7f103",
-                "reference": "611778384b3f0082133d20b60e9fbc84f6f7f103",
-                "shasum": ""
-            },
-            "require": {
-                "google/apiclient": "^2.2",
-                "illuminate/support": "^6.0|^7.0",
-                "nesbot/carbon": "^2.0",
-                "php": "^7.2"
-            },
-            "require-dev": {
-                "mockery/mockery": "^1.3.0",
-                "orchestra/testbench": "^4.0|^5.0",
-                "phpunit/phpunit": "^8.4|^9.0"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "Spatie\\GoogleCalendar\\GoogleCalendarServiceProvider"
-                    ],
-                    "aliases": {
-                        "GoogleCalendar": "Spatie\\GoogleCalendar\\GoogleCalendarFacade"
-                    }
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Spatie\\GoogleCalendar\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Freek Van der Herten",
-                    "email": "freek@spatie.be",
-                    "homepage": "https://spatie.be",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Manage events on a Google Calendar",
-            "homepage": "https://github.com/spatie/laravel-google-calendar",
-            "keywords": [
-                "calendar",
-                "event",
-                "google",
-                "laravel-google-calendar",
-                "schedule",
-                "spatie"
-            ],
-            "funding": [
-                {
-                    "url": "https://spatie.be/open-source/support-us",
-                    "type": "custom"
-                }
-            ],
-            "time": "2020-08-22T08:41:11+00:00"
-        },
-        {
-            "name": "staudenmeir/eloquent-has-many-deep",
-            "version": "v1.12",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/staudenmeir/eloquent-has-many-deep.git",
-                "reference": "7417572873c9fb4fa84e894ebbf324629cbc63c0"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/staudenmeir/eloquent-has-many-deep/zipball/7417572873c9fb4fa84e894ebbf324629cbc63c0",
-                "reference": "7417572873c9fb4fa84e894ebbf324629cbc63c0",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/database": "^7.0",
-                "php": "^7.2.5"
-            },
-            "require-dev": {
-                "illuminate/pagination": "^7.0",
-                "laravel/homestead": "^10.0",
-                "phpunit/phpunit": "^8.5",
-                "staudenmeir/eloquent-eager-limit": "^1.5"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Staudenmeir\\EloquentHasManyDeep\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Jonas Staudenmeir",
-                    "email": "mail@jonas-staudenmeir.de"
-                }
-            ],
-            "description": "Laravel Eloquent HasManyThrough relationships with unlimited levels",
-            "time": "2020-01-31T12:37:57+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
