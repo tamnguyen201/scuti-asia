@@ -24,7 +24,7 @@ class EmployeeController extends Controller
     
     public function index()
     {
-        $employees = $this->employeeRepository->paginate(10);
+        $employees = $this->employeeRepository->paginate();
 
         return view('admin.staff.index', compact('employees'));
     }

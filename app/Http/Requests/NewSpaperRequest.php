@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class PartnerCompaniesUpdateRequest extends FormRequest
+class NewSpaperRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,8 +24,8 @@ class PartnerCompaniesUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|unique:partner_companies,name,' . $this->id,
-            'logo' => 'nullable|mimes:jpeg,jpg,png,gif|max:10000',
+            'name' => 'required|unique:partner_companies,name',
+            'logo' => 'required|mimes:jpeg,jpg,png,gif|max:10000'
         ];
     }
 

@@ -10,6 +10,7 @@ return [
     'avatar' => 'Ảnh đại diện',
     'image_url' => 'File Ảnh',
     'cv_url' => 'File CV',
+    'url' => 'Đường Dẫn Bài Viết',
     'choose_cv' => 'Chọn Hồ Sơ',
     'logo' => 'Ảnh Logo',
     'description' => 'Mô Tả',
@@ -28,6 +29,16 @@ return [
     'location'=>'Địa điểm',
     'expire_day'=>'Ngày hết hạn',
     'status'=>'Trạng thái',
+    'process' => 'Quá Trình Đánh Giá',
+    'result' => 'Kết Quả',
+    'process_failed' => 'Bước Đánh Giá Bị Loại',
+    'jobApplied' => 'Công Việc Ứng Tuyển',
+    'applied' => 'Chưa Đánh Giá',
+    'finished' => 'Hoàn Thành',
+    'field' => 'Tên Bố Cục',
+    'map_url' => 'Địa Chỉ Bản Đồ',
+    'content' => 'Nội Dung',
+    'visit_type' => 'Thể Loại',
     
     'page_title' => [
         'user_manage' => 'Quản Lý Người Dùng',
@@ -36,7 +47,7 @@ return [
         'role_manage' => 'Quản Lý Quyền',
         'company_manage' => 'Quản Lý Thông Tin Công Ty',
         'company_image_manage' => 'Quản Lý Ảnh Công Ty',
-        'partner_companies_manage' => 'Quản Lý Thông Tin Đốí Tác',
+        'new_spaper_manage' => 'Quản Lý Tin Tức Về Công Ty',
         'candidate_manage' => 'Quản Lý Thông Tin Ứng Viên',
         'data_table' => 'Bảng dữ liệu',
         'form' => 'Mẫu điền thông tin',
@@ -55,8 +66,9 @@ return [
         'jobs' =>'Danh sách các Job',
         'jobs_manage'=>'Quản lý danh sách Job',
         'jobs_detail'=>'Thông tin Job',
-        'show_infor'=>'Thông tin'
-        
+        'show_infor'=>'Thông tin',
+        'section_manage' => 'Quản Lí Bố Cục',
+        'contact_manage' => 'Quản Lí Liên Hệ',
     ],
 
     'table_lable' => [
@@ -79,6 +91,7 @@ return [
         'dashboard' => 'Bảng Điều Khiển',
         'member' => 'Thành Viên',
         'manager' => 'Quản Trị Viên',
+        'contact' => 'Liên Hệ',
         'user' => 'Người Dùng',
         'canidate' => 'Ứng Viên',
         'calendar' => 'Lịch',
@@ -87,6 +100,7 @@ return [
         'company_info' => 'Thông Tin Công Ty',
         'company_images' => 'Ảnh Công Ty',
         'partner' => 'Đối Tác',
+        'section' => 'Bố Cục',
         'evaluating' => 'Đang Đánh Giá',
         'finishing' => 'Hoàn Tất',
         'failed' => 'Loại',
@@ -112,10 +126,14 @@ return [
             'title' => 'Thành Công',
             'text' => 'Chúng tôi sẽ trả lời bạn sớm nhất có thể!'
         ],
+        'register_alert' => [
+            'title' => 'Thành Công',
+            'text' => 'Bạn Vừa Tạo Tài Khoản Thành Công! Hãy Tìm Công Việc Phù Hợp Với Mình',
+        ],
         'login_success' => [
             'title' => 'Đăng Nhập Thành Công',
             'text' => 'Bạn Đã Đăng Nhập Thành Công! Hãy Tìm Cho Mình Công Việc Phù Hợp.',
         ],
-    ]
+    ],
 
 ];

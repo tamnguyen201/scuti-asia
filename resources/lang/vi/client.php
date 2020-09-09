@@ -7,14 +7,29 @@ return [
             'title' => 'Trang Chủ'
         ],
 
-        'login' => [
-            'title' => 'Đăng Nhập',
+        'auth' => [
+            'login' => [
+                'title' => 'Đăng Nhập',
+                'remember' => 'Ghi nhớ đăng nhập!',
+                'forgot_password' => 'Quên Mật Khẩu?',
+                'submit' => 'Đăng Nhập',
+                'or' => 'Hoặc',
+                'google_login' => 'Đăng Nhập Với Google',
+                'no_account' => 'Chưa Có Tài Khoản!',
+            ],
+
+            'register' => [
+                'title' => 'Đăng Ký',
+                'term' => 'Đồng Ý Với Điều Khoản Của Chúng Tôi!',
+                'submit' => 'Đăng Ký',
+                'has_account' => 'Đã Có Tài Khoản!',
+            ],
+            'name' => 'Họ Và Tên',
             'email' => 'Tài Khoản',
             'password' => 'Mật Khẩu',
-            'remember' => 'Ghi nhớ đăng nhập!',
-            'submit' => 'Đăng Nhập',
-            'or' => 'Hoặc',
-            'google_login' => 'Đăng Nhập Với Google'
+            'password_confirm' => 'Nhập Lại Mật Khẩu',
+            'phone' => 'Số Điện Thoại',
+            'address' => 'Địa Chỉ',
         ],
 
         'profile' => [
@@ -54,6 +69,7 @@ return [
                 'title' => 'Bạn Đã Ứng Tuyển Cho Công Việc Này!',
                 'description' => 'Xem Chi Tiết Kết Quả Trong Quá Trình Đánh Giá Này.',
             ],
+            'back' => 'Quay Lại',
         ],
     ],
 

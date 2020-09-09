@@ -31,8 +31,7 @@ class JobController extends Controller
 
     public function index()
     {
-        $jobs = $this->jobRepository->paginate(10);
-
+        $jobs = $this->jobRepository->paginate();
         return view("admin.job.index", compact('jobs'));
     }
 

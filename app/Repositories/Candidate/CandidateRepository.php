@@ -10,6 +10,11 @@ class CandidateRepository extends Repository implements CandidateRepositoryInter
         return \App\Model\User::class;
     }
 
+    public function paginate($perPage = 10, $columns = array('*'))
+    {
+        return $this->model->with(['userjob','job'])->paginate($perPage, $columns);
+    }
+
     public function show($id)
     {
         return $this->model->with('cv')->findOrFail($id);

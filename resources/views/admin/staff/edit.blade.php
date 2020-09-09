@@ -14,60 +14,62 @@
         <h1 class="page-header">@lang('custom.page_title.employee_manage')</h1>
     </div>
 </div>
-<div class="col-lg-12">
-    <div class="panel panel-default">
-        <div class="panel-heading">@lang('custom.page_title.form')</div>
-        <div class="panel-body">
-            <div class="col-md-12">
-                <form role="form" action="{{route('employees.update',$manager->id)}}" method="POST" enctype="multipart/form-data">
-                    @csrf
-                    @method('PUT')
-                    <input type="hidden" name="user_id" value="{{$manager->user->id}}">
-                    <div class="col-md-9">
-                        <div class="col-md-4">
-                            <img src="{{asset($manager->avatar)}}" class="img-responsive" alt="">
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">@lang('custom.page_title.form')</div>
+            <div class="panel-body">
+                <div class="col-md-12">
+                    <form role="form" action="{{route('employees.update',$manager->id)}}" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        @method('PUT')
+                        <input type="hidden" name="user_id" value="{{$manager->user->id}}">
+                        <div class="col-md-9">
+                            <div class="col-md-4">
+                                <img src="{{asset($manager->avatar)}}" class="img-responsive" alt="">
+                            </div>
+                            <div class="col-md-8">
+                                <table class="table table-hover">
+                                    <tbody>
+                                        <tr>
+                                            <td>@lang('custom.name')</td>
+                                            <td>{{$manager->user->name}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>@lang('custom.email')</td>
+                                            <td>{{$manager->user->email}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>@lang('custom.phone')</td>
+                                            <td>{{($manager->phone) ? $manager->phone : 'null'}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>@lang('custom.address')</td>
+                                            <td>{{($manager->address) ? $manager->address : 'null'}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
-                        <div class="col-md-8">
-                            <table class="table table-hover">
-                                <tbody>
-                                    <tr>
-                                        <td>@lang('custom.name')</td>
-                                        <td>{{$manager->user->name}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>@lang('custom.email')</td>
-                                        <td>{{$manager->user->email}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>@lang('custom.phone')</td>
-                                        <td>{{($manager->phone) ? $manager->phone : 'null'}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>@lang('custom.address')</td>
-                                        <td>{{($manager->address) ? $manager->address : 'null'}}</td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label>@lang('custom.role')</label>
+                                <select name="role" class="form-control">
+                                    @foreach (config('common.role') as $key => $item)
+                                    @if($key != 'User')
+                                        <option value="{{$item}}" @if($manager->user->role == $item) selected @endif>{{$key}}</option>
+                                    @endif
+                                    @endforeach
+                                </select>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="form-group">
-                            <label>@lang('custom.role')</label>
-                            <select name="role" class="form-control">
-                                @foreach (config('common.role') as $key => $item)
-                                @if($key != 'User')
-                                    <option value="{{$item}}" @if($manager->user->role == $item) selected @endif>{{$key}}</option>
-                                @endif
-                                @endforeach
-                            </select>
+                        <div class="col-md-12 text-center">
+                            <button type="submit" class="btn btn-primary">@lang('custom.button.submit')</button>
+                            <button type="reset" class="btn btn-default">@lang('custom.button.reset')</button>
+                            <a href="{{route('employees.index')}}" class="btn btn-danger">@lang('custom.button.cancel')</a>
                         </div>
-                    </div>
-                    <div class="col-md-12 text-center">
-                        <button type="submit" class="btn btn-primary">@lang('custom.button.submit')</button>
-                        <button type="reset" class="btn btn-default">@lang('custom.button.reset')</button>
-                        <a href="{{route('employees.index')}}" class="btn btn-danger">@lang('custom.button.cancel')</a>
-                    </div>
-                </form>
+                    </form>
+                </div>
             </div>
         </div>
     </div>

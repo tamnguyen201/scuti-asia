@@ -4,8 +4,8 @@ namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
 
-class AboutUs extends Model
+class VisitUs extends Model
 {
-    protected $table = 'about_us';
+    protected $table = 'visit_us';
     protected $fillable = ['name', 'email', 'message', 'type'];
 }

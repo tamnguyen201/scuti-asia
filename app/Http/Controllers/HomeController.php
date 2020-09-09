@@ -9,7 +9,7 @@ use App\Services\ApplyJobService;
 use App\Repositories\Client\SectionRepositoryInterface;
 use App\Repositories\Company\CompanyImagesRepositoryInterface;
 use App\Repositories\Company\ContactRepositoryInterface;
-use App\Repositories\Company\PartnerCompaniesRepositoryInterface as NewSpaperRepositoryInterface;
+use App\Repositories\Company\NewSpaperRepositoryInterface;
 use App\Repositories\Category\CategoryRepositoryInterface;
 use App\Repositories\Job\JobRepositoryInterface;
 use Illuminate\Http\Request;
@@ -44,12 +44,12 @@ class HomeController extends Controller
 
     public function index()
     {
-        $data['benefits'] = $this->SectionRepository->where('name', '=', 'Benefits');
-        $data['recruitment_flow'] = $this->SectionRepository->where('name', '=', 'Recruitment Flow');
+        $data['benefits'] = $this->SectionRepository->where('slug', '=', 'benefits');
+        $data['recruitment_flow'] = $this->SectionRepository->where('slug', '=', 'recruitment-flow');
         $data['working_environment'] = $this->CompanyImagesRepository->all();
-        $data['about_us'] = $this->SectionRepository->where('name', '=', 'About Us');
+        $data['about_us'] = $this->SectionRepository->where('slug', '=', 'about-us');
         $data['new_spaper'] = $this->NewSpaperRepository->all();
-        $data['visit_us'] = $this->SectionRepository->where('name', '=', 'Visit Us');
+        $data['visit_us'] = $this->SectionRepository->where('slug', '=', 'visit-us');
         $data['categories'] = $this->CategoryRepository->all();
         $data['jobs'] = $this->JobRepository->with('category')->get();
         $data['hotJobs'] = $this->JobRepository->all();
@@ -66,7 +66,7 @@ class HomeController extends Controller
 
     public function jobs()
     {
-        $data['recruitment_flow'] = $this->SectionRepository->where('name', '=', 'Recruitment Flow');
+        $data['recruitment_flow'] = $this->SectionRepository->where('slug', '=', 'recruitment-flow');
         $data['categories'] = $this->CategoryRepository->all();
         $data['jobs'] = $this->JobRepository->with('category')->paginate(5);
 
@@ -89,7 +89,9 @@ class HomeController extends Controller
             return redirect()->route('client.login')->with('redirect', $redirect);
         }
 
-        $data['recruitment_flow'] = $this->SectionRepository->where('name', '=', 'Recruitment Flow');
+        $data['apply'] = \App\Model\UserJob::where('user_id', auth()->user()->id)->where('job_id', $id)->with('process')->first();
+        // dd($data['apply']->process[0]->evaluate[0]->status);
+        $data['recruitment_flow'] = $this->SectionRepository->where('slug', '=', 'recruitment-flow');
         $data['job'] = $this->JobRepository->show($id);
 
         return view('client.page.jobApply', compact('data'));
@@ -98,9 +100,9 @@ class HomeController extends Controller
     public function userApplyJob(ClientApplyJobRequest $request)
     {
         $this->ApplyJobService->create($request->all());
-        alert(trans('custom.alert_messages.contact_alert.title'), trans('custom.alert_messages.contact_alert.text'), 'success');
+        // alert(trans('custom.alert_messages.contact_alert.title'), trans('custom.alert_messages.contact_alert.text'), 'success');
         
-        return back();
+        return true;
     }
 
     public function login()

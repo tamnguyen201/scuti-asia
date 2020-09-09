@@ -12,9 +12,6 @@
             @endif
             <form action="{{route('client.postLogin')}}" method="post">
                 @csrf
-                @if(Session('redirect'))
-                <input type="hidden" name="redirect" value="{{Session('redirect')}}" >
-                @endif
                 <div class="form-group">
                     <label>@lang('client.page.auth.email')</label>
                     <input type="email" class="form-control @error('email') has-error @enderror" name="email">
@@ -39,15 +36,6 @@
                 </div>
                 <div class="form-group">
                     <button type="submit" class="form-control-submit-button">@lang('client.page.auth.login.submit')</button>
-                </div>
-                <div class="form-group text-center">
-                    <p>- @lang('client.page.auth.login.or') -</p>
-                </div>
-                <div class="form-group">
-                    <a href="{{ url('/auth/redirect/google') }}" class="form-control-social-login"><i class="fab fa-google fa-fw"></i> @lang('client.page.auth.login.google_login')</a>
-                </div>
-                <div class="form-group text-center">
-                    @lang('client.page.auth.login.no_account') <a href="{{route('client.register')}}">@lang('client.page.auth.register.title')</a>
                 </div>
             </form>
         </div>

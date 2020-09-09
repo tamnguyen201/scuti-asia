@@ -15,7 +15,7 @@ class ManagerRepository extends Repository implements ManagerRepositoryInterface
 
     public function getModel()
     {
-        return \App\Model\Manager::class;
+        return \App\Model\Admin::class;
     }
 
     public function update($result, $id)

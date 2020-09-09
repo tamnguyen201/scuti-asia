@@ -15,7 +15,8 @@
     <ul class="nav menu">
         <li class="active"><a href="{{route('admin.home')}}"><em class="fa fa-dashboard">&nbsp;</em> @lang('custom.menu.dashboard')</a></li>
         <li><a href="widgets.html"><em class="fa fa-calendar">&nbsp;</em> @lang('custom.menu.calendar') </a></li>
-        <li class="parent "><a class="" href="{{route('employees.index')}}"><span class="fa fa-users">&nbsp;</span> @lang('custom.menu.manager')</a></li>
+        <li><a href="{{route('employees.index')}}"><span class="fa fa-users">&nbsp;</span> @lang('custom.menu.manager')</a></li>
+        <li><a href="{{route('contacts.index')}}"><span class="fa fa-phone">&nbsp;</span> @lang('custom.menu.contact')</a></li>
         <li class="parent ">
             <a data-toggle="collapse" href="#sub-item-2">
                 <em class="fa fa-child">&nbsp;</em> @lang('custom.menu.canidate') <span data-toggle="collapse" href="#sub-item-2" class="icon pull-right"><em class="fa fa-plus"></em></span>
@@ -25,15 +26,15 @@
                 <span class="fa fa-arrow-right">&nbsp;</span> @lang('custom.menu.list')
                 </a>
                 </li>
-                <li><a class="" href="{{route('users.index')}}">
+                <li><a class="" href="{{route('candidates.evaluating')}}">
                 <span class="fa fa-arrow-right">&nbsp;</span> @lang('custom.menu.evaluating')
                 </a>
                 </li>
-                <li><a class="" href="{{route('users.index')}}">
+                <li><a class="" href="{{route('candidates.finish')}}">
                 <span class="fa fa-arrow-right">&nbsp;</span> @lang('custom.menu.finishing')
                 </a>
                 </li>
-                <li><a class="" href="{{route('users.index')}}">
+                <li><a class="" href="{{route('candidates.failed')}}">
                 <span class="fa fa-arrow-right">&nbsp;</span> @lang('custom.menu.failed')
                 </a>
                 </li>
@@ -52,8 +53,12 @@
                 <span class="fa fa-arrow-right">&nbsp;</span> @lang('custom.menu.company_images')
                 </a>
                 </li>
-                <li><a class="" href="{{route('partner_companies.index')}}">
+                <li><a class="" href="{{route('new_spaper.index')}}">
                 <span class="fa fa-arrow-right">&nbsp;</span> @lang('custom.menu.partner')
+                </a>
+                </li>
+                <li><a class="" href="{{route('sections.index')}}">
+                <span class="fa fa-arrow-right">&nbsp;</span> @lang('custom.menu.section')
                 </a>
                 </li>
             </ul>

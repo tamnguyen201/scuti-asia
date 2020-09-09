@@ -3,7 +3,7 @@ namespace App\Repositories\Company;
 
 use App\Repositories\Repository;
 
-class PartnerCompaniesRepository extends Repository implements PartnerCompaniesRepositoryInterface
+class NewSpaperRepository extends Repository implements NewSpaperRepositoryInterface
 {
     public function getModel()
     {
@@ -13,8 +13,8 @@ class PartnerCompaniesRepository extends Repository implements PartnerCompaniesR
     public function create($results)
     {
         $data = $results;
-        if(array_key_exists("logo", $results)) {
-            $data['logo'] = $this->upload($results['logo']);
+        if(array_key_exists("image", $results)) {
+            $data['image'] = $this->upload($results['image']);
         }
         
         return $this->model->create($data);
@@ -23,8 +23,8 @@ class PartnerCompaniesRepository extends Repository implements PartnerCompaniesR
     public function update($results, $id)
     {
         $data = $results;
-        if(array_key_exists("logo", $results)) {
-            $data['logo'] = $this->upload($results['logo']);
+        if(array_key_exists("image", $results)) {
+            $data['image'] = $this->upload($results['image']);
         }
         
         return $this->show($id)->update($data);
