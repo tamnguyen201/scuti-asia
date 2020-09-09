@@ -27,83 +27,77 @@
                                 <tr>
                                     <th>
                                     <div class="th-inner sortable">@lang('custom.stt')</div>
-                                    <div class="fht-cell"></div>
                                     </th>
                                     <th>
                                         <div class="th-inner sortable">@lang('custom.name')</div>
-                                        <div class="fht-cell"></div>
                                     </th>
                                     <th>
                                         <div class="th-inner sortable">@lang('custom.email')</div>
-                                        <div class="fht-cell"></div>
                                     </th>
                                     <th>
                                         <div class="th-inner sortable">@lang('custom.jobApplied')</div>
-                                        <div class="fht-cell"></div>
                                     </th>
                                     <th>
                                         <div class="th-inner sortable">@lang('custom.process')</div>
-                                        <div class="fht-cell"></div>
                                     </th>
                                     <th>
                                         <div class="th-inner sortable text-center">@lang('custom.action')</div>
-                                        <div class="fht-cell"></div>
                                     </th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @php $stt = 1; @endphp
                                 @foreach($candidates as $candidate)
-                                    @foreach($candidate->job as $key => $item)
                                     <tr>
                                         <td>{{$stt++}}</td>
-                                        <td>{{$candidate->name}}</td>
-                                        <td>{{$candidate->email}}</td>
-                                        <td>{{$item->name}}</td>
-                                        @if(0 < $candidate->userjob[$key]->process->count() && $candidate->userjob[$key]->process->count() < 4)
-                                            @for($i = 0; $i <= $candidate->userjob[$key]->process->count(); $i++)
-                                                @if($i == $candidate->userjob[$key]->process->count() - 1)
-                                                <td>
-                                                    <a href="{{ route('evaluate.candidate.show', $candidate->userjob[$key]->process[$i]->id) }}" style="text-decoration: none">
-                                                        <span @if ($candidate->userjob[$key]->process[$i])
-                                                            @switch($i)
-                                                                @case(0)
-                                                                    class="label label-primary"
-                                                                    @break
-                                                                @case(1)
-                                                                    class="label label-success"
-                                                                    @break
-                                                                @case(2)
-                                                                    class="label label-warning"
-                                                                    @break
-                                                                @case(3)
-                                                                    class="label label-info"
-                                                                    @break
-                                                            @endswitch
-                                                        @endif>
-                                                            {{$candidate->userjob[$key]->process[$i]->name}}
-                                                        </span>
-                                                    </a>
-                                                </td>
-                                                @endif
-                                            @endfor
-                                        @elseif($candidate->userjob[$key]->process->count() == 4)
-                                            <td style="font-size: 75%;font-weight: bold; color: #5cb85c">@lang('custom.finished')</td>
-                                        @elseif($candidate->userjob[$key]->process->count() == 0)
-                                            <td style="font-size: 75%;font-weight: bold;color: red">@lang('custom.applied')</td>
-                                        @endif
+                                        <td>{{$candidate->user->name}}</td>
+                                        <td>{{$candidate->user->email}}</td>
+                                        <td>{{$candidate->job->name}}</td>
                                         <td>
-                                            <a href="{{route('candidates.show', $candidate['id'])}}" class="btn btn-info text-light view-profile" title="Xem"><em class="fa fa-eye"></em></a>
-                                            @if ($candidate->userjob[$key]->process->count() == 0)
-                                                <form action="{{route('start.evaluate', $candidate->userjob[$key]->id)}}" method="post" class="form-delete-{{$candidate->userjob[$key]->id}}" style="display: inline">
+                                            @if($candidate->process->count() > 0 && $candidate->process->count() < 4)
+                                                @for($i = 0; $i <= $candidate->process->count(); $i++)
+                                                    @if($i == $candidate->process->count() - 1)
+                                                        <a href="{{ route('evaluate.candidate.show', $candidate->process[$i]->id) }}" style="text-decoration: none">
+                                                            <span @if ($candidate->process[$i])
+                                                                @switch($i)
+                                                                    @case(0)
+                                                                        class="label label-primary"
+                                                                        @break
+                                                                    @case(1)
+                                                                        class="label label-success"
+                                                                        @break
+                                                                    @case(2)
+                                                                        class="label label-warning"
+                                                                        @break
+                                                                    @case(3)
+                                                                        class="label label-info"
+                                                                        @break
+                                                                @endswitch
+                                                            @endif>
+                                                                {{$candidate->process[$i]->name}}
+                                                            
+                                                            </span>
+                                                        </a>
+                                                    @endif
+                                                @endfor
+                                            @elseif($candidate->process->count() == 4)
+                                                @lang('custom.finished')
+                                            @else
+                                                @lang('custom.applied')
+                                            @endif
+                                        </td>
+                                        <td>
+                                            <a href="{{route('candidates.show', $candidate->user->id)}}" class="btn btn-info text-light view-profile" title="Xem"><em class="fa fa-eye"></em></a>
+                                            @if ($candidate->process->count() == 0)
+                                                <form action="{{route('start.evaluate', $candidate->id)}}" method="post" class="form-delete-{{$candidate->id}}" style="display: inline">
                                                     @csrf
                                                     @method('POST')
-                                                    <button class="btn btn-warning text-light start-confirm" idStart={{$candidate->userjob[$key]->id}} title="Bắt đầu đánh giá"><em class="fas fa-random"></em></button>
+                                                    <button class="btn btn-warning text-light start-confirm" idStart={{$candidate->id}} title="Bắt đầu đánh giá"><em class="fas fa-random"></em></button>
                                                 </form>
                                             @endif
                                         </td>
                                     </tr>
-                                    @endforeach
+                                    
                                 @endforeach
                             </tbody>
                         </table>
@@ -113,17 +107,17 @@
                 <div class="clearfix"></div>
                 <div class="modal fade bd-example-modal-lg" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                     <div class="modal-dialog modal-lg modal-md" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                        <h3 class="modal-title" id="exampleModalLongTitle">Thong tin ung vien</h3>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h3 class="modal-title" id="exampleModalLongTitle">Thong tin ung vien</h3>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                                <div class="modal-body"></div>
+                                <div class="modal-footer" style="border-top: none">
+                            </div>
                         </div>
-                        <div class="modal-body"></div>
-                        <div class="modal-footer" style="border-top: none">
-                        </div>
-                    </div>
                     </div>
                 </div>
             </div>

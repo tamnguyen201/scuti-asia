@@ -11,12 +11,12 @@ class UserJob extends Model
     
     public function user()
     {
-        return $this->belongsToMany('App\Model\User');
+        return $this->belongsTo('App\Model\User');
     }
 
     public function job()
     {
-        return $this->hasOne('App\Model\Job');
+        return $this->belongsTo('App\Model\Job');
     }
 
     public function process()

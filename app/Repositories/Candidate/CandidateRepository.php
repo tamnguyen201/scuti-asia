@@ -24,4 +24,31 @@ class CandidateRepository extends Repository implements CandidateRepositoryInter
     {
         return $this->model->where($field, $opedaytor ,$condition)->first();
     }
+
+    public function index()
+    {
+        return \App\Model\UserJob::with(['user'])->paginate(10);
+    }
+
+    public function evaluating()
+    {
+        return \DB::table('user_job')
+                    ->where('status', '=', 0)
+                    ->paginate(10);
+    }
+
+    public function finish()
+    {
+        return \DB::table('user_job')
+                ->where('status', '=', 1)
+                ->paginate(10);
+    }
+
+    public function failed()
+    {
+        return \DB::table('user_job')
+                    ->where('status', '=', 1)
+                    ->where('result', '=', 0)
+                    ->paginate(10);
+    }
 }
