@@ -57,6 +57,14 @@ class RepositoryServiceProvider extends ServiceProvider
             \App\Repositories\CV\CVRepositoryInterface::class,
             \App\Repositories\CV\CVRepository::class,
         );
+        $this->app->singleton(
+            \App\Repositories\Client\SectionRepositoryInterface::class,
+            \App\Repositories\Client\SectionRepository::class,
+        );
+        $this->app->singleton(
+            \App\Repositories\Company\ContactRepositoryInterface::class,
+            \App\Repositories\Company\ContactRepository::class,
+        );
     }
 
     /**

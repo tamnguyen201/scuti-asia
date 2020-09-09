@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CVUpdateRequest extends FormRequest
+class ClientApplyJobRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,8 +24,9 @@ class CVUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'cv_name' => 'required',
-            'cv_url' => 'nullable|mimes:pdf,doc,docx|max:10000'
+            'cv_id' => 'required_without_all:cv_name,cv_url',
+            'cv_name' => 'required_without:cv_id',
+            'cv_url' => 'required_without:cv_id|mimes:pdf,doc,docx|max:10000',
         ];
     }
 
@@ -33,8 +34,11 @@ class CVUpdateRequest extends FormRequest
     {
         return [
             'required' => trans('validation.required'),
-            'cv_url.mimes' => trans('validation.mimes'),
-            'cv_url.max' => trans('validation.max'),
+            'email' => trans('validation.email'),
+            'required_without' => trans('validation.required'),
+            'required_without_all' => trans('validation.required'),
+            'mimes' => trans('validation.mimes'),
+            'max' => trans('validation.max'),
         ];
     }
 }

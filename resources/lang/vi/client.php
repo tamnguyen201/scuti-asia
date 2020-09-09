@@ -19,7 +19,7 @@ return [
 
         'profile' => [
             'title' => 'Thông Tin Cá Nhân',
-            'side_bar' => [
+            'sidebar' => [
                 'profile' => 'Thông Tin Cá Nhân',
                 'cv' => 'Quản Lí Hồ Sơ',
                 'job_applied' => 'Công Việc Đã Ứng Tuyển',
@@ -32,6 +32,28 @@ return [
             'create_cv' => 'Thêm Mới!',
             'empty_job_applied' => 'Bạn Chưa Ứng Tuyển Công Việc Nào.',
             'apply_job' => 'Tìm Việc Phù Hợp Ngay!',
+            'manage_pw' => 'Quản Lí Mật Khẩu',
+        ],
+        'job' => [
+            'title' => 'Tin Tuyển Dụng',
+            'related_job' => 'Công Việc Liên Quan',
+        ],
+        'apply' => [
+            'title' => '',
+            'form_title' => 'Mẫu Đăng Kí Ứng Tuyển',
+            'sidebar' => [
+                'title' => 'Thông Tin Tuyển Dụng',
+                'level' => 'Cấp Bậc',
+                'job' => 'Ngành Nghề',
+                'exp' => 'Kinh Nghiệm',
+                'salary' => 'Lương',
+                'work_place' => 'Nơi Làm Việc',
+                'end_time' => 'Ngày Hết Hạn'
+            ],
+            'process' => [
+                'title' => 'Bạn Đã Ứng Tuyển Cho Công Việc Này!',
+                'description' => 'Xem Chi Tiết Kết Quả Trong Quá Trình Đánh Giá Này.',
+            ],
         ],
     ],
 
@@ -76,10 +98,9 @@ return [
             'description' => 'Hãy đến với chúng tôi khi nhận thấy những giá trị này phù hợp với bạn!',
         ],
 
-        'about' => [
+        'about_us' => [
             'title' => 'Về Chúng Tôi',
             'description' => 'Chúng tôi tin rằng xây dựng được hạnh phúc, chú trọng con đường sự nghiệp cho nhân viên, sự hài lòng trong công việc và môi trường tích cực sẽ là nền tảng lâu dài cho sự phát triển bền vững của Scuti.',
-            'sub_title' => 'Quá trình thành lập và phát triển Scuti!'
         ],
 
         'newspaper' => [

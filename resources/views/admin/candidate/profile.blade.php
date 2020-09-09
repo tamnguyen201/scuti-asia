@@ -6,11 +6,11 @@
         <tbody>
             <tr>
                 <td>@lang('custom.name')</td>
-                <td>{{$candidate->user->name}}</td>
+                <td>{{$candidate->name}}</td>
             </tr>
             <tr>
                 <td>@lang('custom.email')</td>
-                <td>{{$candidate->user->email}}</td>
+                <td>{{$candidate->email}}</td>
             </tr>
             <tr>
                 <td>@lang('custom.phone')</td>

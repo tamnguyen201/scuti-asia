@@ -15,6 +15,7 @@ class CreateCvTable extends Migration
     {
         Schema::create('cvs', function (Blueprint $table) {
             $table->id();
+            $table->string('cv_name');
             $table->string('cv_url');
             $table->foreignId('user_id');
 

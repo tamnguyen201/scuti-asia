@@ -3,12 +3,14 @@
 return [
     'stt' => 'STT',
     'name' => 'Tên',
+    'name_cv' => 'Tên Hồ Sơ',
     'email' => 'Địa chỉ Email',
     'phone' => 'SĐT',
     'address' => 'Địa chỉ',
     'avatar' => 'Ảnh đại diện',
     'image_url' => 'File Ảnh',
     'cv_url' => 'File CV',
+    'choose_cv' => 'Chọn Hồ Sơ',
     'logo' => 'Ảnh Logo',
     'description' => 'Mô Tả',
     'role' => 'Quyền',
@@ -106,6 +108,14 @@ return [
         'same' => 'Mật khẩu mới trùng với mật khẩu hiện tại! Vui lòng thử lại.',
         'not_same' => 'Mật khẩu hiện tại không chính sác! Vui lòng thử lại.',
         'warning_limit_cv' => 'Cảnh báo bạn đã có số hồ sơ đạt giới hạn, vui lòng không tạo mới!',
+        'contact_alert' => [
+            'title' => 'Thành Công',
+            'text' => 'Chúng tôi sẽ trả lời bạn sớm nhất có thể!'
+        ],
+        'login_success' => [
+            'title' => 'Đăng Nhập Thành Công',
+            'text' => 'Bạn Đã Đăng Nhập Thành Công! Hãy Tìm Cho Mình Công Việc Phù Hợp.',
+        ],
     ]
 
 ];

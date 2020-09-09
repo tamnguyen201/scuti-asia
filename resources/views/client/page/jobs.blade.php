@@ -1,8 +1,19 @@
 @extends('client.layout.master')
-@section('title', trans('custom.page_title.company_manage'))
+@section('title', trans('client.page.job.title'))
 @section('content')
+    <div class="ex-basic-1">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumbs">
+                    <a href="{{route('home')}}">@lang('client.page.home.title')</a><i class="fa fa-angle-double-right"></i><span>@lang('client.page.job.title')</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-	<div class="filter" style="padding-top: 8rem">
+	<div class="filter">
 		<div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -35,7 +46,7 @@
                                         </div>
                                     </div>
                                     <div class="col-md-4 col-12 text-md-right text-center">
-                                        <a href="" class="btn-apply-main btn-apply">@lang('client.section.recruitment.aplly')</a>
+                                        <a href="{{route('client.applied', [$job->slug, $job->id])}}" class="btn-apply-main btn-apply">@lang('client.section.recruitment.apply')</a>
                                     </div>
                                 </div>
                                 @endif
@@ -54,7 +65,7 @@
                                         </div>
                                     </div>
                                     <div class="col-md-4 col-12 text-md-right text-center">
-                                        <a href="" class="btn-apply-main btn-apply">@lang('client.section.recruitment.aplly')</a>
+                                        <a href="{{route('client.applied', [$job->slug, $job->id])}}" class="btn-apply-main btn-apply">@lang('client.section.recruitment.apply')</a>
                                     </div>
                                 </div>
                                 @endforeach
@@ -69,7 +80,7 @@
 		</div>
     </div>
 
-    <div class="basic-2">
+    <div id="services" class="basic-2">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -79,7 +90,7 @@
                 </div>
             </div>
             <div class="row">
-
+                {!! $data['recruitment_flow']->content !!}
             </div>
         </div>
     </div>

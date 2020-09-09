@@ -1,7 +1,14 @@
 @extends('client.layout.master')
 @section('title', trans('custom.page_title.company_manage'))
+@section('css')
+    <style>
+        .nav-pills .nav-link.active {
+            background-color: #fd6f2d;
+        }
+    </style>
+@endsection
 @section('content')
-<div class="ex-basic-1"  style="padding-top: 7rem">
+<div class="ex-basic-1">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
@@ -20,12 +27,12 @@
                     <div class="row">
                         <div class="col-12 col-md-3 mb-3 mb-md-0">
                             <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                                <a class="nav-link active" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="true">@lang('client.page.profile.side_bar.profile')</a>
-                                <a class="nav-link" id="v-pills-cv-tab" data-toggle="pill" href="#v-pills-cv" role="tab" aria-controls="v-pills-cv" aria-selected="false">@lang('client.page.profile.side_bar.cv')</a>
-                                <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">@lang('client.page.profile.side_bar.job_applied')</a>
-                                <a class="nav-link" href="{{route('client.change_info')}}">@lang('client.page.profile.side_bar.change_info')</a>
+                                <a class="nav-link active" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="true">@lang('client.page.profile.sidebar.profile')</a>
+                                <a class="nav-link" id="v-pills-cv-tab" data-toggle="pill" href="#v-pills-cv" role="tab" aria-controls="v-pills-cv" aria-selected="false">@lang('client.page.profile.sidebar.cv')</a>
+                                <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">@lang('client.page.profile.sidebar.job_applied')</a>
+                                <a class="nav-link" href="{{route('client.change_info')}}">@lang('client.page.profile.sidebar.change_info')</a>
                                 @if(auth()->user()->password)
-                                <a class="nav-link btn-add-form" href="{{route('client.change_password')}}">@lang('client.page.profile.side_bar.change_password')</a>
+                                <a class="nav-link btn-add-form" href="{{route('client.change_password')}}">@lang('client.page.profile.sidebar.change_password')</a>
                                 @endif
                             </div>
                         </div>
@@ -64,7 +71,7 @@
                                 </div>
                                 <div class="tab-pane fade table-responsive" id="v-pills-cv" role="tabpanel" aria-labelledby="v-pills-cv-tab">
                                     @if(auth()->user()->cv->count() > 0)
-                                    <h5 class="mb-4"> @lang('client.page.profile.manage_cv') <a href="{{route('client.create_cv')}}" class="btn btn-primary float-right btn-upload-form">@lang('client.page.profile.create_cv')</a></h5>
+                                    <h5 class="mb-4"> @lang('client.page.profile.manage_cv') <a href="{{route('client.create_cv')}}" class="btn btn-primary text-white float-right btn-upload-form">@lang('client.page.profile.create_cv')</a></h5>
                                     <table class="table table-hover">
                                         <thead>
                                             <tr>
@@ -73,15 +80,11 @@
                                                     <div class="fht-cell"></div>
                                                 </th>
                                                 <th>
-                                                    <div class="th-inner">@lang('custom.name')</div>
+                                                    <div class="th-inner">@lang('custom.cv_url')</div>
                                                     <div class="fht-cell"></div>
                                                 </th>
                                                 <th>
-                                                    <div class="th-inner text-center">@lang('custom.cv_url')</div>
-                                                    <div class="fht-cell"></div>
-                                                </th>
-                                                <th>
-                                                    <div class="th-inner text-center">@lang('custom.action')</div>
+                                                    <div class="th-inner">@lang('custom.action')</div>
                                                     <div class="fht-cell"></div>
                                                 </th>
                                             </tr>
@@ -91,9 +94,8 @@
                                             @foreach(auth()->user()->cv as $item)
                                             @php $stt++ @endphp
                                             <tr>
-                                                <td>{{$stt}}</td>
-                                                <td>{{$item->name}}</td>
-                                                <td>{{$item->cv_url}}</td>
+                                            <td>{{$stt}}</td>
+                                            <td><a href="{{$item->cv_url}}" target="_blank">{{$item->cv_name}}</a></td>
                                                 <td>    
                                                     <form action="{{route('client.destroy_cv', $item['id'])}}" method="post" class="form-delete-cv-{{$item->id}}" style="display: inline">
                                                         @csrf
@@ -110,7 +112,7 @@
                                     @endif
                                 </div>
                                 <div class="tab-pane fade table-responsive" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
-                                    @if(auth()->user()->cv->count() > 0)
+                                    @if(auth()->user()->job->count() > 0)
                                     <table class="table table-hover">
                                         <thead>
                                             <tr>
@@ -130,12 +132,12 @@
                                         </thead>
                                         <tbody>
                                             @php $stt = 0; @endphp
-                                            @foreach(auth()->user()->cv as $item)
+                                            @foreach(auth()->user()->job as $item)
                                             @php $stt++ @endphp
                                             <tr>
                                                 <td>{{$stt}}</td>
-                                                <td>@lang('custom.name')</td>
-                                                <td>{{auth()->user()->name}}</td>
+                                                <td>{{$item->name}}</td>
+                                                <td class="text-center"><a href="{{route('client.applied', [$item->slug, $item->id])}}" target="_blank" class="btn btn-info text-light view-profile" title="Xem"><em class="fa fa-eye"></em></a></td>
                                             </tr>
                                             @endforeach
                                         </tbody>
@@ -157,18 +159,6 @@
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-md">
         <div class="modal-content">
-        <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">@lang('custom.page_title.change_password')</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-        <span class="text-center text-danger show-errors"></span>
-        <div class="modal-body">
-        </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        </div>
         </div>
     </div>
 </div>
@@ -181,7 +171,7 @@
             $.get(url)
             .done(function (results) {
                 $('.text-danger').text('');
-                $(".modal-body").html(results);
+                $(".modal-content").html(results);
                 $("#myModal").modal('show');
             }).fail(function (data) {});
         });
@@ -229,7 +219,7 @@
                     })
                 } else {
                     $('.text-danger').text('');
-                    $(".modal-body").html(results);
+                    $(".modal-content").html(results);
                     $("#myModal").modal('show');
                 }
             }).fail(function (data) {});
@@ -237,15 +227,20 @@
 
         $("body").on("click", ".btn-upload-cv", function (e) {
             e.preventDefault();
-            let domForm = $(this).closest('form');
+            let domForm = $("#formUploadCV");
+            let file = $('body').find('input[name=cv_url]')[0].files[0];
+            var postData = new FormData(domForm[0]);
             $.ajax({
                 url: "{{route('client.upload_cv')}}",
-                data: domForm.serialize(),
-                dataType:'JSON',
+                data: postData,
+                dataType: 'json',
+                cache : false,
+                processData: false,
+                contentType: false,
                 method: "POST",
             }).done(function (results) {
                 $('.text-danger').text('');
-                $('#v-pills-cv').text(results);
+                $('#v-pills-cv').html(results);
                 $("#myModal").modal('hide');
                 swal({
                     title: 'Thành công!',
