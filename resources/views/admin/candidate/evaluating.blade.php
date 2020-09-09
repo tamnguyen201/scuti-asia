@@ -51,8 +51,8 @@
                                     @if(0 < $candidate->process->count() && $candidate->process->count() < 4)
                                     <tr>
                                         <td>{{$stt++}}</td>
-                                        <td>{{$candidate->name}}</td>
-                                        <td>{{$candidate->email}}</td>
+                                        <td>{{$candidate->user->name}}</td>
+                                        <td>{{$candidate->user->email}}</td>
                                         <td>{{$candidate->job->name}}</td>
                                         @for($i = 0; $i <= $candidate->process->count(); $i++)
                                             @if($i == $candidate->process->count() - 1)

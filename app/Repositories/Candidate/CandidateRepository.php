@@ -32,21 +32,21 @@ class CandidateRepository extends Repository implements CandidateRepositoryInter
 
     public function evaluating()
     {
-        return \DB::table('user_job')
+        return \App\Model\UserJob::with(['user'])
                     ->where('status', '=', 0)
                     ->paginate(10);
     }
 
     public function finish()
     {
-        return \DB::table('user_job')
+        return \App\Model\UserJob::with(['user'])
                 ->where('status', '=', 1)
                 ->paginate(10);
     }
 
     public function failed()
     {
-        return \DB::table('user_job')
+        return \App\Model\UserJob::with(['user'])
                     ->where('status', '=', 1)
                     ->where('result', '=', 0)
                     ->paginate(10);
