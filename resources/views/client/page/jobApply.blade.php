@@ -256,33 +256,27 @@
                         <p>@lang('client.page.apply.process.description')</p>
                         <form id="msform">
                             <ul id="progressbar">
+                                <li class="active" id="account"><strong> Apply </strong></li>
                                 @if(isset($data['apply']->process[0]->evaluate) && $data['apply']->process[0]->evaluate->status == 1)
-                                <li class="active" step="0" id="account"><strong>{{$data['apply']->process[0]->name}}</strong></li>
+                                <li class="active" step="0" id="personal"><strong>{{$data['apply']->process[0]->name}}</strong></li>
                                 @elseif(isset($data['apply']->process[0]->evaluate) && $data['apply']->process[0]->evaluate->status == 0)
-                                <li class="inactive" step="0" id="account"><strong>{{$data['apply']->process[0]->name}}</strong></li>
+                                <li class="inactive" step="0" id="personal"><strong>{{$data['apply']->process[0]->name}}</strong></li>
                                 @else
-                                <li step="0" id="account"><strong>Checking</strong></li>
+                                <li step="0" id="personal"><strong>Review</strong></li>
                                 @endif
                                 @if(isset($data['apply']->process[1]->evaluate) && $data['apply']->process[1]->evaluate->status == 1)
-                                <li class="active" step="1" id="personal"><strong>{{$data['apply']->process[1]->name}}</strong></li>
+                                <li class="active" step="1" id="payment"><strong>{{$data['apply']->process[1]->name}}</strong></li>
                                 @elseif(isset($data['apply']->process[1]->evaluate) && $data['apply']->process[1]->evaluate->status == 0)
-                                <li class="inactive" step="1" id="personal"><strong>{{$data['apply']->process[1]->name}}</strong></li>
+                                <li class="inactive" step="1" id="payment"><strong>{{$data['apply']->process[1]->name}}</strong></li>
                                 @else
-                                <li step="1" id="personal"><strong>Review</strong></li>
+                                <li step="1" id="payment"><strong>Interviewer</strong></li>
                                 @endif
                                 @if(isset($data['apply']->process[2]->evaluate) && $data['apply']->process[2]->evaluate->status == 1)
-                                <li class="active" step="2" id="payment"><strong>{{$data['apply']->process[2]->name}}</strong></li>
+                                <li class="active" step="2" id="confirm"><strong>Finish</strong></li>
                                 @elseif(isset($data['apply']->process[2]->evaluate) && $data['apply']->process[2]->evaluate->status == 0)
-                                <li class="inactive" step="2" id="payment"><strong>{{$data['apply']->process[2]->name}}</strong></li>
+                                <li class="inactive" step="2" id="confirm"><strong>Finish</strong></li>
                                 @else
-                                <li step="2" id="payment"><strong>Interviewer</strong></li>
-                                @endif
-                                @if(isset($data['apply']->process[3]->evaluate) && $data['apply']->process[3]->evaluate->status == 1)
-                                <li class="active" step="3" id="confirm"><strong>Finish</strong></li>
-                                @elseif(isset($data['apply']->process[3]->evaluate) && $data['apply']->process[3]->evaluate->status == 0)
-                                <li class="inactive" step="3" id="confirm"><strong>Finish</strong></li>
-                                @else
-                                <li step="3" id="confirm"><strong>Finish</strong></li>
+                                <li step="2" id="confirm"><strong>Finish</strong></li>
                                 @endif
                             </ul>
                             @foreach($data['apply']->process as $key => $process)

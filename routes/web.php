@@ -12,7 +12,12 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Route::get('/w', function() {
+    $details['name'] = 'Tâm Nguyễn';
+    $details['user_name'] = 'tam2012000@gmail.com';
+    $details['password'] = 'dskfjsdjasda';
+    return view('welcome', compact('details'));
+});
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/login', 'AuthController@login')->name('client.login');
 Route::post('/login', 'AuthController@postLogin')->name('client.postLogin');

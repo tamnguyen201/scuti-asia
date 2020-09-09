@@ -213,11 +213,9 @@ class RoleSeeder extends Seeder
                     </ul>
                 </div>
                 <h4>Quyền lợi</h4>
-                <div>
-                    <ul>
-                        <li>Chính sách thưởng phong phú: Thưởng tháng lương 13 + thưởng nóng dự án + thưởng nhân viên xuất sắc + các khoản thưởng khác;</li><li>Xét tăng lương 2 lần/năm dựa trên hiệu quả công việc;</li><li>Hưởng đầy đủ các chế độ bảo hiểm theo quy định;</li><li>Được tặng quà, thăm hỏi nhân các dịp sinh nhật, cưới hỏi, hiếu hỉ, ốm đau…;</li><li>Làm việc trong môi trường hiện đại, trẻ trung, văn hóa mở với nhiều hoạt động văn hóa tinh thần: du lịch, nghỉ dưỡng, party sự kiện…</li>
-                    </ul>
-                </div',
+                <ul>
+                    <li>Chính sách thưởng phong phú: Thưởng tháng lương 13 + thưởng nóng dự án + thưởng nhân viên xuất sắc + các khoản thưởng khác;</li><li>Xét tăng lương 2 lần/năm dựa trên hiệu quả công việc;</li><li>Hưởng đầy đủ các chế độ bảo hiểm theo quy định;</li><li>Được tặng quà, thăm hỏi nhân các dịp sinh nhật, cưới hỏi, hiếu hỉ, ốm đau…;</li><li>Làm việc trong môi trường hiện đại, trẻ trung, văn hóa mở với nhiều hoạt động văn hóa tinh thần: du lịch, nghỉ dưỡng, party sự kiện…</li>
+                </ul>',
                 'location_id' => 1, 'salary' => 'Thỏa Thuận', 'expireDay' => '2020/08/15', 'status' =>1],
             ['id'=>3,'category_id' => 3, 'name'=>'Java', 'slug' => \Str::slug('java'), 'description'=> 
                 '<h4>Mô tả công việc</h4>
@@ -299,23 +297,21 @@ class RoleSeeder extends Seeder
         ]);
         DB::table('process')->insert([
             ['id'=>1, 'step' => 1, 'name' => 'Checking', 'user_job_id' => 1],
-            ['id'=>2, 'step' => 2, 'name' => 'Review', 'user_job_id' => 1],
+            ['id'=>2, 'step' => 2, 'name' => 'Interviewer', 'user_job_id' => 1],
             ['id'=>3, 'step' => 1, 'name' => 'Checking', 'user_job_id' => 2],
             ['id'=>4, 'step' => 1, 'name' => 'Checking', 'user_job_id' => 3],
             ['id'=>5, 'step' => 1, 'name' => 'Checking', 'user_job_id' => 5],
-            ['id'=>6, 'step' => 2, 'name' => 'Review', 'user_job_id' => 5],
-            ['id'=>7, 'step' => 3, 'name' => 'Interviewer', 'user_job_id' => 5],
-            ['id'=>8, 'step' => 4, 'name' => 'Make Offer', 'user_job_id' => 5],
+            ['id'=>6, 'step' => 2, 'name' => 'Interviewer', 'user_job_id' => 5],
+            ['id'=>7, 'step' => 3, 'name' => 'Make Offer', 'user_job_id' => 5],
         ]);
         DB::table('evaluates')->insert([
             ['id'=>1, 'process_id' => 1,'comment' => '', 'reason' => 'Checking', 'status' => 1],
-            ['id'=>2, 'process_id' => 2,'comment' => '', 'reason' => 'Review', 'status' => 1],
+            ['id'=>2, 'process_id' => 2,'comment' => '', 'reason' => 'Interviewer', 'status' => 1],
             ['id'=>3, 'process_id' => 3,'comment' => '', 'reason' => 'Checking', 'status' => 1],
             ['id'=>4, 'process_id' => 4,'comment' => '', 'reason' => 'Checking', 'status' => 1],
             ['id'=>5, 'process_id' => 5,'comment' => '', 'reason' => 'Checking', 'status' => 1],
-            ['id'=>6, 'process_id' => 6,'comment' => '', 'reason' => 'Review', 'status' => 1],
-            ['id'=>7, 'process_id' => 7,'comment' => '', 'reason' => 'Interviewer', 'status' => 1],
-            ['id'=>8, 'process_id' => 8,'comment' => '', 'reason' => 'Make Offer', 'status' => 1],
+            ['id'=>6, 'process_id' => 6,'comment' => '', 'reason' => 'Interviewer', 'status' => 1],
+            ['id'=>7, 'process_id' => 7,'comment' => '', 'reason' => 'Make Offer', 'status' => 1],
         ]);
         Schema::enableForeignKeyConstraints();
     }

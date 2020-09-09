@@ -54,7 +54,7 @@ class EmployeeRepository extends Repository implements EmployeeRepositoryInterfa
         $details = [
             'title' => trans('custom.email_template.create_admin_account.title'),
             'body' => trans('custom.email_template.create_admin_account.body'),
-            'user_name' => $user,
+            'username' => $user,
             'password' => $password,
         ];
     
