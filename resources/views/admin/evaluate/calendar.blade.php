@@ -35,43 +35,43 @@
               @csrf
               @method('POST')
               <div class="form-group col-md-6">
-                <label for="exampleFormControlTextarea1">Name :</label>
+                <label for="exampleFormControlTextarea1">@lang('custom.calendar.name') :</label>
                 <br>
                 <input name="id" type="text" value="{{ $dataUser->id }}" hidden>
                 <input name="process_id" type="text" value="{{ $processById->id }}" hidden>
                 <p>{{ $dataUser->name }}</p>
               </div>
               <div class="form-group col-md-6">
-                <label for="exampleFormControlTextarea1">Email :</label>
+                <label for="exampleFormControlTextarea1">@lang('custom.calendar.email') :</label>
                 <br>
                 <p>{{ $dataUser->email }}</p>
               </div>
                 <div class="form-group col-md-12">
-                  <label for="exampleFormControlTextarea1">Tieu de :</label>
+                  <label for="exampleFormControlTextarea1">@lang('custom.calendar.title') :</label>
                   <br>
                   <input name="title" type="text">
                 </div>
                 <div class="form-group col-md-12">
-                  <label for="exampleFormControlTextarea1">Mau :</label>
+                  <label for="exampleFormControlTextarea1">@lang('custom.calendar.color') :</label>
                   <br>
                   <input name="color" type="color">
                 </div>
                 <div class="form-group col-md-6">
-                  <label for="exampleFormControlTextarea1">Ngày bat dau :</label>
+                  <label for="exampleFormControlTextarea1">@lang('custom.calendar.start') :</label>
                   <br>
                   <input name="start" type="datetime-local">
                 </div>
                 <div class="form-group col-md-6">
-                  <label for="exampleFormControlTextarea1">Ngày ket thuc :</label>
+                  <label for="exampleFormControlTextarea1">@lang('custom.calendar.end') :</label>
                   <br>
                   <input name="end" type="datetime-local">
                 </div>
                 <div class="form-group col-md-12">
-                      <label for="exampleFormControlTextarea1">Ghi chú :</label>
+                      <label for="exampleFormControlTextarea1">@lang('custom.calendar.note') :</label>
                       <textarea name="note" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                 </div>
                 <div class="col-md-12">
-                  <button type="submit" class="btn btn-primary btn-add-event">Submit</button>
+                  <button type="submit" class="btn btn-primary btn-add-event">@lang('custom.button.submit')</button>
                 </div>
             </form>
           </div>

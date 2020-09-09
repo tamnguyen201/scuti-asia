@@ -159,5 +159,22 @@ return [
             'text' => 'Bạn Đã Đăng Nhập Thành Công! Hãy Tìm Cho Mình Công Việc Phù Hợp.',
         ],
     
-
+    'candidate' => [
+        'name' => 'Tên ứng viên',
+        'email'=>'Email',
+        'phone'=>'Số điện thoại',
+        'job'=>'Công việc ứng tuyển',
+        'note'=>'Ghi chú',
+        'candidate_infor'=>'Thông tin ứng viên'
+    ],
+    'calendar' => [
+        'name' => 'Tên ứng viên',
+        'email'=>'Email',
+        'phone'=>'Số điện thoại',
+        'title'=>'Tiêu đề',
+        'note'=>'Ghi chú',
+        'color'=>'Màu',
+        'start'=>'Ngày bắt đầu',
+        'end'=>'Ngày kết thúc'
+    ]
 ];

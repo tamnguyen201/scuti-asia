@@ -93,12 +93,12 @@
                                             <td style="font-size: 75%;font-weight: bold;color: red">@lang('custom.applied')</td>
                                         @endif
                                         <td>
-                                            <a href="{{route('candidates.show', $candidate['id'])}}" class="btn btn-info text-light view-profile" title="Xem"><em class="fa fa-eye"></em></a>
+                                            <a href="{{route('candidates.show', $candidate['id'])}}" class="btn btn-info text-light view-profile" title="Xem"><em class="fa fa-eye"> Xem</em></a>
                                             @if ($candidate->userjob[$key]->process->count() == 0)
                                                 <form action="{{route('start.evaluate', $candidate->userjob[$key]->id)}}" method="post" class="form-delete-{{$candidate->userjob[$key]->id}}" style="display: inline">
                                                     @csrf
                                                     @method('POST')
-                                                    <button class="btn btn-warning text-light start-confirm" idStart={{$candidate->userjob[$key]->id}} title="Bắt đầu đánh giá"><em class="fas fa-random"></em></button>
+                                                    <button class="btn btn-warning text-light start-confirm" idStart={{$candidate->userjob[$key]->id}} title="Bắt đầu đánh giá"><em class="fas fa-random"> Bắt đầu đánh giá</em></button>
                                                 </form>
                                             @endif
                                         </td>
@@ -115,7 +115,7 @@
                     <div class="modal-dialog modal-lg modal-md" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                        <h3 class="modal-title" id="exampleModalLongTitle">Thong tin ung vien</h3>
+                        <h3 class="modal-title" id="exampleModalLongTitle">@lang('custom.candidate.candidate_infor')</h3>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
