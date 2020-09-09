@@ -56,9 +56,9 @@
                                 <label>@lang('custom.role')</label>
                                 <select name="role" class="form-control">
                                     @foreach (config('common.role') as $key => $item)
-                                    @if($key != 'User')
-                                        <option value="{{$item}}" @if($manager->role == $item) selected @endif>{{$key}}</option>
-                                    @endif
+                                        @if($item != config('common.role.User'))
+                                            <option value="{{$item}}" @if($manager->role == $item) selected @endif>{{$key}}</option>
+                                        @endif
                                     @endforeach
                                 </select>
                             </div>

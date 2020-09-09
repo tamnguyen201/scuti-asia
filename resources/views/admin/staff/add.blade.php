@@ -30,6 +30,26 @@
                                 <span class="help-block"> {{$message}} </span>
                                 @enderror
                             </div>
+                            <div class="form-group">
+                                <label>{{trans('custom.phone')}} :</label>
+                                <input name="phone" type="text" class="form-control" @error('phone') is-invalid @enderror value="{{ old('phone') }}">
+                                @error('phone')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                            <div class="form-group">
+                                <label>{{trans('custom.address')}} :</label>
+                                <input name="address" type="text" class="form-control" @error('address') is-invalid @enderror value="{{ old('address') }}">
+                                @error('address')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-md-6">
                             <div class="form-group @error('email') has-error @enderror">
                                 <label>@lang('custom.email')</label>
                                 <input type="email" name="email" value="{{old('email')}}" class="form-control">
@@ -37,15 +57,13 @@
                                 <span class="help-block"> {{$message}} </span>
                                 @enderror
                             </div>
-                        </div>
-                        <div class="col-md-6">
                             <div class="form-group">
                                 <label>@lang('custom.role')</label>
                                 <select name="role" class="form-control">
                                     @foreach (config('common.role') as $key => $item)
-                                    @if($key != config('common.role.User'))
-                                        <option value="{{$item}}">{{$key}}</option>
-                                    @endif
+                                        @if($item != config('common.role.User'))
+                                            <option value="{{$item}}">{{$key}}</option>
+                                        @endif
                                     @endforeach
                                 </select>
                             </div>

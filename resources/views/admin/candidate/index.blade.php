@@ -101,6 +101,11 @@
                                 @endforeach
                             </tbody>
                         </table>
+                        <div class="fixed-table-pagination">
+                            <div class="pull-right pagination">
+                                {{$candidates->links()}}
+                            </div>
+                        </div>
                         </div>
                     </div>
                 </div>

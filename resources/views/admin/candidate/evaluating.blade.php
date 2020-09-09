@@ -26,58 +26,50 @@
                             <thead>
                                 <tr>
                                     <th>
-                                    <div class="th-inner sortable">@lang('custom.stt')</div>
-                                    <div class="fht-cell"></div>
+                                        <div class="th-inner sortable">@lang('custom.stt')</div>
                                     </th>
                                     <th>
                                         <div class="th-inner sortable">@lang('custom.name')</div>
-                                        <div class="fht-cell"></div>
                                     </th>
                                     <th>
                                         <div class="th-inner sortable">@lang('custom.email')</div>
-                                        <div class="fht-cell"></div>
                                     </th>
                                     <th>
                                         <div class="th-inner sortable">@lang('custom.jobApplied')</div>
-                                        <div class="fht-cell"></div>
                                     </th>
                                     <th>
                                         <div class="th-inner sortable">@lang('custom.process')</div>
-                                        <div class="fht-cell"></div>
                                     </th>
                                     <th>
                                         <div class="th-inner sortable text-center">@lang('custom.action')</div>
-                                        <div class="fht-cell"></div>
                                     </th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @php $stt = 1; @endphp
                                 @foreach($candidates as $candidate)
-                                    @foreach($candidate->job as $key => $item)
-                                        @if(0 < $candidate->userjob[$key]->process->count() && $candidate->userjob[$key]->process->count() < 4)
-                                        <tr>
-                                            <td>{{$stt++}}</td>
-                                            <td>{{$candidate->name}}</td>
-                                            <td>{{$candidate->email}}</td>
-                                            <td>{{$item->name}}</td>
-                                            @for($i = 0; $i <= $candidate->userjob[$key]->process->count(); $i++)
-                                                @if($i == $candidate->userjob[$key]->process->count() - 1)
-                                                <td>{{$candidate->userjob[$key]->process[$i]->name}}</td>
-                                                @endif
-                                            @endfor
-                                            <td class="text-center">
-                                                <a href="{{route('candidates.show', $candidate['id'])}}" class="btn btn-info text-light view-profile" title="Xem"><em class="fa fa-eye"></em></a>
-                                            </td>
-                                        </tr>
-                                        @endif
-                                    @endforeach
+                                    @if(0 < $candidate->process->count() && $candidate->process->count() < 4)
+                                    <tr>
+                                        <td>{{$stt++}}</td>
+                                        <td>{{$candidate->name}}</td>
+                                        <td>{{$candidate->email}}</td>
+                                        <td>{{$candidate->job->name}}</td>
+                                        @for($i = 0; $i <= $candidate->process->count(); $i++)
+                                            @if($i == $candidate->process->count() - 1)
+                                            <td>{{$candidate->process[$i]->name}}</td>
+                                            @endif
+                                        @endfor
+                                        <td class="text-center">
+                                            <a href="{{route('candidates.show', $candidate['id'])}}" class="btn btn-info text-light view-profile" title="Xem"><em class="fa fa-eye"></em></a>
+                                        </td>
+                                    </tr>
+                                    @endif
                                 @endforeach
                             </tbody>
                         </table>
                         <div class="fixed-table-pagination">
                             <div class="pull-right pagination">
-                                <!-- {{$candidates->links()}} -->
+                                {{$candidates->links()}}
                             </div>
                         </div>
                         </div>

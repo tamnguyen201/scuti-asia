@@ -26,28 +26,22 @@
                             <thead>
                                 <tr>
                                     <th>
-                                    <div class="th-inner sortable">@lang('custom.stt')</div>
-                                    <div class="fht-cell"></div>
+                                        <div class="th-inner sortable">@lang('custom.stt')</div>
                                     </th>
                                     <th>
                                         <div class="th-inner sortable">@lang('custom.name')</div>
-                                        <div class="fht-cell"></div>
                                     </th>
                                     <th>
                                         <div class="th-inner sortable">@lang('custom.email')</div>
-                                        <div class="fht-cell"></div>
                                     </th>
                                     <th>
                                         <div class="th-inner sortable">@lang('custom.jobApplied')</div>
-                                        <div class="fht-cell"></div>
                                     </th>
                                     <th>
                                         <div class="th-inner sortable">@lang('custom.process_failed')</div>
-                                        <div class="fht-cell"></div>
                                     </th>
                                     <th>
                                         <div class="th-inner sortable text-center">@lang('custom.action')</div>
-                                        <div class="fht-cell"></div>
                                     </th>
                                 </tr>
                             </thead>
@@ -77,7 +71,7 @@
                         </table>
                         <div class="fixed-table-pagination">
                             <div class="pull-right pagination">
-                                <!-- {{$candidates->links()}} -->
+                                {{$candidates->links()}}
                             </div>
                         </div>
                         </div>
