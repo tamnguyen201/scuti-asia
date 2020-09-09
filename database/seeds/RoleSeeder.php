@@ -2,6 +2,7 @@
 
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Str;
 
 class RoleSeeder extends Seeder
 {
@@ -24,6 +25,9 @@ class RoleSeeder extends Seeder
         \App\Model\Category::truncate();
         \App\Model\Job::truncate();
         \App\Model\CV::truncate();
+        \App\Model\UserJob::truncate();
+        \App\Model\Process::truncate();
+        \App\Model\Evaluate::truncate();
         DB::table('users')->insert([
             ['id'=>1, 'name' => 'User1','email' => 'user1@gmail.com','password'=> Hash::make('123456'), 'phone'=> '1234567890','address'=>'HN'],
             ['id'=>2, 'name' => 'User2','email' => 'user2@gmail.com','password'=> Hash::make('123456'), 'phone'=> '1234567890','address'=>'HN'],
@@ -45,11 +49,11 @@ class RoleSeeder extends Seeder
             ['id'=>2, 'name'=>'Tp.Hồ Chí Minh'],
         ]);
         DB::table('company_images')->insert([
-            ['id'=>1,'name' => 'Môi trường làm việc', 'image_url'=>'https://miro.medium.com/max/1200/1*Eu6cAGjXNa0-ct_hlsH1yQ.jpeg'],
-            ['id'=>2,'name' => 'Môi trường làm việc', 'image_url'=>'http://congstudio.vn/product_images/z/320/chup_anh_profile_tai_ha_noi_cong_studio_4__09337_thumb.jpg'],
-            ['id'=>3,'name' => 'Môi trường làm việc', 'image_url'=>'http://congstudio.vn/product_images/z/320/chup_anh_profile_tai_ha_noi_cong_studio_4__09337_thumb.jpg'],
-            ['id'=>4,'name' => 'Môi trường làm việc', 'image_url'=>'http://congstudio.vn/product_images/z/320/chup_anh_profile_tai_ha_noi_cong_studio_4__09337_thumb.jpg'],
-            ['id'=>5,'name' => 'Môi trường làm việc', 'image_url'=>'http://congstudio.vn/product_images/z/320/chup_anh_profile_tai_ha_noi_cong_studio_4__09337_thumb.jpg'],
+            ['id'=>1, "name" => "Môi trường làm việc", 'image_url'=>'https://miro.medium.com/max/1200/1*Eu6cAGjXNa0-ct_hlsH1yQ.jpeg'],
+            ['id'=>2, "name" => "Môi trường làm việc", 'image_url'=>'http://congstudio.vn/product_images/z/320/chup_anh_profile_tai_ha_noi_cong_studio_4__09337_thumb.jpg'],
+            ['id'=>3, "name" => "Môi trường làm việc", 'image_url'=>'http://congstudio.vn/product_images/z/320/chup_anh_profile_tai_ha_noi_cong_studio_4__09337_thumb.jpg'],
+            ['id'=>4, "name" => "Môi trường làm việc", 'image_url'=>'http://congstudio.vn/product_images/z/320/chup_anh_profile_tai_ha_noi_cong_studio_4__09337_thumb.jpg'],
+            ['id'=>5, "name" => "Môi trường làm việc", 'image_url'=>'http://congstudio.vn/product_images/z/320/chup_anh_profile_tai_ha_noi_cong_studio_4__09337_thumb.jpg'],
         ]);
         DB::table('new_spapers')->insert([
             ['id'=>1, 'title' => 'Dev Candidates Tour- Hành Trình Trở Thành Lập Trình Viên', 'image'=>'https://miro.medium.com/max/1200/1*Eu6cAGjXNa0-ct_hlsH1yQ.jpeg', 'description' => 'Dev Candidates Tour tháng 6/2017 là sự kiện kết nối giữa các doanh nghiệp công nghệ phần mềm và các ứng viên tiềm năng. Các nhà tuyển dụng luôn luôn tìm kiếm các ứng viên tài năng nhưng dường như trong quy trình tuyển dụng luôn thiếu một bước nào đó để họ tiếp cận được với các nhân tài, hãy cùng Dev Candidates Tour giao lưu và lắng nghe ý kiến trực tiếp của các ứng viên và nâng cao hiệu quả quy trình tuyển dụng của doanh nghiệp.', 'url' => 'https://www.facebook.com/events/136182586941319/'],
@@ -78,31 +82,31 @@ class RoleSeeder extends Seeder
                         </div>',
                         'image'=>'https://www.scuti.asia/uploads/6/1/9/4/61941893/scuti-recruitment-pitch-2019-video_orig.jpg', 'map_url' => ''],
             ['id'=>2, 'name' => 'Recruitment Flow', 'slug' => Str::slug('Recruitment Flow'), 'content' => 
-                        '<div class="col-lg-11 offset-lg-1 row my-3">
+                        '<div class="col-lg-10 offset-lg-1 row my-3">
                             <div class="col-md-2 text-center pt-2 mb-3" style="font-size: 3.5rem">①</div>
                             <div class="col-md-10 text-center text-md-left">
                                 <p>Vui lòng liên hệ với chúng tôi từ nút bên dưới và cho bạn thấy ý định muốn ứng tuyển vào công ty của chúng tôi. Khi bạn liên hệ với chúng tôi, vui lòng nói rõ bạn muốn ứng tuyển vào vị trí nào. Không ai thất bại trong giai đoạn này.</p>   
                             </div>
                         </div>
-                        <div class="col-lg-11 offset-lg-1 row my-3">
+                        <div class="col-lg-10 offset-lg-1 row my-3">
                             <div class="col-md-2 text-center pt-2 mb-3" style="font-size: 3.5rem">②</div>
                             <div class="col-md-10 text-center text-md-left">
                                 <p>Nhân viên của chúng tôi sẽ trả lời bạn sớm và thông báo cho bạn những gì chúng tôi muốn bạn gửi. Điều này bao gồm cả bài kiểm tra trên giấy.</p>   
                             </div>
                         </div>
-                        <div class="col-lg-11 offset-lg-1 row my-3">
+                        <div class="col-lg-10 offset-lg-1 row my-3">
                             <div class="col-md-2 text-center pt-2 mb-3" style="font-size: 3.5rem">③</div>
                             <div class="col-md-10 text-center text-md-left">
                                 <p>Bạn phỏng vấn các thành viên của chúng tôi (bao gồm cả Giám đốc điều hành) một hoặc hai lần. Tất cả các cuộc phỏng vấn được tổ chức bằng tiếng Anh.</p>   
                             </div>
                         </div>
-                        <div class="col-lg-11 offset-lg-1 row my-3">
+                        <div class="col-lg-10 offset-lg-1 row my-3">
                             <div class="col-md-2 text-center pt-2 mb-3" style="font-size: 3.5rem">④</div>
                             <div class="col-md-10 text-center text-md-left">
                                 <p>Nếu bạn may mắn vượt qua tất cả các cuộc tuyển chọn, chúng tôi sẽ gặp bạn một lần nữa để đưa ra lời mời làm việc.</p>   
                             </div>
                         </div>
-                        <div class="col-lg-11 offset-lg-1 row my-3">
+                        <div class="col-lg-10 offset-lg-1 row my-3">
                             <div class="col-md-2 text-center pt-2 mb-3" style="font-size: 3.5rem">⑤</div>
                             <div class="col-md-10 text-center text-md-left">
                                 <p>Nếu bạn đồng ý với tất cả các điều kiện của một lời mời làm việc, bạn bắt đầu làm việc với chúng tôi!</p>   
@@ -123,7 +127,7 @@ class RoleSeeder extends Seeder
                             <li>Jun 2018 <a href="https://www.techinasia.com/events/singapore" target="_blank">Tech in Asia Singapore 2018</a>&nbsp;&lt;<a href="http://blog.scuti.asia/2018/06/report-of-tech-in-asia-singapore.html" target="_blank">Blog</a>&gt;</li>
                             <li>Jun 2018 <a href="https://startupthailand.org/showcase/" target="_blank">Startup Thailand 2018</a>&nbsp;&lt;<a href="http://blog.scuti.asia/2018/06/report-of-startupthailand-2018.html" target="_blank">Blog</a>&gt;</li>
                         </ul>',
-                        'image'=>'https://inovatik.com/juno-landing-page/images/about.jpg', 'map_url' => ''],
+                        'image'=>'https://scontent.fhan3-3.fna.fbcdn.net/v/t1.0-9/p720x720/118331394_2611383379191478_8068547518063368158_o.jpg?_nc_cat=101&_nc_sid=8024bb&_nc_ohc=N9PHqo0HIWwAX_ijg4P&_nc_ht=scontent.fhan3-3.fna&tp=6&oh=6e4a8eb661adf4e61a2f682ed67d3d5e&oe=5F748A9C', 'map_url' => ''],
             ['id'=>4, 'name' => 'Visit Us', 'slug' => Str::slug('Visit Us'), 'content' => '', 'image' => '', 'map_url' => '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3723.962023272904!2d105.76304874986745!3d21.034205492900966!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x313454b947cd6e49%3A0x6a87974c6b44d671!2zNjggUGjhu5EgTmd1eeG7hW4gQ8ahIFRo4bqhY2gsIE3hu7kgxJDDrG5oLCBU4burIExpw6ptLCBIw6AgTuG7mWksIFZp4buHdCBOYW0!5e0!3m2!1svi!2s!4v1598327887854!5m2!1svi!2s" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>'],
         ]);
         DB::table('visit_us')->insert([
@@ -275,6 +279,33 @@ class RoleSeeder extends Seeder
             ['id'=>3,'user_id' => 3, 'cv_name' => 'CV3', 'cv_url'=>'http://congstudio.vn/product_images/z/320/chup_anh_profile_tai_ha_noi_cong_studio_4__09337_thumb.jpg'],
             ['id'=>4,'user_id' => 4, 'cv_name' => 'CV4', 'cv_url'=>'http://congstudio.vn/product_images/z/320/chup_anh_profile_tai_ha_noi_cong_studio_4__09337_thumb.jpg'],
             ['id'=>5,'user_id' => 5, 'cv_name' => 'CV5', 'cv_url'=>'http://congstudio.vn/product_images/z/320/chup_anh_profile_tai_ha_noi_cong_studio_4__09337_thumb.jpg'],
+        ]);
+        DB::table('user_job')->insert([
+            ['id'=>1, 'user_id' => 1, 'cv_id' => 1, 'job_id' => 1],
+            ['id'=>2, 'user_id' => 2, 'cv_id' => 2, 'job_id' => 2],
+            ['id'=>3, 'user_id' => 2, 'cv_id' => 2, 'job_id' => 3],
+            ['id'=>4, 'user_id' => 3, 'cv_id' => 3, 'job_id' => 4],
+            ['id'=>5, 'user_id' => 4, 'cv_id' => 4, 'job_id' => 5],
+        ]);
+        DB::table('process')->insert([
+            ['id'=>1, 'step' => 1, 'name' => 'Checking', 'user_job_id' => 1],
+            ['id'=>2, 'step' => 2, 'name' => 'Review', 'user_job_id' => 1],
+            ['id'=>3, 'step' => 1, 'name' => 'Checking', 'user_job_id' => 2],
+            ['id'=>4, 'step' => 1, 'name' => 'Checking', 'user_job_id' => 3],
+            ['id'=>5, 'step' => 1, 'name' => 'Checking', 'user_job_id' => 5],
+            ['id'=>6, 'step' => 2, 'name' => 'Review', 'user_job_id' => 5],
+            ['id'=>7, 'step' => 3, 'name' => 'Interviewer', 'user_job_id' => 5],
+            ['id'=>8, 'step' => 4, 'name' => 'Make Offer', 'user_job_id' => 5],
+        ]);
+        DB::table('evaluates')->insert([
+            ['id'=>1, 'process_id' => 1,'comment' => '', 'reason' => 'Checking', 'status' => 1],
+            ['id'=>2, 'process_id' => 2,'comment' => '', 'reason' => 'Review', 'status' => 1],
+            ['id'=>3, 'process_id' => 3,'comment' => '', 'reason' => 'Checking', 'status' => 1],
+            ['id'=>4, 'process_id' => 4,'comment' => '', 'reason' => 'Checking', 'status' => 1],
+            ['id'=>5, 'process_id' => 5,'comment' => '', 'reason' => 'Checking', 'status' => 1],
+            ['id'=>6, 'process_id' => 6,'comment' => '', 'reason' => 'Review', 'status' => 1],
+            ['id'=>7, 'process_id' => 7,'comment' => '', 'reason' => 'Interviewer', 'status' => 1],
+            ['id'=>8, 'process_id' => 8,'comment' => '', 'reason' => 'Make Offer', 'status' => 0],
         ]);
         Schema::enableForeignKeyConstraints();
     }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests\ChangePasswordRequest;
 use App\Http\Requests\LoginRequest;
+use App\Http\Requests\RegisterRequest;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
@@ -23,11 +24,13 @@ class AuthController extends Controller
     public function postLogin(LoginRequest $request)
     {
         $redirect = $request->redirect ? $request->redirect : route('home');
+        $show_notice = $request->redirect ? false : true;
         $remember = $request->has('remember') ? true : false;
 
         if (Auth::attempt(['email' => $request->email,'password' => $request->password], $remember)) {
             Session::flash('login_success', true);
-            
+            Session::flash('show_notice', $show_notice);
+
             return redirect($redirect);
         }
 
@@ -49,6 +52,18 @@ class AuthController extends Controller
         Auth::user()->update([ 'password' => $request->new_password ]);
 
         return response()->json(["success" => trans('custom.alert_messages.success')]);
+    }
+
+    public function register() 
+    {
+        return view('client.auth.register');
+    }
+
+    public function postRegister(RegisterRequest $request)
+    {
+        $user = \App\Model\User::create($request->all());
+
+        return redirect()->route('client.login')->with('success', trans('custom.alert_messages.success'));
     }
 
     public function forgot()

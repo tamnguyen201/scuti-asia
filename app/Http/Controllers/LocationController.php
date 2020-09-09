@@ -20,7 +20,7 @@ class LocationController extends Controller
 
     public function index()
     {
-        $locations = $this->locationRepository->paginate(10);
+        $locations = $this->locationRepository->paginate();
         return view("admin.location.index", compact('locations'));
     }
 
@@ -40,7 +40,7 @@ class LocationController extends Controller
     public function store(LocationRequest $request)
     {
         $this->locationRepository->create($request->all());
-        $locations = $this->locationRepository->paginate(10);
+        $locations = $this->locationRepository->paginate();
         $html = view('admin.location.list', compact('locations'))->render();
         return response()->json($html);
     }
@@ -48,7 +48,7 @@ class LocationController extends Controller
     public function update(LocationUpdateRequest $request)
     {
         $this->locationRepository->update($request->all(), $request->id);
-        $locations = $this->locationRepository->paginate(10);
+        $locations = $this->locationRepository->paginate();
         $html = view('admin.location.list', compact('locations'))->render();
         return response()->json($html);
     }

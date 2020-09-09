@@ -55,26 +55,22 @@
                                 @php $stt = 1; @endphp
                                 @foreach($candidates as $candidate)
                                     @foreach($candidate->job as $key => $item)
-                                    <tr>
-                                        <td>{{$stt++}}</td>
-                                        <td>{{$candidate->name}}</td>
-                                        <td>{{$candidate->email}}</td>
-                                        <td>{{$item->name}}</td>
                                         @if(0 < $candidate->userjob[$key]->process->count() && $candidate->userjob[$key]->process->count() < 4)
+                                        <tr>
+                                            <td>{{$stt++}}</td>
+                                            <td>{{$candidate->name}}</td>
+                                            <td>{{$candidate->email}}</td>
+                                            <td>{{$item->name}}</td>
                                             @for($i = 0; $i <= $candidate->userjob[$key]->process->count(); $i++)
                                                 @if($i == $candidate->userjob[$key]->process->count() - 1)
                                                 <td>{{$candidate->userjob[$key]->process[$i]->name}}</td>
                                                 @endif
                                             @endfor
-                                        @elseif($candidate->userjob[$key]->process->count() == 4)
-                                        <td>@lang('custom.finished')</td>
-                                        @elseif($candidate->userjob[$key]->process->count() == 0)
-                                        <td>@lang('custom.applied')</td>
+                                            <td class="text-center">
+                                                <a href="{{route('candidates.show', $candidate['id'])}}" class="btn btn-info text-light view-profile" title="Xem"><em class="fa fa-eye"></em></a>
+                                            </td>
+                                        </tr>
                                         @endif
-                                        <td class="text-center">
-                                            <a href="{{route('candidates.show', $candidate['id'])}}" class="btn btn-info text-light view-profile" title="Xem"><em class="fa fa-eye"></em></a>
-                                        </td>
-                                    </tr>
                                     @endforeach
                                 @endforeach
                             </tbody>

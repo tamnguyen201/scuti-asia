@@ -18,7 +18,7 @@ class NewSpaperController extends Controller
 
     public function index()
     {
-        $NewSpaper = $this->NewSpaperRepository->paginate(10);
+        $NewSpaper = $this->NewSpaperRepository->paginate();
 
         return view("admin.NewSpaper.index", compact('NewSpaper'));
     }

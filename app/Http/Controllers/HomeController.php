@@ -89,7 +89,9 @@ class HomeController extends Controller
             return redirect()->route('client.login')->with('redirect', $redirect);
         }
 
-        $data['recruitment_flow'] = $this->SectionRepository->where('slug', '=', 'recruitment-low');
+        $data['apply'] = \App\Model\UserJob::where('user_id', auth()->user()->id)->where('job_id', $id)->with('process')->first();
+        // dd($data['apply']->process[0]->evaluate[0]->status);
+        $data['recruitment_flow'] = $this->SectionRepository->where('slug', '=', 'recruitment-flow');
         $data['job'] = $this->JobRepository->show($id);
 
         return view('client.page.jobApply', compact('data'));
@@ -98,9 +100,9 @@ class HomeController extends Controller
     public function userApplyJob(ClientApplyJobRequest $request)
     {
         $this->ApplyJobService->create($request->all());
-        alert(trans('custom.alert_messages.contact_alert.title'), trans('custom.alert_messages.contact_alert.text'), 'success');
+        // alert(trans('custom.alert_messages.contact_alert.title'), trans('custom.alert_messages.contact_alert.text'), 'success');
         
-        return back();
+        return true;
     }
 
     public function login()

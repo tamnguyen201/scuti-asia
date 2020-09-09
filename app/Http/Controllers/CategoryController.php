@@ -20,7 +20,7 @@ class CategoryController extends Controller
 
     public function index()
     {
-        $categories = $this->categoryRepository->paginate(10);
+        $categories = $this->categoryRepository->paginate();
         return view("admin.category.index", compact('categories'));
     }
 
@@ -38,7 +38,7 @@ class CategoryController extends Controller
             'slug' => Str::slug($request->name),
             'user_id'=> auth()->id()
         ]);
-        $categories = $this->categoryRepository->paginate(10);
+        $categories = $this->categoryRepository->paginate();
         $html = view('admin.category.list', compact('categories'))->render();
         return response()->json($html);
     }
@@ -63,7 +63,7 @@ class CategoryController extends Controller
         $this->categoryRepository->update([
             'category_name' => $request->name,
         ], $request->id);
-        $categories = $this->categoryRepository->paginate(10);
+        $categories = $this->categoryRepository->paginate();
         $html = view('admin.category.list', compact('categories'))->render();
         return response()->json($html);
     }
