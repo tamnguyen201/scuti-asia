@@ -12,7 +12,12 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Route::get('/w', function() {
+    $details['name'] = 'Tâm Nguyễn';
+    $details['user_name'] = 'tam2012000@gmail.com';
+    $details['password'] = 'dskfjsdjasda';
+    return view('welcome', compact('details'));
+});
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/login', 'AuthController@login')->name('client.login');
 Route::post('/login', 'AuthController@postLogin')->name('client.postLogin');
@@ -76,6 +81,7 @@ Route::group(
         Route::get('candidates/evaluating', 'CandidateController@evaluating')->name('candidates.evaluating');
         Route::get('candidates/finish', 'CandidateController@finish')->name('candidates.finish');
         Route::get('candidates/failed', 'CandidateController@failed')->name('candidates.failed');
+        Route::post('candidates/search', 'CandidateController@search')->name('candidates.search');
         Route::resource('candidates', 'CandidateController')->only(['index', 'show']);
         Route::group(['prefix' => 'evaluate'], function () {
             Route::get('candidate/{id}', 'EvaluateController@show')->name('evaluate.candidate.show');

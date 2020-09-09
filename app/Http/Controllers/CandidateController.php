@@ -50,4 +50,16 @@ class CandidateController extends Controller
         return response()->json($html);
     }
 
+    public function search(Request $request)
+    {
+        $candidates = \App\Model\UserJob::whereHas('user', function ($query) use ($request){
+                            $query->where('name', 'like', '%'.$request->keyword.'%');
+                        })->with(['user' => function($query) use ($request){
+                            $query->where('name', 'like', '%'.$request->keyword.'%');
+                        }])->paginate();
+
+        $html = view('admin.candidate.list', compact('candidates'))->render();
+        return response()->json($html);
+    }
+
 }

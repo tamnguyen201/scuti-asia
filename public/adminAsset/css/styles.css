@@ -998,7 +998,7 @@ h1.page-header {
 .table {
   background: #fff; }
 
-.fixed-table-toolbar .btn.btn-primary {
+.fixed-table-toolbar .btn.btn-primary, .pull-right.search {
   float: right; 
   margin: 1rem;
 }

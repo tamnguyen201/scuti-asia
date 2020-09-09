@@ -20,6 +20,12 @@
             <div class="panel-heading">@lang('custom.page_title.data_table')</div>
             <div class="panel-body">
                 <div class="bootstrap-table">
+                <div class="fixed-table-toolbar">
+                    <div class="pull-right search" style="display: flex">
+                        <input class="form-control" style="margin-right: 15px" type="text" id="input-search" placeholder="Search">
+                        <button type="button" id="btn-search" class="btn btn-primary" style="margin: 0px">Tìm</button>
+                    </div>
+                </div>
                     <div class="fixed-table-container">
                         <div class="fixed-table-body">
                         <table class="table table-hover">
@@ -131,6 +137,20 @@
 @endsection
 @section('script')
     <script>
+        $("#btn-search" ).on('click', function() {
+            let value = $('#input-search').val();
+            let keyword = value.replace(/\s+/g, '');
+            if(keyword != ''){
+                $.ajax({
+                    url: "{{ route('candidates.search') }}",
+                    data: {'keyword' : keyword },
+                    method: "POST",
+                }).done(function (results) {
+                    $(".fixed-table-body").html(results);
+                });
+            };
+        });
+
         $('.view-profile').on('click', function (event) {
             event.preventDefault();
             let url = $(this).attr('href');

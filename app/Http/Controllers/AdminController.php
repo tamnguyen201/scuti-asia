@@ -19,17 +19,14 @@ class AdminController extends Controller
 
     public function index()
     {
-        $data['users'] = \App\Model\User::all();
-        $data['candidate_evaluated'] = \DB::table('user_job')
-                                        ->where('status', '=', 0)
+        $data['candidates'] = \App\Model\UserJob::count();
+        $data['candidate_evaluated'] = \App\Model\UserJob::where('status', '=', 0)
                                         ->where('result', '=', 0)
                                         ->count();
-        $data['candidate_accept'] = \DB::table('user_job')
-                                        ->where('status', '=', 1)
+        $data['candidate_accept'] = \App\Model\UserJob::where('status', '=', 1)
                                         ->where('result', '=', 1)
                                         ->count();
-        $data['candidate_failed'] = \DB::table('user_job')
-                                        ->where('status', '=', 1)
+        $data['candidate_failed'] = \App\Model\UserJob::where('status', '=', 1)
                                         ->where('result', '=', 0)
                                         ->count();
 
@@ -40,8 +37,13 @@ class AdminController extends Controller
         $data['listMonth'] = $arrMonth;
 
         foreach($arrMonth as $month){
-            $data['candidateByMonth'][] = \DB::table('users')
-                                            ->whereMonth('created_at', '=', \Carbon\Carbon::parse($month)->month)
+            $data['userByMonth'][] = \App\Model\User::whereMonth('created_at', '=', \Carbon\Carbon::parse($month)->month)
+                                            ->get()
+                                            ->count();
+        }
+
+        foreach($arrMonth as $month){
+            $data['candidateByMonth'][] = \App\Model\UserJob::whereMonth('created_at', '=', \Carbon\Carbon::parse($month)->month)
                                             ->get()
                                             ->count();
         }
