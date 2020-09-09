@@ -41,16 +41,16 @@
                     <thead>
                         <tr>
                             <th>
-                            <div class="th-inner sortable">@lang('custom.stt')</div>
-                            <div class="fht-cell"></div>
+                                <div class="th-inner sortable">@lang('custom.stt')</div>
+                            </th>
+                            <th>
+                                <div class="th-inner sortable">@lang('custom.name')</div>
                             </th>
                             <th>
                                 <div class="th-inner sortable">@lang('custom.logo')</div>
-                                <div class="fht-cell"></div>
                             </th>
                             <th>
                                 <div class="th-inner sortable text-center">@lang('custom.action')</div>
-                                <div class="fht-cell"></div>
                             </th>
                         </tr>
                     </thead>
@@ -59,6 +59,7 @@
                         @foreach($images as $item)
                         <tr>
                             <td>{{$stt++}}</td>
+                            <td>{{$item->name}}</td>
                             <td><img class="img-responsive" src="{{$item->image_url}}" alt="" style="width: 100px"></td>
                             <td class="text-center">
                                 <a href="{{route('company_images.edit', $item['id'])}}" class="btn btn-primary text-light btn-edit-form"><em class="far fa-edit"></em></a> 

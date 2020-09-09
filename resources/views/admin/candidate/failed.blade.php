@@ -26,52 +26,44 @@
                             <thead>
                                 <tr>
                                     <th>
-                                    <div class="th-inner sortable">@lang('custom.stt')</div>
-                                    <div class="fht-cell"></div>
+                                        <div class="th-inner sortable">@lang('custom.stt')</div>
                                     </th>
                                     <th>
                                         <div class="th-inner sortable">@lang('custom.name')</div>
-                                        <div class="fht-cell"></div>
                                     </th>
                                     <th>
                                         <div class="th-inner sortable">@lang('custom.email')</div>
-                                        <div class="fht-cell"></div>
                                     </th>
                                     <th>
                                         <div class="th-inner sortable">@lang('custom.jobApplied')</div>
-                                        <div class="fht-cell"></div>
                                     </th>
                                     <th>
                                         <div class="th-inner sortable">@lang('custom.process_failed')</div>
-                                        <div class="fht-cell"></div>
                                     </th>
                                     <th>
                                         <div class="th-inner sortable text-center">@lang('custom.action')</div>
-                                        <div class="fht-cell"></div>
                                     </th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @php $stt = 1; @endphp
                                 @foreach($candidates as $candidate)
-                                    @foreach($candidate->job as $key => $item)
-                                        @if($candidate->userjob[$key]->process->count() > 0)
-                                            @for($i = 0; $i < $candidate->userjob[$key]->process->count(); $i++)
-                                                @if(isset($candidate->userjob[$key]->process[$i]) && $candidate->userjob[$key]->process[$i]->evaluate[0]->status == 0)
-                                                <tr>
-                                                    <td>{{$stt++}}</td>
-                                                    <td>{{$candidate->name}}</td>
-                                                    <td>{{$candidate->email}}</td>
-                                                    <td>{{$item->name}}</td>
-                                                    <td>{{$candidate->userjob[$key]->process[$i]->name}}</td>
-                                                    <td class="text-center">
-                                                        <a href="{{route('candidates.show', $candidate['id'])}}" class="btn btn-info text-light view-profile" title="Xem"><em class="fa fa-eye"></em></a>
-                                                    </td>
-                                                </tr>
-                                                @endif
-                                            @endfor
-                                        @endif
-                                    @endforeach
+                                    @if($candidate->process->count() > 0)
+                                        @for($i = 0; $i < $candidate->process->count(); $i++)
+                                            @if(isset($candidate->process[$i]) && $candidate->process[$i]->evaluate->status == 0)
+                                            <tr>
+                                                <td>{{$stt++}}</td>
+                                                <td>{{$candidate->user->name}}</td>
+                                                <td>{{$candidate->user->email}}</td>
+                                                <td>{{$candidate->job->name}}</td>
+                                                <td>{{$candidate->process[$i]->name}}</td>
+                                                <td class="text-center">
+                                                    <a href="{{route('candidates.show', $candidate['id'])}}" class="btn btn-info text-light view-profile" title="Xem"><em class="fa fa-eye"></em></a>
+                                                </td>
+                                            </tr>
+                                            @endif
+                                        @endfor
+                                    @endif
                                 @endforeach
                             </tbody>
                         </table>
@@ -86,18 +78,18 @@
                 <div class="clearfix"></div>
                 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered modal-md" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLongTitle">@lang('custom.page_title.profile')</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLongTitle">@lang('custom.page_title.profile')</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body"></div>
+                            <div class="modal-footer" style="border-top: none">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">@lang('custom.button.close')</button>
+                            </div>
                         </div>
-                        <div class="modal-body"></div>
-                        <div class="modal-footer" style="border-top: none">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">@lang('custom.button.close')</button>
-                        </div>
-                    </div>
                     </div>
                 </div>
             </div>

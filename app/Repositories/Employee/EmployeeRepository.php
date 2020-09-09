@@ -22,12 +22,12 @@ class EmployeeRepository extends Repository implements EmployeeRepositoryInterfa
     
     public function paginate($perPage = 15, $columns = array('*'))
     {
-        return $this->model->with(['user'])->paginate($perPage, $columns);
+        return $this->model->paginate($perPage, $columns);
     }
 
     public function show($id)
     {
-        return $this->model->with(['user'])->findOrFail($id);
+        return $this->model->findOrFail($id);
     }
 
     public function store($data)

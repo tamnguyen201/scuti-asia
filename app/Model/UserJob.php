@@ -7,16 +7,16 @@ use Illuminate\Database\Eloquent\Model;
 class UserJob extends Model
 {
     protected $table = 'user_job';
-    protected $fillable = ['user_id', 'cv_id', 'job_id', 'letter'];
+    protected $fillable = ['user_id', 'cv_id', 'job_id', 'letter', 'status', 'result'];
     
     public function user()
     {
-        return $this->belongsToMany('App\Model\User');
+        return $this->belongsTo('App\Model\User');
     }
 
     public function job()
     {
-        return $this->hasOne('App\Model\Job');
+        return $this->belongsTo('App\Model\Job');
     }
 
     public function process()

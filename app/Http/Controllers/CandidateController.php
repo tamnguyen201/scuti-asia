@@ -16,28 +16,28 @@ class CandidateController extends Controller
 
     public function index()
     {
-        $candidates = $this->candidateRepository->paginate();
+        $candidates = $this->candidateRepository->index();
 
         return view("admin.candidate.index", compact('candidates'));
     }
 
     public function evaluating()
     {
-        $candidates = $this->candidateRepository->paginate();
+        $candidates = $this->candidateRepository->evaluating();
 
         return view("admin.candidate.evaluating", compact('candidates'));
     }
 
     public function finish()
     {
-        $candidates = $this->candidateRepository->paginate();
+        $candidates = $this->candidateRepository->finish();
 
         return view("admin.candidate.finish", compact('candidates'));
     }
 
     public function failed()
     {
-        $candidates = $this->candidateRepository->paginate();
+        $candidates = $this->candidateRepository->failed();
 
         return view("admin.candidate.failed", compact('candidates'));
     }

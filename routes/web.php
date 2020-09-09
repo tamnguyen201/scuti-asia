@@ -32,8 +32,8 @@ Route::post('/change-password','AuthController@changePassword')->name('client.up
 Route::post('/visit-us','HomeController@visit_us')->name('client.visit_us');
 Route::get('/apply', 'HomeController@apply')->name('client.apply');
 Route::get('/jobs', 'HomeController@jobs')->name('client.jobs');
-Route::get('/jobs/{slug}-{id}.html', 'HomeController@jobDetail')->name('job-detail');
-Route::get('/jobs/apply/{slug}-{id}.html', 'HomeController@jobApply')->name('client.applied');
+Route::get('/jobs-{id}/{slug}.html', 'HomeController@jobDetail')->name('job-detail');
+Route::get('/jobs/apply-{id}/{slug}.html', 'HomeController@jobApply')->name('client.applied');
 Route::post('/apply','HomeController@userApplyJob')->name('client.apply.job');
 Route::get('/auth/redirect/{provider}', 'SocialController@redirect');
 Route::get('/callback/{provider}', 'SocialController@callback');
@@ -73,6 +73,9 @@ Route::group(
         Route::resource('companies', 'CompanyController');
         Route::resource('company_images', 'CompanyImagesController');
         Route::resource('new_spaper', 'NewSpaperController');
+        Route::get('candidates/evaluating', 'CandidateController@evaluating')->name('candidates.evaluating');
+        Route::get('candidates/finish', 'CandidateController@finish')->name('candidates.finish');
+        Route::get('candidates/failed', 'CandidateController@failed')->name('candidates.failed');
         Route::resource('candidates', 'CandidateController')->only(['index', 'show']);
         Route::group(['prefix' => 'evaluate'], function () {
             Route::get('candidate/{id}', 'EvaluateController@show')->name('evaluate.candidate.show');
@@ -84,9 +87,6 @@ Route::group(
         // Route::post('fullcalendar/delete','EvaluateController@destroyCalendar');
 
         Route::resource('new_spaper', 'NewSpaperController');
-        Route::get('candidates/evaluating', 'CandidateController@evaluating')->name('candidates.evaluating');
-        Route::get('candidates/finish', 'CandidateController@finish')->name('candidates.finish');
-        Route::get('candidates/failed', 'CandidateController@failed')->name('candidates.failed');
         Route::resource('sections', 'SectionController');
         Route::resource('contacts', 'ContactController')->only(['index', 'show']);
         

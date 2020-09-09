@@ -40,10 +40,16 @@ return [
     'map_url' => 'Địa Chỉ Bản Đồ',
     'content' => 'Nội Dung',
     'visit_type' => 'Thể Loại',
+    'statistical' => 'Thống Kê Dữ Liệu',
+    'candidate_total' => 'Tổng số ứng viên',
+    'candidate_evaluated' => 'Ứng viên đang đánh giá',
+    'candidate_accept' => 'Ứng viên đồng ý',
+    'candidate_failed' => 'Ứng viên bị loại',
     'CV_status'=> 'Trạng thái',
     'applied_job'=>'Công việc đã ứng tuyển',
     
     'page_title' => [
+        'dashboard' => 'Bảng Điều Khiển',
         'user_manage' => 'Quản Lý Người Dùng',
         'employee_manage' => 'Quản Lý QTV',
         'profile' => 'Thông tin cá nhân',
@@ -68,7 +74,7 @@ return [
         'add'=>'Tạo mới',
         'jobs' =>'Danh sách các Job',
         'jobs_manage'=>'Quản lý danh sách Job',
-        'jobs_detail'=>'Thông tin Job',
+        'job_detail'=>'Thông tin Job',
         'show_infor'=>'Thông tin',
         
         'job_edit' =>'Sửa Job',
@@ -113,7 +119,7 @@ return [
         'company' => 'Công Ty',
         'company_info' => 'Thông Tin Công Ty',
         'company_images' => 'Ảnh Công Ty',
-        'partner' => 'Đối Tác',
+        'new_spaper' => 'Tin Tức Về Công Ty',
         'section' => 'Bố Cục',
         'evaluating' => 'Đang Đánh Giá',
         'finishing' => 'Hoàn Tất',
@@ -141,7 +147,6 @@ return [
         'error' => 'Lỗi',
         'not_found'=>'Không tìm thấy hoặc nhập sai',
         'fail'=>'Không thành công',
-    ],
         'invalid' => 'Tài khoản hoặc mật khẩu không đúng! Vui lòng thử lại.',
         'same' => 'Mật khẩu mới trùng với mật khẩu hiện tại! Vui lòng thử lại.',
         'not_same' => 'Mật khẩu hiện tại không chính sác! Vui lòng thử lại.',
@@ -177,4 +182,7 @@ return [
         'start'=>'Ngày bắt đầu',
         'end'=>'Ngày kết thúc'
     ]
+        
+    ],
+
 ];

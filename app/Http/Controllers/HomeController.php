@@ -50,7 +50,7 @@ class HomeController extends Controller
         $data['about_us'] = $this->SectionRepository->where('slug', '=', 'about-us');
         $data['new_spaper'] = $this->NewSpaperRepository->all();
         $data['visit_us'] = $this->SectionRepository->where('slug', '=', 'visit-us');
-        $data['categories'] = $this->CategoryRepository->all();
+        $data['categories'] = $this->CategoryRepository->where('status', '=', 1);
         $data['jobs'] = $this->JobRepository->with('category')->get();
         $data['hotJobs'] = $this->JobRepository->all();
 
@@ -73,7 +73,7 @@ class HomeController extends Controller
         return view('client.page.jobs', compact('data'));
     }
 
-    public function jobDetail($slug, $id)
+    public function jobDetail($id, $slug)
     {
         $data['job'] = $this->JobRepository->show($id);
         $data['related_job'] = $this->JobRepository->all();
@@ -81,10 +81,10 @@ class HomeController extends Controller
         return view('client.page.jobDetail', compact('data'));
     }
 
-    public function jobApply($slug, $id)
+    public function jobApply($id, $slug)
     {
         if (!auth()->check()) {
-            $redirect = route('client.applied', [$slug, $id]);
+            $redirect = route('client.applied', [$id, $slug]);
 
             return redirect()->route('client.login')->with('redirect', $redirect);
         }

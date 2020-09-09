@@ -77,15 +77,12 @@
                                             <tr>
                                                 <th>
                                                     <div class="th-inner">@lang('custom.stt')</div>
-                                                    <div class="fht-cell"></div>
                                                 </th>
                                                 <th>
                                                     <div class="th-inner">@lang('custom.cv_url')</div>
-                                                    <div class="fht-cell"></div>
                                                 </th>
                                                 <th>
-                                                    <div class="th-inner">@lang('custom.action')</div>
-                                                    <div class="fht-cell"></div>
+                                                    <div class="th-inner text-center">@lang('custom.action')</div>
                                                 </th>
                                             </tr>
                                         </thead>
@@ -94,9 +91,9 @@
                                             @foreach(auth()->user()->cv as $item)
                                             @php $stt++ @endphp
                                             <tr>
-                                            <td>{{$stt}}</td>
-                                            <td><a href="{{$item->cv_url}}" target="_blank">{{$item->cv_name}}</a></td>
-                                                <td>    
+                                                <td>{{$stt}}</td>
+                                                <td><a href="{{$item->cv_url}}" target="_blank">{{$item->cv_name}}</a></td>
+                                                <td class="text-center">    
                                                     <form action="{{route('client.destroy_cv', $item['id'])}}" method="post" class="form-delete-cv-{{$item->id}}" style="display: inline">
                                                         @csrf
                                                         @method('DELETE')
@@ -118,25 +115,30 @@
                                             <tr>
                                                 <th>
                                                     <div class="th-inner">@lang('custom.stt')</div>
-                                                    <div class="fht-cell"></div>
                                                 </th>
                                                 <th>
                                                     <div class="th-inner">@lang('custom.name')</div>
-                                                    <div class="fht-cell"></div>
+                                                </th>
+                                                <th>
+                                                    <div class="th-inner">@lang('custom.process')</div>
                                                 </th>
                                                 <th>
                                                     <div class="th-inner text-center">@lang('custom.action')</div>
-                                                    <div class="fht-cell"></div>
                                                 </th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             @php $stt = 0; @endphp
-                                            @foreach(auth()->user()->job as $item)
+                                            @foreach(auth()->user()->job as $key => $item)
                                             @php $stt++ @endphp
                                             <tr>
                                                 <td>{{$stt}}</td>
                                                 <td>{{$item->name}}</td>
+                                                @for($i = 0; $i <= auth()->user()->userjob[$key]->process->count(); $i++)
+                                                    @if($i == auth()->user()->userjob[$key]->process->count() - 1)
+                                                    <td>{{auth()->user()->userjob[$key]->process[$i]->name}}</td>
+                                                    @endif
+                                                @endfor
                                                 <td class="text-center"><a href="{{route('client.applied', [$item->slug, $item->id])}}" target="_blank" class="btn btn-info text-light view-profile" title="Xem"><em class="fa fa-eye"></em></a></td>
                                             </tr>
                                             @endforeach

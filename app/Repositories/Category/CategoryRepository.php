@@ -9,4 +9,9 @@ class CategoryRepository extends Repository implements CategoryRepositoryInterfa
     {
         return \App\Model\Category::class;
     }
+
+    public function where($field, $opedaytor = '=' ,$condition)
+    {
+        return $this->model->where($field, $opedaytor ,$condition)->get();
+    }
 }

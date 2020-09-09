@@ -1,11 +1,11 @@
 <div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
     <div class="profile-sidebar">
         <div class="profile-userpic">
-            <img src="http://placehold.it/50/30a5ff/fff" class="img-responsive" alt="">
+            <img src="{{Auth::guard('admin')->user()->avatar}}" class="img-responsive" alt="">
         </div>
         <div class="profile-usertitle">
             <a href="{{ route('admin.information') }}">
-                <div class="profile-usertitle-name"></div>
+                <div class="profile-usertitle-name">{{Auth::guard('admin')->user()->name}}</div>
             </a>
             <div class="profile-usertitle-status"><span class="indicator label-success"></span>@lang('custom.menu.online')</div>
         </div>
@@ -58,7 +58,7 @@
                 </a>
                 </li>
                 <li><a class="" href="{{route('new_spaper.index')}}">
-                <span class="fa fa-arrow-right">&nbsp;</span> @lang('custom.menu.partner')
+                <span class="fa fa-arrow-right">&nbsp;</span> @lang('custom.menu.new_spaper')
                 </a>
                 </li>
                 <li><a class="" href="{{route('sections.index')}}">

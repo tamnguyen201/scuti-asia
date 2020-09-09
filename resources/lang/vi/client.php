@@ -48,6 +48,7 @@ return [
             'empty_job_applied' => 'Bạn Chưa Ứng Tuyển Công Việc Nào.',
             'apply_job' => 'Tìm Việc Phù Hợp Ngay!',
             'manage_pw' => 'Quản Lí Mật Khẩu',
+            'form_title' => 'Mẫu Điền Thông Tin',
         ],
         'job' => [
             'title' => 'Tin Tuyển Dụng',
@@ -58,16 +59,14 @@ return [
             'form_title' => 'Mẫu Đăng Kí Ứng Tuyển',
             'sidebar' => [
                 'title' => 'Thông Tin Tuyển Dụng',
-                'level' => 'Cấp Bậc',
-                'job' => 'Ngành Nghề',
-                'exp' => 'Kinh Nghiệm',
                 'salary' => 'Lương',
-                'work_place' => 'Nơi Làm Việc',
+                'location' => 'Nơi Làm Việc',
                 'end_time' => 'Ngày Hết Hạn'
             ],
             'process' => [
                 'title' => 'Bạn Đã Ứng Tuyển Cho Công Việc Này!',
                 'description' => 'Xem Chi Tiết Kết Quả Trong Quá Trình Đánh Giá Này.',
+                'info' => 'Thông tin chi tiết:',
             ],
             'back' => 'Quay Lại',
         ],

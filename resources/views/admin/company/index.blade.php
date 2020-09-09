@@ -52,7 +52,7 @@
                                         <td colspan="2">{{$company->description}}</td>
                                     </tr>
                                     <tr>
-                                        <td>@lang('custom.phone')</td>
+                                        <td>@lang('custom.email')</td>
                                         <td colspan="2">{{$company->email}}</td>
                                     </tr>
                                     <tr>

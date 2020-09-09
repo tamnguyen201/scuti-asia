@@ -10,18 +10,45 @@ class CandidateRepository extends Repository implements CandidateRepositoryInter
         return \App\Model\User::class;
     }
 
+    public function paginate($perPage = 10, $columns = array('*'))
+    {
+        return $this->model->with(['userjob','job'])->paginate($perPage, $columns);
+    }
+    
     public function show($id)
     {
         return $this->model->with('cv')->findOrFail($id);
     }
 
-    public function checkCVstatus($data)
-    {
-        return $this->model->with(['cv'])->findOrFail($id);
-    }
-
     public function where($field, $opedaytor = '=' ,$condition)
     {
         return $this->model->where($field, $opedaytor ,$condition)->first();
+    }
+
+    public function index()
+    {
+        return \App\Model\UserJob::with(['user'])->paginate(10);
+    }
+
+    public function evaluating()
+    {
+        return \App\Model\UserJob::with(['user'])
+                    ->where('status', '=', 0)
+                    ->paginate(10);
+    }
+
+    public function finish()
+    {
+        return \App\Model\UserJob::with(['user'])
+                ->where('status', '=', 1)
+                ->paginate(10);
+    }
+
+    public function failed()
+    {
+        return \App\Model\UserJob::with(['user'])
+                    ->where('status', '=', 1)
+                    ->where('result', '=', 0)
+                    ->paginate(10);
     }
 }

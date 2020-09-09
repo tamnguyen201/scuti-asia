@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class NewSpaperUpdateRequest extends FormRequest
+class SectionUpdateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,8 +24,8 @@ class NewSpaperUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|unique:new_spapers,name,' . $this->id,
-            'logo' => 'nullable|mimes:jpeg,jpg,png,gif|max:10000',
+            'name' => 'required|unique:sections,name,' . $this->id,
+            'image' => 'nullable|mimes:jpeg,jpg,png,gif|max:10000'
         ];
     }
 
@@ -33,8 +33,8 @@ class NewSpaperUpdateRequest extends FormRequest
     {
         return [
             'required' => trans('validation.required'),
-            'logo.mimes' => trans('validation.mimes'),
-            'logo.max' => trans('validation.max'),
+            'image.mimes' => trans('validation.mimes'),
+            'image.max' => trans('validation.max'),
         ];
     }
 }
