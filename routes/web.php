@@ -76,6 +76,7 @@ Route::group(
         Route::get('candidates/evaluating', 'CandidateController@evaluating')->name('candidates.evaluating');
         Route::get('candidates/finish', 'CandidateController@finish')->name('candidates.finish');
         Route::get('candidates/failed', 'CandidateController@failed')->name('candidates.failed');
+        Route::post('candidates/search', 'CandidateController@search')->name('candidates.search');
         Route::resource('candidates', 'CandidateController')->only(['index', 'show']);
         Route::group(['prefix' => 'evaluate'], function () {
             Route::get('candidate/{id}', 'EvaluateController@show')->name('evaluate.candidate.show');

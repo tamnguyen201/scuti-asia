@@ -19,7 +19,7 @@
         <div class="col-xs-6 col-md-3 col-lg-3 no-padding">
             <div class="panel panel-orange panel-widget border-right">
                 <div class="row no-padding"><em class="fa fa-xl fa-users color-teal"></em>
-                    <div class="large">{{$data['users']->count()}}</div>
+                    <div class="large">{{$data['candidates']}}</div>
                     <div class="text-muted">@lang('custom.candidate_total')</div>
                 </div>
             </div>
@@ -69,14 +69,16 @@
 <script>
 	window.onload = function () {
         let labels = [];
-        let data1 = [1,4,2,3,6,5];
-        let data2 = []
+        let data1 = [];
+        let data2 = [];
         <?php foreach($data['listMonth'] as $item){ ?>
             labels.push('<?php echo $item ?>')
         <?php
         }
-        ?>
-        <?php foreach($data['candidateByMonth'] as $candidateByMonth){ ?>
+        foreach($data['userByMonth'] as $userByMonth){ ?>
+            data1.push(<?php echo $userByMonth ?>)
+        <?php }
+            foreach($data['candidateByMonth'] as $candidateByMonth){ ?>
             data2.push(<?php echo $candidateByMonth ?>)
         <?php
         }

@@ -47,6 +47,7 @@ return [
     'candidate_failed' => 'Ứng viên bị loại',
     'CV_status'=> 'Trạng thái',
     'applied_job'=>'Công việc đã ứng tuyển',
+    'empty_data' => 'Dữ liệu trống',
     
     'page_title' => [
         'dashboard' => 'Bảng Điều Khiển',
@@ -124,6 +125,7 @@ return [
         'evaluating' => 'Đang Đánh Giá',
         'finishing' => 'Hoàn Tất',
         'failed' => 'Loại',
+        'setting' => 'Cài Đặt Chung',
         'logout' => 'Đăng Xuất',
         'job'=>'Jobs',
         'location'=>'Địa điểm',
