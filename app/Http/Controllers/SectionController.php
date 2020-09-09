@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-// use App\Http\Requests\SectionRequest;
-// use App\Http\Requests\SectionUpdateRequest;
+use App\Http\Requests\SectionRequest;
+use App\Http\Requests\SectionUpdateRequest;
 use App\Services\SectionService;
 
 class SectionController extends Controller
@@ -27,7 +27,7 @@ class SectionController extends Controller
         return view('admin.section.add');
     }
 
-    public function store(Request $request)
+    public function store(SectionRequest $request)
     {
         $this->SectionService->create($request->all());
 
@@ -41,7 +41,7 @@ class SectionController extends Controller
         return view('admin.section.edit', compact('section'));
     }
 
-    public function update(Request $request, $id)
+    public function update(SectionUpdateRequest $request, $id)
     {
         $this->SectionService->update($request->all(), $id);
 
