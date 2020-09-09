@@ -7,7 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class CV extends Model
 {
     protected $table = 'cvs';
-    protected $fillable = ['name', 'cv_url', 'user_id'];
+    protected $fillable = ['cv_name', 'cv_url', 'user_id'];
+    public $timestamps = false;
 
     public function user()
     {

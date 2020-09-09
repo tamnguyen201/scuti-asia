@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-md-12 text-center">
                 <div class="footer-col">
-                    <h4>Scuti Asia</h4>
+                    <h4>{{$data_share->name}}</h4>
                     <p>Make Service People Love</p>
                 </div>
             </div>

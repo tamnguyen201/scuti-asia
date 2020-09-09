@@ -13,20 +13,28 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/login', 'AuthController@login')->name('client.login');
 Route::post('/login', 'AuthController@postLogin')->name('client.postLogin');
 Route::get('/logout', 'AuthController@logout')->name('client.logout');
 Route::get('/profile', 'HomeController@profile')->name('client.profile');
-Route::get('/changeInfo', 'HomeController@profile2')->name('client.change_info');
+Route::get('/changeInfo', 'HomeController@changeAccountInfo')->name('client.change_info');
 Route::post('/changeInfo', 'UserController@update')->name('client.update_info');
 Route::get('/uploadCV', 'CVController@create')->name('client.create_cv');
 Route::post('/uploadCV', 'CVController@store')->name('client.upload_cv');
 Route::get('/editCV/{id}', 'CVController@edit')->name('client.edit_cv');
 Route::post('/updateCV/{id}', 'CVController@update')->name('client.update_cv');
 Route::delete('/deleteCV/{id}', 'CVController@destroy')->name('client.destroy_cv');
-Route::get('/changePass', 'HomeController@profile3')->name('client.change_password');
+Route::get('/changePass', 'HomeController@changePassword')->name('client.change_password');
 Route::post('/changePass','AuthController@changePassword')->name('client.update_password');
+
+Route::post('/visit-us','HomeController@visit_us')->name('client.visit_us');
+Route::get('/apply', 'HomeController@apply')->name('client.apply');
+Route::get('/jobs', 'HomeController@jobs')->name('client.jobs');
+Route::get('/jobs/{slug}-{id}.html', 'HomeController@jobDetail')->name('job-detail');
+Route::get('/jobs/apply/{slug}-{id}.html', 'HomeController@jobApply')->name('client.applied');
+Route::post('/apply','HomeController@userApplyJob')->name('client.apply.job');
 
 
 Route::get('/auth/redirect/{provider}', 'SocialController@redirect');

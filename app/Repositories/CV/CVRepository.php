@@ -9,4 +9,12 @@ class CVRepository extends Repository implements CVRepositoryInterface
     {
         return \App\Model\CV::class;
     }
+
+    public function upload($file)
+    {
+        $destinationPath = 'cv/';
+        $cv = date('YmdHis') . "." . $file->getClientOriginalExtension();
+        $file->move($destinationPath, $cv);
+        return $destinationPath . $cv;
+    }
 }

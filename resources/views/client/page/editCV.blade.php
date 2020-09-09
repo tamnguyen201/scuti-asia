@@ -1,7 +1,7 @@
 <form enctype="multipart/form-data">
     <div class="form-group">
         <label>@lang('custom.image_url')</label>
-        <input type="text" value="{{$cv->name}}" class="form-control" name="name">
+        <input type="text" value="{{$cv->cv_name}}" class="form-control" name="name">
         <span class="help-block text-danger"> </span>
     </div>
     <div class="form-group">
@@ -16,7 +16,7 @@
     </div>
     
     <div class="col-md-12 text-center">
-        <button class="btn btn-primary btn-upload-cv">@lang('custom.button.submit')</button>
-        <button type="reset" class="btn btn-warning">@lang('custom.button.reset')</button>
+        <button class="btn btn-outline-reg btn-upload-cv">@lang('custom.button.submit')</button>
+        <button type="reset" class="btn btn-outline-reg">@lang('custom.button.reset')</button>
     </div>
 </form>

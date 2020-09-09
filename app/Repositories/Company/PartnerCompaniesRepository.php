@@ -7,7 +7,7 @@ class PartnerCompaniesRepository extends Repository implements PartnerCompaniesR
 {
     public function getModel()
     {
-        return \App\Model\PartnerCompanies::class;
+        return \App\Model\NewSpaper::class;
     }
 
     public function create($results)
