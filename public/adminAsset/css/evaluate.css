@@ -53,7 +53,7 @@ p {
     box-sizing: border-box;
     font-family: montserrat;
     color: #2C3E50;
-    background-color: #ECEFF1;
+    background-color: #ffffff;
     font-size: 16px;
     letter-spacing: 1px
 }
@@ -216,3 +216,7 @@ p {
     object-fit: cover
 }
 
+.infor.col-md-6 {
+    border-right: solid 1px;
+    padding-right: 0px;
+}

@@ -53,18 +53,10 @@
                                         <td>{{$candidate->user->name}}</td>
                                         <td>{{$candidate->user->email}}</td>
                                         <td>{{$candidate->job->name}}</td>
-                                        <td>
-<<<<<<< HEAD
-                                            <a href="{{route('candidates.show', $candidate['id'])}}" class="btn btn-info text-light view-profile" title="Xem"><em class="fa fa-eye"> Xem</em></a>
-                                            @if ($candidate->userjob[$key]->process->count() == 0)
-                                                <form action="{{route('start.evaluate', $candidate->userjob[$key]->id)}}" method="post" class="form-delete-{{$candidate->userjob[$key]->id}}" style="display: inline">
-                                                    @csrf
-                                                    @method('POST')
-                                                    <button class="btn btn-warning text-light start-confirm" idStart={{$candidate->userjob[$key]->id}} title="Bắt đầu đánh giá"><em class="fas fa-random"> Bắt đầu đánh giá</em></button>
-=======
                                             @if($candidate->process->count() > 0 && $candidate->process->count() < 4)
                                                 @for($i = 0; $i <= $candidate->process->count(); $i++)
                                                     @if($i == $candidate->process->count() - 1)
+                                                    <td>
                                                         <a href="{{ route('evaluate.candidate.show', $candidate->process[$i]->id) }}" style="text-decoration: none">
                                                             <span @if ($candidate->process[$i])
                                                                 @switch($i)
@@ -86,14 +78,15 @@
                                                             
                                                             </span>
                                                         </a>
+                                                    </td>
                                                     @endif
                                                 @endfor
                                             @elseif($candidate->process->count() == 4)
-                                                @lang('custom.finished')
+                                                <td style="font-size: 75%;font-weight: bold; color: #5cb85c">@lang('custom.finished')</td>
                                             @else
-                                                @lang('custom.applied')
+                                                <td style="font-size: 75%;font-weight: bold;color: red">@lang('custom.applied')</td>
                                             @endif
-                                        </td>
+                                        
                                         <td>
                                             <a href="{{route('candidates.show', $candidate->user->id)}}" class="btn btn-info text-light view-profile" title="Xem"><em class="fa fa-eye"></em></a>
                                             @if ($candidate->process->count() == 0)
@@ -101,7 +94,6 @@
                                                     @csrf
                                                     @method('POST')
                                                     <button class="btn btn-warning text-light start-confirm" idStart={{$candidate->id}} title="Bắt đầu đánh giá"><em class="fas fa-random"></em></button>
->>>>>>> 85be6fb8d981c43d9832df7a9b0f5833a6a348f0
                                                 </form>
                                             @endif
                                         </td>
