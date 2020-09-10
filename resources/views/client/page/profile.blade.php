@@ -135,11 +135,13 @@
                                                 <td>{{$stt}}</td>
                                                 <td>{{$item->name}}</td>
                                                 @for($i = 0; $i <= auth()->user()->userjob[$key]->process->count(); $i++)
-                                                    @if($i == auth()->user()->userjob[$key]->process->count() - 1)
+                                                    @if(auth()->user()->userjob[$key]->process->count() > 0 && $i == auth()->user()->userjob[$key]->process->count() - 1)
                                                     <td>{{auth()->user()->userjob[$key]->process[$i]->name}}</td>
+                                                    @else
+                                                    <td>Chưa Đánh Giá</td>
                                                     @endif
                                                 @endfor
-                                                <td class="text-center"><a href="{{route('client.applied', [$item->slug, $item->id])}}" target="_blank" class="btn btn-info text-light view-profile" title="Xem"><em class="fa fa-eye"></em></a></td>
+                                                <td class="text-center"><a href="{{route('client.applied', [$item->id, $item->slug])}}" target="_blank" class="btn btn-info text-light view-profile" title="Xem"><em class="fa fa-eye"></em></a></td>
                                             </tr>
                                             @endforeach
                                         </tbody>

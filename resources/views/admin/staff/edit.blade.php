@@ -53,7 +53,7 @@
                         </div>
                         <div class="col-md-3">
                             <div class="form-group">
-                                <label>@lang('custom.role')</label>
+                                <label class="lable-required">@lang('custom.role')</label>
                                 <select name="role" class="form-control">
                                     @foreach (config('common.role') as $key => $item)
                                         @if($item != config('common.role.User'))
@@ -64,9 +64,8 @@
                             </div>
                         </div>
                         <div class="col-md-12 text-center">
-                            <button type="submit" class="btn btn-primary">@lang('custom.button.submit')</button>
-                            <button type="reset" class="btn btn-default">@lang('custom.button.reset')</button>
-                            <a href="{{route('employees.index')}}" class="btn btn-danger">@lang('custom.button.cancel')</a>
+                            <button type="submit" class="btn btn-primary">@lang('custom.button.submit') <em class="fa fa-plus"></em></button>
+                            <a href="{{route('employees.index')}}" class="btn btn-danger">@lang('custom.button.cancel')  <em class="fa fa-times"></em></a>
                         </div>
                     </form>
                 </div>

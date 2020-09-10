@@ -204,6 +204,25 @@
                 </div>
             </div>
             <div class="row">
+                <div class="col-lg-11 mx-auto">
+                    <div class="button-group filters-button-group">
+                        <a class="button is-checked" data-filter="*"><span>SHOW ALL</span></a>
+                        <a class="button" data-filter=".design"><span>DESIGN</span></a>
+                        <a class="button" data-filter=".development"><span>DEVELOPMENT</span></a>
+                        <a class="button" data-filter=".marketing"><span>MARKETING</span></a>
+                        <a class="button" data-filter=".seo"><span>SEO</span></a>
+                        <a class="button is-checked" data-filter="*"><span>SHOW ALL</span></a>
+                        <a class="button" data-filter=".design"><span>DESIGN</span></a>
+                        <a class="button" data-filter=".development"><span>DEVELOPMENT</span></a>
+                        <a class="button" data-filter=".marketing"><span>MARKETING</span></a>
+                        <a class="button" data-filter=".seo"><span>SEO</span></a>
+                        <a class="button is-checked" data-filter="*"><span>SHOW ALL</span></a>
+                        <a class="button" data-filter=".design"><span>DESIGN</span></a>
+                        <a class="button" data-filter=".development"><span>DEVELOPMENT</span></a>
+                        <a class="button" data-filter=".marketing"><span>MARKETING</span></a>
+                        <a class="button" data-filter=".seo"><span>SEO</span></a>
+                    </div>
+                </div>
                 <div class="col-lg-12 d-md-flex">
                     <div class="col-lg-3 col-md-4 col-12 button-group filters-button-group">
                         <h3 class="is-checked"><span>@lang('client.section.recruitment.menu_title')</span></h3>

@@ -89,7 +89,29 @@ Route::group(
             Route::post('process/calendar/create','EvaluateController@storeCalendar')->name('store.event');
             Route::post('start-evaluate/{id}','EvaluateController@startEvaluate')->name('start.evaluate');
         });
-        // Route::post('fullcalendar/update','EvaluateController@updateCalendar');
+        Route::get('calendars', function() {
+            $events = [];
+        $calendar = \Calendar::addEvents($events)
+        ->setOptions([ 
+            'editable' => true,
+            'selectable'=> true,
+            'selectHelper'=> true,
+            'displayEventTime'=> true,
+        ]) 
+        ->setCallbacks([ 
+            'dayClick' => 'function(date, event, view) {
+                $("#dialog").dialog({
+                    title:"Add Event",
+                    width:600,
+                    height:500,
+                    modal:true,
+                    show:{effect: "clip", duration: 350},
+                    hide:{effect: "clip", duration: 250},
+                  })
+            }'
+        ]);
+            return view('welcome', compact('calendar'));
+        });
         // Route::post('fullcalendar/delete','EvaluateController@destroyCalendar');
 
         Route::resource('new_spaper', 'NewSpaperController');

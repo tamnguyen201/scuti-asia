@@ -366,20 +366,6 @@
             </div>
         </div>
     </div>
-
-    <div id="services" class="basic-2">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 mb-3">
-                    <h2>@lang('client.section.recruitment_flow.title')</h2>
-                    <p class="p-heading p-large">@lang('client.section.recruitment_flow.description')</p>
-                </div>
-            </div>
-            <div class="row">
-                {!! $data['recruitment_flow']->content !!}
-            </div>
-        </div>
-    </div>
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-md">
             <div class="modal-content">

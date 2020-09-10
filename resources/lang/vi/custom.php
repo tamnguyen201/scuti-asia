@@ -14,7 +14,7 @@ return [
     'choose_cv' => 'Chọn Hồ Sơ',
     'logo' => 'Ảnh Logo',
     'description' => 'Mô Tả',
-    'role' => 'Quyền',
+    'role' => 'Chức Vụ',
     'view_more' => 'Xem Chi Tiết',
     'letter' => 'Lời Cảm Ơn',
     'category' => 'Bộ Phận Ứng Tuyển',
@@ -43,10 +43,16 @@ return [
     'CV_status'=> 'Trạng thái',
     'applied_job'=>'Công việc đã ứng tuyển',
     'empty_data' => 'Dữ liệu trống',
+    'candidate_total' => 'Tổng ứng viên',
+    'candidate_evaluated' => 'Đang Đánh Giá',
+    'candidate_accept' => 'Ứng viên đồng ý',
+    'candidate_failed' => 'Ứng viên bị loại',
+    'statistical' => 'Thống Kê Dữ Liệu',
     
     'page_title' => [
+        'dashboard' => 'Bảng Điều Khiển',
         'user_manage' => 'Quản Lý Người Dùng',
-        'employee_manage' => 'Quản Lý QTV',
+        'employee_manage' => 'Quản Lý Tài Khoản Quản Trị Viên',
         'profile' => 'Thông tin cá nhân',
         'role_manage' => 'Quản Lý Quyền',
         'company_manage' => 'Quản Lý Thông Tin Công Ty',
@@ -79,8 +85,11 @@ return [
         'contact_manage' => 'Quản Lí Liên Hệ',
     ],
 
-    'table_lable' => [
-
+    'placehoder' => [
+        'name' => 'Vui lòng nhập thông tin tên',
+        'email' => 'Vui lòng nhập thông tin địa chỉ email',
+        'phone' => 'Vui lòng nhập thông tin số điện thoại',
+        'address' => 'Vui lòng nhập thông tin địa chỉ',
     ],
 
     'button' => [
@@ -114,7 +123,7 @@ return [
         'company' => 'Công Ty',
         'company_info' => 'Thông Tin Công Ty',
         'company_images' => 'Ảnh Công Ty',
-        'partner' => 'Đối Tác',
+        'new_spaper' => 'Tin Tức Về Công Ty',
         'section' => 'Bố Cục',
         'evaluating' => 'Đang Đánh Giá',
         'finishing' => 'Hoàn Tất',
@@ -143,7 +152,6 @@ return [
         'error' => 'Lỗi',
         'not_found'=>'Không tìm thấy hoặc nhập sai',
         'fail'=>'Không thành công',
-    ],
         'invalid' => 'Tài khoản hoặc mật khẩu không đúng! Vui lòng thử lại.',
         'same' => 'Mật khẩu mới trùng với mật khẩu hiện tại! Vui lòng thử lại.',
         'not_same' => 'Mật khẩu hiện tại không chính sác! Vui lòng thử lại.',
@@ -154,12 +162,13 @@ return [
         ],
         'register_alert' => [
             'title' => 'Thành Công',
-            'text' => 'Bạn Vừa Tạo Tài Khoản Thành Công! Hãy Tìm Công Việc Phù Hợp Với Mình',
+            'text' => 'Bạn Vừa Tạo Tài Khoản Thành Công! Hãy Tìm Cho Mình Công Việc Phù Hợp.',
         ],
         'login_success' => [
             'title' => 'Đăng Nhập Thành Công',
             'text' => 'Bạn Đã Đăng Nhập Thành Công! Hãy Tìm Cho Mình Công Việc Phù Hợp.',
         ],
+    ],
     
     'candidate' => [
         'name' => 'Tên ứng viên',

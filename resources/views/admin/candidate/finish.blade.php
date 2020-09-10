@@ -48,7 +48,6 @@
                             <tbody>
                                 @php $stt = 1; @endphp
                                 @foreach($candidates as $candidate)
-                                    @if($candidate->process->count() == 4)
                                     <tr>
                                         <td>{{$stt++}}</td>
                                         <td>{{$candidate->user->name}}</td>
@@ -63,7 +62,6 @@
                                             <a href="{{route('candidates.show', $candidate['id'])}}" class="btn btn-info text-light view-profile" title="Xem"><em class="fa fa-eye"></em></a>
                                         </td>
                                     </tr>
-                                    @endif
                                 @endforeach
                             </tbody>
                         </table>

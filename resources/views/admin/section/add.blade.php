@@ -25,7 +25,7 @@
                         @csrf
                         <div class="col-md-6">
                             <div class="form-group @error('name') has-error @enderror">
-                                <label>@lang('custom.name')</label>
+                                <label class="lable-required">@lang('custom.name')</label>
                                 <input type="text" name="name" class="form-control" value="{{old('name')}}" placeholder="Please enter full name">
                                 @error('name') 
                                 <span class="help-block"> {{$message}} </span>

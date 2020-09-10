@@ -3,7 +3,7 @@
 @section('content')
 <div class="row">
     <ol class="breadcrumb">
-        <li><a href="#">
+        <li><a href="{{route('admin.home')}}">
             <em class="fa fa-home"></em>
         </a></li>
         <li class="active">@lang('custom.page_title.employee_manage')</li>
@@ -31,24 +31,19 @@
                                     <thead>
                                         <tr>
                                             <th>
-                                                <div class="th-inner sortable">@lang('custom.stt')</div>
-                                                <div class="fht-cell"></div>
+                                                <div class="th-inner">@lang('custom.stt')</div>
                                             </th>
                                             <th>
-                                                <div class="th-inner sortable">@lang('custom.name')</div>
-                                                <div class="fht-cell"></div>
+                                                <div class="th-inner">@lang('custom.name')</div>
                                             </th>
                                             <th>
-                                                <div class="th-inner sortable">@lang('custom.email')</div>
-                                                <div class="fht-cell"></div>
+                                                <div class="th-inner">@lang('custom.email')</div>
                                             </th>
                                             <th>
-                                                <div class="th-inner sortable">@lang('custom.role')</div>
-                                                <div class="fht-cell"></div>
+                                                <div class="th-inner">@lang('custom.role')</div>
                                             </th>
                                             <th>
-                                                <div class="th-inner sortable text-center">@lang('custom.action')</div>
-                                                <div class="fht-cell"></div>
+                                                <div class="th-inner text-center">@lang('custom.action')</div>
                                             </th>
                                         </tr>
                                     </thead>

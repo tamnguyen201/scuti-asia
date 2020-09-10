@@ -64,6 +64,37 @@
         </div>
     </div>
 </div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                
+                <div class="search-result-item col-md-12">
+                    <div class="col-sm-2"><a href="#">
+                        <img class="search-result-image img-responsive" src="http://via.placeholder.com/150x150">
+                        </a></div>
+                    <div class="search-result-item-body col-sm-10">
+                        <div class="row">
+                            <div class="col-sm-9">
+                                <h3 class="search-result-title"><a href="#">Search Result 3</a></h3>
+                                <p class="text-muted">Category</p>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut maximus, odio a imperdiet rhoncus, nunc metus luctus mi, at dignissim sem orci ut massa. Morbi a magna risus. Nunc vestibulum, nibh sit amet dictum pharetra, augue quam faucibus neque, et ultrices dui arcu ac ligula.</p>
+                            </div>
+                            <div class="col-sm-3 text-center">
+                                <h4>$499</h4>
+                                <a class="btn btn-primary btn-info btn-md" href="#">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="text-center">
+            
+        </div>
+    </div>
+</div>
 @endsection
 @section('script')
 <script>

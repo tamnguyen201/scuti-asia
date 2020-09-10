@@ -19,12 +19,21 @@
         <div class="panel panel-default">
             <div class="panel-heading">@lang('custom.button.add')</div>
             <div class="panel-body">
-                <form action="{{route('company_images.store')}}" method="POST" enctype="multipart/form-data">
+                <form action="{{route('company_images.store')}}" class="" method="POST" enctype="multipart/form-data">
                     @csrf
-                    <p>Upload new files:</p>
-                    <label class="btn btn-default">
-                        <input type="file" name="image_url" accept="image/*">
-                    </label>
+                    <div class="form-group @error('email') has-error @enderror">
+                        <label class="lable-required">@lang('custom.email')</label>
+                        <input type="email" name="email" value="{{old('email')}}" class="form-control" placeholder="@lang('custom.placehoder.email')">
+                        @error('email') 
+                        <span class="help-block"> {{$message}} </span>
+                        @enderror
+                    </div>
+                    <div class="form-group">
+                        <p class="lable-required">Upload new files:</p>
+                        <label class="btn btn-default">
+                            <input type="file" name="image_url" accept="image/*">
+                        </label>
+                    </div>
                     <button class="btn btn-default">@lang('custom.button.submit')</button>
                     @error('image_url') 
                     <p class="text-danger"> {{$message}} </p>
