@@ -26,14 +26,21 @@
                         <div class="col-md-6">
                             <div class="form-group @error('name') has-error @enderror">
                                 <label class="lable-required">@lang('custom.name')</label>
-                                <input type="text" name="name" class="form-control" value="{{old('name')}}" placeholder="Please enter full name">
+                                <input type="text" name="name" class="form-control" value="{{old('name')}}" placeholder="@lang('custom.placehoder.name')">
                                 @error('name') 
+                                <span class="help-block"> {{$message}} </span>
+                                @enderror
+                            </div>
+                            <div class="form-group @error('description') has-error @enderror">
+                                <label class="lable-required">@lang('custom.description')</label>
+                                <input type="text" name="description" class="form-control" value="{{old('description')}}" placeholder="@lang('custom.placehoder.description')">
+                                @error('description') 
                                 <span class="help-block"> {{$message}} </span>
                                 @enderror
                             </div>
                             <div class="form-group @error('map_url') has-error @enderror">
                                 <label>@lang('custom.map_url')</label>
-                                <input type="text" name="map_url" class="form-control" value="{{old('map_url')}}" placeholder="Please enter map_url">
+                                <input type="text" name="map_url" class="form-control" value="{{old('map_url')}}" placeholder="@lang('custom.placehoder.url')">
                                 @error('map_url') 
                                 <span class="help-block"> {{$message}} </span>
                                 @enderror
@@ -54,7 +61,7 @@
                         <div class="col-md-12">
                             <div class="form-group @error('content') has-error @enderror">
                                 <label>@lang('custom.content')</label>
-                                <textarea name="content" class="form-control" @error('description') is-invalid @enderror id="exampleFormControlTextarea1" rows="4">{{old('content')}} </textarea>
+                                <textarea name="content" class="form-control" id="exampleFormControlTextarea1" rows="4">{{old('content')}} </textarea>
                                 @error('content') 
                                 <span class="help-block"> {{$message}} </span>
                                 @enderror

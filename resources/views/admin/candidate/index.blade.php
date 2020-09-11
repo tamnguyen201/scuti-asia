@@ -32,22 +32,22 @@
                             <thead>
                                 <tr>
                                     <th>
-                                    <div class="th-inner sortable">@lang('custom.stt')</div>
+                                        <div class="th-inner">@lang('custom.stt')</div>
                                     </th>
                                     <th>
-                                        <div class="th-inner sortable">@lang('custom.name')</div>
+                                        <div class="th-inner">@lang('custom.name')</div>
                                     </th>
                                     <th>
-                                        <div class="th-inner sortable">@lang('custom.email')</div>
+                                        <div class="th-inner">@lang('custom.email')</div>
                                     </th>
                                     <th>
-                                        <div class="th-inner sortable">@lang('custom.jobApplied')</div>
+                                        <div class="th-inner">@lang('custom.jobApplied')</div>
                                     </th>
                                     <th>
-                                        <div class="th-inner sortable">@lang('custom.process')</div>
+                                        <div class="th-inner">@lang('custom.process')</div>
                                     </th>
                                     <th>
-                                        <div class="th-inner sortable text-center">@lang('custom.action')</div>
+                                        <div class="th-inner text-center">@lang('custom.action')</div>
                                     </th>
                                 </tr>
                             </thead>

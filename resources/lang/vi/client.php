@@ -97,7 +97,7 @@ return [
         ],
 
         'recruitment_flow' => [
-            'title' => 'Quá Trình Tuyển Dụng',
+            'title' => 'Qui Trình Tuyển Dụng',
             'description' => 'Chúng tôi luôn tìm kiếm những người tuyệt vời! Nếu bạn chưa tìm thấy cơ hội phù hợp hiện tại, nhưng tin rằng bạn có thể trở thành 1 phần của Scuti, hãy gửi thông tin cho chúng tôi.',
         ],
 

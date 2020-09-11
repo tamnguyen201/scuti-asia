@@ -26,14 +26,14 @@
                         <div class="col-md-6">
                             <div class="form-group @error('title') has-error @enderror">
                                 <label>@lang('custom.title')</label>
-                                <input type="text" name="title" class="form-control" value="{{old('title')}}">
+                                <input type="text" name="title" class="form-control" value="{{old('title')}}" placeholder="@lang('custom.placehoder.title')">
                                 @error('title') 
                                 <span class="help-block"> {{$message}} </span>
                                 @enderror
                             </div>
                             <div class="form-group @error('url') has-error @enderror">
                                 <label>@lang('custom.url')</label>
-                                <input type="text" name="url" class="form-control" value="{{old('url')}}">
+                                <input type="text" name="url" class="form-control" value="{{old('url')}}" placeholder="@lang('custom.placehoder.url')">
                                 @error('url') 
                                 <span class="help-block"> {{$message}} </span>
                                 @enderror

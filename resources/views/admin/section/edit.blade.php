@@ -32,9 +32,16 @@
                                 <span class="help-block"> {{$message}} </span>
                                 @enderror
                             </div>
+                            <div class="form-group @error('description') has-error @enderror">
+                                <label class="lable-required">@lang('custom.description')</label>
+                                <input type="text" name="description" class="form-control" value="{{old('description')}}" placeholder="@lang('custom.placehoder.description')">
+                                @error('description') 
+                                <span class="help-block"> {{$message}} </span>
+                                @enderror
+                            </div>
                             <div class="form-group @error('map_url') has-error @enderror">
                                 <label>@lang('custom.map_url')</label>
-                                <input type="text" name="map_url" value="{{$section->map_url}}" class="form-control" placeholder="Please enter map_url">
+                                <input type="text" name="map_url" value="{{$section->map_url}}" class="form-control" placeholder="@lang('custom.placehoder.url')">
                                 @error('map_url') 
                                 <span class="help-block"> {{$message}} </span>
                                 @enderror
@@ -55,7 +62,7 @@
                         <div class="col-md-12">
                             <div class="form-group @error('content') has-error @enderror">
                                 <label>@lang('custom.content')</label>
-                                <textarea name="content" class="form-control" @error('description') is-invalid @enderror id="exampleFormControlTextarea1" rows="4">{!!$section->content!!}</textarea>
+                                <textarea name="content" class="form-control" id="exampleFormControlTextarea1" rows="4">{!!$section->content!!}</textarea>
                                 @error('content') 
                                 <span class="help-block"> {{$message}} </span>
                                 @enderror

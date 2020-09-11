@@ -49,9 +49,10 @@ class RoleSeeder extends Seeder
         ]);
         DB::table('admins')->insert([
             ['id'=>1, 'name' => 'Tam Nguyen','email' => 'tam2012000@gmail.com','password'=> Hash::make('123456'), 'phone'=> '1234567890','address'=>'HN', 'role' => 1],
-            ['id'=>2, 'name' => 'Linh Nguyen','email' => 'linhnn160295@gmail.com','password'=> Hash::make('123456'), 'phone'=> '1234567890','address'=>'HN', 'role' => 2],
-            ['id'=>3, 'name' => 'interviewer','email' => 'interviewer@gmail.com','password'=> Hash::make('123456'), 'phone'=> '1234567890','address'=>'HN', 'role' => 3],
-            ['id'=>4, 'name' => 'BackOffice','email' => 'backoffice@gmail.com','password'=> Hash::make('123456'), 'phone'=> '1234567890','address'=>'HN', 'role' => 3],
+            ['id'=>2, 'name' => 'Linh Nguyen','email' => 'linhnn160295@gmail.com','password'=> Hash::make('123456'), 'phone'=> '1234567890','address'=>'HN', 'role' => 1],
+            ['id'=>3, 'name' => 'Admin','email' => 'admin@gmail.com','password'=> Hash::make('123456'), 'phone'=> '1234567890','address'=>'HN', 'role' => 1],
+            ['id'=>4, 'name' => 'Interviewer','email' => 'interviewer@gmail.com','password'=> Hash::make('123456'), 'phone'=> '1234567890','address'=>'HN', 'role' => 2],
+            ['id'=>5, 'name' => 'BackOffice','email' => 'backoffice@gmail.com','password'=> Hash::make('123456'), 'phone'=> '1234567890','address'=>'HN', 'role' => 3],
         ]);
         DB::table('companies')->insert([
             ['id'=>1, 'name' => 'Scuti co., ltd', 'description' => 'Make service people love!', 'email' => 'scuti-asia@gmail.com', 'phone'=>'0999999999', 'address'=>'68 Nguyễn Cơ Thạch, Nam Từ Liêm, Hn', 'logo'=>'logo.png', 'facebook_page' => 'https://fb.com/scuti', 'youtube_page' => 'youtube.com.vn/scuti'],
@@ -88,7 +89,7 @@ class RoleSeeder extends Seeder
             ['id'=>3, 'title' => 'Viettel', 'image'=>'http://congstudio.vn/product_images/z/320/chup_anh_profile_tai_ha_noi_cong_studio_4__09337_thumb.jpg', 'description' => 'Mô tả', 'url' => 'abc.com'],
         ]);
         DB::table('sections')->insert([
-            ['id'=>1, 'name' => 'Benefits', 'slug' => Str::slug('Benefits'), 'content' => 
+            ['id'=>1, 'name' => 'Benefits', 'slug' => Str::slug('Benefits'), 'description' => '', 'content' => 
                         '<div class="col-lg-4">
                             <div class="text-container">
                                 <h3>Môi Trường Lí Tưởng</h3>
@@ -108,7 +109,7 @@ class RoleSeeder extends Seeder
                             </div>
                         </div>',
                         'image'=>'https://www.scuti.asia/uploads/6/1/9/4/61941893/mg-5747.jpg', 'map_url' => ''],
-            ['id'=>2, 'name' => 'Recruitment Flow', 'slug' => Str::slug('Recruitment Flow'), 'content' => 
+            ['id'=>2, 'name' => 'Recruitment Flow', 'slug' => Str::slug('Recruitment Flow'), 'description' => '', 'content' => 
                         '<div class="col-lg-10 offset-lg-1 row my-3">
                             <div class="col-md-2 text-center pt-2 mb-3">①</div>
                             <div class="col-md-10 text-center text-md-left">
@@ -140,7 +141,7 @@ class RoleSeeder extends Seeder
                             </div>
                         </div>', 
                         'image' => '', 'map_url' => ''],
-            ['id'=>3, 'name' => 'About Us', 'slug' => Str::slug('About Us'), 'content' => 
+            ['id'=>3, 'name' => 'About Us', 'slug' => Str::slug('About Us'), 'description' => '', 'content' => 
                         '<h4>Quá trình thành lập và phát triển Scuti!</h4>
                         <ul>
                             <li>Feb 2016&nbsp;<a href="http://ezukatechnight.com/events/ezukatecknight/vol-35-report/#.WLjwbmSLTAc" target="_blank">e-ZUKA Tech Night vol.35</a></li>
@@ -155,7 +156,7 @@ class RoleSeeder extends Seeder
                             <li>Jun 2018 <a href="https://startupthailand.org/showcase/" target="_blank">Startup Thailand 2018</a>&nbsp;&lt;<a href="http://blog.scuti.asia/2018/06/report-of-startupthailand-2018.html" target="_blank">Blog</a>&gt;</li>
                         </ul>',
                         'image'=>'https://scontent.fhan3-3.fna.fbcdn.net/v/t1.0-9/p720x720/118331394_2611383379191478_8068547518063368158_o.jpg?_nc_cat=101&_nc_sid=8024bb&_nc_ohc=N9PHqo0HIWwAX_ijg4P&_nc_ht=scontent.fhan3-3.fna&tp=6&oh=6e4a8eb661adf4e61a2f682ed67d3d5e&oe=5F748A9C', 'map_url' => ''],
-            ['id'=>4, 'name' => 'Visit Us', 'slug' => Str::slug('Visit Us'), 'content' => '', 'image' => 'https://www.scuti.asia/uploads/6/1/9/4/61941893/3165626_orig.jpg', 'map_url' => '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3723.962023272904!2d105.76304874986745!3d21.034205492900966!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x313454b947cd6e49%3A0x6a87974c6b44d671!2zNjggUGjhu5EgTmd1eeG7hW4gQ8ahIFRo4bqhY2gsIE3hu7kgxJDDrG5oLCBU4burIExpw6ptLCBIw6AgTuG7mWksIFZp4buHdCBOYW0!5e0!3m2!1svi!2s!4v1598327887854!5m2!1svi!2s" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>'],
+            ['id'=>4, 'name' => 'Visit Us', 'slug' => Str::slug('Visit Us'), 'description' => '', 'content' => '', 'image' => 'https://www.scuti.asia/uploads/6/1/9/4/61941893/3165626_orig.jpg', 'map_url' => '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3723.962023272904!2d105.76304874986745!3d21.034205492900966!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x313454b947cd6e49%3A0x6a87974c6b44d671!2zNjggUGjhu5EgTmd1eeG7hW4gQ8ahIFRo4bqhY2gsIE3hu7kgxJDDrG5oLCBU4burIExpw6ptLCBIw6AgTuG7mWksIFZp4buHdCBOYW0!5e0!3m2!1svi!2s!4v1598327887854!5m2!1svi!2s" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>'],
         ]);
         DB::table('visit_us')->insert([
             ['id'=>1, 'name'=>'Tâm Nguyễn', 'email' => 'customer@gmail.com', 'message' => 'Qua chơi', 'type' => 'coffee'],
