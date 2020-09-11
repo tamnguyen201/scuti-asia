@@ -2,9 +2,10 @@
 @section('css')
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/switchery/0.8.2/switchery.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.css" />
     <link rel="stylesheet" href="{{ asset('adminAsset/css/calendar.css') }}">
     <link rel="stylesheet" href="{{ asset('adminAsset/css/evaluate.css') }}">
+    <link href="{{ asset('fullcalendar/fullcalendar.min.css') }}" rel="stylesheet" />
+    <link href="{{ asset('fullcalendar/fullcalendar.print.min.css') }}" rel="stylesheet" media="print" />
 @endsection
 @section('content')
 <div class="row">
@@ -57,8 +58,6 @@
                                     </div>
                                 </div>
                                     @include('admin.evaluate.calendar')
-                                    {{-- <input type="button" name="next" class="next action-button" value="Next" /> --}}
-                                    {{-- <input type="button" name="next" class="previous action-button" value="Back" /> --}}
                             </fieldset>
                             @break
                         @case(3)
@@ -85,8 +84,30 @@
 @endsection
 @section('script')
     <script src="{{ asset('adminAsset/js/evaluate.js') }}"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js" integrity="sha256-4iQZ6BVL4qNKlQ27TExEhBN1HFPvAvAMbFavKKosSWQ=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.js"></script>
+    <script src="{{ asset('fullcalendar/lib/moment.min.js') }}"></script>
+    <script src="{{ asset('fullcalendar/fullcalendar.min.js') }}"></script>
+    <script src="{{ asset('fullcalendar/locale/vi.js') }}"></script>
 
       {!! $calendar->script() !!}
+      <script>
+        $(document).ready(function() {
+            $('#calendar').fullCalendar({
+                themeSystem: 'bootstrap'
+            });
+        });
+    </script>
+    
+      <script type="text/javascript">
+        $('.btn-send-email').click(function (e) {
+            e.preventDefault();
+            let url = $(this).attr('href');
+            $.get(url)
+            .done(function (results) {
+            $(".modal-body").html(results);
+            $("#myModal").modal('show');
+            }).fail(function (data) {
+            });
+        });
+    </script>
+
 @endsection

@@ -1,5 +1,6 @@
 @extends('admin.layout.layout')
 @section('css')
+    <link rel="stylesheet" href="{{ asset('adminAsset/css/validate.css') }}">
 @endsection
 @section('content')
 <div class="row">
@@ -25,8 +26,8 @@
                 <form action="{{ route('jobs.store') }}" method="post">
                     @csrf
                     <div class="form-group">
-                        <label>@lang('custom.title') : </label>
-                        <input name="name" type="text" class="form-control" @error('name') is-invalid @enderror placeholder="Enter title">
+                        <label>@lang('custom.title') * </label>
+                        <input name="name" type="text" class="form-control" @error('name') is-invalid @enderror placeholder="@lang('custom.jobs.placeholder_title')">
                         @error('name')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -35,9 +36,9 @@
                     </div>
                     <div class="category form-group row">
                         <div class="col-md-6">
-                            <label for="inputCategory">@lang('custom.category') :</label>
+                            <label for="inputCategory">@lang('custom.category') *</label>
                             <select name="category_id" id="inputCategory" class="form-control" @error('category_id') is-invalid @enderror>
-                                <option value="null" disabled="disabled" selected>Choose...</option>
+                                <option value="null" disabled="disabled" selected>@lang('custom.jobs.placeholder_category')</option>
                                 @foreach ($dataCategory as $value)
                                 <option value="{{ $value->id }}">{{ $value->category_name }}</option>
                                 @endforeach
@@ -50,9 +51,9 @@
                         </div>
 
                         <div class="col-md-6">
-                            <label for="inputLocation">@lang('custom.location') :</label>
+                            <label for="inputLocation">@lang('custom.location') *</label>
                             <select name="location_id" id="inputLocation" class="form-control" @error('location_id') is-invalid @enderror>
-                                <option value="null" disabled="disabled" selected>Choose Location...</option>
+                                <option value="null" disabled="disabled" selected>@lang('custom.jobs.placeholder_location')</option>
                                 @foreach ($dataLocation as $value)
                                 <option value="{{ $value->id }}">{{ $value->name }}</option>
                                 @endforeach
@@ -65,8 +66,8 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <div class="col-md-12">
-                            <label>@lang('custom.expire_day') : </label>
+                        <div class="col-md-6">
+                            <label>@lang('custom.expire_day') * </label>
                             <input name="expire_date" type="date" class="form-control" @error('expire_date') is-invalid @enderror placeholder="Enter expire date">
                             @error('expire_date')
                             <span class="invalid-feedback" role="alert">
@@ -74,9 +75,20 @@
                             </span>
                             @enderror
                         </div>
+
+                        <div class="col-md-6">
+                            <label>@lang('custom.jobs.salary') * </label>
+                            <input name="salary" type="text" class="form-control" @error('salary') is-invalid @enderror placeholder="@lang('custom.jobs.placeholder_salary')">
+                            @error('salary')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
+                        </div>
                     </div>
+        
                     <div class="form-group">
-                        <label>@lang('custom.description') : </label>
+                        <label>@lang('custom.description') * </label>
                         <textarea name="description" class="form-control" @error('description') is-invalid @enderror id="exampleFormControlTextarea1" rows="4"></textarea>
                         @error('description')
                             <span class="invalid-feedback" role="alert">

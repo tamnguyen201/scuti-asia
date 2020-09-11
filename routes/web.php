@@ -83,11 +83,13 @@ Route::group(
         Route::get('candidates/failed', 'CandidateController@failed')->name('candidates.failed');
         Route::post('candidates/search', 'CandidateController@search')->name('candidates.search');
         Route::resource('candidates', 'CandidateController')->only(['index', 'show']);
+        Route::get('candidates/job/{id}','CandidateController@showByJob')->name('candidate.byJob');
         Route::group(['prefix' => 'evaluate'], function () {
             Route::get('candidate/{id}', 'EvaluateController@show')->name('evaluate.candidate.show');
             Route::post('candidate/{id}', 'EvaluateController@store')->name('evaluate.store');
             Route::post('process/calendar/create','EvaluateController@storeCalendar')->name('store.event');
             Route::post('start-evaluate/{id}','EvaluateController@startEvaluate')->name('start.evaluate');
+            Route::get('process/send-email','EvaluateController@createEmail')->name('create.email');
         });
         // Route::post('fullcalendar/update','EvaluateController@updateCalendar');
         // Route::post('fullcalendar/delete','EvaluateController@destroyCalendar');

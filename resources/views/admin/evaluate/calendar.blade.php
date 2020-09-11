@@ -1,87 +1,105 @@
-{{-- @extends('admin.layout.layout')
-@section('css')
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.css" />
-  <link rel="stylesheet" href="{{ asset('adminAsset/css/calendar.css') }}">
-@endsection --}}
-{{-- @section('content') --}}
 <div class="row">
-  <div class="col-md-8">
-    <div class="panel-body">
-      {!! $calendar->calendar() !!}
-    </div>  
-</div>
-<div class="panel-body col-md-4">
-  <h3 class="list-title">Danh sach</h3>
-  <hr>
-  @foreach ($data as $item)
-  <div class="card card-interview" style="width: 18rem;">
-    <div class="card-body">
-      <h4 class="card-title">{{ $item->title }}</h4>
-      <h6 class="card-subtitle mb-2 text-muted">{{ $item->start }}</h6>
-      <p class="card-text">{{ $item->note }}</p>
-      {{-- <a href="#" class="card-link col-md-6">Delete</a>
-      <a href="#" class="card-link col-md-6">Send Email</a> --}}
+    <div class="col-md-8">
+        <div class="panel-body">
+            {!! $calendar->calendar() !!}
+        </div>
     </div>
-  </div>
-  <hr>
-  @endforeach
+    <div class="panel-body col-md-4">
+        <h3 class="list-title">Danh sách</h3>
+        <hr>
+        @foreach ($data as $item)
+            <div class="list-interview col-md-12" style="width: 30rem; padding-top: 24px">
+                <div class="body col-md-8" style="border-right: solid 1px">
+                    <h4 class="card-title">{{ $item->title }}</h4>
+                    <h6 class="subtitle mb-4 text-muted">{{ \Carbon\Carbon::parse($item->start)->format('d/m/Y') }}</h6>
+                    <p class="card-text">{{ $item->note }}</p>
+                </div>
+                <div class="button col-md-2">
+                    <a href="{{ route('create.email') }}" class="btn-send-email"><span
+                            class="fa fa-envelope-o"></span></a>
+                    <hr>
+                    <a href=""><span class="fa fa-trash-o"></span></a>
+                </div>
+            </div>
+            <hr>
+        @endforeach
+        <br>
+    </div>
+
 </div>
-</div>
-    
-      {{-- day click dialog --}}
-        <div id="dialog" style="display:none">
-          <div id="dialog-body">
-            <form action="{{ url('admin/evaluate/process/calendar/create') }}" method="POST">
-              @csrf
-              @method('POST')
-              <div class="form-group col-md-6">
+{{-- day click dialog --}}
+<div id="dialog" style="display:none">
+    <div id="dialog-body">
+        <form action="{{ url('admin/evaluate/process/calendar/create') }}" method="POST">
+            @csrf
+            @method('POST')
+            <div class="form-group col-md-6">
                 <label for="exampleFormControlTextarea1">@lang('custom.calendar.name') :</label>
                 <br>
                 <input name="id" type="text" value="{{ $dataUser->id }}" hidden>
                 <input name="process_id" type="text" value="{{ $processById->id }}" hidden>
                 <p>{{ $dataUser->name }}</p>
-              </div>
-              <div class="form-group col-md-6">
+            </div>
+            <div class="form-group col-md-6">
                 <label for="exampleFormControlTextarea1">@lang('custom.calendar.email') :</label>
                 <br>
                 <p>{{ $dataUser->email }}</p>
-              </div>
-                <div class="form-group col-md-12">
-                  <label for="exampleFormControlTextarea1">@lang('custom.calendar.title') :</label>
-                  <br>
-                  <input name="title" type="text">
-                </div>
-                <div class="form-group col-md-12">
-                  <label for="exampleFormControlTextarea1">@lang('custom.calendar.color') :</label>
-                  <br>
-                  <input name="color" type="color">
-                </div>
-                <div class="form-group col-md-6">
-                  <label for="exampleFormControlTextarea1">@lang('custom.calendar.start') :</label>
-                  <br>
-                  <input name="start" type="datetime-local">
-                </div>
-                <div class="form-group col-md-6">
-                  <label for="exampleFormControlTextarea1">@lang('custom.calendar.end') :</label>
-                  <br>
-                  <input name="end" type="datetime-local">
-                </div>
-                <div class="form-group col-md-12">
-                      <label for="exampleFormControlTextarea1">@lang('custom.calendar.note') :</label>
-                      <textarea name="note" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                </div>
-                <div class="col-md-12">
-                  <button type="submit" class="btn btn-primary btn-add-event">@lang('custom.button.submit')</button>
-                </div>
-            </form>
-          </div>
+            </div>
+            <div class="form-group col-md-12">
+                <label for="exampleFormControlTextarea1">@lang('custom.calendar.title') :</label>
+                <br>
+                <input name="title" type="text">
+            </div>
+            <div class="form-group col-md-12">
+                <label for="exampleFormControlTextarea1">@lang('custom.calendar.color') :</label>
+                <br>
+                <input name="color" type="color">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="exampleFormControlTextarea1">@lang('custom.calendar.start') :</label>
+                <br>
+                <input name="start" type="datetime-local">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="exampleFormControlTextarea1">@lang('custom.calendar.end') :</label>
+                <br>
+                <input name="end" type="datetime-local">
+            </div>
+            <div class="form-group col-md-12">
+                <label for="exampleFormControlTextarea1">@lang('custom.calendar.note') :</label>
+                <textarea name="note" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+            </div>
+            <div class="col-md-12">
+                <button type="submit" class="btn btn-primary btn-add-event">@lang('custom.button.submit')</button>
+            </div>
+        </form>
+    </div>
+</div>
+{{-- Modal --}}
+<div class="clearfix"></div>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Categories Manage</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">Name</label>
+                        <input type="text" name="name" class="form-control" id="recipient-name">
+                        <span class="error-form text-danger"></span>
+                    </div>
+                    <button type="button" class="btn btn-primary btn-add-location">Submit</button>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
         </div>
-      {{-- end day click dialog --}}
-{{-- @endsection --}}
-{{-- @section('script')
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js" integrity="sha256-4iQZ6BVL4qNKlQ27TExEhBN1HFPvAvAMbFavKKosSWQ=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.js"></script>
+    </div>
+</div>
 
-      {!! $calendar->script() !!}
-@endsection
-</html> --}}

@@ -62,14 +62,14 @@ return [
         'user_profile'=>'Thông tin người dùng',
         'information'=>'Thông tin',
         'user_manager'=>'Quản lý người dùng',
-        'job_manage' =>'Quản lý Jobs',
+        'job_manage' =>'Các công việc đang tuyển dụng',
         'job' => 'Việc làm',
         'job_add' =>'Thêm mới công việc',
         'job_edit' =>'Sửa Job',
         'add'=>'Tạo mới',
-        'jobs' =>'Danh sách các Job',
+        'jobs' =>'Danh sách các công việc',
         'jobs_manage'=>'Quản lý danh sách Job',
-        'jobs_detail'=>'Thông tin Job',
+        'job_detail'=>'Thông tin công việc',
         'show_infor'=>'Thông tin',
         
         'job_edit' =>'Sửa Job',
@@ -77,6 +77,7 @@ return [
         'enter_code'=>'Nhập mã code của bạn',
         'section_manage' => 'Quản Lí Bố Cục',
         'contact_manage' => 'Quản Lí Liên Hệ',
+        'candidate_list_by_job'=>'Danh sách ứng viên ứng tuyển'
     ],
 
     'table_lable' => [
@@ -121,9 +122,10 @@ return [
         'failed' => 'Loại',
         'setting' => 'Cài Đặt Chung',
         'logout' => 'Đăng Xuất',
-        'job'=>'Jobs',
+        'job'=>'Công việc',
         'location'=>'Địa điểm',
-        'category'=>'Danh mục'
+        'category'=>'Danh mục',
+        'recruitment_detail'=>'Chi tiết ứng tuyển'
     ],
 
     'email_template' => [
@@ -178,5 +180,14 @@ return [
         'color'=>'Màu',
         'start'=>'Ngày bắt đầu',
         'end'=>'Ngày kết thúc'
+    ],
+    'jobs'=>[
+        'candidate_number'=>'Ứng viên',
+        'date'=>'Ngày hết hạn',
+        'salary'=>'Mức lương',
+        'placeholder_salary'=>'Nhập mức lương',
+        'placeholder_category'=>'Nhập danh mục',
+        'placeholder_location'=>'Nhập vị trí',
+        'placeholder_title'=>'Nhập tiêu đề'
     ]
 ];
