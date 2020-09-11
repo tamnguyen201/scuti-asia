@@ -69,6 +69,7 @@ return [
                 'info' => 'Thông tin chi tiết:',
             ],
             'back' => 'Quay Lại',
+            'job_another' => 'Tìm Công Việc Khác',
         ],
     ],
 
@@ -90,7 +91,7 @@ return [
     ],
 
     'section' => [
-        'benefit' => [
+        'common_benefit' => [
             'title' => 'Scuti Mang Lại Cho Bạn',
             'description' => 'Hãy đến với chúng tôi khi nhận thấy những giá trị này phù hợp với bạn!',
         ],
@@ -116,6 +117,21 @@ return [
         'about_us' => [
             'title' => 'Về Chúng Tôi',
             'description' => 'Chúng tôi tin rằng xây dựng được hạnh phúc, chú trọng con đường sự nghiệp cho nhân viên, sự hài lòng trong công việc và môi trường tích cực sẽ là nền tảng lâu dài cho sự phát triển bền vững của Scuti.',
+        ],
+
+        'core_member' => [
+            'title' => 'Thành Viên Cốt Lõi',
+            'description' => 'Hãy đến với chúng tôi khi nhận thấy những giá trị này phù hợp với bạn!',
+        ],
+
+        'our_team' => [
+            'title' => 'Nhóm Của Chúng Tôi',
+            'description' => 'Hãy đến với chúng tôi khi nhận thấy những giá trị này phù hợp với bạn!',
+        ],
+
+        'benefit' => [
+            'title' => 'Quyền Lợi Khi Gia Nhập Với Chúng Tôi',
+            'description' => 'Hãy đến với chúng tôi khi nhận thấy những giá trị này phù hợp với bạn!',
         ],
 
         'newspaper' => [

@@ -48,7 +48,6 @@
                         
                         <div class="col-md-12 text-center">
                             <button type="submit" class="btn btn-primary">@lang('custom.button.submit')</button>
-                            <button type="reset" class="btn btn-default">@lang('custom.button.reset')</button>
                             <a href="{{route('company_images.index')}}" class="btn btn-danger">@lang('custom.button.cancel')</a>
                         </div>
                     </form>

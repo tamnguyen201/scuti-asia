@@ -63,7 +63,6 @@
                 
                 <div class="col-md-12 text-center">
                     <button type="submit" class="btn btn-outline-reg">@lang('custom.button.submit')</button>
-                    <button type="reset" class="btn btn-outline-reg">@lang('custom.button.reset')</button>
                     <a href="{{route('client.profile')}}" class="btn btn-outline-reg">@lang('custom.button.cancel')</a>
                 </div>
             </form>

@@ -8,6 +8,7 @@ return [
     'phone' => 'SĐT',
     'address' => 'Địa chỉ',
     'avatar' => 'Ảnh đại diện',
+    'message' => 'Lời nhắn',
     'image_url' => 'File Ảnh',
     'cv_url' => 'File CV',
     'url' => 'Đường Dẫn Bài Viết',
@@ -77,7 +78,6 @@ return [
         'jobs_manage'=>'Quản lý danh sách Job',
         'jobs_detail'=>'Thông tin Job',
         'show_infor'=>'Thông tin',
-        
         'job_edit' =>'Sửa Job',
         'add'=>'Tạo mới',
         'enter_code'=>'Nhập mã code của bạn',
@@ -87,9 +87,16 @@ return [
 
     'placehoder' => [
         'name' => 'Vui lòng nhập thông tin tên',
+        'title' => 'Vui lòng nhập thông tin tiêu đề',
+        'avatar' => 'Vui lòng chọn ảnh đại diện',
         'email' => 'Vui lòng nhập thông tin địa chỉ email',
         'phone' => 'Vui lòng nhập thông tin số điện thoại',
         'address' => 'Vui lòng nhập thông tin địa chỉ',
+        'description' => 'Vui lòng nhập thông tin mô tả',
+        'message' => 'Vui lòng nhập thông tin lời nhắn',
+        'image' => 'Vui lòng chọn ảnh',
+        'logo' => 'Vui lòng chọn logo',
+        'url' => 'Vui lòng nhập thông tin đường dẫn liên kết'
     ],
 
     'button' => [

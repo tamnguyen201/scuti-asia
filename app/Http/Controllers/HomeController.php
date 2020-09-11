@@ -44,7 +44,9 @@ class HomeController extends Controller
 
     public function index()
     {
-        $data['benefits'] = $this->SectionRepository->where('slug', '=', 'benefits');
+        $data['common'] = $this->SectionRepository->where('slug', '=', 'benefits');
+        $data['main_member'] = \App\Model\MainMember::all();
+        $data['benefits'] = \App\Model\Benefit::all();
         $data['recruitment_flow'] = $this->SectionRepository->where('slug', '=', 'recruitment-flow');
         $data['working_environment'] = $this->CompanyImagesRepository->all();
         $data['about_us'] = $this->SectionRepository->where('slug', '=', 'about-us');
@@ -76,6 +78,7 @@ class HomeController extends Controller
     public function jobDetail($id, $slug)
     {
         $data['job'] = $this->JobRepository->show($id);
+        // $data['related_job'] = \App\Model\Job::where('category_id', $data['job']->category_id)->where('id', '<>', $id)->take(5);
         $data['related_job'] = $this->JobRepository->all();
 
         return view('client.page.jobDetail', compact('data'));
@@ -91,8 +94,9 @@ class HomeController extends Controller
 
         $data['apply'] = \App\Model\UserJob::where('user_id', auth()->user()->id)->where('job_id', $id)->with('process')->first();
         // dd($data['apply']->process[0]->evaluate[0]->status);
-        $data['recruitment_flow'] = $this->SectionRepository->where('slug', '=', 'recruitment-flow');
         $data['job'] = $this->JobRepository->show($id);
+        // $data['related_job'] = \App\Model\Job::where('category_id', $data['job']->category_id)->where('id', '<>', $id)->take(5);
+        $data['related_job'] = $this->JobRepository->all();
 
         return view('client.page.jobApply', compact('data'));
     }

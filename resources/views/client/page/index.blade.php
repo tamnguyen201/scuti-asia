@@ -7,17 +7,17 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <h2>@lang('client.section.benefit.title')</h2>
-                    <p class="p-heading p-large">@lang('client.section.benefit.description')</p>
+                    <h2>@lang('client.section.common_benefit.title')</h2>
+                    <p class="p-heading p-large">@lang('client.section.common_benefit.description')</p>
                     <hr class="line-heading">
                 </div>
             </div>
             <div class="row">
-                {!! $data['benefits']->content !!}
+                {!! $data['common']->content !!}
             </div>
             <div class="row">
-                <div class="col-12">
-                    <img src="{{$data['benefits']->image}}" class="img-fluid" alt="">
+                <div class="col-12 text-center">
+                    <img src="{{$data['common']->image}}" class="w-100" alt="">
                 </div>
             </div>
         </div>
@@ -36,12 +36,13 @@
                 <div class="col-lg-12">
                     <div class="cards-container row">
                         @foreach($data['working_environment'] as $item)
-                        <div class="card col-md-6 col-lg-4 px-0">
+                        <div class="card col-md-6 col-lg-4 col-xl-4 px-0">
+                            <div class="card-header" style="background-color: #fff; border:none">{{$item->name}}</div>
                             <div class="card-image">
                                 <img class="img-fluid" src="{{$item->image_url}}" style="max-width: 320px;max-height:205px" alt="{{$item->name}}">
                             </div>
                             <div class="card-body">
-                                <p>{{$item->name}}</p>
+                                <p>{{$item->description}}</p>
                             </div>
                         </div>
                         @endforeach
@@ -75,7 +76,109 @@
         </div>
     </div>
 
-    <div class="slider-1 basic-2">
+    <div class="slider-2">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2>@lang('client.section.core_member.title')</h2>
+                    <hr class="line-heading">
+                    <div class="slider-container">
+                        <div class="swiper-container card-slider">
+                            <div class="swiper-wrapper">
+                                @foreach($data['main_member'] as $item)
+                                @if($item->member_type == 1)
+                                <div class="swiper-slide">
+                                    <div class="card">
+                                        <img class="card-image" src="{{$item->avatar}}" alt="alternative">
+                                        <div class="card-body">
+                                            <div class="testimonial-author">{{$item->name}}</div>
+                                            <div class="testimonial-text">{{$item->position}}</div>
+                                            <div class="testimonial-text">{{$item->quote}}</div>
+                                        </div>
+                                    </div>
+                                </div> 
+                                @endif
+                                @endforeach
+                            </div>
+        
+                            <div class="swiper-button-next"></div>
+                            <div class="swiper-button-prev"></div>
+        
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="slider-2 background-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2>@lang('client.section.our_team.title')</h2>
+                    <hr class="line-heading">
+                    <div class="slider-container">
+                        <div class="swiper-container card-slider">
+                            <div class="swiper-wrapper">
+                            @foreach($data['main_member'] as $item)
+                                @if($item->member_type == 0)
+                                <div class="swiper-slide">
+                                    <div class="card">
+                                        <img class="card-image" src="{{$item->avatar}}" alt="alternative">
+                                        <div class="card-body">
+                                            <div class="testimonial-author">{{$item->name}}</div>
+                                            <div class="testimonial-text">{{$item->position}}</div>
+                                            <div class="testimonial-text">{{$item->quote}}</div>
+                                        </div>
+                                    </div>
+                                </div> 
+                                @endif
+                                @endforeach
+                            </div>
+        
+                            <div class="swiper-button-next"></div>
+                            <div class="swiper-button-prev"></div>
+        
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="slider-2">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2>@lang('client.section.benefit.title')</h2>
+                    <hr class="line-heading">
+                    <div class="slider-container">
+                        <div class="swiper-container card-slider">
+                            <div class="swiper-wrapper">
+                                @foreach($data['benefits'] as $item)
+                                <div class="swiper-slide">
+                                    <div class="card">
+                                        <img class="card-image benefits" src="{{$item->image}}" alt="{{$item->name}}">
+                                        <div class="card-body">
+                                            <div class="testimonial-author">{{$item->name}}</div>
+                                            <div class="testimonial-text">{{$item->description}}</div>
+                                        </div>
+                                    </div>
+                                </div> 
+                                @endforeach
+                            </div>
+        
+                            <div class="swiper-button-next"></div>
+                            <div class="swiper-button-prev"></div>
+        
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="slider-1 basic-2 background-light">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -119,7 +222,7 @@
         </div>
     </div>
 
-    <div id="contact" class="form-2">
+    <div id="contact" class="form-2 background-dark">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -136,7 +239,7 @@
             <div class="row">
                 <div class="col-lg-6">
                     <div class="map-responsive">
-                        {!! $data['visit_us']->map_url !!}
+                        <img class="img-fluid" src="{{$data['visit_us']->image}}" alt="alternative">
                     </div>
                 </div>
                 <div class="col-lg-6">
@@ -167,7 +270,7 @@
                         </div>
                         <div class="form-group">
                             <textarea class="form-control-textarea" name="message"></textarea>
-                            <label class="label-control" for="cmessage">Your message</label>
+                            <label class="label-control" for="cmessage">@lang('custom.message')</label>
                             <div class="help-block text-danger with-errors"></div>
                         </div>
                         <div class="form-group">
@@ -179,7 +282,7 @@
         </div>
     </div>
 
-    <div id="services" class="basic-2">
+    <div id="recruitment-flow" class="basic-2 background-light">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -194,7 +297,7 @@
         </div>
     </div>
 
-	<div id="recruitment" class="filter">
+	<div id="recruitment" class="filter background-dark">
 		<div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -204,52 +307,40 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-11 mx-auto">
+                <div class="col-lg-11 mx-auto mb-4">
                     <div class="button-group filters-button-group">
-                        <a class="button is-checked" data-filter="*"><span>SHOW ALL</span></a>
-                        <a class="button" data-filter=".design"><span>DESIGN</span></a>
-                        <a class="button" data-filter=".development"><span>DEVELOPMENT</span></a>
-                        <a class="button" data-filter=".marketing"><span>MARKETING</span></a>
-                        <a class="button" data-filter=".seo"><span>SEO</span></a>
-                        <a class="button is-checked" data-filter="*"><span>SHOW ALL</span></a>
-                        <a class="button" data-filter=".design"><span>DESIGN</span></a>
-                        <a class="button" data-filter=".development"><span>DEVELOPMENT</span></a>
-                        <a class="button" data-filter=".marketing"><span>MARKETING</span></a>
-                        <a class="button" data-filter=".seo"><span>SEO</span></a>
-                        <a class="button is-checked" data-filter="*"><span>SHOW ALL</span></a>
-                        <a class="button" data-filter=".design"><span>DESIGN</span></a>
-                        <a class="button" data-filter=".development"><span>DEVELOPMENT</span></a>
-                        <a class="button" data-filter=".marketing"><span>MARKETING</span></a>
-                        <a class="button" data-filter=".seo"><span>SEO</span></a>
+                        <a class="button text-decoration-none is-checked" data-filter="*"><span>SHOW ALL</span></a>
+                        @foreach($data['categories'] as $category)
+                        <a class="button text-decoration-none" id="v-pills-{{$category->slug}}-tab" data-toggle="pill" href="#v-pills-{{$category->slug}}" role="tab" aria-controls="v-pills-{{$category->slug}}" aria-selected="true"><span>{{$category->category_name}}</span></a>
+                        @endforeach
+                        <a class="button text-decoration-none" href="{{route('client.jobs')}}"><span>@lang('client.section.recruitment.end_menu')</span></a>
                     </div>
                 </div>
                 <div class="col-lg-12 d-md-flex">
-                    <div class="col-lg-3 col-md-4 col-12 button-group filters-button-group">
-                        <h3 class="is-checked"><span>@lang('client.section.recruitment.menu_title')</span></h3>
-                        @foreach($data['categories'] as $category)
-                        <a class="d-block button text-decoration-none" id="v-pills-{{$category->slug}}-tab" data-toggle="pill" href="#v-pills-{{$category->slug}}" role="tab" aria-controls="v-pills-{{$category->slug}}" aria-selected="true"><span>{{$category->category_name}}</span></a>
-                        @endforeach
-                        <a class="d-block button text-decoration-none" href="{{route('client.jobs')}}"><span>@lang('client.section.recruitment.end_menu')</span></a>
-                    </div>
-                    <div class="col-lg-9 col-md-8 col-12 list-group">
+                    <div class="list-group">
                         <div class="tab-content" id="v-pills-tabContent">
                         @foreach($data['categories'] as $category)
                             <div class="tab-pane fade" id="v-pills-{{$category->slug}}" role="tabpanel" aria-labelledby="v-pills-{{$category->slug}}-tab">
                                 @foreach($data['jobs'] as $job)    
                                 @if($job->category->id == $category->id)
-                                <div class="list-group-item d-md-flex col-12 development">
-                                    <div class="col-md-8 col-12">
-                                        <div class="mb-block cell name-job">
-                                            <h4 class="title-h4"><a style="font-weight: normal;color: #f4511e; text-decoration: none" href="{{route('job-detail', [$job->id, $job->slug])}}">[{{$job->location->name}}] {{$job->name}}</a></h4>
-                                            <p class="desc-job">
-                                                <i class="far fa-money-bill-alt"></i> {{$job->salary}} <br>
-                                                <i class="fas fa-map-marker-alt"></i> {{$job->location->name}}
-                                            </p>
-                                            <span class="desc-job inline"><i class="far fa-clock"></i> {{$job->formatExpireDay()}}</span>
+                                <div class="d-md-flex col-6 development">
+                                    <div class="col-md-12 list-group-item d-flex">
+                                        <div class="col-md-6 col-12">
+                                            <div class="mb-block cell name-job">
+                                                <h4 class="title-h4"><a style="font-weight: normal;color: #f4511e; text-decoration: none" href="{{route('job-detail', [$job->id, $job->slug])}}"> {{$job->name}}</a></h4>
+                                                <p class="desc-job">
+                                                    {{$job->description}}
+                                                </p>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="col-md-4 col-12 text-md-right text-center">
-                                        <a href="{{route('client.applied', [$job->id, $job->slug])}}" class="btn-apply-main btn-apply">@lang('client.section.recruitment.apply')</a>
+                                        <div class="col-md-6 col-12 text-md-right text-center">
+                                            <a href="{{route('client.applied', [$job->id, $job->slug])}}" class="btn-apply-main btn-apply">@lang('client.section.recruitment.apply')</a>
+                                            <p class="desc-job text-left mt-3">
+                                                <i class="far fa-money-bill-alt"></i> Lương: {{$job->salary}} <br>
+                                                <i class="fas fa-map-marker-alt"></i> Nơi làm việc: {{$job->location->name}} <br>
+                                                <i class="far fa-clock"></i> Ngày hết hạn: {{$job->formatExpireDay()}}
+                                            </p>
+                                        </div>
                                     </div>
                                 </div>
                                 @endif
@@ -257,21 +348,26 @@
                             </div>
                             @endforeach
 
-                            <div class="tab-pane fade show active" id="v-pills-all" role="tabpanel" aria-labelledby="v-pills-all-tab">
+                            <div class="tab-pane fade row col-lg-12 d-flex show active" id="v-pills-all" role="tabpanel" aria-labelledby="v-pills-all-tab">
                                 @foreach($data['hotJobs'] as $job)
-                                <div class="list-group-item d-md-flex col-12 development">
-                                    <div class="col-md-8 col-12">
-                                        <div class="mb-block cell name-job">
-                                            <h4 class="title-h4"><a style="font-weight: normal;color: #f4511e; text-decoration: none" href="{{route('job-detail', [$job->id, $job->slug])}}">[{{$job->location->name}}] {{$job->name}}</a></h4>
-                                            <p class="desc-job">
-                                                <i class="far fa-money-bill-alt"></i> {{$job->salary}} <br>
-                                                <i class="fas fa-map-marker-alt"></i> {{$job->location->name}}
-                                            </p>
-                                            <span class="desc-job inline"><i class="far fa-clock"></i> {{$job->formatExpireDay()}}</span>
+                                <div class="d-md-flex col-6 development">
+                                    <div class="col-md-12 list-group-item d-flex">
+                                        <div class="col-md-7 col-12">
+                                            <div class="mb-block cell name-job">
+                                                <h4 class="title-h4"><a style="font-weight: normal;color: #f4511e; text-decoration: none" href="{{route('job-detail', [$job->id, $job->slug])}}"> {{$job->name}}</a></h4>
+                                                <p class="desc-job">
+                                                    {{$job->description}}
+                                                </p>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="col-md-4 col-12 text-md-right text-center">
-                                        <a href="{{route('client.applied', [$job->id, $job->slug])}}" class="btn-apply-main btn-apply">@lang('client.section.recruitment.apply')</a>
+                                        <div class="col-md-5 col-12 text-md-right text-center">
+                                            <a href="{{route('client.applied', [$job->id, $job->slug])}}" class="btn-apply-main btn-apply">@lang('client.section.recruitment.apply')</a>
+                                            <p class="desc-job text-left mt-3">
+                                                <i class="far fa-money-bill-alt"></i> Lương: {{$job->salary}} <br>
+                                                <i class="fas fa-map-marker-alt"></i> Nơi làm việc: {{$job->location->name}} <br>
+                                                <i class="far fa-clock"></i> Hạn nộp: {{$job->formatExpireDay()}}
+                                            </p>
+                                        </div>
                                     </div>
                                 </div>
                                 @endforeach

@@ -25,7 +25,6 @@
         
         <div class="col-md-12 text-center">
             <button type="submit" class="btn btn-outline-reg btn-reset-pw">@lang('custom.button.submit')</button>
-            <button type="reset" class="btn btn-outline-reg">@lang('custom.button.reset')</button>
             <button type="button" class="btn btn-outline-reg" data-dismiss="modal">@lang('custom.button.cancel')</button>
         </div>
     </form>

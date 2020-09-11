@@ -23,6 +23,7 @@ class CreateAdminsTable extends Migration
             $table->string('address');
             $table->string('avatar')->default('default-img.png');
             $table->tinyInteger('role')->default(0);
+            $table->boolean('status')->default(0);
             $table->rememberToken()->nullable();
             $table->timestamps();
         });

@@ -18,6 +18,8 @@ class RoleSeeder extends Seeder
         \App\Model\Admin::truncate();
         \App\Model\Company::truncate();
         \App\Model\Locations::truncate();
+        \App\Model\MainMember::truncate();
+        \App\Model\Benefit::truncate();
         \App\Model\CompanyImages::truncate();
         \App\Model\NewSpaper::truncate();
         \App\Model\VisitUs::truncate();
@@ -58,12 +60,27 @@ class RoleSeeder extends Seeder
             ['id'=>1, 'name'=>'Hà Nội'],
             ['id'=>2, 'name'=>'Tp.Hồ Chí Minh'],
         ]);
+        DB::table('main_member')->insert([
+            ['id'=>1, 'name'=>'Nguyễn Thanh Quyên', 'avatar' => 'https://miro.medium.com/max/1200/1*Eu6cAGjXNa0-ct_hlsH1yQ.jpeg', 'position' => 'Manager', 'quote' => 'Got a personal loan from Juno and I am very happy with the conditions. I needed a good laptop for school and bought it on credit.', 'member_type' => 1],
+            ['id'=>2, 'name'=>'Tâm Nguyễn', 'avatar' => 'http://congstudio.vn/product_images/z/320/chup_anh_profile_tai_ha_noi_cong_studio_4__09337_thumb.jpg', 'position' => 'Leader', 'quote' => 'Got a personal loan from Juno and I am very happy with the conditions. I needed a good laptop for school and bought it on credit.', 'member_type' => 0],
+            ['id'=>3, 'name'=>'Camilo', 'avatar' => 'http://congstudio.vn/product_images/z/320/chup_anh_profile_tai_ha_noi_cong_studio_4__09337_thumb.jpg', 'position' => 'Manager', 'quote' => 'Got a personal loan from Juno and I am very happy with the conditions. I needed a good laptop for school and bought it on credit.', 'member_type' => 1],
+            ['id'=>4, 'name'=>'Cảnh Hoàng', 'avatar' => 'http://congstudio.vn/product_images/z/320/chup_anh_profile_tai_ha_noi_cong_studio_4__09337_thumb.jpg', 'position' => 'Leader', 'quote' => 'Got a personal loan from Juno and I am very happy with the conditions. I needed a good laptop for school and bought it on credit.', 'member_type' => 0],
+            ['id'=>5, 'name'=>'Helen', 'avatar' => 'https://miro.medium.com/max/1200/1*Eu6cAGjXNa0-ct_hlsH1yQ.jpeg', 'position' => 'Manager', 'quote' => 'Got a personal loan from Juno and I am very happy with the conditions. I needed a good laptop for school and bought it on credit.', 'member_type' => 1],
+            ['id'=>6, 'name'=>'Rafict', 'avatar' => 'http://congstudio.vn/product_images/z/320/chup_anh_profile_tai_ha_noi_cong_studio_4__09337_thumb.jpg', 'position' => 'Leader', 'quote' => 'Got a personal loan from Juno and I am very happy with the conditions. I needed a good laptop for school and bought it on credit.', 'member_type' => 0],
+        ]);
+        DB::table('benefits')->insert([
+            ['id'=>1, 'name'=>'Trả lương đều', 'image' => 'https://kenh14cdn.com/thumb_w/650/2016/1-1467292490653.jpg', 'description' => 'Mùng 5 hàng tháng'],
+            ['id'=>2, 'name'=>'Hỗ trợ ăn trưa', 'image' => 'https://cdn.dealtoday.vn/img/s630x420/486eddbfe8654079aa5b041b4bdb8f83.jpg?sign=c4chRr5yV1gkJT3L1Xv4CQ', 'description' => 'Tối đa 500k/tháng'],
+            ['id'=>3, 'name'=>'Hỗ trọ gửi xe', 'image' => 'https://image.phunuonline.com.vn/news/2018/20180411/fckimage/125822_27752217-189571811799860-2629126936167693586-n-111830491.jpg', 'description' => 'Tối đa 100k/tháng'],
+            ['id'=>4, 'name'=>'Miễn phí đồ ăn vặt', 'image' => 'https://toplist.vn/images/800px/fritos-198624.jpg', 'description' => 'Tối đa 1 lần/tháng'],
+            ['id'=>5, 'name'=>'Hỗ trợ laptop gamming', 'image' => 'https://cdn.tgdd.vn/hoi-dap/1122656/top-5-laptop-gamig-2.jpg', 'description' => 'Tối đa 300 triệu/năm'],
+        ]);
         DB::table('company_images')->insert([
-            ['id'=>1, "name" => "Môi trường làm việc", 'image_url'=>'https://miro.medium.com/max/1200/1*Eu6cAGjXNa0-ct_hlsH1yQ.jpeg'],
-            ['id'=>2, "name" => "Môi trường làm việc", 'image_url'=>'http://congstudio.vn/product_images/z/320/chup_anh_profile_tai_ha_noi_cong_studio_4__09337_thumb.jpg'],
-            ['id'=>3, "name" => "Môi trường làm việc", 'image_url'=>'http://congstudio.vn/product_images/z/320/chup_anh_profile_tai_ha_noi_cong_studio_4__09337_thumb.jpg'],
-            ['id'=>4, "name" => "Môi trường làm việc", 'image_url'=>'http://congstudio.vn/product_images/z/320/chup_anh_profile_tai_ha_noi_cong_studio_4__09337_thumb.jpg'],
-            ['id'=>5, "name" => "Môi trường làm việc", 'image_url'=>'http://congstudio.vn/product_images/z/320/chup_anh_profile_tai_ha_noi_cong_studio_4__09337_thumb.jpg'],
+            ['id'=>1, "name" => "Môi trường làm việc", 'description' => 'Tích cực, vui vẻ', 'image_url'=>'https://miro.medium.com/max/1200/1*Eu6cAGjXNa0-ct_hlsH1yQ.jpeg'],
+            ['id'=>2, "name" => "Môi trường làm việc", 'description' => 'Tích cực, vui vẻ', 'image_url'=>'http://congstudio.vn/product_images/z/320/chup_anh_profile_tai_ha_noi_cong_studio_4__09337_thumb.jpg'],
+            ['id'=>3, "name" => "Môi trường làm việc", 'description' => 'Tích cực, vui vẻ', 'image_url'=>'http://congstudio.vn/product_images/z/320/chup_anh_profile_tai_ha_noi_cong_studio_4__09337_thumb.jpg'],
+            ['id'=>4, "name" => "Môi trường làm việc", 'description' => 'Tích cực, vui vẻ', 'image_url'=>'http://congstudio.vn/product_images/z/320/chup_anh_profile_tai_ha_noi_cong_studio_4__09337_thumb.jpg'],
+            ['id'=>5, "name" => "Môi trường làm việc", 'description' => 'Tích cực, vui vẻ', 'image_url'=>'http://congstudio.vn/product_images/z/320/chup_anh_profile_tai_ha_noi_cong_studio_4__09337_thumb.jpg'],
         ]);
         DB::table('new_spapers')->insert([
             ['id'=>1, 'title' => 'Dev Candidates Tour- Hành Trình Trở Thành Lập Trình Viên', 'image'=>'https://miro.medium.com/max/1200/1*Eu6cAGjXNa0-ct_hlsH1yQ.jpeg', 'description' => 'Dev Candidates Tour tháng 6/2017 là sự kiện kết nối giữa các doanh nghiệp công nghệ phần mềm và các ứng viên tiềm năng. Các nhà tuyển dụng luôn luôn tìm kiếm các ứng viên tài năng nhưng dường như trong quy trình tuyển dụng luôn thiếu một bước nào đó để họ tiếp cận được với các nhân tài, hãy cùng Dev Candidates Tour giao lưu và lắng nghe ý kiến trực tiếp của các ứng viên và nâng cao hiệu quả quy trình tuyển dụng của doanh nghiệp.', 'url' => 'https://www.facebook.com/events/136182586941319/'],
@@ -90,34 +107,34 @@ class RoleSeeder extends Seeder
                                 <p>Đừng để mình bị gò bó trong những nguyên tắc cũ kỹ, cổ hủ. Những nguyên tắc đó sẽ giết dần giết mòn những suy nghĩ tích cực của bạn. Hãy mạnh dạn phá vỡ những điều từ xa xưa trong cuộc sống nếu nó không đúng.</p>
                             </div>
                         </div>',
-                        'image'=>'https://www.scuti.asia/uploads/6/1/9/4/61941893/scuti-recruitment-pitch-2019-video_orig.jpg', 'map_url' => ''],
+                        'image'=>'https://www.scuti.asia/uploads/6/1/9/4/61941893/mg-5747.jpg', 'map_url' => ''],
             ['id'=>2, 'name' => 'Recruitment Flow', 'slug' => Str::slug('Recruitment Flow'), 'content' => 
                         '<div class="col-lg-10 offset-lg-1 row my-3">
-                            <div class="col-md-2 text-center pt-2 mb-3" style="font-size: 3.5rem">①</div>
+                            <div class="col-md-2 text-center pt-2 mb-3">①</div>
                             <div class="col-md-10 text-center text-md-left">
                                 <p>Vui lòng liên hệ với chúng tôi từ nút bên dưới và cho bạn thấy ý định muốn ứng tuyển vào công ty của chúng tôi. Khi bạn liên hệ với chúng tôi, vui lòng nói rõ bạn muốn ứng tuyển vào vị trí nào. Không ai thất bại trong giai đoạn này.</p>   
                             </div>
                         </div>
                         <div class="col-lg-10 offset-lg-1 row my-3">
-                            <div class="col-md-2 text-center pt-2 mb-3" style="font-size: 3.5rem">②</div>
+                            <div class="col-md-2 text-center pt-2 mb-3">②</div>
                             <div class="col-md-10 text-center text-md-left">
                                 <p>Nhân viên của chúng tôi sẽ trả lời bạn sớm và thông báo cho bạn những gì chúng tôi muốn bạn gửi. Điều này bao gồm cả bài kiểm tra trên giấy.</p>   
                             </div>
                         </div>
                         <div class="col-lg-10 offset-lg-1 row my-3">
-                            <div class="col-md-2 text-center pt-2 mb-3" style="font-size: 3.5rem">③</div>
+                            <div class="col-md-2 text-center pt-2 mb-3">③</div>
                             <div class="col-md-10 text-center text-md-left">
                                 <p>Bạn phỏng vấn các thành viên của chúng tôi (bao gồm cả Giám đốc điều hành) một hoặc hai lần. Tất cả các cuộc phỏng vấn được tổ chức bằng tiếng Anh.</p>   
                             </div>
                         </div>
                         <div class="col-lg-10 offset-lg-1 row my-3">
-                            <div class="col-md-2 text-center pt-2 mb-3" style="font-size: 3.5rem">④</div>
+                            <div class="col-md-2 text-center pt-2 mb-3">④</div>
                             <div class="col-md-10 text-center text-md-left">
                                 <p>Nếu bạn may mắn vượt qua tất cả các cuộc tuyển chọn, chúng tôi sẽ gặp bạn một lần nữa để đưa ra lời mời làm việc.</p>   
                             </div>
                         </div>
                         <div class="col-lg-10 offset-lg-1 row my-3">
-                            <div class="col-md-2 text-center pt-2 mb-3" style="font-size: 3.5rem">⑤</div>
+                            <div class="col-md-2 text-center pt-2 mb-3">⑤</div>
                             <div class="col-md-10 text-center text-md-left">
                                 <p>Nếu bạn đồng ý với tất cả các điều kiện của một lời mời làm việc, bạn bắt đầu làm việc với chúng tôi!</p>   
                             </div>
@@ -138,7 +155,7 @@ class RoleSeeder extends Seeder
                             <li>Jun 2018 <a href="https://startupthailand.org/showcase/" target="_blank">Startup Thailand 2018</a>&nbsp;&lt;<a href="http://blog.scuti.asia/2018/06/report-of-startupthailand-2018.html" target="_blank">Blog</a>&gt;</li>
                         </ul>',
                         'image'=>'https://scontent.fhan3-3.fna.fbcdn.net/v/t1.0-9/p720x720/118331394_2611383379191478_8068547518063368158_o.jpg?_nc_cat=101&_nc_sid=8024bb&_nc_ohc=N9PHqo0HIWwAX_ijg4P&_nc_ht=scontent.fhan3-3.fna&tp=6&oh=6e4a8eb661adf4e61a2f682ed67d3d5e&oe=5F748A9C', 'map_url' => ''],
-            ['id'=>4, 'name' => 'Visit Us', 'slug' => Str::slug('Visit Us'), 'content' => '', 'image' => '', 'map_url' => '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3723.962023272904!2d105.76304874986745!3d21.034205492900966!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x313454b947cd6e49%3A0x6a87974c6b44d671!2zNjggUGjhu5EgTmd1eeG7hW4gQ8ahIFRo4bqhY2gsIE3hu7kgxJDDrG5oLCBU4burIExpw6ptLCBIw6AgTuG7mWksIFZp4buHdCBOYW0!5e0!3m2!1svi!2s!4v1598327887854!5m2!1svi!2s" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>'],
+            ['id'=>4, 'name' => 'Visit Us', 'slug' => Str::slug('Visit Us'), 'content' => '', 'image' => 'https://www.scuti.asia/uploads/6/1/9/4/61941893/3165626_orig.jpg', 'map_url' => '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3723.962023272904!2d105.76304874986745!3d21.034205492900966!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x313454b947cd6e49%3A0x6a87974c6b44d671!2zNjggUGjhu5EgTmd1eeG7hW4gQ8ahIFRo4bqhY2gsIE3hu7kgxJDDrG5oLCBU4burIExpw6ptLCBIw6AgTuG7mWksIFZp4buHdCBOYW0!5e0!3m2!1svi!2s!4v1598327887854!5m2!1svi!2s" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>'],
         ]);
         DB::table('visit_us')->insert([
             ['id'=>1, 'name'=>'Tâm Nguyễn', 'email' => 'customer@gmail.com', 'message' => 'Qua chơi', 'type' => 'coffee'],
@@ -152,7 +169,8 @@ class RoleSeeder extends Seeder
             ['id'=>5,'user_id' => 1, 'category_name'=>'ReactJs', 'slug' => \Str::slug('ReactJs'), 'status' => 1],
         ]);
         DB::table('jobs')->insert([
-            ['id'=>1,'category_id' => 1, 'name'=>'PHP', 'slug' => \Str::slug('PHP'), 'description'=> 
+            ['id'=>1,'category_id' => 1, 'name'=>'PHP', 'slug' => \Str::slug('PHP'), 'description'=> 'Support requirement defi- nition, requirement analysis and testing in projects with the viewpoint of users with CEO.', 
+                'content' => 
                 '<h4>Mô tả công việc</h4>
                 <p>
                     - Quản trị web<br>
@@ -184,101 +202,105 @@ class RoleSeeder extends Seeder
                     - Thăng tiến nhanh nếu chứng tỏ được năng lực bản thân. Lương sẽ lên cao đúng như năng lực chứng mình được trong thời gian làm việc.
                 </p>',
                 'location_id' => 1, 'salary' => 'Thỏa Thuận', 'expireDay' => '2020/08/15', 'status' =>1],
-            ['id'=>2,'category_id' => 2, 'name'=>'Node', 'slug' => \Str::slug('Node'), 'description'=> 
-                '<h4>Mô tả công việc</h4>
-                <div class="description">
+            ['id'=>2,'category_id' => 2, 'name'=>'Node', 'slug' => \Str::slug('Node'), 'description'=> 'Support requirement defi- nition, requirement analysis and testing in projects with the viewpoint of users with CEO.', 
+                'content' => 
+                    '<h4>Mô tả công việc</h4>
+                    <div class="description">
+                        <ul>
+                            <li>Tham gia xây dựng, phát triển backend cho các hệ thống xử lý dữ liệu lớn, hiệu năng cao: Social network, thương mại điện tử, quảng cáo trực tuyến, các hệ thống cho doanh nghiệp sản xuất phân phối.</li>
+                            <li>Tham gia vào quá trình tìm hiểu và phân tích yêu cầu, thiết kế và tối ưu hệ thống cho hệ thống dữ liệu lớn phục vụ hàng triệu người dùng.</li>
+                            <li>Làm việc với các phòng ban khác để tham gia phát triển các tính năng, sản phẩm mới.</li>
+                            <li>Tham gia các buổi đánh giá chất lượng công việc của các thành viên khác trong team, hỗ trợ các thành viên phát triển các module phức tạp.</li>
+                            <li>Tham gia training cho các bạn mới.</li>
+                        </ul>
+                    </div>
+                    <h4>Yêu cầu công việc</h4>
+                    <div>
+                        <ul>
+                            <li><strong>UV có tối thiểu 1 năm kinh nghiệm lập trình NodeJS</strong></li>
+                            <li><strong>Độ tuổi: &lt;= 30 tuổi</strong></li>
+                            <li><strong>Thành thạo một trong các hệ quản trị CSDL: MySQL, MongoDB, Postgres, …</strong></li>
+                            <li><strong>Có kinh nghiệm với một trong các framework ExpressJS, Sails,...</strong></li>
+                            <li>Lập trình thuật toán tốt, có kinh nghiệm&nbsp; xử lý tốt với lượng dữ liệu lớn là một lợi thế</li>
+                            <li>Có kinh nghiệm làm việc với Redis, ElasticSearch, RabbitMQ,..</li>
+                            <li><strong>Có khả năng phân tích, thiết kế hệ thống hướng đối tượng (UML) là một lợi thế</strong></li>
+                            <li>Có khả năng làm độc lập, nghiên cứu tốt để giải quyết các vấn đề khó của dự án</li>
+                            <li>Có kinh nghiệm làm việc với Linux, hiểu biết về Docker và Kubernetes là một lợi thế</li>
+                            <li>Có khả năng đọc hiểu tiếng Anh.</li>
+                            <li>Có niềm đam mê, khám phá, học hỏi công nghệ mới. Sẵn sàng chuyển đổi công nghệ, ngôn ngữ mới.</li>
+                            <li>Nhiệt tình và cẩn thận trong công việc, teamwork với team tốt.</li>
+                        </ul>
+                    </div>
+                    <h4>Quyền lợi</h4>
                     <ul>
-                        <li>Tham gia xây dựng, phát triển backend cho các hệ thống xử lý dữ liệu lớn, hiệu năng cao: Social network, thương mại điện tử, quảng cáo trực tuyến, các hệ thống cho doanh nghiệp sản xuất phân phối.</li>
-                        <li>Tham gia vào quá trình tìm hiểu và phân tích yêu cầu, thiết kế và tối ưu hệ thống cho hệ thống dữ liệu lớn phục vụ hàng triệu người dùng.</li>
-                        <li>Làm việc với các phòng ban khác để tham gia phát triển các tính năng, sản phẩm mới.</li>
-                        <li>Tham gia các buổi đánh giá chất lượng công việc của các thành viên khác trong team, hỗ trợ các thành viên phát triển các module phức tạp.</li>
-                        <li>Tham gia training cho các bạn mới.</li>
-                    </ul>
-                </div>
-                <h4>Yêu cầu công việc</h4>
-                <div>
-                    <ul>
-                        <li><strong>UV có tối thiểu 1 năm kinh nghiệm lập trình NodeJS</strong></li>
-                        <li><strong>Độ tuổi: &lt;= 30 tuổi</strong></li>
-                        <li><strong>Thành thạo một trong các hệ quản trị CSDL: MySQL, MongoDB, Postgres, …</strong></li>
-                        <li><strong>Có kinh nghiệm với một trong các framework ExpressJS, Sails,...</strong></li>
-                        <li>Lập trình thuật toán tốt, có kinh nghiệm&nbsp; xử lý tốt với lượng dữ liệu lớn là một lợi thế</li>
-                        <li>Có kinh nghiệm làm việc với Redis, ElasticSearch, RabbitMQ,..</li>
-                        <li><strong>Có khả năng phân tích, thiết kế hệ thống hướng đối tượng (UML) là một lợi thế</strong></li>
-                        <li>Có khả năng làm độc lập, nghiên cứu tốt để giải quyết các vấn đề khó của dự án</li>
-                        <li>Có kinh nghiệm làm việc với Linux, hiểu biết về Docker và Kubernetes là một lợi thế</li>
-                        <li>Có khả năng đọc hiểu tiếng Anh.</li>
-                        <li>Có niềm đam mê, khám phá, học hỏi công nghệ mới. Sẵn sàng chuyển đổi công nghệ, ngôn ngữ mới.</li>
-                        <li>Nhiệt tình và cẩn thận trong công việc, teamwork với team tốt.</li>
-                    </ul>
-                </div>
-                <h4>Quyền lợi</h4>
-                <ul>
-                    <li>Chính sách thưởng phong phú: Thưởng tháng lương 13 + thưởng nóng dự án + thưởng nhân viên xuất sắc + các khoản thưởng khác;</li><li>Xét tăng lương 2 lần/năm dựa trên hiệu quả công việc;</li><li>Hưởng đầy đủ các chế độ bảo hiểm theo quy định;</li><li>Được tặng quà, thăm hỏi nhân các dịp sinh nhật, cưới hỏi, hiếu hỉ, ốm đau…;</li><li>Làm việc trong môi trường hiện đại, trẻ trung, văn hóa mở với nhiều hoạt động văn hóa tinh thần: du lịch, nghỉ dưỡng, party sự kiện…</li>
-                </ul>',
+                        <li>Chính sách thưởng phong phú: Thưởng tháng lương 13 + thưởng nóng dự án + thưởng nhân viên xuất sắc + các khoản thưởng khác;</li><li>Xét tăng lương 2 lần/năm dựa trên hiệu quả công việc;</li><li>Hưởng đầy đủ các chế độ bảo hiểm theo quy định;</li><li>Được tặng quà, thăm hỏi nhân các dịp sinh nhật, cưới hỏi, hiếu hỉ, ốm đau…;</li><li>Làm việc trong môi trường hiện đại, trẻ trung, văn hóa mở với nhiều hoạt động văn hóa tinh thần: du lịch, nghỉ dưỡng, party sự kiện…</li>
+                    </ul>',
                 'location_id' => 1, 'salary' => 'Thỏa Thuận', 'expireDay' => '2020/08/15', 'status' =>1],
-            ['id'=>3,'category_id' => 3, 'name'=>'Java', 'slug' => \Str::slug('java'), 'description'=> 
-                '<h4>Mô tả công việc</h4>
-                <p>
-                    Công việc lập trình Winform ERP:<br>
-                    · Tham gia xây dựng Form nhập liệu, Form phân tích thống kê theo yêu cầu.<br>
-                    · Tham gia xây dựng biểu mẫu, báo cáo theo yêu cầu.<br>
-                    · Tham gia bảo trì hệ thống: Xử lý lỗi, Ưu hóa truy xuất CSDL, Ưu hóa các chức năng của hệ thống.<br>
-                    · Phối hợp với Đội Dự án để triển khai hệ thống.<br>
-                    Công việc kỹ thuật viên:<br>
-                    · Quản trị và bảo trì Hệ thống mạng, máy chủ, máy trạm, các thiết bị liên quan máy tính…<br>
-                    · Triển khai, giám sát Công trình ICT, Tổng đài VOIP, Hệ thống ảo hóa VMWare…<br>
-                    · Bảo trì các thiết bị CNTT: Máy chủ, máy trạm, máy in, các thiết bị liên quan máy tính…
-                </p>
-                <h4>Yêu cầu công việc</h4>
-                <p>
-                    · Tốt nghiệp CAO ĐẲNG trở lên chuyên ngành CNTT, Tự động hóa, Toán - Tin học hoặc các ngành liên quan…<br>
-                    · Anh văn tương đương bằng B.<br>
-                    · Yêu thích công việc lập trình và có tư duy logic trong toán học.<br>
-                    · Giao tiếp tốt, trình bày vấn đề rõ ràng, dễ hiểu.<br>
-                    · Ưu tiên ứng viên có hiểu biết về SQL Server / Database hoặc TCP/IP, Các loại thiết bị chia sẻ IP.
-                </p>
-                <h4>Quyền lợi</h4>
-                <p>
-					· Lương học việc: 6.000.000 /tháng.<br>
-                    · Lương chính thức: Từ 7.000.000 - 12.000.000<br>
-                    · Chế độ lương và thưởng: Lương cơ bản, Thưởng thâm niên, Thưởng hiệu quả, Thưởng lãnh đạo, Thưởng động viên, Thưởng khác, Phụ cấp cơm, Phụ cấp gửi xe….<br>
-                    · Công ty sẽ cung cấp máy tính làm việc.<br>
-                    · Có cơ hội phát triển vào các vị trí quản lý của các chi nhánh công ty ở nước ngoài (Đài Loan, Myanmar,…).<br>
-                    · Được đào tạo dựa trên công việc thực tế, giúp hội nhập nhanh và xử lý công việc hiệu quả.<br>
-                    · Được đào tạo về lập trình cơ sở dữ liệu và lập trình hướng đối tượng.<br>
-                    · Được đào tạo về nghiệp vụ và quy trình làm việc của hệ thống ERP.<br>
-                    · Có cơ hội phát triển vào các vị trí chuyên viên, quản lý của công ty.<br>
-                    · Có cơ hội làm việc và triển khai dự án cho các doanh nghiệp lớn.<br>
-                    · Hưởng chế độ theo quy định luật lao động và BHXH, BHYT, BHTN...<br>
-                    · Tham gia các hoạt động tinh thần: du lịch, giải trí do Công ty tổ chức…
-                </p>',
+            ['id'=>3,'category_id' => 3, 'name'=>'Java', 'slug' => \Str::slug('java'), 'description'=> 'Support requirement defi- nition, requirement analysis and testing in projects with the viewpoint of users with CEO.', 
+                'content' => 
+                    '<h4>Mô tả công việc</h4>
+                    <p>
+                        Công việc lập trình Winform ERP:<br>
+                        · Tham gia xây dựng Form nhập liệu, Form phân tích thống kê theo yêu cầu.<br>
+                        · Tham gia xây dựng biểu mẫu, báo cáo theo yêu cầu.<br>
+                        · Tham gia bảo trì hệ thống: Xử lý lỗi, Ưu hóa truy xuất CSDL, Ưu hóa các chức năng của hệ thống.<br>
+                        · Phối hợp với Đội Dự án để triển khai hệ thống.<br>
+                        Công việc kỹ thuật viên:<br>
+                        · Quản trị và bảo trì Hệ thống mạng, máy chủ, máy trạm, các thiết bị liên quan máy tính…<br>
+                        · Triển khai, giám sát Công trình ICT, Tổng đài VOIP, Hệ thống ảo hóa VMWare…<br>
+                        · Bảo trì các thiết bị CNTT: Máy chủ, máy trạm, máy in, các thiết bị liên quan máy tính…
+                    </p>
+                    <h4>Yêu cầu công việc</h4>
+                    <p>
+                        · Tốt nghiệp CAO ĐẲNG trở lên chuyên ngành CNTT, Tự động hóa, Toán - Tin học hoặc các ngành liên quan…<br>
+                        · Anh văn tương đương bằng B.<br>
+                        · Yêu thích công việc lập trình và có tư duy logic trong toán học.<br>
+                        · Giao tiếp tốt, trình bày vấn đề rõ ràng, dễ hiểu.<br>
+                        · Ưu tiên ứng viên có hiểu biết về SQL Server / Database hoặc TCP/IP, Các loại thiết bị chia sẻ IP.
+                    </p>
+                    <h4>Quyền lợi</h4>
+                    <p>
+                        · Lương học việc: 6.000.000 /tháng.<br>
+                        · Lương chính thức: Từ 7.000.000 - 12.000.000<br>
+                        · Chế độ lương và thưởng: Lương cơ bản, Thưởng thâm niên, Thưởng hiệu quả, Thưởng lãnh đạo, Thưởng động viên, Thưởng khác, Phụ cấp cơm, Phụ cấp gửi xe….<br>
+                        · Công ty sẽ cung cấp máy tính làm việc.<br>
+                        · Có cơ hội phát triển vào các vị trí quản lý của các chi nhánh công ty ở nước ngoài (Đài Loan, Myanmar,…).<br>
+                        · Được đào tạo dựa trên công việc thực tế, giúp hội nhập nhanh và xử lý công việc hiệu quả.<br>
+                        · Được đào tạo về lập trình cơ sở dữ liệu và lập trình hướng đối tượng.<br>
+                        · Được đào tạo về nghiệp vụ và quy trình làm việc của hệ thống ERP.<br>
+                        · Có cơ hội phát triển vào các vị trí chuyên viên, quản lý của công ty.<br>
+                        · Có cơ hội làm việc và triển khai dự án cho các doanh nghiệp lớn.<br>
+                        · Hưởng chế độ theo quy định luật lao động và BHXH, BHYT, BHTN...<br>
+                        · Tham gia các hoạt động tinh thần: du lịch, giải trí do Công ty tổ chức…
+                    </p>',
                 'location_id' => 1, 'salary' => 'Thỏa Thuận', 'expireDay' => '2020/08/15', 'status' =>1],
-            ['id'=>4,'category_id' => 4, 'name'=>'FE', 'slug' => \Str::slug('FE'), 'description'=> 
-                '<h4>Mô tả công việc</h4>
-                <p>
-                - Sử dụng <strong>CMS (như WordPress)</strong> hoặc những kỹ thuật như <strong>HTML, CSS, JavaScript (ReactJS/ VueJS)</strong> v.v… để viết Code và tạo Website dành cho PC và Smartphone.<br>- Lên kế hoạch, thiết kế, tạo Website mới.<br>- Kiểm tra hiệu quả của trang web đã tạo.<br>- Chỉnh sửa, cập nhật những trang Web có sẵn.
-                </p>
-                <h4>Yêu cầu công việc</h4>
-                <p>✔️ Yêu cầu kỹ thuật:<br><br>- Có kinh nghiệm làm việc từ 4 năm trở lên với <strong>JavaScript</strong>, và trên 2 năm với phiên bản từ <strong>ES2015(ES6)</strong> trở lên).<br>- Có kinh nghiệm sử dụng FrameWork/Library như <strong>React/Vue </strong>để lập trình JavaScript.<br>- Có kinh nghiệm Coding bằng <strong>HTML5＋CSS3</strong> (kinh nghiệm làm việc thực tiễn từ 4 năm trở lên).<br>- Có kinh nghiệm sử dụng ngôn ngữ lập trình <strong>Meta (Sass (SCSS), Less, Stylus) </strong>để thiết kế CSS.<br>- Có kinh nghiệm tạo HTML/CSS theo các quy tắc chuẩn của Coding (Bao gồm kinh nghiệm sử dụng Quy tắc đặt tên phổ biến <strong>BEM</strong>.v.v...)<br>- Có kinh nghiệm sử dụng Tool quản lý version như <strong>Git</strong>, v.v...<br>- Có kinh nghiệm sử dụng Task runner.<br>- Có kinh nghiệm lập trình web với 2 front-end dev trở lên.<br><br>✔️ Yêu cầu khác:<br><br>- Có khả năng làm việc nhóm và thích giao tiếp<br>- Yêu thích những công việc mang tính chất tỉ mỉ, cẩn thận.<br>- Có tư duy tích cực, suy nghĩ có lập trường.<br>- Có khả năng thấu hiểu, nắm bắt và phác họa tốt những yêu cầu của khách hàng cũng như khả năng trình bày suy nghĩ, ý tưởng của bản thân.<br>- Có khả năng kiểm tra và chỉnh sửa Code sao cho chính xác, rõ ràng, dễ hiểu.<br>- Bắt kịp những xu hướng và kỹ thuật mới, chủ động mở rộng tầm nhìn và kiến thức.<br>- Có tinh thần hợp tác tốt và tính linh hoạt cao.
-                </p>
-                <h4>Quyền lợi</h4>
-                <p>- Thời gian làm việc: 8:00 ~ 17:00 từ thứ 2 đến thứ 6 (nghỉ Thứ Bảy, Chủ Nhật và các ngày Lễ, Tết)<br>- Thưởng: 2 lần/năm<br>- Ngoài các gói bảo hiểm cơ bản theo quy định của Luật Lao Động, bạn còn được tham gia gói bảo hiểm tai nạn lao động tại Lampart.<br>- Trà, sữa, coffee,... miễn phí<br>- Ngày nghỉ đặc biệt dành cho nhân viên nữ: 0.5 ngày/ tháng.<br>- Được hưởng những phúc lợi đặc biệt như chương trình quà tết, bánh trung thu, tiền mừng đám cưới (5,000,000 VND), tiền mừng khi sanh con (2,000,000 VND),…<br>- Đối với nhân viên ký hợp đồng không xác định thời hạn: từ thời điểm ký hợp đồng không xác định thời hạn, cứ mỗi năm được cộng thêm 1 ngày nghỉ phép. Ngày nghỉ phép không sử dụng hết trong năm sẽ trả vào lương tháng cuối cùng của năm.
-                </p>',
+            ['id'=>4,'category_id' => 4, 'name'=>'FE', 'slug' => \Str::slug('FE'), 'description'=> 'Support requirement defi- nition, requirement analysis and testing in projects with the viewpoint of users with CEO.', 
+                'content' => 
+                    '<h4>Mô tả công việc</h4>
+                    <p>
+                    - Sử dụng <strong>CMS (như WordPress)</strong> hoặc những kỹ thuật như <strong>HTML, CSS, JavaScript (ReactJS/ VueJS)</strong> v.v… để viết Code và tạo Website dành cho PC và Smartphone.<br>- Lên kế hoạch, thiết kế, tạo Website mới.<br>- Kiểm tra hiệu quả của trang web đã tạo.<br>- Chỉnh sửa, cập nhật những trang Web có sẵn.
+                    </p>
+                    <h4>Yêu cầu công việc</h4>
+                    <p>✔️ Yêu cầu kỹ thuật:<br><br>- Có kinh nghiệm làm việc từ 4 năm trở lên với <strong>JavaScript</strong>, và trên 2 năm với phiên bản từ <strong>ES2015(ES6)</strong> trở lên).<br>- Có kinh nghiệm sử dụng FrameWork/Library như <strong>React/Vue </strong>để lập trình JavaScript.<br>- Có kinh nghiệm Coding bằng <strong>HTML5＋CSS3</strong> (kinh nghiệm làm việc thực tiễn từ 4 năm trở lên).<br>- Có kinh nghiệm sử dụng ngôn ngữ lập trình <strong>Meta (Sass (SCSS), Less, Stylus) </strong>để thiết kế CSS.<br>- Có kinh nghiệm tạo HTML/CSS theo các quy tắc chuẩn của Coding (Bao gồm kinh nghiệm sử dụng Quy tắc đặt tên phổ biến <strong>BEM</strong>.v.v...)<br>- Có kinh nghiệm sử dụng Tool quản lý version như <strong>Git</strong>, v.v...<br>- Có kinh nghiệm sử dụng Task runner.<br>- Có kinh nghiệm lập trình web với 2 front-end dev trở lên.<br><br>✔️ Yêu cầu khác:<br><br>- Có khả năng làm việc nhóm và thích giao tiếp<br>- Yêu thích những công việc mang tính chất tỉ mỉ, cẩn thận.<br>- Có tư duy tích cực, suy nghĩ có lập trường.<br>- Có khả năng thấu hiểu, nắm bắt và phác họa tốt những yêu cầu của khách hàng cũng như khả năng trình bày suy nghĩ, ý tưởng của bản thân.<br>- Có khả năng kiểm tra và chỉnh sửa Code sao cho chính xác, rõ ràng, dễ hiểu.<br>- Bắt kịp những xu hướng và kỹ thuật mới, chủ động mở rộng tầm nhìn và kiến thức.<br>- Có tinh thần hợp tác tốt và tính linh hoạt cao.
+                    </p>
+                    <h4>Quyền lợi</h4>
+                    <p>- Thời gian làm việc: 8:00 ~ 17:00 từ thứ 2 đến thứ 6 (nghỉ Thứ Bảy, Chủ Nhật và các ngày Lễ, Tết)<br>- Thưởng: 2 lần/năm<br>- Ngoài các gói bảo hiểm cơ bản theo quy định của Luật Lao Động, bạn còn được tham gia gói bảo hiểm tai nạn lao động tại Lampart.<br>- Trà, sữa, coffee,... miễn phí<br>- Ngày nghỉ đặc biệt dành cho nhân viên nữ: 0.5 ngày/ tháng.<br>- Được hưởng những phúc lợi đặc biệt như chương trình quà tết, bánh trung thu, tiền mừng đám cưới (5,000,000 VND), tiền mừng khi sanh con (2,000,000 VND),…<br>- Đối với nhân viên ký hợp đồng không xác định thời hạn: từ thời điểm ký hợp đồng không xác định thời hạn, cứ mỗi năm được cộng thêm 1 ngày nghỉ phép. Ngày nghỉ phép không sử dụng hết trong năm sẽ trả vào lương tháng cuối cùng của năm.
+                    </p>',
                 'location_id' => 1, 'salary' => 'Thỏa Thuận', 'expireDay' => '2020/08/15', 'status' =>1],
-            ['id'=>5,'category_id' => 5, 'name'=>'React', 'slug' => \Str::slug('React'), 'description'=> 
-                '<h4>Mô tả công việc</h4>
-                <div class="description">
-                    <p></p><ul><li>Xây dựng các sản phẩm phần mềm của công ty.</li><li>Đảm bảo chất lượng code.</li></ul><p></p>
-                </div>
-                <h4>Yêu cầu công việc</h4>
-                <div class="experience">
-                <p></p><ul><li>Có ít nhất 2 năm kinh nghiệm trong việc phát triển phần mềm&nbsp;</li><li>Có kinh nghiệm với React, ReactJS, AngularJS&nbsp;</li><li>Nhiều kinh nghiệm với CSS, HTML, Javascript&nbsp;</li><li>Có kinh nghiệm làm việc với NodeJS, PHP Có kinh nghiệm làm việc với MySQL.&nbsp;</li><li>Giao tiếp và làm việc nhóm tốt&nbsp;</li><li>Tiếng Anh giao tiếp tốt.&nbsp;</li><li>Trách nhiệm, cầu tiến trong công việc&nbsp;</li><li>Làm việc với quy trình Agile.&nbsp;</li><li>Có kinh nghiệm trong lĩnh vực F&amp;B là lợi thế</li></ul><p></p>
-                </div>
-                <h4>Quyền lợi</h4>
-                <div class="culture_description">
-                    <ul><li>Lương, thưởng cạnh tranh trên thị trường và công bằng trong nội bộ.</li><li>Được làm việc trong môi trường năng động, trẻ trung, đầy nhiệt huyết.</li><li>Cơ hội được làm việc trên một sản phẩm phát triển theo hướng B2B</li><li>Được tham gia các hoạt động team building của công ty.</li><li>Trợ cấp ăn trưa và đi lại.</li><li>Chế độ nghỉ lễ tết, BHYT/BHXH/BHTN theo quy định của luật lao động.</li></ul>
-                </div>',
+            ['id'=>5,'category_id' => 5, 'name'=>'React', 'slug' => \Str::slug('React'), 'description'=> 'Support requirement defi- nition, requirement analysis and testing in projects with the viewpoint of users with CEO.', 
+                'content' => 
+                    '<h4>Mô tả công việc</h4>
+                    <div class="description">
+                        <p></p><ul><li>Xây dựng các sản phẩm phần mềm của công ty.</li><li>Đảm bảo chất lượng code.</li></ul><p></p>
+                    </div>
+                    <h4>Yêu cầu công việc</h4>
+                    <div class="experience">
+                    <p></p><ul><li>Có ít nhất 2 năm kinh nghiệm trong việc phát triển phần mềm&nbsp;</li><li>Có kinh nghiệm với React, ReactJS, AngularJS&nbsp;</li><li>Nhiều kinh nghiệm với CSS, HTML, Javascript&nbsp;</li><li>Có kinh nghiệm làm việc với NodeJS, PHP Có kinh nghiệm làm việc với MySQL.&nbsp;</li><li>Giao tiếp và làm việc nhóm tốt&nbsp;</li><li>Tiếng Anh giao tiếp tốt.&nbsp;</li><li>Trách nhiệm, cầu tiến trong công việc&nbsp;</li><li>Làm việc với quy trình Agile.&nbsp;</li><li>Có kinh nghiệm trong lĩnh vực F&amp;B là lợi thế</li></ul><p></p>
+                    </div>
+                    <h4>Quyền lợi</h4>
+                    <div class="culture_description">
+                        <ul><li>Lương, thưởng cạnh tranh trên thị trường và công bằng trong nội bộ.</li><li>Được làm việc trong môi trường năng động, trẻ trung, đầy nhiệt huyết.</li><li>Cơ hội được làm việc trên một sản phẩm phát triển theo hướng B2B</li><li>Được tham gia các hoạt động team building của công ty.</li><li>Trợ cấp ăn trưa và đi lại.</li><li>Chế độ nghỉ lễ tết, BHYT/BHXH/BHTN theo quy định của luật lao động.</li></ul>
+                    </div>',
                 'location_id' => 1, 'salary' => 'Thỏa Thuận', 'expireDay' => '2020/08/15', 'status' =>1],
         ]);
         DB::table('cvs')->insert([

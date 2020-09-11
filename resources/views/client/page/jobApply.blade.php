@@ -250,10 +250,10 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="text-container col-lg-8 mx-auto">
+                    <div class="text-container">
                         @if($data['apply'] != null)
                         <h3 id="heading">@lang('client.page.apply.process.title')</h3>
-                        <p>@lang('client.page.apply.process.description')</p>
+                        <p><a href="{{route('home')}}/#recruitment-flow" target="_blank">@lang('client.page.apply.process.description')</a></p>
                         <form id="msform">
                             <ul id="progressbar">
                                 <li class="active" id="account"><strong> Apply </strong></li>
@@ -330,42 +330,69 @@
                         @endif
                     </div>
                 </div>
-                <div class="row col-lg-12">
-                    <div class="col-md-8">
-                        <div class="text-container">
-                            <h2 class="mb-4">{{$data['job']->name}}</h2>
-                            <div class="">
-                            {!! $data['job']->description !!}
-                            </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="ex-basic-2" style="background-color: #eff3f6;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 mb-4 p-0" style="background-color: #fff;">
+                    <h2 class="pt-2 px-4 border-bottom">{{$data['job']->name}}</h2>
+                    <div class="text-container pt-3 px-4">
+                        <div class="">
+                        {!! $data['job']->content !!}
                         </div>
-                        <a href="{{route('client.jobs')}}" class="btn btn-outline-reg back" >@lang('client.page.apply.back')</a>
                     </div>
-                    <div class="col-md-4">
-                        <h3>@lang('client.page.apply.sidebar.title')</h3>
-                        <ul class="pl-0">
-                            <li class="row justify-content-between mx-0 mb-2">
-                                <b>@lang('client.page.apply.sidebar.location')</b>
-                                <div class="value">{{$data['job']->location->name}} </div>
-                            </li>
-                            <li class="row justify-content-between mx-0 mb-2">
-                                <b>@lang('client.page.apply.sidebar.salary')</b>
-                                <div class="value">{{$data['job']->salary}}</div>
-                            </li>
-                            <li class="row justify-content-between mx-0 mb-2">
-                                <b>@lang('client.page.apply.sidebar.end_time')</b>
-                                <div class="value">{{$data['job']->formatExpireDay()}}</div>
-                            </li>
-                        </ul>
-                        @if($data['apply'] == null)
-                        <div class="form-group">
-                            <button class="form-control text-center btn-outline-reg" data-toggle="modal" data-target="#myModal" >@lang('client.section.recruitment.apply')</button>
+                    <a class="btn-outline-reg back ml-4 mb-5" href="{{route('client.jobs')}}">@lang('client.page.apply.job_another')</a>
+                </div>
+                <div class="col-md-4">
+                    <div class="col-lg-12 mb-2 p-0" style="background-color: #fff;">
+                        <h3 class="p-2 border-bottom">@lang('client.page.apply.sidebar.title')</h3>
+                        <div class="pb-2">
+                            <ul class="px-3">
+                                <li class="row justify-content-between mx-0 mb-2">
+                                    <b>@lang('client.page.apply.sidebar.location')</b>
+                                    <div class="value">{{$data['job']->location->name}} </div>
+                                </li>
+                                <li class="row justify-content-between mx-0 mb-2">
+                                    <b>@lang('client.page.apply.sidebar.salary')</b>
+                                    <div class="value">{{$data['job']->salary}}</div>
+                                </li>
+                                <li class="row justify-content-between mx-0 mb-2">
+                                    <b>@lang('client.page.apply.sidebar.end_time')</b>
+                                    <div class="value">{{$data['job']->formatExpireDay()}}</div>
+                                </li>
+                            </ul>
                         </div>
-                        @endif
+                    </div>
+                    <div class="col-lg-12 mb-2 p-0" style="background-color: #fff;">
+                        <h3 class="p-2 border-bottom">@lang('client.page.job.related_job')</h3>
+                        <div class="col-lg-12 p-0">
+                            @foreach($data['related_job'] as $job )
+                            <div class="col-md-12 list-group-item mt-2">
+                                <div class="col-12 p-0">
+                                    <div class="mb-block cell name-job">
+                                        <h4 class="title-h4"><a style="font-weight: normal;color: #f4511e; text-decoration: none" href="{{route('job-detail', [$job->id, $job->slug])}}">[{{$job->location->name}}] {{$job->name}}</a></h4>
+                                    </div>
+                                    <div class="d-flex justify-content-between">
+                                        <span><i class="far fa-money-bill-alt"></i> {{$job->salary}} </span>
+                                        <span><i class="far fa-clock"></i> {{$job->formatExpireDay()}} </span>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 mt-2 p-0 text-justify">
+                                    {{$job->description}}
+                                    <!-- <a href="{{route('client.applied', [$job->id, $job->slug])}}" class="form-control text-center btn-outline-reg mt-0">@lang('client.section.recruitment.apply')</a> -->
+                                </div>
+                            </div>
+                            @endforeach
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-md">
             <div class="modal-content">
@@ -390,7 +417,7 @@
                         </div>
                         <input type="hidden" name="job_id" value="{{$data['job']->id}}">
                         @if(auth()->user()->cv->count() > 0)
-                        <div class="form-group" style="padding: 10px;margin-bottom: 1rem;border: 1px dotted #fd6f2d;border-radius: 5px;">
+                        <div class="form-group">
                             <label>@lang('custom.choose_cv')</label>
                             @foreach(auth()->user()->cv as $key => $value)
                             <div class="form-check">
@@ -413,17 +440,16 @@
                             <p class="text-danger"></p>
                         </div>
                         @endif
-                        <div class="col-md-12 text-center">
+                        <div class="col-md-12 px-0">
                             <div class="form-group">
                                 <label>@lang('custom.letter')</label>
-                                <textarea name="letter" class="form-control p-0" cols="30" rows="8"> {{old('letter')}}</textarea>
+                                <textarea name="letter" class="form-control p-0" cols="30" rows="8" placeholder="@lang('custom.placehoder.message')"> {{old('letter')}}</textarea>
                                 <span class="text-danger"></span>
                             </div>
                         </div>
                         <div class="col-md-12 text-center">
                             <button type="submit" class="btn-outline-reg back">@lang('custom.button.submit')</button>
-                            <button type="reset" class="btn-outline-reg back">@lang('custom.button.reset')</button>
-                            <button class="btn-outline-reg back" data-dismiss="modal">@lang('client.page.apply.back')</button>
+                            <button class="btn-outline-reg back" data-dismiss="modal">@lang('custom.button.cancel')</button>
                         </div>
                     </form>
                 </div>
