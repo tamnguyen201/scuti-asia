@@ -42,20 +42,20 @@
                 <form action="{{ url('admin/evaluate/process/calendar/create') }}" method="POST">
                     @csrf
                     @method('POST')
-                    <div class="form-group col-md-6">
+                    <div class="form-calendar form-group col-md-6">
                         <label for="exampleFormControlTextarea1">@lang('custom.calendar.name') :</label>
                         <br>
                         <input name="id" type="text" value="{{ $dataUser->id }}" hidden>
                         <input name="process_id" type="text" value="{{ $processById->id }}" hidden>
                         <input name="name" type="text" value="{{ $dataUser->name }}" disabled>
                     </div>
-                    <div class="form-group col-md-6">
+                    <div class="form-calendar form-group col-md-6">
                         <label for="exampleFormControlTextarea1">@lang('custom.calendar.email') :</label>
                         <br>
                         <input name="email"" type=" text" value="{{ $dataUser->email }}" disabled>
                     </div>
                     <div class="col-12">
-                        <div class="form-group col-md-6">
+                        <div class="form-calendar form-group col-md-6">
                             <label for="exampleFormControlTextarea1">@lang('custom.calendar.title')* :</label>
                             <br>
                             <input name="title" type="text" @error('title') is-invalid @enderror>
@@ -65,7 +65,7 @@
                             </span>
                             @enderror
                         </div>
-                        <div class="form-group col-md-6">
+                        <div class="form-calendar form-group col-md-6">
                             <label for="exampleFormControlTextarea1">@lang('custom.calendar.color')* :</label>
                             <br>
                             <input name="color" type="color" @error('color') is-invalid @enderror>
@@ -76,7 +76,7 @@
                             @enderror
                         </div>
                     </div>
-                    <div class="form-group col-md-6">
+                    <div class="form-calendar form-group col-md-6">
                         <label for="exampleFormControlTextarea1">@lang('custom.calendar.start')* :</label>
                         <br>
                         <input name="start" type="datetime-local" @error('start') is-invalid @enderror>
@@ -86,7 +86,7 @@
                         </span>
                         @enderror
                     </div>
-                    <div class="form-group col-md-6">
+                    <div class="form-calendar form-group col-md-6">
                         <label for="exampleFormControlTextarea1">@lang('custom.calendar.end')* :</label>
                         <br>
                         <input name="end" type="datetime-local" @error('end') is-invalid @enderror>
@@ -96,7 +96,7 @@
                         </span>
                         @enderror
                     </div>
-                    <div class="form-group col-md-12">
+                    <div class="form-calendar form-group col-md-12">
                         <label for="exampleFormControlTextarea1">@lang('custom.calendar.note') :</label>
                         <textarea name="note" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                     </div>
