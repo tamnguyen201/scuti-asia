@@ -26,8 +26,8 @@ return [
     'new_pass' =>'Mật khẩu mới',
     'confirm_pass' =>'Xác nhận mật khẩu',
     'title' =>'Tiêu đề',
-    'category'=>'Danh mục',
-    'location'=>'Địa điểm',
+    'categories'=>'Danh mục',
+    'locations'=>'Địa điểm',
     'expire_day'=>'Ngày hết hạn',
     'status'=>'Trạng thái',
     'job'=>'job',
@@ -73,7 +73,7 @@ return [
         'job_manage' =>'Các công việc đang tuyển dụng',
         'job' => 'Việc làm',
         'job_add' =>'Thêm mới công việc',
-        'job_edit' =>'Sửa Job',
+        'job_edit' =>'Sửa công việc ứng tuyển',
         'add'=>'Tạo mới',
         'jobs' =>'Danh sách các công việc',
         'jobs_manage'=>'Quản lý danh sách Job',
@@ -84,7 +84,10 @@ return [
         'enter_code'=>'Nhập mã code của bạn',
         'section_manage' => 'Quản Lí Bố Cục',
         'contact_manage' => 'Quản Lí Liên Hệ',
-        'candidate_list_by_job'=>'Danh sách ứng viên ứng tuyển'
+        'candidate_list_by_job'=>'Danh sách ứng viên ứng tuyển',
+        'location_index'=>'Địa điểm ứng tuyển',
+        'location_list'=>'Danh sách các địa điểm',
+        'data_table'=>'Bảng dữ liệu'
     ],
 
     'placehoder' => [
@@ -116,7 +119,9 @@ return [
         'reset_password'=>'Reset lại mật khẩu',
         'had_password'=>'Bạn đã có tài khoản, đăng nhập tại đây',
         'enter'=>'Nhập',
-        'start_process'=>'Bắt đầu đánh giá'
+        'start_process'=>'Bắt đầu đánh giá',
+        'search'=>'Tìm kiếm',
+        'edit'=>'Sửa'
     ],
 
     'menu' => [
@@ -205,6 +210,37 @@ return [
         'placeholder_salary'=>'Nhập mức lương',
         'placeholder_category'=>'Nhập danh mục',
         'placeholder_location'=>'Nhập vị trí',
-        'placeholder_title'=>'Nhập tiêu đề'
+        'placeholder_title'=>'Nhập tiêu đề',
+        'job_edit_title'=>'Sửa công việc ứng tuyển',
+        'edit'=>'Sửa'
+    ],
+    'location'=>[
+        'location_manage'=>'Địa điểm ứng tuyển',
+        'name'=>'Tên địa điểm',
+        'name_placeholder'=>'Nhập tên địa điểm',
+    ],
+    'category'=>[
+        'category_manage'=>'Quản lý danh mục',
+        'category_list'=>'Bảng danh sách danh mục',
+        'name'=>'Tên danh mục',
+        'name_placeholder'=>'Nhập tên danh mục'
+    ],
+    'evaluate'=>[
+        'evaluate_cvs'=>'Đánh giá CV của ứng viên',
+        'evaluate_process'=>'Các bước đánh gía',
+        'candidate_evaluate'=>'Đánh giá ứng viên',
+        'step'=>'Bước',
+        'process_1'=>'Đã Applied',
+        'process_2'=>'Đang kiểm tra',
+        'process_3'=>'Đăng kí lịch phỏng vấn',
+        'process_4'=>'Kết thúc'
+    ],
+    'table'=>[
+        'no'=>'No.',
+        'location'=>'Địa điểm',
+        'action'=>'Hành động',
+        'category'=>'Danh mục',
+        'status'=>'Trạng thái',
+        'create_by'=>'Tạo bởi',
     ]
 ];

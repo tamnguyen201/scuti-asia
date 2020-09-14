@@ -1,9 +1,9 @@
 <div class="form-card">
     <div class="col-md-6">
-        <h3>Đánh giá ứng viên :</h3>
+        <h3>@lang('custom.evaluate.candidate_evaluate') :</h3>
     </div>
     <div class="col-md-6">
-        <h3 class="steps">Step 2 - 4</h3>
+        <h3 class="steps">@lang('custom.evaluate.step') 2 - 4</h3>
     </div>
     <div class="row">
       <div class="col-md-12">

@@ -36,7 +36,7 @@
                     </div>
                     <div class="category form-group row">
                         <div class="col-md-6">
-                            <label for="inputCategory">@lang('custom.category') *</label>
+                            <label for="inputCategory">@lang('custom.categories') *</label>
                             <select name="category_id" id="inputCategory" class="form-control" @error('category_id') is-invalid @enderror>
                                 <option value="null" disabled="disabled" selected>@lang('custom.jobs.placeholder_category')</option>
                                 @foreach ($dataCategory as $value)
@@ -51,7 +51,7 @@
                         </div>
 
                         <div class="col-md-6">
-                            <label for="inputLocation">@lang('custom.location') *</label>
+                            <label for="inputLocation">@lang('custom.locations') *</label>
                             <select name="location_id" id="inputLocation" class="form-control" @error('location_id') is-invalid @enderror>
                                 <option value="null" disabled="disabled" selected>@lang('custom.jobs.placeholder_location')</option>
                                 @foreach ($dataLocation as $value)
