@@ -29,6 +29,7 @@ class AdminController extends Controller
         $data['candidate_failed'] = \App\Model\UserJob::where('status', '=', 1)
                                         ->where('result', '=', 0)
                                         ->count();
+        $data['jobs'] = \App\Model\Job::where('status', '=', 1)->get();
 
         for ($i=5; $i >= 0; $i--) { 
             $arrMonth[] = \Carbon\Carbon::now()->subMonths($i)->format('F');

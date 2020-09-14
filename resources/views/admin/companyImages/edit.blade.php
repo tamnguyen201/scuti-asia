@@ -1,4 +1,3 @@
-
 @extends('admin.layout.layout')
 @section('title', trans('custom.page_title.company_image_manage'))
 @section('content')
@@ -29,6 +28,13 @@
                                 <label>@lang('custom.name')</label>
                                 <input type="text" name="name" value="{{$image->name}}" class="form-control">
                                 @error('name') 
+                                <span class="help-block"> {{$message}} </span>
+                                @enderror
+                            </div>
+                            <div class="form-group @error('description') has-error @enderror">
+                                <label>@lang('custom.description')</label>
+                                <textarea name="description" cols="30" rows="9" class="form-control"> {{$image->description}} </textarea>
+                                @error('description') 
                                 <span class="help-block"> {{$message}} </span>
                                 @enderror
                             </div>

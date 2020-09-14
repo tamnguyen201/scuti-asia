@@ -91,6 +91,11 @@ return [
     ],
 
     'section' => [
+        'visit_us' => [
+            'form_title' => 'Mẫu đặt lịch hẹn',
+            'visit_our_office' => 'Ghé thăm công ty chúng tôi',
+            'meeting_with_ceo' => 'Tạo cuộc họp với CEO',
+        ],
         'recruitment' => [
             'title' => 'Tin Tuyển Dụng',
             'description' => 'Chúng tôi luôn tìm kiếm những người tuyệt vời! Nếu bạn chưa tìm thấy cơ hội phù hợp hiện tại, nhưng tin rằng bạn có thể trở thành 1 phần của Scuti, hãy gửi thông tin cho chúng tôi.',

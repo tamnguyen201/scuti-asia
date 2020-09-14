@@ -94,21 +94,21 @@ class RoleSeeder extends Seeder
             ['id'=>2, 'name' => 'Scuti Mang Lại Cho Bạn', 'slug' => Str::slug('Scuti Mang Lại Cho Bạn'), 'description' => 'Hãy đến với chúng tôi khi nhận thấy những giá trị này phù hợp với bạn!', 
                 'content' => 
                     '<div class="col-lg-4">
-                        <div class="text-container">
+                        <div class="text-container text-center">
                             <h3>Môi Trường Lí Tưởng</h3>
-                            <p>Linh hoạt, thách thức, năng động và thân thiện, là những điều chúng tôi mang đến cho bạn sự thoải mái để tập trung tạo hiệu quả công việc tốt nhất bên cạnh sự hỗ trợ của đồng nghiệp và hướng dẫn từ quản lý.</p>
+                            <p class="text-justify">Linh hoạt, thách thức, năng động và thân thiện, là những điều chúng tôi mang đến cho bạn sự thoải mái để tập trung tạo hiệu quả công việc tốt nhất bên cạnh sự hỗ trợ của đồng nghiệp và hướng dẫn từ quản lý.</p>
                         </div>
                     </div>
                     <div class="col-lg-4">
-                        <div class="text-container">
+                        <div class="text-container text-center">
                             <h3>Cơ hội phát triển </h3>
-                            <p>Bạn sẽ có cơ hội để học hỏi rất nhanh và phát triển sự nghiệp bền vững trong ngành CNTT cùng với sự mở rộng và phát triển không ngừng của công ty.</p>
+                            <p class="text-justify">Bạn sẽ có cơ hội để học hỏi rất nhanh và phát triển sự nghiệp bền vững trong ngành CNTT cùng với sự mở rộng và phát triển không ngừng của công ty.</p>
                         </div>
                     </div>
                     <div class="col-lg-4">
-                        <div class="text-container">
+                        <div class="text-container text-center">
                             <h3>Thoải mái sáng tạo</h3>
-                            <p>Đừng để mình bị gò bó trong những nguyên tắc cũ kỹ, cổ hủ. Những nguyên tắc đó sẽ giết dần giết mòn những suy nghĩ tích cực của bạn. Hãy mạnh dạn phá vỡ những điều từ xa xưa trong cuộc sống nếu nó không đúng.</p>
+                            <p class="text-justify">Đừng để mình bị gò bó trong những nguyên tắc cũ kỹ, cổ hủ. Những nguyên tắc đó sẽ giết dần giết mòn những suy nghĩ tích cực của bạn. Hãy mạnh dạn phá vỡ những điều từ xa xưa trong cuộc sống nếu nó không đúng.</p>
                         </div>
                     </div>',
                 'image'=>'https://www.scuti.asia/uploads/6/1/9/4/61941893/mg-5747.jpg'],
@@ -181,7 +181,7 @@ class RoleSeeder extends Seeder
             ['id'=>5,'user_id' => 1, 'category_name'=>'ReactJs', 'slug' => \Str::slug('ReactJs'), 'status' => 1],
         ]);
         DB::table('jobs')->insert([
-            ['id'=>1,'category_id' => 1, 'name'=>'PHP', 'slug' => \Str::slug('PHP'), 'description'=> 'Support requirement defi- nition, requirement analysis and testing in projects with the viewpoint of users with CEO.', 
+            ['id'=>1,'category_id' => 1, 'name'=>'PHP', 'slug' => \Str::slug('PHP'), 'description'=> 'Hỗ trợ xác định yêu cầu, phân tích yêu cầu và thử nghiệm trong các dự án với quan điểm của người dùng với CEO.', 
                 'content' => 
                 '<h4>Mô tả công việc</h4>
                 <p>
@@ -214,7 +214,7 @@ class RoleSeeder extends Seeder
                     - Thăng tiến nhanh nếu chứng tỏ được năng lực bản thân. Lương sẽ lên cao đúng như năng lực chứng mình được trong thời gian làm việc.
                 </p>',
                 'location_id' => 1, 'salary' => 'Thỏa Thuận', 'expireDay' => '2020/08/15', 'status' =>1],
-            ['id'=>2,'category_id' => 2, 'name'=>'Node', 'slug' => \Str::slug('Node'), 'description'=> 'Support requirement defi- nition, requirement analysis and testing in projects with the viewpoint of users with CEO.', 
+            ['id'=>2,'category_id' => 2, 'name'=>'Node', 'slug' => \Str::slug('Node'), 'description'=> 'Hỗ trợ xác định yêu cầu, phân tích yêu cầu và thử nghiệm trong các dự án với quan điểm của người dùng với CEO.', 
                 'content' => 
                     '<h4>Mô tả công việc</h4>
                     <div class="description">
@@ -248,7 +248,7 @@ class RoleSeeder extends Seeder
                         <li>Chính sách thưởng phong phú: Thưởng tháng lương 13 + thưởng nóng dự án + thưởng nhân viên xuất sắc + các khoản thưởng khác;</li><li>Xét tăng lương 2 lần/năm dựa trên hiệu quả công việc;</li><li>Hưởng đầy đủ các chế độ bảo hiểm theo quy định;</li><li>Được tặng quà, thăm hỏi nhân các dịp sinh nhật, cưới hỏi, hiếu hỉ, ốm đau…;</li><li>Làm việc trong môi trường hiện đại, trẻ trung, văn hóa mở với nhiều hoạt động văn hóa tinh thần: du lịch, nghỉ dưỡng, party sự kiện…</li>
                     </ul>',
                 'location_id' => 1, 'salary' => 'Thỏa Thuận', 'expireDay' => '2020/08/15', 'status' =>1],
-            ['id'=>3,'category_id' => 3, 'name'=>'Java', 'slug' => \Str::slug('java'), 'description'=> 'Support requirement defi- nition, requirement analysis and testing in projects with the viewpoint of users with CEO.', 
+            ['id'=>3,'category_id' => 3, 'name'=>'Java', 'slug' => \Str::slug('java'), 'description'=> 'Hỗ trợ xác định yêu cầu, phân tích yêu cầu và thử nghiệm trong các dự án với quan điểm của người dùng với CEO.', 
                 'content' => 
                     '<h4>Mô tả công việc</h4>
                     <p>
@@ -286,7 +286,7 @@ class RoleSeeder extends Seeder
                         · Tham gia các hoạt động tinh thần: du lịch, giải trí do Công ty tổ chức…
                     </p>',
                 'location_id' => 1, 'salary' => 'Thỏa Thuận', 'expireDay' => '2020/08/15', 'status' =>1],
-            ['id'=>4,'category_id' => 4, 'name'=>'FE', 'slug' => \Str::slug('FE'), 'description'=> 'Support requirement defi- nition, requirement analysis and testing in projects with the viewpoint of users with CEO.', 
+            ['id'=>4,'category_id' => 4, 'name'=>'FE', 'slug' => \Str::slug('FE'), 'description'=> 'Hỗ trợ xác định yêu cầu, phân tích yêu cầu và thử nghiệm trong các dự án với quan điểm của người dùng với CEO.', 
                 'content' => 
                     '<h4>Mô tả công việc</h4>
                     <p>
@@ -299,7 +299,7 @@ class RoleSeeder extends Seeder
                     <p>- Thời gian làm việc: 8:00 ~ 17:00 từ thứ 2 đến thứ 6 (nghỉ Thứ Bảy, Chủ Nhật và các ngày Lễ, Tết)<br>- Thưởng: 2 lần/năm<br>- Ngoài các gói bảo hiểm cơ bản theo quy định của Luật Lao Động, bạn còn được tham gia gói bảo hiểm tai nạn lao động tại Lampart.<br>- Trà, sữa, coffee,... miễn phí<br>- Ngày nghỉ đặc biệt dành cho nhân viên nữ: 0.5 ngày/ tháng.<br>- Được hưởng những phúc lợi đặc biệt như chương trình quà tết, bánh trung thu, tiền mừng đám cưới (5,000,000 VND), tiền mừng khi sanh con (2,000,000 VND),…<br>- Đối với nhân viên ký hợp đồng không xác định thời hạn: từ thời điểm ký hợp đồng không xác định thời hạn, cứ mỗi năm được cộng thêm 1 ngày nghỉ phép. Ngày nghỉ phép không sử dụng hết trong năm sẽ trả vào lương tháng cuối cùng của năm.
                     </p>',
                 'location_id' => 1, 'salary' => 'Thỏa Thuận', 'expireDay' => '2020/08/15', 'status' =>1],
-            ['id'=>5,'category_id' => 5, 'name'=>'React', 'slug' => \Str::slug('React'), 'description'=> 'Support requirement defi- nition, requirement analysis and testing in projects with the viewpoint of users with CEO.', 
+            ['id'=>5,'category_id' => 5, 'name'=>'React', 'slug' => \Str::slug('React'), 'description'=> 'Hỗ trợ xác định yêu cầu, phân tích yêu cầu và thử nghiệm trong các dự án với quan điểm của người dùng với CEO.', 
                 'content' => 
                     '<h4>Mô tả công việc</h4>
                     <div class="description">

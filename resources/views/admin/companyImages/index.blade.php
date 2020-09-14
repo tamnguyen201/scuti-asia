@@ -3,7 +3,7 @@
 @section('content')
 <div class="row">
     <ol class="breadcrumb">
-        <li><a href="#">
+        <li><a href="{{route('admin.home')}}">
             <em class="fa fa-home"></em>
         </a></li>
         <li class="active">@lang('custom.page_title.company_image_manage')</li>
@@ -21,23 +21,30 @@
             <div class="panel-body">
                 <form action="{{route('company_images.store')}}" class="" method="POST" enctype="multipart/form-data">
                     @csrf
-                    <div class="form-group @error('email') has-error @enderror">
-                        <label class="label-required">@lang('custom.email')</label>
-                        <input type="email" name="email" value="{{old('email')}}" class="form-control" placeholder="@lang('custom.placehoder.email')">
-                        @error('email') 
-                        <span class="help-block"> {{$message}} </span>
+                    <div class="col-lg-4">
+                        <div class="form-group @error('name') has-error @enderror">
+                            <label class="label-required">@lang('custom.name')</label>
+                            <input type="name" name="name" value="{{old('name')}}" class="form-control" placeholder="@lang('custom.placehoder.name')">
+                            @error('name') 
+                            <span class="help-block"> {{$message}} </span>
+                            @enderror
+                        </div>
+                        <div class="form-group">
+                            <p class="label-required">@lang('custom.image_url'):</p>
+                            <label class="btn btn-default">
+                                <input type="file" name="image_url" accept="image/*">
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-lg-8">
+
+                    </div>
+                    <div class="col-lg-12">
+                        <button class="btn btn-default">@lang('custom.button.submit')</button>
+                        @error('image_url') 
+                        <p class="text-danger"> {{$message}} </p>
                         @enderror
                     </div>
-                    <div class="form-group">
-                        <p class="label-required">Upload new files:</p>
-                        <label class="btn btn-default">
-                            <input type="file" name="image_url" accept="image/*">
-                        </label>
-                    </div>
-                    <button class="btn btn-default">@lang('custom.button.submit')</button>
-                    @error('image_url') 
-                    <p class="text-danger"> {{$message}} </p>
-                    @enderror
                 </form>
             </div>
         </div>

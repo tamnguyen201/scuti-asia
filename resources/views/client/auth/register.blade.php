@@ -55,9 +55,9 @@
                         <span class="help-block with-errors text-danger"> {{$message}} </span>
                     @enderror
                 </div>
-                <div class="form-group checkbox">
+                <!-- <div class="form-group checkbox">
                     <input type="checkbox" name="remember"> @lang('client.page.auth.register.term')
-                </div>
+                </div> -->
                 <div class="form-group">
                     <button type="submit" class="form-control-submit-button">@lang('client.page.auth.register.submit')</button>
                 </div>

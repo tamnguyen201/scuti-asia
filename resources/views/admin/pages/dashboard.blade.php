@@ -67,31 +67,47 @@
 <div class="row">
     <div class="col-md-12">
         <div class="panel panel-default">
+        <div class="panel-heading">@lang('custom.statistical')</div>
             <div class="panel-body">
-                
-                <div class="search-result-item col-md-12">
-                    <div class="col-sm-2"><a href="#">
-                        <img class="search-result-image img-responsive" src="http://via.placeholder.com/150x150">
-                        </a></div>
-                    <div class="search-result-item-body col-sm-10">
-                        <div class="row">
-                            <div class="col-sm-9">
-                                <h3 class="search-result-title"><a href="#">Search Result 3</a></h3>
-                                <p class="text-muted">Category</p>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut maximus, odio a imperdiet rhoncus, nunc metus luctus mi, at dignissim sem orci ut massa. Morbi a magna risus. Nunc vestibulum, nibh sit amet dictum pharetra, augue quam faucibus neque, et ultrices dui arcu ac ligula.</p>
-                            </div>
-                            <div class="col-sm-3 text-center">
-                                <h4>$499</h4>
-                                <a class="btn btn-primary btn-info btn-md" href="#">View Details</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>
+                                <div class="th-inner">@lang('custom.title')</div>
+                            </th>
+                            <th>
+                                <div class="th-inner">@lang('custom.category')</div>
+                            </th>
+                            <th>
+                                <div class="th-inner">@lang('custom.jobs.date')</div>
+                            </th>
+                            <th>
+                                <div class="th-inner">@lang('custom.status')</div>
+                            </th>
+                            <th>
+                                <div class="th-inner text-center">@lang('custom.jobs.candidate_number')</div>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody class="table-list-role">
+                        @foreach($data['jobs'] as $item)
+                        <tr class="data-role-">
+                            <td>{{ $item->name }}</td>
+                            <td>{{ $item->category->category_name }}</td>
+                            <td>
+                                {{ \Carbon\Carbon::parse($item->expireDay)->format('d/m/Y')}}
+                            </td>
+                            <td>
+                                {{ $item->status == 1 ? 'Active' : 'InActive' }}
+                            </td>
+                            <td class="text-center">
+                                <a href="{{ route('candidate.byJob', $item->id) }}" class="btn btn-primary">{{ count($item->user) }} <span class="fa fa-user"></span></a>
+                            </td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
             </div>
-        </div>
-        <div class="text-center">
-            
         </div>
     </div>
 </div>

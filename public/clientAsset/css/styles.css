@@ -1455,7 +1455,7 @@ input[type='checkbox'] {
 
 .cards-2 .card {
 	max-width: 20rem;
-	min-height: 22.5rem;
+	min-height: 23rem;
 	padding-top: 1rem;
 	margin: auto;
 	margin-bottom: 1rem;
@@ -1652,8 +1652,8 @@ input[type='checkbox'] {
 }
 
 .slider-2 .card-image {
-	width: 7rem;
-	height: 7rem;
+	width: 13rem;
+	height: auto;
 	margin-right: auto;
 	margin-bottom: 0.25rem;
 	margin-left: auto;
@@ -1856,7 +1856,7 @@ input[type='checkbox'] {
 .form-2 .map-responsive {
 	position: relative;
 	overflow: hidden;
-	height: 0;
+	max-height: 32rem;
 	margin-bottom: 4rem;
 	padding-bottom: 70%;
 	border-radius: 0.25rem;
@@ -2048,6 +2048,10 @@ a:hover.back-to-top {
 
 .ex-basic-2 .form-container {
 	margin-top: 3rem;
+}
+
+.col-md-2.text-center.pt-2.mb-3 {
+    font-size: 3.5rem;
 }
 
 /*****************************/
@@ -2253,6 +2257,7 @@ a:hover.back-to-top {
 		width: 1.375rem;
 		background-size: 1.375rem 2.125rem;
 	}
+
 	/* end of testimonials */
 
 	
@@ -2282,6 +2287,11 @@ a:hover.back-to-top {
 	.ex-basic-2 .form-container {
 		margin-top: 0;
 	}
+
+	.col-md-2.text-center.pt-2.mb-3 {
+		font-size: 3.5rem;
+	}
+
 	/* end of extra pages */
 }
 /* end of min-width width 768px */
@@ -2514,6 +2524,7 @@ a:hover.back-to-top {
 	.cards-2 .card {
 		display: inline-block;
 		max-width: 17rem;
+		min-height: 24rem;
 		margin-right: 1rem;
 		margin-left: 1rem;
 	}
@@ -2722,7 +2733,7 @@ a:hover.back-to-top {
 
 	/* Products */
 	.cards-2 .card {
-		max-width: 20rem;
+		max-width: 21rem;
 		min-height: 23.5rem;
 	}
 	/* end of products */

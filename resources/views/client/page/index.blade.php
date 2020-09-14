@@ -11,7 +11,6 @@
 .btn:visited {
     text-transform: uppercase;
     text-decoration: none;
-    color: #000 !important;
     padding: 15px 40px;
     display: inline-block;
     border-radius: 100px;
@@ -86,7 +85,7 @@
                             <div class="card-image">
                                 <img class="img-fluid" src="{{$item->image_url}}" style="max-width: 320px;max-height:205px" alt="{{$item->name}}">
                             </div>
-                            <div class="card-body">
+                            <div class="card-body px-2">
                                 <h5>{{$item->name}}</h5>
                                 <p>{{$item->description}}</p>
                             </div>
@@ -284,39 +283,41 @@
             </div>
             <div class="row">
                 <div class="col-lg-6">
-                    <div class="map-responsive">
-                        <img class="img-fluid" src="{{$data['section'][8]->image}}" alt="alternative">
+                    <div class="map-responsive text-center">
+                        <img class="img-fluid" src="{{$data['section'][8]->image}}" alt="alternative" style="max-height: 30rem">
+                        <p class="py-3">Mr Tomohide Kakeya - CEO & Founder</p>
                     </div>
                 </div>
                 <div class="col-lg-6">
+                    <h3 class="ml-4">@lang('client.section.visit_us.form_title')</h3>
                     <form action="{{route('client.visit_us')}}" id="contactForm" method="post">
                         @csrf
                         <div class="form-group">
-                            <input type="text" class="form-control-input" name="name">
-                            <label class="label-control" for="cname">@lang('custom.name')</label>
+                            <input type="text" class="form-control-input" name="name" value="{{old('name')}}">
+                            <label class="label-control" for="cname">@lang('custom.name') <span class="text-danger">*</span></label>
                             <div class="help-block text-danger with-errors"></div>
                         </div>
                         <div class="form-group">
-                            <input type="email" class="form-control-input" name="email">
-                            <label class="label-control" for="cemail">@lang('custom.email')</label>
+                            <input type="email" class="form-control-input" name="email" value="{{old('email')}}">
+                            <label class="label-control" for="cemail">@lang('custom.email') <span class="text-danger">*</span></label>
                             <div class="help-block text-danger with-errors"></div>
                         </div>
                         <div class="form-group">
                             <div class="form-check">
                                 <label class="form-check-label">
-                                    <input type="radio" class="form-check-input" name="type" value="coffe">Coffee
+                                    <input type="radio" class="form-check-input" name="type" checked value="@lang('client.section.visit_us.visit_our_office')">@lang('client.section.visit_us.visit_our_office')
                                 </label>
                             </div>
                             <div class="form-check">
                                 <label class="form-check-label">
-                                    <input type="radio" class="form-check-input" name="type" value="trà đá">Trà Đá
+                                    <input type="radio" class="form-check-input" name="type" value="@lang('client.section.visit_us.meeting_with_ceo')">@lang('client.section.visit_us.meeting_with_ceo')
                                     <div class="ml-n3 help-block text-danger with-errors"></div>
                                 </label>
                             </div>
                         </div>
                         <div class="form-group">
-                            <textarea class="form-control-textarea" name="message"></textarea>
-                            <label class="label-control" for="cmessage">@lang('custom.message')</label>
+                            <textarea class="form-control-textarea" name="message">{{old('message')}}</textarea>
+                            <label class="label-control" for="cmessage">@lang('custom.message') <span class="text-danger">*</span></label>
                             <div class="help-block text-danger with-errors"></div>
                         </div>
                         <div class="form-group">
@@ -400,8 +401,8 @@
 
                             <div class="tab-pane fade row col-lg-12 d-flex show active" id="v-pills-all" role="tabpanel" aria-labelledby="v-pills-all-tab">
                                 @foreach($data['hotJobs'] as $job)
-                                <div class="d-md-flex col-6 development">
-                                    <div class="col-md-12 list-group-item d-flex">
+                                <div class="d-md-flex col-lg-6 col-12 d-block development">
+                                    <div class="col-md-12 list-group-item d-md-flex">
                                         <div class="col-md-7 col-12">
                                             <div class="mb-block cell name-job">
                                                 <h4 class="title-h4"><a style="font-weight: normal;color: #f4511e; text-decoration: none" href="{{route('job-detail', [$job->id, $job->slug])}}"> {{$job->name}}</a></h4>
