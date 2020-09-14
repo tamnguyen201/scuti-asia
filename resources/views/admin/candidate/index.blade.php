@@ -28,7 +28,7 @@
                                 <input class="form-control" style="margin-right: 15px" type="text" id="input-search"
                                     placeholder="Tìm kiếm">
                                 <button type="button" id="btn-search" class="btn btn-primary"
-                                    style="margin: 0px">Tìm</button>
+                                    style="margin: 0px"><span class="fa fa-search"></span> @lang('custom.button.search')</button>
                             </div>
                         </div>
                         <div class="fixed-table-container">

@@ -8,18 +8,18 @@
             <em class="fa fa-home"></em>
         </a></li>
         <li class="active">@lang('custom.page_title.job')</li>
-        <li class="active">@lang('custom.page_title.job_edit')</li>
+        <li class="active">@lang('custom.jobs.edit')</li>
     </ol>
 </div>
 <div class="row">
     <div class="col-lg-12">
-        <h1 class="page-header">@lang('custom.page_title.job_edit')</h1>
+        <h1 class="page-header">@lang('custom.jobs.job_edit_title')</h1>
     </div>
 </div>
 <div class="row">
 <div class="col-lg-12">
     <div class="panel panel-default">
-       <div class="panel-heading">@lang('custom.page_title.job_edit')</div>
+       <div class="panel-heading">@lang('custom.jobs.job_edit_title')</div>
        <div class="panel-body">
            <div class="col-md-12">
                 <form method="post" action="{{ route('jobs.update', $jobById->id) }}">
@@ -31,7 +31,7 @@
                     </div>
                     <div class="category form-group row">
                         <div class="col-md-6">
-                            <label for="inputCategory">@lang('custom.category') * :</label>
+                            <label for="inputCategory">@lang('custom.categories') * :</label>
                             <select name="category_id" id="inputCategory" class="form-control" @error('category') is-invalid @enderror>
                                 <option value="null" disabled="disabled" selected>Choose...</option>
                                 @foreach ($dataCategory as $item)
@@ -44,7 +44,7 @@
                             </select>
                         </div>
                         <div class="col-md-6">
-                            <label for="inputLocation">@lang('custom.location') * :</label>
+                            <label for="inputLocation">@lang('custom.locations') * :</label>
                             <select name="location_id" id="inputLocation" class="form-control" @error('location') is-invalid @enderror>
                                 <option value="null" disabled="disabled" selected>Choose Location...</option>
                                 @foreach ($dataLocation as $item)

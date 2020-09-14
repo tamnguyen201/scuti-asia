@@ -31,7 +31,7 @@
             </div>
             <div class="detail row">
                 <div class="title col-md-3">
-                    <h4>@lang('custom.category') :</h4>
+                    <h4>@lang('custom.categories') :</h4>
                 </div>
                 <div class="content col-md-8">
                     <p>{{ $jobById->category->category_name }}</p>
@@ -39,7 +39,7 @@
             </div>
             <div class="detail row">
                 <div class="title col-md-3">
-                    <h4>@lang('custom.location')</h4>
+                    <h4>@lang('custom.locations')</h4>
                 </div>
                 <div class="content col-md-8">
                     <p>{{ $jobById->location['name'] }} </p>

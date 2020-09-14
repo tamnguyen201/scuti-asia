@@ -12,6 +12,7 @@
       <link href="adminAsset/css/font-awesome.min.css" rel="stylesheet">
       <link href="adminAsset/css/datepicker3.css" rel="stylesheet">
       <link href="adminAsset/css/styles.css" rel="stylesheet">
+      <link rel="stylesheet" href="{{ asset('adminAsset/css/validate.css') }}">
       <!--Custom Font-->
       <link href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
       <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">

@@ -2,3 +2,8 @@ span.invalid-feedback {
     font-size: 11px;
     color: red;
 }
+
+.text-danger{
+    font-size: 11px;
+    color: red;
+}

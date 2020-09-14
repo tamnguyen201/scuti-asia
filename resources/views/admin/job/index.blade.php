@@ -37,7 +37,7 @@
                                         <div class="fht-cell"></div>
                                     </th>
                                     <th style="">
-                                        <div class="th-inner sortable">@lang('custom.category') :<span class="order"><span class="caret" style="margin: 10px 5px;"></span></span></div>
+                                        <div class="th-inner sortable">@lang('custom.categories') :<span class="order"><span class="caret" style="margin: 10px 5px;"></span></span></div>
                                         <div class="fht-cell"></div>
                                     </th>
                                     <th style="">
