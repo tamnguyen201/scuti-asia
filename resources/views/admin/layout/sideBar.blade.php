@@ -4,7 +4,7 @@
             <img src="{{Auth::guard('admin')->user()->avatar}}" class="img-responsive" alt="">
         </div>
         <div class="profile-usertitle">
-            <a href="{{ route('admin.information') }}">
+            <a href="{{ route('admin.information') }}" style="text-decoration: none">
                 <div class="profile-usertitle-name">{{Auth::guard('admin')->user()->name}}</div>
             </a>
             <div class="profile-usertitle-status"><span class="indicator label-success"></span>@lang('custom.menu.online')</div>
@@ -45,7 +45,7 @@
             </ul>
         </li>
         <li><a href="{{route('locations.index')}}"><span class="fa fa-location-arrow">&nbsp;</span> @lang('custom.menu.location')</a></li>
-        <li><a href="widgets.html"><em class="fa fa-calendar">&nbsp;</em> @lang('custom.menu.calendar') </a></li>
+        <li><a href="{{ route('fullcalendar.show') }}"><em class="fa fa-calendar">&nbsp;</em> @lang('custom.menu.calendar') </a></li>
         <li><a href="{{route('contacts.index')}}"><span class="fa fa-phone">&nbsp;</span> @lang('custom.menu.contact')</a></li>
         <li class="parent ">
             <a data-toggle="collapse" href="#sub-item-3">

@@ -116,6 +116,7 @@ Route::group(
             return view('welcome', compact('calendar'));
         });
         // Route::post('fullcalendar/delete','EvaluateController@destroyCalendar');
+        Route::get('fullcalendar','FullcalendarController@show')->name('fullcalendar.show');
 
         Route::resource('new_spaper', 'NewSpaperController');
         Route::resource('sections', 'SectionController');

@@ -6,6 +6,7 @@ use App\Model\Event;
 use Redirect,Response;
 use App\Model\Evaluate;
 use Illuminate\Http\Request;
+use App\Http\Requests\EventRequest;
 use MaddHatter\LaravelFullcalendar\Facades\Calendar;
 use App\Repositories\Process\ProcessRepositoryInterface;
 use App\Repositories\Evaluate\EvaluateRepositoryInterface;
@@ -57,14 +58,7 @@ class EvaluateController extends Controller
         ]) 
         ->setCallbacks([ 
             'dayClick' => 'function(date, event, view) {
-                $("#dialog").dialog({
-                    title:"Add Event",
-                    width:600,
-                    height:500,
-                    modal:true,
-                    show:{effect: "clip", duration: 350},
-                    hide:{effect: "clip", duration: 250},
-                  })
+                $("#myModal").modal("show");
             }'
         ]);
 
@@ -72,7 +66,7 @@ class EvaluateController extends Controller
     }
 
 
-    public function storeCalendar(Request $request)
+    public function storeCalendar(EventRequest $request)
     {  
         $insertArr = [ 
             'user_id' => $request->id,
