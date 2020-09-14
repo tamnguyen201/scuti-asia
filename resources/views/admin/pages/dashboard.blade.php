@@ -76,7 +76,7 @@
                                 <div class="th-inner">@lang('custom.title')</div>
                             </th>
                             <th>
-                                <div class="th-inner">@lang('custom.category')</div>
+                                <div class="th-inner">@lang('custom.categoríes')</div>
                             </th>
                             <th>
                                 <div class="th-inner">@lang('custom.jobs.date')</div>
