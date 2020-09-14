@@ -20,7 +20,7 @@
             <div class="panel panel-orange panel-widget border-right">
                 <div class="row no-padding"><em class="fa fa-xl fa-users color-teal"></em>
                     <div class="large">{{$data['candidates']}}</div>
-                    <div class="text-muted">@lang('custom.candidate_total')</div>
+                    <div class="text-muted">@lang('custom.candidate_new')</div>
                 </div>
             </div>
         </div>
@@ -76,7 +76,7 @@
                                 <div class="th-inner">@lang('custom.title')</div>
                             </th>
                             <th>
-                                <div class="th-inner">@lang('custom.categoríes')</div>
+                                <div class="th-inner">@lang('custom.categories')</div>
                             </th>
                             <th>
                                 <div class="th-inner">@lang('custom.jobs.date')</div>

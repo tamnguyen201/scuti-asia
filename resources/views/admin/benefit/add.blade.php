@@ -21,20 +21,13 @@
             <div class="panel-heading">@lang('custom.page_title.form')</div>
             <div class="panel-body">
                 <div class="col-md-12">
-                    <form role="form" action="{{route('new_spaper.store')}}" method="POST" enctype="multipart/form-data">
+                    <form role="form" action="{{route('benefits.store')}}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="col-md-6">
-                            <div class="form-group @error('title') has-error @enderror">
-                                <label>@lang('custom.title')</label>
-                                <input type="text" name="title" class="form-control" value="{{old('title')}}">
-                                @error('title') 
-                                <span class="help-block"> {{$message}} </span>
-                                @enderror
-                            </div>
-                            <div class="form-group @error('url') has-error @enderror">
-                                <label>@lang('custom.url')</label>
-                                <input type="text" name="url" class="form-control" value="{{old('url')}}">
-                                @error('url') 
+                            <div class="form-group @error('name') has-error @enderror">
+                                <label>@lang('custom.name')</label>
+                                <input type="text" name="name" class="form-control" value="{{old('name')}}">
+                                @error('name') 
                                 <span class="help-block"> {{$message}} </span>
                                 @enderror
                             </div>
@@ -61,7 +54,7 @@
                         
                         <div class="col-md-12 text-center">
                             <button type="submit" class="btn btn-primary">@lang('custom.button.submit') <em class="fa fa-check"></em></button>
-                            <a href="{{route('new_spaper.index')}}" class="btn btn-danger">@lang('custom.button.cancel')</a>
+                            <a href="{{route('benefits.index')}}" class="btn btn-danger">@lang('custom.button.cancel')</a>
                         </div>
                     </form>
                 </div>

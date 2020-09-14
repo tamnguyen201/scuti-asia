@@ -32,7 +32,7 @@ class NewSpaperController extends Controller
     {
         $this->NewSpaperRepository->create($request->all());
 
-        return redirect()->route('new_spaper.index')->with('success', trans('custom.alert_messages.success'));
+        return redirect()->route('new-spaper.index')->with('success', trans('custom.alert_messages.success'));
     }
 
     public function edit($id)
@@ -46,13 +46,13 @@ class NewSpaperController extends Controller
     {
         $this->NewSpaperRepository->update($request->all(), $id);
         
-        return rederect()->route("new_spaper.index")->with('success', trans('custom.alert_messages.success'));;
+        return rederect()->route("new-spaper.index")->with('success', trans('custom.alert_messages.success'));;
     }
 
     public function destroy($id)
     {
         $this->NewSpaperRepository->delete($id);
 
-        return redirect()->route("new_spaper.index")->with('success', trans('custom.alert_messages.success'));
+        return redirect()->route("new-spaper.index")->with('success', trans('custom.alert_messages.success'));
     }
 }

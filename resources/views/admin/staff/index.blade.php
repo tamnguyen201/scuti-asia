@@ -139,12 +139,12 @@
         $(document).ready(function(){
             $('.js-switch').change(function () {
                 let status = $(this).prop('checked') === true ? 1 : 0;
-                let job_id = $(this).data('id');
+                let admin_id = $(this).data('id');
                 $.ajax({
                     type: "GET",
                     dataType: "json",
-                    url: '{{ route('admin.update.status') }}',
-                    data: {'status': status, 'job_id': job_id},
+                    url: "{{ route('admin.update.status') }}",
+                    data: {'status': status, 'admin_id': admin_id},
                     success: function (data) {
                         toastr.options.closeButton = true;
                         toastr.options.closeMethod = 'fadeOut';

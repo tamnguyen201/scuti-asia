@@ -62,7 +62,7 @@ Route::group(
 
         Route::get('/', 'AdminController@index')->name('admin.home');
         Route::resource('users', 'UserController')->only(['index', 'show']);
-        Route::get('/change-admin-account-status', 'JobController@updateStatus')->name('admin.update.status');
+        Route::get('/change-admin-account-status', 'EmployeeController@updateStatus')->name('admin.update.status');
         Route::resource('employees', 'EmployeeController');
         Route::resource('locations', 'LocationController');
         Route::resource('categories', 'CategoryController');
@@ -118,10 +118,11 @@ Route::group(
         // Route::post('fullcalendar/delete','EvaluateController@destroyCalendar');
         Route::get('fullcalendar','FullcalendarController@show')->name('fullcalendar.show');
 
-        Route::resource('new_spaper', 'NewSpaperController');
+        Route::resource('new-spaper', 'NewSpaperController');
         Route::resource('sections', 'SectionController');
         Route::resource('contacts', 'ContactController')->only(['index', 'show']);
-        
+        Route::resource('main-member', 'MainMemberController');
+        Route::resource('benefits', 'BenefitController');
         });
     }
 );

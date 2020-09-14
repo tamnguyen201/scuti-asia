@@ -22,7 +22,7 @@
                     <div class="bootstrap-table">
                         @if(Auth::guard('admin')->user()->role == config('common.role.Admin'))
                         <div class="fixed-table-toolbar">
-                            <a href="{{route('employees.create')}}" class="btn btn-primary"><span class="fa fa-plus"></span> @lang('custom.button.add')</a>
+                            <a href="{{route('main-member.create')}}" class="btn btn-primary"><span class="fa fa-plus"></span> @lang('custom.button.add')</a>
                         </div>
                         @endif
                         <div class="fixed-table-container">
@@ -37,7 +37,7 @@
                                                 <div class="th-inner">@lang('custom.name')</div>
                                             </th>
                                             <th>
-                                                <div class="th-inner">@lang('custom.email')</div>
+                                                <div class="th-inner">@lang('custom.image_url')</div>
                                             </th>
                                             <th>
                                                 <div class="th-inner">@lang('custom.role')</div>
@@ -49,17 +49,17 @@
                                     </thead>
                                     <tbody>
                                         @php $stt = 1; @endphp
-                                        @foreach($employees as $item)
+                                        @foreach($members as $item)
                                         <tr>
                                             <td>{{$stt++}}</td>
                                             <td>{{$item->name}}</td>
-                                            <td>{{$item->email}}</td>
-                                            <td>{{$item->roleName()}}</td>
+                                            <td><img class="img-responsive" src="{{$item->avatar}}" alt="" style="width: 100px"></td>
+                                            <td>{{$item->position}}</td>
                                             <td class="text-center">
-                                                <a href="{{route('employees.show', $item->id)}}" class="btn btn-primary text-light view-profile"><em class="fa fa-eye"></em></a>
+                                                <a href="{{route('main-member.show', $item->id)}}" class="btn btn-primary text-light view-profile"><em class="fa fa-eye"></em></a>
                                                 @if(Auth::guard('admin')->user()->role == config('common.role.Admin'))
-                                                <a href="{{route('employees.edit', $item->id)}}" class="btn btn-primary text-light"><em class="far fa-edit"></em></a> 
-                                                <form action="{{route('employees.destroy', $item->id)}}" method="post" class="form-delete-{{$item->id}}" style="display: inline">
+                                                <a href="{{route('main-member.edit', $item->id)}}" class="btn btn-primary text-light"><em class="far fa-edit"></em></a> 
+                                                <form action="{{route('main-member.destroy', $item->id)}}" method="post" class="form-delete-{{$item->id}}" style="display: inline">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button class="btn btn-danger text-light delete-confirm" idDelete={{$item->id}}><em class="fas fa-trash-alt"></em></button>
@@ -72,7 +72,7 @@
                                 </table>
                                 <div class="fixed-table-pagination">
                                     <div class="pull-right pagination">
-                                        {{$employees->links()}}
+                                        {{$members->links()}}
                                     </div>
                                 </div>
                             </div>

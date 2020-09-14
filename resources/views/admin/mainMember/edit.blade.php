@@ -1,17 +1,18 @@
+
 @extends('admin.layout.layout')
-@section('title', trans('custom.page_title.employee_manage'))
+@section('title', trans('custom.page_title.new_spaper_manage'))
 @section('content')
 <div class="row">
     <ol class="breadcrumb">
         <li><a href="{{route('admin.home')}}">
             <em class="fa fa-home"></em>
         </a></li>
-        <li class="active">@lang('custom.page_title.employee_manage')</li>
+        <li class="active">@lang('custom.page_title.new_spaper_manage')</li>
     </ol>
 </div>
 <div class="row">
     <div class="col-lg-12">
-        <h1 class="page-header">@lang('custom.page_title.employee_manage')</h1>
+        <h1 class="page-header">@lang('custom.page_title.new_spaper_manage')</h1>
     </div>
 </div>
 <div class="row">
@@ -20,52 +21,41 @@
             <div class="panel-heading">@lang('custom.page_title.form')</div>
             <div class="panel-body">
                 <div class="col-md-12">
-                    <form role="form" action="{{route('employees.update',$manager->id)}}" method="POST" enctype="multipart/form-data">
+                    <form role="form" action="{{route('main-member.update', $member->id)}}" method="POST" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
-                        <input type="hidden" name="user_id" value="{{$manager->id}}">
-                        <div class="col-md-9">
-                            <div class="col-md-4">
-                                <img src="{{asset($manager->avatar)}}" class="img-responsive" alt="">
+                        <div class="col-md-6">
+                            <div class="form-group @error('name') has-error @enderror">
+                                <label>@lang('custom.name')</label>
+                                <input type="text" name="name" value="{{$member->name}}" class="form-control">
+                                @error('name') 
+                                <span class="help-block"> {{$message}} </span>
+                                @enderror
                             </div>
-                            <div class="col-md-8">
-                                <table class="table table-hover">
-                                    <tbody>
-                                        <tr>
-                                            <td>@lang('custom.name')</td>
-                                            <td>{{$manager->name}}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>@lang('custom.email')</td>
-                                            <td>{{$manager->email}}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>@lang('custom.phone')</td>
-                                            <td>{{($manager->phone) ? $manager->phone : 'null'}}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>@lang('custom.address')</td>
-                                            <td>{{($manager->address) ? $manager->address : 'null'}}</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                            <div class="form-group @error('description') has-error @enderror">
+                                <label>@lang('custom.description')</label>
+                                <textarea name="description" cols="30" rows="10" class="form-control">{{$member->description}} </textarea>
+                                @error('description') 
+                                <span class="help-block"> {{$message}} </span>
+                                @enderror
                             </div>
                         </div>
-                        <div class="col-md-3">
-                            <div class="form-group">
-                                <label class="label-required">@lang('custom.role')</label>
-                                <select name="role" class="form-control">
-                                    @foreach (config('common.role') as $key => $item)
-                                        @if($item != config('common.role.User'))
-                                            <option value="{{$item}}" @if($manager->role == $item) selected @endif>{{$key}}</option>
-                                        @endif
-                                    @endforeach
-                                </select>
+                        <div class="col-md-6">
+                            <div class="form-group @error('image') has-error @enderror">
+                                <label>@lang('custom.image_url')</label>
+                                <input type="file" onchange="encodeImageFileAsURL(this)" name="image" accept="image/*">
+                                @error('image') 
+                                <span class="help-block"> {{$message}} </span>
+                                @enderror
+                            </div>
+                            <div class="form-group preview-img">
+                                <img src="{{$member->avatar}}" alt="your image" class="img-responsive" />
                             </div>
                         </div>
+                        
                         <div class="col-md-12 text-center">
                             <button type="submit" class="btn btn-primary">@lang('custom.button.submit') <em class="fa fa-check"></em></button>
-                            <a href="{{route('employees.index')}}" class="btn btn-danger">@lang('custom.button.cancel')  <em class="fa fa-times"></em></a>
+                            <a href="{{route('main-member.index')}}" class="btn btn-danger">@lang('custom.button.cancel')</a>
                         </div>
                     </form>
                 </div>
@@ -73,4 +63,7 @@
         </div>
     </div>
 </div>
+@endsection
+@section('script')
+    @include('admin.preview-img')
 @endsection

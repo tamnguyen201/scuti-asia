@@ -75,7 +75,7 @@ class HomeController extends Controller
     {
         $job = $this->JobRepository->show($id);
 
-        if($job->category->status == 1 && $job->status == 1) {
+        if($job->category->status == 1 && $job->status == 1 && $job->compareExpireDay()) {
             $data['job'] = $job;
             // $data['related_job'] = \App\Model\Job::where('category_id', $data['job']->category_id)->where('id', '<>', $id)->take(5);
             $data['related_job'] = $this->JobRepository->all();
@@ -97,7 +97,7 @@ class HomeController extends Controller
 
         $job = $this->JobRepository->show($id);
 
-        if($job->category->status == 1 && $job->status == 1) {
+        if($job->category->status == 1 && $job->status == 1 && $job->compareExpireDay()) {
             $data['job'] = $job;
             $data['apply'] = \App\Model\UserJob::where('user_id', auth()->user()->id)->where('job_id', $id)->with('process')->first();
             // $data['related_job'] = \App\Model\Job::where('category_id', $data['job']->category_id)->where('id', '<>', $id)->take(5);

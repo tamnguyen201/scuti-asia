@@ -2,47 +2,41 @@
 @section('title', trans('client.page.home.title'))
 @section('css')
     <style>
-        .text-box {
-    margin-left: 44vw;
-     margin-top: 42vh;
-}
+        .btn:link,
+        .btn:visited {
+            text-transform: uppercase;
+            text-decoration: none;
+            padding: 15px 40px;
+            display: inline-block;
+            border-radius: 100px;
+            transition: all .2s;
+        }
 
-.btn:link,
-.btn:visited {
-    text-transform: uppercase;
-    text-decoration: none;
-    padding: 15px 40px;
-    display: inline-block;
-    border-radius: 100px;
-    transition: all .2s;
-}
-
-.btn:hover {
-    transform: translateY(-3px);
-    color: #fff !important;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-}
+        .btn:hover {
+            transform: translateY(-3px);
+            color: #fff !important;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
 
 
-.btn::after {
-    content: "";
-    display: inline-block;
-    height: 100%;
-    width: 100%;
-    border-radius: 100px;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -1;
-    transition: all .4s;
-}
+        .btn::after {
+            content: "";
+            display: inline-block;
+            height: 100%;
+            width: 100%;
+            border-radius: 100px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            transition: all .4s;
+        }
 
 
-.btn:hover::after {
-    transform: scaleX(1.4) scaleY(1.6);
-    opacity: 0;
-}
-
+        .btn:hover::after {
+            transform: scaleX(1.4) scaleY(1.6);
+            opacity: 0;
+        }
     </style>
 @endsection
 @section('content')
@@ -370,7 +364,7 @@
                             <div class="tab-pane fade" id="v-pills-{{$category->id}}" role="tabpanel" aria-labelledby="v-pills-{{$category->id}}-tab">
                             @if($category->jobs->count() > 0)
                                 @foreach($category->jobs as $job)    
-                                    @if($job->status == 1)
+                                    @if($job->status == 1 && $job->compareExpireDay())
                                     <div class="d-md-flex col-6 development">
                                         <div class="col-md-12 list-group-item d-flex">
                                             <div class="col-md-6 col-12">
@@ -460,6 +454,41 @@
                     domForm.find('input[name=' + i + ']').siblings('.text-danger.with-errors').text(val[0]);
                     domForm.find('textarea[name=' + i + ']').siblings('.text-danger.with-errors').text(val[0]);
                 });
+            });
+        });
+
+        $(window).on('load', function() {
+            var $grid = $('.grid').isotope({
+                // options
+                itemSelector: '.element-item',
+                layoutMode: 'fitRows'
+            });
+            
+            // filter items on button click
+            $('.filters-button-group').on( 'click', 'a', function() {
+                var filterValue = $(this).attr('data-filter');
+                $grid.isotope({ filter: filterValue });
+            });
+            
+            // change is-checked class on buttons
+            $('.button-group').each( function( i, buttonGroup ) {
+                var $buttonGroup = $( buttonGroup );
+                $buttonGroup.on( 'click', 'a', function() {
+                    $buttonGroup.find('.is-checked').removeClass('is-checked');
+                    $( this ).addClass('is-checked');
+                });	
+            });
+
+
+            $.ajax({
+                url: url,
+                data: domForm.serialize(),
+                method: "POST",
+            }).done(function (results) {
+                $(".fixed-table-body").html(results);
+            }).fail(function (data) {
+                var errors = data.responseJSON;
+                console.log(errors);
             });
         });
 

@@ -21,7 +21,7 @@
             <div class="panel-body">
                 <div class="bootstrap-table">
                     <div class="fixed-table-toolbar">
-                        <a href="{{route('new_spaper.create')}}" class="btn btn-primary"><span class="fa fa-plus"></span> @lang('custom.button.add')</a>
+                        <a href="{{route('benefits.create')}}" class="btn btn-primary"><span class="fa fa-plus"></span> @lang('custom.button.add')</a>
                     </div>
                     <div class="fixed-table-container">
                         <div class="fixed-table-body">
@@ -38,20 +38,24 @@
                                         <div class="th-inner">@lang('custom.image_url')</div>
                                     </th>
                                     <th>
+                                        <div class="th-inner">@lang('custom.description')</div>
+                                    </th>
+                                    <th>
                                         <div class="th-inner text-center">@lang('custom.action')</div>
                                     </th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @php $stt = 1; @endphp
-                                @foreach($NewSpaper as $item)
+                                @foreach($benefits as $item)
                                 <tr>
                                     <td>{{$stt++}}</td>
-                                    <td>{{$item->title}}</td>
+                                    <td>{{$item->name}}</td>
                                     <td><img class="img-responsive" src="{{$item->image}}" alt="" style="width: 100px"></td>
+                                    <td>{{$item->description}}</td>
                                     <td class="text-center">
-                                        <a href="{{route('new_spaper.edit', $item['id'])}}" class="btn btn-primary text-light btn-edit-form"><em class="far fa-edit"></em></a> 
-                                        <form action="{{route('new_spaper.destroy', $item['id'])}}" method="post" class="form-delete-{{$item->id}}" style="display: inline">
+                                        <a href="{{route('benefits.edit', $item['id'])}}" class="btn btn-primary text-light btn-edit-form"><em class="far fa-edit"></em></a> 
+                                        <form action="{{route('benefits.destroy', $item['id'])}}" method="post" class="form-delete-{{$item->id}}" style="display: inline">
                                             @csrf
                                             @method('DELETE')
                                             <button class="btn btn-danger text-light delete-confirm" idDelete={{$item->id}}><em class="fas fa-trash-alt"></em></button>
@@ -63,7 +67,7 @@
                         </table>
                         <div class="fixed-table-pagination">
                             <div class="pull-right pagination">
-                                {{$NewSpaper->links()}}
+                                {{$benefits->links()}}
                             </div>
                         </div>
                         </div>

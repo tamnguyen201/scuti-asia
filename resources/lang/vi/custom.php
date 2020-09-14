@@ -44,7 +44,7 @@ return [
     'CV_status'=> 'Trạng thái',
     'applied_job'=>'Công việc đã ứng tuyển',
     'empty_data' => 'Dữ liệu trống',
-    'candidate_total' => 'Tổng ứng viên',
+    'candidate_new' => 'Ứng viên mới',
     'candidate_evaluated' => 'Đang Đánh Giá',
     'candidate_accept' => 'Ứng viên đồng ý',
     'candidate_failed' => 'Ứng viên bị loại',
@@ -147,7 +147,9 @@ return [
         'job'=>'Công việc',
         'location'=>'Địa điểm',
         'category'=>'Danh mục',
-        'recruitment_detail'=>'Chi tiết ứng tuyển'
+        'recruitment_detail'=>'Chi tiết ứng tuyển',
+        'main_member' => 'Thành Viên Chính',
+        'benefit' => 'Đãi Ngộ',
     ],
 
     'email_template' => [

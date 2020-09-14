@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\MemberRequest;
 use App\Repositories\Member\MemberRepositoryInterface;
 
-class MemberController extends Controller
+class MainMemberController extends Controller
 {
     protected $MemberRepository;
 
@@ -18,43 +18,43 @@ class MemberController extends Controller
     
     public function index()
     {
-        $Members = $this->MemberRepository->paginate();
+        $members = $this->MemberRepository->paginate();
 
-        return view('admin.member.index', compact('Members'));
+        return view('admin.mainMember.index', compact('members'));
     }
 
     public function show($id)
     {
-        $Member = $this->MemberRepository->show($id);
-        $html = view('admin.member.profile', compact('Member'))->render();
+        $member = $this->MemberRepository->show($id);
+        $html = view('admin.mainMember.profile', compact('member'))->render();
 
         return response()->json($html);
     }
 
     public function create()
     {
-        return view('admin.member.add');
+        return view('admin.mainMember.add');
     }
 
     public function store(MemberRequest $request)
     {
         $this->MemberRepository->store($request->all());
         
-        return redirect()->route('Members.index')->with('success', trans('custom.alert_messages.success'));
+        return redirect()->route('members.index')->with('success', trans('custom.alert_messages.success'));
     }
 
     public function edit($id)
     {
-        $manager = $this->MemberRepository->show($id);
+        $member = $this->MemberRepository->show($id);
 
-        return view('admin.member.edit', compact('manager'));
+        return view('admin.mainMember.edit', compact('member'));
     }
 
     public function update(Request $request, $id)
     {
-        $this->userRepository->update(['role' => $request->role], $request->user_id);
+        $this->MemberRepository->update(['role' => $request->role], $request->user_id);
     
-        return redirect()->route('Members.index')->with('success', trans('custom.alert_messages.success'));
+        return redirect()->route('members.index')->with('success', trans('custom.alert_messages.success'));
     }
 
     public function destroy($id)

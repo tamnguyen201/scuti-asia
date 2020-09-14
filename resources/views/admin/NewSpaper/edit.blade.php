@@ -21,7 +21,7 @@
             <div class="panel-heading">@lang('custom.page_title.form')</div>
             <div class="panel-body">
                 <div class="col-md-12">
-                    <form role="form" action="{{route('new_spaper.update', $NewSpaper->id)}}" method="POST" enctype="multipart/form-data">
+                    <form role="form" action="{{route('new-spaper.update', $NewSpaper->id)}}" method="POST" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
                         <div class="col-md-6">
@@ -62,7 +62,7 @@
                         
                         <div class="col-md-12 text-center">
                             <button type="submit" class="btn btn-primary">@lang('custom.button.submit') <em class="fa fa-check"></em></button>
-                            <a href="{{route('new_spaper.index')}}" class="btn btn-danger">@lang('custom.button.cancel')</a>
+                            <a href="{{route('new-spaper.index')}}" class="btn btn-danger">@lang('custom.button.cancel')</a>
                         </div>
                     </form>
                 </div>

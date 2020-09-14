@@ -213,7 +213,7 @@ class RoleSeeder extends Seeder
                     - Có nhiều cơ hội học hỏi, nâng cao trình độ nghiệp vụ.<br>
                     - Thăng tiến nhanh nếu chứng tỏ được năng lực bản thân. Lương sẽ lên cao đúng như năng lực chứng mình được trong thời gian làm việc.
                 </p>',
-                'location_id' => 1, 'salary' => 'Thỏa Thuận', 'expireDay' => '2020/08/15', 'status' =>1],
+                'location_id' => 1, 'salary' => 'Thỏa Thuận', 'expireDay' => '2020/10/15', 'status' =>1],
             ['id'=>2,'category_id' => 2, 'name'=>'Node', 'slug' => \Str::slug('Node'), 'description'=> 'Hỗ trợ xác định yêu cầu, phân tích yêu cầu và thử nghiệm trong các dự án với quan điểm của người dùng với CEO.', 
                 'content' => 
                     '<h4>Mô tả công việc</h4>
@@ -247,7 +247,7 @@ class RoleSeeder extends Seeder
                     <ul>
                         <li>Chính sách thưởng phong phú: Thưởng tháng lương 13 + thưởng nóng dự án + thưởng nhân viên xuất sắc + các khoản thưởng khác;</li><li>Xét tăng lương 2 lần/năm dựa trên hiệu quả công việc;</li><li>Hưởng đầy đủ các chế độ bảo hiểm theo quy định;</li><li>Được tặng quà, thăm hỏi nhân các dịp sinh nhật, cưới hỏi, hiếu hỉ, ốm đau…;</li><li>Làm việc trong môi trường hiện đại, trẻ trung, văn hóa mở với nhiều hoạt động văn hóa tinh thần: du lịch, nghỉ dưỡng, party sự kiện…</li>
                     </ul>',
-                'location_id' => 1, 'salary' => 'Thỏa Thuận', 'expireDay' => '2020/08/15', 'status' =>1],
+                'location_id' => 1, 'salary' => 'Thỏa Thuận', 'expireDay' => '2020/10/15', 'status' =>1],
             ['id'=>3,'category_id' => 3, 'name'=>'Java', 'slug' => \Str::slug('java'), 'description'=> 'Hỗ trợ xác định yêu cầu, phân tích yêu cầu và thử nghiệm trong các dự án với quan điểm của người dùng với CEO.', 
                 'content' => 
                     '<h4>Mô tả công việc</h4>
@@ -285,7 +285,7 @@ class RoleSeeder extends Seeder
                         · Hưởng chế độ theo quy định luật lao động và BHXH, BHYT, BHTN...<br>
                         · Tham gia các hoạt động tinh thần: du lịch, giải trí do Công ty tổ chức…
                     </p>',
-                'location_id' => 1, 'salary' => 'Thỏa Thuận', 'expireDay' => '2020/08/15', 'status' =>1],
+                'location_id' => 1, 'salary' => 'Thỏa Thuận', 'expireDay' => '2020/10/15', 'status' =>1],
             ['id'=>4,'category_id' => 4, 'name'=>'FE', 'slug' => \Str::slug('FE'), 'description'=> 'Hỗ trợ xác định yêu cầu, phân tích yêu cầu và thử nghiệm trong các dự án với quan điểm của người dùng với CEO.', 
                 'content' => 
                     '<h4>Mô tả công việc</h4>
@@ -298,7 +298,7 @@ class RoleSeeder extends Seeder
                     <h4>Quyền lợi</h4>
                     <p>- Thời gian làm việc: 8:00 ~ 17:00 từ thứ 2 đến thứ 6 (nghỉ Thứ Bảy, Chủ Nhật và các ngày Lễ, Tết)<br>- Thưởng: 2 lần/năm<br>- Ngoài các gói bảo hiểm cơ bản theo quy định của Luật Lao Động, bạn còn được tham gia gói bảo hiểm tai nạn lao động tại Lampart.<br>- Trà, sữa, coffee,... miễn phí<br>- Ngày nghỉ đặc biệt dành cho nhân viên nữ: 0.5 ngày/ tháng.<br>- Được hưởng những phúc lợi đặc biệt như chương trình quà tết, bánh trung thu, tiền mừng đám cưới (5,000,000 VND), tiền mừng khi sanh con (2,000,000 VND),…<br>- Đối với nhân viên ký hợp đồng không xác định thời hạn: từ thời điểm ký hợp đồng không xác định thời hạn, cứ mỗi năm được cộng thêm 1 ngày nghỉ phép. Ngày nghỉ phép không sử dụng hết trong năm sẽ trả vào lương tháng cuối cùng của năm.
                     </p>',
-                'location_id' => 1, 'salary' => 'Thỏa Thuận', 'expireDay' => '2020/08/15', 'status' =>1],
+                'location_id' => 1, 'salary' => 'Thỏa Thuận', 'expireDay' => '2020/10/15', 'status' =>1],
             ['id'=>5,'category_id' => 5, 'name'=>'React', 'slug' => \Str::slug('React'), 'description'=> 'Hỗ trợ xác định yêu cầu, phân tích yêu cầu và thử nghiệm trong các dự án với quan điểm của người dùng với CEO.', 
                 'content' => 
                     '<h4>Mô tả công việc</h4>
@@ -313,7 +313,7 @@ class RoleSeeder extends Seeder
                     <div class="culture_description">
                         <ul><li>Lương, thưởng cạnh tranh trên thị trường và công bằng trong nội bộ.</li><li>Được làm việc trong môi trường năng động, trẻ trung, đầy nhiệt huyết.</li><li>Cơ hội được làm việc trên một sản phẩm phát triển theo hướng B2B</li><li>Được tham gia các hoạt động team building của công ty.</li><li>Trợ cấp ăn trưa và đi lại.</li><li>Chế độ nghỉ lễ tết, BHYT/BHXH/BHTN theo quy định của luật lao động.</li></ul>
                     </div>',
-                'location_id' => 1, 'salary' => 'Thỏa Thuận', 'expireDay' => '2020/08/15', 'status' =>1],
+                'location_id' => 1, 'salary' => 'Thỏa Thuận', 'expireDay' => '2020/10/15', 'status' =>1],
         ]);
         DB::table('cvs')->insert([
             ['id'=>1,'user_id' => 1, 'cv_name' => 'CV1', 'cv_url'=>'https://miro.medium.com/max/1200/1*Eu6cAGjXNa0-ct_hlsH1yQ.jpeg'],

@@ -19,7 +19,9 @@ class AdminController extends Controller
 
     public function index()
     {
-        $data['candidates'] = \App\Model\UserJob::count();
+        $data['candidates'] = \App\Model\UserJob::where('status', '=', 0)
+                                ->where('result', '=', 0)
+                                ->count();
         $data['candidate_evaluated'] = \App\Model\UserJob::where('status', '=', 0)
                                         ->where('result', '=', 0)
                                         ->count();

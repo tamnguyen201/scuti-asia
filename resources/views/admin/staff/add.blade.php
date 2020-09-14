@@ -1,5 +1,8 @@
 @extends('admin.layout.layout')
 @section('title', trans('custom.page_title.employee_manage'))
+@section('css')
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/switchery/0.8.2/switchery.min.css">
+@endsection
 @section('content')
 <div class="row">
     <ol class="breadcrumb">
@@ -67,6 +70,10 @@
                                     @endforeach
                                 </select>
                             </div>
+                            <div class="form-group @error('email') has-error @enderror">
+                                <label class="label-required">@lang('custom.status')</label> <br>
+                                <input type="checkbox" data-id="1" name="status" class="js-switch" checked>
+                            </div>
                         </div>
                         
                         <div class="col-md-12 text-center">
@@ -79,4 +86,13 @@
         </div>
     </div>
 </div>
+@endsection
+@section('script')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/switchery/0.8.2/switchery.min.js"></script>
+    <script>
+        let elems = Array.prototype.slice.call(document.querySelectorAll('.js-switch'));
+        elems.forEach(function(html) {
+            let switchery = new Switchery(html,  { size: 'small' });
+        });
+    </script>
 @endsection

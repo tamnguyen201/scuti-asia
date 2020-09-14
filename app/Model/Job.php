@@ -33,4 +33,9 @@ class Job extends Model
     {
         return \Carbon\Carbon::parse($this->expireDay)->format('d/m/Y');
     }
+
+    public function compareExpireDay()
+    {
+        return \Carbon\Carbon::parse($this->expireDay) > \Carbon\Carbon::now();
+    }
 }
