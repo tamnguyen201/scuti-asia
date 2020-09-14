@@ -13,4 +13,9 @@ class Category extends Model
     {
         return $this->belongsToMany('App\Model\Candidate');
     }
+
+    public function jobs()
+    {
+        return $this->hasMany('App\Model\Job');
+    }
 }

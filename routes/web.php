@@ -38,7 +38,7 @@ Route::post('/visit-us','HomeController@visit_us')->name('client.visit_us');
 Route::get('/apply', 'HomeController@apply')->name('client.apply');
 Route::get('/jobs', 'HomeController@jobs')->name('client.jobs');
 Route::get('/jobs-{id}/{slug}.html', 'HomeController@jobDetail')->name('job-detail');
-Route::get('/jobs/apply-{id}/{slug}.html', 'HomeController@jobApply')->name('client.applied');
+Route::get('/jobs-{id}/apply/{slug}.html', 'HomeController@jobApply')->name('client.applied');
 Route::post('/apply','HomeController@userApplyJob')->name('client.apply.job');
 Route::get('/auth/redirect/{provider}', 'SocialController@redirect');
 Route::get('/callback/{provider}', 'SocialController@callback');
@@ -62,6 +62,7 @@ Route::group(
 
         Route::get('/', 'AdminController@index')->name('admin.home');
         Route::resource('users', 'UserController')->only(['index', 'show']);
+        Route::get('/change-admin-account-status', 'JobController@updateStatus')->name('admin.update.status');
         Route::resource('employees', 'EmployeeController');
         Route::resource('locations', 'LocationController');
         Route::resource('categories', 'CategoryController');
@@ -83,11 +84,13 @@ Route::group(
         Route::get('candidates/failed', 'CandidateController@failed')->name('candidates.failed');
         Route::post('candidates/search', 'CandidateController@search')->name('candidates.search');
         Route::resource('candidates', 'CandidateController')->only(['index', 'show']);
+        Route::get('candidates/job/{id}','CandidateController@showByJob')->name('candidate.byJob');
         Route::group(['prefix' => 'evaluate'], function () {
             Route::get('candidate/{id}', 'EvaluateController@show')->name('evaluate.candidate.show');
             Route::post('candidate/{id}', 'EvaluateController@store')->name('evaluate.store');
             Route::post('process/calendar/create','EvaluateController@storeCalendar')->name('store.event');
             Route::post('start-evaluate/{id}','EvaluateController@startEvaluate')->name('start.evaluate');
+            Route::get('process/send-email','EvaluateController@createEmail')->name('create.email');
         });
         Route::get('calendars', function() {
             $events = [];

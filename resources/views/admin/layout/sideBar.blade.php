@@ -22,27 +22,31 @@
         <li class="{{ (request()->is('admin/contacts')) ? 'active' : '' }}"><a href="{{route('contacts.index')}}"><span class="fa fa-phone">&nbsp;</span> @lang('custom.menu.contact')</a></li>
         <li class="parent ">
             <a data-toggle="collapse" href="#sub-item-2">
-                <em class="fa fa-child">&nbsp;</em> @lang('custom.menu.canidate') <span data-toggle="collapse" href="#sub-item-2" class="icon pull-right"><em class="fa fa-plus"></em></span>
+                <em class="fa fa-child">&nbsp;</em> @lang('custom.menu.recruitment_detail') <span data-toggle="collapse" href="#sub-item-2" class="icon pull-right"><em class="fa fa-plus"></em></span>
             </a>
             <ul class="children collapse" id="sub-item-2">
+                <li><a href="{{route('jobs.index')}}"><span class="fa fa-laptop">&nbsp;</span> @lang('custom.menu.job')</a></li>
                 <li><a class="" href="{{route('candidates.index')}}">
-                <span class="fa fa-arrow-right">&nbsp;</span> @lang('custom.menu.list')
+                <span class="fa fa-list-ul">&nbsp;</span> @lang('custom.menu.list')
                 </a>
                 </li>
                 <li><a class="" href="{{route('candidates.evaluating')}}">
-                <span class="fa fa-arrow-right">&nbsp;</span> @lang('custom.menu.evaluating')
+                <span class="fa fa-file-text">&nbsp;</span> @lang('custom.menu.evaluating')
                 </a>
                 </li>
                 <li><a class="" href="{{route('candidates.finish')}}">
-                <span class="fa fa-arrow-right">&nbsp;</span> @lang('custom.menu.finishing')
+                <span class="fa fa-check">&nbsp;</span> @lang('custom.menu.finishing')
                 </a>
                 </li>
                 <li><a class="" href="{{route('candidates.failed')}}">
-                <span class="fa fa-arrow-right">&nbsp;</span> @lang('custom.menu.failed')
+                <span class="fa fa-times">&nbsp;</span> @lang('custom.menu.failed')
                 </a>
                 </li>
             </ul>
         </li>
+        <li><a href="{{route('locations.index')}}"><span class="fa fa-location-arrow">&nbsp;</span> @lang('custom.menu.location')</a></li>
+        <li><a href="widgets.html"><em class="fa fa-calendar">&nbsp;</em> @lang('custom.menu.calendar') </a></li>
+        <li><a href="{{route('contacts.index')}}"><span class="fa fa-phone">&nbsp;</span> @lang('custom.menu.contact')</a></li>
         <li class="parent ">
             <a data-toggle="collapse" href="#sub-item-3">
             <em class="fa fa-cogs">&nbsp;</em> @lang('custom.menu.setting') <span data-toggle="collapse" href="#sub-item-3" class="icon pull-right"><em class="fa fa-plus"></em></span>

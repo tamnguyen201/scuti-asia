@@ -22,14 +22,14 @@
                 <form action="{{route('company_images.store')}}" class="" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group @error('email') has-error @enderror">
-                        <label class="lable-required">@lang('custom.email')</label>
+                        <label class="label-required">@lang('custom.email')</label>
                         <input type="email" name="email" value="{{old('email')}}" class="form-control" placeholder="@lang('custom.placehoder.email')">
                         @error('email') 
                         <span class="help-block"> {{$message}} </span>
                         @enderror
                     </div>
                     <div class="form-group">
-                        <p class="lable-required">Upload new files:</p>
+                        <p class="label-required">Upload new files:</p>
                         <label class="btn btn-default">
                             <input type="file" name="image_url" accept="image/*">
                         </label>

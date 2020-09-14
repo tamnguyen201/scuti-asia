@@ -26,15 +26,15 @@
                         @method('PUT')
                         <div class="col-md-6">
                             <div class="form-group @error('name') has-error @enderror">
-                                <label>@lang('custom.name')</label>
+                                <label class="label-required">@lang('custom.name')</label>
                                 <input type="text" name="name" value="{{$section->name}}" class="form-control" readonly>
                                 @error('name') 
                                 <span class="help-block"> {{$message}} </span>
                                 @enderror
                             </div>
                             <div class="form-group @error('description') has-error @enderror">
-                                <label class="lable-required">@lang('custom.description')</label>
-                                <input type="text" name="description" class="form-control" value="{{old('description')}}" placeholder="@lang('custom.placehoder.description')">
+                                <label>@lang('custom.description')</label>
+                                <textarea name="description" class="form-control" cols="10" rows="8" placeholder="@lang('custom.placehoder.description')">{{$section->description}}</textarea>
                                 @error('description') 
                                 <span class="help-block"> {{$message}} </span>
                                 @enderror
@@ -62,14 +62,14 @@
                         <div class="col-md-12">
                             <div class="form-group @error('content') has-error @enderror">
                                 <label>@lang('custom.content')</label>
-                                <textarea name="content" class="form-control" id="exampleFormControlTextarea1" rows="4">{!!$section->content!!}</textarea>
+                                <textarea name="content" class="form-control" id="exampleFormControlTextarea1" rows="5">{!!$section->content!!}</textarea>
                                 @error('content') 
                                 <span class="help-block"> {{$message}} </span>
                                 @enderror
                             </div>
                         </div>
                         <div class="col-md-12 text-center">
-                            <button type="submit" class="btn btn-primary">@lang('custom.button.submit')</button>
+                            <button type="submit" class="btn btn-primary">@lang('custom.button.submit') <em class="fa fa-check"></em></button>
                             <a href="{{route('sections.index')}}" class="btn btn-danger">@lang('custom.button.cancel')</a>
                         </div>
                     </form>

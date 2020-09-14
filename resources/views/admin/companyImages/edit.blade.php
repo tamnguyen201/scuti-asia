@@ -47,7 +47,7 @@
                         </div>
                         
                         <div class="col-md-12 text-center">
-                            <button type="submit" class="btn btn-primary">@lang('custom.button.submit')</button>
+                            <button type="submit" class="btn btn-primary">@lang('custom.button.submit') <em class="fa fa-check"></em></button>
                             <a href="{{route('company_images.index')}}" class="btn btn-danger">@lang('custom.button.cancel')</a>
                         </div>
                     </form>

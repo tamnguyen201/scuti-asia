@@ -1,5 +1,51 @@
 @extends('client.layout.master')
 @section('title', trans('client.page.home.title'))
+@section('css')
+    <style>
+        .text-box {
+    margin-left: 44vw;
+     margin-top: 42vh;
+}
+
+.btn:link,
+.btn:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #000 !important;
+    padding: 15px 40px;
+    display: inline-block;
+    border-radius: 100px;
+    transition: all .2s;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    color: #fff !important;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+
+.btn::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 100px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all .4s;
+}
+
+
+.btn:hover::after {
+    transform: scaleX(1.4) scaleY(1.6);
+    opacity: 0;
+}
+
+    </style>
+@endsection
 @section('content')
     @include('client.layout.header')
 
@@ -7,17 +53,17 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <h2>@lang('client.section.common_benefit.title')</h2>
-                    <p class="p-heading p-large">@lang('client.section.common_benefit.description')</p>
+                    <h2>{{$data['section'][1]->name}}</h2>
+                    <p class="p-heading p-large">{{$data['section'][1]->description}}</p>
                     <hr class="line-heading">
                 </div>
             </div>
             <div class="row">
-                {!! $data['common']->content !!}
+                {!! $data['section'][1]->content !!}
             </div>
             <div class="row">
                 <div class="col-12 text-center">
-                    <img src="{{$data['common']->image}}" class="w-100" alt="">
+                    <img src="{{$data['section'][1]->image}}" class="w-100" alt="">
                 </div>
             </div>
         </div>
@@ -27,8 +73,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <h2>@lang('client.section.working_environment.title')</h2>
-                    <p class="p-heading p-large">@lang('client.section.working_environment.description')</p>
+                    <h2>{{$data['section'][2]->name}}</h2>
+                    <p class="p-heading p-large">{{$data['section'][2]->description}}</p>
                     <hr class="line-heading">
                 </div>
             </div>
@@ -37,11 +83,11 @@
                     <div class="cards-container row">
                         @foreach($data['working_environment'] as $item)
                         <div class="card col-md-6 col-lg-4 col-xl-4 px-0">
-                            <div class="card-header" style="background-color: #fff; border:none">{{$item->name}}</div>
                             <div class="card-image">
                                 <img class="img-fluid" src="{{$item->image_url}}" style="max-width: 320px;max-height:205px" alt="{{$item->name}}">
                             </div>
                             <div class="card-body">
+                                <h5>{{$item->name}}</h5>
                                 <p>{{$item->description}}</p>
                             </div>
                         </div>
@@ -56,20 +102,20 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <h2>@lang('client.section.about_us.title')</h2>
-                    <p class="p-heading p-large">@lang('client.section.about_us.description')</p>
+                    <h2>{{$data['section'][3]->name}}</h2>
+                    <p class="p-heading p-large">{{$data['section'][3]->description}}</p>
                     <hr class="line-heading">
                 </div>
             </div>
             <div class="row">
                 <div class="col-lg-6">
                     <div class="image-container">
-                        <img class="img-fluid" src="{{$data['about_us']->image}}" alt="alternative">
+                        <img class="img-fluid" src="{{$data['section'][3]->image}}" alt="alternative">
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <div class="text-container mt-0">
-                        {!! $data['about_us']->content !!}
+                        {!! $data['section'][3]->content !!}
                     </div>
                 </div>
             </div>
@@ -80,7 +126,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <h2>@lang('client.section.core_member.title')</h2>
+                    <h2>{{$data['section'][4]->name}}</h2>
                     <hr class="line-heading">
                     <div class="slider-container">
                         <div class="swiper-container card-slider">
@@ -115,7 +161,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <h2>@lang('client.section.our_team.title')</h2>
+                    <h2>{{$data['section'][5]->name}}</h2>
                     <hr class="line-heading">
                     <div class="slider-container">
                         <div class="swiper-container card-slider">
@@ -150,7 +196,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <h2>@lang('client.section.benefit.title')</h2>
+                    <h2>{{$data['section'][6]->name}}</h2>
                     <hr class="line-heading">
                     <div class="slider-container">
                         <div class="swiper-container card-slider">
@@ -182,8 +228,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <h2>@lang('client.section.newspaper.title')</h2>
-                    <p class="p-heading p-large">@lang('client.section.newspaper.description')</p>
+                    <h2>{{$data['section'][7]->name}}</h2>
+                    <p class="p-heading p-large">{{$data['section'][7]->description}}</p>
                     <hr class="line-heading">
                 </div>
             </div>
@@ -226,9 +272,9 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <h2>@lang('client.section.visit_us.title')</h2>
+                    <h2>{{$data['section'][8]->name}}</h2>
                     <ul class="list-unstyled li-space-lg">
-                        <li class="address">@lang('client.section.visit_us.description')</li>
+                        <li class="address">{{$data['section'][8]->description}}</li>
                         <li><i class="fas fa-map-marker-alt"></i>  {{ $data_share->address }} </li>
                         <li><i class="fas fa-phone"></i><a class="orange" href="tel:{{ $data_share->phone }} ">{{ $data_share->phone }} </a></li>
                         <li><i class="fas fa-envelope"></i><a class="orange" href="mailto:{{ $data_share->email }} ">{{ $data_share->email }} </a></li>
@@ -239,7 +285,7 @@
             <div class="row">
                 <div class="col-lg-6">
                     <div class="map-responsive">
-                        <img class="img-fluid" src="{{$data['visit_us']->image}}" alt="alternative">
+                        <img class="img-fluid" src="{{$data['section'][8]->image}}" alt="alternative">
                     </div>
                 </div>
                 <div class="col-lg-6">
@@ -286,13 +332,13 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <h2>@lang('client.section.recruitment_flow.title')</h2>
-                    <p class="p-heading p-large">@lang('client.section.recruitment_flow.description')</p>
+                    <h2>{{$data['section'][9]->name}}</h2>
+                    <p class="p-heading p-large">{{$data['section'][9]->description}}</p>
                     <hr class="line-heading">
                 </div>
             </div>
             <div class="row">
-                {!! $data['recruitment_flow']->content !!}
+                {!! $data['section'][9]->content !!}
             </div>
         </div>
     </div>
@@ -301,17 +347,17 @@
 		<div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <h2>@lang('client.section.recruitment.title')</h2>
-                    <p class="p-heading p-large">@lang('client.section.recruitment.description')</p>
+                    <h2>{{$data['section'][10]->name}}</h2>
+                    <p class="p-heading p-large">{{$data['section'][10]->description}}</p>
                     <hr class="line-heading">
                 </div>
             </div>
             <div class="row">
                 <div class="col-lg-11 mx-auto mb-4">
                     <div class="button-group filters-button-group">
-                        <a class="button text-decoration-none is-checked" data-filter="*"><span>SHOW ALL</span></a>
+                        <a class="button text-decoration-none is-checked" id="v-pills-all" data-toggle="pill" href="#v-pills-all" role="tab" aria-controls="v-pills-all" aria-selected="true" data-filter="*"><span>SHOW ALL</span></a>
                         @foreach($data['categories'] as $category)
-                        <a class="button text-decoration-none" id="v-pills-{{$category->slug}}-tab" data-toggle="pill" href="#v-pills-{{$category->slug}}" role="tab" aria-controls="v-pills-{{$category->slug}}" aria-selected="true"><span>{{$category->category_name}}</span></a>
+                        <a class="button text-decoration-none" id="v-pills-{{$category->id}}-tab" data-toggle="pill" href="#v-pills-{{$category->id}}" role="tab" aria-controls="v-pills-{{$category->id}}" aria-selected="true"><span>{{$category->category_name}}</span></a>
                         @endforeach
                         <a class="button text-decoration-none" href="{{route('client.jobs')}}"><span>@lang('client.section.recruitment.end_menu')</span></a>
                     </div>
@@ -320,31 +366,35 @@
                     <div class="list-group">
                         <div class="tab-content" id="v-pills-tabContent">
                         @foreach($data['categories'] as $category)
-                            <div class="tab-pane fade" id="v-pills-{{$category->slug}}" role="tabpanel" aria-labelledby="v-pills-{{$category->slug}}-tab">
-                                @foreach($data['jobs'] as $job)    
-                                @if($job->category->id == $category->id)
-                                <div class="d-md-flex col-6 development">
-                                    <div class="col-md-12 list-group-item d-flex">
-                                        <div class="col-md-6 col-12">
-                                            <div class="mb-block cell name-job">
-                                                <h4 class="title-h4"><a style="font-weight: normal;color: #f4511e; text-decoration: none" href="{{route('job-detail', [$job->id, $job->slug])}}"> {{$job->name}}</a></h4>
-                                                <p class="desc-job">
-                                                    {{$job->description}}
+                            <div class="tab-pane fade" id="v-pills-{{$category->id}}" role="tabpanel" aria-labelledby="v-pills-{{$category->id}}-tab">
+                            @if($category->jobs->count() > 0)
+                                @foreach($category->jobs as $job)    
+                                    @if($job->status == 1)
+                                    <div class="d-md-flex col-6 development">
+                                        <div class="col-md-12 list-group-item d-flex">
+                                            <div class="col-md-6 col-12">
+                                                <div class="mb-block cell name-job">
+                                                    <h4 class="title-h4"><a style="font-weight: normal;color: #f4511e; text-decoration: none" href="{{route('job-detail', [$job->id, $job->slug])}}"> {{$job->name}}</a></h4>
+                                                    <p class="desc-job">
+                                                        {{$job->description}}
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 col-12 text-md-right text-center">
+                                                <a href="{{route('client.applied', [$job->id, $job->slug])}}" class="btn-apply-main btn-apply">@lang('client.section.recruitment.apply')</a>
+                                                <p class="desc-job text-left mt-3">
+                                                    <i class="far fa-money-bill-alt"></i> Lương: {{$job->salary}} <br>
+                                                    <i class="fas fa-map-marker-alt"></i> Nơi làm việc: {{$job->location->name}} <br>
+                                                    <i class="far fa-clock"></i> Ngày hết hạn: {{$job->formatExpireDay()}}
                                                 </p>
                                             </div>
                                         </div>
-                                        <div class="col-md-6 col-12 text-md-right text-center">
-                                            <a href="{{route('client.applied', [$job->id, $job->slug])}}" class="btn-apply-main btn-apply">@lang('client.section.recruitment.apply')</a>
-                                            <p class="desc-job text-left mt-3">
-                                                <i class="far fa-money-bill-alt"></i> Lương: {{$job->salary}} <br>
-                                                <i class="fas fa-map-marker-alt"></i> Nơi làm việc: {{$job->location->name}} <br>
-                                                <i class="far fa-clock"></i> Ngày hết hạn: {{$job->formatExpireDay()}}
-                                            </p>
-                                        </div>
                                     </div>
-                                </div>
-                                @endif
+                                    @endif
                                 @endforeach
+                            @else
+                                <p>@lang('client.section.recruitment.empty')</p>
+                            @endif
                             </div>
                             @endforeach
 
@@ -361,7 +411,7 @@
                                             </div>
                                         </div>
                                         <div class="col-md-5 col-12 text-md-right text-center">
-                                            <a href="{{route('client.applied', [$job->id, $job->slug])}}" class="btn-apply-main btn-apply">@lang('client.section.recruitment.apply')</a>
+                                            <a href="{{route('client.applied', [$job->id, $job->slug])}}" class="btn btn-apply-main btn-apply">@lang('client.section.recruitment.apply')</a>
                                             <p class="desc-job text-left mt-3">
                                                 <i class="far fa-money-bill-alt"></i> Lương: {{$job->salary}} <br>
                                                 <i class="fas fa-map-marker-alt"></i> Nơi làm việc: {{$job->location->name}} <br>

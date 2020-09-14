@@ -90,8 +90,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <h2>@lang('client.section.recruitment_flow.title')</h2>
-                    <p class="p-heading p-large">@lang('client.section.recruitment_flow.description')</p>
+                    <h2>{{ $data['recruitment_flow']->name }}</h2>
+                    <p class="p-heading p-large">{{ $data['recruitment_flow']->description }}</p>
                     <hr class="line-heading">
                 </div>
             </div>

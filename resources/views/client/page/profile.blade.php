@@ -41,8 +41,8 @@
                                 <div class="tab-pane fade show active" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
                                     <div class="row">
                                         <div class="col-md-3">
-                                            <h5>@lang('custom.avatar')</h5>
-                                            <img src="default-img.png" class="img-fluid" alt="">
+                                            <h6 class="text-center mb-2">{{auth()->user()->name}}</h6>
+                                            <img src="{{ (auth()->user()->avatar) ? auth()->user()->avatar : 'default-img.png' }}" class="img-fluid rounded-circle" alt="">
                                         </div>
                                         <div class="col-md-9">
                                             <h5>@lang('client.page.profile.title')</h5>
@@ -134,13 +134,15 @@
                                             <tr>
                                                 <td>{{$stt}}</td>
                                                 <td>{{$item->name}}</td>
+                                                @if(auth()->user()->userjob[$key]->process->count() > 0)
                                                 @for($i = 0; $i <= auth()->user()->userjob[$key]->process->count(); $i++)
-                                                    @if(auth()->user()->userjob[$key]->process->count() > 0 && $i == auth()->user()->userjob[$key]->process->count() - 1)
+                                                    @if( $i == auth()->user()->userjob[$key]->process->count() - 1)
                                                     <td>{{auth()->user()->userjob[$key]->process[$i]->name}}</td>
-                                                    @else
-                                                    <td>Chưa Đánh Giá</td>
                                                     @endif
                                                 @endfor
+                                                @elseif(auth()->user()->userjob[$key]->process->count() == 0) 
+                                                <td>Chưa Đánh Giá</td>
+                                                @endif
                                                 <td class="text-center"><a href="{{route('client.applied', [$item->id, $item->slug])}}" target="_blank" class="btn btn-info text-light view-profile" title="Xem"><em class="fa fa-eye"></em></a></td>
                                             </tr>
                                             @endforeach

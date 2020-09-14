@@ -29,29 +29,10 @@ class EvaluateController extends Controller
         $this->processRepository = $processRepository;
     }
 
-    public function checking($id, Request $request)
-    {
-        $this->evaluateRepository->create([
-            'user_id'=>$id,
-            'comment'=>$request->comment,
-            'status'=>'checking'
-        ]);
-        return redirect()->route('candidates.index');
-    }
-
-    public function sendEmail($id)
-    {
-        $candidate = $this->candidateRepository->show($id);
-        $html = view('admin.evaluate.email', compact('candidate'))->render();
-
-        return response()->json($html);
-    }
-
     public function showCalendar($id)
     {
         $events = [];
         $data = Event::all();
-        // dd($data);
         $dataUser =$this->candidateRepository->show($id);
         if($data->count()) {
             foreach ($data as $key => $value) {
@@ -59,7 +40,7 @@ class EvaluateController extends Controller
                     $value->title,
                     true,
                     new \DateTime($value->start),
-                    new \DateTime($value->end),
+                    new \DateTime($value->end.' +1 day'),
                     $value->id,
                     [
                         'color'=> $value->color
@@ -120,12 +101,13 @@ class EvaluateController extends Controller
     public function store(Request $request, $id)
     {
         $dataCurrentEvaluate = Evaluate::create([
-            'process_step_id' =>$id,
+            'process_id' =>$id,
             'comment' =>$request->comment,
             'status' =>1
         ]);
         if($dataCurrentEvaluate['status'] == 1 ){
             $processById = $this->evaluatePass($dataCurrentEvaluate);
+            
             $candidateById = $this->candidateRepository->where('id','=', $processById->user_job->user_id);
             $calendar = $this->showCalendar($candidateById->id);
             $dataUser =$this->candidateRepository->show($candidateById->id);
@@ -136,16 +118,16 @@ class EvaluateController extends Controller
     }
 
     public function evaluatePass( $dataEvaluate ) {
-        $currentProcessId = $dataEvaluate->process_step_id;
+        $currentProcessId = $dataEvaluate->process_id;
         $currentProcess = $this->processRepository->show( $currentProcessId );
         if (0 < $currentProcess->step && $currentProcess->step < 4 ) {
             $nextProcessStep = ( $currentProcess->step ) +1;
-            if( $nextProcessStep == 2 ){
-                $nextProcessName = 'Review';
-            }else if( $nextProcessStep== 3 ) {
+            if( $nextProcessStep == 1 ){
+                $nextProcessName = 'Checking';
+            }else if( $nextProcessStep== 2 ) {
                 $nextProcessName = 'Interview';
-            } else if( $nextProcessStep== 4 ) {
-                $nextProcessName = 'Hired';
+            } else if( $nextProcessStep== 3 ) {
+                $nextProcessName = 'Finish';
             };
             $dataNextProcess = $this->processRepository->create([
                 'step'=>$nextProcessStep,
@@ -166,5 +148,10 @@ class EvaluateController extends Controller
         ]);
 
         return redirect()->back();
+    }
+
+    public function createEmail()
+    {
+        return view('admin.evaluate.email');
     }
 }

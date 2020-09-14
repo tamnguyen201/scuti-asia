@@ -3,55 +3,55 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Requests\NewSpaperRequest;
-use App\Http\Requests\NewSpaperUpdateRequest;
-use App\Repositories\Company\NewSpaperRepositoryInterface;
+use App\Http\Requests\BenefitRequest;
+use App\Http\Requests\BenefitUpdateRequest;
+use App\Repositories\Company\BenefitRepositoryInterface;
 
-class NewSpaperController extends Controller
+class BenefitController extends Controller
 {
-    protected $NewSpaperRepository;
+    protected $BenefitRepository;
 
-    public function __construct(NewSpaperRepositoryInterface $NewSpaperRepository)
+    public function __construct(BenefitRepositoryInterface $BenefitRepository)
     {
-        $this->NewSpaperRepository = $NewSpaperRepository;
+        $this->BenefitRepository = $BenefitRepository;
     }
 
     public function index()
     {
-        $NewSpaper = $this->NewSpaperRepository->paginate();
+        $Benefit = $this->BenefitRepository->paginate();
 
-        return view("admin.NewSpaper.index", compact('NewSpaper'));
+        return view("admin.benefit.index", compact('Benefit'));
     }
 
     public function create()
     {
-        return view("admin.NewSpaper.add");
+        return view("admin.benefit.add");
     }
 
-    public function store(NewSpaperRequest $request)
+    public function store(BenefitRequest $request)
     {
-        $this->NewSpaperRepository->create($request->all());
+        $this->BenefitRepository->create($request->all());
 
         return redirect()->route('new_spaper.index')->with('success', trans('custom.alert_messages.success'));
     }
 
     public function edit($id)
     {
-        $NewSpaper = $this->NewSpaperRepository->show($id);
+        $Benefit = $this->BenefitRepository->show($id);
 
-        return view("admin.NewSpaper.edit", compact('NewSpaper'));
+        return view("admin.benefit.edit", compact('Benefit'));
     }
 
-    public function update(NewSpaperUpdateRequest $request, $id)
+    public function update(BenefitUpdateRequest $request, $id)
     {
-        $this->NewSpaperRepository->update($request->all(), $id);
+        $this->BenefitRepository->update($request->all(), $id);
         
         return rederect()->route("new_spaper.index")->with('success', trans('custom.alert_messages.success'));;
     }
 
     public function destroy($id)
     {
-        $this->NewSpaperRepository->delete($id);
+        $this->BenefitRepository->delete($id);
 
         return redirect()->route("new_spaper.index")->with('success', trans('custom.alert_messages.success'));
     }

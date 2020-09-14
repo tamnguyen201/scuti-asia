@@ -12,8 +12,8 @@
         </div>
     </div>
 </div>
-<div class="basic-2" style="padding-top:0">
-    <div class="col-lg-8 mx-auto">
+<div class="basic-2 pt-5" style="padding-top:0; background-color: #eff3f6;">
+    <div class="col-lg-8 mx-auto py-3" style="background-color: #fff">
         <div class="form-container">
             <h1 style="text-align: center;margin-bottom: 40px;color: #868686;letter-spacing: 3px;">@lang('client.page.profile.form_title')</h1>
             <form action="{{route('client.update_info')}}" class="col-lg-12 row" method="post" enctype="multipart/form-data">
@@ -57,7 +57,7 @@
                         @enderror
                     </div>
                     <div class="form-group preview-img">
-                        <img src="{{(Auth::user()->avatar) ? Auth::user()->avatar : 'default-img.png'}}" alt="your image" class="img-fluid" />
+                        <img src="{{(Auth::user()->avatar) ? Auth::user()->avatar : 'default-img.png'}}" alt="your image" class="img-fluid rounded-circle" style="max-height: 16rem;" />
                     </div>
                 </div>
                 

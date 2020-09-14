@@ -183,6 +183,7 @@ return [
         'message' => 'lời nhắn',
         'available' => 'có sẵn',
         'size' => 'kích thước',
+        'salary'=>'mức lương'
     ],
 
 ];

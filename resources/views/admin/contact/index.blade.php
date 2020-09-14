@@ -26,24 +26,19 @@
                             <thead>
                                 <tr>
                                     <th>
-                                    <div class="th-inner sortable">@lang('custom.stt')</div>
-                                    <div class="fht-cell"></div>
+                                        <div class="th-inner">@lang('custom.stt')</div>
                                     </th>
                                     <th>
-                                        <div class="th-inner sortable">@lang('custom.name')</div>
-                                        <div class="fht-cell"></div>
+                                        <div class="th-inner">@lang('custom.name')</div>
                                     </th>
                                     <th>
-                                        <div class="th-inner sortable">@lang('custom.email')</div>
-                                        <div class="fht-cell"></div>
+                                        <div class="th-inner">@lang('custom.email')</div>
                                     </th>
                                     <th>
-                                        <div class="th-inner sortable">@lang('custom.visit_type')</div>
-                                        <div class="fht-cell"></div>
+                                        <div class="th-inner">@lang('custom.visit_type')</div>
                                     </th>
                                     <th>
-                                        <div class="th-inner sortable text-center">@lang('custom.action')</div>
-                                        <div class="fht-cell"></div>
+                                        <div class="th-inner text-center">@lang('custom.action')</div>
                                     </th>
                                 </tr>
                             </thead>
@@ -75,4 +70,18 @@
         </div>
     </div>
 </div>
+@endsection
+@section('script')
+    <script>
+        $('.view-profile').on('click', function (event) {
+            event.preventDefault();
+            let url = $(this).attr('href');
+            $.get(url).
+            done(function (results) {
+                $(".modal-body").html(results);
+                $("#exampleModalCenter").modal('show');
+            }).fail(function (data) {
+            });
+        });
+    </script>
 @endsection

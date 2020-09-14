@@ -32,7 +32,7 @@
                                             <div class="th-inner">@lang('custom.page_title.company_manage')</div>
                                         </th>
                                         <th>
-                                            <div class="th-inner text-center"><a href="{{route('companies.edit', $company['id'])}}" class="btn btn-primary text-light btn-edit-form"><em class="far fa-edit"></em> Edit</a> </div>
+                                            <div class="th-inner text-right"><a href="{{route('companies.edit', $company['id'])}}" class="btn btn-primary text-light btn-edit-form"><em class="far fa-edit"></em> Edit</a> </div>
                                         </th>
                                     </tr>
                                 </thead>

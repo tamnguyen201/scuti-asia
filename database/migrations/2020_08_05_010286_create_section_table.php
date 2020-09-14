@@ -20,7 +20,6 @@ class CreateSectionTable extends Migration
             $table->string('slug');
             $table->text('content')->nullable();
             $table->text('image')->nullable();
-            $table->text('map_url')->nullable();
             $table->timestamps();
         });
     }

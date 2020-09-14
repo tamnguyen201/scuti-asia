@@ -91,58 +91,14 @@ return [
     ],
 
     'section' => [
-        'common_benefit' => [
-            'title' => 'Scuti Mang Lại Cho Bạn',
-            'description' => 'Hãy đến với chúng tôi khi nhận thấy những giá trị này phù hợp với bạn!',
-        ],
-
-        'recruitment_flow' => [
-            'title' => 'Qui Trình Tuyển Dụng',
-            'description' => 'Chúng tôi luôn tìm kiếm những người tuyệt vời! Nếu bạn chưa tìm thấy cơ hội phù hợp hiện tại, nhưng tin rằng bạn có thể trở thành 1 phần của Scuti, hãy gửi thông tin cho chúng tôi.',
-        ],
-
         'recruitment' => [
             'title' => 'Tin Tuyển Dụng',
             'description' => 'Chúng tôi luôn tìm kiếm những người tuyệt vời! Nếu bạn chưa tìm thấy cơ hội phù hợp hiện tại, nhưng tin rằng bạn có thể trở thành 1 phần của Scuti, hãy gửi thông tin cho chúng tôi.',
             'menu_title' => 'Phòng Ban',
             'end_menu' => 'Xem Tất Cả',
             'apply' => 'Ứng Tuyển',
+            'empty' => 'Không có dữ liệu!',
         ],
-
-        'working_environment' => [
-            'title' => 'Môi Trường Làm Việc',
-            'description' => 'Hãy đến với chúng tôi khi nhận thấy những giá trị này phù hợp với bạn!',
-        ],
-
-        'about_us' => [
-            'title' => 'Về Chúng Tôi',
-            'description' => 'Chúng tôi tin rằng xây dựng được hạnh phúc, chú trọng con đường sự nghiệp cho nhân viên, sự hài lòng trong công việc và môi trường tích cực sẽ là nền tảng lâu dài cho sự phát triển bền vững của Scuti.',
-        ],
-
-        'core_member' => [
-            'title' => 'Thành Viên Cốt Lõi',
-            'description' => 'Hãy đến với chúng tôi khi nhận thấy những giá trị này phù hợp với bạn!',
-        ],
-
-        'our_team' => [
-            'title' => 'Nhóm Của Chúng Tôi',
-            'description' => 'Hãy đến với chúng tôi khi nhận thấy những giá trị này phù hợp với bạn!',
-        ],
-
-        'benefit' => [
-            'title' => 'Quyền Lợi Khi Gia Nhập Với Chúng Tôi',
-            'description' => 'Hãy đến với chúng tôi khi nhận thấy những giá trị này phù hợp với bạn!',
-        ],
-
-        'newspaper' => [
-            'title' => 'Báo Chí Nói Về Chúng Tôi',
-            'description' => 'Scuti đã vinh dự nhận được nhiều bằng khen, giải thưởng các cấp vinh danh những đóng góp và thành tích của công ty trong hoạt động sản xuất kinh doanh, hoạt động cộng đồng xã hội và sự nghiệp xây dựng, bảo vệ Tổ quốc.',
-        ],
-
-        'visit_us' => [
-            'title' => 'Ghé Thăm Chúng Tôi',
-            'description' => 'Đừng ngần ngại gọi cho chúng tôi hoặc gửi tin nhắn liên hệ cho chúng tôi!',
-        ]
     ],
     
 ];

@@ -1,5 +1,10 @@
 @extends('admin.layout.layout')
 @section('title', trans('custom.page_title.employee_manage'))
+@section('css')
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/switchery/0.8.2/switchery.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    <link rel="stylesheet" href="{{ asset('adminAsset/css/job.css') }}">
+@endsection
 @section('content')
 <div class="row">
     <ol class="breadcrumb">
@@ -20,7 +25,7 @@
             <div class="panel-heading">@lang('custom.page_title.data_table')</div>
             <div class="panel-body">
                     <div class="bootstrap-table">
-                        @if(Auth::guard('admin')->user()->role == config('common.role.Administrator'))
+                        @if(Auth::guard('admin')->user()->role == config('common.role.Admin'))
                         <div class="fixed-table-toolbar">
                             <a href="{{route('employees.create')}}" class="btn btn-primary"><span class="fa fa-plus"></span> @lang('custom.button.add')</a>
                         </div>
@@ -42,6 +47,11 @@
                                             <th>
                                                 <div class="th-inner">@lang('custom.role')</div>
                                             </th>
+                                            @if(Auth::guard('admin')->user()->role == config('common.role.Admin'))
+                                            <th>
+                                                <div class="th-inner">@lang('custom.status') </div>
+                                            </th>
+                                            @endif
                                             <th>
                                                 <div class="th-inner text-center">@lang('custom.action')</div>
                                             </th>
@@ -55,9 +65,14 @@
                                             <td>{{$item->name}}</td>
                                             <td>{{$item->email}}</td>
                                             <td>{{$item->roleName()}}</td>
+                                            @if(Auth::guard('admin')->user()->role == config('common.role.Admin'))
+                                            <td>
+                                                <input type="checkbox" data-id="{{ $item->id }}" name="status" class="js-switch" {{ $item->status == 1 ? 'checked' : '' }}>
+                                            </td>
+                                            @endif
                                             <td class="text-center">
                                                 <a href="{{route('employees.show', $item->id)}}" class="btn btn-primary text-light view-profile"><em class="fa fa-eye"></em></a>
-                                                @if(Auth::guard('admin')->user()->role == config('common.role.Administrator'))
+                                                @if(Auth::guard('admin')->user()->role == config('common.role.Admin'))
                                                 <a href="{{route('employees.edit', $item->id)}}" class="btn btn-primary text-light"><em class="far fa-edit"></em></a> 
                                                 <form action="{{route('employees.destroy', $item->id)}}" method="post" class="form-delete-{{$item->id}}" style="display: inline">
                                                     @csrf
@@ -101,7 +116,14 @@
 </div>
 @endsection
 @section('script')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/switchery/0.8.2/switchery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     <script>
+        let elems = Array.prototype.slice.call(document.querySelectorAll('.js-switch'));
+        elems.forEach(function(html) {
+            let switchery = new Switchery(html,  { size: 'small' });
+        });
+
         $('.view-profile').on('click', function (event) {
             event.preventDefault();
             let url = $(this).attr('href');
@@ -113,6 +135,26 @@
             });
         });
 
+        @if(Auth::guard('admin')->user()->role == config('common.role.Admin'))
+        $(document).ready(function(){
+            $('.js-switch').change(function () {
+                let status = $(this).prop('checked') === true ? 1 : 0;
+                let job_id = $(this).data('id');
+                $.ajax({
+                    type: "GET",
+                    dataType: "json",
+                    url: '{{ route('admin.update.status') }}',
+                    data: {'status': status, 'job_id': job_id},
+                    success: function (data) {
+                        toastr.options.closeButton = true;
+                        toastr.options.closeMethod = 'fadeOut';
+                        toastr.options.closeDuration = 100;
+                        toastr.success(data.success);
+                    }
+                });
+            });
+        });
+        
         $('.delete-confirm').on('click', function (event) {
             event.preventDefault();
             let id = $(this).attr('idDelete');
@@ -133,5 +175,6 @@
                 }
             });
         });
+        @endif
     </script>
 @endsection

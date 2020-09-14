@@ -3,15 +3,19 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Repositories\Job\JobRepositoryInterface;
 use App\Repositories\Candidate\CandidateRepositoryInterface;
 
 class CandidateController extends Controller
 {
     protected $candidateRepository;
 
-    public function __construct(CandidateRepositoryInterface $candidateRepository) 
-    {
+    public function __construct(
+        CandidateRepositoryInterface $candidateRepository,
+        JobRepositoryInterface $jobRepository 
+    ) {
         $this->candidateRepository = $candidateRepository;
+        $this->jobRepository = $jobRepository;
     }
 
     public function index()
@@ -62,4 +66,9 @@ class CandidateController extends Controller
         return response()->json($html);
     }
 
+    public function showByJob($id)
+    {
+        $candidates = $this->candidateRepository->indexByJob($id);
+        return view('admin.candidate.index', compact('candidates'));
+    }
 }

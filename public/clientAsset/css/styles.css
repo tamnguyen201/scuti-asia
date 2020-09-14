@@ -1455,6 +1455,8 @@ input[type='checkbox'] {
 
 .cards-2 .card {
 	max-width: 20rem;
+	min-height: 22.5rem;
+	padding-top: 1rem;
 	margin: auto;
 	margin-bottom: 1rem;
 	border: none;
@@ -2047,13 +2049,6 @@ a:hover.back-to-top {
 .ex-basic-2 .form-container {
 	margin-top: 3rem;
 }
-
-.ex-basic-2 .job-description {
-	box-shadow: 0 0 10px #dcddde;
-	border-radius: 10px;
-	padding: 10px;
-}
-
 
 /*****************************/
 /*     25. Media Queries     */
@@ -2727,7 +2722,8 @@ a:hover.back-to-top {
 
 	/* Products */
 	.cards-2 .card {
-		max-width: 15rem;
+		max-width: 20rem;
+		min-height: 23.5rem;
 	}
 	/* end of products */
 
@@ -2849,7 +2845,8 @@ a:hover.back-to-top {
 	}
 
 	.cards-2 .card {
-		max-width: 23rem;
+		max-width: 39rem;
+		min-height: 25rem;
 	}
 
 	.slider-1 .image-container {

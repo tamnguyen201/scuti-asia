@@ -44,16 +44,12 @@ class HomeController extends Controller
 
     public function index()
     {
-        $data['common'] = $this->SectionRepository->where('slug', '=', 'benefits');
+        $data['section'] = $this->SectionRepository->all();
         $data['main_member'] = \App\Model\MainMember::all();
         $data['benefits'] = \App\Model\Benefit::all();
-        $data['recruitment_flow'] = $this->SectionRepository->where('slug', '=', 'recruitment-flow');
         $data['working_environment'] = $this->CompanyImagesRepository->all();
-        $data['about_us'] = $this->SectionRepository->where('slug', '=', 'about-us');
         $data['new_spaper'] = $this->NewSpaperRepository->all();
-        $data['visit_us'] = $this->SectionRepository->where('slug', '=', 'visit-us');
         $data['categories'] = $this->CategoryRepository->where('status', '=', 1);
-        $data['jobs'] = $this->JobRepository->with('category')->get();
         $data['hotJobs'] = $this->JobRepository->all();
 
         return view('client.page.index', compact('data'));
@@ -68,7 +64,7 @@ class HomeController extends Controller
 
     public function jobs()
     {
-        $data['recruitment_flow'] = $this->SectionRepository->where('slug', '=', 'recruitment-flow');
+        $data['recruitment_flow'] = $this->SectionRepository->show(10);
         $data['categories'] = $this->CategoryRepository->all();
         $data['jobs'] = $this->JobRepository->with('category')->paginate(5);
 
@@ -77,11 +73,18 @@ class HomeController extends Controller
 
     public function jobDetail($id, $slug)
     {
-        $data['job'] = $this->JobRepository->show($id);
-        // $data['related_job'] = \App\Model\Job::where('category_id', $data['job']->category_id)->where('id', '<>', $id)->take(5);
-        $data['related_job'] = $this->JobRepository->all();
+        $job = $this->JobRepository->show($id);
 
-        return view('client.page.jobDetail', compact('data'));
+        if($job->category->status == 1 && $job->status == 1) {
+            $data['job'] = $job;
+            // $data['related_job'] = \App\Model\Job::where('category_id', $data['job']->category_id)->where('id', '<>', $id)->take(5);
+            $data['related_job'] = $this->JobRepository->all();
+    
+            return view('client.page.jobDetail', compact('data'));
+
+        }
+
+        abort(404);
     }
 
     public function jobApply($id, $slug)
@@ -92,21 +95,33 @@ class HomeController extends Controller
             return redirect()->route('client.login')->with('redirect', $redirect);
         }
 
-        $data['apply'] = \App\Model\UserJob::where('user_id', auth()->user()->id)->where('job_id', $id)->with('process')->first();
-        // dd($data['apply']->process[0]->evaluate[0]->status);
-        $data['job'] = $this->JobRepository->show($id);
-        // $data['related_job'] = \App\Model\Job::where('category_id', $data['job']->category_id)->where('id', '<>', $id)->take(5);
-        $data['related_job'] = $this->JobRepository->all();
+        $job = $this->JobRepository->show($id);
 
-        return view('client.page.jobApply', compact('data'));
+        if($job->category->status == 1 && $job->status == 1) {
+            $data['job'] = $job;
+            $data['apply'] = \App\Model\UserJob::where('user_id', auth()->user()->id)->where('job_id', $id)->with('process')->first();
+            // $data['related_job'] = \App\Model\Job::where('category_id', $data['job']->category_id)->where('id', '<>', $id)->take(5);
+            $data['related_job'] = $this->JobRepository->all();
+
+            return view('client.page.jobApply', compact('data'));
+        }
+
+        abort(404);
     }
 
     public function userApplyJob(ClientApplyJobRequest $request)
     {
-        $this->ApplyJobService->create($request->all());
-        // alert(trans('custom.alert_messages.contact_alert.title'), trans('custom.alert_messages.contact_alert.text'), 'success');
+        $status = \App\Model\UserJob::where('user_id', \auth()->user()->id)->where('job_id', $request->job_id)->first();
+
+        if($status == null) {
+            $this->ApplyJobService->create($request->all());
+            // alert(trans('custom.alert_messages.contact_alert.title'), trans('custom.alert_messages.contact_alert.text'), 'success');
+            
+            return true;
+
+        }
         
-        return true;
+        abort(404);
     }
 
     public function login()

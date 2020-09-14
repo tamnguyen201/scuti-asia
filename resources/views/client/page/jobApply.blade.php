@@ -366,7 +366,7 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="col-lg-12 mb-2 p-0" style="background-color: #fff;">
+                    <div class="col-lg-12 mb-2 p-0 pb-3" style="background-color: #fff;">
                         <h3 class="p-2 border-bottom">@lang('client.page.job.related_job')</h3>
                         <div class="col-lg-12 p-0">
                             @foreach($data['related_job'] as $job )

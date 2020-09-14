@@ -24,7 +24,7 @@
                         @csrf
                         <div class="col-md-6">
                             <div class="form-group @error('name') has-error @enderror">
-                                <label class="lable-required">@lang('custom.name')</label>
+                                <label class="label-required">@lang('custom.name')</label>
                                 <input type="text" name="name" value="{{old('name')}}" placeholder="@lang('custom.placehoder.name')" class="form-control">
                                 @error('name') 
                                 <span class="help-block"> {{$message}} </span>
@@ -51,14 +51,14 @@
                         </div>
                         <div class="col-md-6">
                             <div class="form-group @error('email') has-error @enderror">
-                                <label class="lable-required">@lang('custom.email')</label>
+                                <label class="label-required">@lang('custom.email')</label>
                                 <input type="email" name="email" value="{{old('email')}}" class="form-control" placeholder="@lang('custom.placehoder.email')">
                                 @error('email') 
                                 <span class="help-block"> {{$message}} </span>
                                 @enderror
                             </div>
                             <div class="form-group">
-                                <label class="lable-required">@lang('custom.role')</label>
+                                <label class="label-required">@lang('custom.role')</label>
                                 <select name="role" class="form-control">
                                     @foreach (config('common.role') as $key => $item)
                                         @if($item != config('common.role.User'))
@@ -70,7 +70,7 @@
                         </div>
                         
                         <div class="col-md-12 text-center">
-                            <button type="submit" class="btn btn-primary"> @lang('custom.button.submit') <em class="fa fa-plus"></em></button>
+                            <button type="submit" class="btn btn-primary"> @lang('custom.button.submit') <em class="fa fa-check"></em></button>
                             <a href="{{route('employees.index')}}" class="btn btn-danger">@lang('custom.button.cancel') <em class="fa fa-times"></em></a>
                         </div>
                     </form>

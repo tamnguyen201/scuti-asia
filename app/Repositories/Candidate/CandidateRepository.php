@@ -30,6 +30,11 @@ class CandidateRepository extends Repository implements CandidateRepositoryInter
         return \App\Model\UserJob::with(['user'])->paginate(10);
     }
 
+    public function indexByJob($id)
+    {
+        return \App\Model\UserJob::with(['user'])->where('job_id', '=' , $id)->paginate(10);
+    }
+
     public function evaluating()
     {
         return \App\Model\UserJob::with(['user'])
