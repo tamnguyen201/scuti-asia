@@ -184,7 +184,11 @@ return [
         'note'=>'Ghi chú',
         'color'=>'Màu',
         'start'=>'Ngày bắt đầu',
-        'end'=>'Ngày kết thúc'
+        'end'=>'Ngày kết thúc',
+        'calendar'=>'Lịch',
+        'calendar_schedule'=>'Lịch trình sự kện',
+        'calendar_add'=>'Đặt lịch sự kiện',
+        'btn_add'=>'Thêm mới sự kiện'
     ],
     'jobs'=>[
         'candidate_number'=>'Ứng viên',

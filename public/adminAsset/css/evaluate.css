@@ -44,17 +44,17 @@ p {
 
 #msform input,
 #msform textarea {
-    padding: 8px 15px 8px 15px;
+    padding: 6px 12px;
     border: 1px solid #ccc;
     border-radius: 0px;
-    margin-bottom: 25px;
+    margin-bottom: 10px;
     margin-top: 2px;
     width: 100%;
     box-sizing: border-box;
     font-family: montserrat;
     color: #2C3E50;
     background-color: #ffffff;
-    font-size: 16px;
+    font-size: 14px;
     letter-spacing: 1px
 }
 
@@ -219,4 +219,14 @@ p {
 .infor.col-md-6 {
     border-right: solid 1px;
     padding-right: 0px;
+}
+
+.col-12{
+    display: inline-block;
+    width: 100%;
+}
+
+.modal-body{
+    display: inline-block;
+    height: 100%;
 }

@@ -93,6 +93,7 @@ Route::group(
         });
         // Route::post('fullcalendar/update','EvaluateController@updateCalendar');
         // Route::post('fullcalendar/delete','EvaluateController@destroyCalendar');
+        Route::get('fullcalendar','FullcalendarController@show')->name('fullcalendar.show');
 
         Route::resource('new_spaper', 'NewSpaperController');
         Route::resource('sections', 'SectionController');
