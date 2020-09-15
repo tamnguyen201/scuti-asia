@@ -104,4 +104,10 @@
         });
     </script>
 
+    <script type="text/javascript">
+        @if (count($errors) > 0)
+            $('#myModal').modal('show');
+        @endif
+    </script>
+
 @endsection

@@ -26,12 +26,12 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        if(env('REDIRECT_HTTPS') == true) {
-            URL::forceScheme('https');
-        }
+        // if(env('REDIRECT_HTTPS') == true) {
+        //     URL::forceScheme('https');
+        // }
         Schema::defaultStringLength(191);
-        $data_share = Company::first();
+        // $data_share = Company::first();
 
-        return view()->share('data_share', $data_share);
+        // return view()->share('data_share', $data_share);
     }
 }
