@@ -6,15 +6,16 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="breadcrumbs">
-                    <a href="{{route('home')}}">Home</a><i class="fa fa-angle-double-right"></i><span>Profile</span>
+                    <a href="{{route('home')}}">@lang('client.page.home.title')</a><i class="fa fa-angle-double-right"></i><span>@lang('client.page.profile.title')</span>
                 </div>
             </div>
         </div>
     </div>
 </div>
-<div class="basic-2">
+<div class="basic-2" style="padding-top:0">
     <div class="col-lg-8 mx-auto">
         <div class="form-container">
+            <h1 style="text-align: center;margin-bottom: 40px;color: #868686;letter-spacing: 3px;">@lang('client.page.profile.form_title')</h1>
             <form action="{{route('client.update_info')}}" class="col-lg-12 row" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="col-md-7">

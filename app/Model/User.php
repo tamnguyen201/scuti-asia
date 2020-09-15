@@ -47,6 +47,9 @@ class User extends Authenticatable
         return $this->hasMany('App\Model\CV');
     }
 
+    public function events() {
+        return $this->hasMany('App\Model\Event');
+      }
     public function userjob()
     {
         return $this->hasMany('App\Model\UserJob');

@@ -31,7 +31,7 @@
                 <th>
                     <div class="th-inner sortable">@lang('custom.stt')</div>
                     <div class="fht-cell"></div>
-                </th>
+                </th> 
                 <th>
                     <div class="th-inner sortable">@lang('custom.cv_url')</div>
                     <div class="fht-cell"></div>
@@ -49,3 +49,4 @@
         </tbody>
     </table>
 </div>
+

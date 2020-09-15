@@ -2,6 +2,7 @@
 @section('css')
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/switchery/0.8.2/switchery.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    <link rel="stylesheet" href="{{ asset('adminAsset/css/job.css') }}">
 @endsection
 @section('content')
 <div class="row">
@@ -17,13 +18,14 @@
         <h1 class="page-header">@lang('custom.page_title.job_manage')</h1>
     </div>
 </div>
+<div class="row">
 <div class="col-lg-12">
     <div class="panel panel-default">
        <div class="panel-heading">@lang('custom.page_title.jobs')</div>
        <div class="panel-body">
             <div class="bootstrap-table">
                 <div class="fixed-table-toolbar">
-                    <a href="{{ route('jobs.create') }}" class="btn btn-primary btn-add-form" style="float: right"><span class="fa fa-plus"></span> @lang('custom.button.add')</a>
+                    <a href="{{ route('jobs.create') }}" class="btn btn-primary btn-add-form" style="float: right; margin: 1rem"><span class="fa fa-plus"></span> @lang('custom.button.add')</a>
                 </div>
                 <div class="fixed-table-container">
                     <div class="fixed-table-body">
@@ -35,11 +37,19 @@
                                         <div class="fht-cell"></div>
                                     </th>
                                     <th style="">
-                                        <div class="th-inner sortable">@lang('custom.category') :<span class="order"><span class="caret" style="margin: 10px 5px;"></span></span></div>
+                                        <div class="th-inner sortable">@lang('custom.categories') :<span class="order"><span class="caret" style="margin: 10px 5px;"></span></span></div>
+                                        <div class="fht-cell"></div>
+                                    </th>
+                                    <th style="">
+                                        <div class="th-inner sortable">@lang('custom.jobs.date') :<span class="order"><span class="caret" style="margin: 10px 5px;"></span></span></div>
                                         <div class="fht-cell"></div>
                                     </th>
                                     <th style="">
                                         <div class="th-inner sortable">@lang('custom.status') :<span class="order"><span class="caret" style="margin: 10px 5px;"></span></span></div>
+                                        <div class="fht-cell"></div>
+                                    </th>
+                                    <th style="">
+                                        <div class="th-inner sortable">@lang('custom.jobs.candidate_number') :<span class="order"><span class="caret" style="margin: 10px 5px;"></span></span></div>
                                         <div class="fht-cell"></div>
                                     </th>
                                     <th style="">
@@ -54,8 +64,12 @@
                                     <td>{{ $item->name }}</td>
                                     <td>{{ $item->category->category_name }}</td>
                                     <td>
+                                        {{ \Carbon\Carbon::parse($item->expireDay)->format('d/m/Y')}}
+                                    </td>
+                                    <td>
                                         <input type="checkbox" data-id="{{ $item->id }}" name="status" class="js-switch" {{ $item->status == 1 ? 'checked' : '' }}>
                                     </td>
+                                    <td><a href="{{ route('candidate.byJob', $item->id) }}" class="btn btn-default">{{ count($item->user) }} <span class="fa fa-user"></span></a></td>
                                     <td class="text-center">
                                         <a href="{{ route('job.detail', ['id' => $item->id]) }}" class="btn btn-primary text-light view-profile"><em class="fa fa-eye"></em></a>
                                         <a href="{{ route('jobs.edit', $item->id) }}" class="btn btn-primary text-light"><em class="far fa-edit"></em></a> 
@@ -105,6 +119,7 @@
        </div>
     </div>
  </div>
+</div>
 @endsection
 @section('script')
     <script src="https://cdnjs.cloudflare.com/ajax/libs/switchery/0.8.2/switchery.min.js"></script>

@@ -208,26 +208,29 @@
                     <div class="col-lg-3 col-md-4 col-12 button-group filters-button-group">
                         <h3 class="is-checked"><span>@lang('client.section.recruitment.menu_title')</span></h3>
                         @foreach($data['categories'] as $category)
-                        <a class="d-block button text-decoration-none" id="v-pills-{{$category->category_name}}-tab" data-toggle="pill" href="#v-pills-{{$category->category_name}}" role="tab" aria-controls="v-pills-{{$category->category_name}}" aria-selected="true"><span>{{$category->category_name}}</span></a>
+                        <a class="d-block button text-decoration-none" id="v-pills-{{$category->slug}}-tab" data-toggle="pill" href="#v-pills-{{$category->slug}}" role="tab" aria-controls="v-pills-{{$category->slug}}" aria-selected="true"><span>{{$category->category_name}}</span></a>
                         @endforeach
                         <a class="d-block button text-decoration-none" href="{{route('client.jobs')}}"><span>@lang('client.section.recruitment.end_menu')</span></a>
                     </div>
                     <div class="col-lg-9 col-md-8 col-12 list-group">
                         <div class="tab-content" id="v-pills-tabContent">
                         @foreach($data['categories'] as $category)
-                            <div class="tab-pane fade" id="v-pills-{{$category->category_name}}" role="tabpanel" aria-labelledby="v-pills-{{$category->category_name}}-tab">
+                            <div class="tab-pane fade" id="v-pills-{{$category->slug}}" role="tabpanel" aria-labelledby="v-pills-{{$category->slug}}-tab">
                                 @foreach($data['jobs'] as $job)    
                                 @if($job->category->id == $category->id)
                                 <div class="list-group-item d-md-flex col-12 development">
                                     <div class="col-md-8 col-12">
                                         <div class="mb-block cell name-job">
-                                            <h4 class="title-h4"><a style="font-weight: normal;color: #f4511e; text-decoration: none" href="{{route('job-detail', [$job->slug, $job->id])}}">[Đà Nẵng] {{$job->name}}</a></h4>
-                                            <span class="desc-job inline"><span class="-ap icon-access_time"></span>07/08 — 31/12/2020 <span class="job-type">Freelancer</span></span>
-                                            <p class="desc-job"><span class="-ap icon-coin-dollar"></span>Thỏa thuận</p>
+                                            <h4 class="title-h4"><a style="font-weight: normal;color: #f4511e; text-decoration: none" href="{{route('job-detail', [$job->id, $job->slug])}}">[{{$job->location->name}}] {{$job->name}}</a></h4>
+                                            <p class="desc-job">
+                                                <i class="far fa-money-bill-alt"></i> {{$job->salary}} <br>
+                                                <i class="fas fa-map-marker-alt"></i> {{$job->location->name}}
+                                            </p>
+                                            <span class="desc-job inline"><i class="far fa-clock"></i> {{$job->formatExpireDay()}}</span>
                                         </div>
                                     </div>
                                     <div class="col-md-4 col-12 text-md-right text-center">
-                                        <a href="{{route('client.applied', [$job->slug, $job->id])}}" class="btn-apply-main btn-apply">@lang('client.section.recruitment.apply')</a>
+                                        <a href="{{route('client.applied', [$job->id, $job->slug])}}" class="btn-apply-main btn-apply">@lang('client.section.recruitment.apply')</a>
                                     </div>
                                 </div>
                                 @endif
@@ -240,13 +243,16 @@
                                 <div class="list-group-item d-md-flex col-12 development">
                                     <div class="col-md-8 col-12">
                                         <div class="mb-block cell name-job">
-                                            <h4 class="title-h4"><a style="font-weight: normal;color: #f4511e; text-decoration: none" href="{{route('job-detail', [$job->slug, $job->id])}}">[Đà Nẵng] {{$job->name}}</a></h4>
-                                            <span class="desc-job inline"><span class="-ap icon-access_time"></span>07/08 — 31/12/2020 <span class="job-type">Freelancer</span></span>
-                                            <p class="desc-job"><span class="-ap icon-coin-dollar"></span>Thỏa thuận</p>
+                                            <h4 class="title-h4"><a style="font-weight: normal;color: #f4511e; text-decoration: none" href="{{route('job-detail', [$job->id, $job->slug])}}">[{{$job->location->name}}] {{$job->name}}</a></h4>
+                                            <p class="desc-job">
+                                                <i class="far fa-money-bill-alt"></i> {{$job->salary}} <br>
+                                                <i class="fas fa-map-marker-alt"></i> {{$job->location->name}}
+                                            </p>
+                                            <span class="desc-job inline"><i class="far fa-clock"></i> {{$job->formatExpireDay()}}</span>
                                         </div>
                                     </div>
                                     <div class="col-md-4 col-12 text-md-right text-center">
-                                        <a href="{{route('client.applied', [$job->slug, $job->id])}}" class="btn-apply-main btn-apply">@lang('client.section.recruitment.apply')</a>
+                                        <a href="{{route('client.applied', [$job->id, $job->slug])}}" class="btn-apply-main btn-apply">@lang('client.section.recruitment.apply')</a>
                                     </div>
                                 </div>
                                 @endforeach

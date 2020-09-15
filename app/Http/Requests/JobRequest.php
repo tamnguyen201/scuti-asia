@@ -28,7 +28,8 @@ class JobRequest extends FormRequest
             'location_id'=>'required',
             'category_id'=>'required',
             'expire_date'=>'required',
-            'description'=>'required'
+            'description'=>'required',
+            'salary'=>'required',
         ];
     }
 

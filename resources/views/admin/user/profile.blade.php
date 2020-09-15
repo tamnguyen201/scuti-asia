@@ -28,7 +28,7 @@
                         <li>
                             <div class="form-group">
                                 <label>{{trans('custom.name')}} :</label>
-                                <p>{{ auth()->user()->name }}</p>
+                                <p>{{ Auth::guard('admin')->user()->name }}</p>
                             </div>
                         </li>
                         <li>

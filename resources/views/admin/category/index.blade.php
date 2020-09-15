@@ -1,25 +1,29 @@
 @extends('admin.layout.layout')
+@section('css')
+    <link rel="stylesheet" href="{{ asset('adminAsset/css/job.css') }}">   
+@endsection
 @section('content')
 <div class="row">
     <ol class="breadcrumb">
         <li><a href="#">
             <em class="fa fa-home"></em>
         </a></li>
-        <li class="active">Categories</li>
+        <li class="active">@lang('custom.category.category_manage')</li>
     </ol>
 </div>
 <div class="row">
     <div class="col-lg-12">
-        <h1 class="page-header">Categories Manage</h1>
+        <h1 class="page-header">@lang('custom.category.category_list')</h1>
     </div>
 </div>
+<div class="row">
 <div class="col-lg-12">
     <div class="panel panel-default">
-       <div class="panel-heading">Data Table</div>
+       <div class="panel-heading">@lang('custom.page_title.data_table')</div>
        <div class="panel-body">
             <div class="bootstrap-table">
                 <div class="fixed-table-toolbar">
-                    <a href="{{route('categories.create')}}" class="btn btn-primary btn-add-form" style="float: right"><span class="fa fa-plus"></span> Add New</a>
+                    <a href="{{route('categories.create')}}" class="btn btn-primary btn-add-form" style="float: right"><span class="fa fa-plus"></span> @lang('custom.button.add')</a>
                 </div>
                 <div class="fixed-table-container">
                     <div class="fixed-table-body">
@@ -27,23 +31,23 @@
                             <thead>
                                 <tr>
                                     <th style="">
-                                        <div class="th-inner sortable">No.</div>
+                                        <div class="th-inner sortable">@lang('custom.table.no')</div>
                                         <div class="fht-cell"></div>
                                     </th>
                                     <th style="">
-                                        <div class="th-inner sortable">Category :<span class="order"><span class="caret" style="margin: 10px 5px;"></span></span></div>
+                                        <div class="th-inner sortable">@lang('custom.table.category') :<span class="order"><span class="caret" style="margin: 10px 5px;"></span></span></div>
                                         <div class="fht-cell"></div>
                                     </th>
                                     <th style="">
-                                        <div class="th-inner sortable">Status :<span class="order"><span class="caret" style="margin: 10px 5px;"></span></span></div>
+                                        <div class="th-inner sortable">@lang('custom.table.status') :<span class="order"><span class="caret" style="margin: 10px 5px;"></span></span></div>
                                         <div class="fht-cell"></div>
                                     </th>
                                     <th style="">
-                                        <div class="th-inner sortable">Created by :<span class="order"><span class="caret" style="margin: 10px 5px;"></span></span></div>
+                                        <div class="th-inner sortable">@lang('custom.table.create_by') :<span class="order"><span class="caret" style="margin: 10px 5px;"></span></span></div>
                                         <div class="fht-cell"></div>
                                     </th>
                                     <th style="">
-                                        <div class="th-inner sortable text-center">Action</div>
+                                        <div class="th-inner sortable text-center">@lang('custom.table.action')</div>
                                         <div class="fht-cell"></div>
                                     </th>
                                 </tr>
@@ -57,7 +61,7 @@
                                     <td>
                                         <input data-id="{{$item->id}}" class="toggle-class" type="checkbox" data-onstyle="success" data-offstyle="danger" data-toggle="toggle" data-on="Active" data-off="InActive" {{ $item->status ? 'checked' : '' }}>
                                     </td>
-                                    <td>{{auth()->user()->name}}</td>
+                                    <td>{{Auth::guard('admin')->user()->name}}</td>
                                     <td class="text-center">
                                         <a href="{{route('categories.edit', $item['id'])}}" class="btn btn-primary text-light btn-edit-form"><em class="far fa-edit"></em></a> 
                                         <form action="{{route('categories.destroy', $item['id'])}}" method="post" class="form-delete-{{$item->id}}" style="display: inline">
@@ -83,7 +87,7 @@
             <div class="modal-dialog modal-md">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">Categories Manage</h5>
+                  <h5 class="modal-title" id="exampleModalLabel">@lang('custom.category.category_manage')</h5>
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                   </button>
@@ -99,7 +103,7 @@
                       </form>
                 </div>
                 <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">@lang('custom.button.close')</button>
                 </div>
               </div>
             </div>
@@ -107,6 +111,7 @@
        </div>
     </div>
  </div>
+</div>
 @endsection
 @section('script')
     <script type="text/javascript">

@@ -20,6 +20,7 @@ class CreateJobTable extends Migration
             $table->longText('description');
             $table->foreignId('category_id');
             $table->foreignId('location_id');
+            $table->string('salary');
             $table->date('expireDay');
             $table->boolean('status')->default(0);
             $table->timestamps();

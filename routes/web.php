@@ -12,8 +12,12 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-
+Route::get('/w', function() {
+    $details['name'] = 'Tâm Nguyễn';
+    $details['user_name'] = 'tam2012000@gmail.com';
+    $details['password'] = 'dskfjsdjasda';
+    return view('welcome', compact('details'));
+});
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/login', 'AuthController@login')->name('client.login');
 Route::post('/login', 'AuthController@postLogin')->name('client.postLogin');
@@ -30,17 +34,16 @@ Route::post('/update-cv/{id}', 'CVController@update')->name('client.update_cv');
 Route::delete('/delete-cv/{id}', 'CVController@destroy')->name('client.destroy_cv');
 Route::get('/change-password', 'HomeController@changePassword')->name('client.change_password');
 Route::post('/change-password','AuthController@changePassword')->name('client.update_password');
-
 Route::post('/visit-us','HomeController@visit_us')->name('client.visit_us');
 Route::get('/apply', 'HomeController@apply')->name('client.apply');
 Route::get('/jobs', 'HomeController@jobs')->name('client.jobs');
-Route::get('/jobs/{slug}-{id}.html', 'HomeController@jobDetail')->name('job-detail');
-Route::get('/jobs/apply/{slug}-{id}.html', 'HomeController@jobApply')->name('client.applied');
+Route::get('/jobs-{id}/{slug}.html', 'HomeController@jobDetail')->name('job-detail');
+Route::get('/jobs/apply-{id}/{slug}.html', 'HomeController@jobApply')->name('client.applied');
 Route::post('/apply','HomeController@userApplyJob')->name('client.apply.job');
-
-
 Route::get('/auth/redirect/{provider}', 'SocialController@redirect');
 Route::get('/callback/{provider}', 'SocialController@callback');
+
+
 
 Route::group(
         ['prefix'=>'admin'], function () {
@@ -49,9 +52,13 @@ Route::group(
         Route::post('login','Auth\AdminLoginController@postLogin')->name('admin.post-login');
         Route::get('logout', 'Auth\AdminLoginController@logout')->name('admin.logout');
         Route::get('/forgot', 'Auth\AdminLoginController@forgot');
-        
+        Route::post('/forgot','ResetPasswordController@getForgotPassword')->name('admin.forgot_password');
+        Route::get('/confirmOTP/{email}', 'ResetPasswordController@confirmOTP')->name('admin.forgot_password.confirmOTP');
+        Route::post('/confirmOTP/{email}','ResetPasswordController@postConfirmOTP')->name('post.confirmOTP');
+        Route::get('forgot/change-password/{email}', 'ResetPasswordController@formNewPW')->name('admin.forgot_password.show_form_changePW');
+        Route::post('forgot/change-password/{email}', 'ResetPasswordController@storeNewPW')->name('admin.forgot_password.newPW');
+
     Route::group(['middleware' => ['CheckManager']], function () {
-        Route::get('/', 'AdminController@index')->name('admin.home');
 
         Route::get('/', 'AdminController@index')->name('admin.home');
         Route::resource('users', 'UserController')->only(['index', 'show']);
@@ -74,9 +81,24 @@ Route::group(
         Route::get('candidates/evaluating', 'CandidateController@evaluating')->name('candidates.evaluating');
         Route::get('candidates/finish', 'CandidateController@finish')->name('candidates.finish');
         Route::get('candidates/failed', 'CandidateController@failed')->name('candidates.failed');
-        Route::resource('candidates', 'CandidateController');
+        Route::post('candidates/search', 'CandidateController@search')->name('candidates.search');
+        Route::resource('candidates', 'CandidateController')->only(['index', 'show']);
+        Route::get('candidates/job/{id}','CandidateController@showByJob')->name('candidate.byJob');
+        Route::group(['prefix' => 'evaluate'], function () {
+            Route::get('candidate/{id}', 'EvaluateController@show')->name('evaluate.candidate.show');
+            Route::post('candidate/{id}', 'EvaluateController@store')->name('evaluate.store');
+            Route::post('process/calendar/create','EvaluateController@storeCalendar')->name('store.event');
+            Route::post('start-evaluate/{id}','EvaluateController@startEvaluate')->name('start.evaluate');
+            Route::get('process/send-email','EvaluateController@createEmail')->name('create.email');
+        });
+        // Route::post('fullcalendar/update','EvaluateController@updateCalendar');
+        // Route::post('fullcalendar/delete','EvaluateController@destroyCalendar');
+        Route::get('fullcalendar','FullcalendarController@show')->name('fullcalendar.show');
+
+        Route::resource('new_spaper', 'NewSpaperController');
         Route::resource('sections', 'SectionController');
         Route::resource('contacts', 'ContactController')->only(['index', 'show']);
-    });
+        
+        });
     }
 );

@@ -13,7 +13,9 @@
     }
 
     p {
-        color: grey
+        color: gray;
+        line-height: 1.2rem;
+        font: 400 1.2rem/1.375rem "Arial", sans-serif;
     }
 
     #heading {
@@ -254,33 +256,27 @@
                         <p>@lang('client.page.apply.process.description')</p>
                         <form id="msform">
                             <ul id="progressbar">
-                                @if(isset($data['apply']->process[0]->evaluate[0]) && $data['apply']->process[0]->evaluate[0]->status == 1)
-                                <li class="active" step="0" id="account"><strong>Checking</strong></li>
-                                @elseif(isset($data['apply']->process[0]->evaluate[0]) && $data['apply']->process[0]->evaluate[0]->status == 0)
-                                <li class="inactive" step="0" id="account"><strong>Checking</strong></li>
+                                <li class="active" id="account"><strong> Apply </strong></li>
+                                @if(isset($data['apply']->process[0]->evaluate) && $data['apply']->process[0]->evaluate->status == 1)
+                                <li class="active" step="0" id="personal"><strong>{{$data['apply']->process[0]->name}}</strong></li>
+                                @elseif(isset($data['apply']->process[0]->evaluate) && $data['apply']->process[0]->evaluate->status == 0)
+                                <li class="inactive" step="0" id="personal"><strong>{{$data['apply']->process[0]->name}}</strong></li>
                                 @else
-                                <li step="0" id="account"><strong>Checking</strong></li>
+                                <li step="0" id="personal"><strong>Review</strong></li>
                                 @endif
-                                @if(isset($data['apply']->process[1]->evaluate[0]) && $data['apply']->process[1]->evaluate[0]->status == 1)
-                                <li class="active" step="1" id="personal"><strong>Review</strong></li>
-                                @elseif(isset($data['apply']->process[1]->evaluate[0]) && $data['apply']->process[1]->evaluate[0]->status == 0)
-                                <li class="inactive" step="1" id="personal"><strong>Review</strong></li>
+                                @if(isset($data['apply']->process[1]->evaluate) && $data['apply']->process[1]->evaluate->status == 1)
+                                <li class="active" step="1" id="payment"><strong>{{$data['apply']->process[1]->name}}</strong></li>
+                                @elseif(isset($data['apply']->process[1]->evaluate) && $data['apply']->process[1]->evaluate->status == 0)
+                                <li class="inactive" step="1" id="payment"><strong>{{$data['apply']->process[1]->name}}</strong></li>
                                 @else
-                                <li step="1" id="personal"><strong>Review</strong></li>
+                                <li step="1" id="payment"><strong>Interviewer</strong></li>
                                 @endif
-                                @if(isset($data['apply']->process[2]->evaluate[0]) && $data['apply']->process[2]->evaluate[0]->status == 1)
-                                <li class="active" step="2" id="payment"><strong>Interviewer</strong></li>
-                                @elseif(isset($data['apply']->process[2]->evaluate[0]) && $data['apply']->process[2]->evaluate[0]->status == 0)
-                                <li class="inactive" step="2" id="payment"><strong>Interviewer</strong></li>
+                                @if(isset($data['apply']->process[2]->evaluate) && $data['apply']->process[2]->evaluate->status == 1)
+                                <li class="active" step="2" id="confirm"><strong>Finish</strong></li>
+                                @elseif(isset($data['apply']->process[2]->evaluate) && $data['apply']->process[2]->evaluate->status == 0)
+                                <li class="inactive" step="2" id="confirm"><strong>Finish</strong></li>
                                 @else
-                                <li step="2" id="payment"><strong>Interviewer</strong></li>
-                                @endif
-                                @if(isset($data['apply']->process[3]->evaluate[0]) && $data['apply']->process[3]->evaluate[0]->status == 1)
-                                <li class="active" step="3" id="confirm"><strong>Finish</strong></li>
-                                @elseif(isset($data['apply']->process[3]->evaluate[0]) && $data['apply']->process[3]->evaluate[0]->status == 0)
-                                <li class="inactive" step="3" id="confirm"><strong>Finish</strong></li>
-                                @else
-                                <li step="3" id="confirm"><strong>Finish</strong></li>
+                                <li step="2" id="confirm"><strong>Finish</strong></li>
                                 @endif
                             </ul>
                             @foreach($data['apply']->process as $key => $process)
@@ -289,13 +285,15 @@
                                 <div class="form-card">
                                     <div class="row">
                                         <div class="col-7">
-                                            <h2 class="fs-title">Account Information:</h2>
+                                            <h2 class="fs-title">@lang('client.page.apply.process.info')</h2>
                                         </div>
                                         <div class="col-5">
                                             <h2 class="steps"> {{'Step ' . $process->step . ' - ' . $process->name}}</h2>
                                         </div>
                                     </div> 
-
+                                    <div class="row col-lg-11 mx-auto">
+                                        <p>{{$process->evaluate->reason}}</p>
+                                    </div>
                                 </div> 
                                 @if($key < $data['apply']->process->count() -1)
                                 <input type="button" name="next" class="next action-button" value="Next" />
@@ -312,7 +310,7 @@
                                             <h2 class="fs-title">Finish:</h2>
                                         </div>
                                         <div class="col-5">
-                                            <h2 class="steps">Step 4 - 4</h2>
+                                            <h2 class="steps">Step 4 - Finish</h2>
                                         </div>
                                     </div> <br><br>
                                     <h2 class="purple-text text-center"><strong>SUCCESS !</strong></h2> <br>
@@ -333,41 +331,29 @@
                     </div>
                 </div>
                 <div class="row col-lg-12">
-                    <div class="col-lg-9 col-md-8">
+                    <div class="col-md-8">
                         <div class="text-container">
-                            <h2>{{$data['job']->name}}</h2>
+                            <h2 class="mb-4">{{$data['job']->name}}</h2>
                             <div class="">
                             {!! $data['job']->description !!}
                             </div>
                         </div>
                         <a href="{{route('client.jobs')}}" class="btn btn-outline-reg back" >@lang('client.page.apply.back')</a>
                     </div>
-                    <div class="col-lg-3 col-md-4">
-                        <h4>@lang('client.page.apply.sidebar.title')</h4>
+                    <div class="col-md-4">
+                        <h3>@lang('client.page.apply.sidebar.title')</h3>
                         <ul class="pl-0">
                             <li class="row justify-content-between mx-0 mb-2">
-                                <b>@lang('client.page.apply.sidebar.level')</b>
-                                <div class="value">Nhân viên</div>
-                            </li>
-                            <li class="row justify-content-between mx-0 mb-2">
-                                <b>@lang('client.page.apply.sidebar.job')</b>
-                                <div class="value">Tự động hóa</div>
-                            </li>
-                            <li class="row justify-content-between mx-0 mb-2">
-                                <b>@lang('client.page.apply.sidebar.exp')</b>
-                                <div class="value">2 - 10 Năm</div>
+                                <b>@lang('client.page.apply.sidebar.location')</b>
+                                <div class="value">{{$data['job']->location->name}} </div>
                             </li>
                             <li class="row justify-content-between mx-0 mb-2">
                                 <b>@lang('client.page.apply.sidebar.salary')</b>
-                                <div class="value">Cạnh tranh</div>
-                            </li>
-                            <li class="row justify-content-between mx-0 mb-2">
-                                <b>@lang('client.page.apply.sidebar.work_place')</b>
-                                <div class="value">Bình Dương </div>
+                                <div class="value">{{$data['job']->salary}}</div>
                             </li>
                             <li class="row justify-content-between mx-0 mb-2">
                                 <b>@lang('client.page.apply.sidebar.end_time')</b>
-                                <div class="value">30/09/2020</div>
+                                <div class="value">{{$data['job']->formatExpireDay()}}</div>
                             </li>
                         </ul>
                         @if($data['apply'] == null)

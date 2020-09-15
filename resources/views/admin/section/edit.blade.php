@@ -32,8 +32,6 @@
                                 <span class="help-block"> {{$message}} </span>
                                 @enderror
                             </div>
-                        </div>
-                        <div class="col-md-6">
                             <div class="form-group @error('map_url') has-error @enderror">
                                 <label>@lang('custom.map_url')</label>
                                 <input type="text" name="map_url" value="{{$section->map_url}}" class="form-control" placeholder="Please enter map_url">
@@ -42,7 +40,7 @@
                                 @enderror
                             </div>
                         </div>
-                        <div class="col-md-12">
+                        <div class="col-md-6">
                             <div class="form-group @error('image') has-error @enderror">
                                 <label>@lang('custom.image_url')</label>
                                 <input type="file" onchange="encodeImageFileAsURL(this)" name="image" accept="image/*">
@@ -53,9 +51,11 @@
                             <div class="form-group preview-img">
                                 <img src="{{($section->image) ? $section->image : 'default-img.png'}}" alt="your image" class="img-responsive" />
                             </div>
+                        </div>
+                        <div class="col-md-12">
                             <div class="form-group @error('content') has-error @enderror">
                                 <label>@lang('custom.content')</label>
-                                <textarea name="content" class="form-control" cols="30" rows="10">{!!$section->content!!}</textarea>
+                                <textarea name="content" class="form-control" @error('description') is-invalid @enderror id="exampleFormControlTextarea1" rows="4">{!!$section->content!!}</textarea>
                                 @error('content') 
                                 <span class="help-block"> {{$message}} </span>
                                 @enderror
@@ -75,4 +75,12 @@
 @endsection
 @section('script')
     @include('admin.preview-img')
+    <script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
+    <script>
+    CKEDITOR.replace( 'content', {
+        filebrowserBrowseUrl: '{{ route('sections.edit', $section->id) }}',
+
+    } );
+    </script>
+    @include('ckfinder::setup')
 @endsection

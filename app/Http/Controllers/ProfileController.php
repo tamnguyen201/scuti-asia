@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Model\Admin;
 use Illuminate\Support\Str;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\ManagerRequest;
 use App\Repositories\Manager\ManagerRepositoryInterface;
 
@@ -19,7 +20,7 @@ class ProfileController extends Controller
     
     public function showInformation()
     {
-        $data = $this->managerRepository->all()->where('user_id', auth()->id());
+        $data = $this->managerRepository->all()->where('id', Auth::guard('admin')->id());
         return view('admin.user.profile', compact('data'));
     }
 

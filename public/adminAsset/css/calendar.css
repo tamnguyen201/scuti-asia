@@ -1,0 +1,12 @@
+.card-title{
+    font-weight: bold;
+}
+
+.list-title{
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+h5#exampleModalLabel {
+    display: inline-block;
+}

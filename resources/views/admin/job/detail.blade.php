@@ -16,6 +16,7 @@
         <h1 class="page-header">@lang('custom.page_title.job_detail')</h1>
     </div>
 </div>
+<div class="row">
 <div class="col-lg-12">
     <div class="panel panel-default">
        <div class="panel-heading">@lang('custom.page_title.show_infor')</div>
@@ -30,7 +31,7 @@
             </div>
             <div class="detail row">
                 <div class="title col-md-3">
-                    <h4>@lang('custom.category') :</h4>
+                    <h4>@lang('custom.categories') :</h4>
                 </div>
                 <div class="content col-md-8">
                     <p>{{ $jobById->category->category_name }}</p>
@@ -38,7 +39,7 @@
             </div>
             <div class="detail row">
                 <div class="title col-md-3">
-                    <h4>@lang('custom.location')</h4>
+                    <h4>@lang('custom.locations')</h4>
                 </div>
                 <div class="content col-md-8">
                     <p>{{ $jobById->location['name'] }} </p>
@@ -62,5 +63,6 @@
             </div>
         </div>
     </div>
+</div>
 </div>
 @endsection

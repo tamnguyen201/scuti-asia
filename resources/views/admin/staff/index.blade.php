@@ -20,7 +20,7 @@
             <div class="panel-heading">@lang('custom.page_title.data_table')</div>
             <div class="panel-body">
                     <div class="bootstrap-table">
-                        @if(Auth::user()->role == config('common.role.Administrator'))
+                        @if(Auth::guard('admin')->user()->role == config('common.role.Administrator'))
                         <div class="fixed-table-toolbar">
                             <a href="{{route('employees.create')}}" class="btn btn-primary"><span class="fa fa-plus"></span> @lang('custom.button.add')</a>
                         </div>
@@ -57,12 +57,12 @@
                                         @foreach($employees as $item)
                                         <tr>
                                             <td>{{$stt++}}</td>
-                                            <td>{{$item->user->name}}</td>
-                                            <td>{{$item->user->email}}</td>
-                                            <td>{{$item->user->roleName()}}</td>
+                                            <td>{{$item->name}}</td>
+                                            <td>{{$item->email}}</td>
+                                            <td>{{$item->roleName()}}</td>
                                             <td class="text-center">
                                                 <a href="{{route('employees.show', $item->id)}}" class="btn btn-primary text-light view-profile"><em class="fa fa-eye"></em></a>
-                                                @if(Auth::user()->role == config('common.role.Administrator'))
+                                                @if(Auth::guard('admin')->user()->role == config('common.role.Administrator'))
                                                 <a href="{{route('employees.edit', $item->id)}}" class="btn btn-primary text-light"><em class="far fa-edit"></em></a> 
                                                 <form action="{{route('employees.destroy', $item->id)}}" method="post" class="form-delete-{{$item->id}}" style="display: inline">
                                                     @csrf
@@ -128,8 +128,8 @@
                 type: "warning",
                 showCancelButton: true,
                 confirmButtonColor: '#DD6B55',
-                confirmButtonText: 'Yes, I am sure!',
-                cancelButtonText: "Cancel!",
+                confirmButtonText: 'Đồng Ý!',
+                cancelButtonText: "Hủy!",
                 closeOnConfirm: false,
                 closeOnCancel: false
             }).then(function(value) {
