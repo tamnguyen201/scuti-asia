@@ -11,6 +11,7 @@ use MaddHatter\LaravelFullcalendar\Facades\Calendar;
 use App\Repositories\Process\ProcessRepositoryInterface;
 use App\Repositories\Evaluate\EvaluateRepositoryInterface;
 use App\Repositories\Candidate\CandidateRepositoryInterface;
+use App\Repositories\Admin\AdminRepositoryInterface;
 
 class EvaluateController extends Controller
 {
@@ -19,15 +20,18 @@ class EvaluateController extends Controller
     protected $candidateRepository;
     protected $evaluateRepository;
     protected $processRepository;
+    protected $adminRepository;
 
     public function __construct(
         EvaluateRepositoryInterface $evaluateRepository,
         CandidateRepositoryInterface $candidateRepository,
-        ProcessRepositoryInterface $processRepository)
+        ProcessRepositoryInterface $processRepository,
+        AdminRepositoryInterface $adminRepository)
     {
         $this->evaluateRepository = $evaluateRepository;
         $this->candidateRepository = $candidateRepository;
         $this->processRepository = $processRepository;
+        $this->adminRepository = $adminRepository;
     }
 
     public function showCalendar($id)
@@ -35,6 +39,7 @@ class EvaluateController extends Controller
         $events = [];
         $data = Event::all();
         $dataUser =$this->candidateRepository->show($id);
+        
         if($data->count()) {
             foreach ($data as $key => $value) {
                 $events[] = \Calendar::event(
@@ -74,7 +79,8 @@ class EvaluateController extends Controller
             'title' => $request->title,
             'start' => $request->start,
             'end' => $request->end,
-            'color' => $request->color
+            'color' => $request->color,
+            'admin_id'=>$request->admins
         ];
         $event = Event::updateOrCreate($insertArr);
 
@@ -87,9 +93,10 @@ class EvaluateController extends Controller
         $candidateById = $this->candidateRepository->where('id','=', $processById->user_job->user_id);
         $calendar = $this->showCalendar($candidateById->id);
         $dataUser =$this->candidateRepository->show($candidateById->id);
+        $dataAdmin = $this->adminRepository->all();
         $data = Event::all();
         
-        return view('admin.evaluate.evaluate_process', compact('processById','data','candidateById','calendar','dataUser'));
+        return view('admin.evaluate.evaluate_process', compact('processById','data','candidateById','calendar','dataUser','dataAdmin'));
     }
 
     public function store(Request $request, $id)

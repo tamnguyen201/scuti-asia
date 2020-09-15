@@ -6,6 +6,10 @@
     <link rel="stylesheet" href="{{ asset('adminAsset/css/evaluate.css') }}">
     <link href="{{ asset('fullcalendar/fullcalendar.min.css') }}" rel="stylesheet" />
     <link href="{{ asset('fullcalendar/fullcalendar.print.min.css') }}" rel="stylesheet" media="print" />
+    <link rel="stylesheet" href="{{ asset('select2/select2.min.css') }}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slim-select/1.26.0/slimselect.min.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/slim-select/1.26.0/slimselect.min.css" rel="stylesheet"></link>
+
 @endsection
 @section('content')
 <div class="row">
@@ -82,6 +86,7 @@
     <script src="{{ asset('fullcalendar/fullcalendar.min.js') }}"></script>
     <script src="{{ asset('fullcalendar/locale/vi.js') }}"></script>
 
+
       {!! $calendar->script() !!}
       <script>
         $(document).ready(function() {
@@ -108,6 +113,12 @@
         @if (count($errors) > 0)
             $('#myModal').modal('show');
         @endif
+    </script>
+
+    <script>
+        new SlimSelect({
+            select: '#slim-multi-select'
+            })
     </script>
 
 @endsection

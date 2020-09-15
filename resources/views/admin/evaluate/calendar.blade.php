@@ -97,6 +97,20 @@
                         @enderror
                     </div>
                     <div class="form-calendar form-group col-md-12">
+                        <label for="exampleFormControlTextarea1">Người tham dự :</label>
+                        <br>
+                        <select name="admins[]" id="slim-multi-select" multiple="multiple" @error('admin') is-invalid @enderror>
+                            @foreach ($dataAdmin as $admin)
+                            <option value="{{ $admin->id }}">{{ $admin->name }}</option>
+                            @endforeach
+                        </select>
+                        @error('admin')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+                    </div>
+                    <div class="form-calendar form-group col-md-12">
                         <label for="exampleFormControlTextarea1">@lang('custom.calendar.note') :</label>
                         <textarea name="note" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                     </div>

@@ -15,6 +15,7 @@ class Admin extends Authenticatable
     use Notifiable;
 
     protected $guard = 'admin';
+    protected $table = "admins";
     
     protected $fillable = [
         'name', 'email', 'password', 'phone', 'address', 'avatar', 'role'
@@ -44,6 +45,10 @@ class Admin extends Authenticatable
             default:
               break;
           }
+    }
+
+    public function event(){
+        $this->hasMany('App\Model\Event');
     }
 
 }

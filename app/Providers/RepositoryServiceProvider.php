@@ -81,6 +81,10 @@ class RepositoryServiceProvider extends ServiceProvider
             \App\Repositories\Company\SectionRepositoryInterface::class,
             \App\Repositories\Company\SectionRepository::class,
         );
+        $this->app->singleton(
+            \App\Repositories\Admin\AdminRepositoryInterface::class,
+            \App\Repositories\Admin\AdminRepository::class,
+        );
     }
 
     /**

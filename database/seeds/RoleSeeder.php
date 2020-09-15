@@ -313,6 +313,9 @@ class RoleSeeder extends Seeder
             ['id'=>6, 'process_id' => 6,'comment' => '', 'reason' => 'Interviewer', 'status' => 1],
             ['id'=>7, 'process_id' => 7,'comment' => '', 'reason' => 'Make Offer', 'status' => 1],
         ]);
+        DB::table('events')->insert([
+            ['id'=>1, 'title' => 'phỏng vấn ứng viên Tâm','user_id' => 1, 'admin_id' => '["1","2"]', 'start' => '2020-09-15 16:00:00','end'=>'2020-09-15 17:00:00','color'=>'#f31212'],
+        ]);
         Schema::enableForeignKeyConstraints();
     }
 }

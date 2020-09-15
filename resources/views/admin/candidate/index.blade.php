@@ -1,4 +1,4 @@
-@extends('admin.layout.layout')
+{{-- @extends('admin.layout.layout')
 @section('css')
     <link rel="stylesheet" href="{{ asset('adminAsset/css/job.css') }}">
 @endsection
@@ -16,7 +16,8 @@
         <div class="col-lg-12">
             <h1 class="page-header">@lang('custom.page_title.candidate_list_by_job')</h1>
         </div>
-    </div>
+    </div> --}}
+    @extends('admin.job.detail')
     <div class="row">
         <div class="col-lg-12">
             <div class="panel panel-default">
@@ -149,8 +150,8 @@
                 </div>
             </div>
         </div>
-    @endsection
-    @section('script')
+    {{-- @endsection
+    @section('script') --}}
         <script>
             $("#btn-search").on('click', function() {
                 let value = $('#input-search').val();

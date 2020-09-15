@@ -12,6 +12,7 @@ use App\Http\Requests\JobUpdateRequest;
 use App\Repositories\Job\JobRepositoryInterface;
 use App\Repositories\Category\CategoryRepositoryInterface;
 use App\Repositories\Locations\LocationRepositoryInterface;
+use App\Repositories\Candidate\CandidateRepositoryInterface;
 
 class JobController extends Controller
 {
@@ -22,11 +23,13 @@ class JobController extends Controller
     public function __construct(
         JobRepositoryInterface $jobRepository,
         CategoryRepositoryInterface $categoryRepository,
-        LocationRepositoryInterface $locationRepository 
+        LocationRepositoryInterface $locationRepository,
+        CandidateRepositoryInterface $candidateRepository
     ) {
         $this->jobRepository = $jobRepository;
         $this->categoryRepository = $categoryRepository;
         $this->locationRepository = $locationRepository;
+        $this->candidateRepository = $candidateRepository;
     }
 
     public function index()
@@ -69,8 +72,9 @@ class JobController extends Controller
     public function detail($id)
     {
         $jobById = $this->jobRepository->show($id);
-
-        return view("admin.job.detail", compact('jobById'));
+        $candidateBỵJob = $jobById->user;
+        dd($candidateBỵJob);
+        return view("admin.job.detail", compact('jobById','candidates'));
     }
 
     public function edit($id)
@@ -107,10 +111,5 @@ class JobController extends Controller
         return redirect()->route('jobs.index');
     }
 
-    public function destroy($id)
-    {
-        $this->jobRepository->delete($id);
-        return redirect()->back()->with('success', config('common.alert_messages.success'));
-    }
 
 }

@@ -199,7 +199,8 @@ return [
         'placeholder_location'=>'Nhập vị trí',
         'placeholder_title'=>'Nhập tiêu đề',
         'job_edit_title'=>'Sửa công việc ứng tuyển',
-        'edit'=>'Sửa'
+        'edit'=>'Sửa',
+        'job_detail'=>'Chi tiết tin ứng tuyển'
     ],
     'location'=>[
         'location_manage'=>'Địa điểm ứng tuyển',

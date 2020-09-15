@@ -22,7 +22,7 @@ class CandidateController extends Controller
     {
         $candidates = $this->candidateRepository->index();
 
-        return view("admin.candidate.index", compact('candidates'));
+        return view("admin.job.detail", compact('candidates'));
     }
 
     public function evaluating()
