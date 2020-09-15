@@ -19,6 +19,14 @@ class AdminController extends Controller
 
     public function index()
     {
+        $start = \Carbon\Carbon::now();
+        $end = \Carbon\Carbon::now();
+
+        $events = \App\Model\Event::select('id', 'title', 'start', 'end')
+        ->whereDate('start', '>=', $start)->whereDate('end', '<=', $end)->get();
+
+        // dd($events);
+        
         $data['candidates'] = \App\Model\UserJob::where('status', '=', 0)
                                 ->where('result', '=', 0)
                                 ->count();

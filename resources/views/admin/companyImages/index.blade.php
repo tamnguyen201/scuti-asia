@@ -17,81 +17,58 @@
 <div class="row">
     <div class="col-lg-12">
         <div class="panel panel-default">
-            <div class="panel-heading">@lang('custom.button.add')</div>
-            <div class="panel-body">
-                <form action="{{route('company_images.store')}}" class="" method="POST" enctype="multipart/form-data">
-                    @csrf
-                    <div class="col-lg-4">
-                        <div class="form-group @error('name') has-error @enderror">
-                            <label class="label-required">@lang('custom.name')</label>
-                            <input type="name" name="name" value="{{old('name')}}" class="form-control" placeholder="@lang('custom.placehoder.name')">
-                            @error('name') 
-                            <span class="help-block"> {{$message}} </span>
-                            @enderror
-                        </div>
-                        <div class="form-group">
-                            <p class="label-required">@lang('custom.image_url'):</p>
-                            <label class="btn btn-default">
-                                <input type="file" name="image_url" accept="image/*">
-                            </label>
-                        </div>
-                    </div>
-                    <div class="col-lg-8">
-
-                    </div>
-                    <div class="col-lg-12">
-                        <button class="btn btn-default">@lang('custom.button.submit')</button>
-                        @error('image_url') 
-                        <p class="text-danger"> {{$message}} </p>
-                        @enderror
-                    </div>
-                </form>
-            </div>
-        </div>
-        <div class="panel panel-default">
             <div class="panel-heading">
                 @lang('custom.page_title.data_table')
             </div>
             <div class="panel-body">
-                <table class="table table-hover">
-                    <thead>
-                        <tr>
-                            <th>
-                                <div class="th-inner sortable">@lang('custom.stt')</div>
-                            </th>
-                            <th>
-                                <div class="th-inner sortable">@lang('custom.name')</div>
-                            </th>
-                            <th>
-                                <div class="th-inner sortable">@lang('custom.logo')</div>
-                            </th>
-                            <th>
-                                <div class="th-inner sortable text-center">@lang('custom.action')</div>
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @php $stt = 1; @endphp
-                        @foreach($images as $item)
-                        <tr>
-                            <td>{{$stt++}}</td>
-                            <td>{{$item->name}}</td>
-                            <td><img class="img-responsive" src="{{$item->image_url}}" alt="" style="width: 100px"></td>
-                            <td class="text-center">
-                                <a href="{{route('company_images.edit', $item['id'])}}" class="btn btn-primary text-light btn-edit-form"><em class="far fa-edit"></em></a> 
-                                <form action="{{route('company_images.destroy', $item['id'])}}" method="post" class="form-delete-{{$item->id}}" style="display: inline">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button class="btn btn-danger text-light delete-confirm" idDelete={{$item->id}}><em class="fas fa-trash-alt"></em></button>
-                                </form>
-                            </td>
-                        </tr>
-                        @endforeach
-                    </tbody>
-                </table>
-                <div class="fixed-table-pagination">
-                    <div class="pull-right pagination">
-                        {{$images->links()}}
+                <div class="bootstrap-table">
+                    <div class="fixed-table-toolbar">
+                        <a href="{{route('company_images.create')}}" class="btn btn-primary btn-add-form" style="float: right"><span class="fa fa-plus"></span> @lang('custom.button.add')</a>
+                    </div>
+                    <div class="fixed-table-container">
+                        <div class="fixed-table-body">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            <div class="th-inner">@lang('custom.stt')</div>
+                                        </th>
+                                        <th>
+                                            <div class="th-inner">@lang('custom.name')</div>
+                                        </th>
+                                        <th>
+                                            <div class="th-inner">@lang('custom.logo')</div>
+                                        </th>
+                                        <th>
+                                            <div class="th-inner text-center">@lang('custom.action')</div>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @php $stt = 1; @endphp
+                                    @foreach($images as $item)
+                                    <tr>
+                                        <td>{{$stt++}}</td>
+                                        <td>{{$item->name}}</td>
+                                        <td><img class="img-responsive" src="{{$item->image_url}}" alt="" style="width: 100px"></td>
+                                        <td class="text-center">
+                                            <a href="{{route('company_images.edit', $item['id'])}}" class="btn btn-primary text-light btn-edit-form"><em class="far fa-edit"></em></a> 
+                                            <form action="{{route('company_images.destroy', $item['id'])}}" method="post" class="form-delete-{{$item->id}}" style="display: inline">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button class="btn btn-danger text-light delete-confirm" idDelete={{$item->id}}><em class="fas fa-trash-alt"></em></button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                            <div class="fixed-table-pagination">
+                                <div class="pull-right pagination">
+                                    {{$images->links()}}
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

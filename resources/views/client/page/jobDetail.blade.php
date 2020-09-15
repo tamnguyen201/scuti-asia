@@ -52,7 +52,7 @@
                         <h3 class="p-2 border-bottom">@lang('client.page.job.related_job')</h3>
                         <div class="col-lg-12 p-0">
                             @foreach($data['related_job'] as $job )
-                            <div class="col-md-12 list-group-item mt-2">
+                            <div class="col-md-12 list-group-item mt-2 border-top-0 border-left-0 border-right-0">
                                 <div class="col-12 p-0">
                                     <div class="mb-block cell name-job">
                                         <h4 class="title-h4"><a style="font-weight: normal;color: #f4511e; text-decoration: none" href="{{route('job-detail', [$job->id, $job->slug])}}">[{{$job->location->name}}] {{$job->name}}</a></h4>

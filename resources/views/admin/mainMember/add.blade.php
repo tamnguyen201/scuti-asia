@@ -31,24 +31,38 @@
                                 <span class="help-block"> {{$message}} </span>
                                 @enderror
                             </div>
-                            <div class="form-group @error('description') has-error @enderror">
+                            <div class="form-group @error('position') has-error @enderror">
+                                <label>@lang('custom.role')</label>
+                                <input type="text" name="position" class="form-control" value="{{old('position')}}">
+                                @error('position') 
+                                <span class="help-block"> {{$message}} </span>
+                                @enderror
+                            </div>
+                            <div class="form-group @error('quote') has-error @enderror">
                                 <label>@lang('custom.description')</label>
-                                <textarea name="description" cols="30" rows="10" class="form-control"> {{old('description')}} </textarea>
-                                @error('description') 
+                                <textarea name="quote" cols="30" rows="10" class="form-control"> {{old('quote')}} </textarea>
+                                @error('quote') 
                                 <span class="help-block"> {{$message}} </span>
                                 @enderror
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="form-group @error('image') has-error @enderror">
+                            <div class="form-group">
+                                <label class="label-required">@lang('custom.member_type')</label>
+                                <select name="member_type" class="form-control">
+                                    <option value="0">Leader</option>
+                                    <option value="1">Manager</option>
+                                </select>
+                            </div>
+                            <div class="form-group @error('avatar') has-error @enderror">
                                 <label>@lang('custom.image_url')</label>
-                                <input type="file" onchange="encodeImageFileAsURL(this)" name="image" accept="image/*">
-                                @error('image') 
+                                <input type="file" onchange="encodeImageFileAsURL(this)" name="avatar"" accept="image/*">
+                                @error('avatar') 
                                 <span class="help-block"> {{$message}} </span>
                                 @enderror
                             </div>
                             <div class="form-group preview-img">
-                                <img src="default-img.png" alt="your image" class="img-responsive" />
+                                <img src="default-img.png" alt="your image" class="img-responsive" style="max-height: 27rem;" />
                             </div>
                         </div>
                         

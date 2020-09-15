@@ -50,7 +50,6 @@ class HomeController extends Controller
         $data['working_environment'] = $this->CompanyImagesRepository->all();
         $data['new_spaper'] = $this->NewSpaperRepository->all();
         $data['categories'] = $this->CategoryRepository->where('status', '=', 1);
-        $data['hotJobs'] = $this->JobRepository->all();
 
         return view('client.page.index', compact('data'));
     }
@@ -69,6 +68,18 @@ class HomeController extends Controller
         $data['jobs'] = $this->JobRepository->with('category')->paginate(5);
 
         return view('client.page.jobs', compact('data'));
+    }
+
+    public function filterJob(Request $request)
+    {
+        $categories = $this->CategoryRepository->where('status', '=', 1);
+        
+        if ($request->category_id != '*') {
+            $categories = $this->CategoryRepository->show($request->category_id);
+        }
+        dd($this->CategoryRepository->show($request->category_id)->count());
+        $html = view('client.page.filterJob', compact('categories'))->render();
+        return response()->json($html);
     }
 
     public function jobDetail($id, $slug)

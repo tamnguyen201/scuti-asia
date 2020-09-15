@@ -51,7 +51,7 @@ class RoleSeeder extends Seeder
             ['id'=>1, 'name' => 'Tam Nguyen','email' => 'tam2012000@gmail.com','password'=> Hash::make('123456'), 'phone'=> '1234567890','address'=>'HN', 'role' => 1, 'status' => 1],
             ['id'=>2, 'name' => 'Linh Nguyen','email' => 'linhnn160295@gmail.com','password'=> Hash::make('123456'), 'phone'=> '1234567890','address'=>'HN', 'role' => 1, 'status' => 1],
             ['id'=>3, 'name' => 'Admin','email' => 'admin@gmail.com','password'=> Hash::make('123456'), 'phone'=> '1234567890','address'=>'HN', 'role' => 1, 'status' => 1],
-            ['id'=>4, 'name' => 'Interviewer','email' => 'interviewer@gmail.com','password'=> Hash::make('123456'), 'phone'=> '1234567890','address'=>'HN', 'role' => 2, 'status' => 1],
+            ['id'=>4, 'name' => 'Phỏng Vấn','email' => 'interviewer@gmail.com','password'=> Hash::make('123456'), 'phone'=> '1234567890','address'=>'HN', 'role' => 2, 'status' => 1],
             ['id'=>5, 'name' => 'BackOffice','email' => 'backoffice@gmail.com','password'=> Hash::make('123456'), 'phone'=> '1234567890','address'=>'HN', 'role' => 3, 'status' => 1],
         ]);
         DB::table('companies')->insert([
@@ -79,15 +79,16 @@ class RoleSeeder extends Seeder
         DB::table('company_images')->insert([
             ['id'=>1, "name" => "Thân thiện và vui vẻ", 'description' => 'Chúng tôi mở để chia sẻ kiến ​​thức, kinh nghiệm qua các cuộc hội thảo, hội thảo mỗi tuần.', 'image_url'=>'https://miro.medium.com/max/1200/1*Eu6cAGjXNa0-ct_hlsH1yQ.jpeg'],
             ['id'=>2, "name" => "Làm việc từ xa", 'description' => 'Bạn có quyền chọn địa điểm làm việc, thời gian làm việc.', 'image_url'=>'http://congstudio.vn/product_images/z/320/chup_anh_profile_tai_ha_noi_cong_studio_4__09337_thumb.jpg'],
-            ['id'=>3, "name" => "Phong cách làm việc tự do", 'description' => 'Bạn có quyền mặc bất kỳ phong cách quần áo trở nên độc đáo người trong công ty của chúng tôi.', 'image_url'=>'http://congstudio.vn/product_images/z/320/chup_anh_profile_tai_ha_noi_cong_studio_4__09337_thumb.jpg'],
+            ['id'=>3, "name" => "Phong cách làm việc tự do", 'description' => 'Bạn có thể tự do chọn phong cách đồng phục làm việc.', 'image_url'=>'http://congstudio.vn/product_images/z/320/chup_anh_profile_tai_ha_noi_cong_studio_4__09337_thumb.jpg'],
             ['id'=>4, "name" => "Môi trường chuyên nghiệp", 'description' => 'Teambuilding at Mai Chau - Hoa Binh', 'image_url'=>'http://congstudio.vn/product_images/z/320/chup_anh_profile_tai_ha_noi_cong_studio_4__09337_thumb.jpg'],
             ['id'=>5, "name" => "Tài Năng trẻ", 'description' => 'Teambuilding at Mai Chau - Hoa Binh', 'image_url'=>'http://congstudio.vn/product_images/z/320/chup_anh_profile_tai_ha_noi_cong_studio_4__09337_thumb.jpg'],
             ['id'=>6, "name" => "Môi trường làm việc", 'description' => 'Bạn có cơ hội để thực hành nhiều ngôn ngữ: Nhật Bản, Anh, Tây Ban Nha, Ấn Độ ... và Việt Nam.', 'image_url'=>'http://congstudio.vn/product_images/z/320/chup_anh_profile_tai_ha_noi_cong_studio_4__09337_thumb.jpg'],
         ]);
         DB::table('new_spapers')->insert([
-            ['id'=>1, 'title' => 'Dev Candidates Tour- Hành Trình Trở Thành Lập Trình Viên', 'image'=>'https://miro.medium.com/max/1200/1*Eu6cAGjXNa0-ct_hlsH1yQ.jpeg', 'description' => 'Dev Candidates Tour tháng 6/2017 là sự kiện kết nối giữa các doanh nghiệp công nghệ phần mềm và các ứng viên tiềm năng. Các nhà tuyển dụng luôn luôn tìm kiếm các ứng viên tài năng nhưng dường như trong quy trình tuyển dụng luôn thiếu một bước nào đó để họ tiếp cận được với các nhân tài, hãy cùng Dev Candidates Tour giao lưu và lắng nghe ý kiến trực tiếp của các ứng viên và nâng cao hiệu quả quy trình tuyển dụng của doanh nghiệp.', 'url' => 'https://www.facebook.com/events/136182586941319/'],
-            ['id'=>2, 'title' => 'TGDD', 'image'=>'http://congstudio.vn/product_images/z/320/chup_anh_profile_tai_ha_noi_cong_studio_4__09337_thumb.jpg', 'description' => 'Mô tả', 'url' => 'abc.com'],
-            ['id'=>3, 'title' => 'Viettel', 'image'=>'http://congstudio.vn/product_images/z/320/chup_anh_profile_tai_ha_noi_cong_studio_4__09337_thumb.jpg', 'description' => 'Mô tả', 'url' => 'abc.com'],
+            ['id'=>1, 'title' => 'Dev Candidates Tour- Hành Trình Trở Thành Lập Trình Viên', 'image'=>'images/award1.JPG', 'description' => 'Dev Candidates Tour tháng 6/2017 là sự kiện kết nối giữa các doanh nghiệp công nghệ phần mềm và các ứng viên tiềm năng. Các nhà tuyển dụng luôn luôn tìm kiếm các ứng viên tài năng nhưng dường như trong quy trình tuyển dụng luôn thiếu một bước nào đó để họ tiếp cận được với các nhân tài, hãy cùng Dev Candidates Tour giao lưu và lắng nghe ý kiến trực tiếp của các ứng viên và nâng cao hiệu quả quy trình tuyển dụng của doanh nghiệp.', 'url' => 'https://www.facebook.com/events/136182586941319/'],
+            ['id'=>2, 'title' => 'Scuti là 1 trong 50 doanh nghiệp tiêu biểu của ASEAN 2020.', 'image'=>'images/award2.JPG', 'description' => '𝑁𝑔𝑎̀𝑦 31/07 𝑣𝑢̛̀𝑎 𝑞𝑢𝑎, 𝑆𝑐𝑢𝑡𝑖 𝑟𝑎̂́𝑡 𝑣𝑢𝑖 𝑘ℎ𝑖 đ𝑢̛𝑜̛̣𝑐 𝑙𝑎̀𝑚 𝑘ℎ𝑎́𝑐ℎ 𝑚𝑜̛̀𝑖 𝑐𝑢̉𝑎 𝐷𝑖𝑒̂̃𝑛 đ𝑎̀𝑛 𝐾𝑖𝑛ℎ 𝑡𝑒̂́ 𝐴𝑆𝐸𝐴𝑁 2020.
+            𝐵𝑎̂́𝑡 𝑛𝑔𝑜̛̀ 𝑣𝑎̀ 𝑣𝑖𝑛ℎ 𝑑𝑢̛̣ ℎ𝑜̛𝑛 𝑛𝑢̛̃𝑎, 𝑆𝑐𝑢𝑡𝑖 𝑐ℎ𝑢́𝑛𝑔 𝑡𝑜̂𝑖 đ𝑎̃ 𝑛ℎ𝑎̣̂𝑛 đ𝑢̛𝑜̛̣𝑐 𝑔𝑖𝑎̉𝑖 𝑡ℎ𝑢̛𝑜̛̉𝑛𝑔 𝑙𝑎̀ 1 𝑡𝑟𝑜𝑛𝑔 50 𝑑𝑜𝑎𝑛ℎ 𝑛𝑔ℎ𝑖𝑒̣̂𝑝 𝑐𝑜́ 𝑠𝑎̉𝑛 𝑝ℎ𝑎̂̉𝑚 𝑑𝑖̣𝑐ℎ 𝑣𝑢̣ 𝑐ℎ𝑎̂́𝑡 𝑙𝑢̛𝑜̛̣𝑛𝑔 𝑐𝑎𝑜 𝐴𝑆𝐸𝐴𝑁. Đ𝑎̂𝑦 𝑙𝑎̀ 𝑠𝑢̛̣ đ𝑎́𝑛ℎ 𝑔𝑖𝑎́, 𝑔ℎ𝑖 𝑛ℎ𝑎̣̂𝑛 𝑘ℎ𝑎́𝑐ℎ 𝑞𝑢𝑎𝑛 𝑘ℎ𝑜̂𝑛𝑔 𝑐ℎ𝑖̉ 𝑐𝑢̉𝑎 𝑐𝑜̣̂𝑛𝑔 đ𝑜̂̀𝑛𝑔 𝑘𝑖𝑛ℎ 𝑡𝑒̂́ 𝑡𝑟𝑜𝑛𝑔 𝑛𝑢̛𝑜̛́𝑐 𝑚𝑎̀ 𝑐𝑜̀𝑛 𝑐𝑢̉𝑎 𝑐𝑎̉ 𝑘ℎ𝑢 𝑣𝑢̛̣𝑐 𝐴𝑆𝐸𝐴𝑁.
+            𝐺𝑖𝑎̉𝑖 𝑡ℎ𝑢̛𝑜̛̉𝑛𝑔 𝑛𝑎̀𝑦 𝑐𝑜̀𝑛 𝑐𝑜́ 𝑦́ 𝑛𝑔ℎ𝑖̃𝑎 𝑟𝑎̂́𝑡 𝑞𝑢𝑎𝑛 𝑡𝑟𝑜̣𝑛𝑔, 𝑛𝑜́ 𝑚𝑎𝑛𝑔 𝑙𝑎̣𝑖 𝑛𝑖𝑒̂̀𝑚 𝑣𝑢𝑖 𝑡𝑖𝑛ℎ 𝑡ℎ𝑎̂̀𝑛, 𝑡𝑎̣𝑜 𝑡ℎ𝑒̂𝑚 đ𝑜̣̂𝑛𝑔 𝑙𝑢̛̣𝑐 𝑟𝑎̂́𝑡 𝑙𝑜̛́𝑛 đ𝑜̂́𝑖 𝑣𝑜̛́𝑖 𝑏𝑎𝑛 𝑙𝑎̃𝑛ℎ đ𝑎̣𝑜 𝑣𝑎̀ 𝑡𝑎̣̂𝑝 𝑡ℎ𝑒̂̉ 𝑐𝑎́𝑛 𝑏𝑜̣̂, 𝑛ℎ𝑎̂𝑛 𝑣𝑖𝑒̂𝑛 𝑆𝑐𝑢𝑡𝑖.', 'url' => 'https://www.facebook.com/scutiasia/'],
         ]);
         DB::table('sections')->insert([
             ['id'=>1, 'name' => 'Trở thành thành viên trong gia đình Scuti', 'slug' => Str::slug('Trở thành thành viên trong gia đình Scuti'), 'description' => 'Hãy đến với chúng tôi khi nhận thấy những giá trị này phù hợp với bạn!', 'content' => '', 'image' => ''],
@@ -330,23 +331,26 @@ class RoleSeeder extends Seeder
             ['id'=>5, 'user_id' => 4, 'cv_id' => 4, 'job_id' => 5, 'letter' => 'Cảm ơn', 'status' => 1, 'result' => 1, 'created_at' => \Carbon\Carbon::parse('09-09-2020 03:26:49')->format('Y-m-d H:i:s')],
         ]);
         DB::table('process')->insert([
-            ['id'=>1, 'step' => 1, 'name' => 'Checking', 'user_job_id' => 1],
-            ['id'=>2, 'step' => 2, 'name' => 'Interviewer', 'user_job_id' => 1],
-            ['id'=>3, 'step' => 1, 'name' => 'Checking', 'user_job_id' => 2],
-            ['id'=>4, 'step' => 1, 'name' => 'Checking', 'user_job_id' => 3],
-            ['id'=>5, 'step' => 1, 'name' => 'Checking', 'user_job_id' => 5],
-            ['id'=>6, 'step' => 2, 'name' => 'Interviewer', 'user_job_id' => 5],
-            ['id'=>7, 'step' => 3, 'name' => 'Make Offer', 'user_job_id' => 5],
+            ['id'=>1, 'step' => 1, 'name' => 'Đánh Giá', 'user_job_id' => 1],
+            ['id'=>2, 'step' => 2, 'name' => 'Phỏng Vấn', 'user_job_id' => 1],
+            ['id'=>3, 'step' => 1, 'name' => 'Đánh Giá', 'user_job_id' => 2],
+            ['id'=>4, 'step' => 1, 'name' => 'Đánh Giá', 'user_job_id' => 3],
+            ['id'=>5, 'step' => 1, 'name' => 'Đánh Giá', 'user_job_id' => 5],
+            ['id'=>6, 'step' => 2, 'name' => 'Phỏng Vấn', 'user_job_id' => 5],
+            ['id'=>7, 'step' => 3, 'name' => 'Hoàn Thành', 'user_job_id' => 5],
         ]);
         DB::table('evaluates')->insert([
-            ['id'=>1, 'process_id' => 1,'comment' => '', 'reason' => 'Checking', 'status' => 1],
-            ['id'=>2, 'process_id' => 2,'comment' => '', 'reason' => 'Interviewer', 'status' => 1],
-            ['id'=>3, 'process_id' => 3,'comment' => '', 'reason' => 'Checking', 'status' => 1],
-            ['id'=>4, 'process_id' => 4,'comment' => '', 'reason' => 'Checking', 'status' => 1],
-            ['id'=>5, 'process_id' => 5,'comment' => '', 'reason' => 'Checking', 'status' => 1],
-            ['id'=>6, 'process_id' => 6,'comment' => '', 'reason' => 'Interviewer', 'status' => 1],
-            ['id'=>7, 'process_id' => 7,'comment' => '', 'reason' => 'Make Offer', 'status' => 1],
+            ['id'=>1, 'process_id' => 1,'comment' => '', 'reason' => 'Đánh Giá', 'status' => 1],
+            ['id'=>2, 'process_id' => 2,'comment' => '', 'reason' => 'Phỏng Vấn', 'status' => 1],
+            ['id'=>3, 'process_id' => 3,'comment' => '', 'reason' => 'Đánh Giá', 'status' => 1],
+            ['id'=>4, 'process_id' => 4,'comment' => '', 'reason' => 'Đánh Giá', 'status' => 1],
+            ['id'=>5, 'process_id' => 5,'comment' => '', 'reason' => 'Đánh Giá', 'status' => 1],
+            ['id'=>6, 'process_id' => 6,'comment' => '', 'reason' => 'Phỏng Vấn', 'status' => 1],
+            ['id'=>7, 'process_id' => 7,'comment' => '', 'reason' => 'Hoàn Thành', 'status' => 1],
         ]);
+        // DB::table('events')->insert([
+        //     ['id'=>1, 'title' => 'phỏng vấn ứng viên User2','user_id' => 2, 'admin_id' => '["1","2"]', 'start' => '2020-09-15 16:00:00','end'=>'2020-09-15 17:00:00','color'=>'#F31212'],
+        // ]);
         Schema::enableForeignKeyConstraints();
     }
 }

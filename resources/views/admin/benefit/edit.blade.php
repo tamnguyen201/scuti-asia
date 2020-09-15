@@ -49,7 +49,7 @@
                                 @enderror
                             </div>
                             <div class="form-group preview-img">
-                                <img src="{{$benefit->image}}" alt="your image" class="img-responsive" />
+                                <img src="{{$benefit->image}}" alt="your image" class="img-responsive" style="max-height:26rem" />
                             </div>
                         </div>
                         

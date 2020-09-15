@@ -50,6 +50,7 @@ return [
     'candidate_failed' => 'Ứng viên bị loại',
     'statistical' => 'Thống Kê Dữ Liệu',
     'visit_type' => 'Kiểu Cuộc Họp',
+    'member_type' => 'Loại Nhân Viên',
     
     'page_title' => [
         'dashboard' => 'Bảng Điều Khiển',

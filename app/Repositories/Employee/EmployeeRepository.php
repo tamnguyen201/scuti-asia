@@ -35,9 +35,8 @@ class EmployeeRepository extends Repository implements EmployeeRepositoryInterfa
         DB::beginTransaction();
         try {
             $data['password'] = \Str::random(8);
-            $member = $this->userRepository->create($data);
-            $manager = ['user_id' => $member->id];
-            $this->create($manager);
+            (isset($data['status'])) ? $data['status'] = 1 : null;
+            $this->create($data);
             
             DB::commit();
             $this->sendMail($data['email'], $data['password']);
@@ -59,6 +58,13 @@ class EmployeeRepository extends Repository implements EmployeeRepositoryInterfa
         ];
     
         \Mail::to($user)->send(new \App\Mail\AdminAccountMail($details));
+    }
+
+    public function update($data, $id)
+    {
+        (isset($data['status'])) ? $data['status'] = 1 : null;
+        
+        return $this->show($id)->update($data);
     }
 
 }

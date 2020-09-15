@@ -195,7 +195,8 @@
         background: lightgray;
         border-radius: 50%;
         margin: 0 auto 10px auto;
-        padding: 2px
+        padding: 2px;
+        z-index: 1;
     }
 
     #progressbar li:after {
@@ -206,7 +207,7 @@
         position: absolute;
         left: 0;
         top: 25px;
-        z-index: -1
+        z-index: 0
     }
 
     #progressbar li.active:before,
@@ -246,49 +247,49 @@
         </div>
     </div>
 
-    <div class="ex-basic-2">
-        <div class="container">
+    @if($data['apply'] != null)
+    <div class="ex-basic-2" style="background-color: #eff3f6; padding-top:1rem; padding-bottom-1rem">
+        <div class="container" style="background-color: #fff;">
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="text-container">
-                        @if($data['apply'] != null)
+                    <div class="text-container" style="padding-top:1rem; padding-bottom-1rem">
                         <h3 id="heading">@lang('client.page.apply.process.title')</h3>
                         <p><a href="{{route('home')}}/#recruitment-flow" target="_blank">@lang('client.page.apply.process.description')</a></p>
                         <form id="msform">
                             <ul id="progressbar">
-                                <li class="active" id="account"><strong> Apply </strong></li>
+                                <li class="active" id="account"><strong> Ứng Tuyển </strong></li>
                                 @if(isset($data['apply']->process[0]->evaluate) && $data['apply']->process[0]->evaluate->status == 1)
                                 <li class="active" step="0" id="personal"><strong>{{$data['apply']->process[0]->name}}</strong></li>
                                 @elseif(isset($data['apply']->process[0]->evaluate) && $data['apply']->process[0]->evaluate->status == 0)
                                 <li class="inactive" step="0" id="personal"><strong>{{$data['apply']->process[0]->name}}</strong></li>
                                 @else
-                                <li step="0" id="personal"><strong>Review</strong></li>
+                                <li step="0" id="personal"><strong>Đánh Giá</strong></li>
                                 @endif
                                 @if(isset($data['apply']->process[1]->evaluate) && $data['apply']->process[1]->evaluate->status == 1)
                                 <li class="active" step="1" id="payment"><strong>{{$data['apply']->process[1]->name}}</strong></li>
                                 @elseif(isset($data['apply']->process[1]->evaluate) && $data['apply']->process[1]->evaluate->status == 0)
                                 <li class="inactive" step="1" id="payment"><strong>{{$data['apply']->process[1]->name}}</strong></li>
                                 @else
-                                <li step="1" id="payment"><strong>Interviewer</strong></li>
+                                <li step="1" id="payment"><strong>Phỏng Vấn</strong></li>
                                 @endif
                                 @if(isset($data['apply']->process[2]->evaluate) && $data['apply']->process[2]->evaluate->status == 1)
-                                <li class="active" step="2" id="confirm"><strong>Finish</strong></li>
+                                <li class="active" step="2" id="confirm"><strong>Hoàn Thành</strong></li>
                                 @elseif(isset($data['apply']->process[2]->evaluate) && $data['apply']->process[2]->evaluate->status == 0)
-                                <li class="inactive" step="2" id="confirm"><strong>Finish</strong></li>
+                                <li class="inactive" step="2" id="confirm"><strong>Hoàn Thành</strong></li>
                                 @else
                                 <li step="2" id="confirm"><strong>Finish</strong></li>
                                 @endif
                             </ul>
                             @foreach($data['apply']->process as $key => $process)
-                            @if($key != $data['apply']->process->count())
-                            <fieldset>
+                            @if($key != $data['apply']->process->count() - 1)
+                            <fieldset class="col-lg-10 mx-auto">
                                 <div class="form-card">
                                     <div class="row">
                                         <div class="col-7">
                                             <h2 class="fs-title">@lang('client.page.apply.process.info')</h2>
                                         </div>
                                         <div class="col-5">
-                                            <h2 class="steps"> {{'Step ' . $process->step . ' - ' . $process->name}}</h2>
+                                            <h2 class="steps">@lang('client.page.apply.step') {{$process->step . ' - ' . $process->name}}</h2>
                                         </div>
                                     </div> 
                                     <div class="row col-lg-11 mx-auto">
@@ -303,23 +304,23 @@
                                 @endif
                             </fieldset>
                             @else
-                            <fieldset>
+                            <fieldset class="col-lg-10 mx-auto">
                                 <div class="form-card">
                                     <div class="row">
                                         <div class="col-7">
-                                            <h2 class="fs-title">Finish:</h2>
+                                            <h2 class="fs-title">{{$process->name}}:</h2>
                                         </div>
                                         <div class="col-5">
-                                            <h2 class="steps">Step 4 - Finish</h2>
+                                            <h2 class="steps">@lang('client.page.apply.step') {{$process->step}} - {{$process->name}}</h2>
                                         </div>
                                     </div> <br><br>
                                     <h2 class="purple-text text-center"><strong>SUCCESS !</strong></h2> <br>
                                     <div class="row justify-content-center">
-                                        <div class="col-3"> <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSMudI9BnTi2ZnfY_I_E5V4zOagiLTVSZPfgA&usqp=CAU" class="fit-image"> </div>
+                                        <div class="col-3"> <img src="https://www.suunto.com/contentassets/1fda3e7d222d45e49282f7d13439c7db/icon-success.png" class="fit-image"> </div>
                                     </div> <br><br>
                                     <div class="row justify-content-center">
                                         <div class="col-7 text-center">
-                                            <h5 class="purple-text text-center">You Have Successfully Signed Up</h5>
+                                            <h5 class="purple-text text-center">Chúng Tôi Đã Hoàn Thành Việc Đánh Giá Và Sẽ Sớm Liên Lạc Lại Với Bạn</h5>
                                         </div>
                                     </div>
                                 </div>
@@ -327,18 +328,18 @@
                             @endif
                             @endforeach
                         </form>
-                        @endif
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    @endif
 
-    <div class="ex-basic-2" style="background-color: #eff3f6;">
+    <div class="ex-basic-2" style="background-color: #eff3f6; padding-top:1rem; padding-bottom-1rem">
         <div class="container">
             <div class="row">
                 <div class="col-md-8 mb-4 p-0" style="background-color: #fff;">
-                    <h2 class="pt-2 px-4 border-bottom">{{$data['job']->name}}</h2>
+                    <h2 class="py-2 px-4 border-bottom">{{$data['job']->name}}</h2>
                     <div class="text-container pt-3 px-4">
                         <div class="">
                         {!! $data['job']->content !!}
@@ -346,7 +347,7 @@
                     </div>
                     <a class="btn-outline-reg back ml-4 mb-5" href="{{route('client.jobs')}}">@lang('client.page.apply.job_another')</a>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-4 pr-0">
                     <div class="col-lg-12 mb-2 p-0" style="background-color: #fff;">
                         <h3 class="p-2 border-bottom">@lang('client.page.apply.sidebar.title')</h3>
                         <div class="pb-2">
@@ -364,13 +365,18 @@
                                     <div class="value">{{$data['job']->formatExpireDay()}}</div>
                                 </li>
                             </ul>
+                            @if($data['apply'] == null)
+                            <div class="form-group px-3">
+                                <a href="{{route('client.applied', [$data['job']->id, $data['job']->slug])}}" class="form-control text-center btn-outline-reg mt-0" >@lang('client.section.recruitment.apply')</a>
+                            </div>
+                            @endif
                         </div>
                     </div>
-                    <div class="col-lg-12 mb-2 p-0 pb-3" style="background-color: #fff;">
+                    <div class="col-lg-12 mb-2 p-0" style="background-color: #fff;">
                         <h3 class="p-2 border-bottom">@lang('client.page.job.related_job')</h3>
                         <div class="col-lg-12 p-0">
                             @foreach($data['related_job'] as $job )
-                            <div class="col-md-12 list-group-item mt-2">
+                            <div class="col-md-12 list-group-item mt-2 border-top-0 border-left-0 border-right-0">
                                 <div class="col-12 p-0">
                                     <div class="mb-block cell name-job">
                                         <h4 class="title-h4"><a style="font-weight: normal;color: #f4511e; text-decoration: none" href="{{route('job-detail', [$job->id, $job->slug])}}">[{{$job->location->name}}] {{$job->name}}</a></h4>
@@ -382,7 +388,6 @@
                                 </div>
                                 <div class="col-lg-12 mt-2 p-0 text-justify">
                                     {{$job->description}}
-                                    <!-- <a href="{{route('client.applied', [$job->id, $job->slug])}}" class="form-control text-center btn-outline-reg mt-0">@lang('client.section.recruitment.apply')</a> -->
                                 </div>
                             </div>
                             @endforeach

@@ -21,41 +21,55 @@
             <div class="panel-heading">@lang('custom.page_title.form')</div>
             <div class="panel-body">
                 <div class="col-md-12">
-                    <form role="form" action="{{route('main-member.update', $member->id)}}" method="POST" enctype="multipart/form-data">
+                    <form role="form" action="{{route('benefits.update', $member->id)}}" method="POST" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
                         <div class="col-md-6">
                             <div class="form-group @error('name') has-error @enderror">
                                 <label>@lang('custom.name')</label>
-                                <input type="text" name="name" value="{{$member->name}}" class="form-control">
+                                <input type="text" name="name" class="form-control" value="{{$member->name}}">
                                 @error('name') 
                                 <span class="help-block"> {{$message}} </span>
                                 @enderror
                             </div>
-                            <div class="form-group @error('description') has-error @enderror">
+                            <div class="form-group @error('position') has-error @enderror">
+                                <label>@lang('custom.role')</label>
+                                <input type="text" name="position" class="form-control" value="{{$member->position}}">
+                                @error('position') 
+                                <span class="help-block"> {{$message}} </span>
+                                @enderror
+                            </div>
+                            <div class="form-group @error('quote') has-error @enderror">
                                 <label>@lang('custom.description')</label>
-                                <textarea name="description" cols="30" rows="10" class="form-control">{{$member->description}} </textarea>
-                                @error('description') 
+                                <textarea name="quote" cols="30" rows="10" class="form-control"> {{$member->quote}} </textarea>
+                                @error('quote') 
                                 <span class="help-block"> {{$message}} </span>
                                 @enderror
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="form-group @error('image') has-error @enderror">
+                            <div class="form-group">
+                                <label class="label-required">@lang('custom.member_type')</label>
+                                <select name="member_type" class="form-control">
+                                    <option value="0" @if($member->member_type == 0) 'checked' @endif>Leader</option>
+                                    <option value="1" @if($member->member_type == 1) 'checked' @endif>Manager</option>
+                                </select>
+                            </div>
+                            <div class="form-group @error('avatar') has-error @enderror">
                                 <label>@lang('custom.image_url')</label>
-                                <input type="file" onchange="encodeImageFileAsURL(this)" name="image" accept="image/*">
-                                @error('image') 
+                                <input type="file" onchange="encodeImageFileAsURL(this)" name="avatar"" accept="image/*">
+                                @error('avatar') 
                                 <span class="help-block"> {{$message}} </span>
                                 @enderror
                             </div>
                             <div class="form-group preview-img">
-                                <img src="{{$member->avatar}}" alt="your image" class="img-responsive" />
+                                <img src="{{$member->avatar}}" alt="your image" class="img-responsive" style="max-height: 27rem;" />
                             </div>
                         </div>
                         
                         <div class="col-md-12 text-center">
                             <button type="submit" class="btn btn-primary">@lang('custom.button.submit') <em class="fa fa-check"></em></button>
-                            <a href="{{route('main-member.index')}}" class="btn btn-danger">@lang('custom.button.cancel')</a>
+                            <a href="{{route('benefits.index')}}" class="btn btn-danger">@lang('custom.button.cancel')</a>
                         </div>
                     </form>
                 </div>

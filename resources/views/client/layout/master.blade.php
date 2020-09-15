@@ -29,7 +29,11 @@
     <link href="clientAsset/css/swiper.css" rel="stylesheet">
 	<link href="clientAsset/css/magnific-popup.css" rel="stylesheet">
     <link href="clientAsset/css/styles.css" rel="stylesheet">
-    
+    <style>
+        .dropdown-menu {
+            left: -60px;
+        }
+    </style>
     @yield('css')
 	
 </head>

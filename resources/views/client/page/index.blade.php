@@ -350,9 +350,9 @@
             <div class="row">
                 <div class="col-lg-11 mx-auto mb-4">
                     <div class="button-group filters-button-group">
-                        <a class="button text-decoration-none is-checked" id="v-pills-all" data-toggle="pill" href="#v-pills-all" role="tab" aria-controls="v-pills-all" aria-selected="true" data-filter="*"><span>SHOW ALL</span></a>
+                        <a class="button text-decoration-none is-checked" data-filter="*"><span>SHOW ALL</span></a>
                         @foreach($data['categories'] as $category)
-                        <a class="button text-decoration-none" id="v-pills-{{$category->id}}-tab" data-toggle="pill" href="#v-pills-{{$category->id}}" role="tab" aria-controls="v-pills-{{$category->id}}" aria-selected="true"><span>{{$category->category_name}}</span></a>
+                        <a class="button text-decoration-none" data-filter="{{$category->id}}"><span>{{$category->category_name}}</span></a>
                         @endforeach
                         <a class="button text-decoration-none" href="{{route('client.jobs')}}"><span>@lang('client.section.recruitment.end_menu')</span></a>
                     </div>
@@ -360,46 +360,14 @@
                 <div class="col-lg-12 d-md-flex">
                     <div class="list-group">
                         <div class="tab-content" id="v-pills-tabContent">
-                        @foreach($data['categories'] as $category)
-                            <div class="tab-pane fade" id="v-pills-{{$category->id}}" role="tabpanel" aria-labelledby="v-pills-{{$category->id}}-tab">
-                            @if($category->jobs->count() > 0)
-                                @foreach($category->jobs as $job)    
-                                    @if($job->status == 1 && $job->compareExpireDay())
-                                    <div class="d-md-flex col-6 development">
-                                        <div class="col-md-12 list-group-item d-flex">
-                                            <div class="col-md-6 col-12">
-                                                <div class="mb-block cell name-job">
-                                                    <h4 class="title-h4"><a style="font-weight: normal;color: #f4511e; text-decoration: none" href="{{route('job-detail', [$job->id, $job->slug])}}"> {{$job->name}}</a></h4>
-                                                    <p class="desc-job">
-                                                        {{$job->description}}
-                                                    </p>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6 col-12 text-md-right text-center">
-                                                <a href="{{route('client.applied', [$job->id, $job->slug])}}" class="btn-apply-main btn-apply">@lang('client.section.recruitment.apply')</a>
-                                                <p class="desc-job text-left mt-3">
-                                                    <i class="far fa-money-bill-alt"></i> Lương: {{$job->salary}} <br>
-                                                    <i class="fas fa-map-marker-alt"></i> Nơi làm việc: {{$job->location->name}} <br>
-                                                    <i class="far fa-clock"></i> Ngày hết hạn: {{$job->formatExpireDay()}}
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    @endif
-                                @endforeach
-                            @else
-                                <p>@lang('client.section.recruitment.empty')</p>
-                            @endif
-                            </div>
-                            @endforeach
-
                             <div class="tab-pane fade row col-lg-12 d-flex show active" id="v-pills-all" role="tabpanel" aria-labelledby="v-pills-all-tab">
-                                @foreach($data['hotJobs'] as $job)
+                            @foreach($data['categories'] as $category)
+                                @foreach($category->jobs as $job)
                                 <div class="d-md-flex col-lg-6 col-12 d-block development">
                                     <div class="col-md-12 list-group-item d-md-flex">
                                         <div class="col-md-7 col-12">
                                             <div class="mb-block cell name-job">
-                                                <h4 class="title-h4"><a style="font-weight: normal;color: #f4511e; text-decoration: none" href="{{route('job-detail', [$job->id, $job->slug])}}"> {{$job->name}}</a></h4>
+                                                <h4 class="title-h4"><a style="color: #f4511e;" href="{{route('job-detail', [$job->id, $job->slug])}}" class="text-decoration-none"> {{$job->name}}</a></h4>
                                                 <p class="desc-job">
                                                     {{$job->description}}
                                                 </p>
@@ -408,14 +376,15 @@
                                         <div class="col-md-5 col-12 text-md-right text-center">
                                             <a href="{{route('client.applied', [$job->id, $job->slug])}}" class="btn btn-apply-main btn-apply">@lang('client.section.recruitment.apply')</a>
                                             <p class="desc-job text-left mt-3">
-                                                <i class="far fa-money-bill-alt"></i> Lương: {{$job->salary}} <br>
-                                                <i class="fas fa-map-marker-alt"></i> Nơi làm việc: {{$job->location->name}} <br>
-                                                <i class="far fa-clock"></i> Hạn nộp: {{$job->formatExpireDay()}}
+                                                <i class="far fa-money-bill-alt"></i> @lang('client.section.recruitment.salary'): {{$job->salary}} <br>
+                                                <i class="fas fa-map-marker-alt"></i> @lang('client.section.recruitment.work_place'): {{$job->location->name}} <br>
+                                                <i class="far fa-clock"></i> @lang('client.section.recruitment.deadline'): {{$job->formatExpireDay()}}
                                             </p>
                                         </div>
                                     </div>
                                 </div>
                                 @endforeach
+                            @endforeach
                             </div>
                         </div>
                     </div>
@@ -467,7 +436,17 @@
             // filter items on button click
             $('.filters-button-group').on( 'click', 'a', function() {
                 var filterValue = $(this).attr('data-filter');
-                $grid.isotope({ filter: filterValue });
+
+                $.ajax({
+                    url: "{{route('client.filter_jobs')}}",
+                    data: { category_id: filterValue },
+                    method: "GET",
+                }).done(function (results) {
+                    $(".tab-pane.fade.row.col-lg-12.d-flex.show.active").html(results);
+                }).fail(function (data) {
+                    var errors = data.responseJSON;
+                    console.log(errors);
+                });
             });
             
             // change is-checked class on buttons
@@ -479,17 +458,6 @@
                 });	
             });
 
-
-            $.ajax({
-                url: url,
-                data: domForm.serialize(),
-                method: "POST",
-            }).done(function (results) {
-                $(".fixed-table-body").html(results);
-            }).fail(function (data) {
-                var errors = data.responseJSON;
-                console.log(errors);
-            });
         });
 
     </script>

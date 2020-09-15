@@ -27,9 +27,11 @@
             </li>
             @auth
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle page-scroll text-uppercase" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">{{Auth::user()->name}}</a>
+                <a class="nav-link dropdown-toggle page-scroll text-uppercase" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="far fa-2x fa-user-circle"></i></a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item text-uppercase" href="{{route('client.profile')}}"><span class="item-text">@lang('client.nav.profile')</span></a>
+                    <div class="dropdown-items-divide-hr"></div>
+                    <a class="dropdown-item text-uppercase" href="{{route('client.profile', 'job-applied')}}"><span class="item-text">@lang('client.nav.job_applied')</span></a>
                     <div class="dropdown-items-divide-hr"></div>
                     <a class="dropdown-item text-uppercase" href="{{route('client.logout')}}"><span class="item-text">@lang('client.nav.logout')</span></a>
                 </div>

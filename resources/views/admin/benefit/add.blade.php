@@ -48,7 +48,7 @@
                                 @enderror
                             </div>
                             <div class="form-group preview-img">
-                                <img src="default-img.png" alt="your image" class="img-responsive" />
+                                <img src="default-img.png" alt="your image" class="img-responsive" style="max-height:26rem" />
                             </div>
                         </div>
                         

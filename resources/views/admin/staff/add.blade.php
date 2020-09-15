@@ -72,7 +72,7 @@
                             </div>
                             <div class="form-group @error('email') has-error @enderror">
                                 <label class="label-required">@lang('custom.status')</label> <br>
-                                <input type="checkbox" data-id="1" name="status" class="js-switch" checked>
+                                <input type="checkbox" name="status" class="js-switch">
                             </div>
                         </div>
                         

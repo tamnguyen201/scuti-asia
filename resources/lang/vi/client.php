@@ -45,6 +45,7 @@ return [
             'empty_cv' => 'Bạn Chưa Tạo Hồ Sơ Nào.',
             'upload_cv' => 'Tạo Hồ Sơ Ngay!',
             'create_cv' => 'Thêm Mới!',
+            'job_applied' => 'Công Việc Đã Ứng Tuyển',
             'empty_job_applied' => 'Bạn Chưa Ứng Tuyển Công Việc Nào.',
             'apply_job' => 'Tìm Việc Phù Hợp Ngay!',
             'manage_pw' => 'Quản Lí Mật Khẩu',
@@ -65,10 +66,11 @@ return [
             ],
             'process' => [
                 'title' => 'Bạn Đã Ứng Tuyển Cho Công Việc Này!',
-                'description' => 'Xem Chi Tiết Kết Quả Trong Quá Trình Đánh Giá Này.',
+                'description' => 'Xem Chi Tiết Quá Trình Đánh Giá Này.',
                 'info' => 'Thông tin chi tiết:',
             ],
             'back' => 'Quay Lại',
+            'step' => 'Bước',
             'job_another' => 'Tìm Công Việc Khác',
         ],
     ],
@@ -81,6 +83,7 @@ return [
         'contact' => 'Liên Hệ',
         'login' => 'Đăng Nhập',
         'profile' => 'Tài Khoản',
+        'job_applied' => 'Công việc đã ứng tuyển',
         'logout' => 'Đăng Xuất'
     ],
 
@@ -97,12 +100,12 @@ return [
             'meeting_with_ceo' => 'Tạo cuộc họp với CEO',
         ],
         'recruitment' => [
-            'title' => 'Tin Tuyển Dụng',
-            'description' => 'Chúng tôi luôn tìm kiếm những người tuyệt vời! Nếu bạn chưa tìm thấy cơ hội phù hợp hiện tại, nhưng tin rằng bạn có thể trở thành 1 phần của Scuti, hãy gửi thông tin cho chúng tôi.',
-            'menu_title' => 'Phòng Ban',
             'end_menu' => 'Xem Tất Cả',
             'apply' => 'Ứng Tuyển',
             'empty' => 'Không có dữ liệu!',
+            'salary' => 'Lương',
+            'work_place' => 'Nơi làm việc',
+            'deadline' => 'Hạn nộp',
         ],
     ],
     

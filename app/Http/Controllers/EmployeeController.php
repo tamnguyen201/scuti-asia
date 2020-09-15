@@ -52,7 +52,7 @@ class EmployeeController extends Controller
 
     public function update(Request $request, $id)
     {
-        $this->employeeRepository->update(['role' => $request->role], $request->user_id);
+        $this->employeeRepository->update($request->all(), $id);
     
         return redirect()->route('employees.index')->with('success', trans('custom.alert_messages.success'));
     }

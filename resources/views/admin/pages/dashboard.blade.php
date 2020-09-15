@@ -54,6 +54,55 @@
     <div class="col-md-12">
         <div class="panel panel-default">
             <div class="panel-heading">
+                @lang('custom.statistical') 
+            </div>
+            <div class="panel-body articles-container">
+                <div class="col-md-6">
+
+                    <div class="article border-bottom">
+                        <div class="col-xs-12">
+                            <div class="row">
+                                <div class="col-xs-2 col-md-2 date">
+                                    <div class="large">30</div>
+                                    <div class="text-muted">Jun</div>
+                                </div>
+                                <div class="col-xs-10 col-md-10">
+                                    <h4><a href="#">Lorem ipsum dolor sit amet</a></h4>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer at sodales nisl. Donec malesuada orci ornare risus finibus feugiat.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    
+                </div>
+                <div class="col-md-6">
+                    
+                    <div class="article border-bottom">
+                        <div class="col-xs-12">
+                            <div class="row">
+                                <div class="col-xs-2 col-md-2 date">
+                                    <div class="large">28</div>
+                                    <div class="text-muted">Jun</div>
+                                </div>
+                                <div class="col-xs-10 col-md-10">
+                                    <h4><a href="#">Lorem ipsum dolor sit amet</a></h4>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer at sodales nisl. Donec malesuada orci ornare risus finibus feugiat.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
                 @lang('custom.statistical')
             </div>
             <div class="panel-body">

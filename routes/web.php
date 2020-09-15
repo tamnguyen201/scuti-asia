@@ -12,19 +12,14 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/w', function() {
-    $details['name'] = 'Tâm Nguyễn';
-    $details['user_name'] = 'tam2012000@gmail.com';
-    $details['password'] = 'dskfjsdjasda';
-    return view('welcome', compact('details'));
-});
+
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/login', 'AuthController@login')->name('client.login');
 Route::post('/login', 'AuthController@postLogin')->name('client.postLogin');
 Route::get('/register', 'AuthController@register')->name('client.register');
 Route::post('/register', 'AuthController@postRegister')->name('client.postRegister');
 Route::get('/logout', 'AuthController@logout')->name('client.logout');
-Route::get('/profile', 'HomeController@profile')->name('client.profile');
+Route::get('/profile/{tab?}', 'HomeController@profile')->name('client.profile');
 Route::get('/change-infomation', 'HomeController@changeAccountInfo')->name('client.change_info');
 Route::post('/change-infomation', 'UserController@update')->name('client.update_info');
 Route::get('/upload-cv', 'CVController@create')->name('client.create_cv');
@@ -37,6 +32,7 @@ Route::post('/change-password','AuthController@changePassword')->name('client.up
 Route::post('/visit-us','HomeController@visit_us')->name('client.visit_us');
 Route::get('/apply', 'HomeController@apply')->name('client.apply');
 Route::get('/jobs', 'HomeController@jobs')->name('client.jobs');
+Route::get('/filter-jobs', 'HomeController@filterJob')->name('client.filter_jobs');
 Route::get('/jobs-{id}/{slug}.html', 'HomeController@jobDetail')->name('job-detail');
 Route::get('/jobs-{id}/apply/{slug}.html', 'HomeController@jobApply')->name('client.applied');
 Route::post('/apply','HomeController@userApplyJob')->name('client.apply.job');
@@ -91,29 +87,6 @@ Route::group(
             Route::post('process/calendar/create','EvaluateController@storeCalendar')->name('store.event');
             Route::post('start-evaluate/{id}','EvaluateController@startEvaluate')->name('start.evaluate');
             Route::get('process/send-email','EvaluateController@createEmail')->name('create.email');
-        });
-        Route::get('calendars', function() {
-            $events = [];
-        $calendar = \Calendar::addEvents($events)
-        ->setOptions([ 
-            'editable' => true,
-            'selectable'=> true,
-            'selectHelper'=> true,
-            'displayEventTime'=> true,
-        ]) 
-        ->setCallbacks([ 
-            'dayClick' => 'function(date, event, view) {
-                $("#dialog").dialog({
-                    title:"Add Event",
-                    width:600,
-                    height:500,
-                    modal:true,
-                    show:{effect: "clip", duration: 350},
-                    hide:{effect: "clip", duration: 250},
-                  })
-            }'
-        ]);
-            return view('welcome', compact('calendar'));
         });
         // Route::post('fullcalendar/delete','EvaluateController@destroyCalendar');
         Route::get('fullcalendar','FullcalendarController@show')->name('fullcalendar.show');
