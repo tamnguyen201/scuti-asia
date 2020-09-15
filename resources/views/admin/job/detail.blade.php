@@ -70,7 +70,7 @@
 <div class="row">
     <div class="col-lg-12">
         <div class="panel panel-default">
-            <div class="panel-heading">@lang('custom.page_title.data_table')</div>
+            <div class="panel-heading"><span class="fa fa-list-alt" style="font-size: 21px"></span> @lang('custom.page_title.user_job_list')</div>
             <div class="panel-body">
                 <div class="bootstrap-table">
                     <div class="fixed-table-toolbar">

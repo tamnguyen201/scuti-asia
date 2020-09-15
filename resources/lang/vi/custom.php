@@ -80,7 +80,8 @@ return [
         'candidate_list_by_job'=>'Danh sách ứng viên ứng tuyển',
         'location_index'=>'Địa điểm ứng tuyển',
         'location_list'=>'Danh sách các địa điểm',
-        'data_table'=>'Bảng dữ liệu'
+        'data_table'=>'Bảng dữ liệu',
+        'user_job_list'=>'Danh sách ứng viên'
     ],
 
     'table_lable' => [

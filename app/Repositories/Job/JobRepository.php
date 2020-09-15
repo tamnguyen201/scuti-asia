@@ -14,4 +14,9 @@ class JobRepository extends Repository implements JobRepositoryInterface
     {
         return \App\Model\Job::class;
     }
+
+    public function indexByJob($id)
+    {
+        return \App\Model\UserJob::with(['user'])->where('job_id', '=' , $id)->paginate(10);
+    }
 }

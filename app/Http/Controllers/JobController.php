@@ -18,7 +18,7 @@ class JobController extends Controller
 {
     protected $jobRepository;
     protected $categoryRepository;
-    protected $locationRepository;
+    protected $candidateRepository;
 
     public function __construct(
         JobRepositoryInterface $jobRepository,
@@ -72,8 +72,7 @@ class JobController extends Controller
     public function detail($id)
     {
         $jobById = $this->jobRepository->show($id);
-        $candidateBỵJob = $jobById->user;
-        dd($candidateBỵJob);
+        $candidates = $this->candidateRepository->indexByJob($id);
         return view("admin.job.detail", compact('jobById','candidates'));
     }
 
