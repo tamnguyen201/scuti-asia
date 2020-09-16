@@ -96,19 +96,6 @@
         });
     </script>
     
-      <script type="text/javascript">
-        $('.btn-send-email').click(function (e) {
-            e.preventDefault();
-            let url = $(this).attr('href');
-            $.get(url)
-            .done(function (results) {
-            $(".modal-body").html(results);
-            $("#myModal").modal('show');
-            }).fail(function (data) {
-            });
-        });
-    </script>
-
     <script type="text/javascript">
         @if (count($errors) > 0)
             $('#modal_add').modal('show');
@@ -120,5 +107,18 @@
             select: '#slim-multi-select'
             })
     </script>
+
+{{-- <script type="text/javascript">
+    $('.btn-send-email').click(function (e) {
+        e.preventDefault();
+        let url = $(this).attr('href');
+        $.get(url)
+        .done(function (results) {
+        $(".modal-body").html(results);
+        $("#modal_email").modal('show');
+        }).fail(function (data) {
+        });
+    });
+</script> --}}
 
 @endsection
