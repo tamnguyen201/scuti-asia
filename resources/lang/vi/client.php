@@ -17,16 +17,18 @@ return [
                 'google_login' => 'Đăng Nhập Với Google',
                 'no_account' => 'Chưa Có Tài Khoản!',
             ],
-
             'register' => [
                 'title' => 'Đăng Ký',
                 'term' => 'Đồng Ý Với Điều Khoản Của Chúng Tôi!',
                 'submit' => 'Đăng Ký',
                 'has_account' => 'Đã Có Tài Khoản!',
             ],
-
             'forgot_pw' => [
                 'title' => 'Quên Mật Khẩu',
+                'submit' => 'Xác Nhận'
+            ],
+            'reset_pw' => [
+                'title' => 'Đổi Mật Khẩu',
                 'submit' => 'Xác Nhận'
             ],
 
@@ -34,6 +36,8 @@ return [
             'email' => 'Tài Khoản',
             'password' => 'Mật Khẩu',
             'password_confirm' => 'Nhập Lại Mật Khẩu',
+            'new_password' => 'Mật Khẩu Mới',
+            'new_password_confirm' => 'Nhập Lại Mật Khẩu Mới',
             'phone' => 'Số Điện Thoại',
             'address' => 'Địa Chỉ',
         ],

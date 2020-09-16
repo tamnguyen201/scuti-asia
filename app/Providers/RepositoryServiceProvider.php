@@ -93,6 +93,14 @@ class RepositoryServiceProvider extends ServiceProvider
             \App\Repositories\UserResetPW\UserResetPWRepositoryInterface::class,
             \App\Repositories\UserResetPW\UserResetPWRepository::class,
         );
+        $this->app->singleton(
+            \App\Repositories\Admin\AdminRepositoryInterface::class,
+            \App\Repositories\Admin\AdminRepository::class,
+        );
+        $this->app->singleton(
+            \App\Repositories\UserJob\UserJobRepositoryInterface::class,
+            \App\Repositories\UserJob\UserJobRepository::class,
+        );
     }
 
     /**

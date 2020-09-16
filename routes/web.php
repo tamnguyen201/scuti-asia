@@ -12,7 +12,11 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Route::get('/a', function ()
+{
+    $details['password'] = \Hash::make(Str::random(1));
+    return view('welcome', compact('details'));
+});
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/login', 'AuthController@login')->name('client.login');
 Route::post('/login', 'AuthController@postLogin')->name('client.postLogin');
@@ -21,10 +25,8 @@ Route::post('/register', 'AuthController@postRegister')->name('client.postRegist
 
 Route::get('/forgot-password', 'AuthController@forgotPassword')->name('client.forgot_password');
 Route::post('/forgot-password','AuthController@getForgotPassword')->name('client.confirm_forgot_password');
-Route::get('/confirm-otp/{email}', 'ResetPasswordController@confirmOTP')->name('client.forgot_password.confirmOTP');
-Route::post('/confirm-otp/{email}','ResetPasswordController@postConfirmOTP')->name('post.confirmOTP');
-Route::get('forgot/change-password/{email}', 'ResetPasswordController@formNewPW')->name('client.forgot_password.show_form_changePW');
-Route::post('forgot/change-password/{email}', 'ResetPasswordController@storeNewPW')->name('client.forgot_password.newPW');
+Route::get('reset-password/{token}', 'AuthController@formResetPW')->name('client.reset_password');
+Route::post('reset-password/{token}', 'AuthController@storeResetPW')->name('client.reset_new_password');
 
 Route::get('/logout', 'AuthController@logout')->name('client.logout');
 Route::get('/profile/{tab?}', 'HomeController@profile')->name('client.profile');

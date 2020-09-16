@@ -17,6 +17,7 @@ class CreateEventsTable extends Migration
             $table->increments('id');
             $table->string('title');
             $table->foreignId('user_id')->unsigned();
+            $table->string('admin_id');
             $table->dateTime('start');
             $table->dateTime('end');
             $table->text('note')->nullable();
@@ -24,7 +25,6 @@ class CreateEventsTable extends Migration
             $table->string('color');
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-
         });
     }
 

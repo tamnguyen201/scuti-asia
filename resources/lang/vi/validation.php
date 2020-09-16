@@ -183,7 +183,9 @@ return [
         'message' => 'lời nhắn',
         'available' => 'có sẵn',
         'size' => 'kích thước',
-        'salary'=>'mức lương'
+        'salary'=>'mức lương',
+        'start'=>'ngày bắt đầu',
+        'end'=>'ngày kết thúc'
     ],
 
 ];

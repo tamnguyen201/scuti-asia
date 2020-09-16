@@ -21,54 +21,48 @@ class UserResetPWRepository extends Repository implements UserResetPWRepositoryI
         return \App\Model\ResetPassword::class;
     }
 
-    public function getForgotPassword ($data)
+    public function getForgotPassword ($email)
     {
-        $user = $this->user->where('email', '=' , $data)->first();
-        if ($user == null) {
-            return false;
-        } else {
-            $dataEmail = $this->model->where('email', '=', $data)->first();
+        $user = $this->user->where('email', '=' , $email)->first();
+
+        if ($user != null) {
+            $dataEmail = $this->model->where('email', '=', $email)->first();
             if ($dataEmail != null) {
-                $this->model->where('email', '=', $data)->update([
-                    'token' => Hash::make(Str::random(5))
+                $this->model->where('email', '=', $email)->update([
+                    'token' => Str::random(50)
                 ]);
             } else {
                 $this->model->firstOrCreate([
                     'email' => $user->email,
-                    'token' => Hash::make(Str::random(5))
+                    'token' => Str::random(50)
                 ]);
             }
-            $tokenData = $this->model->where('email', $data)->first();
-            return $tokenData;
+            $data['passwordReset'] = $this->model->where('email', $email)->first();
+            $data['user'] = $user;
+
+            return $data;
         }
+
+        return false;
     }
 
-    public function sendResetEmail($email, $token)
+    public function sendResetEmail($user, $token)
     {
         $details = [
-            'title' => trans('custom.email_template.forgot_password.title'),
-            'body' => trans('custom.email_template.forgot_password.body'),
+            'name' => $user->name,
             'token' => $token,
         ];
 
-        \Mail::to($email)->send(new \App\Mail\UserForgotPassword($details));
+        \Mail::to($user->email)->send(new \App\Mail\UserForgotPassword($details));
         
     }
 
-    public function postConfirmOTP($dataInput, $email)
+    public function storeNewPW($password, $token)
     {
-        $dataUserResetPW = $this->model->where('email', $email)->first();
-        if ($dataUserResetPW->token == $dataInput) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    public function storeNewPW($dataInput, $email)
-    {
-        $user = $this->user->where('email', '=' , $email)->first();
-        $user->update(['password' => $dataInput]);
+        $data = $this->model->where('token', '=' , $token)->first();
+        $this->user->where('email', '=' , $data->email)->update(['password' => \Hash::make($password)]);
+        $this->model->where('token', '=' , $token)->delete();
+        
         return true;
     }
 }

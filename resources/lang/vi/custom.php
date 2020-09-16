@@ -44,6 +44,7 @@ return [
     'CV_status'=> 'Trạng thái',
     'applied_job'=>'Công việc đã ứng tuyển',
     'empty_data' => 'Dữ liệu trống',
+    'empty_events' => 'Không Có Sự Kiện Nào',
     'candidate_new' => 'Ứng viên mới',
     'candidate_evaluated' => 'Đang Đánh Giá',
     'candidate_accept' => 'Ứng viên đồng ý',
@@ -92,7 +93,8 @@ return [
         'candidate_list_by_job'=>'Danh sách ứng viên ứng tuyển',
         'location_index'=>'Địa điểm ứng tuyển',
         'location_list'=>'Danh sách các địa điểm',
-        'data_table'=>'Bảng dữ liệu'
+        'data_table'=>'Bảng dữ liệu',
+        'user_job_list'=>'Danh sách ứng viên'
     ],
 
     'placeholder' => [
@@ -101,6 +103,7 @@ return [
         'avatar' => 'Vui lòng chọn ảnh đại diện',
         'email' => 'Vui lòng nhập thông tin địa chỉ email',
         'password' => 'Vui lòng nhập thông tin mật khẩu',
+        'new_password' => 'Vui lòng nhập thông tin mật khẩu mới',
         'phone' => 'Vui lòng nhập thông tin số điện thoại',
         'address' => 'Vui lòng nhập thông tin địa chỉ',
         'description' => 'Vui lòng nhập thông tin mô tả',
@@ -224,7 +227,8 @@ return [
         'placeholder_location'=>'Nhập vị trí',
         'placeholder_title'=>'Nhập tiêu đề',
         'job_edit_title'=>'Sửa công việc ứng tuyển',
-        'edit'=>'Sửa'
+        'edit'=>'Sửa',
+        'job_detail'=>'Chi tiết tin ứng tuyển'
     ],
     'location'=>[
         'location_manage'=>'Địa điểm ứng tuyển',

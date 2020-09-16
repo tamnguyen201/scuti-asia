@@ -20,29 +20,29 @@
                 @csrf
                 <div class="col-md-7">
                     <div class="form-group">
-                        <label>@lang('custom.name')</label>
-                        <input type="text" name="name" value="{{Auth::user()->name}}" class="form-control">
+                        <label class="label-required">@lang('custom.name')</label>
+                        <input type="text" name="name" value="{{Auth::user()->name}}" class="form-control" placeholder="@lang('custom.placeholder.name')">
                         @error('name') 
                         <span class="text-danger"> {{$message}} </span>
                         @enderror
                     </div>
                     <div class="form-group">
-                        <label>@lang('custom.email')</label>
-                        <input type="text" name="email" value="{{Auth::user()->email}}" class="form-control">
+                        <label class="label-required">@lang('custom.email')</label>
+                        <input type="text" name="email" value="{{Auth::user()->email}}" class="form-control" placeholder="@lang('custom.placeholder.email')">
                         @error('email') 
                         <span class="text-danger"> {{$message}} </span>
                         @enderror
                     </div>
                     <div class="form-group">
-                        <label>@lang('custom.phone')</label>
-                        <input type="text" name="phone" value="{{Auth::user()->phone}}" class="form-control">
+                        <label class="label-required">@lang('custom.phone')</label>
+                        <input type="text" name="phone" value="{{Auth::user()->phone}}" class="form-control" placeholder="@lang('custom.placeholder.phone')">
                         @error('phone') 
                         <span class="text-danger"> {{$message}} </span>
                         @enderror
                     </div>
                     <div class="form-group">
-                        <label>@lang('custom.address')</label>
-                        <input type="text" name="address" value="{{Auth::user()->address}}" class="form-control">
+                        <label class="label-required">@lang('custom.address')</label>
+                        <input type="text" name="address" value="{{Auth::user()->address}}" class="form-control" placeholder="@lang('custom.placeholder.address')">
                         @error('address') 
                         <span class="text-danger"> {{$message}} </span>
                         @enderror

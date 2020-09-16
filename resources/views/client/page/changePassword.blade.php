@@ -8,18 +8,18 @@
 <div class="modal-body">
     <form>
         <div class="form-group">
-            <label>@lang('custom.old_pass')</label>
-            <input type="password" name="password" class="form-control">
+            <label class="label-required">@lang('custom.old_pass')</label>
+            <input type="password" name="password" class="form-control" placeholder="@lang('custom.placeholder.password')">
             <span class="help-block text-danger"></span>
         </div>
         <div class="form-group">
-            <label>@lang('custom.new_pass')</label>
-            <input type="password" name="new_password" class="form-control">
+            <label class="label-required">@lang('custom.new_pass')</label>
+            <input type="password" name="new_password" class="form-control" placeholder="@lang('custom.placeholder.new_password')">
             <span class="help-block text-danger"></span>
         </div>
         <div class="form-group">
-            <label>@lang('custom.confirm_pass')</label>
-            <input type="password" name="new_password_confirmation" class="form-control">
+            <label class="label-required">@lang('custom.confirm_pass')</label>
+            <input type="password" name="new_password_confirmation" class="form-control" placeholder="@lang('custom.placeholder.new_password')">
             <span class="help-block text-danger"></span>
         </div>
         

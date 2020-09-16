@@ -88,13 +88,17 @@ class AuthController extends Controller
         DB::beginTransaction();
         try {
             $token = $this->forgotPasswordRepository->getForgotPassword($request->email);
+
             if ($token == false) {
                 return redirect()->back()->withErrors(['error' => trans('custom.alert_messages.not_found')]);
             } else {
                 DB::commit();
-                $this->sendResetEmail($token->email, $token->token);
-                return redirect()->route('forgot_password.confirmOTP', ['email' => $token->email]);
+                $this->sendResetEmail($token['user'], $token['passwordReset']->token);
+                alert(trans('custom.alert_messages.contact_alert.title'), trans('custom.alert_messages.contact_alert.text'), 'success');
+                
+                return back();
             }
+
         } catch (Exception $e) {
             DB::rollBack();
             
@@ -102,36 +106,29 @@ class AuthController extends Controller
         }
     }
 
-    public function sendResetEmail($email, $token)
+    public function sendResetEmail($user, $token)
     {
-        $this->forgotPasswordRepository->sendResetEmail($email, $token);
+        $this->forgotPasswordRepository->sendResetEmail($user, $token);
     }
 
-    public function confirmOTP($email)
+    public function formResetPW($token)
     {
-        return view('auth.enter_passwordtoken', compact('email'));
-    }
+        $result = \App\Model\ResetPassword::where('token', $token)->first();
 
-    public function postConfirmOTP(OTPRequest $request, $email){
-        $dataCheckOTP = $this->forgotPasswordRepository->postConfirmOTP($request->code, $email);
-        if ($dataCheckOTP ==false) {
-            return redirect()->back()->withErrors(['message' => trans('custom.alert_messages.not_found')]);
+        if($result != null){
+            $data['token'] = $token;
+            return view('client.auth.reset_password', $data);
         } else {
-            return redirect()->route('forgot_password.show_form_changePW', $email);
+            echo 'Đường dẫn không tồn tại.';
         }
     }
 
-    public function formNewPW($email)
+    public function storeResetPW(ChangePWRequest $request, $token)
     {
-        return view('auth.change-password', compact('email'));
-    }
-
-    public function storeNewPW(ChangePWRequest $request, $email)
-    {
-        $dataChangPW = $this->forgotPasswordRepository->storeNewPW($request->new_password,$email);
+        $dataChangPW = $this->forgotPasswordRepository->storeNewPW($request->new_password, $token);
 
         if ($dataChangPW == true) {
-            return redirect()->route('login');
+            return redirect()->route('client.login')->with('success', trans('custom.alert_messages.success'));
         } else {
             return redirect()-back()>withErrors(['message' => trans('custom.alert_messages.fail')]);
         }

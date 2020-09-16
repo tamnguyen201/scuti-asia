@@ -8,12 +8,12 @@
 <div class="modal-body">
     <form id="formUploadCV" enctype="multipart/form-data" method="post">
         <div class="form-group">
-            <label>@lang('custom.name_cv')</label>
-            <input type="text" class="form-control" name="cv_name">
+            <label class="label-required">@lang('custom.name_cv')</label>
+            <input type="text" class="form-control" name="cv_name" placeholder="@lang('custom.placeholder.name')">
             <span class="help-block text-danger"> </span>
         </div>
         <div class="form-group">
-            <label>@lang('custom.cv_url')</label>
+            <label class="label-required">@lang('custom.cv_url')</label>
             <input type="file" name="cv_url" accept="application/pdf,.doc,.docx,application/msword">
             <p class="help-block text-danger"> </p>
         </div>

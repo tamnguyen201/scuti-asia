@@ -69,7 +69,7 @@
                                     <td>
                                         <input type="checkbox" data-id="{{ $item->id }}" name="status" class="js-switch" {{ $item->status == 1 ? 'checked' : '' }}>
                                     </td>
-                                    <td><a href="{{ route('candidate.byJob', $item->id) }}" class="btn btn-default">{{ count($item->user) }} <span class="fa fa-user"></span></a></td>
+                                    <td>{{ count($item->user) }}</td>
                                     <td class="text-center">
                                         <a href="{{ route('job.detail', ['id' => $item->id]) }}" class="btn btn-primary text-light view-profile"><em class="fa fa-eye"></em></a>
                                         <a href="{{ route('jobs.edit', $item->id) }}" class="btn btn-primary text-light"><em class="far fa-edit"></em></a> 

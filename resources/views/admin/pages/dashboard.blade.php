@@ -57,44 +57,83 @@
                 @lang('custom.upcoming_meeting') 
             </div>
             <div class="panel-body articles-container">
+                @if($data['eventsToday']->count() > 0 && $data['eventsTomorrow']->count() > 0)
                 <div class="col-md-6">
-
+                    @foreach($data['eventsToday'] as $event)
                     <div class="article border-bottom">
                         <div class="col-xs-12">
                             <div class="row">
-                                <div class="col-xs-2 col-md-2 date">
-                                    <div class="large">30</div>
-                                    <div class="text-muted">Jun</div>
+                                <div class="col-xs-3 col-md-3 date">
+                                    <div class="large">{{\CarBon\CarBon::parse($event->start)->format('d/m')}}</div>
+                                    <div>{{\CarBon\CarBon::parse($event->start)->format('H:i:s')}}</div>
                                 </div>
-                                <div class="col-xs-10 col-md-10">
-                                    <h4><a href="#">Lorem ipsum dolor sit amet</a></h4>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer at sodales nisl. Donec malesuada orci ornare risus finibus feugiat.</p>
+                                <div class="col-xs-9 col-md-9">
+                                    <h4>{{$event->title}}</h4>
+                                    <p>Admin1, Admin2</p>
                                 </div>
                             </div>
                         </div>
                         <div class="clear"></div>
                     </div>
-                    
+                    @endforeach
                 </div>
                 <div class="col-md-6">
-                    
+                    @foreach($data['eventsTomorrow'] as $event)
                     <div class="article border-bottom">
                         <div class="col-xs-12">
                             <div class="row">
-                                <div class="col-xs-2 col-md-2 date">
-                                    <div class="large">28</div>
-                                    <div class="text-muted">Jun</div>
+                                <div class="col-xs-3 col-md-3 date">
+                                    <div class="large">{{\CarBon\CarBon::parse($event->start)->format('d/m')}}</div>
+                                    <div>{{\CarBon\CarBon::parse($event->start)->format('H:i:s')}}</div>
                                 </div>
-                                <div class="col-xs-10 col-md-10">
-                                    <h4><a href="#">Lorem ipsum dolor sit amet</a></h4>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer at sodales nisl. Donec malesuada orci ornare risus finibus feugiat.</p>
+                                <div class="col-xs-9 col-md-9">
+                                    <h4>{{$event->title}}</h4>
+                                    <p>Admin1, Admin2</p>
                                 </div>
                             </div>
                         </div>
                         <div class="clear"></div>
                     </div>
-                    
+                    @endforeach
                 </div>
+                @elseif($data['eventsToday']->count() > 0 || $data['eventsTomorrow']->count() > 0)
+                    @foreach($data['eventsToday'] as $event)
+                    <div class="article border-bottom">
+                        <div class="col-xs-12">
+                            <div class="row">
+                                <div class="col-xs-3 col-md-3 date">
+                                    <div class="large">{{\CarBon\CarBon::parse($event->start)->format('d/m')}}</div>
+                                    <div>{{\CarBon\CarBon::parse($event->start)->format('H:i:s')}}</div>
+                                </div>
+                                <div class="col-xs-9 col-md-9">
+                                    <h4>{{$event->title}}</h4>
+                                    <p>Admin1, Admin2</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    @endforeach
+                    @foreach($data['eventsTomorrow'] as $event)
+                    <div class="article border-bottom">
+                        <div class="col-xs-12">
+                            <div class="row">
+                                <div class="col-xs-3 col-md-3 date">
+                                    <div class="large">{{\CarBon\CarBon::parse($event->start)->format('d/m')}}</div>
+                                    <div>{{\CarBon\CarBon::parse($event->start)->format('H:i:s')}}</div>
+                                </div>
+                                <div class="col-xs-9 col-md-9">
+                                    <h4>{{$event->title}}</h4>
+                                    <p>Admin1, Admin2</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    @endforeach
+                @elseif($data['eventsToday']->count() == 0 && $data['eventsTomorrow']->count() == 0)
+                <p>@lang('custom.empty_events')</p>
+                @endif
             </div>
         </div>
     </div>

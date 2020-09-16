@@ -1,5 +1,5 @@
 @extends('client.layout.master')
-@section('title', trans('custom.page_title.company_manage'))
+@section('title', trans('client.page.auth.login.title'))
 @section('content')
 <div class="basic-2" style="margin-top: 3.5rem">
     <div class="col-lg-4 mx-auto" style="background-color: #fff; border-radius: 10px">
