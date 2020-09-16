@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class EmployeeRequest extends FormRequest
+class MainMemberUpdateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,8 +24,10 @@ class EmployeeRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required',
-            'email' => 'required|email|unique:admins,email',
+            'name' => 'required|unique:main_member,name,' . $this->id,
+            'avatar' => 'nullable|mimes:jpeg,jpg,png,gif|max:10000',
+            'position' => 'required',
+            'quote' => 'required',
         ];
     }
 
@@ -33,7 +35,9 @@ class EmployeeRequest extends FormRequest
     {
         return [
             'required' => trans('validation.required'),
-            'email.unique' => trans('validation.unique')
+            'uinique' => trans('validation.unique'),
+            'avatar.mimes' => trans('validation.mimes'),
+            'avatar.max' => trans('validation.max'),
         ];
     }
 }

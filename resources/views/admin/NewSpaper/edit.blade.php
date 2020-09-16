@@ -27,14 +27,14 @@
                         <div class="col-md-6">
                             <div class="form-group @error('title') has-error @enderror">
                                 <label>@lang('custom.title')</label>
-                                <input type="text" name="title" value="{{$NewSpaper->title}}" class="form-control" placeholder="@lang('custom.placehoder.title')">
+                                <input type="text" name="title" value="{{$NewSpaper->title}}" class="form-control" placeholder="@lang('custom.placeholder.title')">
                                 @error('title') 
                                 <span class="help-block"> {{$message}} </span>
                                 @enderror
                             </div>
                             <div class="form-group @error('url') has-error @enderror">
                                 <label>@lang('custom.url')</label>
-                                <input type="text" name="url" value="{{$NewSpaper->url}}" class="form-control" placeholder="@lang('custom.placehoder.url')">
+                                <input type="text" name="url" value="{{$NewSpaper->url}}" class="form-control" placeholder="@lang('custom.placeholder.url')">
                                 @error('url') 
                                 <span class="help-block"> {{$message}} </span>
                                 @enderror
@@ -62,7 +62,7 @@
                         
                         <div class="col-md-12 text-center">
                             <button type="submit" class="btn btn-primary">@lang('custom.button.submit') <em class="fa fa-check"></em></button>
-                            <a href="{{route('new-spaper.index')}}" class="btn btn-danger">@lang('custom.button.cancel')</a>
+                            <a href="{{route('new-spaper.index')}}" class="btn btn-danger">@lang('custom.button. cancel') <em class="fa fa-times"></em></a>
                         </div>
                     </form>
                 </div>

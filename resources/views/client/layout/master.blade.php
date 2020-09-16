@@ -52,6 +52,13 @@
     <script src="common/js/jquery.easing.min.js"></script>
     <script src="https://unpkg.com/sweetalert2@7.18.0/dist/sweetalert2.all.js"></script>
     <script>
+        $(document).ready(function() {
+            if ($('body').height() < $(window).height()) {
+                $('footer').css({position:'fixed', bottom:'0', width:'100%'});
+            }
+
+        });
+
         $(function () {
             $.ajaxSetup({
                 headers: {

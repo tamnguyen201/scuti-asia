@@ -75,9 +75,9 @@ class HomeController extends Controller
         $categories = $this->CategoryRepository->where('status', '=', 1);
         
         if ($request->category_id != '*') {
-            $categories = $this->CategoryRepository->show($request->category_id);
+            $categories = $this->CategoryRepository->where('id', '=',$request->category_id);
         }
-        dd($this->CategoryRepository->show($request->category_id)->count());
+
         $html = view('client.page.filterJob', compact('categories'))->render();
         return response()->json($html);
     }

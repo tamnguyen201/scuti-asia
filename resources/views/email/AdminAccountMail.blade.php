@@ -53,7 +53,7 @@
                                                     <dt style="clear:both;font-weight:bold">Password:</dt>
                                                     <dd style="margin:0 0 10px 0;color:#000;margin-left:0;margin-bottom:10px">{{ $details['password'] }}</dd>
                                                 </dl>
-                                                <p style="margin:0;color:#74787E;font-size:16px;line-height:1.5em">Vui lòng đăng nhập và đổi mật khẩu để quản lí tài khoản cá nhân tại đây:</p>
+                                                <p style="margin:0;color:#74787E;font-size:16px;line-height:1.5em">Vui lòng đăng nhập và đổi mật khẩu để quản lý tài khoản cá nhân tại đây:</p>
                                                 <table class="body-action" align="center" width="100%" cellpadding="0" cellspacing="0" style="width:100%;margin:0 auto;padding:0;text-align:center">
                                                     <tbody>
                                                         <tr>

@@ -2,7 +2,7 @@
 @section('title', trans('custom.page_title.company_manage'))
 @section('content')
 <div class="basic-2" style="margin-top: 3.5rem">
-    <div class="col-lg-4 mx-auto">
+    <div class="col-lg-4 mx-auto" style="background-color: #fff; border-radius: 10px">
         <div class="form-container">
             <h1 style="text-align: center;margin-bottom: 40px;color: #868686;letter-spacing: 3px;">@lang('client.page.auth.register.title')</h1>
             @if ( Session::has('error') )
@@ -17,40 +17,40 @@
             <form action="{{route('client.postRegister')}}" method="post">
                 @csrf
                 <div class="form-group">
-                    <label>@lang('client.page.auth.name')</label>
-                    <input type="text" class="form-control" value="{{old('name')}}" name="name">
+                    <label class="label-required">@lang('client.page.auth.name')</label>
+                    <input type="text" class="form-control" value="{{old('name')}}" name="name" placeholder="@lang('custom.placeholder.name')">
                     @error('name') 
                         <span class="help-block with-errors text-danger"> {{$message}} </span>
                     @enderror
                 </div>
                 <div class="form-group">
-                    <label>@lang('client.page.auth.email')</label>
-                    <input type="email" class="form-control" value="{{old('email')}}" name="email">
+                    <label class="label-required">@lang('client.page.auth.email')</label>
+                    <input type="email" class="form-control" value="{{old('email')}}" name="email" placeholder="@lang('custom.placeholder.email')">
                     @error('email') 
                         <span class="help-block with-errors text-danger"> {{$message}} </span>
                     @enderror
                 </div>
                 <div class="form-group">
-                    <label>@lang('client.page.auth.password')</label>
-                    <input type="password" class="form-control" name="password">
+                    <label class="label-required">@lang('client.page.auth.password')</label>
+                    <input type="password" class="form-control" name="password" placeholder="@lang('custom.placeholder.password')">
                     @error('password') 
                         <span class="help-block with-errors text-danger"> {{$message}} </span>
                     @enderror
                 </div>
                 <div class="form-group">
-                    <label>@lang('client.page.auth.password_confirm')</label>
-                    <input type="password" class="form-control" name="password_confirmation">
+                    <label class="label-required">@lang('client.page.auth.password_confirm')</label>
+                    <input type="password" class="form-control" name="password_confirmation" placeholder="@lang('custom.placeholder.password')">
                 </div>
                 <div class="form-group">
-                    <label>@lang('client.page.auth.phone')</label>
-                    <input type="text" class="form-control" value="{{old('phone')}}" name="phone">
+                    <label class="label-required">@lang('client.page.auth.phone')</label>
+                    <input type="text" class="form-control" value="{{old('phone')}}" name="phone" placeholder="@lang('custom.placeholder.phone')">
                     @error('phone') 
                         <span class="help-block with-errors text-danger"> {{$message}} </span>
                     @enderror
                 </div>
                 <div class="form-group">
-                    <label>@lang('client.page.auth.address')</label>
-                    <input type="text" class="form-control" value="{{old('address')}}" name="address">
+                    <label class="label-required">@lang('client.page.auth.address')</label>
+                    <input type="text" class="form-control" value="{{old('address')}}" name="address" placeholder="@lang('custom.placeholder.address')">
                     @error('address') 
                         <span class="help-block with-errors text-danger"> {{$message}} </span>
                     @enderror

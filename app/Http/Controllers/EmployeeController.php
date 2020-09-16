@@ -6,6 +6,7 @@ use Alert;
 
 use Illuminate\Http\Request;
 use App\Http\Requests\EmployeeRequest;
+use App\Http\Requests\EmployeeUpdateRequest;
 use App\Repositories\Employee\EmployeeRepositoryInterface;
 
 class EmployeeController extends Controller
@@ -50,7 +51,7 @@ class EmployeeController extends Controller
         return view('admin.staff.edit', compact('manager'));
     }
 
-    public function update(Request $request, $id)
+    public function update(EmployeeUpdateRequest $request, $id)
     {
         $this->employeeRepository->update($request->all(), $id);
     

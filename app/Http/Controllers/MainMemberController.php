@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use Alert;
 
 use Illuminate\Http\Request;
-use App\Http\Requests\MemberRequest;
+use App\Http\Requests\MainMemberRequest;
+use App\Http\Requests\MainMemberUpdateRequest;
 use App\Repositories\Member\MemberRepositoryInterface;
 
 class MainMemberController extends Controller
@@ -36,7 +37,7 @@ class MainMemberController extends Controller
         return view('admin.mainMember.add');
     }
 
-    public function store(MemberRequest $request)
+    public function store(MainMemberRequest $request)
     {
         $this->MemberRepository->store($request->all());
         
@@ -50,7 +51,7 @@ class MainMemberController extends Controller
         return view('admin.mainMember.edit', compact('member'));
     }
 
-    public function update(Request $request, $id)
+    public function update(MainMemberUpdateRequest $request, $id)
     {
         $this->MemberRepository->update(['role' => $request->role], $request->user_id);
     

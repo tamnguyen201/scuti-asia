@@ -89,6 +89,10 @@ class RepositoryServiceProvider extends ServiceProvider
             \App\Repositories\Benefit\BenefitRepositoryInterface::class,
             \App\Repositories\Benefit\BenefitRepository::class,
         );
+        $this->app->singleton(
+            \App\Repositories\UserResetPW\UserResetPWRepositoryInterface::class,
+            \App\Repositories\UserResetPW\UserResetPWRepository::class,
+        );
     }
 
     /**

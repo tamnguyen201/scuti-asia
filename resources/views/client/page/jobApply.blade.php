@@ -448,7 +448,7 @@
                         <div class="col-md-12 px-0">
                             <div class="form-group">
                                 <label>@lang('custom.letter')</label>
-                                <textarea name="letter" class="form-control p-0" cols="30" rows="8" placeholder="@lang('custom.placehoder.message')"> {{old('letter')}}</textarea>
+                                <textarea name="letter" class="form-control p-0" cols="30" rows="8" placeholder="@lang('custom.placeholder.message')"> {{old('letter')}}</textarea>
                                 <span class="text-danger"></span>
                             </div>
                         </div>

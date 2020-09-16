@@ -3,7 +3,7 @@
 @section('content')
 <div class="row">
     <ol class="breadcrumb">
-        <li><a href="#">
+        <li><a href="{{route('admin.home')}}">
             <em class="fa fa-home"></em>
         </a></li>
         <li class="active">@lang('custom.page_title.dashboard')</li>
@@ -54,7 +54,7 @@
     <div class="col-md-12">
         <div class="panel panel-default">
             <div class="panel-heading">
-                @lang('custom.statistical') 
+                @lang('custom.upcoming_meeting') 
             </div>
             <div class="panel-body articles-container">
                 <div class="col-md-6">
@@ -116,7 +116,7 @@
 <div class="row">
     <div class="col-md-12">
         <div class="panel panel-default">
-        <div class="panel-heading">@lang('custom.statistical')</div>
+        <div class="panel-heading">@lang('custom.public_post')</div>
             <div class="panel-body">
                 <table class="table table-hover">
                     <thead>

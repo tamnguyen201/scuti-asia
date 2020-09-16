@@ -9,16 +9,17 @@ use App\Http\Requests\ForgotPasswordRequest;
 use App\Http\Requests\LoginRequest;
 use App\Http\Requests\OTPRequest;
 use App\Http\Requests\RegisterRequest;
-use App\Repositories\PWReset\PWResetRepositoryInterface;
+use App\Repositories\UserResetPW\UserResetPWRepositoryInterface;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 
 class AuthController extends Controller
 {
     protected $forgotPasswordRepository;
 
-    public function __construct(PWResetRepositoryInterface $forgotPasswordRepository)
+    public function __construct(UserResetPWRepositoryInterface $forgotPasswordRepository)
     {
         $this->forgotPasswordRepository = $forgotPasswordRepository;
     }
@@ -77,9 +78,9 @@ class AuthController extends Controller
         return redirect()->route('client.login')->with('success', trans('custom.alert_messages.success'));
     }
 
-    public function forgot()
+    public function forgotPassword()
     {
-        return view('auth.forgotPw');
+        return view('client.auth.forgot_password');
     }
 
     public function getForgotPassword(ForgotPasswordRequest $request)

@@ -18,6 +18,14 @@ Route::get('/login', 'AuthController@login')->name('client.login');
 Route::post('/login', 'AuthController@postLogin')->name('client.postLogin');
 Route::get('/register', 'AuthController@register')->name('client.register');
 Route::post('/register', 'AuthController@postRegister')->name('client.postRegister');
+
+Route::get('/forgot-password', 'AuthController@forgotPassword')->name('client.forgot_password');
+Route::post('/forgot-password','AuthController@getForgotPassword')->name('client.confirm_forgot_password');
+Route::get('/confirm-otp/{email}', 'ResetPasswordController@confirmOTP')->name('client.forgot_password.confirmOTP');
+Route::post('/confirm-otp/{email}','ResetPasswordController@postConfirmOTP')->name('post.confirmOTP');
+Route::get('forgot/change-password/{email}', 'ResetPasswordController@formNewPW')->name('client.forgot_password.show_form_changePW');
+Route::post('forgot/change-password/{email}', 'ResetPasswordController@storeNewPW')->name('client.forgot_password.newPW');
+
 Route::get('/logout', 'AuthController@logout')->name('client.logout');
 Route::get('/profile/{tab?}', 'HomeController@profile')->name('client.profile');
 Route::get('/change-infomation', 'HomeController@changeAccountInfo')->name('client.change_info');

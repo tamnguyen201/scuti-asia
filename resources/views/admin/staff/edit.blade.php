@@ -33,14 +33,14 @@
                             <div class="col-md-6">
                                 <div class="form-group @error('name') has-error @enderror">
                                     <label class="label-required">@lang('custom.name')</label>
-                                    <input type="text" name="name" value="{{$manager->name}}" placeholder="@lang('custom.placehoder.name')" class="form-control">
+                                    <input type="text" name="name" value="{{$manager->name}}" placeholder="@lang('custom.placeholder.name')" class="form-control">
                                     @error('name') 
                                     <span class="help-block"> {{$message}} </span>
                                     @enderror
                                 </div>
                                 <div class="form-group @error('phone') has-error @enderror">
                                     <label>{{trans('custom.phone')}}</label>
-                                    <input name="phone" type="text" class="form-control" value="{{$manager->phone}}" placeholder="@lang('custom.placehoder.phone')">
+                                    <input name="phone" type="text" class="form-control" value="{{$manager->phone}}" placeholder="@lang('custom.placeholder.phone')">
                                     @error('phone')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -49,7 +49,7 @@
                                 </div>
                                 <div class="form-group @error('address') has-error @enderror">
                                     <label>{{trans('custom.address')}}</label>
-                                    <input name="address" type="text" class="form-control" value="{{$manager->address}}" placeholder="@lang('custom.placehoder.address')">
+                                    <input name="address" type="text" class="form-control" value="{{$manager->address}}" placeholder="@lang('custom.placeholder.address')">
                                     @error('address')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -60,7 +60,7 @@
                             <div class="col-md-6">
                                 <div class="form-group @error('email') has-error @enderror">
                                     <label class="label-required">@lang('custom.email')</label>
-                                    <input type="email" name="email" value="{{$manager->email}}" class="form-control" placeholder="@lang('custom.placehoder.email')">
+                                    <input type="email" name="email" value="{{$manager->email}}" class="form-control" placeholder="@lang('custom.placeholder.email')">
                                     @error('email') 
                                     <span class="help-block"> {{$message}} </span>
                                     @enderror

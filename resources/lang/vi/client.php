@@ -24,6 +24,12 @@ return [
                 'submit' => 'Đăng Ký',
                 'has_account' => 'Đã Có Tài Khoản!',
             ],
+
+            'forgot_pw' => [
+                'title' => 'Quên Mật Khẩu',
+                'submit' => 'Xác Nhận'
+            ],
+
             'name' => 'Họ Và Tên',
             'email' => 'Tài Khoản',
             'password' => 'Mật Khẩu',
@@ -36,19 +42,19 @@ return [
             'title' => 'Thông Tin Cá Nhân',
             'sidebar' => [
                 'profile' => 'Thông Tin Cá Nhân',
-                'cv' => 'Quản Lí Hồ Sơ',
+                'cv' => 'Quản Lý Hồ Sơ',
                 'job_applied' => 'Công Việc Đã Ứng Tuyển',
                 'change_info' => 'Đổi Thông Tin Cá Nhân',
                 'change_password' => 'Đổi Mật Khẩu'
             ],
-            'manage_cv' => 'Quản Lí Hồ Sơ',
+            'manage_cv' => 'Quản Lý Hồ Sơ',
             'empty_cv' => 'Bạn Chưa Tạo Hồ Sơ Nào.',
             'upload_cv' => 'Tạo Hồ Sơ Ngay!',
             'create_cv' => 'Thêm Mới!',
             'job_applied' => 'Công Việc Đã Ứng Tuyển',
             'empty_job_applied' => 'Bạn Chưa Ứng Tuyển Công Việc Nào.',
             'apply_job' => 'Tìm Việc Phù Hợp Ngay!',
-            'manage_pw' => 'Quản Lí Mật Khẩu',
+            'manage_pw' => 'Quản Lý Mật Khẩu',
             'form_title' => 'Mẫu Điền Thông Tin',
         ],
         'job' => [

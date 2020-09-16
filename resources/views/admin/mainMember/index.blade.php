@@ -1,17 +1,17 @@
 @extends('admin.layout.layout')
-@section('title', trans('custom.page_title.employee_manage'))
+@section('title', trans('custom.page_title.member_manage'))
 @section('content')
 <div class="row">
     <ol class="breadcrumb">
         <li><a href="{{route('admin.home')}}">
             <em class="fa fa-home"></em>
         </a></li>
-        <li class="active">@lang('custom.page_title.employee_manage')</li>
+        <li class="active">@lang('custom.page_title.member_manage')</li>
     </ol>
 </div>
 <div class="row">
     <div class="col-lg-12">
-        <h1 class="page-header">@lang('custom.page_title.employee_manage')</h1>
+        <h1 class="page-header">@lang('custom.page_title.member_manage')</h1>
     </div>
 </div>
 <div class="row">
