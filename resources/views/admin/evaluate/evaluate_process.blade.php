@@ -111,7 +111,7 @@
 
     <script type="text/javascript">
         @if (count($errors) > 0)
-            $('#myModal').modal('show');
+            $('#modal_add').modal('show');
         @endif
     </script>
 

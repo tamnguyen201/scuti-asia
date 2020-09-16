@@ -189,7 +189,8 @@ return [
         'calendar'=>'Lịch',
         'calendar_schedule'=>'Lịch trình sự kện',
         'calendar_add'=>'Đặt lịch sự kiện',
-        'btn_add'=>'Thêm mới sự kiện'
+        'btn_add'=>'Thêm mới sự kiện',
+        'attender'=>'Người tham dự'
     ],
     'jobs'=>[
         'candidate_number'=>'Ứng viên',
