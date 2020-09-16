@@ -1,25 +1,6 @@
-<div class="col-lg-3">
-    <img src="{{asset($member->avatar)}}" class="img-responsive" alt="">
-</div>
-<div class="col-lg-9">
-    <table class="table table-hover">
-        <tbody>
-            <tr>
-                <td>@lang('custom.name')</td>
-                <td>{{$member->name}}</td>
-            </tr>
-            <tr>
-                <td>@lang('custom.email')</td>
-                <td>{{$member->email}}</td>
-            </tr>
-            <tr>
-                <td>@lang('custom.phone')</td>
-                <td>{{($member->phone) ? $member->phone : 'null'}}</td>
-            </tr>
-            <tr>
-                <td>@lang('custom.address')</td>
-                <td>{{($member->address) ? $member->address : 'null'}}</td>
-            </tr>
-        </tbody>
-    </table>
+<div class="col-lg-12 text-center" style="margin-bottom: 2rem">
+    <img src="{{asset($member->avatar)}}" class="img-responsive" style="margin-bottom: 2rem;max-height:22rem;margin-left: auto!important;margin-right: auto!important;border-radius: 5%!important;" alt="">
+    <h3><b>{{$member->name}}</b></h3>
+    <p><b>{{$member->position}}</b></p>
+    <p>{{$member->quote}}</p>
 </div>

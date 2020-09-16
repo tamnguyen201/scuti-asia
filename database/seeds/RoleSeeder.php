@@ -170,8 +170,8 @@ class RoleSeeder extends Seeder
             ['id'=>11, 'name' => 'Tin Tuyển Dụng', 'slug' => Str::slug('Tin Tuyển Dụng'), 'description' => 'Chúng tôi luôn tìm kiếm những người tuyệt vời! Nếu bạn chưa tìm thấy cơ hội phù hợp hiện tại, nhưng tin rằng bạn có thể trở thành 1 phần của Scuti, hãy gửi thông tin cho chúng tôi.', 'content' => '', 'image' => ''],
         ]);
         DB::table('visit_us')->insert([
-            ['id'=>1, 'name'=>'Tâm Nguyễn', 'email' => 'customer@gmail.com', 'message' => 'Qua chơi', 'type' => 'coffee'],
-            ['id'=>2, 'name'=>'Nguyễn Phú Tâm', 'email' => 'customer2@gmail.com', 'message' => 'Qua chơi', 'type' => 'Trà Đá'],
+            ['id'=>1, 'name'=>'Tâm Nguyễn', 'email' => 'customer@gmail.com', 'message' => 'Qua chơi', 'type' => 'Coffee with CEO'],
+            ['id'=>2, 'name'=>'Nguyễn Phú Tâm', 'email' => 'customer2@gmail.com', 'message' => 'Qua chơi', 'type' => 'Meeting with CEO'],
         ]);
         DB::table('categories')->insert([
             ['id'=>1,'user_id' => 1, 'category_name'=>'PHP', 'slug' => \Str::slug('PHP'), 'status' => 1],

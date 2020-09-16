@@ -34,15 +34,8 @@
                             </div>
                             <div class="form-group @error('description') has-error @enderror">
                                 <label>@lang('custom.description')</label>
-                                <textarea name="description" class="form-control" cols="10" rows="8" placeholder="@lang('custom.placeholder.description')">{{$section->description}}</textarea>
+                                <textarea name="description" class="form-control" cols="10" rows="12" placeholder="@lang('custom.placeholder.description')">{{$section->description}}</textarea>
                                 @error('description') 
-                                <span class="help-block"> {{$message}} </span>
-                                @enderror
-                            </div>
-                            <div class="form-group @error('map_url') has-error @enderror">
-                                <label>@lang('custom.map_url')</label>
-                                <input type="text" name="map_url" value="{{$section->map_url}}" class="form-control" placeholder="@lang('custom.placeholder.url')">
-                                @error('map_url') 
                                 <span class="help-block"> {{$message}} </span>
                                 @enderror
                             </div>
@@ -70,7 +63,7 @@
                         </div>
                         <div class="col-md-12 text-center">
                             <button type="submit" class="btn btn-primary">@lang('custom.button.submit') <em class="fa fa-check"></em></button>
-                            <a href="{{route('sections.index')}}" class="btn btn-danger">@lang('custom.button. cancel') <em class="fa fa-times"></em></a>
+                            <a href="{{route('sections.index')}}" class="btn btn-danger">@lang('custom.button.cancel') <em class="fa fa-times"></em></a>
                         </div>
                     </form>
                 </div>
