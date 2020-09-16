@@ -5,7 +5,7 @@
 @section('content')
 <div class="row">
     <ol class="breadcrumb">
-        <li><a href="#">
+        <li><a href="{{route('admin.home')}}">
             <em class="fa fa-home"></em>
         </a></li>
         <li class="active">@lang('custom.jobs.job_detail')</li>
@@ -210,7 +210,8 @@
                     $.ajax({
                         url: "{{ route('candidates.search') }}",
                         data: {
-                            'keyword': keyword
+                            'keyword': keyword,
+                            'job_id' : {{$jobById->id}} 
                         },
                         method: "POST",
                     }).done(function(results) {

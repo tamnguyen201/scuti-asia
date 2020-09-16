@@ -56,7 +56,8 @@ class CandidateController extends Controller
 
     public function search(Request $request)
     {
-        $candidates = \App\Model\UserJob::whereHas('user', function ($query) use ($request){
+        $candidates = \App\Model\UserJob::where('job_id', $request->job_id)
+                        ->whereHas('user', function ($query) use ($request){
                             $query->where('name', 'like', '%'.$request->keyword.'%');
                         })->with(['user' => function($query) use ($request){
                             $query->where('name', 'like', '%'.$request->keyword.'%');
