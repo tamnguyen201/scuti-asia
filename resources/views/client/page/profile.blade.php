@@ -274,7 +274,7 @@ nav > div a.nav-item.nav-link:focus
                                         </table>
                                         @else
                                         <p>@lang('client.page.profile.empty_job_applied')
-                                            <a href="{{route('client.jobs')}}">@lang('client.page.profile.apply_job')</a>
+                                            <a href="{{route('home')}}/#recruitment">@lang('client.page.profile.apply_job')</a>
                                         </p>
                                         @endif
                                     </div>

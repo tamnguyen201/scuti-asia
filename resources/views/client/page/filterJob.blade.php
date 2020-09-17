@@ -10,7 +10,7 @@
                     </p>
                 </div>
             </div>
-            <div class="col-md-5 col-12 text-md-right text-center">
+            <div class="col-md-5 d-none d-md-block text-md-right text-center">
                 <a href="{{route('client.applied', [$job->id, $job->slug])}}" class="btn btn-apply-main btn-apply">@lang('client.section.recruitment.apply')</a>
                 <p class="desc-job text-left mt-3">
                     <i class="far fa-money-bill-alt"></i> @lang('client.section.recruitment.salary'): {{$job->salary}} <br>

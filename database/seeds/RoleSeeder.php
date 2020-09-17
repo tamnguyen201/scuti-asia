@@ -30,6 +30,7 @@ class RoleSeeder extends Seeder
         \App\Model\UserJob::truncate();
         \App\Model\Process::truncate();
         \App\Model\Evaluate::truncate();
+        \App\Model\Event::truncate();
         DB::table('users')->insert([
             ['id'=>1, 'name' => 'User1','email' => 'user1@gmail.com','password'=> Hash::make('123456'), 'phone'=> '1234567890','address'=>'HN', 'created_at' => \Carbon\Carbon::parse('11-05-2020 03:26:49')->format('Y-m-d H:i:s')],
             ['id'=>2, 'name' => 'User2','email' => 'user2@gmail.com','password'=> Hash::make('123456'), 'phone'=> '1234567890','address'=>'HN', 'created_at' => \Carbon\Carbon::parse('15-06-2020 03:26:49')->format('Y-m-d H:i:s')],
@@ -64,10 +65,10 @@ class RoleSeeder extends Seeder
         DB::table('main_member')->insert([
             ['id'=>1, 'name'=>'Tomohide Kakeya', 'avatar' => 'images/manager1.JPG', 'position' => 'CEO & Founder', 'quote' => 'Đã tạo Scuti inc. (Nhật Bản) và Công ty TNHH Scuti (Việt Nam) vào năm 2015. Tiến kinh doanh phát triển toàn cầu với Việt Nam và các công ty khởi nghiệp cho thị trường Đông Nam Á.', 'member_type' => 1],
             ['id'=>2, 'name'=>'Nguyễn Thanh Quyên', 'avatar' => 'images/manager2.jpg', 'position' => 'General Manager', 'quote' => 'Hoạch định chiến lược xuất sắc và thực hiện là cần thiết để đạt được mục tiêu của công ty. Khả năng lãnh đạo và động viên các thành viên khác và các đội là sức mạnh của cô ấy.', 'member_type' => 1],
-            ['id'=>3, 'name'=>'Mạnh Duẩn', 'avatar' => 'http://congstudio.vn/product_images/z/320/chup_anh_profile_tai_ha_noi_cong_studio_4__09337_thumb.jpg', 'position' => 'Leader', 'quote' => '', 'member_type' => 0],
+            ['id'=>3, 'name'=>'Mạnh Duẩn', 'avatar' => 'images/leader1.jpg', 'position' => 'Leader', 'quote' => '', 'member_type' => 0],
             ['id'=>4, 'name'=>'Lê Anh Hoài', 'avatar' => 'http://congstudio.vn/product_images/z/320/chup_anh_profile_tai_ha_noi_cong_studio_4__09337_thumb.jpg', 'position' => 'Development Manager', 'quote' => 'Mạnh mẽ về lập trình, phân tích kinh doanh, hiệu suất, hệ thống, quản lý, phức tạp các dự án logic. Exten-sive có kinh nghiệm trong quản lý và phát triển ứng dụng.', 'member_type' => 1],
-            ['id'=>5, 'name'=>'Hoàng Cảnh', 'avatar' => 'http://congstudio.vn/product_images/z/320/chup_anh_profile_tai_ha_noi_cong_studio_4__09337_thumb.jpg', 'position' => 'Leader', 'quote' => '', 'member_type' => 0],
-            ['id'=>6, 'name'=>'Tuấn Anh', 'avatar' => 'https://miro.medium.com/max/1200/1*Eu6cAGjXNa0-ct_hlsH1yQ.jpeg', 'position' => 'Leeder', 'quote' => '', 'member_type' => 0],
+            ['id'=>5, 'name'=>'Hoàng Cảnh', 'avatar' => 'images/leader2.jpg', 'position' => 'Leader', 'quote' => '', 'member_type' => 0],
+            ['id'=>6, 'name'=>'Tuấn Anh', 'avatar' => 'images/leader3.jpg', 'position' => 'Leeder', 'quote' => '', 'member_type' => 0],
             ['id'=>7, 'name'=>'Vũ Nguyễn', 'avatar' => 'http://congstudio.vn/product_images/z/320/chup_anh_profile_tai_ha_noi_cong_studio_4__09337_thumb.jpg', 'position' => 'QA Manager', 'quote' => 'Một người giàu kinh nghiệm, có kinh nghiệm và đam mê các tiêu chuẩn QA và thực hành tốt nhất với nền giáo dục tiên tiến trong cả quản trị kinh doanh và khoa học máy tính.', 'member_type' => 1],
         ]);
         DB::table('benefits')->insert([
@@ -78,12 +79,12 @@ class RoleSeeder extends Seeder
             ['id'=>5, 'name'=>'Hỗ trợ laptop gamming', 'image' => 'https://cdn.tgdd.vn/hoi-dap/1122656/top-5-laptop-gamig-2.jpg', 'description' => 'Tối đa 365 triệu/năm'],
         ]);
         DB::table('company_images')->insert([
-            ['id'=>1, "name" => "Thân thiện và vui vẻ", 'description' => 'Chúng tôi mở để chia sẻ kiến ​​thức, kinh nghiệm qua các cuộc hội thảo, hội thảo mỗi tuần.', 'image_url'=>'https://miro.medium.com/max/1200/1*Eu6cAGjXNa0-ct_hlsH1yQ.jpeg'],
-            ['id'=>2, "name" => "Làm việc từ xa", 'description' => 'Bạn có quyền chọn địa điểm làm việc, thời gian làm việc.', 'image_url'=>'http://congstudio.vn/product_images/z/320/chup_anh_profile_tai_ha_noi_cong_studio_4__09337_thumb.jpg'],
-            ['id'=>3, "name" => "Phong cách làm việc tự do", 'description' => 'Bạn có thể tự do chọn phong cách đồng phục làm việc.', 'image_url'=>'http://congstudio.vn/product_images/z/320/chup_anh_profile_tai_ha_noi_cong_studio_4__09337_thumb.jpg'],
-            ['id'=>4, "name" => "Môi trường chuyên nghiệp", 'description' => 'Teambuilding at Mai Chau - Hoa Binh', 'image_url'=>'http://congstudio.vn/product_images/z/320/chup_anh_profile_tai_ha_noi_cong_studio_4__09337_thumb.jpg'],
-            ['id'=>5, "name" => "Tài Năng trẻ", 'description' => 'Teambuilding at Mai Chau - Hoa Binh', 'image_url'=>'http://congstudio.vn/product_images/z/320/chup_anh_profile_tai_ha_noi_cong_studio_4__09337_thumb.jpg'],
-            ['id'=>6, "name" => "Môi trường làm việc", 'description' => 'Bạn có cơ hội để thực hành nhiều ngôn ngữ: Nhật Bản, Anh, Tây Ban Nha, Ấn Độ ... và Việt Nam.', 'image_url'=>'http://congstudio.vn/product_images/z/320/chup_anh_profile_tai_ha_noi_cong_studio_4__09337_thumb.jpg'],
+            ['id'=>1, "name" => "Thân thiện và vui vẻ", 'description' => 'Chúng tôi mở để chia sẻ kiến ​​thức, kinh nghiệm qua các cuộc hội thảo, hội thảo mỗi tuần.', 'image_url'=>'images/image1.JPG'],
+            ['id'=>2, "name" => "Làm việc từ xa", 'description' => 'Bạn có quyền chọn địa điểm làm việc, thời gian làm việc.', 'image_url'=>'images/image2.jpg'],
+            ['id'=>3, "name" => "Phong cách làm việc tự do", 'description' => 'Bạn có thể tự do chọn phong cách đồng phục làm việc.', 'image_url'=>'images/image3.JPG'],
+            ['id'=>4, "name" => "Môi trường chuyên nghiệp", 'description' => 'Teambuilding at Mai Chau - Hoa Binh', 'image_url'=>'images/image4.jpg'],
+            ['id'=>5, "name" => "Tài Năng trẻ", 'description' => 'Teambuilding at Mai Chau - Hoa Binh', 'image_url'=>'images/image5.JPG'],
+            ['id'=>6, "name" => "Nâng cao ngoại ngữ", 'description' => 'Bạn có cơ hội để  học ngoại ngữ: Nhật Bản, Anh, Tây Ban Nha, Ấn Độ ...', 'image_url'=>'images/image6.JPG'],
         ]);
         DB::table('new_spapers')->insert([
             ['id'=>1, 'title' => 'Dev Candidates Tour- Hành Trình Trở Thành Lập Trình Viên', 'image'=>'images/award1.JPG', 'description' => 'Dev Candidates Tour tháng 6/2017 là sự kiện kết nối giữa các doanh nghiệp công nghệ phần mềm và các ứng viên tiềm năng. Các nhà tuyển dụng luôn luôn tìm kiếm các ứng viên tài năng nhưng dường như trong quy trình tuyển dụng luôn thiếu một bước nào đó để họ tiếp cận được với các nhân tài, hãy cùng Dev Candidates Tour giao lưu và lắng nghe ý kiến trực tiếp của các ứng viên và nâng cao hiệu quả quy trình tuyển dụng của doanh nghiệp.', 'url' => 'https://www.facebook.com/events/136182586941319/'],
@@ -316,16 +317,16 @@ class RoleSeeder extends Seeder
                 'location_id' => 1, 'salary' => 'Thỏa Thuận', 'expireDay' => '2020/10/15', 'status' =>1],
         ]);
         DB::table('cvs')->insert([
-            ['id'=>1,'user_id' => 1, 'cv_name' => 'CV1', 'cv_url'=>'https://miro.medium.com/max/1200/1*Eu6cAGjXNa0-ct_hlsH1yQ.jpeg'],
-            ['id'=>2,'user_id' => 2, 'cv_name' => 'CV2', 'cv_url'=>'http://congstudio.vn/product_images/uploaded_images/chup_anh_profile_chuyen_nghiep_cong_studio_1_aztl4.jpg'],
-            ['id'=>3,'user_id' => 3, 'cv_name' => 'CV3', 'cv_url'=>'http://congstudio.vn/product_images/z/320/chup_anh_profile_tai_ha_noi_cong_studio_4__09337_thumb.jpg'],
-            ['id'=>4,'user_id' => 4, 'cv_name' => 'CV4', 'cv_url'=>'http://congstudio.vn/product_images/z/320/chup_anh_profile_tai_ha_noi_cong_studio_4__09337_thumb.jpg'],
-            ['id'=>5,'user_id' => 5, 'cv_name' => 'CV5', 'cv_url'=>'http://congstudio.vn/product_images/z/320/chup_anh_profile_tai_ha_noi_cong_studio_4__09337_thumb.jpg'],
+            ['id'=>1,'user_id' => 1, 'cv_name' => 'CV1', 'cv_url' => 'cvs/cv.pdf'],
+            ['id'=>2,'user_id' => 2, 'cv_name' => 'CV2', 'cv_url' => 'cvs/cv2.pdf'],
+            ['id'=>3,'user_id' => 3, 'cv_name' => 'CV3', 'cv_url' => 'http://congstudio.vn/product_images/z/320/chup_anh_profile_tai_ha_noi_cong_studio_4__09337_thumb.jpg'],
+            ['id'=>4,'user_id' => 4, 'cv_name' => 'CV4', 'cv_url' => 'http://congstudio.vn/product_images/z/320/chup_anh_profile_tai_ha_noi_cong_studio_4__09337_thumb.jpg'],
+            ['id'=>5,'user_id' => 5, 'cv_name' => 'CV5', 'cv_url' => 'http://congstudio.vn/product_images/z/320/chup_anh_profile_tai_ha_noi_cong_studio_4__09337_thumb.jpg'],
         ]);
         DB::table('user_job')->insert([
-            ['id'=>1, 'user_id' => 1, 'cv_url' => 'https://miro.medium.com/max/1200/1*Eu6cAGjXNa0-ct_hlsH1yQ.jpeg', 'job_id' => 1, 'letter' => 'Cảm ơn', 'status' => 0, 'result' => 0, 'created_at' => \Carbon\Carbon::parse('11-06-2020 03:26:49')->format('Y-m-d H:i:s')],
-            ['id'=>2, 'user_id' => 2, 'cv_url' => 'http://congstudio.vn/product_images/uploaded_images/chup_anh_profile_chuyen_nghiep_cong_studio_1_aztl4.jpg', 'job_id' => 2, 'letter' => 'Cảm ơn', 'status' => 0, 'result' => 0, 'created_at' => \Carbon\Carbon::parse('12-07-2020 03:26:49')->format('Y-m-d H:i:s')],
-            ['id'=>3, 'user_id' => 2, 'cv_url' => 'http://congstudio.vn/product_images/uploaded_images/chup_anh_profile_chuyen_nghiep_cong_studio_1_aztl4.jpg', 'job_id' => 3, 'letter' => 'Cảm ơn', 'status' => 0, 'result' => 0, 'created_at' => \Carbon\Carbon::parse('20-08-2020 03:26:49')->format('Y-m-d H:i:s')],
+            ['id'=>1, 'user_id' => 1, 'cv_url' => 'cvs/cv.pdf', 'job_id' => 1, 'letter' => 'Cảm ơn', 'status' => 0, 'result' => 0, 'created_at' => \Carbon\Carbon::parse('11-06-2020 03:26:49')->format('Y-m-d H:i:s')],
+            ['id'=>2, 'user_id' => 2, 'cv_url' => 'cvs/cv2.pdf', 'job_id' => 2, 'letter' => 'Cảm ơn', 'status' => 0, 'result' => 0, 'created_at' => \Carbon\Carbon::parse('12-07-2020 03:26:49')->format('Y-m-d H:i:s')],
+            ['id'=>3, 'user_id' => 2, 'cv_url' => 'cvs/cv2.pdf', 'job_id' => 3, 'letter' => 'Cảm ơn', 'status' => 0, 'result' => 0, 'created_at' => \Carbon\Carbon::parse('20-08-2020 03:26:49')->format('Y-m-d H:i:s')],
             ['id'=>4, 'user_id' => 3, 'cv_url' => 'http://congstudio.vn/product_images/z/320/chup_anh_profile_tai_ha_noi_cong_studio_4__09337_thumb.jpg', 'job_id' => 4, 'letter' => 'Cảm ơn', 'status' => 0, 'result' => 0, 'created_at' => \Carbon\Carbon::parse('01-09-2020 03:26:49')->format('Y-m-d H:i:s')],
             ['id'=>5, 'user_id' => 4, 'cv_url' => 'http://congstudio.vn/product_images/z/320/chup_anh_profile_tai_ha_noi_cong_studio_4__09337_thumb.jpg', 'job_id' => 5, 'letter' => 'Cảm ơn', 'status' => 1, 'result' => 1, 'created_at' => \Carbon\Carbon::parse('09-09-2020 03:26:49')->format('Y-m-d H:i:s')],
         ]);

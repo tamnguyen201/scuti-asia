@@ -122,14 +122,16 @@ class HomeController extends Controller
 
     public function userApplyJob(ClientApplyJobRequest $request)
     {
+        if (isset($request->cv_name) && auth()->user()->cv->count() == 3) {
+            return response()->json(['status' => false, 'message' => trans('custom.alert_messages.warning_limit_cv')]);
+        }
+
         $status = \App\Model\UserJob::where('user_id', \auth()->user()->id)->where('job_id', $request->job_id)->first();
 
         if($status == null) {
             $this->ApplyJobService->create($request->all());
-            // alert(trans('custom.alert_messages.contact_alert.title'), trans('custom.alert_messages.contact_alert.text'), 'success');
             
-            return true;
-
+            return response()->json(['status' => true]);
         }
         
         abort(404);

@@ -110,6 +110,7 @@ return [
         'message' => 'Vui lòng nhập thông tin lời nhắn',
         'image' => 'Vui lòng chọn ảnh',
         'logo' => 'Vui lòng chọn logo',
+        'cv_url' => 'Vui lòng nhập tên cho CV',
         'url' => 'Vui lòng nhập thông tin đường dẫn liên kết'
     ],
 

@@ -354,7 +354,7 @@
                         @foreach($data['categories'] as $category)
                         <a class="button text-decoration-none" data-filter="{{$category->id}}"><span>{{$category->category_name}}</span></a>
                         @endforeach
-                        <a class="button text-decoration-none" href="{{route('client.jobs')}}"><span>@lang('client.section.recruitment.end_menu')</span></a>
+                        <!-- <a class="button text-decoration-none" href="{{route('client.jobs')}}"><span>@lang('client.section.recruitment.end_menu')</span></a> -->
                     </div>
                 </div>
                 <div class="col-lg-12 d-md-flex">
@@ -373,7 +373,7 @@
                                                 </p>
                                             </div>
                                         </div>
-                                        <div class="col-md-5 col-12 text-md-right text-center">
+                                        <div class="col-md-5 d-none d-md-block text-md-right text-center">
                                             <a href="{{route('client.applied', [$job->id, $job->slug])}}" class="btn btn-apply-main btn-apply">@lang('client.section.recruitment.apply')</a>
                                             <p class="desc-job text-left mt-3">
                                                 <i class="far fa-money-bill-alt"></i> @lang('client.section.recruitment.salary'): {{$job->salary}} <br>

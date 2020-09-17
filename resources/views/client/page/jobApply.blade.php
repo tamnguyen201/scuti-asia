@@ -408,22 +408,23 @@
                     </button>
                 </div>
                 <div class="modal-body">
+                    <p class="text-danger text-center errors"></p>
                     <form action="{{route('client.apply.job')}}" id="form-apply-job" class="col-11 mx-auto" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group">
-                            <label>@lang('custom.name')</label>
+                            <label class="label-required">@lang('custom.name')</label>
                             <input type="text" name="name" class="form-control" value="{{auth()->user()->name}}" readonly placeholder="Please enter full name">
                             <span class="text-danger"></span>
                         </div>
                         <div class="form-group">
-                            <label>@lang('custom.email')</label>
+                            <label class="label-required">@lang('custom.email')</label>
                             <input type="email" name="email" class="form-control" value="{{auth()->user()->email}}" readonly placeholder="Please enter email">
                             <span class="text-danger"></span>
                         </div>
                         <input type="hidden" name="job_id" value="{{$data['job']->id}}">
                         @if(auth()->user()->cv->count() > 0)
                         <div class="form-group">
-                            <label>@lang('custom.choose_cv')</label>
+                            <label class="label-required">@lang('custom.choose_cv')</label>
                             @foreach(auth()->user()->cv as $key => $value)
                             <div class="form-check">
                                 <label class="form-check-label">
@@ -435,14 +436,14 @@
                         </div>
                         @else
                         <div class="form-group">
-                            <label>@lang('custom.name_cv')</label>
-                            <input type="text" class="form-control" value="{{old('cv_name')}}" name="cv_name">
+                            <label class="label-required">@lang('custom.name_cv')</label>
+                            <input type="text" class="form-control" value="{{old('cv_name')}}" name="cv_name" placeholder="@lang('custom.placeholder.cv_url')">
                             <span class="text-danger"></span>
                         </div>
                         <div class="form-group">
-                            <label>@lang('custom.cv_url')</label>
-                            <input type="file" name="cv_url" accept="application/pdf,.doc,.docx,application/msword">
-                            <p class="text-danger"></p>
+                            <label class="label-required">@lang('custom.cv_url')</label>
+                            <input type="file" name="cv_url" accept="application/pdf,.doc,.docx,application/msword"> <br>
+                            <span class="text-danger"></span>
                         </div>
                         @endif
                         <div class="col-md-12 px-0">
@@ -520,7 +521,6 @@
 
             @if($data['apply'] == null) 
                 $("#myModal").modal('show');
-            @endif
 
             $('#form-apply-job').on('submit', function(e) {
                 e.preventDefault();
@@ -545,15 +545,20 @@
                     method: "POST",
                 }).done(function (results) {
                     $('.text-danger').text('');
-                    $("#myModal").modal('hide');
-                    swal({
-                        title: 'Thành công!',
-                        text: "<?php echo trans('custom.alert_messages.contact_alert.text') ?>",
-                        type: 'success',
-                        icon: 'success'
-                    }).then(result => {
-                        location.reload();
-                    });
+                    if(results.status == true){
+                        $("#myModal").modal('hide');
+                        swal({
+                            title: 'Thành công!',
+                            text: "<?php echo trans('custom.alert_messages.contact_alert.text') ?>",
+                            type: 'success',
+                            icon: 'success'
+                        }).then(result => {
+                            location.reload();
+                        });
+                    } else {
+                        $('.text-danger.text-center.errors').text(results.message);
+                        console.log(results.status);
+                    };
                 }).fail(function (data) {
                     var errors = data.responseJSON;
                     $('.text-danger').text('');
@@ -563,6 +568,7 @@
                 });
             })
 
+            @endif
         });
     </script>
 @endsection
