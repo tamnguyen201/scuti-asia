@@ -37,11 +37,18 @@ class EvaluateController extends Controller
     public function showCalendar($id)
     {
         $events = [];
+        
         $data = Event::all();
         $dataUser =$this->candidateRepository->show($id);
         
         if($data->count()) {
             foreach ($data as $key => $value) {
+                $attender_id = json_decode($value->admin_id) ;
+                $attender_names=[];
+                for ($i=0; $i < count($attender_id) ; $i++) { 
+                    $attender_name[$i] = $this->adminRepository->show($attender_id[$i])->name;
+                };
+                $str_attender_name = implode(',',$attender_name);
                 $events[] = \Calendar::event(
                     $value->title,
                     true,
@@ -49,8 +56,10 @@ class EvaluateController extends Controller
                     new \DateTime($value->end.' +1 day'),
                     $value->id,
                     [
-                        'color'=> $value->color
-                    ]
+                        'color'=> $value->color,
+                        'admins'=>$str_attender_name,
+                        'start_time'=> \Carbon\Carbon::parse($value->start)->format('d/m/Y - H:i:s')
+                    ],
                 );
             }
         }
@@ -63,8 +72,26 @@ class EvaluateController extends Controller
         ]) 
         ->setCallbacks([ 
             'dayClick' => 'function(date, event, view) {
-                $("#myModal").modal("show");
-            }'
+                $("#modal_add").modal("show");
+            }',
+            'eventRender' => 'function(event, element) {
+                element.popover({
+                  animation: true,
+                  html: true,
+                  title: $(element).html(),
+                  content: function(){
+                      return `
+                        <div>
+                            <p style="color:red">Admin tham dự: ${event.admins}</p>
+                            <p>Thời gian: ${(event.start_time)}</p>
+                        </div>
+                      `;
+                  },
+                  trigger: "hover",
+                  placement: "bottom",
+                  container: "body"
+                  });
+                }'
         ]);
 
         return $calendar;
@@ -151,8 +178,17 @@ class EvaluateController extends Controller
         return redirect()->back();
     }
 
-    public function createEmail()
+    public function createEmail(Request $request)
     {
-        return view('admin.evaluate.email');
+        $candidate_email = $request->email;
+        $time = $request->time;
+        $name = $request->name;
+        $this->evaluateRepository->sendEmail($candidate_email, $time, $name);
+        return redirect()->back();
+    }
+
+    public function destroyCalendar($id){
+        Event::find($id)->delete();
+        return redirect()->back()->with('success', config('common.alert_messages.success'));
     }
 }

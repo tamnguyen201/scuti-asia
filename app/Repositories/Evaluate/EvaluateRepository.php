@@ -10,4 +10,15 @@ class EvaluateRepository extends Repository implements EvaluateRepositoryInterfa
         return \App\Model\Evaluate::class;
     }
 
+    public function sendEmail($email, $time, $name)
+    {
+        $details = [
+            'title' => trans('custom.email_template.forgot_password.title'),
+            'time'=>$time,
+            'name' =>$name
+        ];
+
+        \Mail::to($email)->send(new \App\Mail\EmailEvent($details));
+        
+    }
 }

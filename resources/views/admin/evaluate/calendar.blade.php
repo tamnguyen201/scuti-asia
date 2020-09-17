@@ -5,150 +5,37 @@
         </div>
     </div>
     <div class="panel-body col-md-4">
-        <h3 class="list-title">Danh sách</h3>
+        <h3 class="list-title"><span class="fa fa-list-alt"></span> Danh sách</h3>
         <hr>
         @foreach ($data as $item)
-            <div class="list-interview col-md-12" style="width: 30rem; padding-top: 24px">
-                <div class="body col-md-8" style="border-right: solid 1px">
+            <div class="list-interview col-md-12" style="width: 30rem">
+                <div class="body col-md-12">
                     <h4 class="card-title">{{ $item->title }}</h4>
                     <h6 class="subtitle mb-4 text-muted">{{ \Carbon\Carbon::parse($item->start)->format('d/m/Y') }}</h6>
-                    <p class="card-text">{{ $item->note }}</p>
                 </div>
-                <div class="button col-md-2">
-                    <a href="{{ route('create.email') }}" class="btn-send-email"><span
-                            class="fa fa-envelope-o"></span></a>
-                    <hr>
-                    <a href=""><span class="fa fa-trash-o"></span></a>
+                <div class="button col-md-8" style="float: right">
+                    <form action="{{ route('send.event.email') }}" method="POST" class="form-delete-{{$item->id}}" style="display: inline-block">
+                        @csrf
+                        
+                        <input name="email" type="text" value="{{ $item->user->email }}" hidden>
+                        <input name="name" type="text" value="{{ $item->user->name }}" hidden>
+                        <input name="time" type="text" value="{{ \Carbon\Carbon::parse($item->start)->format('d/m/Y - H:i:s') }}" hidden>
+                        <button class="btn btn-warning btn-send-email" style="padding-right: 15px" idEmail={{$item->id}}><span
+                            class="fa fa-envelope-o"></span></button>
+                    </form>
+                    {{-- <a href=""><span class="fa fa-trash-o"></span></a> --}}
+                    <form action="{{route('event.delete', $item->id)}}" method="post" class="form-delete-{{$item->id}}" style="display: inline">
+                        @csrf
+                        <button class="btn btn-danger text-light delete-confirm" idDelete={{$item->id}}><em class="fas fa-trash-alt"></em></button>
+                    </form>
                 </div>
             </div>
-            <hr>
         @endforeach
         <br>
     </div>
 </div>
 {{-- start modal --}}
-<div class="clearfix"></div>
-<div class="modal fade bd-example-modal-lg" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog modal-md">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">@lang('custom.calendar.calendar_add')</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <form action="{{ url('admin/evaluate/process/calendar/create') }}" method="POST">
-                    @csrf
-                    @method('POST')
-                    <div class="form-calendar form-group col-md-6">
-                        <label for="exampleFormControlTextarea1">@lang('custom.calendar.name') :</label>
-                        <br>
-                        <input name="id" type="text" value="{{ $dataUser->id }}" hidden>
-                        <input name="process_id" type="text" value="{{ $processById->id }}" hidden>
-                        <input name="name" type="text" value="{{ $dataUser->name }}" disabled>
-                    </div>
-                    <div class="form-calendar form-group col-md-6">
-                        <label for="exampleFormControlTextarea1">@lang('custom.calendar.email') :</label>
-                        <br>
-                        <input name="email"" type=" text" value="{{ $dataUser->email }}" disabled>
-                    </div>
-                    <div class="col-12">
-                        <div class="form-calendar form-group col-md-6">
-                            <label for="exampleFormControlTextarea1">@lang('custom.calendar.title')* :</label>
-                            <br>
-                            <input name="title" type="text" @error('title') is-invalid @enderror>
-                            @error('title')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
-                        </div>
-                        <div class="form-calendar form-group col-md-6">
-                            <label for="exampleFormControlTextarea1">@lang('custom.calendar.color')* :</label>
-                            <br>
-                            <input name="color" type="color" @error('color') is-invalid @enderror>
-                            @error('color')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
-                        </div>
-                    </div>
-                    <div class="form-calendar form-group col-md-6">
-                        <label for="exampleFormControlTextarea1">@lang('custom.calendar.start')* :</label>
-                        <br>
-                        <input name="start" type="datetime-local" @error('start') is-invalid @enderror>
-                        @error('start')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                        @enderror
-                    </div>
-                    <div class="form-calendar form-group col-md-6">
-                        <label for="exampleFormControlTextarea1">@lang('custom.calendar.end')* :</label>
-                        <br>
-                        <input name="end" type="datetime-local" @error('end') is-invalid @enderror>
-                        @error('end')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                        @enderror
-                    </div>
-                    <div class="form-calendar form-group col-md-12">
-                        <label for="exampleFormControlTextarea1">Người tham dự :</label>
-                        <br>
-                        <select name="admins[]" id="slim-multi-select" multiple="multiple" @error('admin') is-invalid @enderror>
-                            @foreach ($dataAdmin as $admin)
-                            <option value="{{ $admin->id }}">{{ $admin->name }}</option>
-                            @endforeach
-                        </select>
-                        @error('admin')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                        @enderror
-                    </div>
-                    <div class="form-calendar form-group col-md-12">
-                        <label for="exampleFormControlTextarea1">@lang('custom.calendar.note') :</label>
-                        <textarea name="note" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                    </div>
-                    <div class="col-md-12">
-                        <button type="submit" class="btn btn-primary btn-add-event"><span class="fa fa-plus"></span>
-                            @lang('custom.calendar.btn_add')</button>
-                    </div>
-                </form>
-            </div>
 
-            {{--
-        </div>
-    </div> --}}
-    {{-- Modal --}}
-    <div class="clearfix"></div>
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog modal-md">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Categories Manage</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form>
-                        <div class="form-group">
-                            <label for="recipient-name" class="col-form-label">Name</label>
-                            <input type="text" name="name" class="form-control" id="recipient-name">
-                            <span class="error-form text-danger"></span>
-                        </div>
-                        <button type="button" class="btn btn-primary btn-add-location">Submit</button>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
+<div class="clearfix"></div>
+@include('admin.calendar.modal_add')
+

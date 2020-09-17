@@ -69,7 +69,6 @@
                                 </div>
                                 <div class="col-xs-9 col-md-9">
                                     <h4>{{$event->title}}</h4>
-                                    <p>Admin1, Admin2</p>
                                 </div>
                             </div>
                         </div>
@@ -107,7 +106,6 @@
                                 </div>
                                 <div class="col-xs-9 col-md-9">
                                     <h4>{{$event->title}}</h4>
-                                    <p>Admin1, Admin2</p>
                                 </div>
                             </div>
                         </div>
@@ -124,7 +122,6 @@
                                 </div>
                                 <div class="col-xs-9 col-md-9">
                                     <h4>{{$event->title}}</h4>
-                                    <p>Admin1, Admin2</p>
                                 </div>
                             </div>
                         </div>

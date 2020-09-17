@@ -96,22 +96,9 @@
         });
     </script>
     
-      <script type="text/javascript">
-        $('.btn-send-email').click(function (e) {
-            e.preventDefault();
-            let url = $(this).attr('href');
-            $.get(url)
-            .done(function (results) {
-            $(".modal-body").html(results);
-            $("#myModal").modal('show');
-            }).fail(function (data) {
-            });
-        });
-    </script>
-
     <script type="text/javascript">
         @if (count($errors) > 0)
-            $('#myModal').modal('show');
+            $('#modal_add').modal('show');
         @endif
     </script>
 
@@ -120,5 +107,52 @@
             select: '#slim-multi-select'
             })
     </script>
+
+
+<script>
+    $("body").on("click", ".btn-send-email", function (e) {
+            e.preventDefault();
+            let id = $(this).attr('idEmail');
+            let form = $('.form-delete-'+id);
+            swal({
+                title: "Xác nhận gửi emai?",
+                text: "Bạn có muốn gửi email cho người này?!",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonColor: '#DD6B55',
+                confirmButtonText: 'OK!',
+                cancelButtonText: "Cancel!",
+                closeOnConfirm: false,
+                closeOnCancel: false
+            }).then(function(value) {
+                if (value.value == true) {
+                    form.submit();
+                }
+            });
+        });
+</script>
+
+<script>
+    $("body").on("click", ".delete-confirm", function (e) {
+            e.preventDefault();
+            let id = $(this).attr('idDelete');
+            let form = $('.form-delete-'+id);
+            swal({
+                title: "Xác nhận xóa?",
+                text: "Bản ghi này sẽ không thể khôi phục!",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonColor: '#DD6B55',
+                confirmButtonText: 'OK!',
+                cancelButtonText: "Cancel!",
+                closeOnConfirm: false,
+                closeOnCancel: false
+            }).then(function(value) {
+                if (value.value == true) {
+                    form.submit();
+                }
+            });
+        });
+</script>
 
 @endsection

@@ -23,10 +23,10 @@ class Event extends Model implements \MaddHatter\LaravelFullcalendar\Event
         $this->attributes['admin_id'] = json_encode($value);
     }
 
-    public function getAdminIdAttribute($value)
-    {
-        return $this->attributes['admin_id'] = json_decode($value);
-    }
+    // public function getAdminIdAttribute($value)
+    // {
+    //     return $this->attributes['admin_id'] = json_decode($value);
+    // }
     
     protected $dates = ['start', 'end'];
 

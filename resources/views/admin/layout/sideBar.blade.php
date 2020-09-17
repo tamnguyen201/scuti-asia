@@ -22,10 +22,6 @@
             </a>
             <ul class="children collapse" id="sub-item-2">
                 <li><a href="{{route('jobs.index')}}"><span class="fa fa-laptop">&nbsp;</span> @lang('custom.menu.job')</a></li>
-                <li><a class="" href="{{route('candidates.index')}}">
-                <span class="fa fa-list-ul">&nbsp;</span> @lang('custom.menu.list')
-                </a>
-                </li>
                 <li><a class="" href="{{route('candidates.evaluating')}}">
                 <span class="fa fa-file-text">&nbsp;</span> @lang('custom.menu.evaluating')
                 </a>
