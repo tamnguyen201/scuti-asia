@@ -142,6 +142,9 @@ return [
         'forgot_password' => [
             'title' => 'Mail from Scuti-asia.com',
             'body' => 'Bạn đã yêu cầu cấp lại mật khẩu!',
+        ],
+        'events'=>[
+            'title'=>'Mail from Scuti-asia.com'
         ]
     ],
 

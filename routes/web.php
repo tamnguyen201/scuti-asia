@@ -89,7 +89,7 @@ Route::group(
             Route::post('candidate/{id}', 'EvaluateController@store')->name('evaluate.store');
             Route::post('process/calendar/create','EvaluateController@storeCalendar')->name('store.event');
             Route::post('start-evaluate/{id}','EvaluateController@startEvaluate')->name('start.evaluate');
-            Route::get('process/send-email','EvaluateController@createEmail')->name('create.email');
+            Route::post('process/send-email','EvaluateController@createEmail')->name('send.event.email');
         });
         // Route::post('fullcalendar/update','EvaluateController@updateCalendar');
         // Route::post('fullcalendar/delete','EvaluateController@destroyCalendar');

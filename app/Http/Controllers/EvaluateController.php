@@ -178,8 +178,12 @@ class EvaluateController extends Controller
         return redirect()->back();
     }
 
-    public function createEmail()
+    public function createEmail(Request $request)
     {
-        return view('admin.evaluate.email');
+        $candidate_email = $request->email;
+        $time = $request->time;
+        $name = $request->name;
+        $this->evaluateRepository->sendEmail($candidate_email, $time, $name);
+        return redirect()->back();
     }
 }

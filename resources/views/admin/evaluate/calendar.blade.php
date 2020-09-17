@@ -14,9 +14,16 @@
                     <h6 class="subtitle mb-4 text-muted">{{ \Carbon\Carbon::parse($item->start)->format('d/m/Y') }}</h6>
                 </div>
                 <div class="button col-md-8" style="float: right">
-                    <a href="{{ route('create.email') }}" class="btn-send-email" style="padding-right: 15px"><span
-                            class="fa fa-envelope-o"></span></a>
-                    <a href=""><span class="fa fa-trash-o"></span></a>
+                    <form action="{{ route('send.event.email') }}" method="POST" class="form-delete-{{$item->id}}">
+                        @csrf
+                        
+                        <input name="email" type="text" value="{{ $item->user->email }}" hidden>
+                        <input name="name" type="text" value="{{ $item->user->name }}" hidden>
+                        <input name="time" type="text" value="{{ \Carbon\Carbon::parse($item->start)->format('d/m/Y - H:i:s') }}" hidden>
+                        <button class="btn btn-warning btn-send-email" style="padding-right: 15px" idEmail={{$item->id}}><span
+                            class="fa fa-envelope-o"></span></button>
+                    </form>
+                    {{-- <a href=""><span class="fa fa-trash-o"></span></a> --}}
                 </div>
             </div>
         @endforeach
