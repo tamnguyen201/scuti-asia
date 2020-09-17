@@ -314,7 +314,11 @@ class RoleSeeder extends Seeder
             ['id'=>7, 'process_id' => 7,'comment' => '', 'reason' => 'Make Offer', 'status' => 1],
         ]);
         DB::table('events')->insert([
-            ['id'=>1, 'title' => 'phỏng vấn ứng viên Tâm','user_id' => 1, 'admin_id' => '["1","2"]', 'start' => '2020-09-15 16:00:00','end'=>'2020-09-15 17:00:00','color'=>'#f31212'],
+            ['id'=>1, 'title' => 'Phỏng vấn ứng viên Tâm','user_id' => 1, 'admin_id' => '["1","2"]', 'start' => '2020-09-15 16:00:00','end'=>'2020-09-15 17:00:00','note'=>'Ứng viên có CV phù hợp','color'=>'#f08648'],
+            ['id'=>2, 'title' => 'Cafe với ứng viên Tâm','user_id' => 1, 'admin_id' => '["1","2"]', 'start' => '2020-09-17 14:18:00','end'=>'2020-09-17 15:30:00','note'=>'Ứng viên tiềm năng','color'=>'#f5ed0a'],
+            ['id'=>3, 'title' => 'Đánh giá ứng viên Linh','user_id' => 2, 'admin_id' => '["1","2","3","4"]', 'start' => '2020-09-24 14:19:00','end'=>'2020-09-25 14:19:00','note'=>'Ứng viên tiềm năng','color'=>'#f5ed0a'],
+            ['id'=>4, 'title' => 'demo project quản lý ứng tuyển','user_id' => 3, 'admin_id' => '["1","2","4"]', 'start' => '2020-09-24 14:22:00','end'=>'2020-09-28 14:22:00','note'=>'Chuẩn bị demo','color'=>'#195e83'],
+            
         ]);
         Schema::enableForeignKeyConstraints();
     }
