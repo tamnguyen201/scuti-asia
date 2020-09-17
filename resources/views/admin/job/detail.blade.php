@@ -87,22 +87,25 @@
                                 <thead>
                                     <tr>
                                         <th>
-                                            <div class="th-inner sortable">@lang('custom.stt')</div>
+                                            <div class="th-inner">@lang('custom.stt')</div>
                                         </th>
                                         <th>
-                                            <div class="th-inner sortable">@lang('custom.name')</div>
+                                            <div class="th-inner">@lang('custom.name')</div>
                                         </th>
                                         <th>
-                                            <div class="th-inner sortable">@lang('custom.email')</div>
+                                            <div class="th-inner">@lang('custom.email')</div>
                                         </th>
                                         <th>
-                                            <div class="th-inner sortable">@lang('custom.jobApplied')</div>
+                                            <div class="th-inner">@lang('custom.jobApplied')</div>
                                         </th>
                                         <th>
-                                            <div class="th-inner sortable">@lang('custom.process')</div>
+                                            <div class="th-inner">@lang('custom.cv_url')</div>
                                         </th>
                                         <th>
-                                            <div class="th-inner sortable text-center">@lang('custom.action')</div>
+                                            <div class="th-inner">@lang('custom.process')</div>
+                                        </th>
+                                        <th>
+                                            <div class="th-inner text-center">@lang('custom.action')</div>
                                         </th>
                                     </tr>
                                 </thead>
@@ -114,6 +117,7 @@
                                             <td>{{ $candidate->user->name }}</td>
                                             <td>{{ $candidate->user->email }}</td>
                                             <td>{{ $candidate->job->name }}</td>
+                                            <td><a href="{{ $candidate->cv_url }}" target="_blank">Xem CV</a></td>
                                             @if ($candidate->process->count() > 0 && $candidate->process->count() < 4)
                                                 @for ($i = 0; $i <= $candidate->process->count(); $i++)
                                                     @if ($i == $candidate->process->count() - 1)
@@ -181,10 +185,10 @@
                 <div class="clearfix"></div>
                 <div class="modal fade bd-example-modal-lg" id="exampleModalCenter" tabindex="-1" role="dialog"
                     aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                    <div class="modal-dialog modal-lg modal-md" role="document">
+                    <div class="modal-dialog modal-lg modal-md" style="max-width: 40rem;" role="document">
                         <div class="modal-content">
-                            <div class="modal-header">
-                                <h3 class="modal-title" id="exampleModalLongTitle">
+                            <div class="modal-header" style="display: flex">
+                                <h3 class="modal-title" id="exampleModalLongTitle"  style="margin: auto;width: 23rem;">
                                     @lang('custom.candidate.candidate_infor')</h3>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>

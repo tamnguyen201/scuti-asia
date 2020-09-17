@@ -153,7 +153,7 @@ nav > div a.nav-item.nav-link:focus
                             <nav>
                                 <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
                                     <a class="nav-item nav-link {{ (request()->is('profile')) ? 'active' : '' }}" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="true">@lang('client.page.profile.sidebar.profile')</a>
-                                    <a class="nav-item nav-link" id="nav-cv-tab" data-toggle="tab" href="#nav-cv" role="tab" aria-controls="nav-cv" aria-selected="false">@lang('client.page.profile.sidebar.cv')</a>
+                                    <a class="nav-item nav-link {{ (request()->is('profile/cvs')) ? 'active ' : '' }}" id="nav-cv-tab" data-toggle="tab" href="#nav-cv" role="tab" aria-controls="nav-cv" aria-selected="false">@lang('client.page.profile.sidebar.cv')</a>
                                     <a class="nav-item nav-link {{ (request()->is('profile/job-applied')) ? 'active' : '' }}" id="nav-job-applied-tab" data-toggle="tab" href="#nav-job-applied" role="tab" aria-controls="nav-job-applied" aria-selected="false">@lang('client.page.profile.sidebar.job_applied')</a>
                                 </div>
                             </nav>
@@ -189,7 +189,7 @@ nav > div a.nav-item.nav-link:focus
                                         </div>
                                     </div>
                                 </div>
-                                <div class="tab-pane fade px-4" id="nav-cv" role="tabpanel" aria-labelledby="nav-cv-tab">
+                                <div class="tab-pane fade {{ (request()->is('profile/cvs')) ? 'show active ' : '' }} px-4" id="nav-cv" role="tabpanel" aria-labelledby="nav-cv-tab">
                                     <div class="container">
                                     @if(auth()->user()->cv->count() > 0)
                                         <h5 class="mb-4"> @lang('client.page.profile.manage_cv') <a href="{{route('client.create_cv')}}" class="btn btn-primary text-white float-right btn-upload-form">@lang('client.page.profile.create_cv')</a></h5>

@@ -69,7 +69,7 @@
                         
                         <div class="col-md-12 text-center">
                             <button type="submit" class="btn btn-primary">@lang('custom.button.submit') <em class="fa fa-check"></em></button>
-                            <a href="{{route('main-member.index')}}" class="btn btn-danger">@lang('custom.button. cancel') <em class="fa fa-times"></em></a>
+                            <a href="{{route('main-member.index')}}" class="btn btn-danger">@lang('custom.button.cancel') <em class="fa fa-times"></em></a>
                         </div>
                     </form>
                 </div>

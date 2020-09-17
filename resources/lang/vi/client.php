@@ -94,6 +94,7 @@ return [
         'login' => 'Đăng Nhập',
         'profile' => 'Tài Khoản',
         'job_applied' => 'Công việc đã ứng tuyển',
+        'cvs' => 'CV cá nhân',
         'logout' => 'Đăng Xuất'
     ],
 

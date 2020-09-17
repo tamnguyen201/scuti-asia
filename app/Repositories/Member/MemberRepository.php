@@ -13,8 +13,8 @@ class MemberRepository extends Repository implements MemberRepositoryInterface
     public function create($results)
     {
         $data = $results;
-        if(array_key_exists("image", $results)) {
-            $data['image'] = $this->upload($results['image']);
+        if(array_key_exists("avatar", $results)) {
+            $data['avatar'] = $this->upload($results['avatar']);
         }
         
         return $this->model->create($data);
@@ -23,8 +23,8 @@ class MemberRepository extends Repository implements MemberRepositoryInterface
     public function update($results, $id)
     {
         $data = $results;
-        if(array_key_exists("image", $results)) {
-            $data['image'] = $this->upload($results['image']);
+        if(array_key_exists("avatar", $results)) {
+            $data['avatar'] = $this->upload($results['avatar']);
         }
         
         return $this->show($id)->update($data);

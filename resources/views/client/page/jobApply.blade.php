@@ -427,7 +427,7 @@
                             @foreach(auth()->user()->cv as $key => $value)
                             <div class="form-check">
                                 <label class="form-check-label">
-                                    <input type="radio" class="form-check-input" @if($key == 0) checked @endif name="cv_id" value="{{$value->id}}">{{$value->cv_name}}
+                                    <input type="radio" class="form-check-input" @if($key == 0) checked @endif name="cv_url" value="{{$value->cv_url}}">{{$value->cv_name}}
                                 </label>
                             </div>
                             @endforeach

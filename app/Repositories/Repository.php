@@ -71,10 +71,10 @@ class Repository implements RepositoryInterface
         return $this->model->with($relations);
     }
 
-    // Upload File to public/image
+    // Upload File to public/images
     public function upload($file)
     {
-        $destinationPath = 'image/';
+        $destinationPath = 'images/';
         $image = date('YmdHis') . "." . $file->getClientOriginalExtension();
         $file->move($destinationPath, $image);
         return $destinationPath . $image;

@@ -33,6 +33,8 @@
                     <div class="dropdown-items-divide-hr"></div>
                     <a class="dropdown-item text-uppercase" href="{{route('client.profile', 'job-applied')}}"><span class="item-text">@lang('client.nav.job_applied')</span></a>
                     <div class="dropdown-items-divide-hr"></div>
+                    <a class="dropdown-item text-uppercase" href="{{route('client.profile', 'cvs')}}"><span class="item-text">@lang('client.nav.cvs')</span></a>
+                    <div class="dropdown-items-divide-hr"></div>
                     <a class="dropdown-item text-uppercase" href="{{route('client.logout')}}"><span class="item-text">@lang('client.nav.logout')</span></a>
                 </div>
             </li>

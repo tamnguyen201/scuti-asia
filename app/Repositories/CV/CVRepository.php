@@ -12,7 +12,7 @@ class CVRepository extends Repository implements CVRepositoryInterface
 
     public function upload($file)
     {
-        $destinationPath = 'cv/';
+        $destinationPath = 'cvs/';
         $cv = date('YmdHis') . "." . $file->getClientOriginalExtension();
         $file->move($destinationPath, $cv);
         return $destinationPath . $cv;
