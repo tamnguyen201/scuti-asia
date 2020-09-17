@@ -186,4 +186,9 @@ class EvaluateController extends Controller
         $this->evaluateRepository->sendEmail($candidate_email, $time, $name);
         return redirect()->back();
     }
+
+    public function destroyCalendar($id){
+        Event::find($id)->delete();
+        return redirect()->back()->with('success', config('common.alert_messages.success'));
+    }
 }

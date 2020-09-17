@@ -14,7 +14,7 @@
                     <h6 class="subtitle mb-4 text-muted">{{ \Carbon\Carbon::parse($item->start)->format('d/m/Y') }}</h6>
                 </div>
                 <div class="button col-md-8" style="float: right">
-                    <form action="{{ route('send.event.email') }}" method="POST" class="form-delete-{{$item->id}}">
+                    <form action="{{ route('send.event.email') }}" method="POST" class="form-delete-{{$item->id}}" style="display: inline-block">
                         @csrf
                         
                         <input name="email" type="text" value="{{ $item->user->email }}" hidden>
@@ -24,6 +24,10 @@
                             class="fa fa-envelope-o"></span></button>
                     </form>
                     {{-- <a href=""><span class="fa fa-trash-o"></span></a> --}}
+                    <form action="{{route('event.delete', $item->id)}}" method="post" class="form-delete-{{$item->id}}" style="display: inline">
+                        @csrf
+                        <button class="btn btn-danger text-light delete-confirm" idDelete={{$item->id}}><em class="fas fa-trash-alt"></em></button>
+                    </form>
                 </div>
             </div>
         @endforeach
