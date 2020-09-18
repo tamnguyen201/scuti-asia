@@ -184,7 +184,10 @@ class EvaluateController extends Controller
         $candidate_email = $request->email;
         $time = $request->time;
         $name = $request->name;
+        $event_id = $request->event_id;
+
         $this->evaluateRepository->sendEmail($candidate_email, $time, $name);
+        Event::find($event_id)->update(['email_status'=>1]);
         return redirect()->back();
     }
 
