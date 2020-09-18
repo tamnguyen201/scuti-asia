@@ -37,6 +37,39 @@
             transform: scaleX(1.4) scaleY(1.6);
             opacity: 0;
         }
+
+        /* loading  */
+        .col-sm-2 {
+            padding: 10px;
+            border-radius: 4px;
+            height: 125px;
+            margin-bottom: 10px;
+        }
+
+        .sp {
+            width: 32px;
+            height: 32px;
+            clear: both;
+            margin: 20px auto;
+        }
+
+
+        /* Spinner Circle Rotation */
+        .sp-circle {
+            border: 4px rgba(0, 0, 0, 0.25) solid ;
+            border-top: 4px #000 solid ;
+            border-radius: 50%;
+            -webkit-animation: spCircRot .6s infinite linear;
+            animation: spCircRot .6s infinite linear;
+        }
+        @-webkit-keyframes spCircRot {
+            from { -webkit-transform: rotate(0deg); }
+            to { -webkit-transform: rotate(359deg); }
+        }
+        @keyframes spCircRot {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(359deg); }
+        }
     </style>
 @endsection
 @section('content')
@@ -358,9 +391,8 @@
                     </div>
                 </div>
                 <div class="col-lg-12 d-md-flex">
-                    <div class="list-group">
-                        <div class="tab-content" id="v-pills-tabContent">
-                            <div class="tab-pane fade row col-lg-12 d-flex show active" id="v-pills-all" role="tabpanel" aria-labelledby="v-pills-all-tab">
+                    <div class="list-group col-12">
+                        <div class="row col-lg-12 d-flex">
                             @foreach($data['categories'] as $category)
                                 @foreach($category->jobs as $job)
                                 <div class="d-md-flex col-lg-6 col-12 d-block development">
@@ -385,7 +417,6 @@
                                 </div>
                                 @endforeach
                             @endforeach
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -427,22 +458,20 @@
         });
 
         $(window).on('load', function() {
-            var $grid = $('.grid').isotope({
-                // options
-                itemSelector: '.element-item',
-                layoutMode: 'fitRows'
-            });
-            
             // filter items on button click
             $('.filters-button-group').on( 'click', 'a', function() {
                 var filterValue = $(this).attr('data-filter');
-
+                $(".row.col-lg-12.d-flex").html(`
+                <div class="col-sm-2 mx-auto">
+                    <div class="sp sp-circle"></div>
+                </div>
+                `);
                 $.ajax({
                     url: "{{route('client.filter_jobs')}}",
                     data: { category_id: filterValue },
                     method: "GET",
                 }).done(function (results) {
-                    $(".tab-pane.fade.row.col-lg-12.d-flex.show.active").html(results);
+                    $(".row.col-lg-12.d-flex").html(results);
                 }).fail(function (data) {
                     var errors = data.responseJSON;
                     console.log(errors);

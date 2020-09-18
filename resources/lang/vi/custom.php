@@ -17,7 +17,7 @@ return [
     'description' => 'Mô Tả',
     'role' => 'Chức Vụ',
     'view_more' => 'Xem Chi Tiết',
-    'letter' => 'Lời Cảm Ơn',
+    'letter' => 'Lời Nhắn',
     'category' => 'Bộ Phận Ứng Tuyển',
     'action' => 'Thao tác',
     'facebook' => 'Nhóm Facebook',
@@ -131,7 +131,9 @@ return [
         'enter'=>'Nhập',
         'start_process'=>'Bắt đầu đánh giá',
         'search'=>'Tìm kiếm',
-        'edit'=>'Sửa'
+        'edit'=>'Sửa',
+        'next' => 'Tiếp Theo',
+        'previous' => 'Lùi Lại',
     ],
 
     'menu' => [

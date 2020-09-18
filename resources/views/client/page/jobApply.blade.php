@@ -3,15 +3,6 @@
 @section('css')
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" >
 <style>
-    * {
-        margin: 0;
-        padding: 0
-    }
-
-    html {
-        height: 100%
-    }
-
     p {
         color: gray;
         line-height: 1.2rem;
@@ -167,22 +158,22 @@
 
     #progressbar #account:before {
         font-family: FontAwesome;
-        content: "\f13e"
+        content: "\f2bb"
     }
 
     #progressbar #personal:before {
         font-family: FontAwesome;
-        content: "\f007"
+        content: "\f24e"
     }
 
     #progressbar #payment:before {
         font-family: FontAwesome;
-        content: "\f030"
+        content: "\f086"
     }
 
     #progressbar #confirm:before {
         font-family: FontAwesome;
-        content: "\f00c"
+        content: "\f2b5"
     }
 
     #progressbar li:before {
@@ -195,8 +186,7 @@
         background: lightgray;
         border-radius: 50%;
         margin: 0 auto 10px auto;
-        padding: 2px;
-        z-index: 1;
+        padding: 2px
     }
 
     #progressbar li:after {
@@ -207,7 +197,7 @@
         position: absolute;
         left: 0;
         top: 25px;
-        z-index: 0
+        z-index: -1
     }
 
     #progressbar li.active:before,
@@ -253,81 +243,89 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="text-container" style="padding-top:1rem; padding-bottom-1rem">
-                        <h3 id="heading">@lang('client.page.apply.process.title')</h3>
-                        <p><a href="{{route('home')}}/#recruitment-flow" target="_blank">@lang('client.page.apply.process.description')</a></p>
-                        <form id="msform">
-                            <ul id="progressbar">
-                                <li class="active" id="account"><strong> Ứng Tuyển </strong></li>
-                                @if(isset($data['apply']->process[0]->evaluate) && $data['apply']->process[0]->evaluate->status == 1)
-                                <li class="active" step="0" id="personal"><strong>{{$data['apply']->process[0]->name}}</strong></li>
-                                @elseif(isset($data['apply']->process[0]->evaluate) && $data['apply']->process[0]->evaluate->status == 0)
-                                <li class="inactive" step="0" id="personal"><strong>{{$data['apply']->process[0]->name}}</strong></li>
-                                @else
-                                <li step="0" id="personal"><strong>Đánh Giá</strong></li>
-                                @endif
-                                @if(isset($data['apply']->process[1]->evaluate) && $data['apply']->process[1]->evaluate->status == 1)
-                                <li class="active" step="1" id="payment"><strong>{{$data['apply']->process[1]->name}}</strong></li>
-                                @elseif(isset($data['apply']->process[1]->evaluate) && $data['apply']->process[1]->evaluate->status == 0)
-                                <li class="inactive" step="1" id="payment"><strong>{{$data['apply']->process[1]->name}}</strong></li>
-                                @else
-                                <li step="1" id="payment"><strong>Phỏng Vấn</strong></li>
-                                @endif
-                                @if(isset($data['apply']->process[2]->evaluate) && $data['apply']->process[2]->evaluate->status == 1)
-                                <li class="active" step="2" id="confirm"><strong>Hoàn Thành</strong></li>
-                                @elseif(isset($data['apply']->process[2]->evaluate) && $data['apply']->process[2]->evaluate->status == 0)
-                                <li class="inactive" step="2" id="confirm"><strong>Hoàn Thành</strong></li>
-                                @else
-                                <li step="2" id="confirm"><strong>Finish</strong></li>
-                                @endif
-                            </ul>
-                            @foreach($data['apply']->process as $key => $process)
-                            @if($key != $data['apply']->process->count() - 1)
-                            <fieldset class="col-lg-10 mx-auto">
-                                <div class="form-card">
-                                    <div class="row">
-                                        <div class="col-7">
-                                            <h2 class="fs-title">@lang('client.page.apply.process.info')</h2>
-                                        </div>
-                                        <div class="col-5">
-                                            <h2 class="steps">@lang('client.page.apply.step') {{$process->step . ' - ' . $process->name}}</h2>
-                                        </div>
-                                    </div> 
-                                    <div class="row col-lg-11 mx-auto">
-                                        <p>{{$process->evaluate->reason}}</p>
-                                    </div>
-                                </div> 
-                                @if($key < $data['apply']->process->count() -1)
-                                <input type="button" name="next" class="next action-button" value="Next" />
-                                @endif
-                                @if($key > 0)
-                                <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
-                                @endif
-                            </fieldset>
-                            @else
-                            <fieldset class="col-lg-10 mx-auto">
-                                <div class="form-card">
-                                    <div class="row">
-                                        <div class="col-7">
-                                            <h2 class="fs-title">{{$process->name}}:</h2>
-                                        </div>
-                                        <div class="col-5">
-                                            <h2 class="steps">@lang('client.page.apply.step') {{$process->step}} - {{$process->name}}</h2>
-                                        </div>
-                                    </div> <br><br>
-                                    <h2 class="purple-text text-center"><strong>SUCCESS !</strong></h2> <br>
-                                    <div class="row justify-content-center">
-                                        <div class="col-3"> <img src="https://www.suunto.com/contentassets/1fda3e7d222d45e49282f7d13439c7db/icon-success.png" class="fit-image"> </div>
-                                    </div> <br><br>
-                                    <div class="row justify-content-center">
-                                        <div class="col-7 text-center">
-                                            <h5 class="purple-text text-center">Chúng Tôi Đã Hoàn Thành Việc Đánh Giá Và Sẽ Sớm Liên Lạc Lại Với Bạn</h5>
-                                        </div>
+                        <div class="container-fluid">
+                            <div class="row justify-content-center">
+                                <div class="col-11 text-center p-0 mt-3 mb-2">
+                                    <div class="card px-0 pt-4 pb-0 mt-3 mb-3">
+                                        <h3 id="heading">@lang('client.page.apply.process.title')</h3>
+                                        <p><a href="{{route('home')}}/#recruitment-flow" target="_blank">@lang('client.page.apply.process.description')</a></p>
+                                        <form id="msform">
+                                            <ul id="progressbar">
+                                                <li class="active" id="account"><strong> Ứng Tuyển </strong></li>
+                                                @if(isset($data['apply']->process[0]->evaluate) && $data['apply']->process[0]->evaluate->status == 1)
+                                                <li class="active" step="0" id="personal"><strong>{{$data['apply']->process[0]->name}}</strong></li>
+                                                @elseif(isset($data['apply']->process[0]->evaluate) && $data['apply']->process[0]->evaluate->status == 0)
+                                                <li class="inactive" step="0" id="personal"><strong>{{$data['apply']->process[0]->name}}</strong></li>
+                                                @else
+                                                <li step="0" id="personal"><strong>Đánh Giá</strong></li>
+                                                @endif
+                                                @if(isset($data['apply']->process[1]->evaluate) && $data['apply']->process[1]->evaluate->status == 1)
+                                                <li class="active" step="1" id="payment"><strong>{{$data['apply']->process[1]->name}}</strong></li>
+                                                @elseif(isset($data['apply']->process[1]->evaluate) && $data['apply']->process[1]->evaluate->status == 0)
+                                                <li class="inactive" step="1" id="payment"><strong>{{$data['apply']->process[1]->name}}</strong></li>
+                                                @else
+                                                <li step="1" id="payment"><strong>Phỏng Vấn</strong></li>
+                                                @endif
+                                                @if(isset($data['apply']->process[2]->evaluate) && $data['apply']->process[2]->evaluate->status == 1)
+                                                <li class="active" step="2" id="confirm"><strong>Hoàn Thành</strong></li>
+                                                @elseif(isset($data['apply']->process[2]->evaluate) && $data['apply']->process[2]->evaluate->status == 0)
+                                                <li class="inactive" step="2" id="confirm"><strong>Hoàn Thành</strong></li>
+                                                @else
+                                                <li step="2" id="confirm"><strong>Hoàn Thành</strong></li>
+                                                @endif
+                                            </ul>
+                                            @foreach($data['apply']->process as $key => $process)
+                                            @if($key != 2)
+                                            <fieldset class="col-lg-10 mx-auto">
+                                                <div class="form-card">
+                                                    <div class="row">
+                                                        <div class="col-7">
+                                                            <h2 class="fs-title">@lang('client.page.apply.process.info')</h2>
+                                                        </div>
+                                                        <div class="col-5">
+                                                            <h2 class="steps">@lang('client.page.apply.step') {{$process->step . ' - ' . $process->name}}</h2>
+                                                        </div>
+                                                    </div> 
+                                                    <div class="row col-lg-11 mx-auto">
+                                                        <p>{{$process->evaluate->reason}}</p>
+                                                    </div>
+                                                </div> 
+                                                @if($key < $data['apply']->process->count() - 1)
+                                                <input type="button" name="next" class="next action-button" value="@lang('custom.button.next')" />
+                                                @endif
+                                                @if($key > 0)
+                                                <input type="button" name="previous" class="previous action-button-previous" value="@lang('custom.button.previous')" />
+                                                @endif
+                                            </fieldset>
+                                            @else
+                                            <fieldset class="col-lg-10 mx-auto">
+                                                <div class="form-card">
+                                                    <div class="row">
+                                                        <div class="col-7">
+                                                            <h2 class="fs-title">{{$process->name}}:</h2>
+                                                        </div>
+                                                        <div class="col-5">
+                                                            <h2 class="steps">@lang('client.page.apply.step') {{$process->step}} - {{$process->name}}</h2>
+                                                        </div>
+                                                    </div> <br><br>
+                                                    <h2 class="purple-text text-center"><strong>@lang('client.page.apply.process.finish')</strong></h2> <br>
+                                                    <div class="row justify-content-center">
+                                                        <div class="col-3"> <img src="https://www.suunto.com/contentassets/1fda3e7d222d45e49282f7d13439c7db/icon-success.png" class="fit-image"> </div>
+                                                    </div> <br><br>
+                                                    <div class="row justify-content-center">
+                                                        <div class="col-7 text-center">
+                                                            <h5 class="purple-text text-center">{{($process->reason) ? $process->reason : trans('client.page.apply.finish')}}</h5>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </fieldset>
+                                            @endif
+                                            @endforeach
+                                        </form>
                                     </div>
                                 </div>
-                            </fieldset>
-                            @endif
-                            @endforeach
-                        </form>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -428,7 +426,7 @@
                             @foreach(auth()->user()->cv as $key => $value)
                             <div class="form-check">
                                 <label class="form-check-label">
-                                    <input type="radio" class="form-check-input" @if($key == 0) checked @endif name="cv_url" value="{{$value->cv_url}}">{{$value->cv_name}}
+                                    <input type="radio" class="form-check-input" @if($key == 0) checked @endif name="cv_file" value="{{$value->cv_url}}">{{$value->cv_name}}
                                 </label>
                             </div>
                             @endforeach

@@ -324,11 +324,11 @@ class RoleSeeder extends Seeder
             ['id'=>5,'user_id' => 5, 'cv_name' => 'CV5', 'cv_url' => 'http://congstudio.vn/product_images/z/320/chup_anh_profile_tai_ha_noi_cong_studio_4__09337_thumb.jpg'],
         ]);
         DB::table('user_job')->insert([
-            ['id'=>1, 'user_id' => 1, 'cv_url' => 'cvs/cv.pdf', 'job_id' => 1, 'letter' => 'Cảm ơn', 'status' => 0, 'result' => 0, 'created_at' => \Carbon\Carbon::parse('11-06-2020 03:26:49')->format('Y-m-d H:i:s')],
-            ['id'=>2, 'user_id' => 2, 'cv_url' => 'cvs/cv2.pdf', 'job_id' => 2, 'letter' => 'Cảm ơn', 'status' => 0, 'result' => 0, 'created_at' => \Carbon\Carbon::parse('12-07-2020 03:26:49')->format('Y-m-d H:i:s')],
-            ['id'=>3, 'user_id' => 2, 'cv_url' => 'cvs/cv2.pdf', 'job_id' => 3, 'letter' => 'Cảm ơn', 'status' => 0, 'result' => 0, 'created_at' => \Carbon\Carbon::parse('20-08-2020 03:26:49')->format('Y-m-d H:i:s')],
-            ['id'=>4, 'user_id' => 3, 'cv_url' => 'http://congstudio.vn/product_images/z/320/chup_anh_profile_tai_ha_noi_cong_studio_4__09337_thumb.jpg', 'job_id' => 4, 'letter' => 'Cảm ơn', 'status' => 0, 'result' => 0, 'created_at' => \Carbon\Carbon::parse('01-09-2020 03:26:49')->format('Y-m-d H:i:s')],
-            ['id'=>5, 'user_id' => 4, 'cv_url' => 'http://congstudio.vn/product_images/z/320/chup_anh_profile_tai_ha_noi_cong_studio_4__09337_thumb.jpg', 'job_id' => 5, 'letter' => 'Cảm ơn', 'status' => 1, 'result' => 1, 'created_at' => \Carbon\Carbon::parse('09-09-2020 03:26:49')->format('Y-m-d H:i:s')],
+            ['id'=>1, 'user_id' => 1, 'cv_file' => 'cvs/cv.pdf', 'job_id' => 1, 'letter' => 'Cảm ơn', 'status' => 0, 'result' => 0, 'created_at' => \Carbon\Carbon::parse('11-06-2020 03:26:49')->format('Y-m-d H:i:s')],
+            ['id'=>2, 'user_id' => 2, 'cv_file' => 'cvs/cv2.pdf', 'job_id' => 2, 'letter' => 'Cảm ơn', 'status' => 0, 'result' => 0, 'created_at' => \Carbon\Carbon::parse('12-07-2020 03:26:49')->format('Y-m-d H:i:s')],
+            ['id'=>3, 'user_id' => 2, 'cv_file' => 'cvs/cv2.pdf', 'job_id' => 3, 'letter' => 'Cảm ơn', 'status' => 0, 'result' => 0, 'created_at' => \Carbon\Carbon::parse('20-08-2020 03:26:49')->format('Y-m-d H:i:s')],
+            ['id'=>4, 'user_id' => 3, 'cv_file' => 'http://congstudio.vn/product_images/z/320/chup_anh_profile_tai_ha_noi_cong_studio_4__09337_thumb.jpg', 'job_id' => 4, 'letter' => 'Cảm ơn', 'status' => 0, 'result' => 0, 'created_at' => \Carbon\Carbon::parse('01-09-2020 03:26:49')->format('Y-m-d H:i:s')],
+            ['id'=>5, 'user_id' => 4, 'cv_file' => 'http://congstudio.vn/product_images/z/320/chup_anh_profile_tai_ha_noi_cong_studio_4__09337_thumb.jpg', 'job_id' => 5, 'letter' => 'Cảm ơn', 'status' => 1, 'result' => 1, 'created_at' => \Carbon\Carbon::parse('09-09-2020 03:26:49')->format('Y-m-d H:i:s')],
         ]);
         DB::table('process')->insert([
             ['id'=>1, 'step' => 1, 'name' => 'Đánh Giá', 'user_job_id' => 1],
@@ -340,13 +340,13 @@ class RoleSeeder extends Seeder
             ['id'=>7, 'step' => 3, 'name' => 'Hoàn Thành', 'user_job_id' => 5],
         ]);
         DB::table('evaluates')->insert([
-            ['id'=>1, 'process_id' => 1,'comment' => '', 'reason' => 'Đánh Giá', 'status' => 1],
-            ['id'=>2, 'process_id' => 2,'comment' => '', 'reason' => 'Phỏng Vấn', 'status' => 1],
-            ['id'=>3, 'process_id' => 3,'comment' => '', 'reason' => 'Đánh Giá', 'status' => 1],
-            ['id'=>4, 'process_id' => 4,'comment' => '', 'reason' => 'Đánh Giá', 'status' => 1],
-            ['id'=>5, 'process_id' => 5,'comment' => '', 'reason' => 'Đánh Giá', 'status' => 1],
-            ['id'=>6, 'process_id' => 6,'comment' => '', 'reason' => 'Phỏng Vấn', 'status' => 1],
-            ['id'=>7, 'process_id' => 7,'comment' => '', 'reason' => 'Hoàn Thành', 'status' => 1],
+            ['id'=>1, 'process_id' => 1,'comment' => 'Ứng viên tiềm năng', 'reason' => 'Chúng tôi đã xem qua CV của bạn và chúng tôi đánh giá cao kỹ năng và kinh nghiệm của bạn. Chúc mừng bạn đã vượt qua quá trình này.', 'status' => 1],
+            ['id'=>2, 'process_id' => 2,'comment' => 'Ứng viên tiềm năng', 'reason' => 'Qua cuộc phỏng vấn với bạn, chúng tôi đánh giá cao kỹ năng và kinh nghiệm của bạn. Chúc mừng bạn đã vượt qua quá trình này.', 'status' => 1],
+            ['id'=>3, 'process_id' => 3,'comment' => 'Ứng viên tiềm năng', 'reason' => 'Chúng tôi đã xem qua CV của bạn và chúng tôi đánh giá cao kỹ năng và kinh nghiệm của bạn. Chúc mừng bạn đã vượt qua quá trình này.', 'status' => 1],
+            ['id'=>4, 'process_id' => 4,'comment' => 'Ứng viên tiềm năng', 'reason' => 'Chúng tôi đã xem qua CV của bạn và chúng tôi đánh giá cao kỹ năng và kinh nghiệm của bạn. Chúc mừng bạn đã vượt qua quá trình này.', 'status' => 1],
+            ['id'=>5, 'process_id' => 5,'comment' => 'Ứng viên tiềm năng', 'reason' => 'Chúng tôi đã xem qua CV của bạn và chúng tôi đánh giá cao kỹ năng và kinh nghiệm của bạn. Chúc mừng bạn đã vượt qua quá trình này.', 'status' => 1],
+            ['id'=>6, 'process_id' => 6,'comment' => 'Ứng viên tiềm năng', 'reason' => 'Qua cuộc phỏng vấn với bạn, chúng tôi đánh giá cao kỹ năng và kinh nghiệm của bạn. Chúc mừng bạn đã vượt qua quá trình này.', 'status' => 1],
+            ['id'=>7, 'process_id' => 7,'comment' => 'Ứng viên tiềm năng', 'reason' => 'Chúc mừng bạn đã vượt qua qui trình đánh giá của chúng tôi. Chúng tôi sẽ sớm gửi hợp đồng cho bạn.', 'status' => 1],
         ]);
         DB::table('events')->insert([
             ['id'=>1, 'title' => 'Phỏng vấn ứng viên Tâm','user_id' => 1, 'admin_id' => '["1","2"]', 'start' => '2020-09-15 16:00:00','end'=>'2020-09-15 17:00:00','note'=>'Ứng viên có CV phù hợp','color'=>'#f08648'],

@@ -17,7 +17,7 @@ class CreateUserJobTable extends Migration
             $table->id();
             $table->foreignId('user_id');
             $table->foreignId('job_id');
-            $table->string('cv_url');
+            $table->string('cv_file');
             $table->boolean('status')->default(0);
             $table->string('letter')->nullable();
             $table->boolean('result')->default(0);

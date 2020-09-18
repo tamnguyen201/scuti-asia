@@ -8,109 +8,46 @@
 
         nav > .nav.nav-tabs{
 
-border: none;
-  color:#fff;
-  background:#272e38;
-  border-radius:0;
+        border: none;
+        color:#fff;
+        background:#272e38;
+        border-radius:0;
 
-}
-nav > div a.nav-item.nav-link
-{
-    border: none;
-    padding: 18px 25px;
-    color:#fff;
-    background:#272e38;
-    border-radius:0;
-}
-nav > div a.nav-item.nav-link.active
-{
-    border: none;
-    padding: 18px 25px;
-    color:#fff;
-    background: #e74c3c;
-    border-radius:0;
-}
+        }
+        nav > div a.nav-item.nav-link
+        {
+            border: none;
+            padding: 18px 25px;
+            color:#fff;
+            background:#272e38;
+            border-radius:0;
+        }
+        nav > div a.nav-item.nav-link.active
+        {
+            border: none;
+            padding: 18px 25px;
+            color:#fff;
+            background: #e74c3c;
+            border-radius:0;
+        }
 
-.tab-content{
-    background: #fdfdfd;
-    line-height: 25px;
-    border: 1px solid #ddd;
-    border-top:5px solid #e74c3c;
-    padding:30px 25px;
-}
+        .tab-content{
+            background: #fdfdfd;
+            line-height: 25px;
+            border: 1px solid #ddd;
+            border-top:5px solid #e74c3c;
+            padding:30px 25px;
+        }
 
-nav > div a.nav-item.nav-link:hover,
-nav > div a.nav-item.nav-link:focus
-{
-    border: none;
-    background: #e74c3c;
-    color:#fff;
-    border-radius:0;
-    transition:background 0.20s linear;
-}
-    </style>
-    <style>
-
-
-
-/* Profile Pictures */
-
-.profile-picture {
-    width: 48px;
-    height: 48px;
-    padding-top: 2px;
-    -webkit-border-radius: 50%;
-    -moz-border-radius: 50%;
-    -ms-border-radius: 50%;
-    -o-border-radius: 50%;
-    border-radius: 50%;
-    position: relative;
-}
-
-.profile-picture img {
-    display: block;
-    width: 44px;
-    height: 44px;
-    -webkit-border-radius: 50%;
-    -moz-border-radius: 50%;
-    -ms-border-radius: 50%;
-    -o-border-radius: 50%;
-    border-radius: 50%;
-    border: 2px solid #FFFFFF;
-    margin: 0 auto;
-}
-
-.profile-picture.has-message::after {
-    font-family: "Batch Icons";
-    font-size: 2.6rem;
-    font-weight: 300;
-    line-height: 1;
-    display: inline-block;
-    content: "\F140";
-    color: #07a7e3;
-    position: absolute;
-    top: -5px;
-    left: -10px;
-}
-
-.profile-picture.profile-picture-lg {
-    width: 150px;
-    height: 150px;
-    margin: 0 auto;
-}
-
-.profile-picture.profile-picture-lg img {
-    width: 144px;
-    height: 144px;
-    margin: 1px auto 0;
-    border: 5px solid #FFFFFF;
-}
-
-.profile-picture.profile-picture-lg.has-message::after {
-    top: -3px;
-    left: -7px;
-    font-size: 4.6rem;
-}
+        nav > div a.nav-item.nav-link:hover,
+        nav > div a.nav-item.nav-link:focus
+        {
+            border: none;
+            background: #e74c3c;
+            color:#fff;
+            border-radius:0;
+            transition:background 0.20s linear;
+        }
     </style>
 @endsection
 @section('content')
@@ -135,8 +72,8 @@ nav > div a.nav-item.nav-link:focus
                             <div class="profile-page-left">
                                 <div class="row pt-3">
                                     <div class="col-lg-12">
-                                        <div class="profile-picture profile-picture-lg bg-gradient bg-primary mb-4"> <img src="{{auth()->user()->avatar}}" class="img-fluid rounded-circle"></div>
-                                        <p class="text-center"> <strong>{{auth()->user()->name}} </strong> </p>
+                                        <div class="mb-4 px-3"> <img src="{{auth()->user()->avatar}}" class="img-fluid rounded-circle"></div>
+                                        <p class="text-center"> <h6 class="text-center">{{auth()->user()->name}} </h6> </p>
                                     </div>
                                 </div>
                             </div>

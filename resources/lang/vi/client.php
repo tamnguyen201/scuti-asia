@@ -78,10 +78,12 @@ return [
                 'title' => 'Bạn Đã Ứng Tuyển Cho Công Việc Này!',
                 'description' => 'Xem Chi Tiết Quá Trình Đánh Giá Này.',
                 'info' => 'Thông tin chi tiết:',
+                'finish' => 'Hoàn Thành',
             ],
             'back' => 'Quay Lại',
             'step' => 'Bước',
             'job_another' => 'Tìm Công Việc Khác',
+            'finish' => 'Chúng Tôi Đã Hoàn Thành Việc Đánh Giá Và Sẽ Sớm Liên Lạc Lại Với Bạn',
         ],
     ],
 
