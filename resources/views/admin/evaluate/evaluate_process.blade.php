@@ -113,7 +113,7 @@
     $("body").on("click", ".btn-send-email", function (e) {
             e.preventDefault();
             let id = $(this).attr('idEmail');
-            let form = $('.form-delete-'+id);
+            let form = $('.form-email-'+id);
             swal({
                 title: "Xác nhận gửi emai?",
                 text: "Bạn có muốn gửi email cho người này?!",

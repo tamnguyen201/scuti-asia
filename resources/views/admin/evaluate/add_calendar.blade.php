@@ -6,4 +6,4 @@
       <span class="error-form text-danger"></span>
     </div>
     <button type="button" class="btn btn-primary btn-add-category">Submit</button>
-  </form>
+</form>

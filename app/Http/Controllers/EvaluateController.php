@@ -44,11 +44,11 @@ class EvaluateController extends Controller
         if($data->count()) {
             foreach ($data as $key => $value) {
                 $attender_id = json_decode($value->admin_id) ;
-                $attender_names=[];
-                for ($i=0; $i < count($attender_id) ; $i++) { 
-                    $attender_name[$i] = $this->adminRepository->show($attender_id[$i])->name;
+                $str_attender_name=[];
+                foreach ($attender_id as $id) {
+                    $str_attender_name_id = $this->adminRepository->show($id)->name;
+                    array_push($str_attender_name, $str_attender_name_id);
                 };
-                $str_attender_name = implode(',',$attender_name);
                 $events[] = \Calendar::event(
                     $value->title,
                     true,
@@ -58,7 +58,7 @@ class EvaluateController extends Controller
                     [
                         'color'=> $value->color,
                         'admins'=>$str_attender_name,
-                        'start_time'=> \Carbon\Carbon::parse($value->start)->format('d/m/Y - H:i:s')
+                        'start_time'=> \Carbon\Carbon::parse($value->start)->format('d/m/Y - H:i')
                     ],
                 );
             }
@@ -91,8 +91,8 @@ class EvaluateController extends Controller
                   placement: "bottom",
                   container: "body"
                   });
-                }'
-        ]);
+                }', 
+            ]);
 
         return $calendar;
     }
@@ -139,9 +139,10 @@ class EvaluateController extends Controller
             $candidateById = $this->candidateRepository->where('id','=', $processById->user_job->user_id);
             $calendar = $this->showCalendar($candidateById->id);
             $dataUser =$this->candidateRepository->show($candidateById->id);
+            $dataAdmin = $this->adminRepository->all();
             $data = Event::all();
 
-            return view('admin.evaluate.evaluate_process' , compact('processById','data','candidateById','calendar','dataUser'));
+            return view('admin.evaluate.evaluate_process' , compact('processById','data','candidateById','calendar','dataUser','dataAdmin'));
         }
     }
 
@@ -183,7 +184,10 @@ class EvaluateController extends Controller
         $candidate_email = $request->email;
         $time = $request->time;
         $name = $request->name;
+        $event_id = $request->event_id;
+
         $this->evaluateRepository->sendEmail($candidate_email, $time, $name);
+        Event::find($event_id)->update(['email_status'=>1]);
         return redirect()->back();
     }
 

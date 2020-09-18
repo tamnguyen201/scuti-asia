@@ -23,6 +23,7 @@ class CreateEventsTable extends Migration
             $table->text('note')->nullable();
             $table->timestamps();
             $table->string('color');
+            $table->boolean('email_status')->nullable()->default(false);
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });

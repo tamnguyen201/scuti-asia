@@ -36,7 +36,7 @@ class FullcalendarController extends Controller
                     [
                         'color'=> $value->color,
                         'admins'=>$str_attender_name,
-                        'start_time'=> \Carbon\Carbon::parse($value->start)->format('d/m/Y - H:i:s')
+                        'start_time'=> \Carbon\Carbon::parse($value->start)->format('d/m/Y - H:i')
                     ]
                 );
             }
