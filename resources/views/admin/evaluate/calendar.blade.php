@@ -16,7 +16,6 @@
                 <div class="button col-md-8" style="float: right">
                     <form action="{{ route('send.event.email') }}" method="POST" class="form-delete-{{$item->id}}" style="display: inline-block">
                         @csrf
-                        
                         <input name="email" type="text" value="{{ $item->user->email }}" hidden>
                         <input name="name" type="text" value="{{ $item->user->name }}" hidden>
                         <input name="time" type="text" value="{{ \Carbon\Carbon::parse($item->start)->format('d/m/Y - H:i:s') }}" hidden>
@@ -38,4 +37,5 @@
 
 <div class="clearfix"></div>
 @include('admin.calendar.modal_add')
+
 
