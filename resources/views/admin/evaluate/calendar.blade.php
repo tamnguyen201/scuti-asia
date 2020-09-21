@@ -16,7 +16,6 @@
                 <div class="button col-md-12" style="float: right">
                     <div class="col-md-9 btn-email">
                         @if ($item->email_status ==1)
-                            {{-- <button class="btn btn-success" disabled><span class="fa fa-check"></span> Đã gửi email</button> --}}
                             <span class="label label-success email-success">Đã gửi email</span>
                         @else
                             <form action="{{ route('send.event.email') }}" method="POST" class="form-email-{{$item->id}}" style="display: inline-block; float: right">
