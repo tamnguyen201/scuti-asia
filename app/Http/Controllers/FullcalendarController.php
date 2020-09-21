@@ -22,11 +22,11 @@ class FullcalendarController extends Controller
         if($data->count()) {
             foreach ($data as $key => $value) {
                 $attender_id = json_decode($value->admin_id) ;
-                $attender_names=[];
-                for ($i=0; $i < count($attender_id) ; $i++) { 
-                    $attender_name[$i] = $this->adminRepository->show($attender_id[$i])->name;
+                $str_attender_name=[];
+                foreach ($attender_id as $id) {
+                    $str_attender_name_id = $this->adminRepository->show($id)->name;
+                    array_push($str_attender_name, $str_attender_name_id);
                 };
-                $str_attender_name = implode(',',$attender_name);
                 $events[] = \Calendar::event(
                     $value->title,
                     true,
