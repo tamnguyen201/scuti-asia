@@ -19,4 +19,9 @@ class JobRepository extends Repository implements JobRepositoryInterface
     {
         return \App\Model\UserJob::with(['user'])->where('job_id', '=' , $id)->paginate(10);
     }
+
+    public function where($field, $opedaytor = '=' ,$condition)
+    {
+        return $this->model->where($field, $opedaytor ,$condition)->first();
+    }
 }

@@ -24,7 +24,8 @@
                                 <input name="event_id" type="text" value="{{ $item->id }}" hidden>
                                 <input name="email" type="text" value="{{ $item->user->email }}" hidden>
                                 <input name="name" type="text" value="{{ $item->user->name }}" hidden>
-                                <input name="time" type="text" value="{{ \Carbon\Carbon::parse($item->start)->format('d/m/Y - H:i:s') }}" hidden>
+                                <input name="time" type="text" value="{{ \Carbon\Carbon::parse($item->start)->format('d/m/Y - H:i') }}" hidden>
+                                <input name="job" type="text" value="{{ $jobById->name }}" hidden>
                                 <button class="btn btn-warning btn-send-email" style="padding-right: 15px" idEmail={{$item->id}}><span
                                     class="fa fa-envelope-o"></span></button>
                             </form>

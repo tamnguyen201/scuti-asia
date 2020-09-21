@@ -7,11 +7,12 @@ use Redirect,Response;
 use App\Model\Evaluate;
 use Illuminate\Http\Request;
 use App\Http\Requests\EventRequest;
+use App\Repositories\Job\JobRepositoryInterface;
+use App\Repositories\Admin\AdminRepositoryInterface;
 use MaddHatter\LaravelFullcalendar\Facades\Calendar;
 use App\Repositories\Process\ProcessRepositoryInterface;
 use App\Repositories\Evaluate\EvaluateRepositoryInterface;
 use App\Repositories\Candidate\CandidateRepositoryInterface;
-use App\Repositories\Admin\AdminRepositoryInterface;
 
 class EvaluateController extends Controller
 {
@@ -21,17 +22,20 @@ class EvaluateController extends Controller
     protected $evaluateRepository;
     protected $processRepository;
     protected $adminRepository;
+    protected $jobRepository;
 
     public function __construct(
         EvaluateRepositoryInterface $evaluateRepository,
         CandidateRepositoryInterface $candidateRepository,
         ProcessRepositoryInterface $processRepository,
-        AdminRepositoryInterface $adminRepository)
+        AdminRepositoryInterface $adminRepository,
+        JobRepositoryInterface $jobRepository)
     {
         $this->evaluateRepository = $evaluateRepository;
         $this->candidateRepository = $candidateRepository;
         $this->processRepository = $processRepository;
         $this->adminRepository = $adminRepository;
+        $this->jobRepository =$jobRepository;
     }
 
     public function showCalendar($id)
@@ -118,12 +122,13 @@ class EvaluateController extends Controller
     {
         $processById = $this->processRepository->show($id);
         $candidateById = $this->candidateRepository->where('id','=', $processById->user_job->user_id);
+        $jobById = $this->jobRepository->where('id','=', $processById->user_job->job_id);
         $calendar = $this->showCalendar($candidateById->id);
         $dataUser =$this->candidateRepository->show($candidateById->id);
         $dataAdmin = $this->adminRepository->all();
         $data = Event::all();
         
-        return view('admin.evaluate.evaluate_process', compact('processById','data','candidateById','calendar','dataUser','dataAdmin'));
+        return view('admin.evaluate.evaluate_process', compact('processById','data','candidateById','calendar','dataUser','dataAdmin','jobById'));
     }
 
     public function store(Request $request, $id)
@@ -137,12 +142,13 @@ class EvaluateController extends Controller
             $processById = $this->evaluatePass($dataCurrentEvaluate);
             
             $candidateById = $this->candidateRepository->where('id','=', $processById->user_job->user_id);
+            $jobById = $this->jobRepository->where('id','=', $processById->user_job->job_id);
             $calendar = $this->showCalendar($candidateById->id);
             $dataUser =$this->candidateRepository->show($candidateById->id);
             $dataAdmin = $this->adminRepository->all();
             $data = Event::all();
 
-            return view('admin.evaluate.evaluate_process' , compact('processById','data','candidateById','calendar','dataUser','dataAdmin'));
+            return view('admin.evaluate.evaluate_process' , compact('processById','data','candidateById','calendar','dataUser','dataAdmin','jobById'));
         }
     }
 
@@ -152,11 +158,11 @@ class EvaluateController extends Controller
         if (0 < $currentProcess->step && $currentProcess->step < 4 ) {
             $nextProcessStep = ( $currentProcess->step ) +1;
             if( $nextProcessStep == 1 ){
-                $nextProcessName = 'Checking';
+                $nextProcessName = 'Đang kiểm tra';
             }else if( $nextProcessStep== 2 ) {
-                $nextProcessName = 'Interview';
+                $nextProcessName = 'Phỏng vấn';
             } else if( $nextProcessStep== 3 ) {
-                $nextProcessName = 'Finish';
+                $nextProcessName = 'Kết thúc';
             };
             $dataNextProcess = $this->processRepository->create([
                 'step'=>$nextProcessStep,
@@ -185,8 +191,9 @@ class EvaluateController extends Controller
         $time = $request->time;
         $name = $request->name;
         $event_id = $request->event_id;
+        $jobName = $request->job;
 
-        $this->evaluateRepository->sendEmail($candidate_email, $time, $name);
+        $this->evaluateRepository->sendEmail($candidate_email, $time, $name, $jobName);
         Event::find($event_id)->update(['email_status'=>1]);
         return redirect()->back();
     }

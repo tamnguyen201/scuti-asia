@@ -296,13 +296,13 @@ class RoleSeeder extends Seeder
             ['id'=>5, 'user_id' => 4, 'cv_id' => 4, 'job_id' => 5, 'letter' => 'Cảm ơn', 'status' => 1, 'result' => 1, 'created_at' => \Carbon\Carbon::parse('09-09-2020 03:26:49')->format('Y-m-d H:i:s')],
         ]);
         DB::table('process')->insert([
-            ['id'=>1, 'step' => 1, 'name' => 'Checking', 'user_job_id' => 1],
-            ['id'=>2, 'step' => 2, 'name' => 'Interviewer', 'user_job_id' => 1],
-            ['id'=>3, 'step' => 1, 'name' => 'Checking', 'user_job_id' => 2],
-            ['id'=>4, 'step' => 1, 'name' => 'Checking', 'user_job_id' => 3],
-            ['id'=>5, 'step' => 1, 'name' => 'Checking', 'user_job_id' => 5],
-            ['id'=>6, 'step' => 2, 'name' => 'Interviewer', 'user_job_id' => 5],
-            ['id'=>7, 'step' => 3, 'name' => 'Make Offer', 'user_job_id' => 5],
+            ['id'=>1, 'step' => 1, 'name' => 'Đang kiểm tra', 'user_job_id' => 1],
+            ['id'=>2, 'step' => 2, 'name' => 'Phỏng vấn', 'user_job_id' => 1],
+            ['id'=>3, 'step' => 1, 'name' => 'Đang kiểm tra', 'user_job_id' => 2],
+            ['id'=>4, 'step' => 1, 'name' => 'Đang kiểm tra', 'user_job_id' => 3],
+            ['id'=>5, 'step' => 1, 'name' => 'Đang kiểm tra', 'user_job_id' => 5],
+            ['id'=>6, 'step' => 2, 'name' => 'Phỏng vấn', 'user_job_id' => 5],
+            ['id'=>7, 'step' => 3, 'name' => 'Kết thúc', 'user_job_id' => 5],
         ]);
         DB::table('evaluates')->insert([
             ['id'=>1, 'process_id' => 1,'comment' => '', 'reason' => 'Checking', 'status' => 1],
