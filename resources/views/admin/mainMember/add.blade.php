@@ -26,21 +26,21 @@
                         <div class="col-md-6">
                             <div class="form-group @error('name') has-error @enderror">
                                 <label class="label-required">@lang('custom.name')</label>
-                                <input type="text" name="name" class="form-control" value="{{old('name')}}">
+                                <input type="text" name="name" class="form-control" value="{{old('name')}}" placeholder="@lang('custom.placeholder.name')">
                                 @error('name') 
                                 <span class="help-block"> {{$message}} </span>
                                 @enderror
                             </div>
                             <div class="form-group @error('position') has-error @enderror">
                                 <label class="label-required">@lang('custom.role')</label>
-                                <input type="text" name="position" class="form-control" value="{{old('position')}}">
+                                <input type="text" name="position" class="form-control" value="{{old('position')}}" placeholder="@lang('custom.placeholder.position')">
                                 @error('position') 
                                 <span class="help-block"> {{$message}} </span>
                                 @enderror
                             </div>
                             <div class="form-group @error('quote') has-error @enderror">
                                 <label class="label-required">@lang('custom.description')</label>
-                                <textarea name="quote" cols="30" rows="10" class="form-control"> {{old('quote')}} </textarea>
+                                <textarea name="quote" cols="30" rows="10" class="form-control" placeholder="@lang('custom.placeholder.description')"> {{old('quote')}} </textarea>
                                 @error('quote') 
                                 <span class="help-block"> {{$message}} </span>
                                 @enderror
@@ -56,7 +56,7 @@
                             </div>
                             <div class="form-group @error('avatar') has-error @enderror">
                                 <label class="label-required">@lang('custom.image_url')</label>
-                                <input type="file" onchange="encodeImageFileAsURL(this)" name="avatar"" accept="image/*">
+                                <input type="file" onchange="encodeImageFileAsURL(this)" name="avatar" accept="image/*">
                                 @error('avatar') 
                                 <span class="help-block"> {{$message}} </span>
                                 @enderror

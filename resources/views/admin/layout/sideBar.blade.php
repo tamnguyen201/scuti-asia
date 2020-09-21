@@ -16,6 +16,8 @@
         <li class="{{ (request()->is('admin')) ? 'active' : '' }}"><a href="{{route('admin.home')}}"><em class="fa fa-dashboard">&nbsp;</em> @lang('custom.menu.dashboard')</a></li>
         <li class="{{ (request()->is('admin/fullcalendar')) ? 'active' : '' }}"><a href="{{ route('fullcalendar.show') }}"><em class="fa fa-calendar">&nbsp;</em> @lang('custom.menu.calendar') </a></li>
         <li class="{{ (request()->is('admin/employees*')) ? 'active' : '' }}"><a href="{{route('employees.index')}}"><span class="fa fa-users">&nbsp;</span> @lang('custom.menu.manager')</a></li>
+        <li class="{{ (request()->is('admin/users')) ? 'active' : '' }}"><a href="{{ route('users.index') }}"><em class="fa fa-users">&nbsp;</em> @lang('custom.menu.user') </a></li>
+        <li class="{{ (request()->is('admin/categories')) ? 'active' : '' }}"><a href="{{route('categories.index')}}"><span class="fa fa-tasks">&nbsp;</span> @lang('custom.menu.category')</a></li>
         <li class="parent ">
             <a data-toggle="collapse" href="#sub-item-2">
                 <em class="fa fa-child">&nbsp;</em> @lang('custom.menu.recruitment_detail') <span data-toggle="collapse" href="#sub-item-2" class="icon pull-right"><em class="fa fa-plus"></em></span>

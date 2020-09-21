@@ -125,7 +125,11 @@
 <div class="row">
     <div class="col-md-12">
         <div class="panel panel-default">
-        <div class="panel-heading">@lang('custom.public_post')</div>
+        <div class="panel-heading">@lang('custom.public_post') <div class="pull-right search" style="display: flex">
+                        <input class="form-control" style="margin-right: 10px; height: auto " type="text" id="input-search" placeholder="Search">
+                        <button type="button" id="btn-search" class="btn btn-primary" style="margin: 0px">Tìm</button>
+                    </div>
+                </div>
             <div class="panel-body">
                 <table class="table table-hover">
                     <thead>

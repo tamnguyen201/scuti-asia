@@ -38,6 +38,9 @@
                                         <div class="th-inner">@lang('custom.visit_type')</div>
                                     </th>
                                     <th>
+                                        <div class="th-inner">@lang('custom.status')</div>
+                                    </th>
+                                    <th>
                                         <div class="th-inner text-center">@lang('custom.action')</div>
                                     </th>
                                 </tr>
@@ -50,8 +53,12 @@
                                     <td>{{$item->name}}</td>
                                     <td>{{$item->email}}</td>
                                     <td>{{$item->type}}</td>
+                                    <td>{{($item->status == 1) ? 'Đã Xác Nhận' : 'Chưa Xác Nhận'}}</td>
                                     <td class="text-center">
-                                        <a href="{{route('contacts.show', $item['id'])}}" class="btn btn-primary text-light view-profile"><em class="far fa-eye"></em></a> 
+                                        <a href="{{route('contacts.show', $item['id'])}}" class="btn btn-primary text-light view-profile"><em class="far fa-eye"></em></a>
+                                        @if($item->status == 0)
+                                        <a href="{{route('contacts.show', $item['id'])}}" class="btn btn-success text-light">Xác Nhận</a>
+                                        @endif
                                     </td>
                                 </tr>
                                 @endforeach

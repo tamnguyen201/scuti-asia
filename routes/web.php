@@ -30,7 +30,6 @@ Route::post('reset-password/{token}', 'AuthController@storeResetPW')->name('clie
 
 Route::get('/logout', 'AuthController@logout')->name('client.logout');
 Route::get('/profile/{tab?}', 'HomeController@profile')->name('client.profile');
-Route::get('/change-infomation', 'HomeController@changeAccountInfo')->name('client.change_info');
 Route::post('/change-infomation', 'UserController@update')->name('client.update_info');
 Route::get('/upload-cv', 'CVController@create')->name('client.create_cv');
 Route::post('/upload-cv', 'CVController@store')->name('client.upload_cv');

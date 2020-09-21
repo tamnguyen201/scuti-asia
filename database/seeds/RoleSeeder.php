@@ -79,11 +79,11 @@ class RoleSeeder extends Seeder
             ['id'=>5, 'name'=>'Hỗ trợ laptop gamming', 'image' => 'https://cdn.tgdd.vn/hoi-dap/1122656/top-5-laptop-gamig-2.jpg', 'description' => 'Tối đa 365 triệu/năm'],
         ]);
         DB::table('company_images')->insert([
-            ['id'=>1, "name" => "Thân thiện và vui vẻ", 'description' => 'Chúng tôi mở để chia sẻ kiến ​​thức, kinh nghiệm qua các cuộc hội thảo, hội thảo mỗi tuần.', 'image_url'=>'images/image1.JPG'],
+            ['id'=>1, "name" => "Thân thiện và vui vẻ", 'description' => 'Chúng tôi luôn luôn giúp nhân viên thoải mái và hoàn thành công việc hiệu quả.', 'image_url'=>'images/image1.JPG'],
             ['id'=>2, "name" => "Làm việc từ xa", 'description' => 'Bạn có quyền chọn địa điểm làm việc, thời gian làm việc.', 'image_url'=>'images/image2.jpg'],
             ['id'=>3, "name" => "Phong cách làm việc tự do", 'description' => 'Bạn có thể tự do chọn phong cách đồng phục làm việc.', 'image_url'=>'images/image3.JPG'],
-            ['id'=>4, "name" => "Môi trường chuyên nghiệp", 'description' => 'Teambuilding at Mai Chau - Hoa Binh', 'image_url'=>'images/image4.jpg'],
-            ['id'=>5, "name" => "Tài Năng trẻ", 'description' => 'Teambuilding at Mai Chau - Hoa Binh', 'image_url'=>'images/image5.JPG'],
+            ['id'=>4, "name" => "Môi trường chuyên nghiệp", 'description' => 'Công ty luôn coi trọng con người là tài sản thông qua quyền lợi, chính sách đãi ngộ.', 'image_url'=>'images/image4.jpg'],
+            ['id'=>5, "name" => "Tài Năng trẻ", 'description' => 'Chúng tôi luôn luôn có chính sách tuyển dụng, trọng dụng tài năng trẻ.', 'image_url'=>'images/image5.JPG'],
             ['id'=>6, "name" => "Nâng cao ngoại ngữ", 'description' => 'Bạn có cơ hội để  học ngoại ngữ: Nhật Bản, Anh, Tây Ban Nha, Ấn Độ ...', 'image_url'=>'images/image6.JPG'],
         ]);
         DB::table('new_spapers')->insert([
@@ -112,7 +112,7 @@ class RoleSeeder extends Seeder
                             <p class="text-justify">Đừng để mình bị gò bó trong những nguyên tắc cũ kỹ, cổ hủ. Những nguyên tắc đó sẽ giết dần giết mòn những suy nghĩ tích cực của bạn. Hãy mạnh dạn phá vỡ những điều từ xa xưa trong cuộc sống nếu nó không đúng.</p>
                         </div>
                     </div>',
-                'image'=>'https://www.scuti.asia/uploads/6/1/9/4/61941893/mg-5747.jpg'],
+                'image'=>''],
             ['id'=>3, 'name' => 'Môi Trường Làm Việc', 'slug' => Str::slug('Môi Trường Làm Việc'), 'description' => 'Hãy đến với chúng tôi khi nhận thấy những giá trị này phù hợp với bạn!', 'content' => '', 'image' => ''],
             ['id'=>4, 'name' => 'Về Chúng Tôi', 'slug' => Str::slug('Về Chúng Tôi'), 'description' => 'Chúng tôi tin rằng xây dựng được hạnh phúc, chú trọng con đường sự nghiệp cho nhân viên, sự hài lòng trong công việc và môi trường tích cực sẽ là nền tảng lâu dài cho sự phát triển bền vững của Scuti.', 
                 'content' => 
@@ -340,13 +340,13 @@ class RoleSeeder extends Seeder
             ['id'=>7, 'step' => 3, 'name' => 'Hoàn Thành', 'user_job_id' => 5],
         ]);
         DB::table('evaluates')->insert([
-            ['id'=>1, 'process_id' => 1,'comment' => 'Ứng viên tiềm năng', 'reason' => 'Chúng tôi đã xem qua CV của bạn và chúng tôi đánh giá cao kỹ năng và kinh nghiệm của bạn. Chúc mừng bạn đã vượt qua quá trình này.', 'status' => 1],
-            ['id'=>2, 'process_id' => 2,'comment' => 'Ứng viên tiềm năng', 'reason' => 'Qua cuộc phỏng vấn với bạn, chúng tôi đánh giá cao kỹ năng và kinh nghiệm của bạn. Chúc mừng bạn đã vượt qua quá trình này.', 'status' => 1],
-            ['id'=>3, 'process_id' => 3,'comment' => 'Ứng viên tiềm năng', 'reason' => 'Chúng tôi đã xem qua CV của bạn và chúng tôi đánh giá cao kỹ năng và kinh nghiệm của bạn. Chúc mừng bạn đã vượt qua quá trình này.', 'status' => 1],
-            ['id'=>4, 'process_id' => 4,'comment' => 'Ứng viên tiềm năng', 'reason' => 'Chúng tôi đã xem qua CV của bạn và chúng tôi đánh giá cao kỹ năng và kinh nghiệm của bạn. Chúc mừng bạn đã vượt qua quá trình này.', 'status' => 1],
-            ['id'=>5, 'process_id' => 5,'comment' => 'Ứng viên tiềm năng', 'reason' => 'Chúng tôi đã xem qua CV của bạn và chúng tôi đánh giá cao kỹ năng và kinh nghiệm của bạn. Chúc mừng bạn đã vượt qua quá trình này.', 'status' => 1],
-            ['id'=>6, 'process_id' => 6,'comment' => 'Ứng viên tiềm năng', 'reason' => 'Qua cuộc phỏng vấn với bạn, chúng tôi đánh giá cao kỹ năng và kinh nghiệm của bạn. Chúc mừng bạn đã vượt qua quá trình này.', 'status' => 1],
-            ['id'=>7, 'process_id' => 7,'comment' => 'Ứng viên tiềm năng', 'reason' => 'Chúc mừng bạn đã vượt qua qui trình đánh giá của chúng tôi. Chúng tôi sẽ sớm gửi hợp đồng cho bạn.', 'status' => 1],
+            ['id'=>1, 'process_id' => 1,'comment' => 'Ứng viên tiềm năng', 'reason' => 'Chúng tôi đã xem qua CV của bạn và chúng tôi đánh giá cao kỹ năng và kinh nghiệm của bạn. Chúc mừng bạn đã vượt qua quá trình này.', 'status' => 1, 'created_at' => \Carbon\Carbon::parse('11-06-2020 03:26:49')->format('Y-m-d H:i:s')],
+            ['id'=>2, 'process_id' => 2,'comment' => 'Ứng viên tiềm năng', 'reason' => 'Qua cuộc phỏng vấn với bạn, chúng tôi đánh giá cao kỹ năng và kinh nghiệm của bạn. Chúc mừng bạn đã vượt qua quá trình này.', 'status' => 1, 'created_at' => \Carbon\Carbon::parse('11-06-2020 03:26:49')->format('Y-m-d H:i:s')],
+            ['id'=>3, 'process_id' => 3,'comment' => 'Ứng viên tiềm năng', 'reason' => 'Chúng tôi đã xem qua CV của bạn và chúng tôi đánh giá cao kỹ năng và kinh nghiệm của bạn. Chúc mừng bạn đã vượt qua quá trình này.', 'status' => 1, 'created_at' => \Carbon\Carbon::parse('11-06-2020 03:26:49')->format('Y-m-d H:i:s')],
+            ['id'=>4, 'process_id' => 4,'comment' => 'Ứng viên tiềm năng', 'reason' => 'Chúng tôi đã xem qua CV của bạn và chúng tôi đánh giá cao kỹ năng và kinh nghiệm của bạn. Chúc mừng bạn đã vượt qua quá trình này.', 'status' => 1, 'created_at' => \Carbon\Carbon::parse('11-06-2020 03:26:49')->format('Y-m-d H:i:s')],
+            ['id'=>5, 'process_id' => 5,'comment' => 'Ứng viên tiềm năng', 'reason' => 'Chúng tôi đã xem qua CV của bạn và chúng tôi đánh giá cao kỹ năng và kinh nghiệm của bạn. Chúc mừng bạn đã vượt qua quá trình này.', 'status' => 1, 'created_at' => \Carbon\Carbon::parse('11-06-2020 03:26:49')->format('Y-m-d H:i:s')],
+            ['id'=>6, 'process_id' => 6,'comment' => 'Ứng viên tiềm năng', 'reason' => 'Qua cuộc phỏng vấn với bạn, chúng tôi đánh giá cao kỹ năng và kinh nghiệm của bạn. Chúc mừng bạn đã vượt qua quá trình này.', 'status' => 1, 'created_at' => \Carbon\Carbon::parse('11-06-2020 03:26:49')->format('Y-m-d H:i:s')],
+            ['id'=>7, 'process_id' => 7,'comment' => 'Ứng viên tiềm năng', 'reason' => 'Chúc mừng bạn đã vượt qua qui trình đánh giá của chúng tôi. Chúng tôi sẽ sớm gửi hợp đồng cho bạn.', 'status' => 1, 'created_at' => \Carbon\Carbon::parse('11-06-2020 03:26:49')->format('Y-m-d H:i:s')],
         ]);
         DB::table('events')->insert([
             ['id'=>1, 'title' => 'Phỏng vấn ứng viên Tâm','user_id' => 1, 'admin_id' => '["1","2"]', 'start' => \Carbon\Carbon::now('Asia/Ho_Chi_Minh'), 'end'=> \Carbon\Carbon::now('Asia/Ho_Chi_Minh')->addHour(), 'note'=>'Ứng viên có CV phù hợp','color'=>'#f08648'],

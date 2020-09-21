@@ -24,8 +24,8 @@ class CVUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'cv_name' => 'required',
-            'cv_url' => 'nullable|mimes:pdf,doc,docx|max:10000'
+            'cv_name' => 'required|unique:cvs,cv_name,' . $this->id,
+            'cv_url' => 'nullable|mimes:pdf,doc,docx,xlsx,xls|max:10000'
         ];
     }
 

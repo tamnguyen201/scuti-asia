@@ -72,7 +72,7 @@
                             <div class="profile-page-left">
                                 <div class="row pt-3">
                                     <div class="col-lg-12">
-                                        <div class="mb-4 px-3"> <img src="{{auth()->user()->avatar}}" class="img-fluid rounded-circle"></div>
+                                        <div class="mb-4 px-3"> <img src="{{auth()->user()->avatar}}" class="img-fluid" style="border-radius: 5%;"></div>
                                         <p class="text-center"> <h6 class="text-center">{{auth()->user()->name}} </h6> </p>
                                     </div>
                                 </div>
@@ -80,7 +80,7 @@
                             <hr>
                             
                             <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                                <a class="nav-link" href="{{route('client.change_info')}}" style="border-bottom: 1px solid #e5e5e5;border-radius: 0px !important;">@lang('client.page.profile.sidebar.change_info')</a>
+                                <a href="http://scuti.abc/upload-cv" class="nav-link btn-upload-form" style="border-bottom: 1px solid #e5e5e5;border-radius: 0px !important;">@lang('client.page.profile.sidebar.create_cv')</a>
                                 @if(auth()->user()->password)
                                 <a class="nav-link btn-add-form" href="{{route('client.change_password')}}" style="border-bottom: 1px solid #e5e5e5;border-radius: 0px !important;">@lang('client.page.profile.sidebar.change_password')</a>
                                 @endif
@@ -97,32 +97,46 @@
                             <div class="tab-content px-sm-0" id="nav-tabContent">
                                 <div class="tab-pane fade px-4 {{ (request()->is('profile')) ? 'show active' : '' }}" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
                                     <div class="row">
-                                        <div class="col-md-3">
-                                            <img src="{{ (auth()->user()->avatar) ? auth()->user()->avatar : 'default-img.png' }}" class="img-fluid rounded-circle" alt="">
-                                            <h6 class="text-center mt-2">{{auth()->user()->name}}</h6>
-                                        </div>
-                                        <div class="col-md-9">
-                                            <h5>@lang('client.page.profile.title')</h5>
-                                            <table class="table table-hover">
-                                                <tbody>
-                                                    <tr>
-                                                        <td>@lang('custom.name')</td>
-                                                        <td>{{auth()->user()->name}}</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>@lang('custom.email')</td>
-                                                        <td>{{auth()->user()->email}}</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>@lang('custom.phone')</td>
-                                                        <td>{{(auth()->user()->phone) ? auth()->user()->phone : 'null'}}</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>@lang('custom.address')</td>
-                                                        <td>{{(auth()->user()->address) ? auth()->user()->address : 'null'}}</td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
+                                        <div class="col-12">
+                                            <h5>@lang('client.page.profile.title') </h5>
+                                            <form id="form-update-profile" class="col-lg-12 row" method="post" enctype="multipart/form-data">
+                                                <div class="col-md-7">
+                                                    <div class="form-group">
+                                                        <label class="label-required">@lang('custom.name')</label>
+                                                        <input type="text" name="name" value="{{Auth::user()->name}}" class="form-control" placeholder="@lang('custom.placeholder.name')">
+                                                        <span class="text-danger"></span>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="label-required">@lang('custom.email')</label>
+                                                        <input type="text" name="email" value="{{Auth::user()->email}}" readonly class="form-control" placeholder="@lang('custom.placeholder.email')"> 
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="label-required">@lang('custom.phone')</label>
+                                                        <input type="text" name="phone" value="{{Auth::user()->phone}}" class="form-control" placeholder="@lang('custom.placeholder.phone')"> 
+                                                        <span class="text-danger"></span>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="label-required">@lang('custom.address')</label>
+                                                        <input type="text" name="address" value="{{Auth::user()->address}}" class="form-control" placeholder="@lang('custom.placeholder.address')"> 
+                                                        <span class="text-danger"></span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-5">
+                                                    <div class="form-group">
+                                                        <label>@lang('custom.avatar')</label>
+                                                        <input type="file" onchange="encodeImageFileAsURL(this)" name="avatar" accept="image/*"> 
+                                                        <span class="text-danger"></span>
+                                                    </div>
+                                                    <div class="form-group preview-img">
+                                                        <img src="{{(Auth::user()->avatar) ? Auth::user()->avatar : 'default-img.png'}}" alt="your image" class="img-fluid" style="max-height: 16rem; border-radius: 5%" />
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="col-md-12 text-center">
+                                                    <button type="submit" class="btn btn-outline-reg btn-update-profile">@lang('custom.button.submit')</button>
+                                                    <a href="{{route('client.profile')}}" class="btn btn-outline-reg">@lang('custom.button.cancel')</a>
+                                                </div>
+                                            </form>
                                         </div>
                                     </div>
                                 </div>
@@ -232,7 +246,56 @@
 </div>
 @endsection
 @section('script')
+    <script>
+        function encodeImageFileAsURL(element) {
+            var file = element.files[0];
+            if(file === undefined){
+                $(".preview-img img").attr('src', "{{(auth()->user()->avatar) ? auth()->user()->avatar : 'default-img.png'}}");
+            } else {
+                var reader = new FileReader();
+                reader.onloadend = function() {
+                    if(reader.result){
+                        $(".preview-img img").attr('src', reader.result);
+                    }
+                }
+                reader.readAsDataURL(file);
+            }
+        }
+    </script>
     <script type="text/javascript">
+        $("body").on("click", ".btn-update-profile", function (e) {
+            e.preventDefault();
+            let domForm = $("#form-update-profile");
+            let file = $('body').find('input[name=avatar]')[0].files[0];
+            var postData = new FormData(domForm[0]);
+            $.ajax({
+                url: "{{route('client.update_info')}}",
+                data: postData,
+                dataType: 'json',
+                cache : false,
+                processData: false,
+                contentType: false,
+                method: "POST",
+            }).done(function (results) {
+                $('.text-danger').text('');
+                swal({
+                    title: 'Thành công!',
+                    text: 'Dữ liệu đã được cập nhật lại!',
+                    type: 'success',
+                    icon: 'success'
+                }).then(result => {
+                    location.href = "{{route('client.profile')}}";
+                });
+            }).fail(function (data) {
+                var errors = data.responseJSON;
+                $('.text-danger').text('');
+                $.each(errors.errors, function (i, val) {
+                    domForm.find('input[name=' + i + ']').siblings('.text-danger').text(val[0]);
+                });
+            });
+        });
+
+
         $('.btn-add-form').click(function (e) {
             e.preventDefault();
             let url = $(this).attr('href');
@@ -315,7 +378,9 @@
                     text: 'Dữ liệu đã được cập nhật lại!',
                     type: 'success',
                     icon: 'success'
-                })
+                }).then(result => {
+                    location.href = "{{route('client.profile', 'cvs')}}";
+                });
             }).fail(function (data) {
                 var errors = data.responseJSON;
                 $('.text-danger').text('');

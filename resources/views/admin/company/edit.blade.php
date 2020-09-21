@@ -27,42 +27,42 @@
                         <div class="col-md-6">
                             <div class="form-group @error('name') has-error @enderror">
                                 <label class="label-required">@lang('custom.name')</label>
-                                <input type="text" name="name" value="{{$company->name}}" class="form-control" placeholder="Please enter full name">
+                                <input type="text" name="name" value="{{$company->name}}" class="form-control" placeholder="@lang('custom.placeholder.name')">
                                 @error('name') 
                                 <span class="help-block"> {{$message}} </span>
                                 @enderror
                             </div>
                             <div class="form-group @error('email') has-error @enderror">
                                 <label class="label-required">@lang('custom.email')</label>
-                                <input type="email" name="email" value="{{$company->email}}" class="form-control" placeholder="Please enter email">
+                                <input type="email" name="email" value="{{$company->email}}" class="form-control" placeholder="@lang('custom.placeholder.email')">
                                 @error('email') 
                                 <span class="help-block"> {{$message}} </span>
                                 @enderror
                             </div>
                             <div class="form-group @error('phone') has-error @enderror">
                                 <label class="label-required">@lang('custom.phone')</label>
-                                <input type="text" name="phone" value="{{$company->phone}}" class="form-control" placeholder="Please enter phone">
+                                <input type="text" name="phone" value="{{$company->phone}}" class="form-control" placeholder="@lang('custom.placeholder.phone')">
                                 @error('phone') 
                                 <span class="help-block"> {{$message}} </span>
                                 @enderror
                             </div>
                             <div class="form-group @error('address') has-error @enderror">
                                 <label class="label-required">@lang('custom.address')</label>
-                                <input type="text" name="address" value="{{$company->address}}" class="form-control" placeholder="Please enter address">
+                                <input type="text" name="address" value="{{$company->address}}" class="form-control" placeholder="@lang('custom.placeholder.address')">
                                 @error('address') 
                                 <span class="help-block"> {{$message}} </span>
                                 @enderror
                             </div>
                             <div class="form-group @error('facebook_page') has-error @enderror">
                                 <label class="label-required">@lang('custom.facebook')</label>
-                                <input type="text" name="facebook_page" value="{{$company->facebook_page}}" class="form-control" placeholder="Please enter address">
+                                <input type="text" name="facebook_page" value="{{$company->facebook_page}}" class="form-control" placeholder="@lang('custom.placeholder.address')">
                                 @error('facebook_page') 
                                 <span class="help-block"> {{$message}} </span>
                                 @enderror
                             </div>
                             <div class="form-group @error('youtube_page') has-error @enderror">
                                 <label class="label-required">@lang('custom.youtube')</label>
-                                <input type="text" name="youtube_page" value="{{$company->youtube_page}}" class="form-control" placeholder="Please enter address">
+                                <input type="text" name="youtube_page" value="{{$company->youtube_page}}" class="form-control" placeholder="@lang('custom.placeholder.address')">
                                 @error('youtube_page') 
                                 <span class="help-block"> {{$message}} </span>
                                 @enderror
@@ -81,7 +81,7 @@
                             </div>
                             <div class="form-group @error('description') has-error @enderror">
                                 <label class="label-required">@lang('custom.description')</label>
-                                <textarea name="description" class="form-control" cols="30" rows="6">{{$company->description}}</textarea>
+                                <textarea name="description" class="form-control" cols="30" rows="6" placeholder="@lang('custom.placeholder.description')">{{$company->description}}</textarea>
                                 @error('description') 
                                 <span class="help-block"> {{$message}} </span>
                                 @enderror
@@ -100,5 +100,20 @@
 </div>
 @endsection
 @section('script')
-    @include('admin.preview-img')
+<script>
+    function encodeImageFileAsURL(element) {
+        var file = element.files[0];
+        if(file === undefined){
+            $(".preview-img img").attr('src', "{{$company->logo}}");
+        } else {
+            var reader = new FileReader();
+            reader.onloadend = function() {
+                if(reader.result){
+                    $(".preview-img img").attr('src', reader.result);
+                }
+            }
+            reader.readAsDataURL(file);
+        }
+    }
+</script>
 @endsection

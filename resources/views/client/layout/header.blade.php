@@ -6,7 +6,7 @@
                     <div class="text-container">
                         <h1 class="h1-large">@lang('client.header.title')</h1>
                         <p class="p-large">@lang('client.header.description')</p>
-                        <a class="btn-outline-lg page-scroll" href="#services">@lang('client.header.apply')</a>
+                        <a class="btn-outline-lg page-scroll" href="#recruitment">@lang('client.header.apply')</a>
                     </div>
                 </div>
             </div>

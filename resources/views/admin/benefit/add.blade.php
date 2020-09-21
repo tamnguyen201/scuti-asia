@@ -1,4 +1,3 @@
-
 @extends('admin.layout.layout')
 @section('title', trans('custom.page_title.benefit_manage'))
 @section('content')
@@ -26,14 +25,14 @@
                         <div class="col-md-6">
                             <div class="form-group @error('name') has-error @enderror">
                                 <label class="label-required">@lang('custom.name')</label>
-                                <input type="text" name="name" class="form-control" value="{{old('name')}}">
+                                <input type="text" name="name" class="form-control" value="{{old('name')}}" placeholder="@lang('custom.placeholder.name')">
                                 @error('name') 
                                 <span class="help-block"> {{$message}} </span>
                                 @enderror
                             </div>
                             <div class="form-group @error('description') has-error @enderror">
                                 <label class="label-required">@lang('custom.description')</label>
-                                <textarea name="description" cols="30" rows="10" class="form-control"> {{old('description')}} </textarea>
+                                <textarea name="description" cols="30" rows="10" class="form-control" placeholder="@lang('custom.placeholder.description')"> {{old('description')}} </textarea>
                                 @error('description') 
                                 <span class="help-block"> {{$message}} </span>
                                 @enderror

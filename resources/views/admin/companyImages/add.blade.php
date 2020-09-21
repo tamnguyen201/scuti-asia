@@ -24,15 +24,15 @@
                         @csrf
                         <div class="col-md-6">
                             <div class="form-group @error('name') has-error @enderror">
-                                <label>@lang('custom.name')</label>
-                                <input type="text" name="name" value="{{old('name')}}" class="form-control">
+                                <label class="label-required">@lang('custom.name')</label>
+                                <input type="text" name="name" value="{{old('name')}}" class="form-control" placeholder="@lang('custom.placeholder.name')">
                                 @error('name') 
                                 <span class="help-block"> {{$message}} </span>
                                 @enderror
                             </div>
                             <div class="form-group @error('description') has-error @enderror">
-                                <label>@lang('custom.description')</label>
-                                <textarea name="description" cols="30" rows="9" class="form-control"> {{old('description')}} </textarea>
+                                <label class="label-required">@lang('custom.description')</label>
+                                <textarea name="description" cols="30" rows="9" class="form-control" placeholder="@lang('custom.placeholder.description')"> {{old('description')}} </textarea>
                                 @error('description') 
                                 <span class="help-block"> {{$message}} </span>
                                 @enderror
@@ -40,7 +40,7 @@
                         </div>
                         <div class="col-md-6">
                             <div class="form-group @error('image_url') has-error @enderror">
-                                <label>@lang('custom.image_url')</label>
+                                <label class="label-required">@lang('custom.image_url')</label>
                                 <input type="file" onchange="encodeImageFileAsURL(this)" name="image_url" accept="image/*">
                                 @error('image_url') 
                                 <span class="help-block"> {{$message}} </span>

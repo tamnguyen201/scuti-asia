@@ -8,6 +8,8 @@ use App\Http\Requests\ClientApplyJobRequest;
 use App\Services\ApplyJobService;
 use App\Repositories\Client\SectionRepositoryInterface;
 use App\Repositories\Company\CompanyImagesRepositoryInterface;
+use App\Repositories\Member\MemberRepositoryInterface;
+use App\Repositories\Benefit\BenefitRepositoryInterface;
 use App\Repositories\Company\ContactRepositoryInterface;
 use App\Repositories\Company\NewSpaperRepositoryInterface;
 use App\Repositories\Category\CategoryRepositoryInterface;
@@ -17,6 +19,8 @@ use Illuminate\Http\Request;
 class HomeController extends Controller
 {
     protected $SectionRepository;
+    protected $MemberRepository;
+    protected $BenefitRepository;
     protected $CompanyImagesRepository;
     protected $NewSpaperRepository;
     protected $CategoryRepository;
@@ -27,6 +31,8 @@ class HomeController extends Controller
     public function __construct(
         SectionRepositoryInterface $SectionRepository,
         CompanyImagesRepositoryInterface $CompanyImagesRepository,
+        MemberRepositoryInterface $MemberRepository,
+        BenefitRepositoryInterface $BenefitRepository,
         NewSpaperRepositoryInterface $NewSpaperRepository,
         CategoryRepositoryInterface $CategoryRepository,
         JobRepositoryInterface $JobRepository,
@@ -36,6 +42,8 @@ class HomeController extends Controller
     {
         $this->SectionRepository = $SectionRepository;
         $this->CompanyImagesRepository = $CompanyImagesRepository;
+        $this->MemberRepository = $MemberRepository;
+        $this->BenefitRepository = $BenefitRepository;
         $this->CategoryRepository = $CategoryRepository;
         $this->NewSpaperRepository = $NewSpaperRepository;
         $this->JobRepository = $JobRepository;
@@ -45,8 +53,8 @@ class HomeController extends Controller
     public function index()
     {
         $data['section'] = $this->SectionRepository->all();
-        $data['main_member'] = \App\Model\MainMember::all();
-        $data['benefits'] = \App\Model\Benefit::all();
+        $data['main_member'] = $this->MemberRepository->all();
+        $data['benefits'] = $this->BenefitRepository->all();
         $data['working_environment'] = $this->CompanyImagesRepository->all();
         $data['new_spaper'] = $this->NewSpaperRepository->all();
         $data['categories'] = $this->CategoryRepository->where('status', '=', 1);
@@ -77,7 +85,7 @@ class HomeController extends Controller
         if ($request->category_id != '*') {
             $categories = $this->CategoryRepository->where('id', '=',$request->category_id);
         }
-
+        
         $html = view('client.page.filterJob', compact('categories'))->render();
         return response()->json($html);
     }
@@ -145,11 +153,6 @@ class HomeController extends Controller
     public function profile()
     {
         return view('client.page.profile');
-    }
-
-    public function changeAccountInfo()
-    {
-        return view('client.page.changeAccountInfo');
     }
 
     public function changePassword()

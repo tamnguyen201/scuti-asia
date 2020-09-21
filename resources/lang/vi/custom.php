@@ -54,6 +54,7 @@ return [
     'public_post' => 'Tin Tuyển Dụng Công Khai',
     'visit_type' => 'Kiểu Cuộc Họp',
     'member_type' => 'Kiểu Nhân Viên',
+    'read_more' => 'Xem Thêm',
     
     'page_title' => [
         'dashboard' => 'Bảng Điều Khiển',
@@ -111,7 +112,8 @@ return [
         'image' => 'Vui lòng chọn ảnh',
         'logo' => 'Vui lòng chọn logo',
         'cv_url' => 'Vui lòng nhập tên cho CV',
-        'url' => 'Vui lòng nhập thông tin đường dẫn liên kết'
+        'url' => 'Vui lòng nhập thông tin đường dẫn liên kết',
+        'position' =>  'Vui lòng nhập thông tin vị trí',
     ],
 
     'button' => [
@@ -130,7 +132,7 @@ return [
         'had_password'=>'Bạn đã có tài khoản, đăng nhập tại đây',
         'enter'=>'Nhập',
         'start_process'=>'Bắt đầu đánh giá',
-        'search'=>'Tìm kiếm',
+        'search'=>'Tìm',
         'edit'=>'Sửa',
         'next' => 'Tiếp Theo',
         'previous' => 'Lùi Lại',

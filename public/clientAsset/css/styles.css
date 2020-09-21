@@ -345,9 +345,9 @@ select::-ms-expand {
 }
 
 .form-control-textarea {
-	display: block; /* used to eliminate a bottom gap difference between Chrome and IE/FF */
+	display: block;
 	width: 100%;
-	height: 8rem; /* used instead of html rows to normalize height between Chrome and IE/FF */
+	/* height: 8rem; */
 	padding-top: 1.25rem;
 	padding-left: 1.3125rem;
 	border: 1px solid #dadada;
@@ -1657,16 +1657,12 @@ input[type='checkbox'] {
 }
 
 .slider-2 .card-image {
-	width: 13rem;
-	height: auto;
+	max-width: 13rem;
+	max-height: 9rem;
 	margin-right: auto;
 	margin-bottom: 0.25rem;
 	margin-left: auto;
-	border-radius: 50%;
-}
-
-.slider-2 .card-image.benefits {
-	border-radius: 10%;
+	border-radius: 5%;
 }
 
 .slider-2 .card .card-body {
@@ -2263,6 +2259,10 @@ a:hover.back-to-top {
 		background-size: 1.375rem 2.125rem;
 	}
 
+	.slider-2 .card-image {
+		max-width: 75%;
+	}
+
 	/* end of testimonials */
 
 	
@@ -2435,6 +2435,9 @@ a:hover.back-to-top {
 
 	/* end of description */
 
+	.slider-2 .card-image {
+		max-width: 100%;
+	}
 
 	/* Details 1 */
 	.accordion {
@@ -2628,7 +2631,7 @@ a:hover.back-to-top {
 	
 	/* General Styles */
 	.p-heading {
-		width: 44%;
+		width: 57%;
 	}
 	/* end of general styles */
 
@@ -2685,10 +2688,6 @@ a:hover.back-to-top {
 		margin-left: auto;
 	}
 
-	.slider-2 .card-image {
-		width: 12rem;
-		height: 10rem;
-	}
 	/* end of description */
 
 
@@ -2860,11 +2859,6 @@ a:hover.back-to-top {
 		max-width: 125rem;
 	}
 
-	.cards-2 .card {
-		max-width: 39rem;
-		min-height: 25rem;
-	}
-
 	.slider-1 .image-container {
 		max-width: 57.25rem; 
 	}
@@ -2873,8 +2867,7 @@ a:hover.back-to-top {
 	}
 
 	.slider-2 .card-image {
-		width: 22rem;
-		height: 20rem;
+		max-width: 22rem;
 	}
 
 	.form-2 .map-responsive {

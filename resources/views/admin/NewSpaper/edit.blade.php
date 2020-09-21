@@ -26,21 +26,21 @@
                         @method('PUT')
                         <div class="col-md-6">
                             <div class="form-group @error('title') has-error @enderror">
-                                <label>@lang('custom.title')</label>
+                                <label class="label-required">@lang('custom.title')</label>
                                 <input type="text" name="title" value="{{$NewSpaper->title}}" class="form-control" placeholder="@lang('custom.placeholder.title')">
                                 @error('title') 
                                 <span class="help-block"> {{$message}} </span>
                                 @enderror
                             </div>
                             <div class="form-group @error('url') has-error @enderror">
-                                <label>@lang('custom.url')</label>
+                                <label class="label-required">@lang('custom.url')</label>
                                 <input type="text" name="url" value="{{$NewSpaper->url}}" class="form-control" placeholder="@lang('custom.placeholder.url')">
                                 @error('url') 
                                 <span class="help-block"> {{$message}} </span>
                                 @enderror
                             </div>
                             <div class="form-group @error('description') has-error @enderror">
-                                <label>@lang('custom.description')</label>
+                                <label class="label-required">@lang('custom.description')</label>
                                 <textarea name="description" cols="30" rows="10" class="form-control">{{$NewSpaper->description}} </textarea>
                                 @error('description') 
                                 <span class="help-block"> {{$message}} </span>
@@ -49,7 +49,7 @@
                         </div>
                         <div class="col-md-6">
                             <div class="form-group @error('image_url') has-error @enderror">
-                                <label>@lang('custom.image_url')</label>
+                                <label class="label-required">@lang('custom.image_url')</label>
                                 <input type="file" onchange="encodeImageFileAsURL(this)" name="image_url" accept="image/*">
                                 @error('image_url') 
                                 <span class="help-block"> {{$message}} </span>
@@ -72,5 +72,20 @@
 </div>
 @endsection
 @section('script')
-    @include('admin.preview-img')
+<script>
+    function encodeImageFileAsURL(element) {
+        var file = element.files[0];
+        if(file === undefined){
+            $(".preview-img img").attr('src', "{{$NewSpaper->image}}");
+        } else {
+            var reader = new FileReader();
+            reader.onloadend = function() {
+                if(reader.result){
+                    $(".preview-img img").attr('src', reader.result);
+                }
+            }
+            reader.readAsDataURL(file);
+        }
+    }
+</script>
 @endsection

@@ -34,7 +34,7 @@ class BenefitRequest extends FormRequest
     {
         return [
             'required' => trans('validation.required'),
-            'uinique' => trans('validation.unique'),
+            'unique' => trans('validation.unique'),
             'image.mimes' => trans('validation.mimes'),
             'image.max' => trans('validation.max'),
         ];

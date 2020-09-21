@@ -18,12 +18,12 @@
             <div class="panel-heading">@lang('custom.page_title.data_table')</div>
             <div class="panel-body">
                 <div class="bootstrap-table">
-                <div class="fixed-table-toolbar">
-                    <div class="pull-right search" style="display: flex">
-                        <input class="form-control" style="margin-right: 15px" type="text" id="input-search" placeholder="Search">
-                        <button type="button" id="btn-search" class="btn btn-primary" style="margin: 0px">Tìm</button>
+                    <div class="fixed-table-toolbar">
+                        <div class="pull-right search" style="display: flex">
+                            <input class="form-control" style="margin-right: 15px" type="text" id="input-search" placeholder="Search">
+                            <button type="button" id="btn-search" class="btn btn-primary" style="margin: 0px">Tìm</button>
+                        </div>
                     </div>
-                </div>
                     <div class="fixed-table-container">
                         <div class="fixed-table-body">
                         <table class="table table-hover">

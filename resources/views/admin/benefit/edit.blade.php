@@ -27,14 +27,14 @@
                         <div class="col-md-6">
                             <div class="form-group @error('name') has-error @enderror">
                                 <label class="label-required">@lang('custom.name')</label>
-                                <input type="text" name="name" value="{{$benefit->name}}" class="form-control">
+                                <input type="text" name="name" value="{{$benefit->name}}" class="form-control" placeholder="@lang('custom.placeholder.name')">
                                 @error('name') 
                                 <span class="help-block"> {{$message}} </span>
                                 @enderror
                             </div>
                             <div class="form-group @error('description') has-error @enderror">
                                 <label class="label-required">@lang('custom.description')</label>
-                                <textarea name="description" cols="30" rows="10" class="form-control">{{$benefit->description}} </textarea>
+                                <textarea name="description" cols="30" rows="10" class="form-control" placeholder="@lang('custom.placeholder.name')">{{$benefit->description}} </textarea>
                                 @error('description') 
                                 <span class="help-block"> {{$message}} </span>
                                 @enderror

@@ -4,7 +4,7 @@
 @section('content')
 <div class="row">
     <ol class="breadcrumb">
-        <li><a href="#">
+        <li><a href="{{route('admin.home')}}">
             <em class="fa fa-home"></em>
         </a></li>
         <li class="active">@lang('custom.page_title.new_spaper_manage')</li>
@@ -25,21 +25,21 @@
                         @csrf
                         <div class="col-md-6">
                             <div class="form-group @error('title') has-error @enderror">
-                                <label>@lang('custom.title')</label>
+                                <label class="label-required">@lang('custom.title')</label>
                                 <input type="text" name="title" class="form-control" value="{{old('title')}}" placeholder="@lang('custom.placeholder.title')">
                                 @error('title') 
                                 <span class="help-block"> {{$message}} </span>
                                 @enderror
                             </div>
                             <div class="form-group @error('url') has-error @enderror">
-                                <label>@lang('custom.url')</label>
+                                <label class="label-required">@lang('custom.url')</label>
                                 <input type="text" name="url" class="form-control" value="{{old('url')}}" placeholder="@lang('custom.placeholder.url')">
                                 @error('url') 
                                 <span class="help-block"> {{$message}} </span>
                                 @enderror
                             </div>
                             <div class="form-group @error('description') has-error @enderror">
-                                <label>@lang('custom.description')</label>
+                                <label class="label-required">@lang('custom.description')</label>
                                 <textarea name="description" cols="30" rows="10" class="form-control"> {{old('description')}} </textarea>
                                 @error('description') 
                                 <span class="help-block"> {{$message}} </span>
@@ -48,7 +48,7 @@
                         </div>
                         <div class="col-md-6">
                             <div class="form-group @error('image') has-error @enderror">
-                                <label>@lang('custom.image_url')</label>
+                                <label class="label-required">@lang('custom.image_url')</label>
                                 <input type="file" onchange="encodeImageFileAsURL(this)" name="image" accept="image/*">
                                 @error('image') 
                                 <span class="help-block"> {{$message}} </span>

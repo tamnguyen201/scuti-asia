@@ -35,7 +35,7 @@ class MainMemberUpdateRequest extends FormRequest
     {
         return [
             'required' => trans('validation.required'),
-            'uinique' => trans('validation.unique'),
+            'unique' => trans('validation.unique'),
             'avatar.mimes' => trans('validation.mimes'),
             'avatar.max' => trans('validation.max'),
         ];

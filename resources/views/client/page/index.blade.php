@@ -87,11 +87,6 @@
             <div class="row">
                 {!! $data['section'][1]->content !!}
             </div>
-            <div class="row">
-                <div class="col-12 text-center">
-                    <img src="{{$data['section'][1]->image}}" class="w-100" alt="">
-                </div>
-            </div>
         </div>
     </div>
 
@@ -160,12 +155,12 @@
                                 @foreach($data['main_member'] as $item)
                                 @if($item->member_type == 1)
                                 <div class="swiper-slide">
-                                    <div class="card">
-                                        <img class="card-image" src="{{$item->avatar}}" alt="alternative">
-                                        <div class="card-body">
+                                    <div class="card px-3 px-md-5">
+                                        <img class="card-image img-fluid" src="{{$item->avatar}}" alt="alternative">
+                                        <div class="card-body px-0">
                                             <div class="testimonial-author">{{$item->name}}</div>
                                             <div class="testimonial-text">{{$item->position}}</div>
-                                            <div class="testimonial-text">{{$item->quote}}</div>
+                                            <div class="testimonial-text text-justify">{{$item->quote}}</div>
                                         </div>
                                     </div>
                                 </div> 
@@ -195,12 +190,11 @@
                             @foreach($data['main_member'] as $item)
                                 @if($item->member_type == 0)
                                 <div class="swiper-slide">
-                                    <div class="card">
-                                        <img class="card-image" src="{{$item->avatar}}" alt="alternative">
-                                        <div class="card-body">
+                                    <div class="card px-3 px-md-5">
+                                        <img class="card-image img-fluid" src="{{$item->avatar}}" alt="alternative">
+                                        <div class="card-body px-0">
                                             <div class="testimonial-author">{{$item->name}}</div>
                                             <div class="testimonial-text">{{$item->position}}</div>
-                                            <div class="testimonial-text">{{$item->quote}}</div>
                                         </div>
                                     </div>
                                 </div> 
@@ -229,8 +223,8 @@
                             <div class="swiper-wrapper">
                                 @foreach($data['benefits'] as $item)
                                 <div class="swiper-slide">
-                                    <div class="card">
-                                        <img class="card-image benefits" src="{{$item->image}}" alt="{{$item->name}}">
+                                    <div class="card px-3 px-md-5">
+                                        <img class="card-image img-fluid benefits" src="{{$item->image}}" alt="{{$item->name}}">
                                         <div class="card-body">
                                             <div class="testimonial-author">{{$item->name}}</div>
                                             <div class="testimonial-text">{{$item->description}}</div>
@@ -276,7 +270,7 @@
                                             <div class="text-container">
                                                 <h3>{{$item->title}}</h3>
                                                 <p>{{$item->description}}</p>
-                                                <a class="btn-outline-reg" target="_blank" href="{{$item->url}}">DETAILS</a>
+                                                <a class="btn-outline-reg" target="_blank" href="{{$item->url}}">@lang('custom.read_more')</a>
                                             </div>
                                         </div>
                                     </div>
@@ -309,11 +303,9 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-6">
-                    <div class="map-responsive text-center">
-                        <img class="img-fluid" src="{{$data['section'][8]->image}}" alt="alternative" style="max-height: 30rem">
-                        <p class="py-3">Mr Tomohide Kakeya - CEO & Founder</p>
-                    </div>
+                <div class="col-lg-6 text-center">
+                    <img class="img-fluid" src="{{$data['section'][8]->image}}" alt="alternative" style="max-height: 33rem">
+                    <p class="py-3">Mr Tomohide Kakeya - CEO & Founder</p>
                 </div>
                 <div class="col-lg-6">
                     <h3 class="ml-4">@lang('client.section.visit_us.form_title')</h3>
@@ -332,7 +324,7 @@
                         <div class="form-group">
                             <div class="form-check">
                                 <label class="form-check-label">
-                                    <input type="radio" class="form-check-input" name="type" checked value="@lang('client.section.visit_us.visit_our_office')">@lang('client.section.visit_us.visit_our_office')
+                                    <input type="radio" class="form-check-input" name="type" checked value="@lang('client.section.visit_us.coffee_with_ceo')">@lang('client.section.visit_us.coffee_with_ceo')
                                 </label>
                             </div>
                             <div class="form-check">
@@ -343,7 +335,7 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <textarea class="form-control-textarea" name="message">{{old('message')}}</textarea>
+                            <textarea class="form-control-textarea" cols="10" rows="8" name="message">{{old('message')}}</textarea>
                             <label class="label-control" for="cmessage">@lang('custom.message') <span class="text-danger">*</span></label>
                             <div class="help-block text-danger with-errors"></div>
                         </div>
@@ -387,7 +379,14 @@
                         @foreach($data['categories'] as $category)
                         <a class="button text-decoration-none" data-filter="{{$category->id}}"><span>{{$category->category_name}}</span></a>
                         @endforeach
-                        <!-- <a class="button text-decoration-none" href="{{route('client.jobs')}}"><span>@lang('client.section.recruitment.end_menu')</span></a> -->
+                    </div>
+                    <div class="col-md-6 mx-auto mt-3 d-md-flex">
+                        <div class="form-group mx-2 w-75">
+                            <input type="text" class="form-control" name="name" value="{{old('name')}}" placeholder="@lang('custom.placeholder.name')">
+                        </div>
+                        <div class="form-group mx-2">
+                            <button type="submit" class="btn btn-search">@lang('custom.button.search')</button>
+                        </div>
                     </div>
                 </div>
                 <div class="col-lg-12 d-md-flex">
@@ -395,26 +394,28 @@
                         <div class="row col-lg-12 d-flex">
                             @foreach($data['categories'] as $category)
                                 @foreach($category->jobs as $job)
-                                <div class="d-md-flex col-lg-6 col-12 d-block development">
-                                    <div class="col-md-12 list-group-item d-md-flex">
-                                        <div class="col-md-7 col-12">
-                                            <div class="mb-block cell name-job">
-                                                <h4 class="title-h4"><a style="color: #f4511e;" href="{{route('job-detail', [$job->id, $job->slug])}}" class="text-decoration-none"> {{$job->name}}</a></h4>
-                                                <p class="desc-job">
-                                                    {{$job->description}}
+                                    @if($job->status == 1)
+                                    <div class="d-md-flex col-lg-6 col-12 d-block development">
+                                        <div class="col-md-12 list-group-item d-md-flex">
+                                            <div class="col-md-7 col-12">
+                                                <div class="mb-block cell name-job">
+                                                    <h4 class="title-h4"><a style="color: #f4511e;" href="{{route('job-detail', [$job->id, $job->slug])}}" class="text-decoration-none"> {{$job->name}}</a></h4>
+                                                    <p class="desc-job">
+                                                        {{$job->description}}
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-5 d-none d-md-block text-md-right text-center">
+                                                <a href="{{route('client.applied', [$job->id, $job->slug])}}" class="btn btn-apply-main btn-apply">@lang('client.section.recruitment.apply')</a>
+                                                <p class="desc-job text-left mt-3">
+                                                    <i class="far fa-money-bill-alt"></i> @lang('client.section.recruitment.salary'): {{$job->salary}} <br>
+                                                    <i class="fas fa-map-marker-alt"></i> @lang('client.section.recruitment.work_place'): {{$job->location->name}} <br>
+                                                    <i class="far fa-clock"></i> @lang('client.section.recruitment.deadline'): {{$job->formatExpireDay()}}
                                                 </p>
                                             </div>
                                         </div>
-                                        <div class="col-md-5 d-none d-md-block text-md-right text-center">
-                                            <a href="{{route('client.applied', [$job->id, $job->slug])}}" class="btn btn-apply-main btn-apply">@lang('client.section.recruitment.apply')</a>
-                                            <p class="desc-job text-left mt-3">
-                                                <i class="far fa-money-bill-alt"></i> @lang('client.section.recruitment.salary'): {{$job->salary}} <br>
-                                                <i class="fas fa-map-marker-alt"></i> @lang('client.section.recruitment.work_place'): {{$job->location->name}} <br>
-                                                <i class="far fa-clock"></i> @lang('client.section.recruitment.deadline'): {{$job->formatExpireDay()}}
-                                            </p>
-                                        </div>
                                     </div>
-                                </div>
+                                    @endif
                                 @endforeach
                             @endforeach
                         </div>

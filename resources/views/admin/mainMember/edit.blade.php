@@ -27,14 +27,14 @@
                         <div class="col-md-6">
                             <div class="form-group @error('name') has-error @enderror">
                                 <label class="label-required">@lang('custom.name')</label>
-                                <input type="text" name="name" class="form-control" value="{{$member->name}}">
+                                <input type="text" name="name" class="form-control" value="{{$member->name}}" placeholder="@lang('custom.placeholder.name')">
                                 @error('name') 
                                 <span class="help-block"> {{$message}} </span>
                                 @enderror
                             </div>
                             <div class="form-group @error('position') has-error @enderror">
                                 <label class="label-required">@lang('custom.role')</label>
-                                <input type="text" name="position" class="form-control" value="{{$member->position}}">
+                                <input type="text" name="position" class="form-control" value="{{$member->position}}" placeholder="@lang('custom.placeholder.position')">
                                 @error('position') 
                                 <span class="help-block"> {{$message}} </span>
                                 @enderror
@@ -79,5 +79,20 @@
 </div>
 @endsection
 @section('script')
-    @include('admin.preview-img')
+<script>
+    function encodeImageFileAsURL(element) {
+        var file = element.files[0];
+        if(file === undefined){
+            $(".preview-img img").attr('src', "{{$member->avatar}}");
+        } else {
+            var reader = new FileReader();
+            reader.onloadend = function() {
+                if(reader.result){
+                    $(".preview-img img").attr('src', reader.result);
+                }
+            }
+            reader.readAsDataURL(file);
+        }
+    }
+</script>
 @endsection

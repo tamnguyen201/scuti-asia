@@ -49,6 +49,7 @@ return [
                 'cv' => 'Quản Lý Hồ Sơ',
                 'job_applied' => 'Công Việc Đã Ứng Tuyển',
                 'change_info' => 'Đổi Thông Tin Cá Nhân',
+                'create_cv' => 'Tạo CV',
                 'change_password' => 'Đổi Mật Khẩu'
             ],
             'manage_cv' => 'Quản Lý Hồ Sơ',
@@ -109,11 +110,10 @@ return [
     'section' => [
         'visit_us' => [
             'form_title' => 'Mẫu đặt lịch hẹn',
-            'visit_our_office' => 'Ghé thăm công ty chúng tôi',
-            'meeting_with_ceo' => 'Tạo cuộc họp với CEO',
+            'coffee_with_ceo' => 'Tạo cuộc họp coffee với CEO',
+            'meeting_with_ceo' => 'Tạo cuộc họp với CEO tại công ty',
         ],
         'recruitment' => [
-            'end_menu' => 'Xem Tất Cả',
             'apply' => 'Ứng Tuyển',
             'empty' => 'Không có dữ liệu!',
             'salary' => 'Lương',

@@ -152,7 +152,7 @@
         font-weight: 400
     }
 
-    #progressbar li:hover {
+    #progressbar li.active:hover, li.inactive:hover {
         cursor: pointer;
     }
 
@@ -230,7 +230,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="breadcrumbs">
-                        <a href="{{route('home')}}">@lang('client.page.home.title')</a><i class="fa fa-angle-double-right"></i><a href="{{route('client.jobs')}}">@lang('client.page.job.title')</a><i class="fa fa-angle-double-right"></i><span>{{$data['job']->name}}</span>
+                        <a href="{{route('home')}}">@lang('client.page.home.title')</a><i class="fa fa-angle-double-right"></i><a href="{{route('home')}}/#recruitment">@lang('client.page.job.title')</a><i class="fa fa-angle-double-right"></i><span>{{$data['job']->name}}</span>
                     </div>
                 </div>
             </div>
@@ -251,25 +251,25 @@
                                         <p><a href="{{route('home')}}/#recruitment-flow" target="_blank">@lang('client.page.apply.process.description')</a></p>
                                         <form id="msform">
                                             <ul id="progressbar">
-                                                <li class="active" id="account"><strong> Ứng Tuyển </strong></li>
+                                                <li class="active" id="account"><strong> Ứng Tuyển </strong> <br> <span>{{\Carbon\Carbon::parse($data['apply']->created_at)->format('d/m/Y')}}</span></li>
                                                 @if(isset($data['apply']->process[0]->evaluate) && $data['apply']->process[0]->evaluate->status == 1)
-                                                <li class="active" step="0" id="personal"><strong>{{$data['apply']->process[0]->name}}</strong></li>
+                                                <li class="active" step="0" id="personal"><strong>{{$data['apply']->process[0]->name}}</strong><br> <span>{{\Carbon\Carbon::parse($data['apply']->process[0]->evaluate->created_at)->format('d/m/Y')}}</span></li>
                                                 @elseif(isset($data['apply']->process[0]->evaluate) && $data['apply']->process[0]->evaluate->status == 0)
-                                                <li class="inactive" step="0" id="personal"><strong>{{$data['apply']->process[0]->name}}</strong></li>
+                                                <li class="inactive" step="0" id="personal"><strong>{{$data['apply']->process[0]->name}}</strong><br> <span>{{\Carbon\Carbon::parse($data['apply']->process[0]->evaluate->created_at)->format('d/m/Y')}}</span></li>
                                                 @else
                                                 <li step="0" id="personal"><strong>Đánh Giá</strong></li>
                                                 @endif
                                                 @if(isset($data['apply']->process[1]->evaluate) && $data['apply']->process[1]->evaluate->status == 1)
-                                                <li class="active" step="1" id="payment"><strong>{{$data['apply']->process[1]->name}}</strong></li>
+                                                <li class="active" step="1" id="payment"><strong>{{$data['apply']->process[1]->name}}</strong><br> <span>{{\Carbon\Carbon::parse($data['apply']->process[1]->evaluate->created_at)->format('d/m/Y')}}</span></li>
                                                 @elseif(isset($data['apply']->process[1]->evaluate) && $data['apply']->process[1]->evaluate->status == 0)
-                                                <li class="inactive" step="1" id="payment"><strong>{{$data['apply']->process[1]->name}}</strong></li>
+                                                <li class="inactive" step="1" id="payment"><strong>{{$data['apply']->process[1]->name}}</strong><br> <span>{{\Carbon\Carbon::parse($data['apply']->process[1]->evaluate->created_at)->format('d/m/Y')}}</span></li>
                                                 @else
                                                 <li step="1" id="payment"><strong>Phỏng Vấn</strong></li>
                                                 @endif
                                                 @if(isset($data['apply']->process[2]->evaluate) && $data['apply']->process[2]->evaluate->status == 1)
-                                                <li class="active" step="2" id="confirm"><strong>Hoàn Thành</strong></li>
+                                                <li class="active" step="2" id="confirm"><strong>Hoàn Thành</strong><br> <span>{{\Carbon\Carbon::parse($data['apply']->process[2]->evaluate->created_at)->format('d/m/Y')}}</span></li>
                                                 @elseif(isset($data['apply']->process[2]->evaluate) && $data['apply']->process[2]->evaluate->status == 0)
-                                                <li class="inactive" step="2" id="confirm"><strong>Hoàn Thành</strong></li>
+                                                <li class="inactive" step="2" id="confirm"><strong>Hoàn Thành</strong><br> <span>{{\Carbon\Carbon::parse($data['apply']->process[2]->evaluate->created_at)->format('d/m/Y')}}</span></li>
                                                 @else
                                                 <li step="2" id="confirm"><strong>Hoàn Thành</strong></li>
                                                 @endif
@@ -343,7 +343,7 @@
                         {!! $data['job']->content !!}
                         </div>
                     </div>
-                    <a class="btn-outline-reg back ml-4 mb-5" href="{{route('client.jobs')}}">@lang('client.page.apply.job_another')</a>
+                    <a class="btn-outline-reg back ml-4 mb-5" href="{{route('home')}}/#recruitment">@lang('client.page.apply.job_another')</a>
                 </div>
                 <div class="col-md-4 pr-0">
                     <div class="col-lg-12 mb-2 p-0" style="background-color: #fff;">

@@ -6,7 +6,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="breadcrumbs">
-                        <a href="{{route('home')}}">@lang('client.page.home.title')</a><i class="fa fa-angle-double-right"></i><a href="{{route('client.jobs')}}">@lang('client.page.job.title')</a><i class="fa fa-angle-double-right"></i><span>{{$data['job']->name}}</span>
+                        <a href="{{route('home')}}">@lang('client.page.home.title')</a><i class="fa fa-angle-double-right"></i><a href="{{route('home')}}/#recruitment">@lang('client.page.job.title')</a><i class="fa fa-angle-double-right"></i><span>{{$data['job']->name}}</span>
                     </div>
                 </div>
             </div>
@@ -64,7 +64,6 @@
                                 </div>
                                 <div class="col-lg-12 mt-2 p-0 text-justify">
                                     {{$job->description}}
-                                    <!-- <a href="{{route('client.applied', [$job->id, $job->slug])}}" class="form-control text-center btn-outline-reg mt-0">@lang('client.section.recruitment.apply')</a> -->
                                 </div>
                             </div>
                             @endforeach
