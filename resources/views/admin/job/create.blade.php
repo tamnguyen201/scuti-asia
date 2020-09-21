@@ -116,8 +116,7 @@
     <script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
     <script>
         CKEDITOR.replace('description', {
-            filebrowserBrowseUrl: '{{ route('
-            jobs.create ') }}',
+            filebrowserBrowseUrl: ,
 
         });
 

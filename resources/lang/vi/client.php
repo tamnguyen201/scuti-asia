@@ -114,6 +114,7 @@ return [
             'meeting_with_ceo' => 'Tạo cuộc họp với CEO tại công ty',
         ],
         'recruitment' => [
+            'all' => 'Xem Tất Cả',
             'apply' => 'Ứng Tuyển',
             'empty' => 'Không có dữ liệu!',
             'salary' => 'Lương',

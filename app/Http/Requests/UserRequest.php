@@ -26,8 +26,8 @@ class UserRequest extends FormRequest
     {
         return [
             'current_password' => ['required', new MatchOldPassword],
-            'new_password' => ['required'],
-            'new_confirm_password' => ['same:new_password'],
+            'new_password' => 'required|min:6',
+            'new_confirm_password' => 'same:new_password|min:6',
         ];
     }
 

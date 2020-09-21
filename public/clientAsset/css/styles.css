@@ -905,8 +905,8 @@ input[type='checkbox'] {
 /*     06. Services     */
 /************************/
 .basic-2 {
-	padding-top: 4rem;
-	padding-bottom: 3.75rem;
+	padding-top: 5rem;
+	padding-bottom: 2.75rem;
 	background: #f9fafc;
 }
 
@@ -959,8 +959,8 @@ input[type='checkbox'] {
 /*     07. Description     */
 /***************************/
 .slider-1 {
-	padding-top: 3.625rem;
-	padding-bottom: 3.5rem;
+	padding-top: 4.625rem;
+	padding-bottom: 2.5rem;
 	background-color: #f9fafc;
 }
 
@@ -1211,7 +1211,7 @@ input[type='checkbox'] {
 /*     10. Pricing     */
 /***********************/
 .cards-1 {
-	padding-top: 4rem;
+	padding-top: 5rem;
 	padding-bottom: 2.5rem;
 }
 
@@ -1302,8 +1302,8 @@ input[type='checkbox'] {
 /*     12. Projects     */
 /************************/
 .filter {
-	padding-top: 4rem;
-	padding-bottom: 3.5rem;
+	padding-top: 5rem;
+	padding-bottom: 2.5rem;
 }
 
 .filter h2 {
@@ -1444,7 +1444,7 @@ input[type='checkbox'] {
 /*     14. Products     */
 /************************/
 .cards-2 {
-	padding-top: 4rem;
+	padding-top: 5rem;
 	padding-bottom: 0.5rem;
 	background-color: #f9fafc;
 }
@@ -1611,8 +1611,8 @@ input[type='checkbox'] {
 /*     16. Testimonials     */
 /****************************/
 .slider-2 {
-	padding-top: 3rem;
-	padding-bottom: 3rem;
+	padding-top: 5rem;
+	padding-bottom: 2rem;
 	background-color: #f9fafc;
 }
 
@@ -1683,8 +1683,8 @@ input[type='checkbox'] {
 /*     17. About     */
 /*********************/
 .basic-4 {
-	padding-top: 3rem;
-	padding-bottom: 3.625rem;
+	padding-top: 5rem;
+	padding-bottom: 2.5rem;
 }
 
 .basic-4 h2 {
@@ -1828,8 +1828,8 @@ input[type='checkbox'] {
 /*     20. Contact     */
 /***********************/
 .form-2 {
-	padding-top: 4rem;
-	padding-bottom: 3.25rem;
+	padding-top: 5rem;
+	padding-bottom: 2.25rem;
 }
 
 .form-2 h2 {
@@ -2881,5 +2881,8 @@ a:hover.back-to-top {
 	}	
 	.col-md-2.text-center.pt-2.mb-3 {
 		font-size: 5.5rem;
+	}
+	.cards-2 .card {
+		max-width: 39rem; 
 	}
 }

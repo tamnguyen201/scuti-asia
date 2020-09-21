@@ -126,11 +126,11 @@
     <div class="col-md-12">
         <div class="panel panel-default">
         <div class="panel-heading">@lang('custom.public_post') <div class="pull-right search" style="display: flex">
-                        <input class="form-control" style="margin-right: 10px; height: auto " type="text" id="input-search" placeholder="Search">
+                        <input class="form-control" style="margin-right: 10px; height: auto " type="text" id="input-search" placeholder="@lang('custom.placeholder.search')">
                         <button type="button" id="btn-search" class="btn btn-primary" style="margin: 0px">Tìm</button>
                     </div>
                 </div>
-            <div class="panel-body">
+            <div class="panel-body table-list-jobs">
                 <table class="table table-hover">
                     <thead>
                         <tr>
@@ -151,9 +151,9 @@
                             </th>
                         </tr>
                     </thead>
-                    <tbody class="table-list-role">
+                    <tbody>
                         @foreach($data['jobs'] as $item)
-                        <tr class="data-role-">
+                        <tr>
                             <td>{{ $item->name }}</td>
                             <td>{{ $item->category->category_name }}</td>
                             <td>
@@ -169,6 +169,11 @@
                         @endforeach
                     </tbody>
                 </table>
+                <div class="fixed-table-pagination">
+                    <div class="pull-right pagination">
+                        {{ $data['jobs']->links() }}
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -227,5 +232,21 @@
         });
         
     };
+
+    $("#btn-search").on('click', function() {
+        let value = $('#input-search').val();
+        let keyword = value.trim();
+        if (keyword != '') {
+            $.ajax({
+                url: "{{ route('admin.dashboard.search') }}",
+                data: {
+                    'keyword': keyword
+                },
+                method: "POST",
+            }).done(function(results) {
+                $(".table-list-jobs").html(results);
+            });
+        };
+    });
 </script>
 @endsection

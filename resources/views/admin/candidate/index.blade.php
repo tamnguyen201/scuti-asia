@@ -20,7 +20,7 @@
                 <div class="bootstrap-table">
                     <div class="fixed-table-toolbar">
                         <div class="pull-right search" style="display: flex">
-                            <input class="form-control" style="margin-right: 15px" type="text" id="input-search" placeholder="Search">
+                            <input class="form-control" style="margin-right: 15px" type="text" id="input-search" placeholder="@lang('custom.placeholder.search')">
                             <button type="button" id="btn-search" class="btn btn-primary" style="margin: 0px">Tìm</button>
                         </div>
                     </div>
@@ -146,7 +146,7 @@
         <script>
             $("#btn-search").on('click', function() {
                 let value = $('#input-search').val();
-                let keyword = value.replace(/\s+/g, '');
+                let keyword = value.trim();
                 if (keyword != '') {
                     $.ajax({
                         url: "{{ route('candidates.search') }}",

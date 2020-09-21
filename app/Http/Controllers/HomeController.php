@@ -69,13 +69,18 @@ class HomeController extends Controller
         return back()->with('success', trans('custom.alert_messages.success'));
     }
 
-    public function jobs()
+    public function jobSearch(Request $request)
     {
-        $data['recruitment_flow'] = $this->SectionRepository->show(10);
-        $data['categories'] = $this->CategoryRepository->all();
-        $data['jobs'] = $this->JobRepository->with('category')->paginate(5);
+        $jobs = \App\Model\Job::where('name', 'like', '%'.$request->keyword.'%')
+                            ->where('status', '=', 1)
+                            ->whereHas('category', function ($query) use ($request){
+                                $query->where('status', '=', 1);
+                            })->with(['category' => function($query) use ($request){
+                                $query->where('status', '=', 1);
+                            }])->paginate(5);
+        $html = view('client.page.jobSearch', compact('jobs'))->render();
 
-        return view('client.page.jobs', compact('data'));
+        return response()->json($html);
     }
 
     public function filterJob(Request $request)
@@ -87,6 +92,7 @@ class HomeController extends Controller
         }
         
         $html = view('client.page.filterJob', compact('categories'))->render();
+
         return response()->json($html);
     }
 
@@ -100,7 +106,6 @@ class HomeController extends Controller
             $data['related_job'] = $this->JobRepository->where('id', '<>', $id);
     
             return view('client.page.jobDetail', compact('data'));
-
         }
 
         abort(404);

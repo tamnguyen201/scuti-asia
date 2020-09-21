@@ -375,29 +375,29 @@
             <div class="row">
                 <div class="col-lg-11 mx-auto mb-4">
                     <div class="button-group filters-button-group">
-                        <a class="button text-decoration-none is-checked" data-filter="*"><span>SHOW ALL</span></a>
+                        <a class="button text-decoration-none is-checked" data-filter="*"><span>@lang('client.section.recruitment.all')</span></a>
                         @foreach($data['categories'] as $category)
                         <a class="button text-decoration-none" data-filter="{{$category->id}}"><span>{{$category->category_name}}</span></a>
                         @endforeach
                     </div>
                     <div class="col-md-6 mx-auto mt-3 d-md-flex">
                         <div class="form-group mx-2 w-75">
-                            <input type="text" class="form-control" name="name" value="{{old('name')}}" placeholder="@lang('custom.placeholder.name')">
+                            <input type="text" class="form-control" id="input-search" name="name" value="{{old('name')}}" placeholder="@lang('custom.placeholder.search')">
                         </div>
                         <div class="form-group mx-2">
-                            <button type="submit" class="btn btn-search">@lang('custom.button.search')</button>
+                            <button type="submit" id="btn-search" class="btn btn-search">@lang('custom.button.search')</button>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-12 d-md-flex">
                     <div class="list-group col-12">
-                        <div class="row col-lg-12 d-flex">
+                        <div class="row col-lg-12 d-flex list-jobs justify-content-center">
                             @foreach($data['categories'] as $category)
                                 @foreach($category->jobs as $job)
                                     @if($job->status == 1)
                                     <div class="d-md-flex col-lg-6 col-12 d-block development">
                                         <div class="col-md-12 list-group-item d-md-flex">
-                                            <div class="col-md-7 col-12">
+                                            <div class="col-xl-7 col-md-6 col-12">
                                                 <div class="mb-block cell name-job">
                                                     <h4 class="title-h4"><a style="color: #f4511e;" href="{{route('job-detail', [$job->id, $job->slug])}}" class="text-decoration-none"> {{$job->name}}</a></h4>
                                                     <p class="desc-job">
@@ -405,7 +405,7 @@
                                                     </p>
                                                 </div>
                                             </div>
-                                            <div class="col-md-5 d-none d-md-block text-md-right text-center">
+                                            <div class="col-xl-5 col-md-6 d-none d-md-block text-md-right text-center">
                                                 <a href="{{route('client.applied', [$job->id, $job->slug])}}" class="btn btn-apply-main btn-apply">@lang('client.section.recruitment.apply')</a>
                                                 <p class="desc-job text-left mt-3">
                                                     <i class="far fa-money-bill-alt"></i> @lang('client.section.recruitment.salary'): {{$job->salary}} <br>
@@ -488,6 +488,22 @@
                 });	
             });
 
+        });
+
+        $("#btn-search").on('click', function() {
+            let value = $('#input-search').val();
+            let keyword = value.trim();
+            if (keyword != '') {
+                $.ajax({
+                    url: "{{ route('client.jobSearch') }}",
+                    data: {
+                        'keyword': keyword
+                    },
+                    method: "POST",
+                }).done(function(results) {
+                    $(".row.col-lg-12.d-flex.list-jobs").html(results);
+                });
+            };
         });
 
     </script>

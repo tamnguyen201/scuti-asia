@@ -12,11 +12,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/a', function ()
-{
-    $details['password'] = \Hash::make(Str::random(1));
-    return view('welcome', compact('details'));
-});
+
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/login', 'AuthController@login')->name('client.login');
 Route::post('/login', 'AuthController@postLogin')->name('client.postLogin');
@@ -40,7 +36,7 @@ Route::get('/change-password', 'HomeController@changePassword')->name('client.ch
 Route::post('/change-password','AuthController@changePassword')->name('client.update_password');
 Route::post('/visit-us','HomeController@visit_us')->name('client.visit_us');
 Route::get('/apply', 'HomeController@apply')->name('client.apply');
-Route::get('/jobs', 'HomeController@jobs')->name('client.jobs');
+Route::post('/job-search', 'HomeController@jobSearch')->name('client.jobSearch');
 Route::get('/filter-jobs', 'HomeController@filterJob')->name('client.filter_jobs');
 Route::get('/jobs-{id}/{slug}.html', 'HomeController@jobDetail')->name('job-detail');
 Route::get('/jobs-{id}/apply/{slug}.html', 'HomeController@jobApply')->name('client.applied');
@@ -66,6 +62,8 @@ Route::group(
     Route::group(['middleware' => ['CheckManager']], function () {
 
         Route::get('/', 'AdminController@index')->name('admin.home');
+        Route::post('dashboard/search', 'AdminController@search')->name('admin.dashboard.search');
+        Route::post('users/search', 'UserController@search')->name('user.search');
         Route::resource('users', 'UserController')->only(['index', 'show']);
         Route::get('/change-admin-account-status', 'EmployeeController@updateStatus')->name('admin.update.status');
         Route::resource('employees', 'EmployeeController');

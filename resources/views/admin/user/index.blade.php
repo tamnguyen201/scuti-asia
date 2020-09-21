@@ -22,17 +22,13 @@
                 <div class="bootstrap-table">
                     <div class="fixed-table-toolbar">
                         <div class="pull-right search" style="display: flex">
-                            <input class="form-control" style="margin-right: 15px" type="text" id="input-search" placeholder="Search">
+                            <input class="form-control" style="margin-right: 15px" type="text" id="input-search" placeholder="@lang('custom.placeholder.search')">
                             <button type="button" id="btn-search" class="btn btn-primary" style="margin: 0px">Tìm</button>
                         </div>
                     </div>
                     <div class="fixed-table-container">
-                        <div class="fixed-table-header">
-                        <table></table>
-                        </div>
                         <div class="fixed-table-body">
-                        <div class="fixed-table-loading" style="top: 37px; display: none;">Loading, please wait…</div>
-                        <table data-toggle="table" data-url="tables/data1.json" data-show-refresh="true" data-show-toggle="true" data-show-columns="true" data-search="true" data-select-item-name="toolbar1" data-pagination="true" data-sort-name="name" data-sort-order="desc" class="table table-hover">
+                        <table class="table table-hover">
                             <thead>
                                 <tr>
                                     <th>
@@ -95,6 +91,22 @@
 @endsection
 @section('script')
     <script>
+        $("#btn-search").on('click', function() {
+            let value = $('#input-search').val();
+            let keyword = value.trim();
+            if (keyword != '') {
+                $.ajax({
+                    url: "{{ route('user.search') }}",
+                    data: {
+                        'keyword': keyword
+                    },
+                    method: "POST",
+                }).done(function(results) {
+                    $(".fixed-table-body").html(results);
+                });
+            };
+        });
+
         $('.view-profile').on('click', function (event) {
             event.preventDefault();
             let url = $(this).attr('href');

@@ -35,4 +35,13 @@ class UserController extends Controller
 
         return response()->json(['status' => 'success', 'message' => trans('custom.alert_messages.success')]);
     }
+
+    public function search(Request $request)
+    {
+        $users = \App\Model\User::where('name', 'like', '%'.$request->keyword.'%')
+                                    ->paginate(10);
+        $html = view('admin.user.search', compact('users'))->render();
+
+        return response()->json($html);
+    }
 }

@@ -71,10 +71,10 @@ return [
         'data_table' => 'Bảng dữ liệu',
         'form' => 'Mẫu điền thông tin',
         'user' =>'Người dùng',
-        'user_update_profile' => 'Cập nhật thông tin người dùng',
-        'update_manager'=>'Quản lý cập nhật',
+        'user_update_profile' => 'Cập nhật thông tin quản trị viên',
+        'update_manager'=>'Thông tin của quản trị viên',
         'change_password' =>'Đổi mật khẩu',
-        'user_profile'=>'Thông tin người dùng',
+        'user_profile'=>'Thay đổi thông tin cá nhân quản trị viên',
         'information'=>'Thông tin',
         'user_manager'=>'Quản lý người dùng',
         'job_manage' =>'Các công việc đang tuyển dụng',
@@ -114,6 +114,7 @@ return [
         'cv_url' => 'Vui lòng nhập tên cho CV',
         'url' => 'Vui lòng nhập thông tin đường dẫn liên kết',
         'position' =>  'Vui lòng nhập thông tin vị trí',
+        'search' =>  'Nhập từ khóa',
     ],
 
     'button' => [

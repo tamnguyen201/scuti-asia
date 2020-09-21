@@ -27,7 +27,7 @@
                 <div class="fixed-table-toolbar">
                     <a href="{{ route('jobs.create') }}" class="btn btn-primary btn-add-form" style="float: right; margin: 1rem"><span class="fa fa-plus"></span> @lang('custom.button.add')</a>
                     <div class="pull-right search" style="display: flex">
-                        <input class="form-control" style="margin-right: 5px" type="text" id="input-search" placeholder="Search">
+                        <input class="form-control" style="margin-right: 5px" type="text" id="input-search" placeholder="@lang('custom.placeholder.search')">
                         <button type="button" id="btn-search" class="btn btn-primary" style="margin: 0px">Tìm</button>
                     </div>
                 </div>

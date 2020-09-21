@@ -69,9 +69,7 @@ html { -webkit-text-size-adjust: none; -ms-text-size-adjust: none;}
                            </font>
                            <div style="height: 33px; line-height: 33px; font-size: 31px;">&nbsp;</div>
                            <font face="'Source Sans Pro', sans-serif" color="#585858" style="font-size: 24px; line-height: 32px;">
-                              <span style="font-family: 'Source Sans Pro', Arial, Tahoma, Geneva, sans-serif; color: #585858; font-size: 24px; line-height: 32px;">Thay mặt bộ phận tuyển dụng cảm ơn bạn đã dành thời gian tham dự buổi phỏng ngày hôm nay, Scuti đánh giá cao kỹ năng và sự có mặt của bạn. Sau khi có kết quả đánh giá từ hội đồng phỏng vấn, chúng tôi sẽ gửi ngay kết quả cho bạn (không quá 07 ngày làm việc)
-
-Nhằm nâng cao chất lượng tuyển dụng, chúng tôi rất mong nhận được ý kiến đóng góp của bạn qua đường link: CLICK HERE
+                              <span style="font-family: 'Source Sans Pro', Arial, Tahoma, Geneva, sans-serif; color: #585858; font-size: 24px; line-height: 32px;">Thay mặt bộ phận tuyển dụng cảm ơn bạn đã ứng tuyển vào vị trí {{ $details['job'] }} của công ty. Chúng tôi thân mời bạn tham gia buổi phỏng vấn của công ty. Thời gian: {{ $details['time'] }} . Tại tầng 17, toàn nhà MHDI, 18 Nguyễn Cơ Thạch, Nam Từ Liêm, Hà Nội
 
 Rất mong sớm nhận được thông tin phản hồi và chúng tôi hy vọng sớm được hợp tác cùng bạn.
 
@@ -81,15 +79,7 @@ Trân trọng!</span>
                            </font>
                            <div style="height: 20px; line-height: 20px; font-size: 18px;">&nbsp;</div>
                            <font face="'Source Sans Pro', sans-serif" color="#585858" style="font-size: 24px; line-height: 32px;">
-                              <span style="font-family: 'Source Sans Pro', Arial, Tahoma, Geneva, sans-serif; color: #585858; font-size: 24px; line-height: 32px;">On behalf of the recruitment department thank you for taking the time to attend today's interview, Scuti appreciates your skills and presence. After the evaluation results from interviewers, we will notify you of the results as soon as possible (no later than 07 working days).
-
-In order to improve the quality of recruitment, we are looking forward to receiving your comments through the link: CLICK HERE
-
-Looking forward to hearing from you soon and we hope to work with you soon.
-
-
-
-Thanks again!</span>
+                              <span style="font-family: 'Source Sans Pro', Arial, Tahoma, Geneva, sans-serif; color: #585858; font-size: 24px; line-height: 32px;"></span>
                            </font>
                            <div style="height: 33px; line-height: 33px; font-size: 31px;">&nbsp;</div>
                            <div style="height: 75px; line-height: 75px; font-size: 73px;">&nbsp;</div>

@@ -8,6 +8,6 @@ return [
         'BackOffice'    => 3,
     ],
     'alert_messages' => [
-        'success' => 'Thành công'
+        'success' => 'Thay đổi trạng thái thành công'
     ]
 ];

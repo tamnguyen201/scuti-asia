@@ -61,15 +61,16 @@ class CandidateController extends Controller
                             $query->where('name', 'like', '%'.$request->keyword.'%');
                         })->with(['user' => function($query) use ($request){
                             $query->where('name', 'like', '%'.$request->keyword.'%');
-                        }])->paginate();
-
+                        }])->paginate(10);
         $html = view('admin.candidate.list', compact('candidates'))->render();
+
         return response()->json($html);
     }
 
     public function showByJob($id)
     {
         $candidates = $this->candidateRepository->indexByJob($id);
+        
         return view('admin.candidate.index', compact('candidates'));
     }
 }

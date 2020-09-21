@@ -91,22 +91,31 @@ class RoleSeeder extends Seeder
             ['id'=>2, 'title' => 'Scuti là 1 trong 50 doanh nghiệp tiêu biểu của ASEAN 2020.', 'image'=>'images/award2.JPG', 'description' => 'Ngày 31/07 vừa qua, Scuti rất vui khi được làm khách mời của Diễn đàn Kinh tế ASEAN 2020. Bất ngờ và vinh dự hơn nữa, 𝑆𝑐𝑢𝑡𝑖 𝑐ℎ𝑢́𝑛𝑔 𝑡𝑜̂𝑖 đ𝑎̃ 𝑛ℎ𝑎̣̂𝑛 đ𝑢̛𝑜̛̣𝑐 𝑔𝑖𝑎̉𝑖 𝑡ℎ𝑢̛𝑜̛̉𝑛𝑔 𝑙𝑎̀ 1 𝑡𝑟𝑜𝑛𝑔 50 𝑑𝑜𝑎𝑛ℎ 𝑛𝑔ℎ𝑖𝑒̣̂𝑝 𝑐𝑜́ 𝑠𝑎̉𝑛 𝑝ℎ𝑎̂̉𝑚 𝑑𝑖̣𝑐ℎ 𝑣𝑢̣ 𝑐ℎ𝑎̂́𝑡 𝑙𝑢̛𝑜̛̣𝑛𝑔 𝑐𝑎𝑜 𝐴𝑆𝐸𝐴𝑁. Đây là sự đánh giá, 𝑔ℎ𝑖 𝑛ℎ𝑎̣̂𝑛 𝑘ℎ𝑎́𝑐ℎ 𝑞𝑢𝑎𝑛 𝑘ℎ𝑜̂𝑛𝑔 𝑐ℎ𝑖̉ 𝑐𝑢̉𝑎 𝑐𝑜̣̂𝑛𝑔 đ𝑜̂̀𝑛𝑔 𝑘𝑖𝑛ℎ 𝑡𝑒̂́ 𝑡𝑟𝑜𝑛𝑔 𝑛𝑢̛𝑜̛́𝑐 𝑚𝑎̀ 𝑐𝑜̀𝑛 𝑐𝑢̉𝑎 𝑐𝑎̉ khu vực ASEAN. Giải thưởng này còn có ý nghĩa rất quan trọng, 𝑛𝑜́ 𝑚𝑎𝑛𝑔 𝑙𝑎̣𝑖 𝑛𝑖𝑒̂̀𝑚 𝑣𝑢𝑖 𝑡𝑖𝑛ℎ 𝑡ℎ𝑎̂̀𝑛, 𝑡𝑎̣𝑜 𝑡ℎ𝑒̂𝑚 đ𝑜̣̂𝑛𝑔 𝑙𝑢̛̣𝑐 𝑟𝑎̂́𝑡 𝑙𝑜̛́𝑛 đ𝑜̂́𝑖 𝑣𝑜̛́𝑖 𝑏𝑎𝑛 𝑙𝑎̃𝑛ℎ đ𝑎̣𝑜 𝑣𝑎̀ 𝑡𝑎̣̂𝑝 𝑡ℎ𝑒̂̉ 𝑐𝑎́𝑛 𝑏𝑜̣̂, nhân viên Scuti.', 'url' => 'https://www.facebook.com/scutiasia/'],
         ]);
         DB::table('sections')->insert([
-            ['id'=>1, 'name' => 'Trở thành thành viên trong gia đình Scuti', 'slug' => Str::slug('Trở thành thành viên trong gia đình Scuti'), 'description' => 'Hãy đến với chúng tôi khi nhận thấy những giá trị này phù hợp với bạn!', 'content' => '', 'image' => ''],
+            ['id'=>1, 'name' => 'Trở thành thành viên trong gia đình Scuti', 'slug' => Str::slug('Trở thành thành viên trong gia đình Scuti'), 'description' => 'Hãy đến với chúng tôi khi nhận thấy những giá trị này phù hợp với bạn!', 'content' => '', 'image' => 'https://scontent-xsp1-1.xx.fbcdn.net/v/t1.0-9/117338396_2593777130952103_6506264468818039087_o.jpg?_nc_cat=108&_nc_sid=6e5ad9&_nc_ohc=qxJHuqlTniEAX9CuQv1&_nc_ht=scontent-xsp1-1.xx&oh=36311e9857111505bbc1edb96ddf41f5&oe=5F6BFA89'],
             ['id'=>2, 'name' => 'Scuti Mang Lại Cho Bạn', 'slug' => Str::slug('Scuti Mang Lại Cho Bạn'), 'description' => 'Hãy đến với chúng tôi khi nhận thấy những giá trị này phù hợp với bạn!', 
                 'content' => 
                     '<div class="col-lg-4">
+                        <div class="row justify-content-center mb-3"> 
+                            <img class="img-fluid" src="https://www.iconfinder.com/data/icons/business-startup-21/64/531-128.png" style="max-width: 320px;max-height: 120px;" alt="Thân thiện và vui vẻ">
+                        </div>
                         <div class="text-container text-center">
                             <h3>Môi Trường Lý Tưởng</h3>
                             <p class="text-justify">Linh hoạt, thách thức, năng động và thân thiện, là những điều chúng tôi mang đến cho bạn sự thoải mái để tập trung tạo hiệu quả công việc tốt nhất bên cạnh sự hỗ trợ của đồng nghiệp và hướng dẫn từ quản lý.</p>
                         </div>
                     </div>
                     <div class="col-lg-4">
+                        <div class="row justify-content-center mb-3"> 
+                            <img class="img-fluid" src="https://miningbusinessdata.com/wp-content/uploads/2018/05/improvement.png" style="max-width: 320px;max-height: 120px;" alt="Thân thiện và vui vẻ">
+                        </div>
                         <div class="text-container text-center">
                             <h3>Cơ hội phát triển </h3>
                             <p class="text-justify">Bạn sẽ có cơ hội để học hỏi rất nhanh và phát triển sự nghiệp bền vững trong ngành CNTT cùng với sự mở rộng và phát triển không ngừng của công ty.</p>
                         </div>
                     </div>
                     <div class="col-lg-4">
+                        <div class="row justify-content-center mb-3"> 
+                            <img class="img-fluid" src="https://forward.eu/wp-content/uploads/2019/06/inspiration-2.png" style="max-width: 320px;max-height: 120px;" alt="Thân thiện và vui vẻ">
+                        </div>
                         <div class="text-container text-center">
                             <h3>Thoải mái sáng tạo</h3>
                             <p class="text-justify">Đừng để mình bị gò bó trong những nguyên tắc cũ kỹ, cổ hủ. Những nguyên tắc đó sẽ giết dần giết mòn những suy nghĩ tích cực của bạn. Hãy mạnh dạn phá vỡ những điều từ xa xưa trong cuộc sống nếu nó không đúng.</p>
