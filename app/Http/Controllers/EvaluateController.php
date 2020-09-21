@@ -178,7 +178,7 @@ class EvaluateController extends Controller
     {
         $this->processRepository->create([
             'step'=>1,
-            'name'=> 'Checking',
+            'name'=> 'Đang kiểm tra',
             'user_job_id' =>$id
         ]);
 
