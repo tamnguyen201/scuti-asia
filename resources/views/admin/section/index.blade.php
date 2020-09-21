@@ -29,16 +29,13 @@
                             <thead>
                                 <tr>
                                     <th>
-                                    <div class="th-inner sortable">@lang('custom.stt')</div>
-                                    <div class="fht-cell"></div>
+                                    <div class="th-inner">@lang('custom.stt')</div>
                                     </th>
                                     <th>
-                                        <div class="th-inner sortable">@lang('custom.name')</div>
-                                        <div class="fht-cell"></div>
+                                        <div class="th-inner">@lang('custom.name')</div>
                                     </th>
                                     <th>
-                                        <div class="th-inner sortable text-center">@lang('custom.action')</div>
-                                        <div class="fht-cell"></div>
+                                        <div class="th-inner text-center">@lang('custom.action')</div>
                                     </th>
                                 </tr>
                             </thead>

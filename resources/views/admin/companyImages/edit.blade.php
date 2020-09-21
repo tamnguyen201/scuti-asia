@@ -1,10 +1,9 @@
-
 @extends('admin.layout.layout')
 @section('title', trans('custom.page_title.company_image_manage'))
 @section('content')
 <div class="row">
     <ol class="breadcrumb">
-        <li><a href="#">
+        <li><a href="{{route('admin.home')}}">
             <em class="fa fa-home"></em>
         </a></li>
         <li class="active">@lang('custom.page_title.company_image_manage')</li>
@@ -26,16 +25,23 @@
                         @method('PUT')
                         <div class="col-md-6">
                             <div class="form-group @error('name') has-error @enderror">
-                                <label>@lang('custom.name')</label>
-                                <input type="text" name="name" value="{{$image->name}}" class="form-control">
+                                <label class="label-required">@lang('custom.name')</label>
+                                <input type="text" name="name" value="{{$image->name}}" class="form-control" placeholder="@lang('custom.placeholder.name')">
                                 @error('name') 
+                                <span class="help-block"> {{$message}} </span>
+                                @enderror
+                            </div>
+                            <div class="form-group @error('description') has-error @enderror">
+                                <label class="label-required">@lang('custom.description')</label>
+                                <textarea name="description" cols="30" rows="9" class="form-control" placeholder="@lang('custom.placeholder.description')"> {{$image->description}} </textarea>
+                                @error('description') 
                                 <span class="help-block"> {{$message}} </span>
                                 @enderror
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group @error('image_url') has-error @enderror">
-                                <label>@lang('custom.image_url')</label>
+                                <label class="label-required">@lang('custom.image_url')</label>
                                 <input type="file" onchange="encodeImageFileAsURL(this)" name="image_url" accept="image/*">
                                 @error('image_url') 
                                 <span class="help-block"> {{$message}} </span>
@@ -47,9 +53,8 @@
                         </div>
                         
                         <div class="col-md-12 text-center">
-                            <button type="submit" class="btn btn-primary">@lang('custom.button.submit')</button>
-                            <button type="reset" class="btn btn-default">@lang('custom.button.reset')</button>
-                            <a href="{{route('company_images.index')}}" class="btn btn-danger">@lang('custom.button.cancel')</a>
+                            <button type="submit" class="btn btn-primary">@lang('custom.button.submit') <em class="fa fa-check"></em></button>
+                            <a href="{{route('company_images.index')}}" class="btn btn-danger">@lang('custom.button.cancel') <em class="fa fa-times"></em></a>
                         </div>
                     </form>
                 </div>
@@ -59,5 +64,20 @@
 </div>
 @endsection
 @section('script')
-    @include('admin.preview-img')
+<script>
+    function encodeImageFileAsURL(element) {
+        var file = element.files[0];
+        if(file === undefined){
+            $(".preview-img img").attr('src', "{{$image->image_url}}");
+        } else {
+            var reader = new FileReader();
+            reader.onloadend = function() {
+                if(reader.result){
+                    $(".preview-img img").attr('src', reader.result);
+                }
+            }
+            reader.readAsDataURL(file);
+        }
+    }
+</script>
 @endsection

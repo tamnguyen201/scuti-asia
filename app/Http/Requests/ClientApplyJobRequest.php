@@ -24,9 +24,9 @@ class ClientApplyJobRequest extends FormRequest
     public function rules()
     {
         return [
-            'cv_id' => 'required_without_all:cv_name,cv_url',
-            'cv_name' => 'required_without:cv_id',
-            'cv_url' => 'required_without:cv_id|mimes:pdf,doc,docx|max:10000',
+            'cv_file' => 'required_without_all:cv_name,cv_url',
+            'cv_name' => 'required_without:cv_file',
+            'cv_url' => 'required_without:cv_file|mimes:pdf,doc,docx|max:10000',
         ];
     }
 

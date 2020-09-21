@@ -82,6 +82,18 @@ class RepositoryServiceProvider extends ServiceProvider
             \App\Repositories\Company\SectionRepository::class,
         );
         $this->app->singleton(
+            \App\Repositories\Member\MemberRepositoryInterface::class,
+            \App\Repositories\Member\MemberRepository::class,
+        );
+        $this->app->singleton(
+            \App\Repositories\Benefit\BenefitRepositoryInterface::class,
+            \App\Repositories\Benefit\BenefitRepository::class,
+        );
+        $this->app->singleton(
+            \App\Repositories\UserResetPW\UserResetPWRepositoryInterface::class,
+            \App\Repositories\UserResetPW\UserResetPWRepository::class,
+        );
+        $this->app->singleton(
             \App\Repositories\Admin\AdminRepositoryInterface::class,
             \App\Repositories\Admin\AdminRepository::class,
         );

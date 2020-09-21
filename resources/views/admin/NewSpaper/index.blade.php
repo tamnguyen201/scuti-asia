@@ -21,7 +21,7 @@
             <div class="panel-body">
                 <div class="bootstrap-table">
                     <div class="fixed-table-toolbar">
-                        <a href="{{route('new_spaper.create')}}" class="btn btn-primary"><span class="fa fa-plus"></span> @lang('custom.button.add')</a>
+                        <a href="{{route('new-spaper.create')}}" class="btn btn-primary"><span class="fa fa-plus"></span> @lang('custom.button.add')</a>
                     </div>
                     <div class="fixed-table-container">
                         <div class="fixed-table-body">
@@ -29,20 +29,16 @@
                             <thead>
                                 <tr>
                                     <th>
-                                    <div class="th-inner sortable">@lang('custom.stt')</div>
-                                    <div class="fht-cell"></div>
+                                    <div class="th-inner">@lang('custom.stt')</div>
                                     </th>
                                     <th>
-                                        <div class="th-inner sortable">@lang('custom.name')</div>
-                                        <div class="fht-cell"></div>
+                                        <div class="th-inner">@lang('custom.name')</div>
                                     </th>
                                     <th>
-                                        <div class="th-inner sortable">@lang('custom.image_url')</div>
-                                        <div class="fht-cell"></div>
+                                        <div class="th-inner">@lang('custom.image_url')</div>
                                     </th>
                                     <th>
-                                        <div class="th-inner sortable text-center">@lang('custom.action')</div>
-                                        <div class="fht-cell"></div>
+                                        <div class="th-inner text-center">@lang('custom.action')</div>
                                     </th>
                                 </tr>
                             </thead>
@@ -54,8 +50,8 @@
                                     <td>{{$item->title}}</td>
                                     <td><img class="img-responsive" src="{{$item->image}}" alt="" style="width: 100px"></td>
                                     <td class="text-center">
-                                        <a href="{{route('new_spaper.edit', $item['id'])}}" class="btn btn-primary text-light btn-edit-form"><em class="far fa-edit"></em></a> 
-                                        <form action="{{route('new_spaper.destroy', $item['id'])}}" method="post" class="form-delete-{{$item->id}}" style="display: inline">
+                                        <a href="{{route('new-spaper.edit', $item['id'])}}" class="btn btn-primary text-light btn-edit-form"><em class="far fa-edit"></em></a> 
+                                        <form action="{{route('new-spaper.destroy', $item['id'])}}" method="post" class="form-delete-{{$item->id}}" style="display: inline">
                                             @csrf
                                             @method('DELETE')
                                             <button class="btn btn-danger text-light delete-confirm" idDelete={{$item->id}}><em class="fas fa-trash-alt"></em></button>

@@ -5,18 +5,19 @@ return [
     'name' => 'Tên',
     'name_cv' => 'Tên Hồ Sơ',
     'email' => 'Địa chỉ Email',
-    'phone' => 'SĐT',
+    'phone' => 'Số điện thoại',
     'address' => 'Địa chỉ',
     'avatar' => 'Ảnh đại diện',
+    'message' => 'Lời nhắn',
     'image_url' => 'File Ảnh',
     'cv_url' => 'File CV',
     'url' => 'Đường Dẫn Bài Viết',
     'choose_cv' => 'Chọn Hồ Sơ',
     'logo' => 'Ảnh Logo',
     'description' => 'Mô Tả',
-    'role' => 'Quyền',
+    'role' => 'Chức Vụ',
     'view_more' => 'Xem Chi Tiết',
-    'letter' => 'Lời Cảm Ơn',
+    'letter' => 'Lời Nhắn',
     'category' => 'Bộ Phận Ứng Tuyển',
     'action' => 'Thao tác',
     'facebook' => 'Nhóm Facebook',
@@ -43,13 +44,27 @@ return [
     'CV_status'=> 'Trạng thái',
     'applied_job'=>'Công việc đã ứng tuyển',
     'empty_data' => 'Dữ liệu trống',
+    'empty_events' => 'Không Có Sự Kiện Nào',
+    'candidate_new' => 'Ứng viên mới',
+    'candidate_evaluated' => 'Đang Đánh Giá',
+    'candidate_accept' => 'Ứng viên đồng ý',
+    'candidate_failed' => 'Ứng viên bị loại',
+    'upcoming_meeting' => 'Cuộc Họp Sắp Diễn Ra',
+    'statistical' => 'Thống Kê Dữ Liệu Ứng Viên',
+    'public_post' => 'Tin Tuyển Dụng Công Khai',
+    'visit_type' => 'Kiểu Cuộc Họp',
+    'member_type' => 'Kiểu Nhân Viên',
+    'read_more' => 'Xem Thêm',
     
     'page_title' => [
+        'dashboard' => 'Bảng Điều Khiển',
         'user_manage' => 'Quản Lý Người Dùng',
-        'employee_manage' => 'Quản Lý QTV',
+        'employee_manage' => 'Quản Lý Tài Khoản Quản Trị Viên',
         'profile' => 'Thông tin cá nhân',
         'role_manage' => 'Quản Lý Quyền',
         'company_manage' => 'Quản Lý Thông Tin Công Ty',
+        'member_manage' => 'Quản Lý Thông Tin Thành Viên',
+        'benefit_manage' => 'Quản Lý Thông Tin Đãi Ngộ',
         'company_image_manage' => 'Quản Lý Ảnh Công Ty',
         'new_spaper_manage' => 'Quản Lý Tin Tức Về Công Ty',
         'candidate_manage' => 'Quản Lý Thông Tin Ứng Viên',
@@ -71,12 +86,11 @@ return [
         'jobs_manage'=>'Quản lý danh sách Job',
         'job_detail'=>'Thông tin công việc',
         'show_infor'=>'Thông tin',
-        
         'job_edit' =>'Sửa Job',
         'add'=>'Tạo mới',
         'enter_code'=>'Nhập mã code của bạn',
-        'section_manage' => 'Quản Lí Bố Cục',
-        'contact_manage' => 'Quản Lí Liên Hệ',
+        'section_manage' => 'Quản Lý Bố Cục',
+        'contact_manage' => 'Quản Lý Liên Hệ',
         'candidate_list_by_job'=>'Danh sách ứng viên ứng tuyển',
         'location_index'=>'Địa điểm ứng tuyển',
         'location_list'=>'Danh sách các địa điểm',
@@ -84,8 +98,23 @@ return [
         'user_job_list'=>'Danh sách ứng viên'
     ],
 
-    'table_lable' => [
-
+    'placeholder' => [
+        'name' => 'Vui lòng nhập thông tin tên',
+        'title' => 'Vui lòng nhập thông tin tiêu đề',
+        'avatar' => 'Vui lòng chọn ảnh đại diện',
+        'email' => 'Vui lòng nhập thông tin địa chỉ email',
+        'password' => 'Vui lòng nhập thông tin mật khẩu',
+        'new_password' => 'Vui lòng nhập thông tin mật khẩu mới',
+        'phone' => 'Vui lòng nhập thông tin số điện thoại',
+        'address' => 'Vui lòng nhập thông tin địa chỉ',
+        'description' => 'Vui lòng nhập thông tin mô tả',
+        'message' => 'Vui lòng nhập thông tin lời nhắn',
+        'image' => 'Vui lòng chọn ảnh',
+        'logo' => 'Vui lòng chọn logo',
+        'cv_url' => 'Vui lòng nhập tên cho CV',
+        'url' => 'Vui lòng nhập thông tin đường dẫn liên kết',
+        'position' =>  'Vui lòng nhập thông tin vị trí',
+        'search' =>  'Nhập từ khóa',
     ],
 
     'button' => [
@@ -104,8 +133,10 @@ return [
         'had_password'=>'Bạn đã có tài khoản, đăng nhập tại đây',
         'enter'=>'Nhập',
         'start_process'=>'Bắt đầu đánh giá',
-        'search'=>'Tìm kiếm',
-        'edit'=>'Sửa'
+        'search'=>'Tìm',
+        'edit'=>'Sửa',
+        'next' => 'Tiếp Theo',
+        'previous' => 'Lùi Lại',
     ],
 
     'menu' => [
@@ -121,7 +152,7 @@ return [
         'company' => 'Công Ty',
         'company_info' => 'Thông Tin Công Ty',
         'company_images' => 'Ảnh Công Ty',
-        'partner' => 'Đối Tác',
+        'new_spaper' => 'Tin Tức Về Công Ty',
         'section' => 'Bố Cục',
         'evaluating' => 'Đang Đánh Giá',
         'finishing' => 'Hoàn Tất',
@@ -131,7 +162,9 @@ return [
         'job'=>'Công việc',
         'location'=>'Địa điểm',
         'category'=>'Danh mục',
-        'recruitment_detail'=>'Chi tiết ứng tuyển'
+        'recruitment_detail'=>'Chi tiết ứng tuyển',
+        'main_member' => 'Thành Viên Chính',
+        'benefit' => 'Đãi Ngộ',
     ],
 
     'email_template' => [
@@ -155,8 +188,6 @@ return [
         'not_found'=>'Không tìm thấy hoặc nhập sai',
         'fail'=>'Không thành công',
         'invalid' => 'Tài khoản hoặc mật khẩu không đúng! Vui lòng thử lại.',
-
-    ],
         'same' => 'Mật khẩu mới trùng với mật khẩu hiện tại! Vui lòng thử lại.',
         'not_same' => 'Mật khẩu hiện tại không chính sác! Vui lòng thử lại.',
         'warning_limit_cv' => 'Cảnh báo bạn đã có số hồ sơ đạt giới hạn, vui lòng không tạo mới!',
@@ -166,12 +197,13 @@ return [
         ],
         'register_alert' => [
             'title' => 'Thành Công',
-            'text' => 'Bạn Vừa Tạo Tài Khoản Thành Công! Hãy Tìm Công Việc Phù Hợp Với Mình',
+            'text' => 'Bạn Vừa Tạo Tài Khoản Thành Công! Hãy Tìm Cho Mình Công Việc Phù Hợp.',
         ],
         'login_success' => [
             'title' => 'Đăng Nhập Thành Công',
             'text' => 'Bạn Đã Đăng Nhập Thành Công! Hãy Tìm Cho Mình Công Việc Phù Hợp.',
         ],
+    ],
     
     'candidate' => [
         'name' => 'Tên ứng viên',

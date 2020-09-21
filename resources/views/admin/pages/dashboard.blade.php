@@ -3,7 +3,7 @@
 @section('content')
 <div class="row">
     <ol class="breadcrumb">
-        <li><a href="#">
+        <li><a href="{{route('admin.home')}}">
             <em class="fa fa-home"></em>
         </a></li>
         <li class="active">@lang('custom.page_title.dashboard')</li>
@@ -20,7 +20,7 @@
             <div class="panel panel-orange panel-widget border-right">
                 <div class="row no-padding"><em class="fa fa-xl fa-users color-teal"></em>
                     <div class="large">{{$data['candidates']}}</div>
-                    <div class="text-muted">@lang('custom.candidate_total')</div>
+                    <div class="text-muted">@lang('custom.candidate_new')</div>
                 </div>
             </div>
         </div>
@@ -54,11 +54,125 @@
     <div class="col-md-12">
         <div class="panel panel-default">
             <div class="panel-heading">
+                @lang('custom.upcoming_meeting') 
+            </div>
+            <div class="panel-body articles-container">
+                @if($data['eventsToday']->count() > 0 && $data['eventsTomorrow']->count() > 0)
+                <div class="col-md-6">
+                    <ul class="todo-list">
+                    @foreach($data['eventsToday'] as $event)
+                        <li class="todo-list-item">
+                            <div class="checkbox">
+                                <span>{{\CarBon\CarBon::parse($event->start)->format('d/m/Y H:i:s')}}</span>
+                                <label for="checkbox-1">{{$event->title}}</label>
+                            </div>
+                        </li>
+                    @endforeach
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <ul class="todo-list">
+                    @foreach($data['eventsTomorrow'] as $event)
+                        <li class="todo-list-item">
+                            <div class="checkbox">
+                                <span>{{\CarBon\CarBon::parse($event->start)->format('d/m/Y H:i:s')}}</span>
+                                <label for="checkbox-1">{{$event->title}}</label>
+                            </div>
+                        </li>
+                    @endforeach
+                    </ul>
+                </div>
+                @elseif($data['eventsToday']->count() > 0 || $data['eventsTomorrow']->count() > 0)
+                    <ul class="todo-list">
+                    @foreach($data['eventsToday'] as $event)
+                        <li class="todo-list-item">
+                            <div class="checkbox">
+                                <span>{{\CarBon\CarBon::parse($event->start)->format('d/m/Y H:i:s')}}</span>
+                                <label for="checkbox-1">{{$event->title}}</label>
+                            </div>
+                        </li>
+                    @endforeach
+                    @foreach($data['eventsTomorrow'] as $event)
+                        <li class="todo-list-item">
+                            <div class="checkbox">
+                                <span>{{\CarBon\CarBon::parse($event->start)->format('d/m/Y H:i:s')}}</span>
+                                <label for="checkbox-1">{{$event->title}}</label>
+                            </div>
+                        </li>
+                    @endforeach
+                    </ul>
+                @elseif($data['eventsToday']->count() == 0 && $data['eventsTomorrow']->count() == 0)
+                <p>@lang('custom.empty_events')</p>
+                @endif
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
                 @lang('custom.statistical')
             </div>
             <div class="panel-body">
                 <div class="canvas-wrapper">
                     <canvas class="chart" id="line-chart" height="336" width="1010" style="width: 1010px; height: 336px;"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-default">
+        <div class="panel-heading">@lang('custom.public_post') <div class="pull-right search" style="display: flex">
+                        <input class="form-control" style="margin-right: 10px; height: auto " type="text" id="input-search" placeholder="@lang('custom.placeholder.search')">
+                        <button type="button" id="btn-search" class="btn btn-primary" style="margin: 0px">Tìm</button>
+                    </div>
+                </div>
+            <div class="panel-body table-list-jobs">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>
+                                <div class="th-inner">@lang('custom.title')</div>
+                            </th>
+                            <th>
+                                <div class="th-inner">@lang('custom.categories')</div>
+                            </th>
+                            <th>
+                                <div class="th-inner">@lang('custom.jobs.date')</div>
+                            </th>
+                            <th>
+                                <div class="th-inner">@lang('custom.status')</div>
+                            </th>
+                            <th>
+                                <div class="th-inner text-center">@lang('custom.jobs.candidate_number')</div>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach($data['jobs'] as $item)
+                        <tr>
+                            <td>{{ $item->name }}</td>
+                            <td>{{ $item->category->category_name }}</td>
+                            <td>
+                                {{ \Carbon\Carbon::parse($item->expireDay)->format('d/m/Y')}}
+                            </td>
+                            <td>
+                                {{ $item->status == 1 ? 'Active' : 'InActive' }}
+                            </td>
+                            <td class="text-center">
+                                <a href="{{ route('candidate.byJob', $item->id) }}" class="btn btn-primary">{{ count($item->user) }} <span class="fa fa-user"></span></a>
+                            </td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+                <div class="fixed-table-pagination">
+                    <div class="pull-right pagination">
+                        {{ $data['jobs']->links() }}
+                    </div>
                 </div>
             </div>
         </div>
@@ -118,5 +232,21 @@
         });
         
     };
+
+    $("#btn-search").on('click', function() {
+        let value = $('#input-search').val();
+        let keyword = value.trim();
+        if (keyword != '') {
+            $.ajax({
+                url: "{{ route('admin.dashboard.search') }}",
+                data: {
+                    'keyword': keyword
+                },
+                method: "POST",
+            }).done(function(results) {
+                $(".table-list-jobs").html(results);
+            });
+        };
+    });
 </script>
 @endsection

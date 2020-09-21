@@ -26,24 +26,22 @@
                             <thead>
                                 <tr>
                                     <th>
-                                    <div class="th-inner sortable">@lang('custom.stt')</div>
-                                    <div class="fht-cell"></div>
+                                        <div class="th-inner">@lang('custom.stt')</div>
                                     </th>
                                     <th>
-                                        <div class="th-inner sortable">@lang('custom.name')</div>
-                                        <div class="fht-cell"></div>
+                                        <div class="th-inner">@lang('custom.name')</div>
                                     </th>
                                     <th>
-                                        <div class="th-inner sortable">@lang('custom.email')</div>
-                                        <div class="fht-cell"></div>
+                                        <div class="th-inner">@lang('custom.email')</div>
                                     </th>
                                     <th>
-                                        <div class="th-inner sortable">@lang('custom.visit_type')</div>
-                                        <div class="fht-cell"></div>
+                                        <div class="th-inner">@lang('custom.visit_type')</div>
                                     </th>
                                     <th>
-                                        <div class="th-inner sortable text-center">@lang('custom.action')</div>
-                                        <div class="fht-cell"></div>
+                                        <div class="th-inner">@lang('custom.status')</div>
+                                    </th>
+                                    <th>
+                                        <div class="th-inner text-center">@lang('custom.action')</div>
                                     </th>
                                 </tr>
                             </thead>
@@ -55,8 +53,12 @@
                                     <td>{{$item->name}}</td>
                                     <td>{{$item->email}}</td>
                                     <td>{{$item->type}}</td>
+                                    <td>{{($item->status == 1) ? 'Đã Xác Nhận' : 'Chưa Xác Nhận'}}</td>
                                     <td class="text-center">
-                                        <a href="{{route('contacts.show', $item['id'])}}" class="btn btn-primary text-light btn-edit-form"><em class="far fa-eye"></em></a> 
+                                        <a href="{{route('contacts.show', $item['id'])}}" class="btn btn-primary text-light view-profile"><em class="far fa-eye"></em></a>
+                                        @if($item->status == 0)
+                                        <a href="{{route('contacts.show', $item['id'])}}" class="btn btn-success text-light">Xác Nhận</a>
+                                        @endif
                                     </td>
                                 </tr>
                                 @endforeach
@@ -71,8 +73,37 @@
                     </div>
                 </div>
                 <div class="clearfix"></div>
+                <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-md" style="max-width: 40rem;" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header" style="display: flex">
+                        <h3 class="modal-title" id="exampleModalLongTitle" style="margin: auto;width: 22rem;">@lang('custom.page_title.contact_manage')</h3>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        </div>
+                        <div class="modal-body"></div>
+                        <div class="modal-footer" style="border-top: none">
+                        </div>
+                    </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </div>
+@endsection
+@section('script')
+    <script>
+        $('.view-profile').on('click', function (event) {
+            event.preventDefault();
+            let url = $(this).attr('href');
+            $.get(url).
+            done(function (results) {
+                $(".modal-body").html(results);
+                $("#exampleModalCenter").modal('show');
+            }).fail(function (data) {
+            });
+        });
+    </script>
 @endsection

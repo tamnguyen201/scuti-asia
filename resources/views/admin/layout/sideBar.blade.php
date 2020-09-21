@@ -13,20 +13,17 @@
     </div>
     <div class="divider"></div>
     <ul class="nav menu">
-        <li class="active"><a href="{{route('admin.home')}}"><em class="fa fa-dashboard">&nbsp;</em> @lang('custom.menu.dashboard')</a></li>
-        <li><a href="{{route('employees.index')}}"><span class="fa fa-users">&nbsp;</span> @lang('custom.menu.manager')</a></li>
-        <li><a href="{{route('categories.index')}}"><span class="fa fa-tasks">&nbsp;</span> @lang('custom.menu.category')</a></li>
-        {{-- quan li ung tuyen --}}
+        <li class="{{ (request()->is('admin')) ? 'active' : '' }}"><a href="{{route('admin.home')}}"><em class="fa fa-dashboard">&nbsp;</em> @lang('custom.menu.dashboard')</a></li>
+        <li class="{{ (request()->is('admin/fullcalendar')) ? 'active' : '' }}"><a href="{{ route('fullcalendar.show') }}"><em class="fa fa-calendar">&nbsp;</em> @lang('custom.menu.calendar') </a></li>
+        <li class="{{ (request()->is('admin/employees*')) ? 'active' : '' }}"><a href="{{route('employees.index')}}"><span class="fa fa-users">&nbsp;</span> @lang('custom.menu.manager')</a></li>
+        <li class="{{ (request()->is('admin/users')) ? 'active' : '' }}"><a href="{{ route('users.index') }}"><em class="fa fa-users">&nbsp;</em> @lang('custom.menu.user') </a></li>
+        <li class="{{ (request()->is('admin/categories')) ? 'active' : '' }}"><a href="{{route('categories.index')}}"><span class="fa fa-tasks">&nbsp;</span> @lang('custom.menu.category')</a></li>
         <li class="parent ">
             <a data-toggle="collapse" href="#sub-item-2">
                 <em class="fa fa-child">&nbsp;</em> @lang('custom.menu.recruitment_detail') <span data-toggle="collapse" href="#sub-item-2" class="icon pull-right"><em class="fa fa-plus"></em></span>
             </a>
             <ul class="children collapse" id="sub-item-2">
                 <li><a href="{{route('jobs.index')}}"><span class="fa fa-laptop">&nbsp;</span> @lang('custom.menu.job')</a></li>
-                <li><a class="" href="{{route('candidates.index')}}">
-                <span class="fa fa-list-ul">&nbsp;</span> @lang('custom.menu.list')
-                </a>
-                </li>
                 <li><a class="" href="{{route('candidates.evaluating')}}">
                 <span class="fa fa-file-text">&nbsp;</span> @lang('custom.menu.evaluating')
                 </a>
@@ -41,34 +38,36 @@
                 </li>
             </ul>
         </li>
-        {{-- quan ly ung tuyen --}}
-        <li><a href="{{route('locations.index')}}"><span class="fa fa-location-arrow">&nbsp;</span> @lang('custom.menu.location')</a></li>
-        <li><a href="{{ route('fullcalendar.show') }}"><em class="fa fa-calendar">&nbsp;</em> @lang('custom.menu.calendar') </a></li>
-        <li><a href="{{route('contacts.index')}}"><span class="fa fa-phone">&nbsp;</span> @lang('custom.menu.contact')</a></li>
-        <li class="parent ">
+        <li class="{{ (request()->is('admin/contacts')) ? 'active' : '' }}"><a href="{{route('contacts.index')}}"><span class="fa fa-phone">&nbsp;</span> @lang('custom.menu.contact')</a></li>
+        <li class="parent {{ (request()->is('admin/companies')) ? 'active' : '' }}">
             <a data-toggle="collapse" href="#sub-item-3">
-            <em class="fa fa-navicon">&nbsp;</em> @lang('custom.menu.company') <span data-toggle="collapse" href="#sub-item-3" class="icon pull-right"><em class="fa fa-plus"></em></span>
+            <em class="fa fa-cogs">&nbsp;</em> @lang('custom.menu.setting') <span data-toggle="collapse" href="#sub-item-3" class="icon pull-right"><em class="fa fa-plus"></em></span>
             </a>
             <ul class="children collapse" id="sub-item-3">
                 <li><a class="" href="{{route('companies.index')}}">
                 <span class="fa fa-arrow-right">&nbsp;</span> @lang('custom.menu.company_info')
                 </a>
                 </li>
+                <li><a class="" href="{{route('locations.index')}}">
+                <span class="fa fa-arrow-right">&nbsp;</span> @lang('custom.menu.location')
+                </a>
+                </li>
+                <li><a class="" href="{{route('main-member.index')}}">
+                <span class="fa fa-arrow-right">&nbsp;</span> @lang('custom.menu.main_member')
+                </a>
+                </li>
+                <li><a class="" href="{{route('benefits.index')}}">
+                <span class="fa fa-arrow-right">&nbsp;</span> @lang('custom.menu.benefit')
+                </a>
+                </li>
                 <li><a class="" href="{{route('company_images.index')}}">
                 <span class="fa fa-arrow-right">&nbsp;</span> @lang('custom.menu.company_images')
                 </a>
                 </li>
-                <li><a class="" href="{{route('new_spaper.index')}}">
+                <li><a class="" href="{{route('new-spaper.index')}}">
                 <span class="fa fa-arrow-right">&nbsp;</span> @lang('custom.menu.new_spaper')
                 </a>
                 </li>
-            </ul>
-        </li>
-        <li class="parent ">
-            <a data-toggle="collapse" href="#sub-item-4">
-                <em class="fa fa-cogs">&nbsp;</em> @lang('custom.menu.setting') <span data-toggle="collapse" href="#sub-item-4" class="icon pull-right"><em class="fa fa-plus"></em></span>
-            </a>
-            <ul class="children collapse" id="sub-item-4">
                 <li><a class="" href="{{route('sections.index')}}">
                 <span class="fa fa-arrow-right">&nbsp;</span> @lang('custom.menu.section')
                 </a>

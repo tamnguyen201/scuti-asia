@@ -23,6 +23,11 @@ class CompanyImagesController extends Controller
         return view("admin.companyImages.index", compact('images'));
     }
 
+    public function create()
+    {
+        return view("admin.companyImages.add");
+    }
+
     public function store(CompanyImagesRequest $request)
     {
         $this->CompanyImagesRepository->create($request->all());

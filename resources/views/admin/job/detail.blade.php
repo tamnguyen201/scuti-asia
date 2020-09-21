@@ -5,7 +5,7 @@
 @section('content')
 <div class="row">
     <ol class="breadcrumb">
-        <li><a href="#">
+        <li><a href="{{route('admin.home')}}">
             <em class="fa fa-home"></em>
         </a></li>
         <li class="active">@lang('custom.jobs.job_detail')</li>
@@ -75,8 +75,7 @@
                 <div class="bootstrap-table">
                     <div class="fixed-table-toolbar">
                         <div class="pull-right search" style="display: flex">
-                            <input class="form-control" style="margin-right: 15px" type="text" id="input-search"
-                                placeholder="Tìm kiếm">
+                            <input class="form-control" style="margin-right: 15px" type="text" id="input-search" placeholder="@lang('custom.placeholder.search')">
                             <button type="button" id="btn-search" class="btn btn-primary"
                                 style="margin: 0px"><span class="fa fa-search"></span> @lang('custom.button.search')</button>
                         </div>
@@ -87,22 +86,25 @@
                                 <thead>
                                     <tr>
                                         <th>
-                                            <div class="th-inner sortable">@lang('custom.stt')</div>
+                                            <div class="th-inner">@lang('custom.stt')</div>
                                         </th>
                                         <th>
-                                            <div class="th-inner sortable">@lang('custom.name')</div>
+                                            <div class="th-inner">@lang('custom.name')</div>
                                         </th>
                                         <th>
-                                            <div class="th-inner sortable">@lang('custom.email')</div>
+                                            <div class="th-inner">@lang('custom.email')</div>
                                         </th>
                                         <th>
-                                            <div class="th-inner sortable">@lang('custom.jobApplied')</div>
+                                            <div class="th-inner">@lang('custom.jobApplied')</div>
                                         </th>
                                         <th>
-                                            <div class="th-inner sortable">@lang('custom.process')</div>
+                                            <div class="th-inner">@lang('custom.cv_url')</div>
                                         </th>
                                         <th>
-                                            <div class="th-inner sortable text-center">@lang('custom.action')</div>
+                                            <div class="th-inner">@lang('custom.process')</div>
+                                        </th>
+                                        <th>
+                                            <div class="th-inner text-center">@lang('custom.action')</div>
                                         </th>
                                     </tr>
                                 </thead>
@@ -114,6 +116,7 @@
                                             <td>{{ $candidate->user->name }}</td>
                                             <td>{{ $candidate->user->email }}</td>
                                             <td>{{ $candidate->job->name }}</td>
+                                            <td><a href="{{ $candidate->cv_url }}" target="_blank">Xem CV</a></td>
                                             @if ($candidate->process->count() > 0 && $candidate->process->count() < 4)
                                                 @for ($i = 0; $i <= $candidate->process->count(); $i++)
                                                     @if ($i == $candidate->process->count() - 1)
@@ -181,10 +184,10 @@
                 <div class="clearfix"></div>
                 <div class="modal fade bd-example-modal-lg" id="exampleModalCenter" tabindex="-1" role="dialog"
                     aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                    <div class="modal-dialog modal-lg modal-md" role="document">
+                    <div class="modal-dialog modal-lg modal-md" style="max-width: 40rem;" role="document">
                         <div class="modal-content">
-                            <div class="modal-header">
-                                <h3 class="modal-title" id="exampleModalLongTitle">
+                            <div class="modal-header" style="display: flex">
+                                <h3 class="modal-title" id="exampleModalLongTitle"  style="margin: auto;width: 23rem;">
                                     @lang('custom.candidate.candidate_infor')</h3>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
@@ -205,12 +208,13 @@
         <script>
             $("#btn-search").on('click', function() {
                 let value = $('#input-search').val();
-                let keyword = value.replace(/\s+/g, '');
+                let keyword = value.trim();
                 if (keyword != '') {
                     $.ajax({
                         url: "{{ route('candidates.search') }}",
                         data: {
-                            'keyword': keyword
+                            'keyword': keyword,
+                            'job_id' : {{$jobById->id}} 
                         },
                         method: "POST",
                     }).done(function(results) {

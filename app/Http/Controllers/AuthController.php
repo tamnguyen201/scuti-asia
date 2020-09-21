@@ -4,14 +4,26 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Requests\ChangePasswordRequest;
+use App\Http\Requests\ChangePWRequest;
+use App\Http\Requests\ForgotPasswordRequest;
 use App\Http\Requests\LoginRequest;
+use App\Http\Requests\OTPRequest;
 use App\Http\Requests\RegisterRequest;
+use App\Repositories\UserResetPW\UserResetPWRepositoryInterface;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 
 class AuthController extends Controller
 {
+    protected $forgotPasswordRepository;
+
+    public function __construct(UserResetPWRepositoryInterface $forgotPasswordRepository)
+    {
+        $this->forgotPasswordRepository = $forgotPasswordRepository;
+    }
+    
     public function login() 
     {
         if (auth()->check()) {
@@ -66,9 +78,61 @@ class AuthController extends Controller
         return redirect()->route('client.login')->with('success', trans('custom.alert_messages.success'));
     }
 
-    public function forgot()
+    public function forgotPassword()
     {
-        return view('admin.auth.forgotPw');
+        return view('client.auth.forgot_password');
+    }
+
+    public function getForgotPassword(ForgotPasswordRequest $request)
+    {
+        DB::beginTransaction();
+        try {
+            $token = $this->forgotPasswordRepository->getForgotPassword($request->email);
+
+            if ($token == false) {
+                return redirect()->back()->withErrors(['error' => trans('custom.alert_messages.not_found')]);
+            } else {
+                DB::commit();
+                $this->sendResetEmail($token['user'], $token['passwordReset']->token);
+                alert(trans('custom.alert_messages.contact_alert.title'), trans('custom.alert_messages.contact_alert.text'), 'success');
+                
+                return back();
+            }
+
+        } catch (Exception $e) {
+            DB::rollBack();
+            
+            throw new Exception($e->getMessage());
+        }
+    }
+
+    public function sendResetEmail($user, $token)
+    {
+        $this->forgotPasswordRepository->sendResetEmail($user, $token);
+    }
+
+    public function formResetPW($token)
+    {
+        $result = \App\Model\ResetPassword::where('token', $token)->first();
+
+        if($result != null){
+            $data['token'] = $token;
+            return view('client.auth.reset_password', $data);
+        } else {
+            echo 'Đường dẫn không tồn tại.';
+        }
+    }
+
+    public function storeResetPW(ChangePWRequest $request, $token)
+    {
+        $dataChangPW = $this->forgotPasswordRepository->storeNewPW($request->new_password, $token);
+
+        if ($dataChangPW == true) {
+            return redirect()->route('client.login')->with('success', trans('custom.alert_messages.success'));
+        } else {
+            return redirect()-back()>withErrors(['message' => trans('custom.alert_messages.fail')]);
+        }
+        
     }
 
     public function logout()

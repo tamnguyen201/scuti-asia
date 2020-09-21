@@ -38,7 +38,7 @@ class RegisterRequest extends FormRequest
             'required' => trans('validation.required'),
             'email' => trans('validation.email'),
             'min' => trans('validation.min'),
-            'uinique' => trans('validation.unique'),
+            'unique' => trans('validation.unique'),
             'regex' => trans('validation.regex'),
             'digits' => trans('validation.digits'),
         ];

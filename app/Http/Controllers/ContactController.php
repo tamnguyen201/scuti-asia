@@ -23,7 +23,8 @@ class ContactController extends Controller
     public function show($id)
     {
         $contact = $this->contactService->show($id);
+        $html = view('admin.contact.view', compact('contact'))->render();
 
-        return view('admin.contact.index', compact('contact'));
+        return response()->json($html);
     }
 }

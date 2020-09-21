@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Job extends Model
 {
     protected $guarded = [];
+    protected $fillable = ['name', 'slug', 'description', 'content', 'salary', 'expireDay', 'category_id', 'location_id', 'status'];
 
     public function category()
     {
@@ -31,5 +32,10 @@ class Job extends Model
     public function formatExpireDay()
     {
         return \Carbon\Carbon::parse($this->expireDay)->format('d/m/Y');
+    }
+
+    public function compareExpireDay()
+    {
+        return \Carbon\Carbon::parse($this->expireDay) > \Carbon\Carbon::now();
     }
 }

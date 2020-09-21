@@ -12,20 +12,20 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/w', function() {
-    $details['name'] = 'Tâm Nguyễn';
-    $details['user_name'] = 'tam2012000@gmail.com';
-    $details['password'] = 'dskfjsdjasda';
-    return view('welcome', compact('details'));
-});
+
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/login', 'AuthController@login')->name('client.login');
 Route::post('/login', 'AuthController@postLogin')->name('client.postLogin');
 Route::get('/register', 'AuthController@register')->name('client.register');
 Route::post('/register', 'AuthController@postRegister')->name('client.postRegister');
+
+Route::get('/forgot-password', 'AuthController@forgotPassword')->name('client.forgot_password');
+Route::post('/forgot-password','AuthController@getForgotPassword')->name('client.confirm_forgot_password');
+Route::get('reset-password/{token}', 'AuthController@formResetPW')->name('client.reset_password');
+Route::post('reset-password/{token}', 'AuthController@storeResetPW')->name('client.reset_new_password');
+
 Route::get('/logout', 'AuthController@logout')->name('client.logout');
-Route::get('/profile', 'HomeController@profile')->name('client.profile');
-Route::get('/change-infomation', 'HomeController@changeAccountInfo')->name('client.change_info');
+Route::get('/profile/{tab?}', 'HomeController@profile')->name('client.profile');
 Route::post('/change-infomation', 'UserController@update')->name('client.update_info');
 Route::get('/upload-cv', 'CVController@create')->name('client.create_cv');
 Route::post('/upload-cv', 'CVController@store')->name('client.upload_cv');
@@ -36,9 +36,10 @@ Route::get('/change-password', 'HomeController@changePassword')->name('client.ch
 Route::post('/change-password','AuthController@changePassword')->name('client.update_password');
 Route::post('/visit-us','HomeController@visit_us')->name('client.visit_us');
 Route::get('/apply', 'HomeController@apply')->name('client.apply');
-Route::get('/jobs', 'HomeController@jobs')->name('client.jobs');
+Route::post('/job-search', 'HomeController@jobSearch')->name('client.jobSearch');
+Route::get('/filter-jobs', 'HomeController@filterJob')->name('client.filter_jobs');
 Route::get('/jobs-{id}/{slug}.html', 'HomeController@jobDetail')->name('job-detail');
-Route::get('/jobs/apply-{id}/{slug}.html', 'HomeController@jobApply')->name('client.applied');
+Route::get('/jobs-{id}/apply/{slug}.html', 'HomeController@jobApply')->name('client.applied');
 Route::post('/apply','HomeController@userApplyJob')->name('client.apply.job');
 Route::get('/auth/redirect/{provider}', 'SocialController@redirect');
 Route::get('/callback/{provider}', 'SocialController@callback');
@@ -61,7 +62,10 @@ Route::group(
     Route::group(['middleware' => ['CheckManager']], function () {
 
         Route::get('/', 'AdminController@index')->name('admin.home');
+        Route::post('dashboard/search', 'AdminController@search')->name('admin.dashboard.search');
+        Route::post('users/search', 'UserController@search')->name('user.search');
         Route::resource('users', 'UserController')->only(['index', 'show']);
+        Route::get('/change-admin-account-status', 'EmployeeController@updateStatus')->name('admin.update.status');
         Route::resource('employees', 'EmployeeController');
         Route::resource('locations', 'LocationController');
         Route::resource('categories', 'CategoryController');
@@ -92,14 +96,14 @@ Route::group(
             Route::post('process/send-email','EvaluateController@createEmail')->name('send.event.email');
             Route::post('fullcalendar/delete/{id}','EvaluateController@destroyCalendar')->name('event.delete');
         });
-        // Route::post('fullcalendar/update','EvaluateController@updateCalendar');
         
         Route::get('fullcalendar','FullcalendarController@show')->name('fullcalendar.show');
 
-        Route::resource('new_spaper', 'NewSpaperController');
+        Route::resource('new-spaper', 'NewSpaperController');
         Route::resource('sections', 'SectionController');
         Route::resource('contacts', 'ContactController')->only(['index', 'show']);
-        
+        Route::resource('main-member', 'MainMemberController');
+        Route::resource('benefits', 'BenefitController');
         });
     }
 );

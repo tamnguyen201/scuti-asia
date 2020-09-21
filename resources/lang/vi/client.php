@@ -17,17 +17,27 @@ return [
                 'google_login' => 'Đăng Nhập Với Google',
                 'no_account' => 'Chưa Có Tài Khoản!',
             ],
-
             'register' => [
                 'title' => 'Đăng Ký',
                 'term' => 'Đồng Ý Với Điều Khoản Của Chúng Tôi!',
                 'submit' => 'Đăng Ký',
                 'has_account' => 'Đã Có Tài Khoản!',
             ],
+            'forgot_pw' => [
+                'title' => 'Quên Mật Khẩu',
+                'submit' => 'Xác Nhận'
+            ],
+            'reset_pw' => [
+                'title' => 'Đổi Mật Khẩu',
+                'submit' => 'Xác Nhận'
+            ],
+
             'name' => 'Họ Và Tên',
             'email' => 'Tài Khoản',
             'password' => 'Mật Khẩu',
             'password_confirm' => 'Nhập Lại Mật Khẩu',
+            'new_password' => 'Mật Khẩu Mới',
+            'new_password_confirm' => 'Nhập Lại Mật Khẩu Mới',
             'phone' => 'Số Điện Thoại',
             'address' => 'Địa Chỉ',
         ],
@@ -36,18 +46,20 @@ return [
             'title' => 'Thông Tin Cá Nhân',
             'sidebar' => [
                 'profile' => 'Thông Tin Cá Nhân',
-                'cv' => 'Quản Lí Hồ Sơ',
+                'cv' => 'Quản Lý Hồ Sơ',
                 'job_applied' => 'Công Việc Đã Ứng Tuyển',
                 'change_info' => 'Đổi Thông Tin Cá Nhân',
+                'create_cv' => 'Tạo CV',
                 'change_password' => 'Đổi Mật Khẩu'
             ],
-            'manage_cv' => 'Quản Lí Hồ Sơ',
+            'manage_cv' => 'Quản Lý Hồ Sơ',
             'empty_cv' => 'Bạn Chưa Tạo Hồ Sơ Nào.',
             'upload_cv' => 'Tạo Hồ Sơ Ngay!',
             'create_cv' => 'Thêm Mới!',
+            'job_applied' => 'Công Việc Đã Ứng Tuyển',
             'empty_job_applied' => 'Bạn Chưa Ứng Tuyển Công Việc Nào.',
             'apply_job' => 'Tìm Việc Phù Hợp Ngay!',
-            'manage_pw' => 'Quản Lí Mật Khẩu',
+            'manage_pw' => 'Quản Lý Mật Khẩu',
             'form_title' => 'Mẫu Điền Thông Tin',
         ],
         'job' => [
@@ -65,10 +77,14 @@ return [
             ],
             'process' => [
                 'title' => 'Bạn Đã Ứng Tuyển Cho Công Việc Này!',
-                'description' => 'Xem Chi Tiết Kết Quả Trong Quá Trình Đánh Giá Này.',
+                'description' => 'Xem Chi Tiết Quá Trình Đánh Giá Này.',
                 'info' => 'Thông tin chi tiết:',
+                'finish' => 'Hoàn Thành',
             ],
             'back' => 'Quay Lại',
+            'step' => 'Bước',
+            'job_another' => 'Tìm Công Việc Khác',
+            'finish' => 'Chúng Tôi Đã Hoàn Thành Việc Đánh Giá Và Sẽ Sớm Liên Lạc Lại Với Bạn',
         ],
     ],
 
@@ -80,6 +96,8 @@ return [
         'contact' => 'Liên Hệ',
         'login' => 'Đăng Nhập',
         'profile' => 'Tài Khoản',
+        'job_applied' => 'Công việc đã ứng tuyển',
+        'cvs' => 'CV cá nhân',
         'logout' => 'Đăng Xuất'
     ],
 
@@ -90,43 +108,19 @@ return [
     ],
 
     'section' => [
-        'benefit' => [
-            'title' => 'Scuti Mang Lại Cho Bạn',
-            'description' => 'Hãy đến với chúng tôi khi nhận thấy những giá trị này phù hợp với bạn!',
-        ],
-
-        'recruitment_flow' => [
-            'title' => 'Quá Trình Tuyển Dụng',
-            'description' => 'Chúng tôi luôn tìm kiếm những người tuyệt vời! Nếu bạn chưa tìm thấy cơ hội phù hợp hiện tại, nhưng tin rằng bạn có thể trở thành 1 phần của Scuti, hãy gửi thông tin cho chúng tôi.',
-        ],
-
-        'recruitment' => [
-            'title' => 'Tin Tuyển Dụng',
-            'description' => 'Chúng tôi luôn tìm kiếm những người tuyệt vời! Nếu bạn chưa tìm thấy cơ hội phù hợp hiện tại, nhưng tin rằng bạn có thể trở thành 1 phần của Scuti, hãy gửi thông tin cho chúng tôi.',
-            'menu_title' => 'Phòng Ban',
-            'end_menu' => 'Xem Tất Cả',
-            'apply' => 'Ứng Tuyển',
-        ],
-
-        'working_environment' => [
-            'title' => 'Môi Trường Làm Việc',
-            'description' => 'Hãy đến với chúng tôi khi nhận thấy những giá trị này phù hợp với bạn!',
-        ],
-
-        'about_us' => [
-            'title' => 'Về Chúng Tôi',
-            'description' => 'Chúng tôi tin rằng xây dựng được hạnh phúc, chú trọng con đường sự nghiệp cho nhân viên, sự hài lòng trong công việc và môi trường tích cực sẽ là nền tảng lâu dài cho sự phát triển bền vững của Scuti.',
-        ],
-
-        'newspaper' => [
-            'title' => 'Báo Chí Nói Về Chúng Tôi',
-            'description' => 'Scuti đã vinh dự nhận được nhiều bằng khen, giải thưởng các cấp vinh danh những đóng góp và thành tích của công ty trong hoạt động sản xuất kinh doanh, hoạt động cộng đồng xã hội và sự nghiệp xây dựng, bảo vệ Tổ quốc.',
-        ],
-
         'visit_us' => [
-            'title' => 'Ghé Thăm Chúng Tôi',
-            'description' => 'Đừng ngần ngại gọi cho chúng tôi hoặc gửi tin nhắn liên hệ cho chúng tôi!',
-        ]
+            'form_title' => 'Mẫu đặt lịch hẹn',
+            'coffee_with_ceo' => 'Tạo cuộc họp coffee với CEO',
+            'meeting_with_ceo' => 'Tạo cuộc họp với CEO tại công ty',
+        ],
+        'recruitment' => [
+            'all' => 'Xem Tất Cả',
+            'apply' => 'Ứng Tuyển',
+            'empty' => 'Không có dữ liệu!',
+            'salary' => 'Lương',
+            'work_place' => 'Nơi làm việc',
+            'deadline' => 'Hạn nộp',
+        ],
     ],
     
 ];

@@ -19,6 +19,7 @@ class CreateEvaluateTable extends Migration
             $table->text('reason')->nullable();
             $table->boolean('status')->default(false);
             $table->foreignId('process_id');
+            $table->timestamps();
 
             $table->foreign('process_id')->references('id')->on('process')->onDelete('cascade');
         });

@@ -26,16 +26,16 @@
                         @method('PUT')
                         <div class="col-md-6">
                             <div class="form-group @error('name') has-error @enderror">
-                                <label>@lang('custom.name')</label>
+                                <label class="label-required">@lang('custom.name')</label>
                                 <input type="text" name="name" value="{{$section->name}}" class="form-control" readonly>
                                 @error('name') 
                                 <span class="help-block"> {{$message}} </span>
                                 @enderror
                             </div>
-                            <div class="form-group @error('map_url') has-error @enderror">
-                                <label>@lang('custom.map_url')</label>
-                                <input type="text" name="map_url" value="{{$section->map_url}}" class="form-control" placeholder="Please enter map_url">
-                                @error('map_url') 
+                            <div class="form-group @error('description') has-error @enderror">
+                                <label>@lang('custom.description')</label>
+                                <textarea name="description" class="form-control" cols="10" rows="12" placeholder="@lang('custom.placeholder.description')">{{$section->description}}</textarea>
+                                @error('description') 
                                 <span class="help-block"> {{$message}} </span>
                                 @enderror
                             </div>
@@ -55,16 +55,15 @@
                         <div class="col-md-12">
                             <div class="form-group @error('content') has-error @enderror">
                                 <label>@lang('custom.content')</label>
-                                <textarea name="content" class="form-control" @error('description') is-invalid @enderror id="exampleFormControlTextarea1" rows="4">{!!$section->content!!}</textarea>
+                                <textarea name="content" class="form-control" id="exampleFormControlTextarea1" rows="5">{!!$section->content!!}</textarea>
                                 @error('content') 
                                 <span class="help-block"> {{$message}} </span>
                                 @enderror
                             </div>
                         </div>
                         <div class="col-md-12 text-center">
-                            <button type="submit" class="btn btn-primary">@lang('custom.button.submit')</button>
-                            <button type="reset" class="btn btn-default">@lang('custom.button.reset')</button>
-                            <a href="{{route('sections.index')}}" class="btn btn-danger">@lang('custom.button.cancel')</a>
+                            <button type="submit" class="btn btn-primary">@lang('custom.button.submit') <em class="fa fa-check"></em></button>
+                            <a href="{{route('sections.index')}}" class="btn btn-danger">@lang('custom.button.cancel') <em class="fa fa-times"></em></a>
                         </div>
                     </form>
                 </div>
@@ -74,7 +73,22 @@
 </div>
 @endsection
 @section('script')
-    @include('admin.preview-img')
+    <script>
+        function encodeImageFileAsURL(element) {
+            var file = element.files[0];
+            if(file === undefined){
+                $(".preview-img img").attr('src', "{{($section->image) ? $section->image : 'default-img.png'}}");
+            } else {
+                var reader = new FileReader();
+                reader.onloadend = function() {
+                    if(reader.result){
+                        $(".preview-img img").attr('src', reader.result);
+                    }
+                }
+                reader.readAsDataURL(file);
+            }
+        }
+    </script>
     <script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
     <script>
     CKEDITOR.replace( 'content', {

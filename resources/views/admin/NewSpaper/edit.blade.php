@@ -21,26 +21,26 @@
             <div class="panel-heading">@lang('custom.page_title.form')</div>
             <div class="panel-body">
                 <div class="col-md-12">
-                    <form role="form" action="{{route('new_spaper.update', $NewSpaper->id)}}" method="POST" enctype="multipart/form-data">
+                    <form role="form" action="{{route('new-spaper.update', $NewSpaper->id)}}" method="POST" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
                         <div class="col-md-6">
                             <div class="form-group @error('title') has-error @enderror">
-                                <label>@lang('custom.title')</label>
-                                <input type="text" name="title" value="{{$NewSpaper->title}}" class="form-control">
+                                <label class="label-required">@lang('custom.title')</label>
+                                <input type="text" name="title" value="{{$NewSpaper->title}}" class="form-control" placeholder="@lang('custom.placeholder.title')">
                                 @error('title') 
                                 <span class="help-block"> {{$message}} </span>
                                 @enderror
                             </div>
                             <div class="form-group @error('url') has-error @enderror">
-                                <label>@lang('custom.url')</label>
-                                <input type="text" name="url" value="{{$NewSpaper->url}}" class="form-control">
+                                <label class="label-required">@lang('custom.url')</label>
+                                <input type="text" name="url" value="{{$NewSpaper->url}}" class="form-control" placeholder="@lang('custom.placeholder.url')">
                                 @error('url') 
                                 <span class="help-block"> {{$message}} </span>
                                 @enderror
                             </div>
                             <div class="form-group @error('description') has-error @enderror">
-                                <label>@lang('custom.description')</label>
+                                <label class="label-required">@lang('custom.description')</label>
                                 <textarea name="description" cols="30" rows="10" class="form-control">{{$NewSpaper->description}} </textarea>
                                 @error('description') 
                                 <span class="help-block"> {{$message}} </span>
@@ -49,7 +49,7 @@
                         </div>
                         <div class="col-md-6">
                             <div class="form-group @error('image_url') has-error @enderror">
-                                <label>@lang('custom.image_url')</label>
+                                <label class="label-required">@lang('custom.image_url')</label>
                                 <input type="file" onchange="encodeImageFileAsURL(this)" name="image_url" accept="image/*">
                                 @error('image_url') 
                                 <span class="help-block"> {{$message}} </span>
@@ -61,9 +61,8 @@
                         </div>
                         
                         <div class="col-md-12 text-center">
-                            <button type="submit" class="btn btn-primary">@lang('custom.button.submit')</button>
-                            <button type="reset" class="btn btn-default">@lang('custom.button.reset')</button>
-                            <a href="{{route('new_spaper.index')}}" class="btn btn-danger">@lang('custom.button.cancel')</a>
+                            <button type="submit" class="btn btn-primary">@lang('custom.button.submit') <em class="fa fa-check"></em></button>
+                            <a href="{{route('new-spaper.index')}}" class="btn btn-danger">@lang('custom.button.cancel') <em class="fa fa-times"></em></a>
                         </div>
                     </form>
                 </div>
@@ -73,5 +72,20 @@
 </div>
 @endsection
 @section('script')
-    @include('admin.preview-img')
+<script>
+    function encodeImageFileAsURL(element) {
+        var file = element.files[0];
+        if(file === undefined){
+            $(".preview-img img").attr('src', "{{$NewSpaper->image}}");
+        } else {
+            var reader = new FileReader();
+            reader.onloadend = function() {
+                if(reader.result){
+                    $(".preview-img img").attr('src', reader.result);
+                }
+            }
+            reader.readAsDataURL(file);
+        }
+    }
+</script>
 @endsection

@@ -22,6 +22,6 @@ class JobRepository extends Repository implements JobRepositoryInterface
 
     public function where($field, $opedaytor = '=' ,$condition)
     {
-        return $this->model->where($field, $opedaytor ,$condition)->first();
+        return $this->model->where($field, $opedaytor ,$condition)->get();
     }
 }

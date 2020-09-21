@@ -27,6 +27,9 @@ class UserUpdateRequest extends FormRequest
         return [
             'name' => 'required',
             'email' => 'required|unique:users,email,' . auth()->user()->id,
+            'phone' => ['required','digits:10','regex:/(02|03|07|08|09|[2|3|6|7|8|9])+([0-9]{7})\b/'],
+            'address' => 'required',
+            'avatar' => 'nullable|mimes:jpeg,jpg,png,gif|max:10000',
         ];
     }
 
@@ -35,6 +38,10 @@ class UserUpdateRequest extends FormRequest
         return [
             'required' => trans('validation.required'),
             'unique' => trans('validation.unique'),
+            'regex' => trans('validation.regex'),
+            'digits' => trans('validation.digits'),
+            'avatar.mimes' => trans('validation.mimes'),
+            'max' => trans('validation.max'),
         ];
     }
 }

@@ -19,7 +19,17 @@ class AdminController extends Controller
 
     public function index()
     {
-        $data['candidates'] = \App\Model\UserJob::count();
+        $toDay = \Carbon\Carbon::now();
+
+        $data['eventsToday'] = \App\Model\Event::whereDate('start', '=', $toDay)
+                            ->get();
+        $data['eventsTomorrow'] = \App\Model\Event::whereDate('start', '=', $toDay->addDays(1))
+                            ->get();
+
+        
+        $data['candidates'] = \App\Model\UserJob::where('status', '=', 0)
+                                ->where('result', '=', 0)
+                                ->count();
         $data['candidate_evaluated'] = \App\Model\UserJob::where('status', '=', 0)
                                         ->where('result', '=', 0)
                                         ->count();
@@ -29,6 +39,7 @@ class AdminController extends Controller
         $data['candidate_failed'] = \App\Model\UserJob::where('status', '=', 1)
                                         ->where('result', '=', 0)
                                         ->count();
+        $data['jobs'] = \App\Model\Job::where('status', '=', 1)->paginate(10);
 
         for ($i=5; $i >= 0; $i--) { 
             $arrMonth[] = \Carbon\Carbon::now()->subMonths($i)->format('F');
@@ -50,6 +61,16 @@ class AdminController extends Controller
         
 
         return view('admin.pages.dashboard', compact('data'));
+    }
+
+    public function search(Request $request)
+    {
+        $jobs = \App\Model\Job::where('name', 'like', '%'.$request->keyword.'%')
+                                    ->where('status', '=', 1)
+                                    ->paginate(10);
+        $html = view('admin.pages.searchDashboard', compact('jobs'))->render();
+
+        return response()->json($html);
     }
 
     

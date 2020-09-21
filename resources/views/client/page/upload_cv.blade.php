@@ -8,19 +8,18 @@
 <div class="modal-body">
     <form id="formUploadCV" enctype="multipart/form-data" method="post">
         <div class="form-group">
-            <label>@lang('custom.name_cv')</label>
-            <input type="text" class="form-control" name="cv_name">
+            <label class="label-required">@lang('custom.name_cv')</label>
+            <input type="text" class="form-control" name="cv_name" placeholder="@lang('custom.placeholder.name')">
             <span class="help-block text-danger"> </span>
         </div>
         <div class="form-group">
-            <label>@lang('custom.cv_url')</label>
-            <input type="file" name="cv_url" accept="application/pdf,.doc,.docx,application/msword">
+            <label class="label-required">@lang('custom.cv_url')</label>
+            <input type="file" name="cv_url" accept="application/pdf,.doc,.docx,application/msword,application/vnd.ms-excel">
             <p class="help-block text-danger"> </p>
         </div>
         
         <div class="col-md-12 text-center">
             <button class="btn btn-outline-reg btn-upload-cv">@lang('custom.button.submit')</button>
-            <button type="reset" class="btn btn-outline-reg">@lang('custom.button.reset')</button>
             <button type="button" class="btn btn-outline-reg" data-dismiss="modal">@lang('custom.button.cancel')</button>
         </div>
     </form>
