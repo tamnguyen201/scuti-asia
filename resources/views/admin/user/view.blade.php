@@ -5,6 +5,7 @@
     <p><b>{{$user->phone}}</b></p>
     <p><b>{{$user->address}}</b></p> <hr>
 </div>
+@if($user->cv->count() > 0)
 <div class="col-lg-12 text-center">
     <h4>Thông tin CV</h4>  
     <table class="table table-hover">
@@ -29,3 +30,4 @@
         </tbody>
     </table>
 </div>
+@endif

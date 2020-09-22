@@ -123,8 +123,7 @@ class HomeController extends Controller
 
         if($job->category->status == 1 && $job->status == 1 && $job->compareExpireDay()) {
             $data['job'] = $job;
-            // $data['related_job'] = \App\Model\Job::where('category_id', $data['job']->category_id)->where('id', '<>', $id)->take(5);
-            $data['related_job'] = $this->JobRepository->where('id', '<>', $id);
+            $data['related_job'] = \App\Model\Job::where('category_id', $data['job']->category_id)->where('id', '<>', $id)->get()->take(5);
     
             return view('client.page.jobDetail', compact('data'));
         }
@@ -145,8 +144,7 @@ class HomeController extends Controller
         if($job->category->status == 1 && $job->status == 1 && $job->compareExpireDay()) {
             $data['job'] = $job;
             $data['apply'] = \App\Model\UserJob::where('user_id', auth()->user()->id)->where('job_id', $id)->with('process')->first();
-            // $data['related_job'] = \App\Model\Job::where('category_id', $data['job']->category_id)->where('id', '<>', $id)->take(5);
-            $data['related_job'] = $this->JobRepository->where('id', '<>', $id);
+            $data['related_job'] = \App\Model\Job::where('category_id', $data['job']->category_id)->where('id', '<>', $id)->get()->take(5);
 
             return view('client.page.jobApply', compact('data'));
         }

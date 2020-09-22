@@ -91,7 +91,7 @@ class RoleSeeder extends Seeder
             ['id'=>2, 'title' => 'Scuti là 1 trong 50 doanh nghiệp tiêu biểu của ASEAN 2020.', 'image'=>'images/award2.JPG', 'description' => 'Ngày 31/07 vừa qua, Scuti rất vui khi được làm khách mời của Diễn đàn Kinh tế ASEAN 2020. Bất ngờ và vinh dự hơn nữa, 𝑆𝑐𝑢𝑡𝑖 𝑐ℎ𝑢́𝑛𝑔 𝑡𝑜̂𝑖 đ𝑎̃ 𝑛ℎ𝑎̣̂𝑛 đ𝑢̛𝑜̛̣𝑐 𝑔𝑖𝑎̉𝑖 𝑡ℎ𝑢̛𝑜̛̉𝑛𝑔 𝑙𝑎̀ 1 𝑡𝑟𝑜𝑛𝑔 50 𝑑𝑜𝑎𝑛ℎ 𝑛𝑔ℎ𝑖𝑒̣̂𝑝 𝑐𝑜́ 𝑠𝑎̉𝑛 𝑝ℎ𝑎̂̉𝑚 𝑑𝑖̣𝑐ℎ 𝑣𝑢̣ 𝑐ℎ𝑎̂́𝑡 𝑙𝑢̛𝑜̛̣𝑛𝑔 𝑐𝑎𝑜 𝐴𝑆𝐸𝐴𝑁. Đây là sự đánh giá, 𝑔ℎ𝑖 𝑛ℎ𝑎̣̂𝑛 𝑘ℎ𝑎́𝑐ℎ 𝑞𝑢𝑎𝑛 𝑘ℎ𝑜̂𝑛𝑔 𝑐ℎ𝑖̉ 𝑐𝑢̉𝑎 𝑐𝑜̣̂𝑛𝑔 đ𝑜̂̀𝑛𝑔 𝑘𝑖𝑛ℎ 𝑡𝑒̂́ 𝑡𝑟𝑜𝑛𝑔 𝑛𝑢̛𝑜̛́𝑐 𝑚𝑎̀ 𝑐𝑜̀𝑛 𝑐𝑢̉𝑎 𝑐𝑎̉ khu vực ASEAN. Giải thưởng này còn có ý nghĩa rất quan trọng, 𝑛𝑜́ 𝑚𝑎𝑛𝑔 𝑙𝑎̣𝑖 𝑛𝑖𝑒̂̀𝑚 𝑣𝑢𝑖 𝑡𝑖𝑛ℎ 𝑡ℎ𝑎̂̀𝑛, 𝑡𝑎̣𝑜 𝑡ℎ𝑒̂𝑚 đ𝑜̣̂𝑛𝑔 𝑙𝑢̛̣𝑐 𝑟𝑎̂́𝑡 𝑙𝑜̛́𝑛 đ𝑜̂́𝑖 𝑣𝑜̛́𝑖 𝑏𝑎𝑛 𝑙𝑎̃𝑛ℎ đ𝑎̣𝑜 𝑣𝑎̀ 𝑡𝑎̣̂𝑝 𝑡ℎ𝑒̂̉ 𝑐𝑎́𝑛 𝑏𝑜̣̂, nhân viên Scuti.', 'url' => 'https://www.facebook.com/scutiasia/'],
         ]);
         DB::table('sections')->insert([
-            ['id'=>1, 'name' => 'Trở thành thành viên trong gia đình Scuti', 'slug' => Str::slug('Trở thành thành viên trong gia đình Scuti'), 'description' => 'Hãy đến với chúng tôi khi nhận thấy những giá trị này phù hợp với bạn!', 'content' => '', 'image' => 'https://scontent-xsp1-1.xx.fbcdn.net/v/t1.0-9/117338396_2593777130952103_6506264468818039087_o.jpg?_nc_cat=108&_nc_sid=6e5ad9&_nc_ohc=qxJHuqlTniEAX9CuQv1&_nc_ht=scontent-xsp1-1.xx&oh=36311e9857111505bbc1edb96ddf41f5&oe=5F6BFA89'],
+            ['id'=>1, 'name' => 'Trở thành thành viên trong gia đình Scuti', 'slug' => Str::slug('Trở thành thành viên trong gia đình Scuti'), 'description' => 'Hãy đến với chúng tôi khi nhận thấy những giá trị này phù hợp với bạn!', 'content' => '', 'image' => 'images/banner.jpg'],
             ['id'=>2, 'name' => 'Scuti Mang Lại Cho Bạn', 'slug' => Str::slug('Scuti Mang Lại Cho Bạn'), 'description' => 'Hãy đến với chúng tôi khi nhận thấy những giá trị này phù hợp với bạn!', 
                 'content' => 
                     '<div class="col-lg-4">
@@ -138,12 +138,12 @@ class RoleSeeder extends Seeder
                         <li>Jun 2018 <a href="https://www.techinasia.com/events/singapore" target="_blank">Tech in Asia Singapore 2018</a>&nbsp;&lt;<a href="http://blog.scuti.asia/2018/06/report-of-tech-in-asia-singapore.html" target="_blank">Blog</a>&gt;</li>
                         <li>Jun 2018 <a href="https://startupthailand.org/showcase/" target="_blank">Startup Thailand 2018</a>&nbsp;&lt;<a href="http://blog.scuti.asia/2018/06/report-of-startupthailand-2018.html" target="_blank">Blog</a>&gt;</li>
                     </ul>',
-                'image'=>'https://scontent.fhan3-3.fna.fbcdn.net/v/t1.0-9/p720x720/118331394_2611383379191478_8068547518063368158_o.jpg?_nc_cat=101&_nc_sid=8024bb&_nc_ohc=N9PHqo0HIWwAX_ijg4P&_nc_ht=scontent.fhan3-3.fna&tp=6&oh=6e4a8eb661adf4e61a2f682ed67d3d5e&oe=5F748A9C'],
+                'image'=>'images/about.jpg'],
             ['id'=>5, 'name' => 'Thành Viên Cốt Lõi', 'slug' => Str::slug('Thành Viên Cốt Lõi'), 'description' => '', 'content' => '', 'image' => ''],
             ['id'=>6, 'name' => 'Nhóm Của Chúng Tôi', 'slug' => Str::slug('Nhóm Của Chúng Tôi'), 'description' => '', 'content' => '', 'image' => ''],
             ['id'=>7, 'name' => 'Quyền Lợi Khi Gia Nhập Với Chúng Tôi', 'slug' => Str::slug('Quyền Lợi Khi Gia Nhập Với Chúng Tôi'), 'description' => '', 'content' => '', 'image' => ''],
             ['id'=>8, 'name' => 'Báo Chí Nói Về Chúng Tôi', 'slug' => Str::slug('Báo Chí Nói Về Chúng Tôi'), 'description' => 'Scuti đã vinh dự nhận được nhiều bằng khen, giải thưởng các cấp vinh danh những đóng góp và thành tích của công ty trong hoạt động sản xuất kinh doanh, hoạt động cộng đồng xã hội và sự nghiệp xây dựng, bảo vệ Tổ quốc.', 'content' => '', 'image' => ''],
-            ['id'=>9, 'name' => 'Ghé Thăm Chúng Tôi', 'slug' => Str::slug('Ghé Thăm Chúng Tôi'), 'description' => 'Đừng ngần ngại gọi cho chúng tôi hoặc gửi tin nhắn liên hệ cho chúng tôi!', 'content' => '', 'image' => 'https://www.scuti.asia/uploads/6/1/9/4/61941893/img-4248_orig.jpg'],
+            ['id'=>9, 'name' => 'Ghé Thăm Chúng Tôi', 'slug' => Str::slug('Ghé Thăm Chúng Tôi'), 'description' => 'Đừng ngần ngại gọi cho chúng tôi hoặc gửi tin nhắn liên hệ cho chúng tôi!', 'content' => '', 'image' => 'images/ceo.jpg'],
             ['id'=>10, 'name' => 'Quy Trình Tuyển Dụng', 'slug' => Str::slug('Quy Trình Tuyển Dụng'), 'description' => 'Chúng tôi luôn tìm kiếm những người tuyệt vời! Nếu bạn chưa tìm thấy cơ hội phù hợp hiện tại, nhưng tin rằng bạn có thể trở thành 1 phần của Scuti, hãy gửi thông tin cho chúng tôi.', 
                 'content' => 
                 '<div class="col-lg-10 offset-lg-1 row my-3">
@@ -184,11 +184,9 @@ class RoleSeeder extends Seeder
             ['id'=>2, 'name'=>'Nguyễn Phú Tâm', 'email' => 'customer2@gmail.com', 'message' => 'Qua chơi', 'type' => 'Meeting with CEO'],
         ]);
         DB::table('categories')->insert([
-            ['id'=>1,'user_id' => 1, 'category_name'=>'PHP', 'slug' => \Str::slug('PHP'), 'status' => 1],
-            ['id'=>2,'user_id' => 1, 'category_name'=>'NodeJs', 'slug' => \Str::slug('NodeJs'), 'status' => 1],
-            ['id'=>3,'user_id' => 1, 'category_name'=>'Java', 'slug' => \Str::slug('Java'), 'status' => 1],
-            ['id'=>4,'user_id' => 1, 'category_name'=>'Html Css', 'slug' => \Str::slug('Html Css'), 'status' => 1],
-            ['id'=>5,'user_id' => 1, 'category_name'=>'ReactJs', 'slug' => \Str::slug('ReactJs'), 'status' => 1],
+            ['id'=>1,'user_id' => 1, 'category_name'=>'Back End', 'slug' => \Str::slug('Back End'), 'status' => 1],
+            ['id'=>2,'user_id' => 1, 'category_name'=>'Font End', 'slug' => \Str::slug('Font End'), 'status' => 1],
+            ['id'=>3,'user_id' => 1, 'category_name'=>'Marketing & Sale', 'slug' => \Str::slug('Marketing Sale'), 'status' => 1],
         ]);
         DB::table('jobs')->insert([
             ['id'=>1,'category_id' => 1, 'name'=>'PHP', 'slug' => \Str::slug('PHP'), 'description'=> 'Hỗ trợ xác định yêu cầu, phân tích yêu cầu và thử nghiệm trong các dự án với quan điểm của người dùng với CEO.', 
@@ -224,7 +222,7 @@ class RoleSeeder extends Seeder
                     - Thăng tiến nhanh nếu chứng tỏ được năng lực bản thân. Lương sẽ lên cao đúng như năng lực chứng mình được trong thời gian làm việc.
                 </p>',
                 'location_id' => 1, 'salary' => 'Thỏa Thuận', 'expireDay' => '2020/10/15', 'status' =>1],
-            ['id'=>2,'category_id' => 2, 'name'=>'Node', 'slug' => \Str::slug('Node'), 'description'=> 'Hỗ trợ xác định yêu cầu, phân tích yêu cầu và thử nghiệm trong các dự án với quan điểm của người dùng với CEO.', 
+            ['id'=>2,'category_id' => 1, 'name'=>'Node', 'slug' => \Str::slug('Node'), 'description'=> 'Hỗ trợ xác định yêu cầu, phân tích yêu cầu và thử nghiệm trong các dự án với quan điểm của người dùng với CEO.', 
                 'content' => 
                     '<h4>Mô tả công việc</h4>
                     <div class="description">
@@ -258,7 +256,7 @@ class RoleSeeder extends Seeder
                         <li>Chính sách thưởng phong phú: Thưởng tháng lương 13 + thưởng nóng dự án + thưởng nhân viên xuất sắc + các khoản thưởng khác;</li><li>Xét tăng lương 2 lần/năm dựa trên hiệu quả công việc;</li><li>Hưởng đầy đủ các chế độ bảo hiểm theo quy định;</li><li>Được tặng quà, thăm hỏi nhân các dịp sinh nhật, cưới hỏi, hiếu hỉ, ốm đau…;</li><li>Làm việc trong môi trường hiện đại, trẻ trung, văn hóa mở với nhiều hoạt động văn hóa tinh thần: du lịch, nghỉ dưỡng, party sự kiện…</li>
                     </ul>',
                 'location_id' => 1, 'salary' => 'Thỏa Thuận', 'expireDay' => '2020/10/15', 'status' =>1],
-            ['id'=>3,'category_id' => 3, 'name'=>'Java', 'slug' => \Str::slug('java'), 'description'=> 'Hỗ trợ xác định yêu cầu, phân tích yêu cầu và thử nghiệm trong các dự án với quan điểm của người dùng với CEO.', 
+            ['id'=>3,'category_id' => 1, 'name'=>'Java', 'slug' => \Str::slug('java'), 'description'=> 'Hỗ trợ xác định yêu cầu, phân tích yêu cầu và thử nghiệm trong các dự án với quan điểm của người dùng với CEO.', 
                 'content' => 
                     '<h4>Mô tả công việc</h4>
                     <p>
@@ -296,7 +294,7 @@ class RoleSeeder extends Seeder
                         · Tham gia các hoạt động tinh thần: du lịch, giải trí do Công ty tổ chức…
                     </p>',
                 'location_id' => 1, 'salary' => 'Thỏa Thuận', 'expireDay' => '2020/10/15', 'status' =>1],
-            ['id'=>4,'category_id' => 4, 'name'=>'FE', 'slug' => \Str::slug('FE'), 'description'=> 'Hỗ trợ xác định yêu cầu, phân tích yêu cầu và thử nghiệm trong các dự án với quan điểm của người dùng với CEO.', 
+            ['id'=>4,'category_id' => 2, 'name'=>'FE', 'slug' => \Str::slug('FE'), 'description'=> 'Hỗ trợ xác định yêu cầu, phân tích yêu cầu và thử nghiệm trong các dự án với quan điểm của người dùng với CEO.', 
                 'content' => 
                     '<h4>Mô tả công việc</h4>
                     <p>
@@ -309,7 +307,7 @@ class RoleSeeder extends Seeder
                     <p>- Thời gian làm việc: 8:00 ~ 17:00 từ thứ 2 đến thứ 6 (nghỉ Thứ Bảy, Chủ Nhật và các ngày Lễ, Tết)<br>- Thưởng: 2 lần/năm<br>- Ngoài các gói bảo hiểm cơ bản theo quy định của Luật Lao Động, bạn còn được tham gia gói bảo hiểm tai nạn lao động tại Lampart.<br>- Trà, sữa, coffee,... miễn phí<br>- Ngày nghỉ đặc biệt dành cho nhân viên nữ: 0.5 ngày/ tháng.<br>- Được hưởng những phúc lợi đặc biệt như chương trình quà tết, bánh trung thu, tiền mừng đám cưới (5,000,000 VND), tiền mừng khi sanh con (2,000,000 VND),…<br>- Đối với nhân viên ký hợp đồng không xác định thời hạn: từ thời điểm ký hợp đồng không xác định thời hạn, cứ mỗi năm được cộng thêm 1 ngày nghỉ phép. Ngày nghỉ phép không sử dụng hết trong năm sẽ trả vào lương tháng cuối cùng của năm.
                     </p>',
                 'location_id' => 1, 'salary' => 'Thỏa Thuận', 'expireDay' => '2020/10/15', 'status' =>1],
-            ['id'=>5,'category_id' => 5, 'name'=>'React', 'slug' => \Str::slug('React'), 'description'=> 'Hỗ trợ xác định yêu cầu, phân tích yêu cầu và thử nghiệm trong các dự án với quan điểm của người dùng với CEO.', 
+            ['id'=>5,'category_id' => 2, 'name'=>'ReactJs', 'slug' => \Str::slug('React'), 'description'=> 'Hỗ trợ xác định yêu cầu, phân tích yêu cầu và thử nghiệm trong các dự án với quan điểm của người dùng với CEO.', 
                 'content' => 
                     '<h4>Mô tả công việc</h4>
                     <div class="description">

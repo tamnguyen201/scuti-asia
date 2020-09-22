@@ -4,7 +4,8 @@ return [
 
     'page' => [
         'home' => [
-            'title' => 'Trang Chủ'
+            'title' => 'Trang Chủ',
+            'empty_job' => 'Danh mục này không còn công việc tuyển dụng! Vui lòng quay lại sau.',
         ],
 
         'auth' => [
