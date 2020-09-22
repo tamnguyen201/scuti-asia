@@ -35,18 +35,14 @@
                                 <label>{{trans('custom.phone')}}</label>
                                 <input name="phone" type="text" class="form-control" value="{{ old('phone') }}" placeholder="@lang('custom.placeholder.phone')">
                                 @error('phone')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                                <span class="help-block"> {{$message}} </span>
                                 @enderror
                             </div>
                             <div class="form-group @error('address') has-error @enderror">
                                 <label>{{trans('custom.address')}}</label>
                                 <input name="address" type="text" class="form-control" value="{{ old('address') }}" placeholder="@lang('custom.placeholder.address')">
                                 @error('address')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                                <span class="help-block"> {{$message}} </span>
                                 @enderror
                             </div>
                         </div>

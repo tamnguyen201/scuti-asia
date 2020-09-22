@@ -19,14 +19,19 @@ class AdminController extends Controller
 
     public function index()
     {
-        $toDay = \Carbon\Carbon::now();
+        $toDay = \Carbon\Carbon::now('Asia/Ho_Chi_Minh');
+        $tomorrow = \Carbon\Carbon::tomorrow('Asia/Ho_Chi_Minh');
+        $nextDay = \Carbon\Carbon::now('Asia/Ho_Chi_Minh')->addDays(2);
 
-        $data['eventsToday'] = \App\Model\Event::whereDate('start', '=', $toDay)
+        $data['events']['Today'] = \App\Model\Event::whereDate('start', '=', $toDay)
+                                                ->whereTime('start', '>=', $toDay->format('H:i:s'))
+                                                ->get();
+        $data['events']['Tomorrow'] = \App\Model\Event::whereDate('start', '=', $tomorrow)
                             ->get();
-        $data['eventsTomorrow'] = \App\Model\Event::whereDate('start', '=', $toDay->addDays(1))
+        $data['events']['NextDay'] = \App\Model\Event::whereDate('start', '=', $nextDay)
                             ->get();
+                            
 
-        
         $data['candidate_new'] = \App\Model\UserJob::where('status', 0)
                                         ->withCount('process')
                                         ->get()
