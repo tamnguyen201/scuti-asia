@@ -76,7 +76,14 @@ class EvaluateController extends Controller
         ]) 
         ->setCallbacks([ 
             'dayClick' => 'function(date, event, view) {
+                event.preventDefault();
+                let url = $("#btn-add").attr("href");
+                $.get(url)
+                .done(function (results) {
+                $(".modal-body").html(results);
                 $("#modal_add").modal("show");
+                }).fail(function (data) {
+                });
             }',
             'eventRender' => 'function(event, element) {
                 element.popover({
@@ -101,6 +108,14 @@ class EvaluateController extends Controller
         return $calendar;
     }
 
+    public function createCalendar($id){
+        $processById = $this->processRepository->show($id);
+        $candidateById = $this->candidateRepository->where('id','=', $processById->user_job->user_id);
+        $dataUser =$this->candidateRepository->show($candidateById->id);
+        $dataAdmin = $this->adminRepository->all();
+        $html = view('admin.calendar.modal_add', compact('processById','dataUser','dataAdmin'))->render();
+        return response()->json($html);
+    }
 
     public function storeCalendar(EventRequest $request)
     {  
@@ -114,8 +129,11 @@ class EvaluateController extends Controller
             'admin_id'=>$request->admins
         ];
         $event = Event::updateOrCreate($insertArr);
-
-        return redirect()->route('evaluate.candidate.show',$request->process_id);
+        // $html = view('admin.evaluate.interview')->renderSections()['content'];
+        // dd($html);
+        // return response()->json($html);
+        
+        // return redirect()->route('evaluate.candidate.show',$request->process_id);
     }
      
     public function show($id)
@@ -125,10 +143,9 @@ class EvaluateController extends Controller
         $jobById = $this->jobRepository->show($processById->user_job->job_id);
         $calendar = $this->showCalendar($candidateById->id);
         $dataUser =$this->candidateRepository->show($candidateById->id);
-        $dataAdmin = $this->adminRepository->all();
         $data = Event::all();
         
-        return view('admin.evaluate.evaluate_process', compact('processById','data','candidateById','calendar','dataUser','dataAdmin','jobById'));
+        return view('admin.evaluate.evaluate_process', compact('processById','data','candidateById','calendar','dataUser','jobById'));
     }
 
     public function store(Request $request, $id)
