@@ -5,7 +5,7 @@
         </div>
     </div>
     <div class="panel-body col-md-4">
-        <h3 class="list-title"><span class="fa fa-list-alt"></span> Danh sách</h3>
+        <h3 class="list-title"><span class="fa fa-list-alt"></span> Danh sách :</h3>
         <hr>
         @foreach ($data as $item)
             <div class="list-interview col-md-12" style="width: 30rem; padding-bottom:15px">
