@@ -1,11 +1,11 @@
-<div class="row">
-    <div class="col-md-8">
+<div>
+    <div class="col-md-12">
         <div class="panel-body">
             {!! $calendar->calendar() !!}
         </div>
     </div>
-    <div class="panel-body col-md-4">
-        <h3 class="list-title"><span class="fa fa-list-alt"></span> Danh sách</h3>
+    {{-- <div class="panel-body col-md-4">
+        <h3 class="list-title"><span class="fa fa-list-alt"></span> Danh sách :</h3>
         <hr>
         @foreach ($data as $item)
             <div class="list-interview col-md-12" style="width: 30rem; padding-bottom:15px">
@@ -16,7 +16,6 @@
                 <div class="button col-md-12" style="float: right">
                     <div class="col-md-9 btn-email">
                         @if ($item->email_status ==1)
-                            {{-- <button class="btn btn-success" disabled><span class="fa fa-check"></span> Đã gửi email</button> --}}
                             <span class="label label-success email-success">Đã gửi email</span>
                         @else
                             <form action="{{ route('send.event.email') }}" method="POST" class="form-email-{{$item->id}}" style="display: inline-block; float: right">
@@ -41,7 +40,7 @@
             </div>
         @endforeach
         <br>
-    </div>
+    </div> --}}
 </div>
 {{-- start modal --}}
 

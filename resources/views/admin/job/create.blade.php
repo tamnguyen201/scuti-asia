@@ -116,7 +116,7 @@
     <script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
     <script>
         CKEDITOR.replace('description', {
-            filebrowserBrowseUrl: ,
+            filebrowserBrowseUrl: '{{ url('admin/jobs/create') }}',
 
         });
 

@@ -122,7 +122,7 @@ class EvaluateController extends Controller
     {
         $processById = $this->processRepository->show($id);
         $candidateById = $this->candidateRepository->where('id','=', $processById->user_job->user_id);
-        $jobById = $this->jobRepository->where('id','=', $processById->user_job->job_id);
+        $jobById = $this->jobRepository->show($processById->user_job->job_id);
         $calendar = $this->showCalendar($candidateById->id);
         $dataUser =$this->candidateRepository->show($candidateById->id);
         $dataAdmin = $this->adminRepository->all();
@@ -142,7 +142,7 @@ class EvaluateController extends Controller
             $processById = $this->evaluatePass($dataCurrentEvaluate);
             
             $candidateById = $this->candidateRepository->where('id','=', $processById->user_job->user_id);
-            $jobById = $this->jobRepository->where('id','=', $processById->user_job->job_id);
+            $jobById = $this->jobRepository->show($processById->user_job->job_id);
             $calendar = $this->showCalendar($candidateById->id);
             $dataUser =$this->candidateRepository->show($candidateById->id);
             $dataAdmin = $this->adminRepository->all();
@@ -178,7 +178,7 @@ class EvaluateController extends Controller
     {
         $this->processRepository->create([
             'step'=>1,
-            'name'=> 'Checking',
+            'name'=> 'Đang kiểm tra',
             'user_job_id' =>$id
         ]);
 

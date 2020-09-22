@@ -69,12 +69,12 @@
                     <div class="form-calendar form-group col-md-12">
                         <label for="exampleFormControlTextarea1">@lang('custom.calendar.attender') :</label>
                         <br>
-                        <select name="admins[]" id="slim-multi-select" multiple="multiple" @error('admin') is-invalid @enderror>
+                        <select name="admins[]" id="slim-multi-select" multiple="multiple" @error('admins') is-invalid @enderror>
                             @foreach ($dataAdmin as $admin)
                             <option value="{{ $admin->id }}">{{ $admin->name }}</option>
                             @endforeach
                         </select>
-                        @error('admin')
+                        @error('admins')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
