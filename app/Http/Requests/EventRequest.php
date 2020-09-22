@@ -27,7 +27,8 @@ class EventRequest extends FormRequest
             'title' =>'required|unique:events,title',
             'color'=>'required',
             'start'=>'required',
-            'end'=>'required'
+            'end'=>'required',
+            'admins'=>'required'
         ];
     }
 

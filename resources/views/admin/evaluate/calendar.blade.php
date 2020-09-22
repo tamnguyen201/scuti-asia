@@ -1,10 +1,10 @@
-<div class="row">
-    <div class="col-md-8">
+<div>
+    <div class="col-md-12">
         <div class="panel-body">
             {!! $calendar->calendar() !!}
         </div>
     </div>
-    <div class="panel-body col-md-4">
+    {{-- <div class="panel-body col-md-4">
         <h3 class="list-title"><span class="fa fa-list-alt"></span> Danh sách :</h3>
         <hr>
         @foreach ($data as $item)
@@ -40,7 +40,7 @@
             </div>
         @endforeach
         <br>
-    </div>
+    </div> --}}
 </div>
 {{-- start modal --}}
 

@@ -189,7 +189,8 @@ return [
         'end'=>'ngày kết thúc',
         'current_password' =>'mật khẩu cũ',
         'new_password'=>'mật khẩu mới',
-        'new_confirm_password' =>'mật khẩu xác nhận'
+        'new_confirm_password' =>'mật khẩu xác nhận',
+        'admins'=>'người tham dự'
     ],
     'other'=> [
         'new_password'=>'mật khẩu mới'
