@@ -36,10 +36,10 @@ class EmployeeRepository extends Repository implements EmployeeRepositoryInterfa
         try {
             $data['password'] = \Str::random(8);
             (isset($data['status'])) ? $data['status'] = 1 : null;
-            $this->create($data);
+            $admin = $this->create($data);
             
             DB::commit();
-            $this->sendMail($data['email'], $data['password']);
+            $this->sendMail($admin, $data['password']);
 
         } catch (Exception $e) {
             DB::rollBack();
@@ -48,16 +48,17 @@ class EmployeeRepository extends Repository implements EmployeeRepositoryInterfa
         }
     }
 
-    public function sendMail($user, $password)
+    public function sendMail($admin, $password)
     {
         $details = [
             'title' => trans('custom.email_template.create_admin_account.title'),
             'body' => trans('custom.email_template.create_admin_account.body'),
-            'username' => $user,
+            'name' => $admin->name,
+            'username' => $admin->email,
             'password' => $password,
         ];
     
-        \Mail::to($user)->send(new \App\Mail\AdminAccountMail($details));
+        \Mail::to($admin->email)->send(new \App\Mail\AdminAccountMail($details));
     }
 
     public function update($data, $id)

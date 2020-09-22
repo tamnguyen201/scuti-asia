@@ -19,7 +19,7 @@
 <div class="row">
 <div class="col-lg-12">
     <div class="panel panel-default">
-       <div class="panel-heading"><span class="fa fa-info-circle" style="font-size: 21px"></span> @lang('custom.page_title.show_infor')</div>
+        <div class="panel-heading"><span class="fa fa-info-circle" style="font-size: 21px"></span> @lang('custom.page_title.show_infor') <a href="{{route('candidates.create', ['job_id' => $jobById->id])}}" class="btn btn-primary btn-add-form" style="float: right"><span class="fa fa-plus"></span> @lang('custom.button.add_candidate')</a></div>
         <div class="panel-body">
             <div class="detail row">
                 <div class="title col-md-3">
@@ -116,7 +116,7 @@
                                             <td>{{ $candidate->user->name }}</td>
                                             <td>{{ $candidate->user->email }}</td>
                                             <td>{{ $candidate->job->name }}</td>
-                                            <td><a href="{{ $candidate->cv_url }}" target="_blank">Xem CV</a></td>
+                                            <td><a href="{{ $candidate->cv_file }}" target="_blank">@lang('custom.view_cv')</a></td>
                                             @if ($candidate->process->count() > 0 && $candidate->process->count() < 4)
                                                 @for ($i = 0; $i <= $candidate->process->count(); $i++)
                                                     @if ($i == $candidate->process->count() - 1)

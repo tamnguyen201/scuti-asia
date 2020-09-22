@@ -24,7 +24,7 @@ class SectionController extends Controller
 
     public function create()
     {
-        return view('admin.section.add');
+        return back()->with('warning', trans('custom.alert_messages.coming_soon'));
     }
 
     public function store(SectionRequest $request)

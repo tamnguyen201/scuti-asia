@@ -19,8 +19,8 @@
         <div class="col-xs-6 col-md-3 col-lg-3 no-padding">
             <div class="panel panel-orange panel-widget border-right">
                 <div class="row no-padding"><em class="fa fa-xl fa-users color-teal"></em>
-                    <div class="large">{{$data['candidates']}}</div>
-                    <div class="text-muted">@lang('custom.candidate_new')</div>
+                    <div class="large">{{$data['candidate_new']}}</div>
+                    <div>@lang('custom.candidate_new')</div>
                 </div>
             </div>
         </div>
@@ -28,7 +28,7 @@
             <div class="panel panel-teal panel-widget border-right">
                 <div class="row no-padding"><em class="fa-xl fas fa-user-check color-blue"></em>
                     <div class="large">{{$data['candidate_evaluated']}}</div>
-                    <div class="text-muted">@lang('custom.candidate_evaluated')</div>
+                    <div>@lang('custom.candidate_evaluated')</div>
                 </div>
             </div>
         </div>
@@ -36,7 +36,7 @@
             <div class="panel panel-blue panel-widget border-right">
                 <div class="row no-padding"><em class="fa fa-xl fa-user-plus color-orange"></em>
                     <div class="large">{{$data['candidate_accept']}}</div>
-                    <div class="text-muted">@lang('custom.candidate_accept')</div>
+                    <div>@lang('custom.candidate_accept')</div>
                 </div>
             </div>
         </div>
@@ -44,7 +44,7 @@
             <div class="panel panel-red panel-widget ">
                 <div class="row no-padding"><em class="fa fa-xl fa-user-times color-red"></em>
                     <div class="large">{{$data['candidate_failed']}}</div>
-                    <div class="text-muted">@lang('custom.candidate_failed')</div>
+                    <div>@lang('custom.candidate_failed')</div>
                 </div>
             </div>
         </div>
@@ -52,42 +52,69 @@
 </div>
 <div class="row">
     <div class="col-md-12">
-        <div class="panel panel-default">
+        <div class="panel">
             <div class="panel-heading">
                 @lang('custom.upcoming_meeting') 
             </div>
-            <div class="panel-body articles-container">
+            <div class="panel-body articles-container" style="padding-top: 0">
                 @if($data['eventsToday']->count() > 0 && $data['eventsTomorrow']->count() > 0)
-                <div class="col-md-6">
-                    <ul class="todo-list">
-                    @foreach($data['eventsToday'] as $event)
-                        <li class="todo-list-item">
-                            <div class="checkbox">
-                                <span>{{\CarBon\CarBon::parse($event->start)->format('d/m/Y H:i:s')}}</span>
-                                <label for="checkbox-1">{{$event->title}}</label>
-                            </div>
-                        </li>
-                    @endforeach
-                    </ul>
+                <div class="col-md-4" style="padding: 0; border-right: 1px solid">
+                    <div class="panel panel-danger">
+						<div class="panel-heading text-center">{{\CarBon\CarBon::parse($data['eventsToday'][0]->start)->format('d/m/Y')}}</div>
+						<div class="panel-body">
+                            <ul class="todo-list">
+                            @foreach($data['eventsToday'] as $event)
+                                <li class="todo-list-item">
+                                    <div class="checkbox">
+                                        <span>{{\CarBon\CarBon::parse($event->start)->format('H:i')}}</span>
+                                        <label for="checkbox-1">{{$event->title}}</label>
+                                    </div>
+                                </li>
+                            @endforeach
+                            </ul>
+						</div>
+					</div>
                 </div>
-                <div class="col-md-6">
-                    <ul class="todo-list">
-                    @foreach($data['eventsTomorrow'] as $event)
-                        <li class="todo-list-item">
-                            <div class="checkbox">
-                                <span>{{\CarBon\CarBon::parse($event->start)->format('d/m/Y H:i:s')}}</span>
-                                <label for="checkbox-1">{{$event->title}}</label>
-                            </div>
-                        </li>
-                    @endforeach
-                    </ul>
+                <div class="col-md-4" style="padding: 0; border-right: 1px solid">
+                    <div class="panel panel-warning">
+						<div class="panel-heading text-center">{{\CarBon\CarBon::parse($data['eventsToday'][0]->start)->format('d/m/Y')}}</div>
+						<div class="panel-body">
+                            <ul class="todo-list">
+                            @foreach($data['eventsTomorrow'] as $event)
+                                <li class="todo-list-item">
+                                    <div class="checkbox">
+                                        <span>{{\CarBon\CarBon::parse($event->start)->format('H:i')}}</span>
+                                        <label for="checkbox-1">{{$event->title}}</label>
+                                    </div>
+                                </li>
+                            @endforeach
+                            </ul>
+						</div>
+					</div>
+                </div>
+                <div class="col-md-4" style="padding: 0; border-right: 1px solid">
+                    <div class="panel panel-success">
+						<div class="panel-heading text-center">{{\CarBon\CarBon::parse($data['eventsToday'][0]->start)->format('d/m/Y')}}</div>
+						<div class="panel-body">
+                            <ul class="todo-list">
+                            @foreach($data['eventsTomorrow'] as $event)
+                                <li class="todo-list-item">
+                                    <div class="checkbox">
+                                        <span>{{\CarBon\CarBon::parse($event->start)->format('H:i')}}</span>
+                                        <label for="checkbox-1">{{$event->title}}</label>
+                                    </div>
+                                </li>
+                            @endforeach
+                            </ul>
+						</div>
+					</div>
                 </div>
                 @elseif($data['eventsToday']->count() > 0 || $data['eventsTomorrow']->count() > 0)
                     <ul class="todo-list">
                     @foreach($data['eventsToday'] as $event)
                         <li class="todo-list-item">
                             <div class="checkbox">
-                                <span>{{\CarBon\CarBon::parse($event->start)->format('d/m/Y H:i:s')}}</span>
+                                <span>{{\CarBon\CarBon::parse($event->start)->format('H:i')}}</span>
                                 <label for="checkbox-1">{{$event->title}}</label>
                             </div>
                         </li>
@@ -95,7 +122,7 @@
                     @foreach($data['eventsTomorrow'] as $event)
                         <li class="todo-list-item">
                             <div class="checkbox">
-                                <span>{{\CarBon\CarBon::parse($event->start)->format('d/m/Y H:i:s')}}</span>
+                                <span>{{\CarBon\CarBon::parse($event->start)->format('H:i')}}</span>
                                 <label for="checkbox-1">{{$event->title}}</label>
                             </div>
                         </li>

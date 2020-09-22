@@ -1,3 +1,4 @@
+<div class="row col-lg-12 d-flex justify-content-center">
 @if($categories->count() > 1)
     @foreach($categories as $category)
         @foreach($category->jobs as $job)
@@ -55,3 +56,4 @@
         @endforeach
     @endforeach
 @endif
+</div>

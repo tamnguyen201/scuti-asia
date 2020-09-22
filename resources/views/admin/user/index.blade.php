@@ -41,6 +41,9 @@
                                         <div class="th-inner">@lang('custom.email')</div>
                                     </th>
                                     <th>
+                                        <div class="th-inner">@lang('custom.status')</div>
+                                    </th>
+                                    <th>
                                         <div class="th-inner text-center">@lang('custom.action')</div>
                                     </th>
                                 </tr>
@@ -52,6 +55,7 @@
                                     <td>{{$stt++}}</td>
                                     <td>{{$item->name}}</td>
                                     <td>{{$item->email}}</td>
+                                    <td>{{($item->userjob->count() > 0) ? trans('custom.apply') : trans('custom.no_apply')}}</td>
                                     <td class="text-center">
                                         <a href="{{route('users.show', $item['id'])}}" class="btn btn-primary text-light view-profile"><em class="fa fa-eye"></em></a>
                                     </td>

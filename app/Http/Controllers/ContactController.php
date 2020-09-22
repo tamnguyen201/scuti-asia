@@ -27,4 +27,11 @@ class ContactController extends Controller
 
         return response()->json($html);
     }
+
+    public function update(Request $request, $id)
+    {
+        $this->contactService->update(['status' => 1], $id);
+    
+        return redirect()->route('contacts.index')->with('success', trans('custom.alert_messages.success'));
+    }
 }

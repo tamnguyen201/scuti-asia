@@ -48,7 +48,7 @@
                                 @enderror
                             </div>
                             <div class="form-group preview-img">
-                                <img src="{{$image->image_url}}" alt="your image" class="img-responsive" />
+                                <img src="{{$image->image_url}}" alt="your image" class="img-responsive" style="max-height:24rem" />
                             </div>
                         </div>
                         
