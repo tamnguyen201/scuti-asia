@@ -28,12 +28,13 @@
                             <h5 class="col-md-6">{{ $candidateById->address }}</h5>
                         </div>
                     </div>
-                    <div class="form-group col-md-6">
+                    <div class="form-group col-md-6" style="border-left:solid 1px"x>
                         <div class="form-group">
-                            <label class="label-required">@lang('custom.status')</label> <br>
-                            <span>Fail</span>
+                            <label class="label-required">@lang('custom.status') :</label> <br>
+                            <label class="label-required">Bạn đánh giá ứng viên này có đạt yêu cầu hay không ?</label> <br>
+                            <span>Không</span>
                             <input type="checkbox" name="status" class="js-switch"> 
-                            <span>Pass</span>
+                            <span>Có</span>
                         </div>
                         
                         <label><span class="fa fa-sticky-note"></span> @lang('custom.candidate.note') :</label>

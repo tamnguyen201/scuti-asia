@@ -221,7 +221,7 @@ return [
         'job'=>'Công việc ứng tuyển',
         'note'=>'Ghi chú',
         'candidate_infor'=>'Thông tin ứng viên',
-        'cv_info'=>'Thông tin CV',
+        'cv_info'=>'CV của ứng viên',
     ],
     'calendar' => [
         'name' => 'Tên ứng viên',
