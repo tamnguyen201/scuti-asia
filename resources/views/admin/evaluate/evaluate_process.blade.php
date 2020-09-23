@@ -188,6 +188,32 @@
             }).fail(function (data) {
             });
         });
+
+    $("body").on("click", ".btn-update-event", function (e) {
+        e.preventDefault();
+        let domForm = $(this).closest('form');
+        let url = domForm.attr("action");
+        $.ajax({
+            url: url,
+            data: domForm.serialize(),
+            method: "POST",
+        }).done(function (results) {
+            $("#modal_add").modal('hide');
+            swal({
+                title: 'Thành công!',
+                text: 'Dữ liệu đã được cập nhật lại!',
+                type: 'success',
+                icon: 'success'
+            }).then(result => {
+                location.reload();
+            });
+        }).fail(function (data) {
+            var errors = data.responseJSON;
+            $.each(errors.errors, function (i, val) {
+                domForm.find('input[name=' + i + ']').siblings('.error-form.text-danger').text(val[0]);
+            });
+        });
+    });
 </script>
 
 @endsection

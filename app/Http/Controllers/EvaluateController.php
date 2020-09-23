@@ -224,7 +224,7 @@ class EvaluateController extends Controller
         $event = Event::find($id);
         $admins = json_decode($event->admin_id);
         $dataAdmin = $this->adminRepository->all();
-        dd($dataAdmin);
+        
         $html = view('admin.calendar.modal_edit', compact('event','admins','dataAdmin'))->render();
         return response()->json($html);
 
@@ -234,5 +234,19 @@ class EvaluateController extends Controller
         // $dataAdmin = $this->adminRepository->all();
         // $html = view('admin.calendar.modal_add', compact('processById','dataUser','dataAdmin'))->render();
         // return response()->json($html);
+    }
+
+    public function updateCalendar(Request $request, $id)
+    { 
+        $insertArr = [ 
+            'user_id' => $request->id,
+            'note' => $request->note,
+            'title' => $request->title,
+            'start' => $request->start,
+            'end' => $request->end,
+            'admin_id'=>$request->admins
+        ];
+        
+        return Event::find($id)->update($insertArr);
     }
 }
