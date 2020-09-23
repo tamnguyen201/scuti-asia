@@ -91,7 +91,10 @@ Route::group(
         Route::group(['prefix' => 'evaluate'], function () {
             Route::get('candidate/{id}', 'EvaluateController@show')->name('evaluate.candidate.show');
             Route::post('candidate/{id}', 'EvaluateController@store')->name('evaluate.store');
-            Route::post('process/calendar/create','EvaluateController@storeCalendar')->name('store.event');
+            Route::get('process/calendar/create/{id}','EvaluateController@createCalendar')->name('create.event');
+            Route::post('process/calendar/store','EvaluateController@storeCalendar')->name('store.event');
+            Route::get('process/calendar/edit/{id}','EvaluateController@editCalendar')->name('edit.event');
+            Route::post('process/calendar/update','EvaluateController@updateCalendar')->name('update.event');
             Route::post('start-evaluate/{id}','EvaluateController@startEvaluate')->name('start.evaluate');
             Route::post('process/send-email','EvaluateController@createEmail')->name('send.event.email');
             Route::post('fullcalendar/delete/{id}','EvaluateController@destroyCalendar')->name('event.delete');
