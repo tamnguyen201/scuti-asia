@@ -23,7 +23,7 @@
                 <h6 class="subtitle mb-4 text-muted">{{ \Carbon\Carbon::parse($item->start)->format('d/m/Y') }}</h6>
             </div>
             <div class="button col-md-12" style="float: right">
-                <div class="col-md-9 btn-email" style="display: inline-block">
+                <div class="col-md-6 btn-email" style="display: inline-block">
                     @if ($item->email_status ==1)
                         <span class="label label-success email-success">Đã gửi email</span>
                     @else
@@ -38,6 +38,9 @@
                                 class="fa fa-envelope-o"></span></button>
                         </form>
                     @endif
+                </div>
+                <div class="col-md-3" style="display: inline-block">
+                    <a href="{{ route('edit.event', $item->id) }}" class="btn btn-primary btn-edit"><span class="fa fa-edit"></span></a>
                 </div>
                 <div class="col-md-3" style="display: inline-block">
                     <form action="{{route('event.delete', $item->id)}}" method="post" class="form-delete-{{$item->id}}" style="display: inline-block; float:right">

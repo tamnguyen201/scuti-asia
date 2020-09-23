@@ -171,6 +171,17 @@
                 });
             });
         });
+
+        $("body").on("click", ".btn-edit", function (e) {
+            e.preventDefault();
+            let url = $(this).attr('href');
+            $.get(url)
+            .done(function (results) {
+                $(".modal-body").html(results);
+                $("#modal_add").modal("show");
+            }).fail(function (data) {
+            });
+        });
 </script>
 
 @endsection
