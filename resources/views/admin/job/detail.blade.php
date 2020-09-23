@@ -104,6 +104,9 @@
                                             <div class="th-inner">@lang('custom.process')</div>
                                         </th>
                                         <th>
+                                            <div class="th-inner">@lang('custom.status')</div>
+                                        </th>
+                                        <th>
                                             <div class="th-inner text-center">@lang('custom.action')</div>
                                         </th>
                                     </tr>
@@ -153,7 +156,7 @@
                                             <td style="font-size: 75%;font-weight: bold;color: red">
                                                 @lang('custom.applied')</td>
                                     @endif
-
+                                    <td>{{ ($candidate->job->name) ? trans('custom.processing') : trans('custom.finished') }}</td>
                                     <td>
                                         <a href="{{ route('candidates.show', $candidate->user->id) }}"
                                             class="btn btn-info text-light view-profile" title="Xem"><em

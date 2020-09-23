@@ -80,7 +80,7 @@
                             <hr>
                             
                             <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                                <a href="http://scuti.abc/upload-cv" class="nav-link btn-upload-form" style="border-bottom: 1px solid #e5e5e5;border-radius: 0px !important;">@lang('client.page.profile.sidebar.create_cv')</a>
+                                <a href="{{route('client.create_cv')}}" class="nav-link btn-upload-form" style="border-bottom: 1px solid #e5e5e5;border-radius: 0px !important;">@lang('client.page.profile.sidebar.create_cv')</a>
                                 @if(auth()->user()->password)
                                 <a class="nav-link btn-add-form" href="{{route('client.change_password')}}" style="border-bottom: 1px solid #e5e5e5;border-radius: 0px !important;">@lang('client.page.profile.sidebar.change_password')</a>
                                 @endif
@@ -133,8 +133,7 @@
                                                 </div>
                                                 
                                                 <div class="col-md-12 text-center">
-                                                    <button type="submit" class="btn btn-outline-reg btn-update-profile">@lang('custom.button.submit')</button>
-                                                    <a href="{{route('client.profile')}}" class="btn btn-outline-reg">@lang('custom.button.cancel')</a>
+                                                    <button type="submit" class="btn btn-outline-reg btn-update-profile mt-0">@lang('custom.button.submit')</button>
                                                 </div>
                                             </form>
                                         </div>

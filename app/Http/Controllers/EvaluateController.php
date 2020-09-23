@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\EvaluateRequest;
 use App\Model\Event;
 use Redirect,Response;
 use App\Model\Evaluate;
@@ -131,13 +132,15 @@ class EvaluateController extends Controller
         return view('admin.evaluate.evaluate_process', compact('processById','data','candidateById','calendar','dataUser','dataAdmin','jobById'));
     }
 
-    public function store(Request $request, $id)
+    public function store(EvaluateRequest $request, $id)
     {
         $dataCurrentEvaluate = Evaluate::create([
-            'process_id' =>$id,
-            'comment' =>$request->comment,
-            'status' =>1
+            'process_id' => $id,
+            'comment' => $request->comment,
+            'reason' => $request->reason,
+            'status' => ($request->status) ? 1 : 0
         ]);
+        
         if($dataCurrentEvaluate['status'] == 1 ){
             $processById = $this->evaluatePass($dataCurrentEvaluate);
             
