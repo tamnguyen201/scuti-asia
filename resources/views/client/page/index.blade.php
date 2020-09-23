@@ -382,42 +382,44 @@
                     </div>
                     <div class="col-md-6 mx-auto mt-3 d-md-flex">
                         <div class="form-group mx-2 w-75">
-                            <input type="text" class="form-control" id="input-search" name="name" value="{{old('name')}}" placeholder="@lang('custom.placeholder.search')">
+                            <input type="text" class="form-control" id="input-category" value="*" hidden>
+                            <input type="text" class="form-control" id="input-search" placeholder="@lang('custom.placeholder.search')">
                         </div>
                         <div class="form-group mx-2">
-                            <button type="submit" id="btn-search" class="btn btn-search">@lang('custom.button.search')</button>
+                            <button type="submit" id="btn-search" class="btn btn-search text-white" style="background-color: #f83a5e;">@lang('custom.button.search')</button>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-12 d-md-flex">
-                    <div class="list-group col-12">
-                        <div class="row col-lg-12 d-flex list-jobs justify-content-center">
-                            @foreach($data['categories'] as $category)
-                                @foreach($category->jobs as $job)
-                                    @if($job->status == 1)
-                                    <div class="d-md-flex col-lg-6 col-12 d-block development">
-                                        <div class="col-md-12 list-group-item d-md-flex">
-                                            <div class="col-xl-7 col-md-6 col-12">
-                                                <div class="mb-block cell name-job">
-                                                    <h4 class="title-h4"><a style="color: #f4511e;" href="{{route('job-detail', [$job->id, $job->slug])}}" class="text-decoration-none"> {{$job->name}}</a></h4>
-                                                    <p class="desc-job">
-                                                        {{$job->description}}
-                                                    </p>
-                                                </div>
-                                            </div>
-                                            <div class="col-xl-5 col-md-6 d-none d-md-block text-md-right text-center">
-                                                <a href="{{route('client.applied', [$job->id, $job->slug])}}" class="btn btn-apply-main btn-apply">@lang('client.section.recruitment.apply')</a>
-                                                <p class="desc-job text-left mt-3">
-                                                    <i class="far fa-money-bill-alt"></i> @lang('client.section.recruitment.salary'): {{$job->salary}} <br>
-                                                    <i class="fas fa-map-marker-alt"></i> @lang('client.section.recruitment.work_place'): {{$job->location->name}} <br>
-                                                    <i class="far fa-clock"></i> @lang('client.section.recruitment.deadline'): {{$job->formatExpireDay()}}
+                <div class="col-lg-12">
+                    <div class="list-group col-12 list-jobs">
+                        <div class="row col-lg-12 d-flex">
+                            @foreach($data['jobs'] as $job)
+                                <div class="d-md-flex col-lg-6 col-12 d-block development">
+                                    <div class="col-md-12 list-group-item d-md-flex">
+                                        <div class="col-xl-7 col-md-6 col-12">
+                                            <div class="mb-block cell name-job">
+                                                <h4 class="title-h4"><a style="color: #f4511e;" href="{{route('job-detail', [$job->id, $job->slug])}}" class="text-decoration-none"> {{$job->name}}</a></h4>
+                                                <p class="desc-job">
+                                                    {{$job->description}}
                                                 </p>
                                             </div>
                                         </div>
+                                        <div class="col-xl-5 col-md-6 d-none d-md-block text-md-right text-center">
+                                            <a href="{{route('client.applied', [$job->id, $job->slug])}}" class="btn btn-apply-main btn-apply">@lang('client.section.recruitment.apply')</a>
+                                            <p class="desc-job text-left mt-3">
+                                                <i class="far fa-money-bill-alt"></i> @lang('client.section.recruitment.salary'): {{$job->salary}} <br>
+                                                <i class="fas fa-map-marker-alt"></i> @lang('client.section.recruitment.work_place'): {{$job->location->name}} <br>
+                                                <i class="far fa-clock"></i> @lang('client.section.recruitment.deadline'): {{$job->formatExpireDay()}}
+                                            </p>
+                                        </div>
                                     </div>
-                                    @endif
-                                @endforeach
+                                </div>
                             @endforeach
+                        </div>
+                        <div class="col-lg-12 d-flex justify-content-end pr-4">
+                            <div class="row mr-5">
+                                {{$data['jobs']->links()}}
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -459,9 +461,16 @@
         });
 
         $(window).on('load', function() {
+            if(location.search.indexOf('page') > 0){
+                location.hash = 'recruitment';
+            };
             // filter items on button click
             $('.filters-button-group').on( 'click', 'a', function() {
+                $('#input-search').val('');
                 var filterValue = $(this).attr('data-filter');
+                console.log(filterValue);
+                $('#input-category').val(filterValue);
+
                 $(".row.col-lg-12.d-flex").html(`
                 <div class="col-sm-2 mx-auto">
                     <div class="sp sp-circle"></div>
@@ -472,7 +481,7 @@
                     data: { category_id: filterValue },
                     method: "GET",
                 }).done(function (results) {
-                    $(".row.col-lg-12.d-flex").html(results);
+                    $(".list-group.col-12.list-jobs").html(results);
                 }).fail(function (data) {
                     var errors = data.responseJSON;
                     console.log(errors);
@@ -493,15 +502,17 @@
         $("#btn-search").on('click', function() {
             let value = $('#input-search').val();
             let keyword = value.trim();
+            let category_id = $('#input-category').val();
             if (keyword != '') {
                 $.ajax({
                     url: "{{ route('client.jobSearch') }}",
                     data: {
-                        'keyword': keyword
+                        'keyword': keyword,
+                        'category_id': category_id
                     },
                     method: "POST",
                 }).done(function(results) {
-                    $(".row.col-lg-12.d-flex.list-jobs").html(results);
+                    $(".list-group.col-12.list-jobs").html(results);
                 });
             };
         });

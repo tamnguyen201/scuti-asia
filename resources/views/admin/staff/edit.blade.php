@@ -75,7 +75,7 @@
                                         @endforeach
                                     </select>
                                 </div>
-                                <div class="form-group @error('email') has-error @enderror">
+                                <div class="form-group">
                                     <label class="label-required">@lang('custom.status')</label> <br>
                                     <input type="checkbox" data-id="1" name="status" class="js-switch" @if($manager->status == 1) checked @endif>
                                 </div>

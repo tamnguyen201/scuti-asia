@@ -46,13 +46,13 @@ class BenefitController extends Controller
     {
         $this->BenefitRepository->update($request->all(), $id);
         
-        return rederect()->route("benefits.index")->with('success', trans('custom.alert_messages.success'));;
+        return redirect()->route("benefits.index")->with('success', trans('custom.alert_messages.success'));;
     }
 
     public function destroy($id)
     {
         $this->BenefitRepository->delete($id);
 
-        return redirect()->route("new-spaper.index")->with('success', trans('custom.alert_messages.success'));
+        return redirect()->route("benefits.index")->with('success', trans('custom.alert_messages.success'));
     }
 }

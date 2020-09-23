@@ -21,4 +21,9 @@ class ContactService
     {
         return $this->ContactRepository->show($id);
     }
+
+    public function update($data, $id)
+    {
+        return $this->ContactRepository->update($data, $id);
+    }
 }

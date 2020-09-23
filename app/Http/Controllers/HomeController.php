@@ -58,6 +58,12 @@ class HomeController extends Controller
         $data['working_environment'] = $this->CompanyImagesRepository->all();
         $data['new_spaper'] = $this->NewSpaperRepository->all();
         $data['categories'] = $this->CategoryRepository->where('status', '=', 1);
+        $data['jobs'] = \App\Model\Job::where('status', 1)
+                                ->whereHas('category', function ($query){
+                                    $query->where('status', 1);
+                                })->with(['category' => function($query){
+                                    $query->where('status', 1);
+                                }])->paginate(10);
 
         return view('client.page.index', compact('data'));
     }
@@ -71,13 +77,28 @@ class HomeController extends Controller
 
     public function jobSearch(Request $request)
     {
-        $jobs = \App\Model\Job::where('name', 'like', '%'.$request->keyword.'%')
-                            ->where('status', '=', 1)
-                            ->whereHas('category', function ($query) use ($request){
-                                $query->where('status', '=', 1);
-                            })->with(['category' => function($query) use ($request){
-                                $query->where('status', '=', 1);
-                            }])->paginate(5);
+        if($request->category_id != '*'){
+            $jobs = \App\Model\Job::where('name', 'like', '%'.$request->keyword.'%')
+                                ->where('status', '=', 1)
+                                ->whereHas('category', function ($query) use ($request){
+                                    $query->where('id', '=', $request->category_id);
+                                })->with(['category' => function($query) use ($request){
+                                    $query->where('id', '=', $request->category_id);
+                                }])->whereHas('category', function ($query) use ($request){
+                                    $query->where('status', '=', 1);
+                                })->with(['category' => function($query) use ($request){
+                                    $query->where('status', '=', 1);
+                                }])->paginate(10);
+        } else {
+            $jobs = \App\Model\Job::where('name', 'like', '%'.$request->keyword.'%')
+                                ->where('status', '=', 1)
+                                ->whereHas('category', function ($query) use ($request){
+                                    $query->where('status', '=', 1);
+                                })->with(['category' => function($query) use ($request){
+                                    $query->where('status', '=', 1);
+                                }])->paginate(10);
+        }
+
         $html = view('client.page.jobSearch', compact('jobs'))->render();
 
         return response()->json($html);
@@ -102,8 +123,7 @@ class HomeController extends Controller
 
         if($job->category->status == 1 && $job->status == 1 && $job->compareExpireDay()) {
             $data['job'] = $job;
-            // $data['related_job'] = \App\Model\Job::where('category_id', $data['job']->category_id)->where('id', '<>', $id)->take(5);
-            $data['related_job'] = $this->JobRepository->where('id', '<>', $id);
+            $data['related_job'] = \App\Model\Job::where('category_id', $data['job']->category_id)->where('id', '<>', $id)->get()->take(5);
     
             return view('client.page.jobDetail', compact('data'));
         }
@@ -124,8 +144,7 @@ class HomeController extends Controller
         if($job->category->status == 1 && $job->status == 1 && $job->compareExpireDay()) {
             $data['job'] = $job;
             $data['apply'] = \App\Model\UserJob::where('user_id', auth()->user()->id)->where('job_id', $id)->with('process')->first();
-            // $data['related_job'] = \App\Model\Job::where('category_id', $data['job']->category_id)->where('id', '<>', $id)->take(5);
-            $data['related_job'] = $this->JobRepository->where('id', '<>', $id);
+            $data['related_job'] = \App\Model\Job::where('category_id', $data['job']->category_id)->where('id', '<>', $id)->get()->take(5);
 
             return view('client.page.jobApply', compact('data'));
         }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\EvaluateRequest;
 use App\Model\Event;
 use Redirect,Response;
 use App\Model\Evaluate;
@@ -144,12 +145,13 @@ class EvaluateController extends Controller
         return view('admin.evaluate.evaluate_process', compact('processById','data','candidateById','calendar','dataUser','jobById'));
     }
 
-    public function store(Request $request, $id)
+    public function store(EvaluateRequest $request, $id)
     {
         $dataCurrentEvaluate = Evaluate::create([
-            'process_id' =>$id,
-            'comment' =>$request->comment,
-            'status' =>1
+            'process_id' => $id,
+            'comment' => $request->comment,
+            'reason' => $request->reason,
+            'status' => ($request->status) ? 1 : 0
         ]);
         if($dataCurrentEvaluate['status'] == 1 ){
             $processById = $this->evaluatePass($dataCurrentEvaluate);
@@ -162,6 +164,9 @@ class EvaluateController extends Controller
             $data = Event::all();
 
             return view('admin.evaluate.evaluate_process' , compact('processById','data','candidateById','calendar','dataUser','dataAdmin','jobById'));
+        } else {
+            $this->evaluateFail($dataCurrentEvaluate);
+            return redirect()->route('admin.home');
         }
     }
 
@@ -186,6 +191,18 @@ class EvaluateController extends Controller
     
         return $dataNextProcess;
     } 
+
+    public function evaluateFail( $dataEvaluate ) {
+        $currentProcessId = $dataEvaluate->process_id;
+        $currentProcess = $this->processRepository->show( $currentProcessId );
+        $dataNextProcess = $this->processRepository->create([
+            'step'=>4,
+            'name'=> 'Ứng viên bị loại',
+            'user_job_id' =>$currentProcess->user_job_id
+        ]);
+
+        return $dataNextProcess;
+    }
 
     public function startEvaluate($id)
     {
@@ -221,7 +238,7 @@ class EvaluateController extends Controller
         $event = Event::find($id);
         $admins = json_decode($event->admin_id);
         $dataAdmin = $this->adminRepository->all();
-        dd($dataAdmin);
+        
         $html = view('admin.calendar.modal_edit', compact('event','admins','dataAdmin'))->render();
         return response()->json($html);
 

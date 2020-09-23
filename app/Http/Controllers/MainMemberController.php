@@ -53,7 +53,7 @@ class MainMemberController extends Controller
 
     public function update(MainMemberUpdateRequest $request, $id)
     {
-        $this->MemberRepository->update(['role' => $request->role], $request->user_id);
+        $this->MemberRepository->update($request->all(), $id);
     
         return redirect()->route('members.index')->with('success', trans('custom.alert_messages.success'));
     }

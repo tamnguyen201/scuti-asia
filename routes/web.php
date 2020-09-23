@@ -86,7 +86,7 @@ Route::group(
         Route::get('candidates/finish', 'CandidateController@finish')->name('candidates.finish');
         Route::get('candidates/failed', 'CandidateController@failed')->name('candidates.failed');
         Route::post('candidates/search', 'CandidateController@search')->name('candidates.search');
-        Route::resource('candidates', 'CandidateController')->only(['index', 'show']);
+        Route::resource('candidates', 'CandidateController')->only(['index', 'show', 'create', 'store']);
         Route::get('candidates/job/{id}','CandidateController@showByJob')->name('candidate.byJob');
         Route::group(['prefix' => 'evaluate'], function () {
             Route::get('candidate/{id}', 'EvaluateController@show')->name('evaluate.candidate.show');
@@ -104,7 +104,7 @@ Route::group(
 
         Route::resource('new-spaper', 'NewSpaperController');
         Route::resource('sections', 'SectionController');
-        Route::resource('contacts', 'ContactController')->only(['index', 'show']);
+        Route::resource('contacts', 'ContactController')->only(['index', 'show', 'update']);
         Route::resource('main-member', 'MainMemberController');
         Route::resource('benefits', 'BenefitController');
         });

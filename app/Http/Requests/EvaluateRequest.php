@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class BenefitUpdateRequest extends FormRequest
+class EvaluateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,9 +24,7 @@ class BenefitUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|unique:benefits,name,' . $this->benefit,
-            'image' => 'nullable|mimes:jpeg,jpg,png,gif|max:10000',
-            'description' => 'required',
+            'reason' => 'required',
         ];
     }
 
@@ -34,9 +32,6 @@ class BenefitUpdateRequest extends FormRequest
     {
         return [
             'required' => trans('validation.required'),
-            'unique' => trans('validation.unique'),
-            'image.mimes' => trans('validation.mimes'),
-            'image.max' => trans('validation.max'),
         ];
     }
 }

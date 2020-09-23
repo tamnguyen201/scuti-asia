@@ -1,4 +1,4 @@
-{{-- @extends('admin.layout.layout')
+@extends('admin.layout.layout')
 @section('css')
     <link rel="stylesheet" href="{{ asset('adminAsset/css/job.css') }}">
 @endsection
@@ -141,8 +141,8 @@
                 </div>
             </div>
         </div>
-    {{-- @endsection
-    @section('script') --}}
+    @endsection
+    @section('script')
         <script>
             $("#btn-search").on('click', function() {
                 let value = $('#input-search').val();

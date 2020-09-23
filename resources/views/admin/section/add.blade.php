@@ -1,4 +1,3 @@
-
 @extends('admin.layout.layout')
 @section('title', trans('custom.page_title.section_manage'))
 @section('content')

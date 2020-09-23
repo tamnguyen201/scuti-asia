@@ -1,4 +1,3 @@
-
 @extends('admin.layout.layout')
 @section('title', trans('custom.page_title.member_manage'))
 @section('content')
@@ -57,7 +56,7 @@
                             </div>
                             <div class="form-group @error('avatar') has-error @enderror">
                                 <label class="label-required">@lang('custom.image_url')</label>
-                                <input type="file" onchange="encodeImageFileAsURL(this)" name="avatar"" accept="image/*">
+                                <input type="file" onchange="encodeImageFileAsURL(this)" name="avatar" accept="image/*">
                                 @error('avatar') 
                                 <span class="help-block"> {{$message}} </span>
                                 @enderror

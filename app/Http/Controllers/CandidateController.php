@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CandidateRequest;
 use Illuminate\Http\Request;
 use App\Repositories\Job\JobRepositoryInterface;
 use App\Repositories\Candidate\CandidateRepositoryInterface;
@@ -52,6 +53,18 @@ class CandidateController extends Controller
         $html = view('admin.candidate.profile', compact('candidate'))->render();
 
         return response()->json($html);
+    }
+
+    public function create()
+    {
+        return view('admin.candidate.add');
+    }
+
+    public function store(CandidateRequest $request)
+    {
+        $this->candidateRepository->create($request->all());
+        
+        return redirect()->route('job.detail', $request->job_id)->with('success', trans('custom.alert_messages.success'));
     }
 
     public function search(Request $request)

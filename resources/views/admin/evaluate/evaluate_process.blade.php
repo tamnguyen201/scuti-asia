@@ -14,7 +14,7 @@
 @section('content')
 <div class="row">
     <ol class="breadcrumb">
-        <li><a href="#">
+        <li><a href="{{route('admin.home')}}">
             <em class="fa fa-home"></em>
         </a></li>
         <li class="active">@lang('custom.evaluate.evaluate_process')</li>
@@ -75,7 +75,13 @@
     <script src="{{ asset('fullcalendar/lib/moment.min.js') }}"></script>
     <script src="{{ asset('fullcalendar/fullcalendar.min.js') }}"></script>
     <script src="{{ asset('fullcalendar/locale/vi.js') }}"></script>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/switchery/0.8.2/switchery.min.js"></script>
+    <script>
+        let elems = Array.prototype.slice.call(document.querySelectorAll('.js-switch'));
+        elems.forEach(function(html) {
+            let switchery = new Switchery(html,  { size: 'small' });
+        });
+    </script>
 
       {!! $calendar->script() !!}
       <script>

@@ -3,7 +3,7 @@
 return [
     'stt' => 'STT',
     'name' => 'Tên',
-    'name_cv' => 'Tên Hồ Sơ',
+    'name_cv' => 'Tên CV',
     'email' => 'Địa chỉ Email',
     'phone' => 'Số điện thoại',
     'address' => 'Địa chỉ',
@@ -12,7 +12,7 @@ return [
     'image_url' => 'File Ảnh',
     'cv_url' => 'File CV',
     'url' => 'Đường Dẫn Bài Viết',
-    'choose_cv' => 'Chọn Hồ Sơ',
+    'choose_cv' => 'Chọn CV',
     'logo' => 'Ảnh Logo',
     'description' => 'Mô Tả',
     'role' => 'Chức Vụ',
@@ -36,6 +36,9 @@ return [
     'process_failed' => 'Bước Đánh Giá Bị Loại',
     'jobApplied' => 'Công Việc Ứng Tuyển',
     'applied' => 'Chưa Đánh Giá',
+    'apply' => 'Đã Ứng Tuyển',
+    'no_apply' => 'Chưa Ứng Tuyển',
+    'processing' => 'Đang Đánh Giá',
     'finished' => 'Hoàn Thành',
     'field' => 'Tên Bố Cục',
     'map_url' => 'Địa Chỉ Bản Đồ',
@@ -55,6 +58,7 @@ return [
     'visit_type' => 'Kiểu Cuộc Họp',
     'member_type' => 'Kiểu Nhân Viên',
     'read_more' => 'Xem Thêm',
+    'view_cv' => 'Xem CV',
     
     'page_title' => [
         'dashboard' => 'Bảng Điều Khiển',
@@ -95,7 +99,7 @@ return [
         'location_index'=>'Địa điểm ứng tuyển',
         'location_list'=>'Danh sách các địa điểm',
         'data_table'=>'Bảng dữ liệu',
-        'user_job_list'=>'Danh sách ứng viên'
+        'user_job_list'=>'Danh sách ứng viên',
     ],
 
     'placeholder' => [
@@ -119,8 +123,10 @@ return [
 
     'button' => [
         'add' => 'Tạo Mới',
+        'add_candidate' => 'Tạo Ứng Viên',
         'edit' => 'Sửa',
         'submit' => 'Gửi',
+        'confirm' => 'Xác Nhận',
         'cancel' => 'Hủy',
         'reset' => 'Làm mới',
         'close' => 'Đóng',
@@ -184,6 +190,8 @@ return [
     'alert_messages' => [
         'success' => 'Thành công!',
         'warning' => 'Cảnh báo dữ liệu này đã có sẵn, vui lòng không tạo mới!',
+        'warning_company' => 'Thông tin công ty của bạn đã có sẵn, vui lòng không tạo mới!',
+        'coming_soon' => 'Tính năng này sắp ra mắt vui lòng quay lại sau!',
         'error' => 'Lỗi',
         'not_found'=>'Không tìm thấy hoặc nhập sai',
         'fail'=>'Không thành công',
@@ -209,9 +217,11 @@ return [
         'name' => 'Tên ứng viên',
         'email'=>'Email',
         'phone'=>'Số điện thoại',
+        'address' => 'Địa chỉ',
         'job'=>'Công việc ứng tuyển',
         'note'=>'Ghi chú',
-        'candidate_infor'=>'Thông tin ứng viên'
+        'candidate_infor'=>'Thông tin ứng viên',
+        'cv_info'=>'Thông tin CV',
     ],
     'calendar' => [
         'name' => 'Tên ứng viên',
@@ -255,6 +265,8 @@ return [
         'evaluate_cvs'=>'Đánh giá CV của ứng viên',
         'evaluate_process'=>'Các bước đánh gía',
         'candidate_evaluate'=>'Đánh giá ứng viên',
+        'reason' => 'Lí Do',
+        'view_cv_on_new_tab' => 'Xem CV Trong Tab Mới',
         'step'=>'Bước',
         'process_1'=>'Đã Applied',
         'process_2'=>'Đang kiểm tra',

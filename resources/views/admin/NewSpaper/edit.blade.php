@@ -1,4 +1,3 @@
-
 @extends('admin.layout.layout')
 @section('title', trans('custom.page_title.new_spaper_manage'))
 @section('content')
@@ -48,10 +47,10 @@
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="form-group @error('image_url') has-error @enderror">
+                            <div class="form-group @error('image') has-error @enderror">
                                 <label class="label-required">@lang('custom.image_url')</label>
-                                <input type="file" onchange="encodeImageFileAsURL(this)" name="image_url" accept="image/*">
-                                @error('image_url') 
+                                <input type="file" onchange="encodeImageFileAsURL(this)" name="image" accept="image/*">
+                                @error('image') 
                                 <span class="help-block"> {{$message}} </span>
                                 @enderror
                             </div>

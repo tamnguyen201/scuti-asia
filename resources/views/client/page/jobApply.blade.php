@@ -238,11 +238,11 @@
     </div>
 
     @if($data['apply'] != null)
-    <div class="ex-basic-2" style="background-color: #eff3f6; padding-top:1rem; padding-bottom-1rem">
+    <div class="ex-basic-2" style="background-color: #eff3f6; padding-top:1rem; padding-bottom:1rem">
         <div class="container" style="background-color: #fff;">
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="text-container" style="padding-top:1rem; padding-bottom-1rem">
+                    <div class="text-container" style="padding-top:1rem; padding-bottom:1rem">
                         <div class="container-fluid">
                             <div class="row justify-content-center">
                                 <div class="col-11 text-center p-0 mt-3 mb-2">
@@ -333,7 +333,7 @@
     </div>
     @endif
 
-    <div class="ex-basic-2" style="background-color: #eff3f6; padding-top:1rem; padding-bottom-1rem">
+    <div class="ex-basic-2" style="background-color: #eff3f6; padding-top:1rem; padding-bottom: 1rem">
         <div class="container">
             <div class="row">
                 <div class="col-md-8 mb-4 p-0" style="background-color: #fff;">

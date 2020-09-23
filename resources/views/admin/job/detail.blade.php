@@ -19,7 +19,7 @@
 <div class="row">
 <div class="col-lg-12">
     <div class="panel panel-default">
-       <div class="panel-heading"><span class="fa fa-info-circle" style="font-size: 21px"></span> @lang('custom.page_title.show_infor')</div>
+        <div class="panel-heading"><span class="fa fa-info-circle" style="font-size: 21px"></span> @lang('custom.page_title.show_infor') <a href="{{route('candidates.create', ['job_id' => $jobById->id])}}" class="btn btn-primary btn-add-form" style="float: right"><span class="fa fa-plus"></span> @lang('custom.button.add_candidate')</a></div>
         <div class="panel-body">
             <div class="detail row">
                 <div class="title col-md-3">
@@ -104,6 +104,9 @@
                                             <div class="th-inner">@lang('custom.process')</div>
                                         </th>
                                         <th>
+                                            <div class="th-inner">@lang('custom.status')</div>
+                                        </th>
+                                        <th>
                                             <div class="th-inner text-center">@lang('custom.action')</div>
                                         </th>
                                     </tr>
@@ -116,33 +119,38 @@
                                             <td>{{ $candidate->user->name }}</td>
                                             <td>{{ $candidate->user->email }}</td>
                                             <td>{{ $candidate->job->name }}</td>
-                                            <td><a href="{{ $candidate->cv_url }}" target="_blank">Xem CV</a></td>
+                                            <td><a href="{{ $candidate->cv_file }}" target="_blank">@lang('custom.view_cv')</a></td>
                                             @if ($candidate->process->count() > 0 && $candidate->process->count() < 4)
                                                 @for ($i = 0; $i <= $candidate->process->count(); $i++)
                                                     @if ($i == $candidate->process->count() - 1)
                                                         <td>
-                                                            <a href="{{ route('evaluate.candidate.show', $candidate->process[$i]->id) }}"
-                                                                style="text-decoration: none">
-                                                                <span @if ($candidate->process[$i])
-                                                                    @switch($i)
-                                                                        @case(0)
-                                                                        class="label label-primary"
-                                                                        @break
-                                                                        @case(1)
-                                                                        class="label label-success"
-                                                                        @break
-                                                                        @case(2)
-                                                                        class="label label-warning"
-                                                                        @break
-                                                                        @case(3)
-                                                                        class="label label-info"
-                                                                        @break
-                                                                    @endswitch
-                                                    @endif>
-                                                    {{ $candidate->process[$i]->name }}
+                                                            @if ($candidate->process[$i]->step < 4)
+                                                                <a href="{{ route('evaluate.candidate.show', $candidate->process[$i]->id) }}"
+                                                                    style="text-decoration: none">
+                                                                    <span @if ($candidate->process[$i])
+                                                                        @switch($i)
+                                                                            @case(0)
+                                                                            class="label label-primary"
+                                                                            @break
+                                                                            @case(1)
+                                                                            class="label label-success"
+                                                                            @break
+                                                                            @case(2)
+                                                                            class="label label-warning"
+                                                                            @break
+                                                                            @case(3)
+                                                                            class="label label-info"
+                                                                            @break
+                                                                        @endswitch
+                                                                        @endif>
+                                                                        {{ $candidate->process[$i]->name }}
 
-                                                    </span>
-                                                    </a>
+                                                                        </span>
+                                                                    </a>
+                                                            @elseif($candidate->process[$i]->step = 4)
+                                                                <p class="label label-danger">{{ $candidate->process[$i]->name }}</p>
+                                                            @endif
+                                                            
                                                     </td>
                                                 @endif
                                             @endfor
@@ -153,7 +161,7 @@
                                             <td style="font-size: 75%;font-weight: bold;color: red">
                                                 @lang('custom.applied')</td>
                                     @endif
-
+                                    <td>{{ ($candidate->job->name) ? trans('custom.processing') : trans('custom.finished') }}</td>
                                     <td>
                                         <a href="{{ route('candidates.show', $candidate->user->id) }}"
                                             class="btn btn-info text-light view-profile" title="Xem"><em

@@ -57,7 +57,11 @@
                                     <td class="text-center">
                                         <a href="{{route('contacts.show', $item['id'])}}" class="btn btn-primary text-light view-profile"><em class="far fa-eye"></em></a>
                                         @if($item->status == 0)
-                                        <a href="{{route('contacts.show', $item['id'])}}" class="btn btn-success text-light">Xác Nhận</a>
+                                        <form action="{{route('contacts.update', $item->id)}}" method="post" class="form-update-{{$item->id}}" style="display: inline">
+                                            @csrf
+                                            @method('PUT')
+                                            <button class="btn btn-success text-light update-confirm" idUpdate={{$item->id}}>@lang('custom.button.confirm')</button>
+                                        </form>
                                         @endif
                                     </td>
                                 </tr>
@@ -103,6 +107,26 @@
                 $(".modal-body").html(results);
                 $("#exampleModalCenter").modal('show');
             }).fail(function (data) {
+            });
+        });
+        $('.update-confirm').on('click', function (event) {
+            event.preventDefault();
+            let id = $(this).attr('idUpdate');
+            let form = $('.form-update-'+id);
+            swal({
+                title: "Xác nhận cập nhật?",
+                text: "Bản ghi này sẽ được thay đổi trạng thái!",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonColor: '#DD6B55',
+                confirmButtonText: 'Đồng Ý!',
+                cancelButtonText: "Hủy!",
+                closeOnConfirm: false,
+                closeOnCancel: false
+            }).then(function(value) {
+                if (value.value == true) {
+                    form.submit();
+                }
             });
         });
     </script>

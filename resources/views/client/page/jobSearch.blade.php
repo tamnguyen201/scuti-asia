@@ -1,3 +1,4 @@
+<div class="row col-lg-12 d-flex">
 @if($jobs->count() > 0)
     @foreach($jobs as $job)
     <div class="d-md-flex col-lg-6 col-12 d-block development">
@@ -24,3 +25,4 @@
 @else
 <p>@lang('custom.empty_data')</p>
 @endif
+</div>
