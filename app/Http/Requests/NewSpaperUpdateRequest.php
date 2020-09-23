@@ -24,8 +24,10 @@ class NewSpaperUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|unique:new_spapers,name,' . $this->id,
-            'logo' => 'nullable|mimes:jpeg,jpg,png,gif|max:10000',
+            'title' => 'required|unique:new_spapers,title,' . $this->new_spaper,
+            'image_url' => 'nullable|mimes:jpeg,jpg,png,gif|max:10000',
+            'url' => 'required',
+            'description' => 'required',
         ];
     }
 
@@ -33,8 +35,8 @@ class NewSpaperUpdateRequest extends FormRequest
     {
         return [
             'required' => trans('validation.required'),
-            'logo.mimes' => trans('validation.mimes'),
-            'logo.max' => trans('validation.max'),
+            'mimes' => trans('validation.mimes'),
+            'max' => trans('validation.max'),
         ];
     }
 }

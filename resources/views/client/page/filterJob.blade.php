@@ -1,4 +1,4 @@
-<div class="row col-lg-12 d-flex justify-content-center">
+<div class="row col-lg-12 d-flex">
 @if($categories->count() > 1)
     @foreach($categories as $category)
         @foreach($category->jobs as $job)

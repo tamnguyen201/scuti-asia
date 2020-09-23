@@ -392,7 +392,7 @@
                 </div>
                 <div class="col-lg-12">
                     <div class="list-group col-12 list-jobs">
-                        <div class="row col-lg-12 d-flex justify-content-center">
+                        <div class="row col-lg-12 d-flex">
                             @foreach($data['jobs'] as $job)
                                 <div class="d-md-flex col-lg-6 col-12 d-block development">
                                     <div class="col-md-12 list-group-item d-md-flex">

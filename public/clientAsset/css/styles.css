@@ -1656,6 +1656,12 @@ input[type='checkbox'] {
 	background-color: transparent;
 }
 
+/* .slider-2 .card:hover img {
+	-moz-transform: scale(1.15);
+	-webkit-transform: scale(1.15);
+	transform: scale(1.15);
+}  */
+
 .slider-2 .card-image {
 	max-width: 13rem;
 	max-height: 9rem;

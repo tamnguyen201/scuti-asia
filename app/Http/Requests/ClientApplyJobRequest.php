@@ -34,7 +34,6 @@ class ClientApplyJobRequest extends FormRequest
     {
         return [
             'required' => trans('validation.required'),
-            'email' => trans('validation.email'),
             'required_without' => trans('validation.required'),
             'required_without_all' => trans('validation.required'),
             'mimes' => trans('validation.mimes'),

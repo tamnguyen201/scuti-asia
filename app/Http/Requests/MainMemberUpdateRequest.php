@@ -24,7 +24,7 @@ class MainMemberUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|unique:main_member,name,' . $this->id,
+            'name' => 'required|unique:main_member,name,' . $this->main_member,
             'avatar' => 'nullable|mimes:jpeg,jpg,png,gif|max:10000',
             'position' => 'required',
             'quote' => 'required',

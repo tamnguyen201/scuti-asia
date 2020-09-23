@@ -46,7 +46,7 @@ class NewSpaperController extends Controller
     {
         $this->NewSpaperRepository->update($request->all(), $id);
         
-        return rederect()->route("new-spaper.index")->with('success', trans('custom.alert_messages.success'));;
+        return redirect()->route("new-spaper.index")->with('success', trans('custom.alert_messages.success'));;
     }
 
     public function destroy($id)

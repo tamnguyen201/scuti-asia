@@ -24,7 +24,7 @@ class BenefitUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|unique:benefits,name,' . $this->id,
+            'name' => 'required|unique:benefits,name,' . $this->benefit,
             'image' => 'nullable|mimes:jpeg,jpg,png,gif|max:10000',
             'description' => 'required',
         ];
