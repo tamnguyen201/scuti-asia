@@ -249,4 +249,18 @@ class EvaluateController extends Controller
         // $html = view('admin.calendar.modal_add', compact('processById','dataUser','dataAdmin'))->render();
         // return response()->json($html);
     }
+
+    public function updateCalendar(Request $request, $id)
+    { 
+        $insertArr = [ 
+            'user_id' => $request->id,
+            'note' => $request->note,
+            'title' => $request->title,
+            'start' => $request->start,
+            'end' => $request->end,
+            'admin_id'=>$request->admins
+        ];
+        
+        return Event::find($id)->update($insertArr);
+    }
 }

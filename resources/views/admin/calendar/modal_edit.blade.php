@@ -5,7 +5,7 @@
         select: '#slim-multi-select'
         })
 </script>
-<form >
+<form action="{{ route('update.event', $event->id) }}">
     @csrf
     <div class="col-12">
         <div class="form-calendar form-group col-md-6">
@@ -37,14 +37,17 @@
         <label for="exampleFormControlTextarea1">@lang('custom.calendar.attender') :</label>
         <br>
         <select name="admins[]" id="slim-multi-select" multiple="multiple">
-            @foreach ($admins as $admin_attender)
-                @foreach ($dataAdmin as $admin)
-                    @if ($admin_attender == $admin->id)
-                        <option value="{{ $admin }}" selected>{{ $admin->id }}</option>
-                    @else
-                        <option value="{{ $admin }}">{{ $admin->id }}</option>
+            @foreach($dataAdmin as $admin)
+            @php $flag = 0; @endphp
+                @foreach($admins as $admin_attender)
+                    @if($admin_attender == $admin->id)
+                    @php $flag++; @endphp
+                        <option value="{{ $admin->id }}" selected>{{ $admin->name }}</option>
                     @endif
-                @endforeach
+                    @endforeach
+                    @if($flag == 0)
+                        <option value="{{ $admin->id }}">{{ $admin->name }}</option>
+                    @endif
             @endforeach
         </select>
         <span class="error-form text-danger"></span>
@@ -55,7 +58,7 @@
         <span class="error-form text-danger"></span>
     </div>
     <div class="col-md-12">
-        <button type="submit" class="btn btn-primary btn-add-event"><span class="fa fa-plus"></span>
-            @lang('custom.calendar.btn_add')</button>
+        <button type="submit" class="btn btn-primary btn-update-event"><span class="fa fa-plus"></span>
+            @lang('custom.calendar.btn_update')</button>
     </div>
 </form>
