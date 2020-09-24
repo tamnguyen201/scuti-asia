@@ -46,7 +46,7 @@ return [
     'visit_type' => 'Thể Loại',
     'CV_status'=> 'Trạng thái',
     'applied_job'=>'Công việc đã ứng tuyển',
-    'empty_data' => 'Dữ liệu trống',
+    'empty_data' => 'Không có dữ liệu phù hợp.',
     'empty_events' => 'Không Có Sự Kiện Nào',
     'candidate_new' => 'Ứng viên mới',
     'candidate_evaluated' => 'Đang Đánh Giá',
@@ -189,6 +189,7 @@ return [
 
     'alert_messages' => [
         'success' => 'Thành công!',
+        'update_success' => 'Cập Nhật Thành Công!',
         'warning' => 'Cảnh báo dữ liệu này đã có sẵn, vui lòng không tạo mới!',
         'warning_company' => 'Thông tin công ty của bạn đã có sẵn, vui lòng không tạo mới!',
         'coming_soon' => 'Tính năng này sắp ra mắt vui lòng quay lại sau!',

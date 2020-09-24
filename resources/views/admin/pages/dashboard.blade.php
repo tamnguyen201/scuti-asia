@@ -113,6 +113,9 @@
                     <thead>
                         <tr>
                             <th>
+                                <div class="th-inner">@lang('custom.stt')</div>
+                            </th>
+                            <th>
                                 <div class="th-inner">@lang('custom.title')</div>
                             </th>
                             <th>
@@ -130,8 +133,10 @@
                         </tr>
                     </thead>
                     <tbody>
+                    @php $stt = 1; @endphp
                         @foreach($data['jobs'] as $item)
                         <tr>
+                            <td>{{$stt++}}</td>
                             <td>{{ $item->name }}</td>
                             <td>{{ $item->category->category_name }}</td>
                             <td>
@@ -141,7 +146,7 @@
                                 {{ $item->status == 1 ? 'Active' : 'InActive' }}
                             </td>
                             <td class="text-center">
-                                <a href="{{ route('candidate.byJob', $item->id) }}" class="btn btn-primary">{{ count($item->user) }} <span class="fa fa-user"></span></a>
+                                <a href="{{ route('job.detail', ['id' => $item->id]) }}" class="btn btn-primary">{{ count($item->user) }} <span class="fa fa-user"></span></a>
                             </td>
                         </tr>
                         @endforeach
