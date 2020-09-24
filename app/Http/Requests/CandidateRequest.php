@@ -26,7 +26,7 @@ class CandidateRequest extends FormRequest
         return [
             'name' => 'required',
 			'email' => 'required|email|unique:users,email',
-			'phone' => ['nullable','digits:10','regex:/(02|03|07|08|09|[2|3|6|7|8|9])+([0-9]{7})\b/'],
+			'phone' => ['nullable','digits:10','regex:/(02|03|07|08|09[2|3|6|7|8|9])+([0-9]{7})\b/'],
             'address' => 'nullable',
             'cv_name' => 'required|unique:cvs,cv_name',
             'cv_url' => 'required|mimes:pdf,doc,docx,xlsx,xls|max:10000'
