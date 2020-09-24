@@ -92,7 +92,8 @@ Route::group(
             Route::get('candidate/{id}', 'EvaluateController@show')->name('evaluate.candidate.show');
             Route::post('candidate/{id}', 'EvaluateController@store')->name('evaluate.store');
 
-            Route::post('process/finish/send-email','EvaluateController@createFailEmail')->name('fail.email');
+            Route::post('process/failed/send-email','EvaluateController@createFailEmail')->name('fail.email');
+            Route::post('process/passed/send-email','EvaluateController@createPassEmail')->name('pass.email');
             Route::get('process/calendar/create/{id}','EvaluateController@createCalendar')->name('create.event');
             Route::post('process/calendar/store','EvaluateController@storeCalendar')->name('store.event');
             Route::get('process/calendar/edit/{id}','EvaluateController@editCalendar')->name('edit.event');

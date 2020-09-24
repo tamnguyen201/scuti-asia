@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\EvaluateRequest;
 use App\Model\Event;
 use Redirect,Response;
 use App\Model\Evaluate;
 use Illuminate\Http\Request;
 use App\Http\Requests\EventRequest;
+use App\Http\Requests\EvaluateRequest;
+use App\Http\Requests\FailEvaluateRequest;
 use App\Repositories\Job\JobRepositoryInterface;
 use App\Repositories\Admin\AdminRepositoryInterface;
 use MaddHatter\LaravelFullcalendar\Facades\Calendar;
@@ -229,10 +230,11 @@ class EvaluateController extends Controller
         $name = $request->name;
         $event_id = $request->event_id;
         $jobName = $request->job;
+        $process_id = $request->process;
 
         $this->evaluateRepository->sendEmail($candidate_email, $time, $name, $jobName);
         Event::find($event_id)->update(['email_status'=>1]);
-        return redirect()->back();
+        return redirect()->route('evaluate.candidate.show', $process_id);
     }
 
     public function destroyCalendar($id){
@@ -265,14 +267,8 @@ class EvaluateController extends Controller
         return Event::find($id)->update($insertArr);
     }
 
-    // public function storeFinish(EvaluateRequest $request, $id){
-    //     $dataCurrentEvaluate = Evaluate::create([
-    //         'process_id' => $id,
-    //         'reason'=>$request->reason
-    //     ]);
-    // }
 
-    public function createFailEmail(Request $request)
+    public function createFailEmail(FailEvaluateRequest $request)
     {
         $candidate_email = $request->email;
         $name = $request->name;
@@ -281,4 +277,16 @@ class EvaluateController extends Controller
         $this->evaluateRepository->sendFailEmail($candidate_email, $name, $jobName, $reason);
         return redirect()->route('admin.home');
     }
+
+    public function createPassEmail(Request $request)
+    {
+        $candidate_email = $request->email;
+        $name = $request->name;
+        $jobName= $request->job;
+        $reason = $request->reason;
+        $this->evaluateRepository->sendPassEmail($candidate_email, $name, $jobName, $reason);
+        return redirect()->route('admin.home');
+    }
+
+    
 }

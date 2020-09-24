@@ -2,11 +2,13 @@
     <div class="col-md-8" style="padding-left: 0">
         <fieldset>
             <div class="form-card">
+                <div class="col-md-12">
                 <div class="col-md-6">
-                    <h3>@lang('custom.evaluate.candidate_evaluate') :</h3>
+                    <h3>Lịch phỏng vấn :</h3>
                 </div>
                 <div class="col-md-5">
-                    <h3 class="steps">@lang('custom.evaluate.step') 3 - 4</h3>
+                    {{-- <h3 class="steps">@lang('custom.evaluate.step') 3 - 4</h3> --}}
+                </div>
                 </div>
             </div>
             @include('admin.evaluate.calendar')
@@ -34,6 +36,7 @@
                                 <input name="name" type="text" value="{{ $item->user->name }}" hidden>
                                 <input name="time" type="text" value="{{ \Carbon\Carbon::parse($item->start)->format('d/m/Y - H:i') }}" hidden>
                                 <input name="job" type="text" value="{{ $jobById->name }}" hidden>
+                                <input name="process" type="text" value="{{ $processById->id }}" hidden>
                                 <button class="btn btn-warning btn-send-email" style="padding-right: 15px" idEmail={{$item->id}}><span
                                     class="fa fa-envelope-o"></span></button>
                             </form>
@@ -53,5 +56,29 @@
         @endforeach
         <br>
     </fieldset>
+    </div>
+    <div class="list col-md-12" style="background-color: #fff; margin-top:20px">
+            <fieldset>
+                <div class="form-card">
+                    <div class="col-md-6">
+                        <h3>@lang('custom.evaluate.candidate_evaluate') :</h3>
+                    </div>
+                    <div class="col-md-5">
+                        <h3 class="steps">@lang('custom.evaluate.step') 3 - 4</h3>
+                    </div>
+                    <div class="col-md-12">
+                        <form action="{{ route('evaluate.store', $processById->id) }}" method="POST">
+                            @csrf
+                                <div class="form-group">
+                                    <label class="label-required">Bạn đánh giá ứng viên này có đạt yêu cầu hay không ?</label> <br>
+                                    <span>Không</span>
+                                    <input type="checkbox" name="status" class="js-switch"> 
+                                    <span>Có</span>
+                                </div>
+                            <button class="col-md-12  action-button" type="submit">Xác nhận</button>
+                        </form>
+                    </div>
+                </div>
+            </fieldset>
     </div>
 </div>

@@ -32,7 +32,18 @@ class EvaluateRepository extends Repository implements EvaluateRepositoryInterfa
             'reason'=>$reason
         ];
 
-        \Mail::to($email)->send(new \App\Mail\EmailEvaluateFailed($details));
-        
+        \Mail::to($email)->send(new \App\Mail\EmailEvaluateFailed($details)); 
+    }
+
+    public function sendPassEmail($email,$name, $job, $reason)
+    {
+        $details = [
+            'title' => trans('custom.email_template.forgot_password.title'),
+            'name' =>$name,
+            'job'=> $job,
+            'reason'=>$reason
+        ];
+
+        \Mail::to($email)->send(new \App\Mail\EmailEvaluatePassed($details)); 
     }
 }

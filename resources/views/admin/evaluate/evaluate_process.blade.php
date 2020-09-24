@@ -49,16 +49,14 @@
                             @include('admin.evaluate.interview')
                             @break
                         @case(3)
+                            <ul id="progressbar">
+                                <li id="account" class="active"><strong>@lang('custom.evaluate.process_1')</strong><br> <span>11/06/2020</span></li>
+                                <li id="personal" class="active"><strong>@lang('custom.evaluate.process_2')</strong><br> <span>11/06/2020</span></li>
+                                <li id="payment" class="active"><strong>@lang('custom.evaluate.process_3')</strong><br> <span>11/06/2020</span></li>
+                                <li id="confirm" class="active"><strong>@lang('custom.evaluate.process_4')</strong><br> <span>11/06/2020</span></li>
+                            </ul>
                             <fieldset>
-                                <div class="form-card">
-                                    <div class="col-md-6">
-                                        <h3>Đánh giá ứng viên :</h3>
-                                    </div>
-                                    <div class="col-md-5">
-                                        <h3 class="steps">Step 4 - 4</h3>
-                                    </div>
-                                </div> 
-                                <input type="button" name="next" class="previous action-button" value="Finish" />
+                                @include('admin.evaluate.finished')
                             </fieldset>
                             @break
                         @case(4)
