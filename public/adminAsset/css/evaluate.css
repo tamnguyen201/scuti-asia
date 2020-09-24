@@ -13,7 +13,7 @@ p {
 
 #heading {
     text-transform: uppercase;
-    color: #673AB7;
+    color: #5cb85c;;
     font-weight: normal
 }
 
@@ -62,13 +62,13 @@ p {
     -moz-box-shadow: none !important;
     -webkit-box-shadow: none !important;
     box-shadow: none !important;
-    border: 1px solid #673AB7;
+    border: 1px solid #5cb85c;;
     outline-width: 0
 }
 
 #msform .action-button {
     width: 100px;
-    background: #673AB7;
+    background: #5cb85c;;
     font-weight: bold;
     color: white;
     border: 0 none;
@@ -110,14 +110,14 @@ p {
 
 .fs-title {
     font-size: 25px;
-    color: #673AB7;
+    color: #5cb85c;;
     margin-bottom: 15px;
     font-weight: normal;
     text-align: left
 }
 
 .purple-text {
-    color: #673AB7;
+    color: #5cb85c;;
     font-weight: normal
 }
 
@@ -141,7 +141,7 @@ p {
 }
 
 #progressbar .active {
-    color: #673AB7
+    color: #5cb85c;
 }
 
 #progressbar li {
@@ -155,22 +155,22 @@ p {
 
 #progressbar #account:before {
     font-family: FontAwesome;
-    content: "\f13e"
+    content: "\f2bb"
 }
 
 #progressbar #personal:before {
     font-family: FontAwesome;
-    content: "\f007"
+    content: "\f24e"
 }
 
 #progressbar #payment:before {
     font-family: FontAwesome;
-    content: "\f030"
+    content: "\f086"
 }
 
 #progressbar #confirm:before {
     font-family: FontAwesome;
-    content: "\f00c"
+    content: "\f2b5"
 }
 
 #progressbar li:before {
@@ -199,7 +199,7 @@ p {
 
 #progressbar li.active:before,
 #progressbar li.active:after {
-    background: #673AB7
+    background: #5cb85c;
 }
 
 .progress {
@@ -207,7 +207,7 @@ p {
 }
 
 .progress-bar {
-    background-color: #673AB7
+    background-color: #5cb85c;
 }
 
 .fit-image {

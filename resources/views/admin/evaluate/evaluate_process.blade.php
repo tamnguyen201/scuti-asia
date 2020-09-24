@@ -30,10 +30,10 @@
                     @switch($processById->step)
                         @case(1)
                             <ul id="progressbar">
-                                <li id="account" class="active"><strong>@lang('custom.evaluate.process_1')</strong></li>
-                                <li id="personal" class="active"><strong>@lang('custom.evaluate.process_2')</strong></li>
-                                <li id="payment"><strong>@lang('custom.evaluate.process_3')</strong></li>
-                                <li id="confirm"><strong>@lang('custom.evaluate.process_4')</strong></li>
+                                <li id="account" class="active"><strong>@lang('custom.evaluate.process_1')</strong><br> <span>11/06/2020</span></li>
+                                <li id="personal" class="active"><strong>@lang('custom.evaluate.process_2')</strong><br> <span>11/06/2020</span></li>
+                                <li id="payment"><strong>@lang('custom.evaluate.process_3')</strong><br> <span>11/06/2020</span></li>
+                                <li id="confirm"><strong>@lang('custom.evaluate.process_4')</strong><br> <span>11/06/2020</span></li>
                             </ul>
                             <fieldset class="process1">
                                 @include('admin.evaluate.review')
@@ -41,10 +41,10 @@
                             @break
                         @case(2)
                             <ul id="progressbar">
-                                <li id="account" class="active"><strong>@lang('custom.evaluate.process_1')</strong></li>
-                                <li id="personal" class="active"><strong>@lang('custom.evaluate.process_2')</strong></li>
-                                <li id="payment" class="active"><strong>@lang('custom.evaluate.process_3')</strong></li>
-                                <li id="confirm"><strong>@lang('custom.evaluate.process_4')</strong></li>
+                                <li id="account" class="active"><strong>@lang('custom.evaluate.process_1')</strong><br> <span>11/06/2020</span></li>
+                                <li id="personal" class="active"><strong>@lang('custom.evaluate.process_2')</strong><br> <span>11/06/2020</span></li>
+                                <li id="payment" class="active"><strong>@lang('custom.evaluate.process_3')</strong><br> <span>11/06/2020</span></li>
+                                <li id="confirm"><strong>@lang('custom.evaluate.process_4')</strong><br> <span>11/06/2020</span></li>
                             </ul>
                             @include('admin.evaluate.interview')
                             @break
