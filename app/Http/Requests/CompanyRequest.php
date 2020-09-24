@@ -28,7 +28,7 @@ class CompanyRequest extends FormRequest
             'logo' => 'required|mimes:jpeg,jpg,png,gif|max:10000',
             'description' => 'required',
             'email' => 'required|email',
-            'phone' => ['required','digits:10','regex:/(02|03|07|08|09|[2|3|6|7|8|9])+([0-9]{7})\b/'],
+            'phone' => ['required','digits:10','regex:/(02|03|07|08|09[2|3|6|7|8|9])+([0-9]{7})\b/'],
             'address' => 'required',
             'facebook_page' => 'required',
             'youtube_page' => 'required',

@@ -39,15 +39,14 @@
                         
                         <label><span class="fa fa-sticky-note"></span> @lang('custom.candidate.note') :</label>
                         <textarea name="comment" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                        <label class="label-required"><span class="fa fa-sticky-note"></span> @lang('custom.evaluate.reason') : (Ứng viên có thể xem)</label>
+                        {{-- <label class="label-required"><span class="fa fa-sticky-note"></span> @lang('custom.evaluate.reason') : (Ứng viên có thể xem)</label>
                         <textarea name="reason" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                         @error('reason') 
                         <span class="text-danger"> {{$message}} </span>
-                        @enderror
+                        @enderror --}}
                     </div>
                 <button class="col-md-12  action-button" type="submit">Xác nhận</button>
             </form>
-            {{-- <a href="" class="col-md-12  action-button email-button"><span class="fa fa-envelope-o"></span> Gửi email</a> --}}
             <div class="col-12" style="">
                 <div class="panel">
                     <div class="panel-heading">

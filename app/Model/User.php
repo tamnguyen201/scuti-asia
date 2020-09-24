@@ -50,7 +50,7 @@ class User extends Authenticatable
     public function events() {
         return $this->hasMany('App\Model\Event');
       }
-    public function userjob()
+    public function user_job()
     {
         return $this->hasMany('App\Model\UserJob');
     }

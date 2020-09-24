@@ -24,4 +24,9 @@ class JobRepository extends Repository implements JobRepositoryInterface
     {
         return $this->model->where($field, $opedaytor ,$condition)->get();
     }
+
+    public function related($category_id, $id)
+    {
+        return $this->model->where('category_id', $category_id)->where('id', '<>', $id)->get()->take(5);
+    }
 }

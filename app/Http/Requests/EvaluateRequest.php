@@ -24,14 +24,14 @@ class EvaluateRequest extends FormRequest
     public function rules()
     {
         return [
-            'reason' => 'required',
+            
         ];
     }
 
     public function messages()
     {
         return [
-            'required' => trans('validation.required'),
+            
         ];
     }
 }
