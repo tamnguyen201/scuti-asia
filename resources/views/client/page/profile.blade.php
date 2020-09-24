@@ -208,13 +208,13 @@
                                                 <tr>
                                                     <td>{{$stt}}</td>
                                                     <td>{{$item->name}}</td>
-                                                    @if(auth()->user()->userjob[$key]->process->count() > 0)
-                                                    @for($i = 0; $i <= auth()->user()->userjob[$key]->process->count(); $i++)
-                                                        @if( $i == auth()->user()->userjob[$key]->process->count() - 1)
-                                                        <td>{{auth()->user()->userjob[$key]->process[$i]->name}}</td>
+                                                    @if(auth()->user()->user_job[$key]->process->count() > 0)
+                                                    @for($i = 0; $i <= auth()->user()->user_job[$key]->process->count(); $i++)
+                                                        @if( $i == auth()->user()->user_job[$key]->process->count() - 1)
+                                                        <td>{{auth()->user()->user_job[$key]->process[$i]->name}}</td>
                                                         @endif
                                                     @endfor
-                                                    @elseif(auth()->user()->userjob[$key]->process->count() == 0) 
+                                                    @elseif(auth()->user()->user_job[$key]->process->count() == 0) 
                                                     <td>Chưa Đánh Giá</td>
                                                     @endif
                                                     <td class="text-center"><a href="{{route('client.applied', [$item->id, $item->slug])}}" target="_blank" class="btn btn-info text-light view-profile" title="Xem"><em class="fa fa-eye"></em></a></td>

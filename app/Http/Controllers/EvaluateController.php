@@ -132,7 +132,7 @@ class EvaluateController extends Controller
         $event = Event::updateOrCreate($insertArr);
     
     }
-     
+
     public function show($id)
     {
         $processById = $this->processRepository->show($id);
@@ -140,7 +140,7 @@ class EvaluateController extends Controller
         $jobById = $this->jobRepository->show($processById->user_job->job_id);
         $calendar = $this->showCalendar($candidateById->id);
         $dataUser =$this->candidateRepository->show($candidateById->id);
-        $data = Event::all();
+        $data = Event::where('user_id', $candidateById->id)->get();
         
         return view('admin.evaluate.evaluate_process', compact('processById','data','candidateById','calendar','dataUser','jobById'));
     }
@@ -162,7 +162,7 @@ class EvaluateController extends Controller
             $calendar = $this->showCalendar($candidateById->id);
             $dataUser =$this->candidateRepository->show($candidateById->id);
             $dataAdmin = $this->adminRepository->all();
-            $data = Event::all();
+            $data = Event::where('user_id', $candidateById->id)->get();
 
             return view('admin.evaluate.evaluate_process' , compact('processById','data','candidateById','calendar','dataUser','dataAdmin','jobById'));
         }

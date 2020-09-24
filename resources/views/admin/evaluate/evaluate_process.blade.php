@@ -25,7 +25,7 @@
         <h1 class="page-header">@lang('custom.evaluate.evaluate_cvs')</h1>
     </div>
         <div class="col-lg-12">
-            <div class="panel-body">
+            <div class="panel-body" style="padding: 0">
                 <div id="msform">
                     @switch($processById->step)
                         @case(1)

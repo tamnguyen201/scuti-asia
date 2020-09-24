@@ -24,7 +24,7 @@ class Job extends Model
         return $this->belongsToMany('App\Model\User', 'user_job');
     }
 
-    public function userjob()
+    public function user_job()
     {
         return $this->hasMany('App\Model\UserJob');
     }
