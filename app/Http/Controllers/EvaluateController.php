@@ -241,13 +241,7 @@ class EvaluateController extends Controller
         
         $html = view('admin.calendar.modal_edit', compact('event','admins','dataAdmin'))->render();
         return response()->json($html);
-
-        // $processById = $this->processRepository->show($id);
-        // $candidateById = $this->candidateRepository->where('id','=', $processById->user_job->user_id);
-        // $dataUser =$this->candidateRepository->show($candidateById->id);
-        // $dataAdmin = $this->adminRepository->all();
-        // $html = view('admin.calendar.modal_add', compact('processById','dataUser','dataAdmin'))->render();
-        // return response()->json($html);
+        
     }
 
     public function updateCalendar(Request $request, $id)

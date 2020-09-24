@@ -45,8 +45,9 @@
                         <span class="text-danger"> {{$message}} </span>
                         @enderror
                     </div>
-                <button class="col-md-12  action-button" type="submit">Next</button>
+                <button class="col-md-12  action-button" type="submit">Xác nhận</button>
             </form>
+            {{-- <a href="" class="col-md-12  action-button email-button"><span class="fa fa-envelope-o"></span> Gửi email</a> --}}
             <div class="col-12" style="">
                 <div class="panel">
                     <div class="panel-heading">

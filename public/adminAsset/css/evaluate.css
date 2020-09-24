@@ -232,3 +232,9 @@ p {
 .form-calendar{
     text-align: start;
 }
+
+#msform .email-button {
+    background: #45de13;
+    text-align: center;
+    text-decoration: none;
+}
