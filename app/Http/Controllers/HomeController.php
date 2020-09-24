@@ -78,25 +78,9 @@ class HomeController extends Controller
     public function jobSearch(Request $request)
     {
         if($request->category_id != '*'){
-            $jobs = \App\Model\Job::where('name', 'like', '%'.$request->keyword.'%')
-                                ->where('status', '=', 1)
-                                ->whereHas('category', function ($query) use ($request){
-                                    $query->where('id', '=', $request->category_id);
-                                })->with(['category' => function($query) use ($request){
-                                    $query->where('id', '=', $request->category_id);
-                                }])->whereHas('category', function ($query) use ($request){
-                                    $query->where('status', '=', 1);
-                                })->with(['category' => function($query) use ($request){
-                                    $query->where('status', '=', 1);
-                                }])->paginate(10);
+            $jobs = $this->JobRepository->jobSearchWithCategory($request->category_id, $request->keyword);
         } else {
-            $jobs = \App\Model\Job::where('name', 'like', '%'.$request->keyword.'%')
-                                ->where('status', '=', 1)
-                                ->whereHas('category', function ($query) use ($request){
-                                    $query->where('status', '=', 1);
-                                })->with(['category' => function($query) use ($request){
-                                    $query->where('status', '=', 1);
-                                }])->paginate(10);
+            $jobs = $this->JobRepository->jobSearchWithCategories($request->keyword);
         }
 
         $html = view('client.page.jobSearch', compact('jobs'))->render();
