@@ -45,6 +45,7 @@ class HomeController extends Controller
         $this->MemberRepository = $MemberRepository;
         $this->BenefitRepository = $BenefitRepository;
         $this->CategoryRepository = $CategoryRepository;
+        $this->ContactRepository = $ContactRepository;
         $this->NewSpaperRepository = $NewSpaperRepository;
         $this->JobRepository = $JobRepository;
         $this->ApplyJobService = $ApplyJobService;

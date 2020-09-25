@@ -2,7 +2,7 @@
     <div class="col-md-12">
         
         <div class="panel-body">
-            <a href="{{ route('create.event', $dataUser->id) }}" id="btn-add" hidden></a>
+            <a href="{{ route('create.event', $processById->id) }}" id="btn-add" hidden></a>
             <div id="full-calendar">
                 {!! $calendar->calendar() !!}
             </div>

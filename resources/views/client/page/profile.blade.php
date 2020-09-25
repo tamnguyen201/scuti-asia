@@ -80,13 +80,13 @@
                             <hr>
                             
                             <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                                <a href="{{route('client.create_cv')}}" class="nav-link btn-upload-form" style="border-bottom: 1px solid #e5e5e5;border-radius: 0px !important;">@lang('client.page.profile.sidebar.create_cv')</a>
+                                <a href="{{route('client.create_cv')}}" class="nav-link font-weight-bold btn-upload-form" style="border-bottom: 1px solid #e5e5e5;border-radius: 0px !important;">@lang('client.page.profile.sidebar.create_cv')</a>
                                 @if(auth()->user()->password)
-                                <a class="nav-link btn-add-form" href="{{route('client.change_password')}}" style="border-bottom: 1px solid #e5e5e5;border-radius: 0px !important;">@lang('client.page.profile.sidebar.change_password')</a>
+                                <a class="nav-link font-weight-bold btn-add-form" href="{{route('client.change_password')}}" style="border-bottom: 1px solid #e5e5e5;border-radius: 0px !important;">@lang('client.page.profile.sidebar.change_password')</a>
                                 @endif
                             </div>
                         </div>
-                        <div class="col-12 col-md-9" style="/* background-color: #fff; */">
+                        <div class="col-12 col-md-9" >
                             <nav>
                                 <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
                                     <a class="nav-item nav-link {{ (request()->is('profile')) ? 'active' : '' }}" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="true">@lang('client.page.profile.sidebar.profile')</a>
@@ -165,6 +165,7 @@
                                                     <td>{{$stt}}</td>
                                                     <td><a href="{{$item->cv_url}}" target="_blank">{{$item->cv_name}}</a></td>
                                                     <td class="text-center">    
+                                                    <a href="{{$item->cv_url}}" target="_blank" class="btn btn-info text-light" title="Xem"><em class="fa fa-eye"></em></a>
                                                         <form action="{{route('client.destroy_cv', $item['id'])}}" method="post" class="form-delete-cv-{{$item->id}}" style="display: inline">
                                                             @csrf
                                                             @method('DELETE')
@@ -217,7 +218,7 @@
                                                     @elseif(auth()->user()->user_job[$key]->process->count() == 0) 
                                                     <td>Chưa Đánh Giá</td>
                                                     @endif
-                                                    <td class="text-center"><a href="{{route('client.applied', [$item->id, $item->slug])}}" target="_blank" class="btn btn-info text-light view-profile" title="Xem"><em class="fa fa-eye"></em></a></td>
+                                                    <td class="text-center"><a href="{{route('client.applied', [$item->id, $item->slug])}}" target="_blank" class="btn btn-info text-light" title="Xem"><em class="fa fa-eye"></em></a></td>
                                                 </tr>
                                                 @endforeach
                                             </tbody>

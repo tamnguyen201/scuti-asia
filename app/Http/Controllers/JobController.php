@@ -54,7 +54,9 @@ class JobController extends Controller
             'location_id' => $request->location_id,
             'slug' => Str::slug($request->name),
             'expireDay' => $request->expire_date,
-            'description' => $request->description
+            'description' => $request->description,
+            'content'=> $request->content,
+            'salary'=>$request->salary
         ]);
 
         return redirect()->route('jobs.index');
@@ -104,7 +106,9 @@ class JobController extends Controller
             'category_id' => $request->category_id,
             'location_id' => $request->location_id,
             'expireDay' => $request->expire_date,
-            'description' => $request->description
+            'description' => $request->description,
+            'content'=> $request->content,
+            'salary'=>$request->salary
         ], $id);
 
         return redirect()->route('jobs.index');

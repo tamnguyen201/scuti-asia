@@ -250,7 +250,8 @@ return [
         'placeholder_title'=>'Nhập tiêu đề',
         'job_edit_title'=>'Sửa công việc ứng tuyển',
         'edit'=>'Sửa',
-        'job_detail'=>'Chi tiết tin ứng tuyển'
+        'job_detail'=>'Chi tiết tin ứng tuyển',
+        'content'=>'Mô tả ngắn'
     ],
     'location'=>[
         'location_manage'=>'Địa điểm ứng tuyển',

@@ -13,7 +13,7 @@
             </div>
             <div class="col-md-5 d-none d-md-block text-md-right text-center">
                 <a href="{{route('client.applied', [$job->id, $job->slug])}}" class="btn btn-apply-main btn-apply">@lang('client.section.recruitment.apply')</a>
-                <p class="desc-job text-left mt-3">
+                <p class="desc-job text-left mt-1">
                     <i class="far fa-money-bill-alt"></i> @lang('client.section.recruitment.salary'): {{$job->salary}} <br>
                     <i class="fas fa-map-marker-alt"></i> @lang('client.section.recruitment.work_place'): {{$job->location->name}} <br>
                     <i class="far fa-clock"></i> @lang('client.section.recruitment.deadline'): {{$job->formatExpireDay()}}

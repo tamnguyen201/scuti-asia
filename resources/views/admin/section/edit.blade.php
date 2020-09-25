@@ -26,7 +26,7 @@
                         <div class="col-md-6">
                             <div class="form-group @error('name') has-error @enderror">
                                 <label class="label-required">@lang('custom.name')</label>
-                                <input type="text" name="name" value="{{$section->name}}" class="form-control" readonly>
+                                <input type="text" name="name" value="{{$section->name}}" class="form-control">
                                 @error('name') 
                                 <span class="help-block"> {{$message}} </span>
                                 @enderror
