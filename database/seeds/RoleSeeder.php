@@ -32,28 +32,28 @@ class RoleSeeder extends Seeder
         \App\Model\Evaluate::truncate();
         \App\Model\Event::truncate();
         DB::table('users')->insert([
-            ['id'=>1, 'name' => 'User1','email' => 'user1@gmail.com','password'=> Hash::make('123456'), 'phone'=> '1234567890','address'=>'HN', 'created_at' => \Carbon\Carbon::parse('11-05-2020 03:26:49')->format('Y-m-d H:i:s')],
-            ['id'=>2, 'name' => 'User2','email' => 'user2@gmail.com','password'=> Hash::make('123456'), 'phone'=> '1234567890','address'=>'HN', 'created_at' => \Carbon\Carbon::parse('15-06-2020 03:26:49')->format('Y-m-d H:i:s')],
-            ['id'=>3, 'name' => 'User3','email' => 'user3@gmail.com','password'=> Hash::make('123456'), 'phone'=> '1234567890','address'=>'HN', 'created_at' => \Carbon\Carbon::parse('21-06-2020 03:26:49')->format('Y-m-d H:i:s')],
-            ['id'=>4, 'name' => 'User4','email' => 'user4@gmail.com','password'=> Hash::make('123456'), 'phone'=> '1234567890','address'=>'HN', 'created_at' => \Carbon\Carbon::parse('30-06-2020 03:26:49')->format('Y-m-d H:i:s')],
-            ['id'=>5, 'name' => 'User5','email' => 'user5@gmail.com','password'=> Hash::make('123456'), 'phone'=> '1234567890','address'=>'HN', 'created_at' => \Carbon\Carbon::parse('06-07-2020 03:26:49')->format('Y-m-d H:i:s')],
-            ['id'=>6, 'name' => 'User6','email' => 'user6@gmail.com','password'=> Hash::make('123456'), 'phone'=> '1234567890','address'=>'HN', 'created_at' => \Carbon\Carbon::parse('18-07-2020 03:26:49')->format('Y-m-d H:i:s')],
-            ['id'=>7, 'name' => 'User7','email' => 'user7@gmail.com','password'=> Hash::make('123456'), 'phone'=> '1234567890','address'=>'HN', 'created_at' => \Carbon\Carbon::parse('03-08-2020 03:26:49')->format('Y-m-d H:i:s')],
-            ['id'=>8, 'name' => 'User8','email' => 'user8@gmail.com','password'=> Hash::make('123456'), 'phone'=> '1234567890','address'=>'HN', 'created_at' => \Carbon\Carbon::parse('15-08-2020 03:26:49')->format('Y-m-d H:i:s')],
-            ['id'=>9, 'name' => 'User9','email' => 'user9@gmail.com','password'=> Hash::make('123456'), 'phone'=> '1234567890','address'=>'HN', 'created_at' => \Carbon\Carbon::parse('16-08-2020 03:26:49')->format('Y-m-d H:i:s')],
-            ['id'=>10, 'name' => 'User10','email' => 'user10@gmail.com','password'=> Hash::make('123456'), 'phone'=> '1234567890','address'=>'HN', 'created_at' => \Carbon\Carbon::parse('27-08-2020 03:26:49')->format('Y-m-d H:i:s')],
-            ['id'=>11, 'name' => 'User11','email' => 'user11@gmail.com','password'=> Hash::make('123456'), 'phone'=> '1234567890','address'=>'HN', 'created_at' => \Carbon\Carbon::parse('01-09-2020 03:26:49')->format('Y-m-d H:i:s')],
-            ['id'=>12, 'name' => 'User12','email' => 'user12@gmail.com','password'=> Hash::make('123456'), 'phone'=> '1234567890','address'=>'HN', 'created_at' => \Carbon\Carbon::parse('03-09-2020 03:26:49')->format('Y-m-d H:i:s')],
-            ['id'=>13, 'name' => 'User13','email' => 'user13@gmail.com','password'=> Hash::make('123456'), 'phone'=> '1234567890','address'=>'HN', 'created_at' => \Carbon\Carbon::parse('05-09-2020 03:26:49')->format('Y-m-d H:i:s')],
-            ['id'=>14, 'name' => 'User14','email' => 'user14@gmail.com','password'=> Hash::make('123456'), 'phone'=> '1234567890','address'=>'HN', 'created_at' => \Carbon\Carbon::parse('06-09-2020 03:26:49')->format('Y-m-d H:i:s')],
-            ['id'=>15, 'name' => 'User15','email' => 'user15@gmail.com','password'=> Hash::make('123456'), 'phone'=> '1234567890','address'=>'HN', 'created_at' => \Carbon\Carbon::parse('08-09-2020 03:26:49')->format('Y-m-d H:i:s')],
+            ['id'=>1, 'name' => 'User1','email' => 'user1@gmail.com','password'=> Hash::make('123456'), 'phone'=> '0999999989','address'=>'HN', 'created_at' => \Carbon\Carbon::parse('11-05-2020 03:26:49')->format('Y-m-d H:i:s')],
+            ['id'=>2, 'name' => 'User2','email' => 'user2@gmail.com','password'=> Hash::make('123456'), 'phone'=> '0999999989','address'=>'HN', 'created_at' => \Carbon\Carbon::parse('15-06-2020 03:26:49')->format('Y-m-d H:i:s')],
+            ['id'=>3, 'name' => 'User3','email' => 'user3@gmail.com','password'=> Hash::make('123456'), 'phone'=> '0999999989','address'=>'HN', 'created_at' => \Carbon\Carbon::parse('21-06-2020 03:26:49')->format('Y-m-d H:i:s')],
+            ['id'=>4, 'name' => 'User4','email' => 'user4@gmail.com','password'=> Hash::make('123456'), 'phone'=> '0999999989','address'=>'HN', 'created_at' => \Carbon\Carbon::parse('30-06-2020 03:26:49')->format('Y-m-d H:i:s')],
+            ['id'=>5, 'name' => 'User5','email' => 'user5@gmail.com','password'=> Hash::make('123456'), 'phone'=> '0999999989','address'=>'HN', 'created_at' => \Carbon\Carbon::parse('06-07-2020 03:26:49')->format('Y-m-d H:i:s')],
+            ['id'=>6, 'name' => 'User6','email' => 'user6@gmail.com','password'=> Hash::make('123456'), 'phone'=> '0999999989','address'=>'HN', 'created_at' => \Carbon\Carbon::parse('18-07-2020 03:26:49')->format('Y-m-d H:i:s')],
+            ['id'=>7, 'name' => 'User7','email' => 'user7@gmail.com','password'=> Hash::make('123456'), 'phone'=> '0999999989','address'=>'HN', 'created_at' => \Carbon\Carbon::parse('03-08-2020 03:26:49')->format('Y-m-d H:i:s')],
+            ['id'=>8, 'name' => 'User8','email' => 'user8@gmail.com','password'=> Hash::make('123456'), 'phone'=> '0999999989','address'=>'HN', 'created_at' => \Carbon\Carbon::parse('15-08-2020 03:26:49')->format('Y-m-d H:i:s')],
+            ['id'=>9, 'name' => 'User9','email' => 'user9@gmail.com','password'=> Hash::make('123456'), 'phone'=> '0999999989','address'=>'HN', 'created_at' => \Carbon\Carbon::parse('16-08-2020 03:26:49')->format('Y-m-d H:i:s')],
+            ['id'=>10, 'name' => 'User10','email' => 'user10@gmail.com','password'=> Hash::make('123456'), 'phone'=> '0999999989','address'=>'HN', 'created_at' => \Carbon\Carbon::parse('27-08-2020 03:26:49')->format('Y-m-d H:i:s')],
+            ['id'=>11, 'name' => 'User11','email' => 'user11@gmail.com','password'=> Hash::make('123456'), 'phone'=> '0999999989','address'=>'HN', 'created_at' => \Carbon\Carbon::parse('01-09-2020 03:26:49')->format('Y-m-d H:i:s')],
+            ['id'=>12, 'name' => 'User12','email' => 'user12@gmail.com','password'=> Hash::make('123456'), 'phone'=> '0999999989','address'=>'HN', 'created_at' => \Carbon\Carbon::parse('03-09-2020 03:26:49')->format('Y-m-d H:i:s')],
+            ['id'=>13, 'name' => 'User13','email' => 'user13@gmail.com','password'=> Hash::make('123456'), 'phone'=> '0999999989','address'=>'HN', 'created_at' => \Carbon\Carbon::parse('05-09-2020 03:26:49')->format('Y-m-d H:i:s')],
+            ['id'=>14, 'name' => 'User14','email' => 'user14@gmail.com','password'=> Hash::make('123456'), 'phone'=> '0999999989','address'=>'HN', 'created_at' => \Carbon\Carbon::parse('06-09-2020 03:26:49')->format('Y-m-d H:i:s')],
+            ['id'=>15, 'name' => 'User15','email' => 'user15@gmail.com','password'=> Hash::make('123456'), 'phone'=> '0999999989','address'=>'HN', 'created_at' => \Carbon\Carbon::parse('08-09-2020 03:26:49')->format('Y-m-d H:i:s')],
         ]);
         DB::table('admins')->insert([
-            ['id'=>1, 'name' => 'Tam Nguyen','email' => 'tam2012000@gmail.com','password'=> Hash::make('123456'), 'phone'=> '1234567890','address'=>'HN', 'role' => 1, 'status' => 1],
-            ['id'=>2, 'name' => 'Linh Nguyen','email' => 'linhnn160295@gmail.com','password'=> Hash::make('123456'), 'phone'=> '1234567890','address'=>'HN', 'role' => 1, 'status' => 1],
-            ['id'=>3, 'name' => 'Admin','email' => 'admin@gmail.com','password'=> Hash::make('123456'), 'phone'=> '1234567890','address'=>'HN', 'role' => 1, 'status' => 1],
-            ['id'=>4, 'name' => 'Phỏng Vấn','email' => 'interviewer@gmail.com','password'=> Hash::make('123456'), 'phone'=> '1234567890','address'=>'HN', 'role' => 2, 'status' => 1],
-            ['id'=>5, 'name' => 'BackOffice','email' => 'backoffice@gmail.com','password'=> Hash::make('123456'), 'phone'=> '1234567890','address'=>'HN', 'role' => 3, 'status' => 1],
+            ['id'=>1, 'name' => 'Tam Nguyen','email' => 'tam2012000@gmail.com','password'=> Hash::make('123456'), 'phone'=> '0999999989','address'=>'HN', 'role' => 1, 'status' => 1],
+            ['id'=>2, 'name' => 'Linh Nguyen','email' => 'linhnn160295@gmail.com','password'=> Hash::make('123456'), 'phone'=> '0999999989','address'=>'HN', 'role' => 1, 'status' => 1],
+            ['id'=>3, 'name' => 'Admin','email' => 'admin@gmail.com','password'=> Hash::make('123456'), 'phone'=> '0999999989','address'=>'HN', 'role' => 1, 'status' => 1],
+            ['id'=>4, 'name' => 'Phỏng Vấn','email' => 'interviewer@gmail.com','password'=> Hash::make('123456'), 'phone'=> '0999999989','address'=>'HN', 'role' => 2, 'status' => 1],
+            ['id'=>5, 'name' => 'BackOffice','email' => 'backoffice@gmail.com','password'=> Hash::make('123456'), 'phone'=> '0999999989','address'=>'HN', 'role' => 3, 'status' => 1],
         ]);
         DB::table('companies')->insert([
             ['id'=>1, 'name' => 'Scuti co., ltd', 'description' => 'Make service people love!', 'email' => 'scuti-asia@gmail.com', 'phone'=>'0999999999', 'address'=>'68 Nguyễn Cơ Thạch, Nam Từ Liêm, Hn', 'logo'=>'logo.png', 'facebook_page' => 'https://fb.com/scuti', 'youtube_page' => 'youtube.com.vn/scuti'],
@@ -76,7 +76,7 @@ class RoleSeeder extends Seeder
             ['id'=>2, 'name'=>'Hỗ trợ ăn trưa', 'image' => 'https://cdn.dealtoday.vn/img/s630x420/486eddbfe8654079aa5b041b4bdb8f83.jpg?sign=c4chRr5yV1gkJT3L1Xv4CQ', 'description' => 'Tối đa 500k/tháng'],
             ['id'=>3, 'name'=>'Hỗ trọ gửi xe', 'image' => 'https://image.phunuonline.com.vn/news/2018/20180411/fckimage/125822_27752217-189571811799860-2629126936167693586-n-111830491.jpg', 'description' => 'Tối đa 110k/tháng'],
             ['id'=>4, 'name'=>'Miễn phí đồ ăn vặt', 'image' => 'https://toplist.vn/images/800px/fritos-198624.jpg', 'description' => 'Tối đa 1 lần/tháng'],
-            ['id'=>5, 'name'=>'Hỗ trợ laptop gamming', 'image' => 'https://cdn.tgdd.vn/hoi-dap/1122656/top-5-laptop-gamig-2.jpg', 'description' => 'Tối đa 365 triệu/năm'],
+            ['id'=>5, 'name'=>'Hỗ trợ laptop gamming', 'image' => 'https://sa.tinhte.vn/2018/04/4298166_cover_home_man_hinh_may_tinh.jpg', 'description' => 'Tối đa 365 triệu/năm'],
         ]);
         DB::table('company_images')->insert([
             ['id'=>1, "name" => "Thân thiện và vui vẻ", 'description' => 'Chúng tôi luôn luôn giúp nhân viên thoải mái và hoàn thành công việc hiệu quả.', 'image_url'=>'images/image1.JPG'],
@@ -146,31 +146,31 @@ class RoleSeeder extends Seeder
             ['id'=>9, 'name' => 'Ghé Thăm Chúng Tôi', 'slug' => Str::slug('Ghé Thăm Chúng Tôi'), 'description' => 'Đừng ngần ngại gọi cho chúng tôi hoặc gửi tin nhắn liên hệ cho chúng tôi!', 'content' => '', 'image' => 'images/ceo.jpg'],
             ['id'=>10, 'name' => 'Quy Trình Tuyển Dụng', 'slug' => Str::slug('Quy Trình Tuyển Dụng'), 'description' => 'Chúng tôi luôn tìm kiếm những người tuyệt vời! Nếu bạn chưa tìm thấy cơ hội phù hợp hiện tại, nhưng tin rằng bạn có thể trở thành 1 phần của Scuti, hãy gửi thông tin cho chúng tôi.', 
                 'content' => 
-                '<div class="col-lg-10 offset-lg-1 row my-3">
+                '<div class="col-lg-10 mx-auto row py-3">
                         <div class="col-md-2 text-center pt-2 mb-3">①</div>
                         <div class="col-md-10 text-center text-md-left">
                             <p>Vui lòng liên hệ với chúng tôi từ nút bên dưới và cho bạn thấy ý định muốn ứng tuyển vào công ty của chúng tôi. Khi bạn liên hệ với chúng tôi, vui lòng nói rõ bạn muốn ứng tuyển vào vị trí nào. Không ai thất bại trong giai đoạn này.</p>   
                         </div>
                     </div>
-                    <div class="col-lg-10 offset-lg-1 row my-3">
+                    <div class="col-lg-10 mx-auto row py-3">
                         <div class="col-md-2 text-center pt-2 mb-3">②</div>
                         <div class="col-md-10 text-center text-md-left">
                             <p>Nhân viên của chúng tôi sẽ trả lời bạn sớm và thông báo cho bạn những gì chúng tôi muốn bạn gửi. Điều này bao gồm cả bài kiểm tra trên giấy.</p>   
                         </div>
                     </div>
-                    <div class="col-lg-10 offset-lg-1 row my-3">
+                    <div class="col-lg-10 mx-auto row py-3">
                         <div class="col-md-2 text-center pt-2 mb-3">③</div>
                         <div class="col-md-10 text-center text-md-left">
                             <p>Bạn phỏng vấn các thành viên của chúng tôi (bao gồm cả Giám đốc điều hành) một hoặc hai lần. Tất cả các cuộc phỏng vấn được tổ chức bằng tiếng Anh.</p>   
                         </div>
                     </div>
-                    <div class="col-lg-10 offset-lg-1 row my-3">
+                    <div class="col-lg-10 mx-auto row py-3">
                         <div class="col-md-2 text-center pt-2 mb-3">④</div>
                         <div class="col-md-10 text-center text-md-left">
                             <p>Nếu bạn may mắn vượt qua tất cả các cuộc tuyển chọn, chúng tôi sẽ gặp bạn một lần nữa để đưa ra lời mời làm việc.</p>   
                         </div>
                     </div>
-                    <div class="col-lg-10 offset-lg-1 row my-3">
+                    <div class="col-lg-10 mx-auto row py-3">
                         <div class="col-md-2 text-center pt-2 mb-3">⑤</div>
                         <div class="col-md-10 text-center text-md-left">
                             <p>Nếu bạn đồng ý với tất cả các điều kiện của một lời mời làm việc, bạn bắt đầu làm việc với chúng tôi!</p>   
@@ -357,13 +357,13 @@ class RoleSeeder extends Seeder
         ]);
         DB::table('events')->insert([
             ['id'=>1, 'title' => 'Phỏng vấn ứng viên Tâm','user_id' => 1, 'admin_id' => '["1","2"]', 'start' => \Carbon\Carbon::now('Asia/Ho_Chi_Minh'), 'end'=> \Carbon\Carbon::now('Asia/Ho_Chi_Minh')->addHour(), 'note'=>'Ứng viên có CV phù hợp','color'=>'#82b916'],
-            ['id'=>2, 'title' => 'Cafe với ứng viên User1','user_id' => 2, 'admin_id' => '["1","2"]', 'start' => \Carbon\Carbon::now('Asia/Ho_Chi_Minh'), 'end'=> \Carbon\Carbon::now('Asia/Ho_Chi_Minh')->addHour(), 'note'=>'Ứng viên tiềm năng','color'=>'#073a40'],
-            ['id'=>3, 'title' => 'Đánh giá ứng viên Linh','user_id' => 2, 'admin_id' => '["1"]', 'start' => \Carbon\Carbon::now('Asia/Ho_Chi_Minh')->addHour(),'end'=>\Carbon\Carbon::now('Asia/Ho_Chi_Minh')->addHours(2),'note'=>'Ứng viên tiềm năng','color'=>'#f58c0a'],
-            ['id'=>4, 'title' => 'Cafe với ứng viên User2','user_id' => 3, 'admin_id' => '["1","2"]', 'start' => \Carbon\Carbon::now('Asia/Ho_Chi_Minh')->addHours(2), 'end'=> \Carbon\Carbon::now('Asia/Ho_Chi_Minh')->addHours(3), 'note'=>'Ứng viên tiềm năng','color'=>'#9d4fb7'],
-            ['id'=>5, 'title' => 'Đánh giá ứng viên User2','user_id' => 4, 'admin_id' => '["1","2","3"]', 'start' => \Carbon\Carbon::now('Asia/Ho_Chi_Minh')->addDay()->addHours(2),'end'=>\Carbon\Carbon::now('Asia/Ho_Chi_Minh')->addDay()->addHours(3),'note'=>'Ứng viên tiềm năng','color'=>'#f58c0a'],
-            ['id'=>6, 'title' => 'Phỏng vấn ứng viên User1','user_id' => 5, 'admin_id' => '["1","2","4"]', 'start' => \Carbon\Carbon::now('Asia/Ho_Chi_Minh')->addDay()->addHours(3),'end'=>\Carbon\Carbon::now('Asia/Ho_Chi_Minh')->addDay()->addHours(4),'note'=>'Chuẩn bị demo','color'=>'#191e83'],
-            ['id'=>7, 'title' => 'Phỏng vấn ứng viên Linh123','user_id' => 2, 'admin_id' => '["1","2","3","4","5"]', 'start' => \Carbon\Carbon::now('Asia/Ho_Chi_Minh')->addDays(2)->addHours(4),'end'=>\Carbon\Carbon::now('Asia/Ho_Chi_Minh')->addDays(2)->addHours(5),'note'=>'Ứng viên tiềm năng','color'=>'#230af5'],
-            ['id'=>8, 'title' => 'Phỏng vấn ứng viên User2','user_id' => 3, 'admin_id' => '["1","2","4"]', 'start' => \Carbon\Carbon::now('Asia/Ho_Chi_Minh')->addDays(2)->addHours(5),'end'=>\Carbon\Carbon::now('Asia/Ho_Chi_Minh')->addDays(2)->addHours(6),'note'=>'Chuẩn bị demo','color'=>'#19xe83'],
+            ['id'=>2, 'title' => 'Cafe với ứng viên User2','user_id' => 2, 'admin_id' => '["1","2"]', 'start' => \Carbon\Carbon::now('Asia/Ho_Chi_Minh'), 'end'=> \Carbon\Carbon::now('Asia/Ho_Chi_Minh')->addHour(), 'note'=>'Ứng viên tiềm năng','color'=>'#073a40'],
+            ['id'=>3, 'title' => 'Đánh giá ứng viên User2','user_id' => 2, 'admin_id' => '["1"]', 'start' => \Carbon\Carbon::now('Asia/Ho_Chi_Minh')->addHour(),'end'=>\Carbon\Carbon::now('Asia/Ho_Chi_Minh')->addHours(2),'note'=>'Ứng viên tiềm năng','color'=>'#f58c0a'],
+            ['id'=>4, 'title' => 'Cafe với ứng viên User3','user_id' => 3, 'admin_id' => '["1","2"]', 'start' => \Carbon\Carbon::now('Asia/Ho_Chi_Minh')->addHours(2), 'end'=> \Carbon\Carbon::now('Asia/Ho_Chi_Minh')->addHours(3), 'note'=>'Ứng viên tiềm năng','color'=>'#9d4fb7'],
+            ['id'=>5, 'title' => 'Đánh giá ứng viên User4','user_id' => 4, 'admin_id' => '["1","2","3"]', 'start' => \Carbon\Carbon::now('Asia/Ho_Chi_Minh')->addDay()->addHours(2),'end'=>\Carbon\Carbon::now('Asia/Ho_Chi_Minh')->addDay()->addHours(3),'note'=>'Ứng viên tiềm năng','color'=>'#f58c0a'],
+            ['id'=>6, 'title' => 'Phỏng vấn ứng viên User5','user_id' => 5, 'admin_id' => '["1","2","4"]', 'start' => \Carbon\Carbon::now('Asia/Ho_Chi_Minh')->addDay()->addHours(3),'end'=>\Carbon\Carbon::now('Asia/Ho_Chi_Minh')->addDay()->addHours(4),'note'=>'Chuẩn bị demo','color'=>'#191e83'],
+            ['id'=>7, 'title' => 'Phỏng vấn ứng viên User2','user_id' => 2, 'admin_id' => '["1","2","3","4","5"]', 'start' => \Carbon\Carbon::now('Asia/Ho_Chi_Minh')->addDays(2)->addHours(4),'end'=>\Carbon\Carbon::now('Asia/Ho_Chi_Minh')->addDays(2)->addHours(5),'note'=>'Ứng viên tiềm năng','color'=>'#230af5'],
+            ['id'=>8, 'title' => 'Phỏng vấn ứng viên User3','user_id' => 3, 'admin_id' => '["1","2","4"]', 'start' => \Carbon\Carbon::now('Asia/Ho_Chi_Minh')->addDays(2)->addHours(5),'end'=>\Carbon\Carbon::now('Asia/Ho_Chi_Minh')->addDays(2)->addHours(6),'note'=>'Chuẩn bị demo','color'=>'#19xe83'],
         ]);
         Schema::enableForeignKeyConstraints();
     }

@@ -110,5 +110,13 @@ class JobController extends Controller
         return redirect()->route('jobs.index');
     }
 
+    public function search(Request $request)
+    {
+        $jobs = \App\Model\Job::where('name', 'like', '%'.$request->keyword.'%')
+                                    ->where('status', '=', 1)
+                                    ->paginate(10);
+        $html = view('admin.job.search', compact('jobs'))->render();
 
+        return response()->json($html);
+    }
 }

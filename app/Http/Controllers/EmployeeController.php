@@ -64,7 +64,7 @@ class EmployeeController extends Controller
         $employee->status = $request->status;
         $employee->save();
 
-        return response()->json(['success' => trans('custom.alert_messages.success')]);
+        return response()->json(['success' => trans('custom.alert_messages.update_success')]);
     }
 
     public function destroy($id)

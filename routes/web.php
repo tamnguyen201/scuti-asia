@@ -70,6 +70,7 @@ Route::group(
         Route::resource('locations', 'LocationController');
         Route::resource('categories', 'CategoryController');
         Route::get('/changeCategoryStatus', 'CategoryController@changeStatus');
+        Route::post('jobs/search', 'JobController@search')->name('admin.job.search');
         Route::resource('jobs', 'JobController')->except(['show']);
         Route::get('jobs/detail/{id}','JobController@detail')->name('job.detail');
         Route::get('/changeJobStatus', 'JobController@updateStatus')->name('job.update.status');

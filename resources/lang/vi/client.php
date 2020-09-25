@@ -80,6 +80,8 @@ return [
                 'title' => 'Bạn Đã Ứng Tuyển Cho Công Việc Này!',
                 'description' => 'Xem Chi Tiết Quá Trình Đánh Giá Này.',
                 'info' => 'Thông tin chi tiết:',
+                'apply' => 'Ứng Tuyển',
+                'apply_message' => 'Chúng tôi cảm ơn bạn đã ứng tuyển cho vị trí này. Chúng tôi sẽ xem xét và sẽ trả lời bạn sớm nhất có thể.', 
                 'finish' => 'Hoàn Thành',
             ],
             'back' => 'Quay Lại',

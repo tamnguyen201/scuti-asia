@@ -23,6 +23,6 @@
     </div>
     @endforeach
 @else
-<p>@lang('custom.empty_data')</p>
+    <p class="w-100 text-center">@lang('custom.empty_data')</p>
 @endif
 </div>

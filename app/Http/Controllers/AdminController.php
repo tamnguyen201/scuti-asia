@@ -52,7 +52,7 @@ class AdminController extends Controller
         $data['jobs'] = \App\Model\Job::where('status', '=', 1)->paginate(10);
 
         for ($i=5; $i >= 0; $i--) { 
-            $arrMonth[] = \Carbon\Carbon::now()->subMonths($i)->format('F');
+            $arrMonth[] = \Carbon\Carbon::now('Asia/Ho_Chi_Minh')->subMonths($i)->format('F');
         }
 
         $data['listMonth'] = $arrMonth;
