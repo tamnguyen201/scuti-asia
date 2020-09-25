@@ -63,7 +63,7 @@
                     </div>
                 </div>
                 <div class="col-md-12">
-                    <button class="btn-editInfor btn btn-primary ml-4" type="submit">{{trans('custom.button.submit')}}</button>
+                    <button class="btn-editInfor btn btn-primary ml-4" type="submit">{{trans('custom.button.confirm')}}</button>
                 </div> 
             </form>
         </div>
