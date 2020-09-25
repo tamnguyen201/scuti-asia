@@ -76,7 +76,7 @@ class RoleSeeder extends Seeder
             ['id'=>2, 'name'=>'Hỗ trợ ăn trưa', 'image' => 'https://cdn.dealtoday.vn/img/s630x420/486eddbfe8654079aa5b041b4bdb8f83.jpg?sign=c4chRr5yV1gkJT3L1Xv4CQ', 'description' => 'Tối đa 500k/tháng'],
             ['id'=>3, 'name'=>'Hỗ trọ gửi xe', 'image' => 'https://image.phunuonline.com.vn/news/2018/20180411/fckimage/125822_27752217-189571811799860-2629126936167693586-n-111830491.jpg', 'description' => 'Tối đa 110k/tháng'],
             ['id'=>4, 'name'=>'Miễn phí đồ ăn vặt', 'image' => 'https://toplist.vn/images/800px/fritos-198624.jpg', 'description' => 'Tối đa 1 lần/tháng'],
-            ['id'=>5, 'name'=>'Hỗ trợ laptop gamming', 'image' => 'https://cdn.tgdd.vn/hoi-dap/1122656/top-5-laptop-gamig-2.jpg', 'description' => 'Tối đa 365 triệu/năm'],
+            ['id'=>5, 'name'=>'Hỗ trợ laptop gamming', 'image' => 'https://sa.tinhte.vn/2018/04/4298166_cover_home_man_hinh_may_tinh.jpg', 'description' => 'Tối đa 365 triệu/năm'],
         ]);
         DB::table('company_images')->insert([
             ['id'=>1, "name" => "Thân thiện và vui vẻ", 'description' => 'Chúng tôi luôn luôn giúp nhân viên thoải mái và hoàn thành công việc hiệu quả.', 'image_url'=>'images/image1.JPG'],
@@ -146,31 +146,31 @@ class RoleSeeder extends Seeder
             ['id'=>9, 'name' => 'Ghé Thăm Chúng Tôi', 'slug' => Str::slug('Ghé Thăm Chúng Tôi'), 'description' => 'Đừng ngần ngại gọi cho chúng tôi hoặc gửi tin nhắn liên hệ cho chúng tôi!', 'content' => '', 'image' => 'images/ceo.jpg'],
             ['id'=>10, 'name' => 'Quy Trình Tuyển Dụng', 'slug' => Str::slug('Quy Trình Tuyển Dụng'), 'description' => 'Chúng tôi luôn tìm kiếm những người tuyệt vời! Nếu bạn chưa tìm thấy cơ hội phù hợp hiện tại, nhưng tin rằng bạn có thể trở thành 1 phần của Scuti, hãy gửi thông tin cho chúng tôi.', 
                 'content' => 
-                '<div class="col-lg-10 offset-lg-1 row my-3">
+                '<div class="col-lg-10 mx-auto row py-3">
                         <div class="col-md-2 text-center pt-2 mb-3">①</div>
                         <div class="col-md-10 text-center text-md-left">
                             <p>Vui lòng liên hệ với chúng tôi từ nút bên dưới và cho bạn thấy ý định muốn ứng tuyển vào công ty của chúng tôi. Khi bạn liên hệ với chúng tôi, vui lòng nói rõ bạn muốn ứng tuyển vào vị trí nào. Không ai thất bại trong giai đoạn này.</p>   
                         </div>
                     </div>
-                    <div class="col-lg-10 offset-lg-1 row my-3">
+                    <div class="col-lg-10 mx-auto row py-3">
                         <div class="col-md-2 text-center pt-2 mb-3">②</div>
                         <div class="col-md-10 text-center text-md-left">
                             <p>Nhân viên của chúng tôi sẽ trả lời bạn sớm và thông báo cho bạn những gì chúng tôi muốn bạn gửi. Điều này bao gồm cả bài kiểm tra trên giấy.</p>   
                         </div>
                     </div>
-                    <div class="col-lg-10 offset-lg-1 row my-3">
+                    <div class="col-lg-10 mx-auto row py-3">
                         <div class="col-md-2 text-center pt-2 mb-3">③</div>
                         <div class="col-md-10 text-center text-md-left">
                             <p>Bạn phỏng vấn các thành viên của chúng tôi (bao gồm cả Giám đốc điều hành) một hoặc hai lần. Tất cả các cuộc phỏng vấn được tổ chức bằng tiếng Anh.</p>   
                         </div>
                     </div>
-                    <div class="col-lg-10 offset-lg-1 row my-3">
+                    <div class="col-lg-10 mx-auto row py-3">
                         <div class="col-md-2 text-center pt-2 mb-3">④</div>
                         <div class="col-md-10 text-center text-md-left">
                             <p>Nếu bạn may mắn vượt qua tất cả các cuộc tuyển chọn, chúng tôi sẽ gặp bạn một lần nữa để đưa ra lời mời làm việc.</p>   
                         </div>
                     </div>
-                    <div class="col-lg-10 offset-lg-1 row my-3">
+                    <div class="col-lg-10 mx-auto row py-3">
                         <div class="col-md-2 text-center pt-2 mb-3">⑤</div>
                         <div class="col-md-10 text-center text-md-left">
                             <p>Nếu bạn đồng ý với tất cả các điều kiện của một lời mời làm việc, bạn bắt đầu làm việc với chúng tôi!</p>   

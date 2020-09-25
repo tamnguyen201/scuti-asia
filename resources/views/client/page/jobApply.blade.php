@@ -239,7 +239,7 @@
 
     @if($data['apply'] != null)
     <div class="ex-basic-2" style="background-color: #eff3f6; padding-top:1rem; padding-bottom:1rem">
-        <div class="container" style="background-color: #fff;">
+        <div class="container" style="background-color: #fff;border-radius: 5px;">
             <div class="row">
                 <div class="col-lg-12">
                     <div class="text-container" style="padding-top:1rem; padding-bottom:1rem">
@@ -251,29 +251,47 @@
                                         <p><a href="{{route('home')}}/#recruitment-flow" target="_blank">@lang('client.page.apply.process.description')</a></p>
                                         <form id="msform">
                                             <ul id="progressbar">
-                                                <li class="active" id="account"><strong> Ứng Tuyển </strong> <br> <span>{{\Carbon\Carbon::parse($data['apply']->created_at)->format('d/m/Y')}}</span></li>
+                                                <li class="active" step="0" id="account"><strong> @lang('client.page.apply.process.apply') </strong> <br> <span>{{\Carbon\Carbon::parse($data['apply']->created_at)->format('d/m/Y')}}</span></li>
                                                 @if(isset($data['apply']->process[0]->evaluate) && $data['apply']->process[0]->evaluate->status == 1)
-                                                <li class="active" step="0" id="personal"><strong>{{$data['apply']->process[0]->name}}</strong><br> <span>{{\Carbon\Carbon::parse($data['apply']->process[0]->evaluate->created_at)->format('d/m/Y')}}</span></li>
+                                                <li class="active" step="1" id="personal"><strong>{{$data['apply']->process[0]->name}}</strong><br> <span>{{\Carbon\Carbon::parse($data['apply']->process[0]->evaluate->created_at)->format('d/m/Y')}}</span></li>
                                                 @elseif(isset($data['apply']->process[0]->evaluate) && $data['apply']->process[0]->evaluate->status == 0)
-                                                <li class="inactive" step="0" id="personal"><strong>{{$data['apply']->process[0]->name}}</strong><br> <span>{{\Carbon\Carbon::parse($data['apply']->process[0]->evaluate->created_at)->format('d/m/Y')}}</span></li>
+                                                <li class="inactive" step="1" id="personal"><strong>{{$data['apply']->process[0]->name}}</strong><br> <span>{{\Carbon\Carbon::parse($data['apply']->process[0]->evaluate->created_at)->format('d/m/Y')}}</span></li>
                                                 @else
-                                                <li step="0" id="personal"><strong>Đánh Giá</strong></li>
+                                                <li step="1" id="personal"><strong>Đánh Giá</strong></li>
                                                 @endif
                                                 @if(isset($data['apply']->process[1]->evaluate) && $data['apply']->process[1]->evaluate->status == 1)
-                                                <li class="active" step="1" id="payment"><strong>{{$data['apply']->process[1]->name}}</strong><br> <span>{{\Carbon\Carbon::parse($data['apply']->process[1]->evaluate->created_at)->format('d/m/Y')}}</span></li>
+                                                <li class="active" step="2" id="payment"><strong>{{$data['apply']->process[1]->name}}</strong><br> <span>{{\Carbon\Carbon::parse($data['apply']->process[1]->evaluate->created_at)->format('d/m/Y')}}</span></li>
                                                 @elseif(isset($data['apply']->process[1]->evaluate) && $data['apply']->process[1]->evaluate->status == 0)
-                                                <li class="inactive" step="1" id="payment"><strong>{{$data['apply']->process[1]->name}}</strong><br> <span>{{\Carbon\Carbon::parse($data['apply']->process[1]->evaluate->created_at)->format('d/m/Y')}}</span></li>
+                                                <li class="inactive" step="2" id="payment"><strong>{{$data['apply']->process[1]->name}}</strong><br> <span>{{\Carbon\Carbon::parse($data['apply']->process[1]->evaluate->created_at)->format('d/m/Y')}}</span></li>
                                                 @else
-                                                <li step="1" id="payment"><strong>Phỏng Vấn</strong></li>
+                                                <li step="2" id="payment"><strong>Phỏng Vấn</strong></li>
                                                 @endif
                                                 @if(isset($data['apply']->process[2]->evaluate) && $data['apply']->process[2]->evaluate->status == 1)
-                                                <li class="active" step="2" id="confirm"><strong>Hoàn Thành</strong><br> <span>{{\Carbon\Carbon::parse($data['apply']->process[2]->evaluate->created_at)->format('d/m/Y')}}</span></li>
+                                                <li class="active" step="3" id="confirm"><strong>Hoàn Thành</strong><br> <span>{{\Carbon\Carbon::parse($data['apply']->process[2]->evaluate->created_at)->format('d/m/Y')}}</span></li>
                                                 @elseif(isset($data['apply']->process[2]->evaluate) && $data['apply']->process[2]->evaluate->status == 0)
-                                                <li class="inactive" step="2" id="confirm"><strong>Hoàn Thành</strong><br> <span>{{\Carbon\Carbon::parse($data['apply']->process[2]->evaluate->created_at)->format('d/m/Y')}}</span></li>
+                                                <li class="inactive" step="3" id="confirm"><strong>Hoàn Thành</strong><br> <span>{{\Carbon\Carbon::parse($data['apply']->process[2]->evaluate->created_at)->format('d/m/Y')}}</span></li>
                                                 @else
-                                                <li step="2" id="confirm"><strong>Hoàn Thành</strong></li>
+                                                <li step="3" id="confirm"><strong>Hoàn Thành</strong></li>
                                                 @endif
                                             </ul>
+                                            <fieldset class="col-lg-10 mx-auto">
+                                                <div class="form-card">
+                                                    <div class="row">
+                                                        <div class="col-7">
+                                                            <h2 class="fs-title">@lang('client.page.apply.process.info')</h2>
+                                                        </div>
+                                                        <div class="col-5">
+                                                            <h2 class="steps">@lang('client.page.apply.step') 1 - @lang('client.page.apply.process.apply')</h2>
+                                                        </div>
+                                                    </div> 
+                                                    <div class="row col-lg-11 mx-auto">
+                                                        <p>@lang('client.page.apply.process.apply_message')</p>
+                                                    </div>
+                                                </div> 
+                                                @if($data['apply']->process->count() > 0)
+                                                <input type="button" name="next" class="next action-button" value="@lang('custom.button.next')" />
+                                                @endif
+                                            </fieldset>
                                             @foreach($data['apply']->process as $key => $process)
                                             @if($key != 2)
                                             <fieldset class="col-lg-10 mx-auto">
@@ -283,7 +301,7 @@
                                                             <h2 class="fs-title">@lang('client.page.apply.process.info')</h2>
                                                         </div>
                                                         <div class="col-5">
-                                                            <h2 class="steps">@lang('client.page.apply.step') {{$process->step . ' - ' . $process->name}}</h2>
+                                                            <h2 class="steps">@lang('client.page.apply.step') {{$process->step + 1 . ' - ' . $process->name}}</h2>
                                                         </div>
                                                     </div> 
                                                     <div class="row col-lg-11 mx-auto">
@@ -293,7 +311,7 @@
                                                 @if($key < $data['apply']->process->count() - 1)
                                                 <input type="button" name="next" class="next action-button" value="@lang('custom.button.next')" />
                                                 @endif
-                                                @if($key > 0)
+                                                @if($key < 3)
                                                 <input type="button" name="previous" class="previous action-button-previous" value="@lang('custom.button.previous')" />
                                                 @endif
                                             </fieldset>
@@ -336,7 +354,7 @@
     <div class="ex-basic-2" style="background-color: #eff3f6; padding-top:1rem; padding-bottom: 1rem">
         <div class="container">
             <div class="row">
-                <div class="col-md-8 mb-4 p-0" style="background-color: #fff;">
+                <div class="col-md-8 mb-4 p-0" style="background-color: #fff;border-radius: 5px;">
                     <h2 class="py-2 px-4 border-bottom">{{$data['job']->name}}</h2>
                     <div class="text-container pt-3 px-4">
                         <div class="">
@@ -346,7 +364,7 @@
                     <a class="btn-outline-reg back ml-4 mb-5" href="{{route('home')}}/#recruitment">@lang('client.page.apply.job_another')</a>
                 </div>
                 <div class="col-md-4 pr-0">
-                    <div class="col-lg-12 mb-2 p-0" style="background-color: #fff;">
+                    <div class="col-lg-12 mb-2 p-0" style="background-color: #fff;border-radius: 5px;">
                         <h3 class="p-2 border-bottom">@lang('client.page.apply.sidebar.title')</h3>
                         <div class="pb-2">
                             <ul class="px-3">
@@ -370,7 +388,7 @@
                             @endif
                         </div>
                     </div>
-                    <div class="col-lg-12 mb-2 p-0" style="background-color: #fff;">
+                    <div class="col-lg-12 mb-2 p-0" style="background-color: #fff;border-radius: 5px;">
                         <h3 class="p-2 border-bottom">@lang('client.page.job.related_job')</h3>
                         <div class="col-lg-12 p-0">
                             @foreach($data['related_job'] as $job )
@@ -480,7 +498,8 @@
                     'opacity': 1, 'position': 'relative', 'display': 'block',
                     });
                 }
-            })
+            });
+
             $(".next").click(function(){
 
                 current_fs = $(this).parent();

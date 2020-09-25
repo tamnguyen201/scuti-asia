@@ -16,7 +16,7 @@
     <div class="ex-basic-2" style="background-color: #eff3f6;">
         <div class="container">
             <div class="row">
-                <div class="col-md-8 mb-4 p-0" style="background-color: #fff;">
+                <div class="col-md-8 mb-4 p-0" style="background-color: #fff;border-radius: 5px;">
                     <h2 class="pt-2 px-4 border-bottom">{{$data['job']->name}}</h2>
                     <div class="text-container pt-3 px-4">
                         <div class="">
@@ -26,7 +26,7 @@
                     <a class="btn-outline-reg back ml-4 mb-5" href="{{route('client.applied', [$data['job']->id, $data['job']->slug])}}">@lang('client.section.recruitment.apply')</a>
                 </div>
                 <div class="col-md-4">
-                    <div class="col-lg-12 mb-2 p-0" style="background-color: #fff;">
+                    <div class="col-lg-12 mb-2 p-0" style="background-color: #fff;border-radius: 5px;">
                         <h3 class="p-2 border-bottom">@lang('client.page.apply.sidebar.title')</h3>
                         <div class="pb-2">
                             <ul class="px-3">
@@ -48,7 +48,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-12 mb-2 p-0 pb-3" style="background-color: #fff;">
+                    <div class="col-lg-12 mb-2 p-0 pb-3" style="background-color: #fff;border-radius: 5px;">
                         <h3 class="p-2 border-bottom">@lang('client.page.job.related_job')</h3>
                         <div class="col-lg-12 p-0">
                             @foreach($data['related_job'] as $job )

@@ -54,7 +54,7 @@
                 @endif
             @endforeach
         @else
-            <p>@lang('client.page.home.empty_job')</p>
+            <p class="w-100 text-center">@lang('client.page.home.empty_job')</p>
         @endif
     @endforeach
 @endif

@@ -139,7 +139,7 @@ return [
         'had_password'=>'Bạn đã có tài khoản, đăng nhập tại đây',
         'enter'=>'Nhập',
         'start_process'=>'Bắt đầu đánh giá',
-        'search'=>'Tìm',
+        'search'=>'Lọc',
         'edit'=>'Sửa',
         'next' => 'Tiếp Theo',
         'previous' => 'Lùi Lại',

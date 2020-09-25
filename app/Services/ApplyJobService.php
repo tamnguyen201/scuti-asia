@@ -18,7 +18,7 @@ class ApplyJobService
         $data['user_id'] = auth()->user()->id;
         
         if(array_key_exists("cv_url", $data)) {
-            $data['cv_url'] = $this->createCV($data)->cv_url;
+            $data['cv_file'] = $this->createCV($data)->cv_url;
         }
 
         return \App\Model\UserJob::create($data);
