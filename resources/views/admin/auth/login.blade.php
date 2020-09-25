@@ -18,7 +18,7 @@
       <div class="container">
          <!-- Outer Row -->
          <div class="row justify-content-center">
-            <div class="">
+            <div class="login-form" style="width: 60%">
                <div class="card o-hidden border-0 shadow-lg my-5">
                   <div class="card-body p-0">
                      <!-- Nested Row within Card Body -->
@@ -53,7 +53,7 @@
                                  <div class="alert alert-danger alert-dismissible" role="alert">
                                     <ul>
                                           @foreach ($errors->all() as $error)
-                                             <li>{{ $error }}</li>
+                                             <li><strong>{{ $error }}</strong></li>
                                           @endforeach
                                     </ul>
                                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -65,6 +65,7 @@
                               <form class="user" action="{{ route('admin.post-login') }}" method="post">
                                  @csrf
                                  <div class="form-group">
+                                    <label for="">Email* :</label>
                                     <input name="email" type="email" class="form-control form-control-user"  @error('email') is-invalid @enderror id="exampleInputEmail" aria-describedby="emailHelp">
                                     @error('email')
                                        <span class="invalid-feedback" role="alert">
@@ -73,6 +74,7 @@
                                     @enderror
                                  </div>
                                  <div class="form-group">
+                                    <label for="">Mật khẩu* :</label>
                                     <input name="password" type="password" class="form-control form-control-user"  @error('password') is-invalid @enderror id="exampleInputPassword">
                                     @error('password')
                                     <span class="invalid-feedback" role="alert">
