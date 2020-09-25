@@ -155,7 +155,7 @@
                                 @foreach($data['main_member'] as $item)
                                 @if($item->member_type == 1)
                                 <div class="swiper-slide">
-                                    <div class="card px-3 px-md-5">
+                                    <div class="card p-3 px-md-5">
                                         <img class="card-image img-fluid" src="{{$item->avatar}}" alt="alternative">
                                         <div class="card-body px-0">
                                             <div class="testimonial-author">{{$item->name}}</div>
@@ -190,7 +190,7 @@
                             @foreach($data['main_member'] as $item)
                                 @if($item->member_type == 0)
                                 <div class="swiper-slide">
-                                    <div class="card px-3 px-md-5">
+                                    <div class="card p-3 px-md-5">
                                         <img class="card-image img-fluid" src="{{$item->avatar}}" alt="alternative">
                                         <div class="card-body px-0">
                                             <div class="testimonial-author">{{$item->name}}</div>
@@ -223,7 +223,7 @@
                             <div class="swiper-wrapper">
                                 @foreach($data['benefits'] as $item)
                                 <div class="swiper-slide">
-                                    <div class="card px-3 px-md-5">
+                                    <div class="card p-3 px-md-5">
                                         <img class="card-image img-fluid benefits" src="{{$item->image}}" alt="{{$item->name}}">
                                         <div class="card-body">
                                             <div class="testimonial-author">{{$item->name}}</div>
@@ -391,7 +391,7 @@
                     </div>
                 </div>
                 <div class="col-lg-12">
-                    <div class="list-group col-12 list-jobs p-3" style="border-radius: 15px;background-color: #fff;box-shadow: 0px 0px 10px grey;">
+                    <div class="list-group col-12 list-jobs p-3" style="border-radius: 10px;background-color: #fff;box-shadow: 0px 0px 5px grey;">
                         <div class="row col-lg-12 d-flex">
                             @foreach($data['jobs'] as $job)
                                 <div class="d-md-flex col-lg-6 col-12 d-block development">
@@ -406,7 +406,7 @@
                                         </div>
                                         <div class="col-xl-5 col-md-6 d-none d-md-block text-md-right text-center">
                                             <a href="{{route('client.applied', [$job->id, $job->slug])}}" class="btn btn-apply-main btn-apply">@lang('client.section.recruitment.apply')</a>
-                                            <p class="desc-job text-left mt-3">
+                                            <p class="desc-job text-left mt-1">
                                                 <i class="far fa-money-bill-alt"></i> @lang('client.section.recruitment.salary'): {{$job->salary}} <br>
                                                 <i class="fas fa-map-marker-alt"></i> @lang('client.section.recruitment.work_place'): {{$job->location->name}} <br>
                                                 <i class="far fa-clock"></i> @lang('client.section.recruitment.deadline'): {{$job->formatExpireDay()}}
@@ -443,6 +443,8 @@
                 data: domForm.serialize(),
                 method: "POST",
             }).done(function (results) {
+                $("#contactForm").trigger("reset");
+                $("#contactForm").find("textarea, input").removeClass('notEmpty');
                 $('.text-danger.with-errors').text('');
                 swal({
                     title: "{{trans('custom.alert_messages.contact_alert.title')}}",
