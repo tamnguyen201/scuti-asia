@@ -123,4 +123,10 @@ class JobController extends Controller
 
         return response()->json($html);
     }
+
+    public function destroy($id)
+    {
+        $this->jobRepository->delete($id);
+        return redirect()->back()->with('success', config('common.alert_messages.success'));
+    }
 }

@@ -187,12 +187,7 @@ class EvaluateController extends Controller
             'admin_id'=>$request->admins
         ];
         $event = Event::updateOrCreate($insertArr);
-    
     }
-
-    
-
-    
 
     public function evaluatePass( $dataEvaluate ) {
         $currentProcessId = $dataEvaluate->process_id;
@@ -228,8 +223,6 @@ class EvaluateController extends Controller
         return $dataNextProcess;
     }
 
-    
-
     public function createEmail(Request $request)
     {
         $candidate_email = $request->email;
@@ -241,11 +234,13 @@ class EvaluateController extends Controller
 
         $this->evaluateRepository->sendEmail($candidate_email, $time, $name, $jobName);
         Event::find($event_id)->update(['email_status'=>1]);
+
         return redirect()->route('evaluate.candidate.show', $process_id);
     }
 
     public function destroyCalendar($id){
         Event::find($id)->delete();
+
         return redirect()->back()->with('success', config('common.alert_messages.success'));
     }
 
@@ -256,8 +251,8 @@ class EvaluateController extends Controller
         $dataAdmin = $this->adminRepository->all();
         
         $html = view('admin.calendar.modal_edit', compact('event','admins','dataAdmin'))->render();
+        
         return response()->json($html);
-
     }
 
     public function updateCalendar(Request $request, $id)
@@ -269,6 +264,7 @@ class EvaluateController extends Controller
             'end' => $request->end,
             'admin_id'=>$request->admins
         ];
+
         return Event::find($id)->update($insertArr);
     }
 
@@ -280,6 +276,7 @@ class EvaluateController extends Controller
         $jobName= $request->job;
         $reason = $request->reason;
         $this->evaluateRepository->sendFailEmail($candidate_email, $name, $jobName, $reason);
+
         return redirect()->route('admin.home');
     }
 
@@ -290,8 +287,8 @@ class EvaluateController extends Controller
         $jobName= $request->job;
         $reason = $request->reason;
         $this->evaluateRepository->sendPassEmail($candidate_email, $name, $jobName, $reason);
+
         return redirect()->route('admin.home');
     }
-
-    
+   
 }
