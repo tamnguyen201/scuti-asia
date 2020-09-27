@@ -25,9 +25,8 @@ class EventRequest extends FormRequest
     {
         return [
             'title' =>'required|unique:events,name',
-            'color'=>'required',
             'start'=>'required',
-            'end'=>'required'
+            'end'=>'required',
         ];
     }
 

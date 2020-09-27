@@ -21,7 +21,6 @@
                     <a href=""><span class="fa fa-trash-o"></span></a>
                 </div>
             </div>
-            <hr>
         @endforeach
         <br>
     </div>
@@ -52,7 +51,7 @@
                     <div class="form-calendar form-group col-md-6">
                         <label for="exampleFormControlTextarea1">@lang('custom.calendar.email') :</label>
                         <br>
-                        <input name="email"" type=" text" value="{{ $dataUser->email }}" disabled>
+                        <input name="email" type=" text" value="{{ $dataUser->email }}" disabled>
                     </div>
                     <div class="col-12">
                         <div class="form-calendar form-group col-md-6">
@@ -69,11 +68,6 @@
                             <label for="exampleFormControlTextarea1">@lang('custom.calendar.color')* :</label>
                             <br>
                             <input name="color" type="color" @error('color') is-invalid @enderror>
-                            @error('color')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
                         </div>
                     </div>
                     <div class="form-calendar form-group col-md-6">

@@ -6,11 +6,11 @@ use App\Model\Event;
 use Redirect,Response;
 use App\Model\Evaluate;
 use Illuminate\Http\Request;
-use App\Http\Requests\EventRequest;
 use MaddHatter\LaravelFullcalendar\Facades\Calendar;
 use App\Repositories\Process\ProcessRepositoryInterface;
 use App\Repositories\Evaluate\EvaluateRepositoryInterface;
 use App\Repositories\Candidate\CandidateRepositoryInterface;
+use App\Http\Requests\EventRequest;
 
 class EvaluateController extends Controller
 {
@@ -77,6 +77,7 @@ class EvaluateController extends Controller
             'color' => $request->color
         ];
         $event = Event::updateOrCreate($insertArr);
+        dd($event);
 
         return redirect()->route('evaluate.candidate.show',$request->process_id);
     }
