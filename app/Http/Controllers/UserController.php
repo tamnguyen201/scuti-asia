@@ -25,7 +25,7 @@ class UserController extends Controller
     public function show($id)
     {
         $user = $this->userRepository->show($id);
-        $html = view('admin.user.profile', compact('user'))->render();
+        $html = view('admin.user.view', compact('user'))->render();
         return response()->json($html);
     }
 
@@ -33,6 +33,15 @@ class UserController extends Controller
     {
         $this->userRepository->update($request->all(), auth()->user()->id);
 
-        return redirect()->back()->with('success', trans('custom.alert_messages.success'));
+        return response()->json(['status' => 'success', 'message' => trans('custom.alert_messages.success')]);
+    }
+
+    public function search(Request $request)
+    {
+        $users = \App\Model\User::where('name', 'like', '%'.$request->keyword.'%')
+                                    ->paginate(10);
+        $html = view('admin.user.search', compact('users'))->render();
+
+        return response()->json($html);
     }
 }

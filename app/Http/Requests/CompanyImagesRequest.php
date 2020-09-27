@@ -24,6 +24,8 @@ class CompanyImagesRequest extends FormRequest
     public function rules()
     {
         return [
+            'name' => 'required|unique:benefits,name',
+            'description' => 'required',
             'image_url' => 'required|mimes:jpeg,jpg,png,gif|max:10000'
         ];
     }
@@ -32,8 +34,8 @@ class CompanyImagesRequest extends FormRequest
     {
         return [
             'required' => trans('validation.required'),
-            'image_url.mimes' => trans('validation.mimes'),
-            'image_url.max' => trans('validation.max'),
+            'mimes' => trans('validation.mimes'),
+            'max' => trans('validation.max'),
         ];
     }
 }

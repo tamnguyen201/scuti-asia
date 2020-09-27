@@ -12,21 +12,24 @@ use App\Http\Requests\JobUpdateRequest;
 use App\Repositories\Job\JobRepositoryInterface;
 use App\Repositories\Category\CategoryRepositoryInterface;
 use App\Repositories\Locations\LocationRepositoryInterface;
+use App\Repositories\Candidate\CandidateRepositoryInterface;
 
 class JobController extends Controller
 {
     protected $jobRepository;
     protected $categoryRepository;
-    protected $locationRepository;
+    protected $candidateRepository;
 
     public function __construct(
         JobRepositoryInterface $jobRepository,
         CategoryRepositoryInterface $categoryRepository,
-        LocationRepositoryInterface $locationRepository 
+        LocationRepositoryInterface $locationRepository,
+        CandidateRepositoryInterface $candidateRepository
     ) {
         $this->jobRepository = $jobRepository;
         $this->categoryRepository = $categoryRepository;
         $this->locationRepository = $locationRepository;
+        $this->candidateRepository = $candidateRepository;
     }
 
     public function index()
@@ -51,7 +54,9 @@ class JobController extends Controller
             'location_id' => $request->location_id,
             'slug' => Str::slug($request->name),
             'expireDay' => $request->expire_date,
-            'description' => $request->description
+            'description' => $request->description,
+            'content'=> $request->content,
+            'salary'=>$request->salary
         ]);
 
         return redirect()->route('jobs.index');
@@ -69,8 +74,8 @@ class JobController extends Controller
     public function detail($id)
     {
         $jobById = $this->jobRepository->show($id);
-
-        return view("admin.job.detail", compact('jobById'));
+        $candidates = $this->candidateRepository->indexByJob($id);
+        return view("admin.job.detail", compact('jobById','candidates'));
     }
 
     public function edit($id)
@@ -101,16 +106,21 @@ class JobController extends Controller
             'category_id' => $request->category_id,
             'location_id' => $request->location_id,
             'expireDay' => $request->expire_date,
-            'description' => $request->description
+            'description' => $request->description,
+            'content'=> $request->content,
+            'salary'=>$request->salary
         ], $id);
 
         return redirect()->route('jobs.index');
     }
 
-    public function destroy($id)
+    public function search(Request $request)
     {
-        $this->jobRepository->delete($id);
-        return redirect()->back()->with('success', config('common.alert_messages.success'));
-    }
+        $jobs = \App\Model\Job::where('name', 'like', '%'.$request->keyword.'%')
+                                    ->where('status', '=', 1)
+                                    ->paginate(10);
+        $html = view('admin.job.search', compact('jobs'))->render();
 
+        return response()->json($html);
+    }
 }

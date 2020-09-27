@@ -19,9 +19,29 @@ class AdminController extends Controller
 
     public function index()
     {
-        $data['candidates'] = \App\Model\UserJob::count();
+        $toDay = \Carbon\Carbon::now('Asia/Ho_Chi_Minh');
+        $tomorrow = \Carbon\Carbon::tomorrow('Asia/Ho_Chi_Minh');
+        $nextDay = \Carbon\Carbon::now('Asia/Ho_Chi_Minh')->addDays(2);
+
+        $data['events']['Today'] = \App\Model\Event::whereDate('start', '=', $toDay)
+                                                ->whereTime('start', '>=', $toDay->format('H:i:s'))
+                                                ->get();
+        $data['events']['Tomorrow'] = \App\Model\Event::whereDate('start', '=', $tomorrow)
+                            ->get();
+        $data['events']['NextDay'] = \App\Model\Event::whereDate('start', '=', $nextDay)
+                            ->get();
+                            
+
+        $data['candidate_new'] = \App\Model\UserJob::where('status', 0)
+                                        ->withCount('process')
+                                        ->get()
+                                        ->where('process_count', 0)
+                                        ->count();
         $data['candidate_evaluated'] = \App\Model\UserJob::where('status', '=', 0)
                                         ->where('result', '=', 0)
+                                        ->withCount('process')
+                                        ->get()
+                                        ->where('process_count', '>', 0)
                                         ->count();
         $data['candidate_accept'] = \App\Model\UserJob::where('status', '=', 1)
                                         ->where('result', '=', 1)
@@ -29,9 +49,10 @@ class AdminController extends Controller
         $data['candidate_failed'] = \App\Model\UserJob::where('status', '=', 1)
                                         ->where('result', '=', 0)
                                         ->count();
+        $data['jobs'] = \App\Model\Job::where('status', '=', 1)->paginate(10);
 
         for ($i=5; $i >= 0; $i--) { 
-            $arrMonth[] = \Carbon\Carbon::now()->subMonths($i)->format('F');
+            $arrMonth[] = \Carbon\Carbon::now('Asia/Ho_Chi_Minh')->subMonths($i)->format('F');
         }
 
         $data['listMonth'] = $arrMonth;
@@ -50,6 +71,16 @@ class AdminController extends Controller
         
 
         return view('admin.pages.dashboard', compact('data'));
+    }
+
+    public function search(Request $request)
+    {
+        $jobs = \App\Model\Job::where('name', 'like', '%'.$request->keyword.'%')
+                                    ->where('status', '=', 1)
+                                    ->paginate(10);
+        $html = view('admin.pages.searchDashboard', compact('jobs'))->render();
+
+        return response()->json($html);
     }
 
     

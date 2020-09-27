@@ -69,6 +69,19 @@
                             <input name="salary" value="{{ $jobById->salary }}" type="text" class="form-control" @error('salary') is-invalid @enderror placeholder="@lang('custom.jobs.placeholder_salary')">
                         </div>
                     </div>
+
+                    <div class="form-group row">
+                        <div class="col-md-12">
+                            <label>@lang('custom.jobs.content') * </label>
+                            <textarea name="content" class="form-control" @error('content') is-invalid @enderror
+                            id="exampleFormControlTextarea1" rows="4">{{ $jobById->content }}</textarea>
+                            @error('content')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
+                        </div>
+                    </div>
                     <div class="form-group">
                         <label>@lang('custom.description') : </label>
                         <textarea name="description" class="form-control" @error('description') is-invalid @enderror id="exampleFormControlTextarea1" rows="3">

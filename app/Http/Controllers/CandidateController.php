@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CandidateRequest;
 use Illuminate\Http\Request;
 use App\Repositories\Job\JobRepositoryInterface;
 use App\Repositories\Candidate\CandidateRepositoryInterface;
@@ -22,7 +23,7 @@ class CandidateController extends Controller
     {
         $candidates = $this->candidateRepository->index();
 
-        return view("admin.candidate.index", compact('candidates'));
+        return view("admin.job.detail", compact('candidates'));
     }
 
     public function evaluating()
@@ -54,21 +55,35 @@ class CandidateController extends Controller
         return response()->json($html);
     }
 
+    public function create()
+    {
+        return view('admin.candidate.add');
+    }
+
+    public function store(CandidateRequest $request)
+    {
+        $this->candidateRepository->create($request->all());
+        
+        return redirect()->route('job.detail', $request->job_id)->with('success', trans('custom.alert_messages.success'));
+    }
+
     public function search(Request $request)
     {
-        $candidates = \App\Model\UserJob::whereHas('user', function ($query) use ($request){
+        $candidates = \App\Model\UserJob::where('job_id', $request->job_id)
+                        ->whereHas('user', function ($query) use ($request){
                             $query->where('name', 'like', '%'.$request->keyword.'%');
                         })->with(['user' => function($query) use ($request){
                             $query->where('name', 'like', '%'.$request->keyword.'%');
-                        }])->paginate();
-
+                        }])->paginate(10);
         $html = view('admin.candidate.list', compact('candidates'))->render();
+
         return response()->json($html);
     }
 
     public function showByJob($id)
     {
         $candidates = $this->candidateRepository->indexByJob($id);
+        
         return view('admin.candidate.index', compact('candidates'));
     }
 }

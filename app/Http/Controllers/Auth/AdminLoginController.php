@@ -27,7 +27,7 @@ class AdminLoginController extends Controller
         $remember = $request->has('remember_me') ? true : false;
         $email = $request->input('email');
         $password = $request->input('password');
-        if (Auth::guard('admin')->attempt(['email' => $email,'password' => $password], $remember)) {
+        if (Auth::guard('admin')->attempt(['email' => $email,'password' => $password, 'status' => 1], $remember)) {
             
             return redirect()->intended('/admin');
         }

@@ -24,7 +24,7 @@ class SectionUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|unique:sections,name,' . $this->id,
+            'name' => 'required|unique:sections,name,' . $this->section,
             'image' => 'nullable|mimes:jpeg,jpg,png,gif|max:10000'
         ];
     }

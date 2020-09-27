@@ -20,8 +20,8 @@ class ManagerRepository extends Repository implements ManagerRepositoryInterface
 
     public function update($result, $id)
     {
-        $this->userRepository->update(['name'=>$result['name']], $result['user_id']);
         $profileUpdate = [
+            'name'=>$result['name'],
             'phone'=>$result['phone'],
             'address'=>$result['address']
         ];

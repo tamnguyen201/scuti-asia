@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Model\User;
+use App\Model\Admin;
 use Illuminate\Http\Request;
 use App\Http\Requests\UserRequest;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class ChangePasswordController extends Controller
@@ -12,7 +14,7 @@ class ChangePasswordController extends Controller
     protected $userRepository;
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('guest');
     }
 
     public function index()
@@ -27,7 +29,9 @@ class ChangePasswordController extends Controller
 
     public function store(UserRequest $request)
     {
-        User::find(auth()->user()->id)->update(['password'=> Hash::make($request->new_password)]);
+        // dd($request->all());
+        // User::find(auth()->user()->id)->update(['password'=> Hash::make($request->new_password)]);
+        \App\Model\Admin::find(Auth::guard('admin')->user()->id)->update(['password'=> $request->new_password]);
         return redirect()->route('admin.information');
     }
 }

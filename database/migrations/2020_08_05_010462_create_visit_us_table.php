@@ -19,6 +19,7 @@ class CreateVisitUsTable extends Migration
             $table->string('email');
             $table->string('type');
             $table->string('message');
+            $table->boolean('status')->default(0);
             $table->timestamps();
         });
     }

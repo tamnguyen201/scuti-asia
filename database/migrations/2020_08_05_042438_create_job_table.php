@@ -17,7 +17,8 @@ class CreateJobTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('slug');
-            $table->longText('description');
+            $table->text('description');
+            $table->text('content');
             $table->foreignId('category_id');
             $table->foreignId('location_id');
             $table->string('salary');

@@ -14,6 +14,20 @@ class Event extends Model implements \MaddHatter\LaravelFullcalendar\Event
         return $this->belongsTo('App\Model\User');
     }
 
+    public function admin() {
+        return $this->belongsTo('App\Model\Admin');
+    }
+
+    public function setAdminIdAttribute($value)
+    {
+        $this->attributes['admin_id'] = json_encode($value);
+    }
+
+    // public function getAdminIdAttribute($value)
+    // {
+    //     return $this->attributes['admin_id'] = json_decode($value);
+    // }
+    
     protected $dates = ['start', 'end'];
 
     /**

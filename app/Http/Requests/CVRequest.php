@@ -24,8 +24,8 @@ class CVRequest extends FormRequest
     public function rules()
     {
         return [
-            'cv_name' => 'required',
-            'cv_url' => 'required|mimes:pdf,doc,docx|max:10000'
+            'cv_name' => 'required|unique:cvs,cv_name',
+            'cv_url' => 'required|mimes:pdf,doc,docx,xlsx,xls|max:10000'
         ];
     }
 
@@ -33,6 +33,7 @@ class CVRequest extends FormRequest
     {
         return [
             'required' => trans('validation.required'),
+            'unique' => trans('validation.unique'),
             'cv_url.mimes' => trans('validation.mimes'),
             'cv_url.max' => trans('validation.max'),
         ];

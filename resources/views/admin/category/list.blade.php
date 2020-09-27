@@ -32,7 +32,7 @@
             <td>
                 <input data-id="{{$item->id}}" class="toggle-class" type="checkbox" data-onstyle="success" data-offstyle="danger" data-toggle="toggle" data-on="Active" data-off="InActive" {{ $item->status ? 'checked' : '' }}>
             </td>
-            <td>{{auth()->user()->name}}</td>
+            <td>{{Auth::guard('admin')->user()->name}}</td>
             <td class="text-center">
                 <a href="{{route('categories.edit', $item['id'])}}" class="btn btn-primary text-light btn-edit-form"><em class="far fa-edit"></em></a> 
                 <form action="{{route('categories.destroy', $item['id'])}}" method="post" class="form-delete-{{$item->id}}" style="display: inline">

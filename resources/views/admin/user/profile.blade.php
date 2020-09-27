@@ -5,7 +5,7 @@
 @section('content')
 <div class="row">
     <ol class="breadcrumb">
-        <li><a href="#">
+        <li><a href="{{route('admin.home')}}">
             <em class="fa fa-home"></em>
         </a></li>
         <li class="active">@lang('custom.page_title.user_update_profile')</li>
@@ -16,6 +16,7 @@
         <h1 class="page-header">@lang('custom.page_title.update_manager')</h1>
     </div>
 </div>
+<div class="row">
 <div class="col-lg-12">
     <div class="panel panel-default">
        <div class="panel-heading">@lang('custom.page_title.profile')</div>
@@ -57,5 +58,6 @@
             @endforeach
         </div>
     </div>
+</div>
 </div>
 @endsection

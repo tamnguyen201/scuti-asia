@@ -1,8 +1,8 @@
 @extends('client.layout.master')
-@section('title', trans('custom.page_title.company_manage'))
+@section('title', trans('client.page.auth.login.title'))
 @section('content')
 <div class="basic-2" style="margin-top: 3.5rem">
-    <div class="col-lg-4 mx-auto">
+    <div class="col-lg-4 mx-auto" style="background-color: #fff; border-radius: 10px">
         <div class="form-container">
             <h1 style="text-align: center;margin-bottom: 40px;color: #868686;letter-spacing: 3px;">@lang('client.page.auth.login.title')</h1>
             @if ( Session::has('error') )
@@ -16,15 +16,15 @@
                 <input type="hidden" name="redirect" value="{{Session('redirect')}}" >
                 @endif
                 <div class="form-group">
-                    <label>@lang('client.page.auth.email')</label>
-                    <input type="email" class="form-control @error('email') has-error @enderror" name="email">
+                    <label class="label-required">@lang('client.page.auth.email')</label>
+                    <input type="email" class="form-control @error('email') has-error @enderror" name="email" placeholder="@lang('custom.placeholder.email')">
                     @error('email') 
                         <span class="help-block with-errors text-danger"> {{$message}} </span>
                     @enderror
                 </div>
                 <div class="form-group">
-                    <label>@lang('client.page.auth.password')</label>
-                    <input type="password" class="form-control @error('password') has-error @enderror" name="password">
+                    <label class="label-required">@lang('client.page.auth.password')</label>
+                    <input type="password" class="form-control @error('password') has-error @enderror" name="password" placeholder="@lang('custom.placeholder.password')">
                     @error('password') 
                         <span class="help-block with-errors text-danger"> {{$message}} </span>
                     @enderror
@@ -34,7 +34,7 @@
                         <input type="checkbox" name="remember"> @lang('client.page.auth.login.remember')
                     </div>
                     <div class="form-group">
-                        <a href="{{route('client.register')}}">@lang('client.page.auth.login.forgot_password')</a>
+                        <a href="{{route('client.forgot_password')}}">@lang('client.page.auth.login.forgot_password')</a>
                     </div>
                 </div>
                 <div class="form-group">
@@ -51,5 +51,6 @@
                 </div>
             </form>
         </div>
+    </div>
 </div>
 @endsection

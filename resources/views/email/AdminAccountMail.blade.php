@@ -45,15 +45,15 @@
                                         <tr>
                                             <td class="content-cell" style="color:#74787E;font-size:15px;line-height:18px;padding:35px">
                                                 <h1 style="margin-top:0;color:#2F3133;font-size:19px;font-weight:bold">Chào {{ $details['name'] }},</h1>
-                                                <p style="margin-top:0;color:#74787E;font-size:16px;line-height:1.5em">Bạn vừa được tạo tài khoản quản trị website Scuti.abc</p>
+                                                <p style="margin-top:0;color:#74787E;font-size:16px;line-height:1.5em">Bạn vừa được tạo tài khoản quản trị website {{route('home')}}</p>
                                                 <dl class="body-dictionary" style="width:100%;overflow:hidden;margin:20px auto 10px;padding:0">
                                                     <dt style="clear:both;color:#000;font-weight:bold;margin-bottom:10px;font-size:18px;">Thông tin tài khoản:</dt>
                                                     <dt style="clear:both;font-weight:bold">Username:</dt>
-                                                    <dd style="margin:0 0 10px 0;color:#000;margin-left:0;margin-bottom:10px">{{ $details['user_name'] }}</dd>
+                                                    <dd style="margin:0 0 10px 0;color:#000;margin-left:0;margin-bottom:10px">{{ $details['username'] }}</dd>
                                                     <dt style="clear:both;font-weight:bold">Password:</dt>
                                                     <dd style="margin:0 0 10px 0;color:#000;margin-left:0;margin-bottom:10px">{{ $details['password'] }}</dd>
                                                 </dl>
-                                                <p style="margin:0;color:#74787E;font-size:16px;line-height:1.5em">Vui lòng đăng nhập và đổi mật khẩu để quản lí tài khoản cá nhân tại đây:</p>
+                                                <p style="margin:0;color:#74787E;font-size:16px;line-height:1.5em">Vui lòng đăng nhập và đổi mật khẩu để quản lý tài khoản cá nhân tại đây:</p>
                                                 <table class="body-action" align="center" width="100%" cellpadding="0" cellspacing="0" style="width:100%;margin:0 auto;padding:0;text-align:center">
                                                     <tbody>
                                                         <tr>
@@ -85,7 +85,7 @@
                                             <tr>
                                                 <td class="content-cell" style="color:#74787E;font-size:15px;line-height:18px;padding:15px">
                                                     <p class="sub center" style="margin-top:0;line-height:1.5em;color:#AEAEAE;font-size:12px;text-align:center">
-                                                        Copyright © 2020 Hermes. All rights reserved.
+                                                        Copyright © 2020 Scuti. All rights reserved.
                                                     </p>
                                                 </td>
                                             </tr>

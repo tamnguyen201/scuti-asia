@@ -119,6 +119,7 @@ return [
     'uuid' => 'Trường :attribute không phải là một chuỗi UUID hợp lẹ.',
     'not_found'=> 'Không tìm thấy trường bạn vừa nhập vào',
 
+
     /*
     |--------------------------------------------------------------------------
     | Custom Validation Language Lines
@@ -185,7 +186,14 @@ return [
         'size' => 'kích thước',
         'salary'=>'mức lương',
         'start'=>'ngày bắt đầu',
-        'end'=>'ngày kết thúc'
+        'end'=>'ngày kết thúc',
+        'current_password' =>'mật khẩu cũ',
+        'new_password'=>'mật khẩu mới',
+        'new_confirm_password' =>'mật khẩu xác nhận',
+        'admins'=>'người tham dự'
     ],
+    'other'=> [
+        'new_password'=>'mật khẩu mới'
+    ]
 
 ];

@@ -15,9 +15,10 @@ class Admin extends Authenticatable
     use Notifiable;
 
     protected $guard = 'admin';
+    protected $table = "admins";
     
     protected $fillable = [
-        'name', 'email', 'password', 'phone', 'address', 'avatar', 'role'
+        'name', 'email', 'password', 'phone', 'address', 'avatar', 'role', 'status'
     ];
 
     protected $hidden = [
@@ -35,7 +36,7 @@ class Admin extends Authenticatable
     public function roleName()
     {
         switch ($this->role) {
-            case config('common.role.Administrator'):
+            case config('common.role.Admin'):
                 return 'Admin';
             case config('common.role.Interviewer'):
                 return 'Interviewer';
@@ -44,6 +45,10 @@ class Admin extends Authenticatable
             default:
               break;
           }
+    }
+
+    public function event(){
+        $this->hasMany('App\Model\Event');
     }
 
 }

@@ -17,6 +17,5 @@
     
     <div class="col-md-12 text-center">
         <button class="btn btn-outline-reg btn-upload-cv">@lang('custom.button.submit')</button>
-        <button type="reset" class="btn btn-outline-reg">@lang('custom.button.reset')</button>
     </div>
 </form>

@@ -16,6 +16,7 @@ class CreateCompanyImagesTable extends Migration
         Schema::create('company_images', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('description');
             $table->text('image_url');
             $table->timestamps();
         });
