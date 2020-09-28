@@ -55,13 +55,14 @@ class EvaluateController extends Controller
     public function show($id)
     {
         $processById = $this->processRepository->show($id);
+        $processList = \App\Model\Process::where('user_job_id', $processById->user_job_id)->get();
         $candidateById = $this->candidateRepository->where('id','=', $processById->user_job->user_id);
         $jobById = $this->jobRepository->show($processById->user_job->job_id);
         $calendar = $this->showCalendar($candidateById->id);
         $dataUser =$this->candidateRepository->show($candidateById->id);
         $data = Event::where('user_id', $candidateById->id)->get();
         
-        return view('admin.evaluate.evaluate_process', compact('processById','data','candidateById','calendar','dataUser','jobById'));
+        return view('admin.evaluate.evaluate_process', compact('processById','processList','data','candidateById','calendar','dataUser','jobById'));
     }
 
     public function store(EvaluateRequest $request, $id)
@@ -73,7 +74,7 @@ class EvaluateController extends Controller
         ]);
         if($dataCurrentEvaluate['status'] == 1 ){
             $processById = $this->evaluatePass($dataCurrentEvaluate);
-            
+            $processList = \App\Model\Process::where('user_job_id', $processById->user_job_id)->get();
             $candidateById = $this->candidateRepository->where('id','=', $processById->user_job->user_id);
             $jobById = $this->jobRepository->show($processById->user_job->job_id);
             $calendar = $this->showCalendar($candidateById->id);
@@ -81,10 +82,10 @@ class EvaluateController extends Controller
             $dataAdmin = $this->adminRepository->all();
             $data = Event::where('user_id', $candidateById->id)->get();
 
-            return view('admin.evaluate.evaluate_process' , compact('processById','data','candidateById','calendar','dataUser','dataAdmin','jobById'));
+            return view('admin.evaluate.evaluate_process' , compact('processById','processList','data','candidateById','calendar','dataUser','dataAdmin','jobById'));
         } else {
             $processById = $this->evaluateFail($dataCurrentEvaluate);
-
+            $processList = \App\Model\Process::where('user_job_id', $processById->user_job_id)->get();
             $candidateById = $this->candidateRepository->where('id','=', $processById->user_job->user_id);
             $jobById = $this->jobRepository->show($processById->user_job->job_id);
             $calendar = $this->showCalendar($candidateById->id);
@@ -92,7 +93,7 @@ class EvaluateController extends Controller
             $dataAdmin = $this->adminRepository->all();
             $data = Event::where('user_id', $candidateById->id)->get();
 
-            return view('admin.evaluate.evaluate_process' , compact('processById','data','candidateById','calendar','dataUser','dataAdmin','jobById'));
+            return view('admin.evaluate.evaluate_process' , compact('processById','processList','data','candidateById','calendar','dataUser','dataAdmin','jobById'));
         }
     }
 
@@ -168,10 +169,11 @@ class EvaluateController extends Controller
 
     public function createCalendar($id){
         $processById = $this->processRepository->show($id);
+        $processList = \App\Model\Process::where('user_job_id', $processById->user_job_id)->get();
         $candidateById = $this->candidateRepository->where('id','=', $processById->user_job->user_id);
         $dataUser =$this->candidateRepository->show($candidateById->id);
         $dataAdmin = $this->adminRepository->all();
-        $html = view('admin.calendar.modal_add', compact('processById','dataUser','dataAdmin'))->render();
+        $html = view('admin.calendar.modal_add', compact('processById','processList','dataUser','dataAdmin'))->render();
         return response()->json($html);
     }
 
