@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class JobUpdateRequest extends FormRequest
+class EventUpdateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,13 +24,10 @@ class JobUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' =>'required|unique:jobs,name',
-            'location_id'=>'required',
-            'category_id'=>'required',
-            'expire_date'=>'required',
-            'description'=>'required',
-            'salary'=>'required',
-            'content'=>'required|min:100'
+            'title' =>'required',
+            'start'=>'required',
+            'end'=>'required',
+            'admins'=>'required'
         ];
     }
 

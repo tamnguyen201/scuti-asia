@@ -28,6 +28,11 @@
                     <div class="form-group">
                         <label>@lang('custom.title') * : </label>
                         <input value="{{ $jobById->name }}" name="name" type="text" class="form-control" @error('name') is-invalid @enderror placeholder="Enter title">
+                        @error('name')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
                     </div>
                     <div class="category form-group row">
                         <div class="col-md-6">
@@ -42,6 +47,11 @@
                                     @endif
                                 @endforeach
                             </select>
+                            @error('category_id')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
                         </div>
                         <div class="col-md-6">
                             <label for="inputLocation">@lang('custom.locations') * :</label>
@@ -55,6 +65,11 @@
                                     @endif
                                 @endforeach
                             </select>
+                            @error('location_id')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
                         </div>
                     </div>
                     
@@ -62,11 +77,21 @@
                         <div class="col-md-6">
                             <label>@lang('custom.expire_day') * : </label>
                             <input value="{{ $jobById->expireDay }}" name="expire_date" type="date" class="form-control" @error('expire_date') is-invalid @enderror placeholder="Enter expire date">
+                            @error('expire_date')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
                         </div>
 
                         <div class="col-md-6">
                             <label>@lang('custom.jobs.salary') * : </label>
                             <input name="salary" value="{{ $jobById->salary }}" type="text" class="form-control" @error('salary') is-invalid @enderror placeholder="@lang('custom.jobs.placeholder_salary')">
+                            @error('salary')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
                         </div>
                     </div>
 
@@ -93,7 +118,7 @@
                             </span>
                         @enderror
                     </div>
-                    <button type="submit" class="btn btn-primary">@lang('custom.button.submit')</button>
+                    <button type="submit" class="btn btn-primary">@lang('custom.button.confirm')</button>
                 </form>
            </div>
        </div>
