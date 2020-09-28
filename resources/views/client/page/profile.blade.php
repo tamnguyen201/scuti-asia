@@ -212,11 +212,31 @@
                                                     @if(auth()->user()->user_job[$key]->process->count() > 0)
                                                     @for($i = 0; $i <= auth()->user()->user_job[$key]->process->count(); $i++)
                                                         @if( $i == auth()->user()->user_job[$key]->process->count() - 1)
-                                                        <td>{{auth()->user()->user_job[$key]->process[$i]->name}}</td>
+                                                        <td>
+                                                            <span @if (auth()->user()->user_job[$key]->process[$i])
+                                                            @switch($i)
+                                                                @case(0)
+                                                                class="badge badge-primary"
+                                                                @break
+                                                                @case(1)
+                                                                class="badge badge-success"
+                                                                @break
+                                                                @case(2)
+                                                                class="badge badge-warning"
+                                                                @break
+                                                                @case(3)
+                                                                class="badge badge-info"
+                                                                @break
+                                                            @endswitch
+                                                            @endif>
+                                                            {{ auth()->user()->user_job[$key]->process[$i]->name }}
+
+                                                            </span>
+                                                        </td>
                                                         @endif
                                                     @endfor
                                                     @elseif(auth()->user()->user_job[$key]->process->count() == 0) 
-                                                    <td>Chưa Đánh Giá</td>
+                                                    <td><span class="badge badge-primary">@lang('custom.applied')</span></td>
                                                     @endif
                                                     <td class="text-center"><a href="{{route('client.applied', [$item->id, $item->slug])}}" target="_blank" class="btn btn-info text-light" title="Xem"><em class="fa fa-eye"></em></a></td>
                                                 </tr>

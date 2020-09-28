@@ -55,7 +55,7 @@
                                     <td>{{$stt++}}</td>
                                     <td>{{$item->name}}</td>
                                     <td>{{$item->email}}</td>
-                                    <td>{{($item->user_job->count() > 0) ? trans('custom.apply') : trans('custom.no_apply')}}</td>
+                                    <td><span class="label {{($item->user_job->count() > 0) ? 'label-info' : 'label-primary' }}">{{($item->user_job->count() > 0) ? trans('custom.apply') : trans('custom.no_apply')}}</span></td>
                                     <td class="text-center">
                                         <a href="{{route('users.show', $item['id'])}}" class="btn btn-primary text-light view-profile"><em class="fa fa-eye"></em></a>
                                     </td>

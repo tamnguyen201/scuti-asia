@@ -53,7 +53,7 @@
                                     <td>{{$item->name}}</td>
                                     <td>{{$item->email}}</td>
                                     <td>{{$item->type}}</td>
-                                    <td>{{($item->status == 1) ? 'Đã Xác Nhận' : 'Chưa Xác Nhận'}}</td>
+                                    <td><span class="label {{($item->status == 1) ? 'label-success' : 'label-primary'}}">{{($item->status == 1) ? 'Đã Xác Nhận' : 'Chưa Xác Nhận'}}</span></td>
                                     <td class="text-center">
                                         <a href="{{route('contacts.show', $item['id'])}}" class="btn btn-primary text-light view-profile"><em class="far fa-eye"></em></a>
                                         @if($item->status == 0)

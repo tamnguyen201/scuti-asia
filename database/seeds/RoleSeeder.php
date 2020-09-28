@@ -143,7 +143,7 @@ class RoleSeeder extends Seeder
             ['id'=>6, 'name' => 'Nhóm Của Chúng Tôi', 'slug' => Str::slug('Nhóm Của Chúng Tôi'), 'description' => '', 'content' => '', 'image' => ''],
             ['id'=>7, 'name' => 'Quyền Lợi Khi Gia Nhập Với Chúng Tôi', 'slug' => Str::slug('Quyền Lợi Khi Gia Nhập Với Chúng Tôi'), 'description' => '', 'content' => '', 'image' => ''],
             ['id'=>8, 'name' => 'Báo Chí Nói Về Chúng Tôi', 'slug' => Str::slug('Báo Chí Nói Về Chúng Tôi'), 'description' => 'Scuti đã vinh dự nhận được nhiều bằng khen, giải thưởng các cấp vinh danh những đóng góp và thành tích của công ty trong hoạt động sản xuất kinh doanh, hoạt động cộng đồng xã hội và sự nghiệp xây dựng, bảo vệ Tổ quốc.', 'content' => '', 'image' => ''],
-            ['id'=>9, 'name' => 'Ghé Thăm Chúng Tôi', 'slug' => Str::slug('Ghé Thăm Chúng Tôi'), 'description' => 'Đừng ngần ngại gọi cho chúng tôi hoặc gửi tin nhắn liên hệ cho chúng tôi!', 'content' => '', 'image' => 'images/ceo.jpg'],
+            ['id'=>9, 'name' => 'Đặt Lịch Hẹn Với CEO', 'slug' => Str::slug('Đặt Lịch Hẹn Với CEO'), 'description' => 'Đừng ngần ngại gọi cho chúng tôi hoặc gửi tin nhắn liên hệ cho chúng tôi!', 'content' => '', 'image' => 'images/ceo.jpg'],
             ['id'=>10, 'name' => 'Quy Trình Tuyển Dụng', 'slug' => Str::slug('Quy Trình Tuyển Dụng'), 'description' => 'Chúng tôi luôn tìm kiếm những người tuyệt vời! Nếu bạn chưa tìm thấy cơ hội phù hợp hiện tại, nhưng tin rằng bạn có thể trở thành 1 phần của Scuti, hãy gửi thông tin cho chúng tôi.', 
                 'content' => 
                 '<div class="col-lg-10 mx-auto row py-3">

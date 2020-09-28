@@ -65,18 +65,23 @@
                                     <span class="help-block"> {{$message}} </span>
                                     @enderror
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group @error('role') has-error @enderror">
                                     <label class="label-required">@lang('custom.role')</label>
                                     <select name="role" class="form-control">
+                                    <option disabled="disabled" selected>
+                                            @lang('custom.placeholder.role')</option>
                                         @foreach (config('common.role') as $key => $item)
                                             @if($item != config('common.role.User'))
                                                 <option value="{{$item}}" @if($manager->role == $item) selected @endif>{{$key}}</option>
                                             @endif
                                         @endforeach
                                     </select>
+                                    @error('role') 
+                                    <span class="help-block"> {{$message}} </span>
+                                    @enderror
                                 </div>
                                 <div class="form-group">
-                                    <label class="label-required">@lang('custom.status')</label> <br>
+                                    <label>@lang('custom.status')</label> <br>
                                     <input type="checkbox" data-id="1" name="status" class="js-switch" @if($manager->status == 1) checked @endif>
                                 </div>
                             </div>
