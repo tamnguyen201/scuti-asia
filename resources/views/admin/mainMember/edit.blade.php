@@ -50,8 +50,8 @@
                             <div class="form-group">
                                 <label class="label-required">@lang('custom.member_type')</label>
                                 <select name="member_type" class="form-control">
-                                    <option value="0" @if($member->member_type == 0) 'checked' @endif>Leader</option>
-                                    <option value="1" @if($member->member_type == 1) 'checked' @endif>Manager</option>
+                                    <option value="0" @if($member->member_type == 0) selected @endif>Leader</option>
+                                    <option value="1" @if($member->member_type == 1) selected @endif>Manager</option>
                                 </select>
                             </div>
                             <div class="form-group @error('avatar') has-error @enderror">

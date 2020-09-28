@@ -30,7 +30,7 @@
                     @switch($processById->step)
                         @case(1)
                             <ul id="progressbar">
-                                <li id="account" class="active"><strong>@lang('custom.evaluate.process_1')</strong><br> <span>{{isset($processList[0]->evaluate->created_at) ? \Carbon\Carbon::parse($processList[0]->evaluate->created_at)->format('d/m/Y') : ''}}</span></li>
+                                <li id="account" class="active"><strong>@lang('custom.evaluate.process_1')</strong></li>
                                 <li id="personal" class="active"><strong>@lang('custom.evaluate.process_2')</strong></li>
                                 <li id="payment"><strong>@lang('custom.evaluate.process_3')</strong></li>
                                 <li id="confirm"><strong>@lang('custom.evaluate.process_4')</strong></li>
@@ -41,8 +41,8 @@
                             @break
                         @case(2)
                             <ul id="progressbar">
-                                <li id="account" class="active"><strong>@lang('custom.evaluate.process_1')</strong><br> <span>{{isset($processList[0]->evaluate->created_at) ? \Carbon\Carbon::parse($processList[0]->evaluate->created_at)->format('d/m/Y') : ''}}</span></li>
-                                <li id="personal" class="active"><strong>@lang('custom.evaluate.process_2')</strong><br> <span>{{isset($processList[1]->evaluate->created_at) ? \Carbon\Carbon::parse($processList[1]->evaluate->created_at)->format('d/m/Y') : ''}}</span></li>
+                                <li id="account" class="active"><strong>@lang('custom.evaluate.process_1')</strong></li>
+                                <li id="personal" class="active"><strong>@lang('custom.evaluate.process_2')</strong></li>
                                 <li id="payment" class="active"><strong>@lang('custom.evaluate.process_3')</strong></li>
                                 <li id="confirm"><strong>@lang('custom.evaluate.process_4')</strong></li>
                             </ul>
@@ -50,9 +50,9 @@
                             @break
                         @case(3)
                             <ul id="progressbar">
-                                <li id="account" class="active"><strong>@lang('custom.evaluate.process_1')</strong><br> <span>{{isset($processList[0]->evaluate->created_at) ? \Carbon\Carbon::parse($processList[0]->evaluate->created_at)->format('d/m/Y') : ''}}</span></li>
-                                <li id="personal" class="active"><strong>@lang('custom.evaluate.process_2')</strong><br> <span>{{isset($processList[1]->evaluate->created_at) ? \Carbon\Carbon::parse($processList[1]->evaluate->created_at)->format('d/m/Y') : ''}}</span></li>
-                                <li id="payment" class="active"><strong>@lang('custom.evaluate.process_3')</strong><br> <span>{{isset($processList[2]->evaluate->created_at) ? \Carbon\Carbon::parse($processList[2]->evaluate->created_at)->format('d/m/Y') : ''}}</span></li>
+                                <li id="account" class="active"><strong>@lang('custom.evaluate.process_1')</strong></li>
+                                <li id="personal" class="active"><strong>@lang('custom.evaluate.process_2')</strong></li>
+                                <li id="payment" class="active"><strong>@lang('custom.evaluate.process_3')</strong></li>
                                 <li id="confirm" class="active"><strong>@lang('custom.evaluate.process_4')</strong></li>
                             </ul>
                             <fieldset>
@@ -61,10 +61,10 @@
                             @break
                         @case(4)
                             <ul id="progressbar">
-                                <li id="account" class="active"><strong>@lang('custom.evaluate.process_1')</strong><br> <span>{{isset($processList[0]->evaluate->created_at) ? \Carbon\Carbon::parse($processList[0]->evaluate->created_at)->format('d/m/Y') : ''}}</span></li>
-                                <li id="personal" class="confirm active"><strong>@lang('custom.evaluate.process_2')</strong><br> <span>{{isset($processList[1]->evaluate->created_at) ? \Carbon\Carbon::parse($processList[1]->evaluate->created_at)->format('d/m/Y') : ''}}</span></li>
-                                <li id="payment" class="confirm active"><strong>@lang('custom.evaluate.process_3')</strong><br> <span>{{isset($processList[2]->evaluate->created_at) ? \Carbon\Carbon::parse($processList[2]->evaluate->created_at)->format('d/m/Y') : ''}}</span></li>
-                                <li id="confirm" class="confirm active"><strong>@lang('custom.evaluate.process_4')</strong><br> <span>{{isset($processList[3]->evaluate->created_at) ? \Carbon\Carbon::parse($processList[3]->evaluate->created_at)->format('d/m/Y') : ''}}</span></li>                            
+                                <li id="account" class="active"><strong>@lang('custom.evaluate.process_1')</strong></li>
+                                <li id="personal" class="confirm active"><strong>@lang('custom.evaluate.process_2')</strong></li>
+                                <li id="payment" class="confirm active"><strong>@lang('custom.evaluate.process_3')</strong></li>
+                                <li id="confirm" class="confirm active"><strong>@lang('custom.evaluate.process_4')</strong></li>                            
                             </ul>
                             <fieldset>
                                 @include('admin.evaluate.failed')

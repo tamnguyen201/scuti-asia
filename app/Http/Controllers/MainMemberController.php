@@ -39,9 +39,9 @@ class MainMemberController extends Controller
 
     public function store(MainMemberRequest $request)
     {
-        $this->MemberRepository->store($request->all());
+        $this->MemberRepository->create($request->all());
         
-        return redirect()->route('members.index')->with('success', trans('custom.alert_messages.success'));
+        return redirect()->route('main-member.index')->with('success', trans('custom.alert_messages.success'));
     }
 
     public function edit($id)
@@ -55,7 +55,7 @@ class MainMemberController extends Controller
     {
         $this->MemberRepository->update($request->all(), $id);
     
-        return redirect()->route('members.index')->with('success', trans('custom.alert_messages.success'));
+        return redirect()->route('main-member.index')->with('success', trans('custom.alert_messages.success'));
     }
 
     public function destroy($id)

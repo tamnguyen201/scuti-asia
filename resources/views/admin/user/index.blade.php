@@ -73,7 +73,7 @@
                 </div>
                 <div class="clearfix"></div>
                 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered modal-md" style="max-width: 40rem;" role="document">
+                    <div class="modal-dialog modal-dialog-centered modal-md" role="document">
                     <div class="modal-content">
                         <div class="modal-header" style="display: flex">
                         <h3 class="modal-title" id="exampleModalLongTitle" style="margin: auto;width: 22rem;">@lang('custom.page_title.profile')</h3>
@@ -83,7 +83,6 @@
                         </div>
                         <div class="modal-body"></div>
                         <div class="modal-footer" style="border-top: none">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">@lang('custom.button.close')</button>
                         </div>
                     </div>
                     </div>
