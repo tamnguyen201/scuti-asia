@@ -3,7 +3,6 @@
 namespace Tests\Unit;
 use App\Model\User;
 use App\Repositories\User\UserRepository;
-use Illuminate\Support\Facades\Hash;
 
 use PHPUnit\Framework\TestCase;
 
@@ -13,9 +12,9 @@ class UserTest extends TestCase
 
     public function setUp(): void
     {
-        parent::setUp();
         $this->user = User::class;
         $this->userRepository = new UserRepository();
+        parent::setUp();
     }
 
     public function tearDown(): void

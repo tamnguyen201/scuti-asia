@@ -505,18 +505,16 @@
             let value = $('#input-search').val();
             let keyword = value.trim();
             let category_id = $('#input-category').val();
-            if (keyword != '') {
-                $.ajax({
-                    url: "{{ route('client.jobSearch') }}",
-                    data: {
-                        'keyword': keyword,
-                        'category_id': category_id
-                    },
-                    method: "POST",
-                }).done(function(results) {
-                    $(".list-group.col-12.list-jobs").html(results);
-                });
-            };
+            $.ajax({
+                url: "{{ route('client.jobSearch') }}",
+                data: {
+                    'keyword': keyword,
+                    'category_id': category_id
+                },
+                method: "POST",
+            }).done(function(results) {
+                $(".list-group.col-12.list-jobs").html(results);
+            });
         });
 
     </script>

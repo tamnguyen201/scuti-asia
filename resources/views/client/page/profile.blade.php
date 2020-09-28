@@ -219,13 +219,10 @@
                                                                 class="badge badge-primary"
                                                                 @break
                                                                 @case(1)
-                                                                class="badge badge-success"
+                                                                class="badge badge-info"
                                                                 @break
                                                                 @case(2)
-                                                                class="badge badge-warning"
-                                                                @break
-                                                                @case(3)
-                                                                class="badge badge-info"
+                                                                class="badge badge-success"
                                                                 @break
                                                             @endswitch
                                                             @endif>
@@ -236,7 +233,7 @@
                                                         @endif
                                                     @endfor
                                                     @elseif(auth()->user()->user_job[$key]->process->count() == 0) 
-                                                    <td><span class="badge badge-primary">@lang('custom.applied')</span></td>
+                                                    <td><span class="badge badge-secondary">@lang('custom.applied')</span></td>
                                                     @endif
                                                     <td class="text-center"><a href="{{route('client.applied', [$item->id, $item->slug])}}" target="_blank" class="btn btn-info text-light" title="Xem"><em class="fa fa-eye"></em></a></td>
                                                 </tr>

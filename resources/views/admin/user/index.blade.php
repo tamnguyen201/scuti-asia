@@ -98,17 +98,15 @@
         $("#btn-search").on('click', function() {
             let value = $('#input-search').val();
             let keyword = value.trim();
-            if (keyword != '') {
-                $.ajax({
-                    url: "{{ route('user.search') }}",
-                    data: {
-                        'keyword': keyword
-                    },
-                    method: "POST",
-                }).done(function(results) {
-                    $(".fixed-table-body").html(results);
-                });
-            };
+            $.ajax({
+                url: "{{ route('user.search') }}",
+                data: {
+                    'keyword': keyword
+                },
+                method: "POST",
+            }).done(function(results) {
+                $(".fixed-table-body").html(results);
+            });
         });
 
         $('.view-profile').on('click', function (event) {

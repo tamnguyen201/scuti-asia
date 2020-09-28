@@ -212,17 +212,15 @@
     $("#btn-search").on('click', function() {
         let value = $('#input-search').val();
         let keyword = value.trim();
-        if (keyword != '') {
-            $.ajax({
-                url: "{{ route('admin.dashboard.search') }}",
-                data: {
-                    'keyword': keyword
-                },
-                method: "POST",
-            }).done(function(results) {
-                $(".table-list-jobs").html(results);
-            });
-        };
+        $.ajax({
+            url: "{{ route('admin.dashboard.search') }}",
+            data: {
+                'keyword': keyword
+            },
+            method: "POST",
+        }).done(function(results) {
+            $(".table-list-jobs").html(results);
+        });
     });
 </script>
 @endsection
