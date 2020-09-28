@@ -8,7 +8,7 @@ class Process extends Model
 {
     protected $table = 'process';
     protected $fillable = ['step', 'name', 'user_job_id'];
-    public $timestamps = false;
+    // public $timestamps = false;
 
     public function user_job()
     {

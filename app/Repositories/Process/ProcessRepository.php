@@ -14,4 +14,9 @@ class ProcessRepository extends Repository implements ProcessRepositoryInterface
     {
         return $this->model->updateOrCreate($data);
     }
+
+    public function where($field, $opedaytor = '=' ,$condition)
+    {
+        return $this->model->where($field, $opedaytor ,$condition)->get();
+    }
 }

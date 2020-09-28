@@ -30,10 +30,10 @@
                     @switch($processById->step)
                         @case(1)
                             <ul id="progressbar">
-                                <li id="account" class="active"><strong>@lang('custom.evaluate.process_1')</strong><br> <span>11/06/2020</span></li>
-                                <li id="personal" class="active"><strong>@lang('custom.evaluate.process_2')</strong><br> <span>11/06/2020</span></li>
-                                <li id="payment"><strong>@lang('custom.evaluate.process_3')</strong><br> <span>11/06/2020</span></li>
-                                <li id="confirm"><strong>@lang('custom.evaluate.process_4')</strong><br> <span>11/06/2020</span></li>
+                                <li id="account" class="active"><strong>@lang('custom.evaluate.process_1')</strong><br> <span>{{ \Carbon\Carbon::parse($processById->user_job->created_at)->format('d/m/Y') }}</span></li>
+                                <li id="personal" class="active"><strong>@lang('custom.evaluate.process_2')</strong><br> <span>{{ \Carbon\Carbon::parse($processById->created_at)->format('d/m/Y') }}</span></li>
+                                <li id="payment"><strong>@lang('custom.evaluate.process_3')</strong></li>
+                                <li id="confirm"><strong>@lang('custom.evaluate.process_4')</strong></li>
                             </ul>
                             <fieldset class="process1">
                                 @include('admin.evaluate.review')
@@ -41,19 +41,35 @@
                             @break
                         @case(2)
                             <ul id="progressbar">
-                                <li id="account" class="active"><strong>@lang('custom.evaluate.process_1')</strong><br> <span>11/06/2020</span></li>
-                                <li id="personal" class="active"><strong>@lang('custom.evaluate.process_2')</strong><br> <span>11/06/2020</span></li>
-                                <li id="payment" class="active"><strong>@lang('custom.evaluate.process_3')</strong><br> <span>11/06/2020</span></li>
-                                <li id="confirm"><strong>@lang('custom.evaluate.process_4')</strong><br> <span>11/06/2020</span></li>
+                                <li id="account" class="active"><strong>@lang('custom.evaluate.process_1')</strong><br> <span>{{ \Carbon\Carbon::parse($processById->user_job->created_at)->format('d/m/Y') }}</span></li>
+                                <li id="personal" class="active"><strong>@lang('custom.evaluate.process_2')</strong><br> 
+                                    <span>
+                                        @if (\App\Model\Process::where('user_job_id','=',$processById->user_job_id)->first()->step == '1')
+                                            {{ \Carbon\Carbon::parse(\App\Model\Process::where('user_job_id','=',$processById->user_job_id)->first()->created_at)->format('d/m/Y') }}
+                                        @endif
+                                    </span>
+                                </li>
+                                <li id="payment" class="active"><strong>@lang('custom.evaluate.process_3')</strong><br> <span>{{ \Carbon\Carbon::parse($processById->created_at)->format('d/m/Y') }}</span></li>
+                                <li id="confirm"><strong>@lang('custom.evaluate.process_4')</strong><br> <span></span></li>
                             </ul>
                             @include('admin.evaluate.interview')
                             @break
                         @case(3)
                             <ul id="progressbar">
-                                <li id="account" class="active"><strong>@lang('custom.evaluate.process_1')</strong><br> <span>11/06/2020</span></li>
-                                <li id="personal" class="active"><strong>@lang('custom.evaluate.process_2')</strong><br> <span>11/06/2020</span></li>
-                                <li id="payment" class="active"><strong>@lang('custom.evaluate.process_3')</strong><br> <span>11/06/2020</span></li>
-                                <li id="confirm" class="active"><strong>@lang('custom.evaluate.process_4')</strong><br> <span>11/06/2020</span></li>
+                                <li id="account" class="active"><strong>@lang('custom.evaluate.process_1')</strong><br> <span>{{ \Carbon\Carbon::parse($processById->user_job->created_at)->format('d/m/Y') }}</span></li>
+                                <li id="personal" class="active"><strong>@lang('custom.evaluate.process_2')</strong><br> <span>
+                                    @if (\App\Model\Process::where('user_job_id','=',$processById->user_job_id)->first()->step == '1')
+                                    {{ \Carbon\Carbon::parse(\App\Model\Process::where('user_job_id','=',$processById->user_job_id)->first()->created_at)->format('d/m/Y') }}
+                                    @endif
+                                    </span>
+                                </li>
+                                <li id="payment" class="active"><strong>@lang('custom.evaluate.process_3')</strong><br> <span>
+                                    @if (\App\Model\Process::where('user_job_id','=',$processById->user_job_id)->skip(1)->first()->step == '2')
+                                        {{ \Carbon\Carbon::parse(\App\Model\Process::where('user_job_id','=',$processById->user_job_id)->skip(1)->first()->created_at)->format('d/m/Y') }}
+                                    @endif
+                                    </span>
+                                </li>
+                                <li id="confirm" class="active"><strong>@lang('custom.evaluate.process_4')</strong><br> <span>{{ \Carbon\Carbon::parse($processById->created_at)->format('d/m/Y') }}</span></li>
                             </ul>
                             <fieldset>
                                 @include('admin.evaluate.finished')
@@ -61,10 +77,17 @@
                             @break
                         @case(4)
                             <ul id="progressbar">
-                                <li id="account" class="active"><strong>@lang('custom.evaluate.process_1')</strong><br> <span>11/06/2020</span></li>
-                                <li id="personal" class="confirm active"><strong>@lang('custom.evaluate.process_2')</strong><br> <span>11/06/2020</span></li>
-                                <li id="payment" class="confirm active"><strong>@lang('custom.evaluate.process_3')</strong><br> <span>11/06/2020</span></li>
-                                <li id="confirm" class="confirm active"><strong>@lang('custom.evaluate.process_4')</strong><br> <span>11/06/2020</span></li>                            
+                                <li id="account" class="active"><strong>@lang('custom.evaluate.process_1')</strong><br> <span>{{ \Carbon\Carbon::parse($processById->user_job->created_at)->format('d/m/Y') }}</span></li>
+                                <li id="personal" class="confirm active"><strong>@lang('custom.evaluate.process_2')</strong><br> <span></span>{{ \Carbon\Carbon::parse(\App\Model\Process::where('user_job_id','=',$processById->user_job_id)->first()->created_at)->format('d/m/Y') }}</li>
+                                <li id="payment" class="confirm active"><strong>@lang('custom.evaluate.process_3')</strong>
+                                    <br> 
+                                    <span>
+                                        @if (\App\Model\Process::where('user_job_id','=',$processById->user_job_id)->skip(1)->first()->step == '2')
+                                            {{ \Carbon\Carbon::parse(\App\Model\Process::where('user_job_id','=',$processById->user_job_id)->skip(1)->first()->created_at)->format('d/m/Y') }}
+                                        @endif
+                                    </span>
+                                </li>
+                                <li id="confirm" class="confirm active"><strong>@lang('custom.evaluate.process_4')</strong><br> <span>{{ \Carbon\Carbon::parse($processById->created_at)->format('d/m/Y') }}</span></li>                            
                             </ul>
                             <fieldset>
                                 @include('admin.evaluate.failed')
