@@ -8,7 +8,9 @@ use App\Model\Evaluate;
 use Illuminate\Http\Request;
 use App\Http\Requests\EventRequest;
 use App\Http\Requests\EvaluateRequest;
+use Illuminate\Support\Facades\Session;
 use App\Http\Requests\EventUpdateRequest;
+use Illuminate\Support\Facades\Validator;
 use App\Http\Requests\FailEvaluateRequest;
 use App\Repositories\Job\JobRepositoryInterface;
 use App\Repositories\Admin\AdminRepositoryInterface;
@@ -276,26 +278,46 @@ class EvaluateController extends Controller
     }
 
 
-    public function createFailEmail(FailEvaluateRequest $request)
+    public function createFailEmail(Request $request)
     {
+        $process_id = $request->process_id;
         $candidate_email = $request->email;
         $name = $request->name;
         $jobName= $request->job;
         $reason = $request->reason;
-        $this->evaluateRepository->sendFailEmail($candidate_email, $name, $jobName, $reason);
+        $validator = Validator::make($request->all(), [
+            'reason' => 'required'
+        ]);
+        if ($validator->fails()) {
+            Session::flash('error', trans('custom.alert_messages.reason_required'));
+            return redirect()->route('evaluate.candidate.show', $process_id);
+        } else {
+            $this->evaluateRepository->sendFailEmail($candidate_email, $name, $jobName, $reason);
 
-        return redirect()->route('admin.home');
+            return redirect()->route('admin.home');
+        }
+        
     }
 
     public function createPassEmail(Request $request)
     {
+        $process_id = $request->process_id;
         $candidate_email = $request->email;
         $name = $request->name;
         $jobName= $request->job;
         $reason = $request->reason;
-        $this->evaluateRepository->sendPassEmail($candidate_email, $name, $jobName, $reason);
+        $validator = Validator::make($request->all(), [
+            'reason' => 'required'
+        ]);
+        if ($validator->fails()) {
+            Session::flash('error', trans('custom.alert_messages.content_required'));
+            return redirect()->route('evaluate.candidate.show', $process_id);
+        } else {
+            $this->evaluateRepository->sendPassEmail($candidate_email, $name, $jobName, $reason);
 
-        return redirect()->route('admin.home');
+            return redirect()->route('admin.home');
+        }
+        
     }
    
 }

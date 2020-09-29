@@ -12,10 +12,11 @@
             <input type="text" name="name" value="{{ $dataUser->name }}" hidden>
             <input type="text" name="email" value="{{ $dataUser->email }}" hidden>
             <input type="text" name="job" value="{{$jobById->name}}" hidden>
+            <input type="text" name="process_id" value="{{ $processById->id }}" hidden>
             <textarea name="reason" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-            @error('reason') 
-                <span class="text-danger"> {{$message}} </span>
-            @enderror
+            @if ( Session::has('error') )
+                <span class="text-danger"> {{ Session::get('error') }} </span>
+            @endif
             <button class="col-md-12  action-button" type="submit" style="width: 25%">Gửi email cho ứng viên</button>
         </form>
     </div>
