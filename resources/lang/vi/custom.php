@@ -21,7 +21,7 @@ return [
     'category' => 'Bộ Phận Ứng Tuyển',
     'action' => 'Thao tác',
     'facebook' => 'Nhóm Facebook',
-    'youtube' => 'Kênh Youttube',
+    'youtube' => 'Kênh Youtube',
     'old_pass' =>'Mật khẩu cũ',
     'new_pass' =>'Mật khẩu mới',
     'confirm_pass' =>'Xác nhận mật khẩu',

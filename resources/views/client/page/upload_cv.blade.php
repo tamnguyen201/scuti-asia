@@ -14,7 +14,7 @@
         </div>
         <div class="form-group">
             <label class="label-required">@lang('custom.cv_url')</label>
-            <input type="file" name="cv_url" accept="application/pdf,.doc,.docx,application/msword,application/vnd.ms-excel">
+            <input type="file" name="cv_url" accept="application/pdf,.doc,.docx,.xlsx,.xls,.csv,application/msword,application/vnd.ms-excel">
             <p class="help-block text-danger"> </p>
         </div>
         

@@ -32,25 +32,20 @@
                         <table class="table table-hover">
                             <thead>
                                 <tr>
-                                    <th style="">
-                                        <div class="th-inner sortable">@lang('custom.table.no')</div>
-                                        <div class="fht-cell"></div>
+                                    <th>
+                                        <div class="th-inner">@lang('custom.table.no')</div>
                                     </th>
-                                    <th style="">
-                                        <div class="th-inner sortable">@lang('custom.table.category') :<span class="order"><span class="caret" style="margin: 10px 5px;"></span></span></div>
-                                        <div class="fht-cell"></div>
+                                    <th>
+                                        <div class="th-inner">@lang('custom.table.category')</div>
                                     </th>
-                                    <th style="">
-                                        <div class="th-inner sortable">@lang('custom.table.status') :<span class="order"><span class="caret" style="margin: 10px 5px;"></span></span></div>
-                                        <div class="fht-cell"></div>
+                                    <th>
+                                        <div class="th-inner">@lang('custom.table.status')</div>
                                     </th>
-                                    <th style="">
-                                        <div class="th-inner sortable">@lang('custom.table.create_by') :<span class="order"><span class="caret" style="margin: 10px 5px;"></span></span></div>
-                                        <div class="fht-cell"></div>
+                                    <th>
+                                        <div class="th-inner">@lang('custom.table.create_by')</div>
                                     </th>
-                                    <th style="">
-                                        <div class="th-inner sortable text-center">@lang('custom.table.action')</div>
-                                        <div class="fht-cell"></div>
+                                    <th>
+                                        <div class="th-inner text-center">@lang('custom.table.action')</div>
                                     </th>
                                 </tr>
                             </thead>

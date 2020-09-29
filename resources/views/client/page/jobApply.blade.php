@@ -462,7 +462,7 @@
                         </div>
                         <div class="form-group">
                             <label class="label-required">@lang('custom.cv_url')</label>
-                            <input type="file" name="cv_url" accept="application/pdf,.doc,.docx,application/msword"> <br>
+                            <input type="file" name="cv_url" accept="application/pdf,.doc,.docx,.xlsx,.xls,.csv,application/msword,application/vnd.ms-excel"> <br>
                             <span class="text-danger"></span>
                         </div>
                         @endif
