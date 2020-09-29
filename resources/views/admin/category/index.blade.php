@@ -1,6 +1,8 @@
 @extends('admin.layout.layout')
 @section('css')
-    <link rel="stylesheet" href="{{ asset('adminAsset/css/job.css') }}">   
+    <link rel="stylesheet" href="{{ asset('adminAsset/css/job.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/switchery/0.8.2/switchery.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css"> 
 @endsection
 @section('content')
 <div class="row">
@@ -59,7 +61,10 @@
                                     <td>{{$stt++}}</td>
                                     <td>{{$item->category_name}}</td>
                                     <td>
-                                        <input data-id="{{$item->id}}" class="toggle-class" type="checkbox" data-onstyle="success" data-offstyle="danger" data-toggle="toggle" data-on="Active" data-off="InActive" {{ $item->status ? 'checked' : '' }}>
+                                        {{-- <input data-id="{{$item->id}}" class="toggle-class" type="checkbox" data-onstyle="success" data-offstyle="danger" data-toggle="toggle" data-on="Active" data-off="InActive" {{ $item->status ? 'checked' : '' }}> --}}
+
+                                        <input type="checkbox" data-id="{{ $item->id }}" name="status" class="js-switch" {{ $item->status == 1 ? 'checked' : '' }}>
+
                                     </td>
                                     <td>{{Auth::guard('admin')->user()->name}}</td>
                                     <td class="text-center">
@@ -114,7 +119,33 @@
 </div>
 @endsection
 @section('script')
+<script src="https://cdnjs.cloudflare.com/ajax/libs/switchery/0.8.2/switchery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     <script type="text/javascript">
+        let elems = Array.prototype.slice.call(document.querySelectorAll('.js-switch'));
+        elems.forEach(function(html) {
+            let switchery = new Switchery(html,  { size: 'small' });
+        });
+
+        $(document).ready(function(){
+            $('.js-switch').change(function () {
+                let status = $(this).prop('checked') === true ? 1 : 0;
+                let category_id = $(this).data('id');
+                $.ajax({
+                    type: "GET",
+                    dataType: "json",
+                    url: '/admin/changeCategoryStatus',
+                    data: {'status': status, 'category_id': category_id},
+                    success: function (data) {
+                        toastr.options.closeButton = true;
+                        toastr.options.closeMethod = 'fadeOut';
+                        toastr.options.closeDuration = 100;
+                        toastr.success(data.success);
+                    }
+                });
+            });
+        });
+
         $('.btn.btn-primary.btn-add-form').click(function (e) {
             e.preventDefault();
             let url = $(this).attr('href');
@@ -150,20 +181,22 @@
             });
         });
 
-        $("body").on("change", ".toggle-class", function (e) {
-            e.preventDefault();
-            var status = $(this).prop('checked') == true ? 1 : 0; 
-            var category_id = $(this).data('id'); 
-            $.ajax({
-                type: "GET",
-                dataType: "json",
-                url: '/admin/changeCategoryStatus',
-                data: {'status': status, 'category_id': category_id},
-                success: function (data) {
-                    console.log(data.success)
-                }
-            });
-        });
+        // $("body").on("change", ".toggle-class", function (e) {
+        //     e.preventDefault();
+        //     var status = $(this).prop('checked') == true ? 1 : 0; 
+        //     var category_id = $(this).data('id'); 
+        //     $.ajax({
+        //         type: "GET",
+        //         dataType: "json",
+        //         url: '/admin/changeCategoryStatus',
+        //         data: {'status': status, 'category_id': category_id},
+        //         success: function (data) {
+        //             console.log(data.success)
+        //         }
+        //     });
+        // });
+
+
 
         $("body").on("click", ".btn-edit-form", function (e) {
             e.preventDefault();

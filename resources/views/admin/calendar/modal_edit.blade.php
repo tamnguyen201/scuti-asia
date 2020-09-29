@@ -21,13 +21,13 @@
             <span class="error-form text-danger"></span>
         </div>
     </div>
-    <div class="form-calendar form-group col-md-6">
+    <div class="form-calendar form-group col-md-12">
         <label for="exampleFormControlTextarea1">@lang('custom.calendar.start')* :</label>
         <br>
         <input name="start" type="datetime-local" value="{{ \Carbon\Carbon::parse($event->start)->format('Y-m-d\TH:i:s') }}">
         <span class="error-form text-danger"></span>
     </div>
-    <div class="form-calendar form-group col-md-6">
+    <div class="form-calendar form-group col-md-12">
         <label for="exampleFormControlTextarea1">@lang('custom.calendar.end')* :</label>
         <br>
         <input name="end" type="datetime-local" value="{{ \Carbon\Carbon::parse($event->end)->format('Y-m-d\TH:i:s') }}">
