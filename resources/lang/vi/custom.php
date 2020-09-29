@@ -169,7 +169,7 @@ return [
         'job'=>'Công việc',
         'location'=>'Địa điểm',
         'category'=>'Danh mục',
-        'recruitment_detail'=>'Chi tiết ứng tuyển',
+        'recruitment_detail'=>'Tin tuyển dụng',
         'main_member' => 'Thành Viên Chính',
         'benefit' => 'Đãi Ngộ',
     ],

@@ -6,4 +6,5 @@ span.invalid-feedback {
 .text-danger{
     font-size: 11px;
     color: red;
+    display:inline-block;
 }

@@ -28,7 +28,7 @@
                             <div class="form-group">
                                 <label>@lang('custom.title') * </label>
                                 <input name="name" type="text" class="form-control" @error('name') is-invalid @enderror
-                                    placeholder="@lang('custom.jobs.placeholder_title')">
+                                    placeholder="@lang('custom.jobs.placeholder_title')" value="{{ old('name') }}">
                                 @error('name')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -74,7 +74,7 @@
                                 <div class="col-md-6">
                                     <label>@lang('custom.expire_day') * </label>
                                     <input name="expire_date" type="date" class="form-control" @error('expire_date')
-                                        is-invalid @enderror placeholder="Enter expire date">
+                                        is-invalid @enderror placeholder="Enter expire date" value="{{ old('expire_date') }}">
                                     @error('expire_date')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -85,7 +85,7 @@
                                 <div class="col-md-6">
                                     <label>@lang('custom.jobs.salary') * </label>
                                     <input name="salary" type="text" class="form-control" @error('salary') is-invalid
-                                        @enderror placeholder="@lang('custom.jobs.placeholder_salary')">
+                                        @enderror placeholder="@lang('custom.jobs.placeholder_salary')" value="{{ old('salary') }}">
                                     @error('salary')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -97,7 +97,7 @@
                                 <div class="col-md-12">
                                     <label>@lang('custom.jobs.content') * </label>
                                     <textarea name="content" class="form-control" @error('content') is-invalid @enderror
-                                    id="exampleFormControlTextarea1" rows="4"></textarea>
+                                    id="exampleFormControlTextarea1" rows="4">{{ old('content') }}</textarea>
                                     @error('content')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -108,7 +108,7 @@
                             <div class="form-group">
                                 <label>@lang('custom.description') * </label>
                                 <textarea name="description" class="form-control" @error('description') is-invalid @enderror
-                                    id="exampleFormControlTextarea1" rows="4"></textarea>
+                                    id="exampleFormControlTextarea1" rows="4">{{ old('content') }}</textarea>
                                 @error('description')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>

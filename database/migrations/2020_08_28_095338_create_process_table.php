@@ -18,6 +18,7 @@ class CreateProcessTable extends Migration
             $table->integer('step');
             $table->string('name');
             $table->foreignId('user_job_id');
+            $table->timestamps();
 
             $table->foreign('user_job_id')->references('id')->on('user_job')->onDelete('cascade');
         });

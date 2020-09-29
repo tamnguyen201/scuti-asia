@@ -8,6 +8,7 @@ use App\Model\Evaluate;
 use Illuminate\Http\Request;
 use App\Http\Requests\EventRequest;
 use App\Http\Requests\EvaluateRequest;
+use App\Http\Requests\EventUpdateRequest;
 use App\Http\Requests\FailEvaluateRequest;
 use App\Repositories\Job\JobRepositoryInterface;
 use App\Repositories\Admin\AdminRepositoryInterface;
@@ -54,14 +55,16 @@ class EvaluateController extends Controller
 
     public function show($id)
     {
+        
         $processById = $this->processRepository->show($id);
+        $allProcess = $this->processRepository->where('user_job_id', '=', $processById->user_job_id)->all();
         $candidateById = $this->candidateRepository->where('id','=', $processById->user_job->user_id);
         $jobById = $this->jobRepository->show($processById->user_job->job_id);
         $calendar = $this->showCalendar($candidateById->id);
         $dataUser =$this->candidateRepository->show($candidateById->id);
         $data = Event::where('user_id', $candidateById->id)->get();
         
-        return view('admin.evaluate.evaluate_process', compact('processById','data','candidateById','calendar','dataUser','jobById'));
+        return view('admin.evaluate.evaluate_process', compact('allProcess','processById','data','candidateById','calendar','dataUser','jobById'));
     }
 
     public function store(EvaluateRequest $request, $id)
@@ -73,16 +76,22 @@ class EvaluateController extends Controller
         ]);
         if($dataCurrentEvaluate['status'] == 1 ){
             $processById = $this->evaluatePass($dataCurrentEvaluate);
+            $allProcess = $this->processRepository->where('user_job_id', '=', $processById->user_job_id)->all();
+            
             $candidateById = $this->candidateRepository->where('id','=', $processById->user_job->user_id);
             $jobById = $this->jobRepository->show($processById->user_job->job_id);
             $calendar = $this->showCalendar($candidateById->id);
             $dataUser =$this->candidateRepository->show($candidateById->id);
             $dataAdmin = $this->adminRepository->all();
             $data = Event::where('user_id', $candidateById->id)->get();
+            // $color = Config::get('common.color');
+            
 
-            return view('admin.evaluate.evaluate_process' , compact('processById','data','candidateById','calendar','dataUser','dataAdmin','jobById'));
+            return view('admin.evaluate.evaluate_process' , compact('allProcess','processById','data','candidateById','calendar','dataUser','dataAdmin','jobById'));
         } else {
             $processById = $this->evaluateFail($dataCurrentEvaluate);
+
+            $allProcess = $this->processRepository->where('user_job_id', '=', $processById->user_job_id)->all();
             $candidateById = $this->candidateRepository->where('id','=', $processById->user_job->user_id);
             $jobById = $this->jobRepository->show($processById->user_job->job_id);
             $calendar = $this->showCalendar($candidateById->id);
@@ -90,7 +99,7 @@ class EvaluateController extends Controller
             $dataAdmin = $this->adminRepository->all();
             $data = Event::where('user_id', $candidateById->id)->get();
 
-            return view('admin.evaluate.evaluate_process' , compact('processById','data','candidateById','calendar','dataUser','dataAdmin','jobById'));
+            return view('admin.evaluate.evaluate_process' , compact('allProcess','processById','data','candidateById','calendar','dataUser','dataAdmin','jobById'));
         }
     }
 
@@ -212,7 +221,7 @@ class EvaluateController extends Controller
     public function evaluateFail( $dataEvaluate ) {
         $currentProcessId = $dataEvaluate->process_id;
         $currentProcess = $this->processRepository->show( $currentProcessId );
-        $dataNextProcess = $this->processRepository->create([
+        $dataNextProcess = $this->processRepository->updateOrCreate([
             'step'=>4,
             'name'=> 'Ứng viên bị loại',
             'user_job_id' =>$currentProcess->user_job_id
@@ -253,7 +262,7 @@ class EvaluateController extends Controller
         return response()->json($html);
     }
 
-    public function updateCalendar(Request $request, $id)
+    public function updateCalendar(EventUpdateRequest $request, $id)
     { 
         $insertArr = [ 
             'note' => $request->note,
