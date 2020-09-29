@@ -143,6 +143,10 @@
         color: #5cb85c;
     }
 
+    #progressbar .inactive {
+        color: #ec1d08;
+    }
+
     #progressbar li {
         list-style-type: none;
         font-size: 15px;
@@ -320,7 +324,7 @@
                                                 <div class="form-card">
                                                     <div class="row">
                                                         <div class="col-7">
-                                                            <h2 class="fs-title">{{$process->name}}:</h2>
+                                                            <h2 class="fs-title">@lang('client.page.apply.process.info')</h2>
                                                         </div>
                                                         <div class="col-5">
                                                             <h2 class="steps">@lang('client.page.apply.step') {{$process->step}} - {{$process->name}}</h2>
