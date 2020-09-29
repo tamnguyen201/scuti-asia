@@ -26,29 +26,28 @@
                             <thead>
                                 <tr>
                                     <th>
-                                    <div class="th-inner sortable">@lang('custom.stt')</div>
+                                        <div class="th-inner">@lang('custom.stt')</div>
                                     </th>
                                     <th>
-                                        <div class="th-inner sortable">@lang('custom.name')</div>
+                                        <div class="th-inner">@lang('custom.name')</div>
                                     </th>
                                     <th>
-                                        <div class="th-inner sortable">@lang('custom.email')</div>
+                                        <div class="th-inner">@lang('custom.email')</div>
                                     </th>
                                     <th>
-                                        <div class="th-inner sortable">@lang('custom.jobApplied')</div>
+                                        <div class="th-inner">@lang('custom.jobApplied')</div>
                                     </th>
                                     <th>
-                                        <div class="th-inner sortable">@lang('custom.result')</div>
+                                        <div class="th-inner">@lang('custom.result')</div>
                                     </th>
                                     <th>
-                                        <div class="th-inner sortable text-center">@lang('custom.action')</div>
+                                        <div class="th-inner text-center">@lang('custom.action')</div>
                                     </th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @php $stt = 1; @endphp
                                 @foreach($candidates as $candidate)
-                                    @if($candidate->process->count() == 4)
                                     <tr>
                                         <td>{{$stt++}}</td>
                                         <td>{{$candidate->user->name}}</td>
@@ -63,7 +62,6 @@
                                             <a href="{{route('candidates.show', $candidate['id'])}}" class="btn btn-info text-light view-profile" title="Xem"><em class="fa fa-eye"></em></a>
                                         </td>
                                     </tr>
-                                    @endif
                                 @endforeach
                             </tbody>
                         </table>

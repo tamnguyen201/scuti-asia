@@ -30,6 +30,7 @@ class JobRequest extends FormRequest
             'expire_date'=>'required',
             'description'=>'required',
             'salary'=>'required',
+            'content'=>'required|min:100'
         ];
     }
 

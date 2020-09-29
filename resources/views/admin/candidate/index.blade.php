@@ -12,83 +12,75 @@
             <li class="active">@lang('custom.page_title.candidate_list_by_job')</li>
         </ol>
     </div>
-    <div class="row">
-        <div class="col-lg-12">
-            <h1 class="page-header">@lang('custom.page_title.candidate_list_by_job')</h1>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="panel panel-default">
-                <div class="panel-heading">@lang('custom.page_title.data_table')</div>
-                <div class="panel-body">
-                    <div class="bootstrap-table">
-                        <div class="fixed-table-toolbar">
-                            <div class="pull-right search" style="display: flex">
-                                <input class="form-control" style="margin-right: 15px" type="text" id="input-search"
-                                    placeholder="Tìm kiếm">
-                                <button type="button" id="btn-search" class="btn btn-primary"
-                                    style="margin: 0px"><span class="fa fa-search"></span> @lang('custom.button.search')</button>
-                            </div>
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">@lang('custom.page_title.data_table')</div>
+            <div class="panel-body">
+                <div class="bootstrap-table">
+                    <div class="fixed-table-toolbar">
+                        <div class="pull-right search" style="display: flex">
+                            <input class="form-control" style="margin-right: 15px" type="text" id="input-search" placeholder="@lang('custom.placeholder.search')">
+                            <button type="button" id="btn-search" class="btn btn-primary" style="margin: 0px">Tìm</button>
                         </div>
-                        <div class="fixed-table-container">
-                            <div class="fixed-table-body">
-                                <table class="table table-hover">
-                                    <thead>
-                                        <tr>
-                                            <th>
-                                                <div class="th-inner sortable">@lang('custom.stt')</div>
-                                            </th>
-                                            <th>
-                                                <div class="th-inner sortable">@lang('custom.name')</div>
-                                            </th>
-                                            <th>
-                                                <div class="th-inner sortable">@lang('custom.email')</div>
-                                            </th>
-                                            <th>
-                                                <div class="th-inner sortable">@lang('custom.jobApplied')</div>
-                                            </th>
-                                            <th>
-                                                <div class="th-inner sortable">@lang('custom.process')</div>
-                                            </th>
-                                            <th>
-                                                <div class="th-inner sortable text-center">@lang('custom.action')</div>
-                                            </th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @php $stt = 1; @endphp
-                                        @foreach ($candidates as $candidate)
-                                            <tr>
-                                                <td>{{ $stt++ }}</td>
-                                                <td>{{ $candidate->user->name }}</td>
-                                                <td>{{ $candidate->user->email }}</td>
-                                                <td>{{ $candidate->job->name }}</td>
-                                                @if ($candidate->process->count() > 0 && $candidate->process->count() < 4)
-                                                    @for ($i = 0; $i <= $candidate->process->count(); $i++)
-                                                        @if ($i == $candidate->process->count() - 1)
-                                                            <td>
-                                                                <a href="{{ route('evaluate.candidate.show', $candidate->process[$i]->id) }}"
-                                                                    style="text-decoration: none">
-                                                                    <span @if ($candidate->process[$i])
-                                                                        @switch($i)
-                                                                            @case(0)
-                                                                            class="label label-primary"
-                                                                            @break
-                                                                            @case(1)
-                                                                            class="label label-success"
-                                                                            @break
-                                                                            @case(2)
-                                                                            class="label label-warning"
-                                                                            @break
-                                                                            @case(3)
-                                                                            class="label label-info"
-                                                                            @break
-                                                                        @endswitch
-                                                        @endif>
-                                                        {{ $candidate->process[$i]->name }}
-
-                                                        </span>
+                    </div>
+                    <div class="fixed-table-container">
+                        <div class="fixed-table-body">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        <div class="th-inner">@lang('custom.stt')</div>
+                                    </th>
+                                    <th>
+                                        <div class="th-inner">@lang('custom.name')</div>
+                                    </th>
+                                    <th>
+                                        <div class="th-inner">@lang('custom.email')</div>
+                                    </th>
+                                    <th>
+                                        <div class="th-inner">@lang('custom.jobApplied')</div>
+                                    </th>
+                                    <th>
+                                        <div class="th-inner">@lang('custom.process')</div>
+                                    </th>
+                                    <th>
+                                        <div class="th-inner text-center">@lang('custom.action')</div>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @php $stt = 1; @endphp
+                                @foreach($candidates as $candidate)
+                                    <tr>
+                                        <td>{{$stt++}}</td>
+                                        <td>{{$candidate->user->name}}</td>
+                                        <td>{{$candidate->user->email}}</td>
+                                        <td>{{$candidate->job->name}}</td>
+                                            @if($candidate->process->count() > 0 && $candidate->process->count() < 4)
+                                                @for($i = 0; $i <= $candidate->process->count(); $i++)
+                                                    @if($i == $candidate->process->count() - 1)
+                                                    <td>
+                                                        <a href="{{ route('evaluate.candidate.show', $candidate->process[$i]->id) }}" style="text-decoration: none">
+                                                            <span @if ($candidate->process[$i])
+                                                                @switch($i)
+                                                                    @case(0)
+                                                                        class="label label-primary"
+                                                                        @break
+                                                                    @case(1)
+                                                                        class="label label-success"
+                                                                        @break
+                                                                    @case(2)
+                                                                        class="label label-warning"
+                                                                        @break
+                                                                    @case(3)
+                                                                        class="label label-info"
+                                                                        @break
+                                                                @endswitch
+                                                            @endif>
+                                                                {{$candidate->process[$i]->name}}
+                                                            
+                                                            </span>
                                                         </a>
                                                         </td>
                                                     @endif
@@ -154,7 +146,7 @@
         <script>
             $("#btn-search").on('click', function() {
                 let value = $('#input-search').val();
-                let keyword = value.replace(/\s+/g, '');
+                let keyword = value.trim();
                 if (keyword != '') {
                     $.ajax({
                         url: "{{ route('candidates.search') }}",

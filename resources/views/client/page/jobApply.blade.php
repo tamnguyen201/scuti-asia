@@ -3,15 +3,6 @@
 @section('css')
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" >
 <style>
-    * {
-        margin: 0;
-        padding: 0
-    }
-
-    html {
-        height: 100%
-    }
-
     p {
         color: gray;
         line-height: 1.2rem;
@@ -161,28 +152,28 @@
         font-weight: 400
     }
 
-    #progressbar li:hover {
+    #progressbar li.active:hover, li.inactive:hover {
         cursor: pointer;
     }
 
     #progressbar #account:before {
         font-family: FontAwesome;
-        content: "\f13e"
+        content: "\f2bb"
     }
 
     #progressbar #personal:before {
         font-family: FontAwesome;
-        content: "\f007"
+        content: "\f24e"
     }
 
     #progressbar #payment:before {
         font-family: FontAwesome;
-        content: "\f030"
+        content: "\f086"
     }
 
     #progressbar #confirm:before {
         font-family: FontAwesome;
-        content: "\f00c"
+        content: "\f2b5"
     }
 
     #progressbar li:before {
@@ -239,147 +230,190 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="breadcrumbs">
-                        <a href="{{route('home')}}">@lang('client.page.home.title')</a><i class="fa fa-angle-double-right"></i><a href="{{route('client.jobs')}}">@lang('client.page.job.title')</a><i class="fa fa-angle-double-right"></i><span>{{$data['job']->name}}</span>
+                        <a href="{{route('home')}}">@lang('client.page.home.title')</a><i class="fa fa-angle-double-right"></i><a href="{{route('home')}}/#recruitment">@lang('client.page.job.title')</a><i class="fa fa-angle-double-right"></i><span>{{$data['job']->name}}</span>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="ex-basic-2">
-        <div class="container">
+    @if($data['apply'] != null)
+    <div class="ex-basic-2" style="background-color: #eff3f6; padding-top:1rem; padding-bottom:1rem">
+        <div class="container" style="background-color: #fff;border-radius: 5px;">
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="text-container col-lg-8 mx-auto">
-                        @if($data['apply'] != null)
-                        <h3 id="heading">@lang('client.page.apply.process.title')</h3>
-                        <p>@lang('client.page.apply.process.description')</p>
-                        <form id="msform">
-                            <ul id="progressbar">
-                                <li class="active" id="account"><strong> Apply </strong></li>
-                                @if(isset($data['apply']->process[0]->evaluate) && $data['apply']->process[0]->evaluate->status == 1)
-                                <li class="active" step="0" id="personal"><strong>{{$data['apply']->process[0]->name}}</strong></li>
-                                @elseif(isset($data['apply']->process[0]->evaluate) && $data['apply']->process[0]->evaluate->status == 0)
-                                <li class="inactive" step="0" id="personal"><strong>{{$data['apply']->process[0]->name}}</strong></li>
-                                @else
-                                <li step="0" id="personal"><strong>Review</strong></li>
-                                @endif
-                                @if(isset($data['apply']->process[1]->evaluate) && $data['apply']->process[1]->evaluate->status == 1)
-                                <li class="active" step="1" id="payment"><strong>{{$data['apply']->process[1]->name}}</strong></li>
-                                @elseif(isset($data['apply']->process[1]->evaluate) && $data['apply']->process[1]->evaluate->status == 0)
-                                <li class="inactive" step="1" id="payment"><strong>{{$data['apply']->process[1]->name}}</strong></li>
-                                @else
-                                <li step="1" id="payment"><strong>Interviewer</strong></li>
-                                @endif
-                                @if(isset($data['apply']->process[2]->evaluate) && $data['apply']->process[2]->evaluate->status == 1)
-                                <li class="active" step="2" id="confirm"><strong>Finish</strong></li>
-                                @elseif(isset($data['apply']->process[2]->evaluate) && $data['apply']->process[2]->evaluate->status == 0)
-                                <li class="inactive" step="2" id="confirm"><strong>Finish</strong></li>
-                                @else
-                                <li step="2" id="confirm"><strong>Finish</strong></li>
-                                @endif
-                            </ul>
-                            @foreach($data['apply']->process as $key => $process)
-                            @if($key != $data['apply']->process->count())
-                            <fieldset>
-                                <div class="form-card">
-                                    <div class="row">
-                                        <div class="col-7">
-                                            <h2 class="fs-title">@lang('client.page.apply.process.info')</h2>
-                                        </div>
-                                        <div class="col-5">
-                                            <h2 class="steps"> {{'Step ' . $process->step . ' - ' . $process->name}}</h2>
-                                        </div>
-                                    </div> 
-                                    <div class="row col-lg-11 mx-auto">
-                                        <p>{{$process->evaluate->reason}}</p>
-                                    </div>
-                                </div> 
-                                @if($key < $data['apply']->process->count() -1)
-                                <input type="button" name="next" class="next action-button" value="Next" />
-                                @endif
-                                @if($key > 0)
-                                <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
-                                @endif
-                            </fieldset>
-                            @else
-                            <fieldset>
-                                <div class="form-card">
-                                    <div class="row">
-                                        <div class="col-7">
-                                            <h2 class="fs-title">Finish:</h2>
-                                        </div>
-                                        <div class="col-5">
-                                            <h2 class="steps">Step 4 - Finish</h2>
-                                        </div>
-                                    </div> <br><br>
-                                    <h2 class="purple-text text-center"><strong>SUCCESS !</strong></h2> <br>
-                                    <div class="row justify-content-center">
-                                        <div class="col-3"> <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSMudI9BnTi2ZnfY_I_E5V4zOagiLTVSZPfgA&usqp=CAU" class="fit-image"> </div>
-                                    </div> <br><br>
-                                    <div class="row justify-content-center">
-                                        <div class="col-7 text-center">
-                                            <h5 class="purple-text text-center">You Have Successfully Signed Up</h5>
-                                        </div>
+                    <div class="text-container" style="padding-top:1rem; padding-bottom:1rem">
+                        <div class="container-fluid">
+                            <div class="row justify-content-center">
+                                <div class="col-11 text-center p-0 mt-3 mb-2">
+                                    <div class="card px-0 pt-4 pb-0 mt-3 mb-3">
+                                        <h3 id="heading">@lang('client.page.apply.process.title')</h3>
+                                        <p><a href="{{route('home')}}/#recruitment-flow" target="_blank">@lang('client.page.apply.process.description')</a></p>
+                                        <form id="msform">
+                                            <ul id="progressbar">
+                                                <li class="active" step="0" id="account"><strong> @lang('client.page.apply.process.apply') </strong> <br> <span>{{\Carbon\Carbon::parse($data['apply']->created_at)->format('d/m/Y')}}</span></li>
+                                                @if(isset($data['apply']->process[0]->evaluate) && $data['apply']->process[0]->evaluate->status == 1)
+                                                <li class="active" step="1" id="personal"><strong>{{$data['apply']->process[0]->name}}</strong><br> <span>{{\Carbon\Carbon::parse($data['apply']->process[0]->evaluate->created_at)->format('d/m/Y')}}</span></li>
+                                                @elseif(isset($data['apply']->process[0]->evaluate) && $data['apply']->process[0]->evaluate->status == 0)
+                                                <li class="inactive" step="1" id="personal"><strong>{{$data['apply']->process[0]->name}}</strong><br> <span>{{\Carbon\Carbon::parse($data['apply']->process[0]->evaluate->created_at)->format('d/m/Y')}}</span></li>
+                                                @else
+                                                <li step="1" id="personal"><strong>Đánh Giá</strong></li>
+                                                @endif
+                                                @if(isset($data['apply']->process[1]->evaluate) && $data['apply']->process[1]->evaluate->status == 1)
+                                                <li class="active" step="2" id="payment"><strong>{{$data['apply']->process[1]->name}}</strong><br> <span>{{\Carbon\Carbon::parse($data['apply']->process[1]->evaluate->created_at)->format('d/m/Y')}}</span></li>
+                                                @elseif(isset($data['apply']->process[1]->evaluate) && $data['apply']->process[1]->evaluate->status == 0)
+                                                <li class="inactive" step="2" id="payment"><strong>{{$data['apply']->process[1]->name}}</strong><br> <span>{{\Carbon\Carbon::parse($data['apply']->process[1]->evaluate->created_at)->format('d/m/Y')}}</span></li>
+                                                @else
+                                                <li step="2" id="payment"><strong>Phỏng Vấn</strong></li>
+                                                @endif
+                                                @if(isset($data['apply']->process[2]->evaluate) && $data['apply']->process[2]->evaluate->status == 1)
+                                                <li class="active" step="3" id="confirm"><strong>Hoàn Thành</strong><br> <span>{{\Carbon\Carbon::parse($data['apply']->process[2]->evaluate->created_at)->format('d/m/Y')}}</span></li>
+                                                @elseif(isset($data['apply']->process[2]->evaluate) && $data['apply']->process[2]->evaluate->status == 0)
+                                                <li class="inactive" step="3" id="confirm"><strong>Hoàn Thành</strong><br> <span>{{\Carbon\Carbon::parse($data['apply']->process[2]->evaluate->created_at)->format('d/m/Y')}}</span></li>
+                                                @else
+                                                <li step="3" id="confirm"><strong>Hoàn Thành</strong></li>
+                                                @endif
+                                            </ul>
+                                            <fieldset class="col-lg-10 mx-auto">
+                                                <div class="form-card">
+                                                    <div class="row">
+                                                        <div class="col-7">
+                                                            <h2 class="fs-title">@lang('client.page.apply.process.info')</h2>
+                                                        </div>
+                                                        <div class="col-5">
+                                                            <h2 class="steps">@lang('client.page.apply.step') 1 - @lang('client.page.apply.process.apply')</h2>
+                                                        </div>
+                                                    </div> 
+                                                    <div class="row col-lg-11 mx-auto">
+                                                        <p>@lang('client.page.apply.process.apply_message')</p>
+                                                    </div>
+                                                </div> 
+                                                @if($data['apply']->process->count() > 0)
+                                                <input type="button" name="next" class="next action-button" value="@lang('custom.button.next')" />
+                                                @endif
+                                            </fieldset>
+                                            @foreach($data['apply']->process as $key => $process)
+                                            @if($key != 2)
+                                            <fieldset class="col-lg-10 mx-auto">
+                                                <div class="form-card">
+                                                    <div class="row">
+                                                        <div class="col-7">
+                                                            <h2 class="fs-title">@lang('client.page.apply.process.info')</h2>
+                                                        </div>
+                                                        <div class="col-5">
+                                                            <h2 class="steps">@lang('client.page.apply.step') {{$process->step + 1 . ' - ' . $process->name}}</h2>
+                                                        </div>
+                                                    </div> 
+                                                    <div class="row col-lg-11 mx-auto">
+                                                        <p>{{$process->evaluate->reason}}</p>
+                                                    </div>
+                                                </div> 
+                                                @if($key < $data['apply']->process->count() - 1)
+                                                <input type="button" name="next" class="next action-button" value="@lang('custom.button.next')" />
+                                                @endif
+                                                @if($key < 3)
+                                                <input type="button" name="previous" class="previous action-button-previous" value="@lang('custom.button.previous')" />
+                                                @endif
+                                            </fieldset>
+                                            @else
+                                            <fieldset class="col-lg-10 mx-auto">
+                                                <div class="form-card">
+                                                    <div class="row">
+                                                        <div class="col-7">
+                                                            <h2 class="fs-title">{{$process->name}}:</h2>
+                                                        </div>
+                                                        <div class="col-5">
+                                                            <h2 class="steps">@lang('client.page.apply.step') {{$process->step}} - {{$process->name}}</h2>
+                                                        </div>
+                                                    </div> <br><br>
+                                                    <h2 class="purple-text text-center"><strong>@lang('client.page.apply.process.finish')</strong></h2> <br>
+                                                    <div class="row justify-content-center">
+                                                        <div class="col-3"> <img src="https://www.suunto.com/contentassets/1fda3e7d222d45e49282f7d13439c7db/icon-success.png" class="fit-image"> </div>
+                                                    </div> <br><br>
+                                                    <div class="row justify-content-center">
+                                                        <div class="col-7 text-center">
+                                                            <h5 class="purple-text text-center">{{($process->reason) ? $process->reason : trans('client.page.apply.finish')}}</h5>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </fieldset>
+                                            @endif
+                                            @endforeach
+                                        </form>
                                     </div>
                                 </div>
-                            </fieldset>
-                            @endif
-                            @endforeach
-                        </form>
-                        @endif
-                    </div>
-                </div>
-                <div class="row col-lg-12">
-                    <div class="col-md-8">
-                        <div class="text-container">
-                            <h2 class="mb-4">{{$data['job']->name}}</h2>
-                            <div class="">
-                            {!! $data['job']->description !!}
                             </div>
                         </div>
-                        <a href="{{route('client.jobs')}}" class="btn btn-outline-reg back" >@lang('client.page.apply.back')</a>
                     </div>
-                    <div class="col-md-4">
-                        <h3>@lang('client.page.apply.sidebar.title')</h3>
-                        <ul class="pl-0">
-                            <li class="row justify-content-between mx-0 mb-2">
-                                <b>@lang('client.page.apply.sidebar.location')</b>
-                                <div class="value">{{$data['job']->location->name}} </div>
-                            </li>
-                            <li class="row justify-content-between mx-0 mb-2">
-                                <b>@lang('client.page.apply.sidebar.salary')</b>
-                                <div class="value">{{$data['job']->salary}}</div>
-                            </li>
-                            <li class="row justify-content-between mx-0 mb-2">
-                                <b>@lang('client.page.apply.sidebar.end_time')</b>
-                                <div class="value">{{$data['job']->formatExpireDay()}}</div>
-                            </li>
-                        </ul>
-                        @if($data['apply'] == null)
-                        <div class="form-group">
-                            <button class="form-control text-center btn-outline-reg" data-toggle="modal" data-target="#myModal" >@lang('client.section.recruitment.apply')</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    @endif
+
+    <div class="ex-basic-2" style="background-color: #eff3f6; padding-top:1rem; padding-bottom: 1rem">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 mb-4 p-0" style="background-color: #fff;border-radius: 5px;">
+                    <h2 class="py-2 px-4 border-bottom">{{$data['job']->name}}</h2>
+                    <div class="text-container pt-3 px-4">
+                        <div class="">
+                        {!! $data['job']->content !!}
                         </div>
-                        @endif
+                    </div>
+                    <a class="btn-outline-reg back ml-4 mb-5" href="{{route('home')}}/#recruitment">@lang('client.page.apply.job_another')</a>
+                </div>
+                <div class="col-md-4 pr-0">
+                    <div class="col-lg-12 mb-2 p-0" style="background-color: #fff;border-radius: 5px;">
+                        <h3 class="p-2 border-bottom">@lang('client.page.apply.sidebar.title')</h3>
+                        <div class="pb-2">
+                            <ul class="px-3">
+                                <li class="row justify-content-between mx-0 mb-2">
+                                    <b>@lang('client.page.apply.sidebar.location')</b>
+                                    <div class="value">{{$data['job']->location->name}} </div>
+                                </li>
+                                <li class="row justify-content-between mx-0 mb-2">
+                                    <b>@lang('client.page.apply.sidebar.salary')</b>
+                                    <div class="value">{{$data['job']->salary}}</div>
+                                </li>
+                                <li class="row justify-content-between mx-0 mb-2">
+                                    <b>@lang('client.page.apply.sidebar.end_time')</b>
+                                    <div class="value">{{$data['job']->formatExpireDay()}}</div>
+                                </li>
+                            </ul>
+                            @if($data['apply'] == null)
+                            <div class="form-group px-3">
+                                <a href="{{route('client.applied', [$data['job']->id, $data['job']->slug])}}" class="form-control text-center btn-outline-reg mt-0" >@lang('client.section.recruitment.apply')</a>
+                            </div>
+                            @endif
+                        </div>
+                    </div>
+                    <div class="col-lg-12 mb-2 p-0" style="background-color: #fff;border-radius: 5px;">
+                        <h3 class="p-2 border-bottom">@lang('client.page.job.related_job')</h3>
+                        <div class="col-lg-12 p-0">
+                            @foreach($data['related_job'] as $job )
+                            <div class="col-md-12 list-group-item mt-2 border-top-0 border-left-0 border-right-0">
+                                <div class="col-12 p-0">
+                                    <div class="mb-block cell name-job">
+                                        <h4 class="title-h4"><a style="font-weight: normal;color: #f4511e; text-decoration: none" href="{{route('job-detail', [$job->id, $job->slug])}}">[{{$job->location->name}}] {{$job->name}}</a></h4>
+                                    </div>
+                                    <div class="d-flex justify-content-between">
+                                        <span><i class="far fa-money-bill-alt"></i> {{$job->salary}} </span>
+                                        <span><i class="far fa-clock"></i> {{$job->formatExpireDay()}} </span>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 mt-2 p-0 text-justify">
+                                    {{$job->description}}
+                                </div>
+                            </div>
+                            @endforeach
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <div id="services" class="basic-2">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 mb-3">
-                    <h2>@lang('client.section.recruitment_flow.title')</h2>
-                    <p class="p-heading p-large">@lang('client.section.recruitment_flow.description')</p>
-                </div>
-            </div>
-            <div class="row">
-                {!! $data['recruitment_flow']->content !!}
-            </div>
-        </div>
-    </div>
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-md">
             <div class="modal-content">
@@ -390,26 +424,27 @@
                     </button>
                 </div>
                 <div class="modal-body">
+                    <p class="text-danger text-center errors"></p>
                     <form action="{{route('client.apply.job')}}" id="form-apply-job" class="col-11 mx-auto" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group">
-                            <label>@lang('custom.name')</label>
+                            <label class="label-required">@lang('custom.name')</label>
                             <input type="text" name="name" class="form-control" value="{{auth()->user()->name}}" readonly placeholder="Please enter full name">
                             <span class="text-danger"></span>
                         </div>
                         <div class="form-group">
-                            <label>@lang('custom.email')</label>
+                            <label class="label-required">@lang('custom.email')</label>
                             <input type="email" name="email" class="form-control" value="{{auth()->user()->email}}" readonly placeholder="Please enter email">
                             <span class="text-danger"></span>
                         </div>
                         <input type="hidden" name="job_id" value="{{$data['job']->id}}">
                         @if(auth()->user()->cv->count() > 0)
-                        <div class="form-group" style="padding: 10px;margin-bottom: 1rem;border: 1px dotted #fd6f2d;border-radius: 5px;">
-                            <label>@lang('custom.choose_cv')</label>
+                        <div class="form-group">
+                            <label class="label-required">@lang('custom.choose_cv')</label>
                             @foreach(auth()->user()->cv as $key => $value)
                             <div class="form-check">
                                 <label class="form-check-label">
-                                    <input type="radio" class="form-check-input" @if($key == 0) checked @endif name="cv_id" value="{{$value->id}}">{{$value->cv_name}}
+                                    <input type="radio" class="form-check-input" @if($key == 0) checked @endif name="cv_file" value="{{$value->cv_url}}">{{$value->cv_name}}
                                 </label>
                             </div>
                             @endforeach
@@ -417,27 +452,26 @@
                         </div>
                         @else
                         <div class="form-group">
-                            <label>@lang('custom.name_cv')</label>
-                            <input type="text" class="form-control" value="{{old('cv_name')}}" name="cv_name">
+                            <label class="label-required">@lang('custom.name_cv')</label>
+                            <input type="text" class="form-control" value="{{old('cv_name')}}" name="cv_name" placeholder="@lang('custom.placeholder.cv_url')">
                             <span class="text-danger"></span>
                         </div>
                         <div class="form-group">
-                            <label>@lang('custom.cv_url')</label>
-                            <input type="file" name="cv_url" accept="application/pdf,.doc,.docx,application/msword">
-                            <p class="text-danger"></p>
+                            <label class="label-required">@lang('custom.cv_url')</label>
+                            <input type="file" name="cv_url" accept="application/pdf,.doc,.docx,application/msword"> <br>
+                            <span class="text-danger"></span>
                         </div>
                         @endif
-                        <div class="col-md-12 text-center">
+                        <div class="col-md-12 px-0">
                             <div class="form-group">
                                 <label>@lang('custom.letter')</label>
-                                <textarea name="letter" class="form-control p-0" cols="30" rows="8"> {{old('letter')}}</textarea>
+                                <textarea name="letter" class="form-control p-0" cols="30" rows="8" placeholder="@lang('custom.placeholder.message')"> {{old('letter')}}</textarea>
                                 <span class="text-danger"></span>
                             </div>
                         </div>
                         <div class="col-md-12 text-center">
                             <button type="submit" class="btn-outline-reg back">@lang('custom.button.submit')</button>
-                            <button type="reset" class="btn-outline-reg back">@lang('custom.button.reset')</button>
-                            <button class="btn-outline-reg back" data-dismiss="modal">@lang('client.page.apply.back')</button>
+                            <button class="btn-outline-reg back" data-dismiss="modal">@lang('custom.button.cancel')</button>
                         </div>
                     </form>
                 </div>
@@ -464,7 +498,8 @@
                     'opacity': 1, 'position': 'relative', 'display': 'block',
                     });
                 }
-            })
+            });
+
             $(".next").click(function(){
 
                 current_fs = $(this).parent();
@@ -503,7 +538,6 @@
 
             @if($data['apply'] == null) 
                 $("#myModal").modal('show');
-            @endif
 
             $('#form-apply-job').on('submit', function(e) {
                 e.preventDefault();
@@ -528,15 +562,20 @@
                     method: "POST",
                 }).done(function (results) {
                     $('.text-danger').text('');
-                    $("#myModal").modal('hide');
-                    swal({
-                        title: 'Thành công!',
-                        text: "<?php echo trans('custom.alert_messages.contact_alert.text') ?>",
-                        type: 'success',
-                        icon: 'success'
-                    }).then(result => {
-                        location.reload();
-                    });
+                    if(results.status == true){
+                        $("#myModal").modal('hide');
+                        swal({
+                            title: 'Thành công!',
+                            text: "<?php echo trans('custom.alert_messages.contact_alert.text') ?>",
+                            type: 'success',
+                            icon: 'success'
+                        }).then(result => {
+                            location.reload();
+                        });
+                    } else {
+                        $('.text-danger.text-center.errors').text(results.message);
+                        console.log(results.status);
+                    };
                 }).fail(function (data) {
                     var errors = data.responseJSON;
                     $('.text-danger').text('');
@@ -546,6 +585,7 @@
                 });
             })
 
+            @endif
         });
     </script>
 @endsection

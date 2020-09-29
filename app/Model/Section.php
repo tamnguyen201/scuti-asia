@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Section extends Model
 {
-    protected $fillable = ['name', 'slug', 'content', 'image', 'map_url'];
+    protected $fillable = ['name', 'slug', 'description', 'content', 'image'];
 
     public function setNameAttribute($name)
     {

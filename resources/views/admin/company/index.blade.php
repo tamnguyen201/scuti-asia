@@ -20,8 +20,11 @@
             <div class="panel-heading">@lang('custom.page_title.data_table')</div>
             <div class="panel-body">
                 <div class="bootstrap-table">
-                    <div class="fixed-table-toolbar">
+                    <div class="fixed-table-toolbar" style="display: flex">
+                        <p style="margin: 1rem;padding-top: 0.5rem">@lang('custom.alert_messages.warning_company')</p>
+                        @if($company->count() == 0)
                         <a href="{{route('companies.create')}}" class="btn btn-primary"><span class="fa fa-plus"></span> @lang('custom.button.add')</a>
+                        @endif
                     </div>
                     <div class="fixed-table-container">
                         <div class="fixed-table-body">
@@ -29,12 +32,10 @@
                                 <thead>
                                     <tr>
                                         <th>
-                                            <div class="th-inner sortable">@lang('custom.page_title.company_manage')</div>
-                                            <div class="fht-cell"></div>
+                                            <div class="th-inner">@lang('custom.page_title.company_manage')</div>
                                         </th>
                                         <th>
-                                            <div class="th-inner sortable text-center"><a href="{{route('companies.edit', $company['id'])}}" class="btn btn-primary text-light btn-edit-form"><em class="far fa-edit"></em> Edit</a> </div>
-                                            <div class="fht-cell"></div>
+                                            <div class="th-inner text-right"><a href="{{route('companies.edit', $company['id'])}}" class="btn btn-primary text-light btn-edit-form"><em class="far fa-edit"></em> Edit</a> </div>
                                         </th>
                                     </tr>
                                 </thead>

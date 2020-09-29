@@ -6,19 +6,14 @@ use Alert;
 
 use Illuminate\Http\Request;
 use App\Http\Requests\EmployeeRequest;
+use App\Http\Requests\EmployeeUpdateRequest;
 use App\Repositories\Employee\EmployeeRepositoryInterface;
-use App\Repositories\User\UserRepositoryInterface;
 
 class EmployeeController extends Controller
 {
     protected $employeeRepository;
-    protected $userRepository;
 
-    public function __construct(
-        EmployeeRepositoryInterface $employeeRepository,
-        UserRepositoryInterface $userRepository
-    ) {
-        $this->userRepository = $userRepository;
+    public function __construct(EmployeeRepositoryInterface $employeeRepository) {
         $this->employeeRepository = $employeeRepository;
     }
     
@@ -56,18 +51,25 @@ class EmployeeController extends Controller
         return view('admin.staff.edit', compact('manager'));
     }
 
-    public function update(Request $request, $id)
+    public function update(EmployeeUpdateRequest $request, $id)
     {
-        $this->userRepository->update(['role' => $request->role], $request->user_id);
+        $this->employeeRepository->update($request->all(), $id);
     
         return redirect()->route('employees.index')->with('success', trans('custom.alert_messages.success'));
     }
 
+    public function updateStatus(Request $request)
+    {
+        $employee = $this->employeeRepository->show($request->admin_id);
+        $employee->status = $request->status;
+        $employee->save();
+
+        return response()->json(['success' => trans('custom.alert_messages.update_success')]);
+    }
+
     public function destroy($id)
     {
-        $manager = $this->employeeRepository->show($id);
         $this->employeeRepository->delete($id);
-        $this->userRepository->delete($manager->user_id);
 
         return back()->with('success', trans('custom.alert_messages.success'));
     }

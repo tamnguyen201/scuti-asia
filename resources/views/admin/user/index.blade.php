@@ -3,7 +3,7 @@
 @section('content')
 <div class="row">
     <ol class="breadcrumb">
-        <li><a href="#">
+        <li><a href="{{route('admin.home')}}">
             <em class="fa fa-home"></em>
         </a></li>
         <li class="active">@lang('custom.page_title.user')</li>
@@ -14,75 +14,79 @@
         <h1 class="page-header">@lang('custom.page_title.user_manager')</h1>
     </div>
 </div>
-<div class="col-lg-12">
-    <div class="panel panel-default">
-        <div class="panel-heading">@lang('custom.page_title.data_table')</div>
-        <div class="panel-body">
-            <div class="bootstrap-table">
-                <div class="fixed-table-container">
-                    <div class="fixed-table-header">
-                    <table></table>
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">@lang('custom.page_title.data_table')</div>
+            <div class="panel-body">
+                <div class="bootstrap-table">
+                    <div class="fixed-table-toolbar">
+                        <div class="pull-right search" style="display: flex">
+                            <input class="form-control" style="margin-right: 15px" type="text" id="input-search" placeholder="@lang('custom.placeholder.search')">
+                            <button type="button" id="btn-search" class="btn btn-primary" style="margin: 0px">Tìm</button>
+                        </div>
                     </div>
-                    <div class="fixed-table-body">
-                    <div class="fixed-table-loading" style="top: 37px; display: none;">Loading, please wait…</div>
-                    <table data-toggle="table" data-url="tables/data1.json" data-show-refresh="true" data-show-toggle="true" data-show-columns="true" data-search="true" data-select-item-name="toolbar1" data-pagination="true" data-sort-name="name" data-sort-order="desc" class="table table-hover">
-                        <thead>
-                            <tr>
-                                <th>
-                                <div class="th-inner sortable">@lang('custom.stt')</div>
-                                <div class="fht-cell"></div>
-                                </th>
-                                <th>
-                                    <div class="th-inner sortable">@lang('custom.name')</div>
-                                    <div class="fht-cell"></div>
-                                </th>
-                                <th>
-                                    <div class="th-inner sortable">@lang('custom.email')</div>
-                                    <div class="fht-cell"></div>
-                                </th>
-                                <th>
-                                    <div class="th-inner sortable text-center">@lang('custom.action')</div>
-                                    <div class="fht-cell"></div>
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @php $stt = 1; @endphp
-                            @foreach($users as $item)
-                            <tr>
-                                <td>{{$stt++}}</td>
-                                <td>{{$item->name}}</td>
-                                <td>{{$item->email}}</td>
-                                <td class="text-center">
-                                    <a href="{{route('users.show', $item['id'])}}" class="btn btn-primary text-light view-profile"><em class="fa fa-eye"></em></a>
-                                </td>
-                            </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
-                    <div class="fixed-table-pagination">
-                        <div class="pull-right pagination">
-                            {{$users->links()}}
+                    <div class="fixed-table-container">
+                        <div class="fixed-table-body">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        <div class="th-inner">@lang('custom.stt')</div>
+                                    </th>
+                                    <th>
+                                        <div class="th-inner">@lang('custom.name')</div>
+                                    </th>
+                                    <th>
+                                        <div class="th-inner">@lang('custom.email')</div>
+                                    </th>
+                                    <th>
+                                        <div class="th-inner">@lang('custom.status')</div>
+                                    </th>
+                                    <th>
+                                        <div class="th-inner text-center">@lang('custom.action')</div>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @php $stt = 1; @endphp
+                                @foreach($users as $item)
+                                <tr>
+                                    <td>{{$stt++}}</td>
+                                    <td>{{$item->name}}</td>
+                                    <td>{{$item->email}}</td>
+                                    <td>{{($item->user_job->count() > 0) ? trans('custom.apply') : trans('custom.no_apply')}}</td>
+                                    <td class="text-center">
+                                        <a href="{{route('users.show', $item['id'])}}" class="btn btn-primary text-light view-profile"><em class="fa fa-eye"></em></a>
+                                    </td>
+                                </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                        <div class="fixed-table-pagination">
+                            <div class="pull-right pagination">
+                                {{$users->links()}}
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+                <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-md" style="max-width: 40rem;" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header" style="display: flex">
+                        <h3 class="modal-title" id="exampleModalLongTitle" style="margin: auto;width: 22rem;">@lang('custom.page_title.profile')</h3>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        </div>
+                        <div class="modal-body"></div>
+                        <div class="modal-footer" style="border-top: none">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">@lang('custom.button.close')</button>
                         </div>
                     </div>
                     </div>
-                </div>
-            </div>
-            <div class="clearfix"></div>
-            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered modal-md" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle">@lang('custom.page_title.profile')</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                    </div>
-                    <div class="modal-body"></div>
-                    <div class="modal-footer" style="border-top: none">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">@lang('custom.button.close')</button>
-                    </div>
-                </div>
                 </div>
             </div>
         </div>
@@ -91,6 +95,22 @@
 @endsection
 @section('script')
     <script>
+        $("#btn-search").on('click', function() {
+            let value = $('#input-search').val();
+            let keyword = value.trim();
+            if (keyword != '') {
+                $.ajax({
+                    url: "{{ route('user.search') }}",
+                    data: {
+                        'keyword': keyword
+                    },
+                    method: "POST",
+                }).done(function(results) {
+                    $(".fixed-table-body").html(results);
+                });
+            };
+        });
+
         $('.view-profile').on('click', function (event) {
             event.preventDefault();
             let url = $(this).attr('href');

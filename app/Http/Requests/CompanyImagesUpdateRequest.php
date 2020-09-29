@@ -24,6 +24,8 @@ class CompanyImagesUpdateRequest extends FormRequest
     public function rules()
     {
         return [
+            'name' => 'required|unique:benefits,name,' . $this->company_image,
+            'description' => 'required',
             'image_url' => 'nullable|mimes:jpeg,jpg,png,gif|max:10000'
         ];
     }
@@ -31,8 +33,9 @@ class CompanyImagesUpdateRequest extends FormRequest
     public function messages()
     {
         return [
-            'image_url.mimes' => trans('validation.mimes'),
-            'image_url.max' => trans('validation.max'),
+            'required' => trans('validation.required'),
+            'mimes' => trans('validation.mimes'),
+            'max' => trans('validation.max'),
         ];
     }
 }

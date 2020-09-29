@@ -12,37 +12,37 @@
         </div>
     </div>
 </div>
-<div class="basic-2" style="padding-top:0">
-    <div class="col-lg-8 mx-auto">
+<div class="basic-2 pt-5" style="padding-top:0; background-color: #eff3f6;">
+    <div class="col-lg-8 mx-auto py-3" style="background-color: #fff">
         <div class="form-container">
             <h1 style="text-align: center;margin-bottom: 40px;color: #868686;letter-spacing: 3px;">@lang('client.page.profile.form_title')</h1>
             <form action="{{route('client.update_info')}}" class="col-lg-12 row" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="col-md-7">
                     <div class="form-group">
-                        <label>@lang('custom.name')</label>
-                        <input type="text" name="name" value="{{Auth::user()->name}}" class="form-control">
+                        <label class="label-required">@lang('custom.name')</label>
+                        <input type="text" name="name" value="{{Auth::user()->name}}" class="form-control" placeholder="@lang('custom.placeholder.name')">
                         @error('name') 
                         <span class="text-danger"> {{$message}} </span>
                         @enderror
                     </div>
                     <div class="form-group">
-                        <label>@lang('custom.email')</label>
-                        <input type="text" name="email" value="{{Auth::user()->email}}" class="form-control">
+                        <label class="label-required">@lang('custom.email')</label>
+                        <input type="text" name="email" value="{{Auth::user()->email}}" class="form-control" placeholder="@lang('custom.placeholder.email')">
                         @error('email') 
                         <span class="text-danger"> {{$message}} </span>
                         @enderror
                     </div>
                     <div class="form-group">
-                        <label>@lang('custom.phone')</label>
-                        <input type="text" name="phone" value="{{Auth::user()->phone}}" class="form-control">
+                        <label class="label-required">@lang('custom.phone')</label>
+                        <input type="text" name="phone" value="{{Auth::user()->phone}}" class="form-control" placeholder="@lang('custom.placeholder.phone')">
                         @error('phone') 
                         <span class="text-danger"> {{$message}} </span>
                         @enderror
                     </div>
                     <div class="form-group">
-                        <label>@lang('custom.address')</label>
-                        <input type="text" name="address" value="{{Auth::user()->address}}" class="form-control">
+                        <label class="label-required">@lang('custom.address')</label>
+                        <input type="text" name="address" value="{{Auth::user()->address}}" class="form-control" placeholder="@lang('custom.placeholder.address')">
                         @error('address') 
                         <span class="text-danger"> {{$message}} </span>
                         @enderror
@@ -57,13 +57,12 @@
                         @enderror
                     </div>
                     <div class="form-group preview-img">
-                        <img src="{{(Auth::user()->avatar) ? Auth::user()->avatar : 'default-img.png'}}" alt="your image" class="img-fluid" />
+                        <img src="{{(Auth::user()->avatar) ? Auth::user()->avatar : 'default-img.png'}}" alt="your image" class="img-fluid rounded-circle" style="max-height: 16rem;" />
                     </div>
                 </div>
                 
                 <div class="col-md-12 text-center">
                     <button type="submit" class="btn btn-outline-reg">@lang('custom.button.submit')</button>
-                    <button type="reset" class="btn btn-outline-reg">@lang('custom.button.reset')</button>
                     <a href="{{route('client.profile')}}" class="btn btn-outline-reg">@lang('custom.button.cancel')</a>
                 </div>
             </form>

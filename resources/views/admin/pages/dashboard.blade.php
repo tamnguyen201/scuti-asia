@@ -3,7 +3,7 @@
 @section('content')
 <div class="row">
     <ol class="breadcrumb">
-        <li><a href="#">
+        <li><a href="{{route('admin.home')}}">
             <em class="fa fa-home"></em>
         </a></li>
         <li class="active">@lang('custom.page_title.dashboard')</li>
@@ -19,8 +19,8 @@
         <div class="col-xs-6 col-md-3 col-lg-3 no-padding">
             <div class="panel panel-orange panel-widget border-right">
                 <div class="row no-padding"><em class="fa fa-xl fa-users color-teal"></em>
-                    <div class="large">{{$data['candidates']}}</div>
-                    <div class="text-muted">@lang('custom.candidate_total')</div>
+                    <div class="large">{{$data['candidate_new']}}</div>
+                    <div>@lang('custom.candidate_new')</div>
                 </div>
             </div>
         </div>
@@ -28,7 +28,7 @@
             <div class="panel panel-teal panel-widget border-right">
                 <div class="row no-padding"><em class="fa-xl fas fa-user-check color-blue"></em>
                     <div class="large">{{$data['candidate_evaluated']}}</div>
-                    <div class="text-muted">@lang('custom.candidate_evaluated')</div>
+                    <div>@lang('custom.candidate_evaluated')</div>
                 </div>
             </div>
         </div>
@@ -36,7 +36,7 @@
             <div class="panel panel-blue panel-widget border-right">
                 <div class="row no-padding"><em class="fa fa-xl fa-user-plus color-orange"></em>
                     <div class="large">{{$data['candidate_accept']}}</div>
-                    <div class="text-muted">@lang('custom.candidate_accept')</div>
+                    <div>@lang('custom.candidate_accept')</div>
                 </div>
             </div>
         </div>
@@ -44,8 +44,44 @@
             <div class="panel panel-red panel-widget ">
                 <div class="row no-padding"><em class="fa fa-xl fa-user-times color-red"></em>
                     <div class="large">{{$data['candidate_failed']}}</div>
-                    <div class="text-muted">@lang('custom.candidate_failed')</div>
+                    <div>@lang('custom.candidate_failed')</div>
                 </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel">
+            <div class="panel-heading">
+                @lang('custom.upcoming_meeting') 
+            </div>
+            <div class="panel-body articles-container" style="padding-top: 0">
+            @if($data['events']['Today']->count() > 0 || $data['events']['Tomorrow']->count() > 0 || $data['events']['NextDay']->count() > 0)
+                @foreach($data['events'] as $key => $events)
+                    @if($events->count() > 0)
+                    <div class="col-md-4" style="padding: 0; border-right: 1px solid">
+                        <div class="panel @if($key == 'Today') panel-danger @elseif($key == 'Tomorrow') panel-warning @elseif($key == 'NextDay') panel-primary @endif">
+                            <div class="panel-heading text-center">{{\CarBon\CarBon::parse($events[0]->start)->format('d/m/Y')}}</div>
+                            <div class="panel-body">
+                                <ul class="todo-list">
+                                @foreach($events as $event)
+                                    <li class="todo-list-item">
+                                        <div class="checkbox">
+                                            <span>{{\CarBon\CarBon::parse($event->start)->format('H:i')}}</span>
+                                            <label for="checkbox-1">{{$event->title}}</label>
+                                        </div>
+                                    </li>
+                                @endforeach
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    @endif
+                @endforeach
+            @else
+            <p>@lang('custom.empty_events')</p>
+            @endif
             </div>
         </div>
     </div>
@@ -59,6 +95,67 @@
             <div class="panel-body">
                 <div class="canvas-wrapper">
                     <canvas class="chart" id="line-chart" height="336" width="1010" style="width: 1010px; height: 336px;"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-default">
+        <div class="panel-heading">@lang('custom.public_post') <div class="pull-right search" style="display: flex">
+                        <input class="form-control" style="margin-right: 10px; height: auto " type="text" id="input-search" placeholder="@lang('custom.placeholder.search')">
+                        <button type="button" id="btn-search" class="btn btn-primary" style="margin: 0px">Tìm</button>
+                    </div>
+                </div>
+            <div class="panel-body table-list-jobs">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>
+                                <div class="th-inner">@lang('custom.stt')</div>
+                            </th>
+                            <th>
+                                <div class="th-inner">@lang('custom.title')</div>
+                            </th>
+                            <th>
+                                <div class="th-inner">@lang('custom.categories')</div>
+                            </th>
+                            <th>
+                                <div class="th-inner">@lang('custom.jobs.date')</div>
+                            </th>
+                            <th>
+                                <div class="th-inner">@lang('custom.status')</div>
+                            </th>
+                            <th>
+                                <div class="th-inner text-center">@lang('custom.jobs.candidate_number')</div>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    @php $stt = 1; @endphp
+                        @foreach($data['jobs'] as $item)
+                        <tr>
+                            <td>{{$stt++}}</td>
+                            <td>{{ $item->name }}</td>
+                            <td>{{ $item->category->category_name }}</td>
+                            <td>
+                                {{ \Carbon\Carbon::parse($item->expireDay)->format('d/m/Y')}}
+                            </td>
+                            <td>
+                                {{ $item->status == 1 ? 'Active' : 'InActive' }}
+                            </td>
+                            <td class="text-center">
+                                <a href="{{ route('job.detail', ['id' => $item->id]) }}" class="btn btn-primary">{{ count($item->user) }} <span class="fa fa-user"></span></a>
+                            </td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+                <div class="fixed-table-pagination">
+                    <div class="pull-right pagination">
+                        {{ $data['jobs']->links() }}
+                    </div>
                 </div>
             </div>
         </div>
@@ -118,5 +215,21 @@
         });
         
     };
+
+    $("#btn-search").on('click', function() {
+        let value = $('#input-search').val();
+        let keyword = value.trim();
+        if (keyword != '') {
+            $.ajax({
+                url: "{{ route('admin.dashboard.search') }}",
+                data: {
+                    'keyword': keyword
+                },
+                method: "POST",
+            }).done(function(results) {
+                $(".table-list-jobs").html(results);
+            });
+        };
+    });
 </script>
 @endsection

@@ -1,4 +1,3 @@
-
 @extends('admin.layout.layout')
 @section('title', trans('custom.page_title.section_manage'))
 @section('content')
@@ -25,16 +24,16 @@
                         @csrf
                         <div class="col-md-6">
                             <div class="form-group @error('name') has-error @enderror">
-                                <label>@lang('custom.name')</label>
-                                <input type="text" name="name" class="form-control" value="{{old('name')}}" placeholder="Please enter full name">
+                                <label class="label-required">@lang('custom.name')</label>
+                                <input type="text" name="name" class="form-control" value="{{old('name')}}" placeholder="@lang('custom.placeholder.name')">
                                 @error('name') 
                                 <span class="help-block"> {{$message}} </span>
                                 @enderror
                             </div>
-                            <div class="form-group @error('map_url') has-error @enderror">
-                                <label>@lang('custom.map_url')</label>
-                                <input type="text" name="map_url" class="form-control" value="{{old('map_url')}}" placeholder="Please enter map_url">
-                                @error('map_url') 
+                            <div class="form-group @error('description') has-error @enderror">
+                                <label>@lang('custom.description')</label>
+                                <textarea name="description" class="form-control" cols="10" rows="12" placeholder="@lang('custom.placeholder.description')">{{old('description')}}</textarea>
+                                @error('description') 
                                 <span class="help-block"> {{$message}} </span>
                                 @enderror
                             </div>
@@ -54,7 +53,7 @@
                         <div class="col-md-12">
                             <div class="form-group @error('content') has-error @enderror">
                                 <label>@lang('custom.content')</label>
-                                <textarea name="content" class="form-control" @error('description') is-invalid @enderror id="exampleFormControlTextarea1" rows="4">{{old('content')}} </textarea>
+                                <textarea name="content" class="form-control" id="exampleFormControlTextarea1" rows="4">{{old('content')}} </textarea>
                                 @error('content') 
                                 <span class="help-block"> {{$message}} </span>
                                 @enderror
@@ -62,9 +61,8 @@
                         </div>
                         
                         <div class="col-md-12 text-center">
-                            <button type="submit" class="btn btn-primary">@lang('custom.button.submit')</button>
-                            <button type="reset" class="btn btn-default">@lang('custom.button.reset')</button>
-                            <a href="{{route('sections.index')}}" class="btn btn-danger">@lang('custom.button.cancel')</a>
+                            <button type="submit" class="btn btn-primary">@lang('custom.button.submit') <em class="fa fa-check"></em></button>
+                            <a href="{{route('sections.index')}}" class="btn btn-danger">@lang('custom.button.cancel') <em class="fa fa-times"></em></a>
                         </div>
                     </form>
                 </div>

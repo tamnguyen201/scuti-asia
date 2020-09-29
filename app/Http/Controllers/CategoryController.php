@@ -5,9 +5,11 @@ namespace App\Http\Controllers;
 use App\Model\Category;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\CategoryRequest;
 use App\Http\Requests\CategoryUpdateRequest;
 use App\Repositories\Category\CategoryRepositoryInterface;
+
 
 class CategoryController extends Controller
 {
@@ -36,7 +38,7 @@ class CategoryController extends Controller
             'category_name' => $request->name,
             'status'=> 0,
             'slug' => Str::slug($request->name),
-            'user_id'=> auth()->id()
+            'user_id'=> Auth::guard('admin')->id()
         ]);
         $categories = $this->categoryRepository->paginate();
         $html = view('admin.category.list', compact('categories'))->render();

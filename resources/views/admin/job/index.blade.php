@@ -26,41 +26,44 @@
             <div class="bootstrap-table">
                 <div class="fixed-table-toolbar">
                     <a href="{{ route('jobs.create') }}" class="btn btn-primary btn-add-form" style="float: right; margin: 1rem"><span class="fa fa-plus"></span> @lang('custom.button.add')</a>
+                    <div class="pull-right search" style="display: flex">
+                        <input class="form-control" style="margin-right: 5px" type="text" id="input-search" placeholder="@lang('custom.placeholder.search')">
+                        <button type="button" id="btn-search" class="btn btn-primary" style="margin: 0px">@lang('custom.button.search')</button>
+                    </div>
                 </div>
                 <div class="fixed-table-container">
                     <div class="fixed-table-body">
                         <table class="table table-hover">
                             <thead>
                                 <tr>
-                                    <th style="">
-                                        <div class="th-inner sortable">@lang('custom.title') :<span class="order"><span class="caret" style="margin: 10px 5px;"></span></span></div>
-                                        <div class="fht-cell"></div>
+                                    <th>
+                                        <div class="th-inner">@lang('custom.stt')</div>
                                     </th>
-                                    <th style="">
-                                        <div class="th-inner sortable">@lang('custom.categories') :<span class="order"><span class="caret" style="margin: 10px 5px;"></span></span></div>
-                                        <div class="fht-cell"></div>
+                                    <th>
+                                        <div class="th-inner">@lang('custom.title')</div>
                                     </th>
-                                    <th style="">
-                                        <div class="th-inner sortable">@lang('custom.jobs.date') :<span class="order"><span class="caret" style="margin: 10px 5px;"></span></span></div>
-                                        <div class="fht-cell"></div>
+                                    <th>
+                                        <div class="th-inner">@lang('custom.categories')</div>
                                     </th>
-                                    <th style="">
-                                        <div class="th-inner sortable">@lang('custom.status') :<span class="order"><span class="caret" style="margin: 10px 5px;"></span></span></div>
-                                        <div class="fht-cell"></div>
+                                    <th>
+                                        <div class="th-inner">@lang('custom.jobs.date')</div>
                                     </th>
-                                    <th style="">
-                                        <div class="th-inner sortable">@lang('custom.jobs.candidate_number') :<span class="order"><span class="caret" style="margin: 10px 5px;"></span></span></div>
-                                        <div class="fht-cell"></div>
+                                    <th>
+                                        <div class="th-inner">@lang('custom.status')</div>
                                     </th>
-                                    <th style="">
-                                        <div class="th-inner sortable text-center">@lang('custom.action')</div>
-                                        <div class="fht-cell"></div>
+                                    <th>
+                                        <div class="th-inner">@lang('custom.jobs.candidate_number')</div>
+                                    </th>
+                                    <th>
+                                        <div class="th-inner text-center">@lang('custom.action')</div>
                                     </th>
                                 </tr>
                             </thead>
-                            <tbody class="table-list-role">
+                            <tbody>
+                                @php $stt = 1; @endphp
                                 @foreach($jobs as $item)
-                                <tr class="data-role-">
+                                <tr>
+                                    <td>{{$stt++}}</td>
                                     <td>{{ $item->name }}</td>
                                     <td>{{ $item->category->category_name }}</td>
                                     <td>
@@ -69,7 +72,7 @@
                                     <td>
                                         <input type="checkbox" data-id="{{ $item->id }}" name="status" class="js-switch" {{ $item->status == 1 ? 'checked' : '' }}>
                                     </td>
-                                    <td><a href="{{ route('candidate.byJob', $item->id) }}" class="btn btn-default">{{ count($item->user) }} <span class="fa fa-user"></span></a></td>
+                                    <td>{{ count($item->user) }}</td>
                                     <td class="text-center">
                                         <a href="{{ route('job.detail', ['id' => $item->id]) }}" class="btn btn-primary text-light view-profile"><em class="fa fa-eye"></em></a>
                                         <a href="{{ route('jobs.edit', $item->id) }}" class="btn btn-primary text-light"><em class="far fa-edit"></em></a> 
@@ -85,6 +88,7 @@
                         </table>
                         <div class="fixed-table-pagination">
                             <div class="pull-right pagination">
+                                {{$jobs->links()}}
                             </div>
                         </div>
                     </div>
@@ -147,6 +151,22 @@
                     }
                 });
             });
+        });
+
+        $("#btn-search").on('click', function() {
+            let value = $('#input-search').val();
+            let keyword = value.trim();
+            if (keyword != '') {
+                $.ajax({
+                    url: "{{ route('admin.job.search') }}",
+                    data: {
+                        'keyword': keyword
+                    },
+                    method: "POST",
+                }).done(function(results) {
+                    $(".fixed-table-body").html(results);
+                });
+            };
         });
 
         $("body").on("click", ".delete-confirm", function (e) {

@@ -10,4 +10,8 @@ class UserJobRepository extends Repository implements UserJobRepositoryInterface
         return \App\Model\UserJob::class;
     }
 
+    public function where($field, $opedaytor = '=' ,$condition)
+    {
+        return $this->model->where($field, $opedaytor ,$condition)->first();
+    }
 }
