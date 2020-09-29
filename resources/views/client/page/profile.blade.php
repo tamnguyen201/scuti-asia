@@ -242,7 +242,7 @@
                                         </table>
                                         @else
                                         <p>@lang('client.page.profile.empty_job_applied')
-                                            <a href="{{route('home')}}/#recruitment">@lang('client.page.profile.apply_job')</a>
+                                            <a class="text-primary" href="{{route('home')}}/#recruitment">@lang('client.page.profile.apply_job')</a>
                                         </p>
                                         @endif
                                     </div>
