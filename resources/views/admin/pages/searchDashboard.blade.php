@@ -15,9 +15,6 @@
                     <div class="th-inner">@lang('custom.jobs.date')</div>
                 </th>
                 <th>
-                    <div class="th-inner">@lang('custom.status')</div>
-                </th>
-                <th>
                     <div class="th-inner text-center">@lang('custom.jobs.candidate_number')</div>
                 </th>
             </tr>
@@ -31,9 +28,6 @@
                 <td>{{ $item->category->category_name }}</td>
                 <td>
                     {{ \Carbon\Carbon::parse($item->expireDay)->format('d/m/Y')}}
-                </td>
-                <td>
-                    {{ $item->status == 1 ? 'Active' : 'InActive' }}
                 </td>
                 <td class="text-center">
                     <a href="{{ route('job.detail', ['id' => $item->id]) }}" class="btn btn-primary">{{ count($item->user) }} <span class="fa fa-user"></span></a>
@@ -62,9 +56,6 @@
                 </th>
                 <th>
                     <div class="th-inner">@lang('custom.jobs.date')</div>
-                </th>
-                <th>
-                    <div class="th-inner">@lang('custom.status')</div>
                 </th>
                 <th>
                     <div class="th-inner text-center">@lang('custom.jobs.candidate_number')</div>

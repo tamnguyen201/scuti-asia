@@ -26,6 +26,7 @@ class EmployeeUpdateRequest extends FormRequest
         return [
             'name' => 'required',
             'email' => 'required|email|unique:admins,email,' . $this->employee,
+            'role' => 'required',
         ];
     }
 
@@ -33,6 +34,7 @@ class EmployeeUpdateRequest extends FormRequest
     {
         return [
             'required' => trans('validation.required'),
+            'email' =>  trans('validation.required'),
             'email.unique' => trans('validation.unique')
         ];
     }

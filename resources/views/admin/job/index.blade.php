@@ -156,17 +156,15 @@
         $("#btn-search").on('click', function() {
             let value = $('#input-search').val();
             let keyword = value.trim();
-            if (keyword != '') {
-                $.ajax({
-                    url: "{{ route('admin.job.search') }}",
-                    data: {
-                        'keyword': keyword
-                    },
-                    method: "POST",
-                }).done(function(results) {
-                    $(".fixed-table-body").html(results);
-                });
-            };
+            $.ajax({
+                url: "{{ route('admin.job.search') }}",
+                data: {
+                    'keyword': keyword
+                },
+                method: "POST",
+            }).done(function(results) {
+                $(".fixed-table-body").html(results);
+            });
         });
 
         $("body").on("click", ".delete-confirm", function (e) {

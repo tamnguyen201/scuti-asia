@@ -20,11 +20,9 @@
             <div class="panel-heading">@lang('custom.page_title.data_table')</div>
                 <div class="panel-body">
                     <div class="bootstrap-table">
-                        @if(Auth::guard('admin')->user()->role == config('common.role.Admin'))
                         <div class="fixed-table-toolbar">
                             <a href="{{route('main-member.create')}}" class="btn btn-primary"><span class="fa fa-plus"></span> @lang('custom.button.add')</a>
                         </div>
-                        @endif
                         <div class="fixed-table-container">
                             <div class="fixed-table-body">
                                 <table class="table table-hover">
@@ -57,14 +55,12 @@
                                             <td>{{$item->position}}</td>
                                             <td class="text-center">
                                                 <a href="{{route('main-member.show', $item->id)}}" class="btn btn-primary text-light view-profile"><em class="fa fa-eye"></em></a>
-                                                @if(Auth::guard('admin')->user()->role == config('common.role.Admin'))
                                                 <a href="{{route('main-member.edit', $item->id)}}" class="btn btn-primary text-light"><em class="far fa-edit"></em></a> 
                                                 <form action="{{route('main-member.destroy', $item->id)}}" method="post" class="form-delete-{{$item->id}}" style="display: inline">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button class="btn btn-danger text-light delete-confirm" idDelete={{$item->id}}><em class="fas fa-trash-alt"></em></button>
                                                 </form>
-                                                @endif
                                             </td>
                                         </tr>
                                         @endforeach

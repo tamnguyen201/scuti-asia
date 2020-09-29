@@ -65,11 +65,11 @@
                                         <td colspan="2">{{$company->address}}</td>
                                     </tr>
                                     <tr>
-                                        <td>@lang('custom.address')</td>
+                                        <td>@lang('custom.facebook')</td>
                                         <td colspan="2">{{$company->facebook_page}}</td>
                                     </tr>
                                     <tr>
-                                        <td>@lang('custom.address')</td>
+                                        <td>@lang('custom.youtube')</td>
                                         <td colspan="2">{{$company->youtube_page}}</td>
                                     </tr>
                                 </tbody>

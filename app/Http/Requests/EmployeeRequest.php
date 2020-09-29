@@ -26,6 +26,7 @@ class EmployeeRequest extends FormRequest
         return [
             'name' => 'required',
             'email' => 'required|email|unique:admins,email',
+            'role' => 'required',
         ];
     }
 
@@ -33,6 +34,7 @@ class EmployeeRequest extends FormRequest
     {
         return [
             'required' => trans('validation.required'),
+            'email' => trans('validation.required'),
             'email.unique' => trans('validation.unique')
         ];
     }

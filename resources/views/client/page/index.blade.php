@@ -391,7 +391,7 @@
                     </div>
                 </div>
                 <div class="col-lg-12">
-                    <div class="list-group col-12 list-jobs p-3" style="border-radius: 10px;background-color: #fff;box-shadow: 0px 0px 5px grey;">
+                    <div class="list-group col-12 list-jobs p-3" style="border-radius: 10px;background-color: #fff;">
                         <div class="row col-lg-12 d-flex">
                             @foreach($data['jobs'] as $job)
                                 <div class="d-md-flex col-lg-6 col-12 d-block development">
@@ -405,7 +405,7 @@
                                             </div>
                                         </div>
                                         <div class="col-xl-5 col-md-6 d-none d-md-block text-md-right text-center">
-                                            <a href="{{route('client.applied', [$job->id, $job->slug])}}" class="btn btn-apply-main btn-apply">@lang('client.section.recruitment.apply')</a>
+                                            <a href="{{route('client.applied', [$job->id, $job->slug])}}" class="btn btn-apply-main btn-apply font-weight-bold">@lang('client.section.recruitment.apply')</a>
                                             <p class="desc-job text-left mt-1">
                                                 <i class="far fa-money-bill-alt"></i> @lang('client.section.recruitment.salary'): {{$job->salary}} <br>
                                                 <i class="fas fa-map-marker-alt"></i> @lang('client.section.recruitment.work_place'): {{$job->location->name}} <br>
@@ -505,18 +505,16 @@
             let value = $('#input-search').val();
             let keyword = value.trim();
             let category_id = $('#input-category').val();
-            if (keyword != '') {
-                $.ajax({
-                    url: "{{ route('client.jobSearch') }}",
-                    data: {
-                        'keyword': keyword,
-                        'category_id': category_id
-                    },
-                    method: "POST",
-                }).done(function(results) {
-                    $(".list-group.col-12.list-jobs").html(results);
-                });
-            };
+            $.ajax({
+                url: "{{ route('client.jobSearch') }}",
+                data: {
+                    'keyword': keyword,
+                    'category_id': category_id
+                },
+                method: "POST",
+            }).done(function(results) {
+                $(".list-group.col-12.list-jobs").html(results);
+            });
         });
 
     </script>
