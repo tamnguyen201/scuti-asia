@@ -326,9 +326,9 @@ class RoleSeeder extends Seeder
         DB::table('cvs')->insert([
             ['id'=>1,'user_id' => 1, 'cv_name' => 'CV1', 'cv_url' => 'cvs/cv.pdf'],
             ['id'=>2,'user_id' => 2, 'cv_name' => 'CV2', 'cv_url' => 'cvs/cv2.pdf'],
-            ['id'=>3,'user_id' => 3, 'cv_name' => 'CV3', 'cv_url' => 'http://congstudio.vn/product_images/z/320/chup_anh_profile_tai_ha_noi_cong_studio_4__09337_thumb.jpg'],
-            ['id'=>4,'user_id' => 4, 'cv_name' => 'CV4', 'cv_url' => 'http://congstudio.vn/product_images/z/320/chup_anh_profile_tai_ha_noi_cong_studio_4__09337_thumb.jpg'],
-            ['id'=>5,'user_id' => 5, 'cv_name' => 'CV5', 'cv_url' => 'http://congstudio.vn/product_images/z/320/chup_anh_profile_tai_ha_noi_cong_studio_4__09337_thumb.jpg'],
+            ['id'=>3,'user_id' => 3, 'cv_name' => 'CV3', 'cv_url' => 'cvs/cv3.pdf'],
+            ['id'=>4,'user_id' => 4, 'cv_name' => 'CV4', 'cv_url' => 'cvs/cv4.pdf'],
+            ['id'=>5,'user_id' => 5, 'cv_name' => 'CV5', 'cv_url' => 'cvs/cv5.pdf'],
         ]);
         DB::table('user_job')->insert([
             ['id'=>1, 'user_id' => 1, 'cv_file' => 'cvs/cv.pdf', 'job_id' => 1, 'letter' => 'Cảm ơn', 'status' => 0, 'result' => 0, 'created_at' => \Carbon\Carbon::parse('11-06-2020 03:26:49')->format('Y-m-d H:i:s')],
