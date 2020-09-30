@@ -257,25 +257,25 @@
                                             <ul id="progressbar">
                                                 <li class="active" step="0" id="account"><strong> @lang('client.page.apply.process.apply') </strong> <br> <span>{{\Carbon\Carbon::parse($data['apply']->created_at)->format('d/m/Y')}}</span></li>
                                                 @if(isset($data['apply']->process[0]->evaluate) && $data['apply']->process[0]->evaluate->status == 1)
-                                                <li class="active" step="1" id="personal"><strong>{{$data['apply']->process[0]->name}}</strong><br> <span>{{\Carbon\Carbon::parse($data['apply']->process[0]->evaluate->created_at)->format('d/m/Y')}}</span></li>
+                                                <li class="active" step="1" id="personal"><strong>@lang('client.page.apply.process.evaluate')</strong><br> <span>{{\Carbon\Carbon::parse($data['apply']->process[0]->created_at)->format('d/m/Y')}}</span></li>
                                                 @elseif(isset($data['apply']->process[0]->evaluate) && $data['apply']->process[0]->evaluate->status == 0)
-                                                <li class="inactive" step="1" id="personal"><strong>{{$data['apply']->process[0]->name}}</strong><br> <span>{{\Carbon\Carbon::parse($data['apply']->process[0]->evaluate->created_at)->format('d/m/Y')}}</span></li>
+                                                <li class="inactive" step="1" id="personal"><strong>@lang('client.page.apply.process.evaluate')</strong><br> <span>{{\Carbon\Carbon::parse($data['apply']->process[0]->created_at)->format('d/m/Y')}}</span></li>
                                                 @else
-                                                <li step="1" id="personal"><strong>Đánh Giá</strong></li>
+                                                <li step="1" id="personal"><strong>@lang('client.page.apply.process.evaluate')</strong></li>
                                                 @endif
                                                 @if(isset($data['apply']->process[1]->evaluate) && $data['apply']->process[1]->evaluate->status == 1)
-                                                <li class="active" step="2" id="payment"><strong>{{$data['apply']->process[1]->name}}</strong><br> <span>{{\Carbon\Carbon::parse($data['apply']->process[1]->evaluate->created_at)->format('d/m/Y')}}</span></li>
+                                                <li class="active" step="2" id="payment"><strong>@lang('client.page.apply.process.interview')</strong><br> <span>{{\Carbon\Carbon::parse($data['apply']->process[1]->created_at)->format('d/m/Y')}}</span></li>
                                                 @elseif(isset($data['apply']->process[1]->evaluate) && $data['apply']->process[1]->evaluate->status == 0)
-                                                <li class="inactive" step="2" id="payment"><strong>{{$data['apply']->process[1]->name}}</strong><br> <span>{{\Carbon\Carbon::parse($data['apply']->process[1]->evaluate->created_at)->format('d/m/Y')}}</span></li>
+                                                <li class="inactive" step="2" id="payment"><strong>@lang('client.page.apply.process.interview')</strong><br> <span>{{\Carbon\Carbon::parse($data['apply']->process[1]->created_at)->format('d/m/Y')}}</span></li>
                                                 @else
-                                                <li step="2" id="payment"><strong>Phỏng Vấn</strong></li>
+                                                <li step="2" id="payment"><strong>@lang('client.page.apply.process.interview')</strong></li>
                                                 @endif
                                                 @if(isset($data['apply']->process[2]->evaluate) && $data['apply']->process[2]->evaluate->status == 1)
-                                                <li class="active" step="3" id="confirm"><strong>Hoàn Thành</strong><br> <span>{{\Carbon\Carbon::parse($data['apply']->process[2]->evaluate->created_at)->format('d/m/Y')}}</span></li>
+                                                <li class="active" step="3" id="confirm"><strong>@lang('client.page.apply.process.finish')</strong><br> <span>{{\Carbon\Carbon::parse($data['apply']->process[2]->created_at)->format('d/m/Y')}}</span></li>
                                                 @elseif(isset($data['apply']->process[2]->evaluate) && $data['apply']->process[2]->evaluate->status == 0)
-                                                <li class="inactive" step="3" id="confirm"><strong>Hoàn Thành</strong><br> <span>{{\Carbon\Carbon::parse($data['apply']->process[2]->evaluate->created_at)->format('d/m/Y')}}</span></li>
+                                                <li class="inactive" step="3" id="confirm"><strong>@lang('client.page.apply.process.finish')</strong><br> <span>{{\Carbon\Carbon::parse($data['apply']->process[2]->created_at)->format('d/m/Y')}}</span></li>
                                                 @else
-                                                <li step="3" id="confirm"><strong>Hoàn Thành</strong></li>
+                                                <li step="3" id="confirm"><strong>@lang('client.page.apply.process.finish')</strong></li>
                                                 @endif
                                             </ul>
                                             <fieldset class="col-lg-10 mx-auto">
@@ -296,8 +296,7 @@
                                                 <input type="button" name="next" class="next action-button" value="@lang('custom.button.next')" />
                                                 @endif
                                             </fieldset>
-                                            @foreach($data['apply']->process as $key => $process)
-                                            @if($key != 2)
+                                            @if(isset($data['apply']->process[0]) && $data['apply']->process[0]->step == 1)
                                             <fieldset class="col-lg-10 mx-auto">
                                                 <div class="form-card">
                                                     <div class="row">
@@ -305,21 +304,20 @@
                                                             <h2 class="fs-title">@lang('client.page.apply.process.info')</h2>
                                                         </div>
                                                         <div class="col-5">
-                                                            <h2 class="steps">@lang('client.page.apply.step') {{$process->step + 1 . ' - ' . $process->name}}</h2>
+                                                            <h2 class="steps">@lang('client.page.apply.step') {{$data['apply']->process[0]->step + 1 . ' - ' . trans('client.page.apply.process.evaluate')}}</h2>
                                                         </div>
                                                     </div> 
                                                     <div class="row col-lg-11 mx-auto">
-                                                        <p>{{$process->evaluate->reason}}</p>
+                                                        <p>{{($data['apply']->process[0]->evaluate) ? $data['apply']->process[0]->evaluate->reason : ''}}</p>
                                                     </div>
                                                 </div> 
-                                                @if($key < $data['apply']->process->count() - 1)
+                                                @if(isset($data['apply']->process[1]) && $data['apply']->process[1]->step == 2)
                                                 <input type="button" name="next" class="next action-button" value="@lang('custom.button.next')" />
                                                 @endif
-                                                @if($key < 3)
                                                 <input type="button" name="previous" class="previous action-button-previous" value="@lang('custom.button.previous')" />
-                                                @endif
                                             </fieldset>
-                                            @else
+                                            @endif
+                                            @if(isset($data['apply']->process[1]) && $data['apply']->process[1]->step == 2)
                                             <fieldset class="col-lg-10 mx-auto">
                                                 <div class="form-card">
                                                     <div class="row">
@@ -327,7 +325,28 @@
                                                             <h2 class="fs-title">@lang('client.page.apply.process.info')</h2>
                                                         </div>
                                                         <div class="col-5">
-                                                            <h2 class="steps">@lang('client.page.apply.step') {{$process->step}} - {{$process->name}}</h2>
+                                                            <h2 class="steps">@lang('client.page.apply.step') {{$data['apply']->process[1]->step + 1 . ' - ' . trans('client.page.apply.process.interview')}}</h2>
+                                                        </div>
+                                                    </div> 
+                                                    <div class="row col-lg-11 mx-auto">
+                                                        <p>{{($data['apply']->process[1]->evaluate) ? $data['apply']->process[1]->evaluate->reason : trans('client.page.apply.process.finish_pass_message')}}</p>
+                                                    </div>
+                                                </div> 
+                                                @if(isset($data['apply']->process[2]))
+                                                <input type="button" name="next" class="next action-button" value="@lang('custom.button.next')" />
+                                                @endif
+                                                <input type="button" name="previous" class="previous action-button-previous" value="@lang('custom.button.previous')" />
+                                            </fieldset>
+                                            @endif
+                                            @if(isset($data['apply']->process[2]) && $data['apply']->process[2]->step == 3)
+                                            <fieldset class="col-lg-10 mx-auto">
+                                                <div class="form-card">
+                                                    <div class="row">
+                                                        <div class="col-7">
+                                                            <h2 class="fs-title">@lang('client.page.apply.process.info')</h2>
+                                                        </div>
+                                                        <div class="col-5">
+                                                            <h2 class="steps">@lang('client.page.apply.step') {{$data['apply']->process[2]->step + 1 . ' - ' . trans('client.page.apply.process.finish')}}</h2>
                                                         </div>
                                                     </div> <br><br>
                                                     <h2 class="purple-text text-center"><strong>@lang('client.page.apply.process.finish')</strong></h2> <br>
@@ -336,13 +355,34 @@
                                                     </div> <br><br>
                                                     <div class="row justify-content-center">
                                                         <div class="col-7 text-center">
-                                                            <h5 class="purple-text text-center">{{($process->reason) ? $process->reason : trans('client.page.apply.finish')}}</h5>
+                                                            <h5 class="purple-text text-center">{{($data['apply']->process[2]->evaluate) ? $data['apply']->process[2]->evaluate->reason : trans('client.page.apply.process.finish_fail_message')}}</h5>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </fieldset>
+                                            @elseif(isset($data['apply']->process[2]) && $data['apply']->process[2]->step == 4)
+                                            <fieldset class="col-lg-10 mx-auto">
+                                                <div class="form-card">
+                                                    <div class="row">
+                                                        <div class="col-7">
+                                                            <h2 class="fs-title">@lang('client.page.apply.process.info')</h2>
+                                                        </div>
+                                                        <div class="col-5">
+                                                            <h2 class="steps">@lang('client.page.apply.step') {{$data['apply']->process[2]->step . ' - ' . trans('client.page.apply.process.finish')}}</h2>
+                                                        </div>
+                                                    </div> <br><br>
+                                                    <h2 class="purple-text text-center"><strong>@lang('client.page.apply.process.finish')</strong></h2> <br>
+                                                    <div class="row justify-content-center">
+                                                        <div class="col-3"> <img src="https://www.suunto.com/contentassets/1fda3e7d222d45e49282f7d13439c7db/icon-success.png" class="fit-image"> </div>
+                                                    </div> <br><br>
+                                                    <div class="row justify-content-center">
+                                                        <div class="col-7 text-center">
+                                                            <h5 class="purple-text text-center">{{($data['apply']->process[2]->evaluate) ? $data['apply']->process[2]->evaluate->reason : trans('client.page.apply.finish')}}</h5>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </fieldset>
                                             @endif
-                                            @endforeach
                                         </form>
                                     </div>
                                 </div>

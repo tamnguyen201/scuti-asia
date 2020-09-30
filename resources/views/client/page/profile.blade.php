@@ -214,20 +214,22 @@
                                                         @if( $i == auth()->user()->user_job[$key]->process->count() - 1)
                                                         <td>
                                                             <span @if (auth()->user()->user_job[$key]->process[$i])
-                                                            @switch($i)
-                                                                @case(0)
-                                                                class="badge badge-primary"
-                                                                @break
+                                                            @switch(auth()->user()->user_job[$key]->process[$i]->step)
                                                                 @case(1)
                                                                 class="badge badge-info"
                                                                 @break
                                                                 @case(2)
+                                                                class="badge badge-primary"
+                                                                @break
+                                                                @case(3)
                                                                 class="badge badge-success"
+                                                                @break
+                                                                @case(4)
+                                                                class="badge badge-danger"
                                                                 @break
                                                             @endswitch
                                                             @endif>
                                                             {{ auth()->user()->user_job[$key]->process[$i]->name }}
-
                                                             </span>
                                                         </td>
                                                         @endif
