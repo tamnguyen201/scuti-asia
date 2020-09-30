@@ -8,7 +8,7 @@
     <meta name="description" content="Juno business HTML landing page template helps you easily create efficient compact websites for businesses and present your services to the online audience.">
     <meta name="author" content="Inovatik">
 	<!-- Favicon  -->
-    <link rel="icon" href="https://www.scuti.asia/uploads/6/1/9/4/61941893/1447994901.png">
+    <link rel="icon" href="{{$data_share->logo}}">
 
     <!-- OG Meta Tags to improve the way the post looks when you share the page on LinkedIn, Facebook, Google+ -->
 	<meta property="og:site_name" content="" /> <!-- website name -->

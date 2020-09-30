@@ -143,7 +143,7 @@ class RoleSeeder extends Seeder
             ['id'=>6, 'name' => 'Nhóm Của Chúng Tôi', 'slug' => Str::slug('Nhóm Của Chúng Tôi'), 'description' => '', 'content' => '', 'image' => ''],
             ['id'=>7, 'name' => 'Quyền Lợi Khi Gia Nhập Với Chúng Tôi', 'slug' => Str::slug('Quyền Lợi Khi Gia Nhập Với Chúng Tôi'), 'description' => '', 'content' => '', 'image' => ''],
             ['id'=>8, 'name' => 'Báo Chí Nói Về Chúng Tôi', 'slug' => Str::slug('Báo Chí Nói Về Chúng Tôi'), 'description' => 'Scuti đã vinh dự nhận được nhiều bằng khen, giải thưởng các cấp vinh danh những đóng góp và thành tích của công ty trong hoạt động sản xuất kinh doanh, hoạt động cộng đồng xã hội và sự nghiệp xây dựng, bảo vệ Tổ quốc.', 'content' => '', 'image' => ''],
-            ['id'=>9, 'name' => 'Ghé Thăm Chúng Tôi', 'slug' => Str::slug('Ghé Thăm Chúng Tôi'), 'description' => 'Đừng ngần ngại gọi cho chúng tôi hoặc gửi tin nhắn liên hệ cho chúng tôi!', 'content' => '', 'image' => 'images/ceo.jpg'],
+            ['id'=>9, 'name' => 'Đặt Lịch Hẹn Với CEO', 'slug' => Str::slug('Đặt Lịch Hẹn Với CEO'), 'description' => 'Đừng ngần ngại gọi cho chúng tôi hoặc gửi tin nhắn liên hệ cho chúng tôi!', 'content' => '', 'image' => 'images/ceo.jpg'],
             ['id'=>10, 'name' => 'Quy Trình Tuyển Dụng', 'slug' => Str::slug('Quy Trình Tuyển Dụng'), 'description' => 'Chúng tôi luôn tìm kiếm những người tuyệt vời! Nếu bạn chưa tìm thấy cơ hội phù hợp hiện tại, nhưng tin rằng bạn có thể trở thành 1 phần của Scuti, hãy gửi thông tin cho chúng tôi.', 
                 'content' => 
                 '<div class="col-lg-10 mx-auto row py-3">
@@ -326,16 +326,17 @@ class RoleSeeder extends Seeder
         DB::table('cvs')->insert([
             ['id'=>1,'user_id' => 1, 'cv_name' => 'CV1', 'cv_url' => 'cvs/cv.pdf'],
             ['id'=>2,'user_id' => 2, 'cv_name' => 'CV2', 'cv_url' => 'cvs/cv2.pdf'],
-            ['id'=>3,'user_id' => 3, 'cv_name' => 'CV3', 'cv_url' => 'http://congstudio.vn/product_images/z/320/chup_anh_profile_tai_ha_noi_cong_studio_4__09337_thumb.jpg'],
-            ['id'=>4,'user_id' => 4, 'cv_name' => 'CV4', 'cv_url' => 'http://congstudio.vn/product_images/z/320/chup_anh_profile_tai_ha_noi_cong_studio_4__09337_thumb.jpg'],
-            ['id'=>5,'user_id' => 5, 'cv_name' => 'CV5', 'cv_url' => 'http://congstudio.vn/product_images/z/320/chup_anh_profile_tai_ha_noi_cong_studio_4__09337_thumb.jpg'],
+            ['id'=>3,'user_id' => 3, 'cv_name' => 'CV3', 'cv_url' => 'cvs/cv3.pdf'],
+            ['id'=>4,'user_id' => 4, 'cv_name' => 'CV4', 'cv_url' => 'cvs/cv4.pdf'],
+            ['id'=>5,'user_id' => 5, 'cv_name' => 'CV5', 'cv_url' => 'cvs/cv5.pdf'],
         ]);
         DB::table('user_job')->insert([
             ['id'=>1, 'user_id' => 1, 'cv_file' => 'cvs/cv.pdf', 'job_id' => 1, 'letter' => 'Cảm ơn', 'status' => 0, 'result' => 0, 'created_at' => \Carbon\Carbon::parse('11-06-2020 03:26:49')->format('Y-m-d H:i:s')],
             ['id'=>2, 'user_id' => 2, 'cv_file' => 'cvs/cv2.pdf', 'job_id' => 2, 'letter' => 'Cảm ơn', 'status' => 0, 'result' => 0, 'created_at' => \Carbon\Carbon::parse('12-07-2020 03:26:49')->format('Y-m-d H:i:s')],
             ['id'=>3, 'user_id' => 2, 'cv_file' => 'cvs/cv2.pdf', 'job_id' => 3, 'letter' => 'Cảm ơn', 'status' => 0, 'result' => 0, 'created_at' => \Carbon\Carbon::parse('20-08-2020 03:26:49')->format('Y-m-d H:i:s')],
-            ['id'=>4, 'user_id' => 3, 'cv_file' => 'http://congstudio.vn/product_images/z/320/chup_anh_profile_tai_ha_noi_cong_studio_4__09337_thumb.jpg', 'job_id' => 4, 'letter' => 'Cảm ơn', 'status' => 0, 'result' => 0, 'created_at' => \Carbon\Carbon::parse('01-09-2020 03:26:49')->format('Y-m-d H:i:s')],
-            ['id'=>5, 'user_id' => 4, 'cv_file' => 'http://congstudio.vn/product_images/z/320/chup_anh_profile_tai_ha_noi_cong_studio_4__09337_thumb.jpg', 'job_id' => 5, 'letter' => 'Cảm ơn', 'status' => 1, 'result' => 1, 'created_at' => \Carbon\Carbon::parse('09-09-2020 03:26:49')->format('Y-m-d H:i:s')],
+            ['id'=>4, 'user_id' => 3, 'cv_file' => 'cvs/cv3.pdf', 'job_id' => 4, 'letter' => 'Cảm ơn', 'status' => 0, 'result' => 0, 'created_at' => \Carbon\Carbon::parse('01-09-2020 03:26:49')->format('Y-m-d H:i:s')],
+            ['id'=>5, 'user_id' => 4, 'cv_file' => 'cvs/cv4.pdf', 'job_id' => 5, 'letter' => 'Cảm ơn', 'status' => 1, 'result' => 1, 'created_at' => \Carbon\Carbon::parse('09-09-2020 03:26:49')->format('Y-m-d H:i:s')],
+            ['id'=>6, 'user_id' => 5, 'cv_file' => 'cvs/cv5.pdf', 'job_id' => 1, 'letter' => 'Cảm ơn', 'status' => 0, 'result' => 0, 'created_at' => \Carbon\Carbon::parse('28-09-2020 03:26:49')->format('Y-m-d H:i:s')],
         ]);
         DB::table('process')->insert([
             ['id'=>1, 'step' => 1, 'name' => 'Đánh Giá', 'user_job_id' => 1],

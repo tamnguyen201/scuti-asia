@@ -64,7 +64,27 @@
                                             <td>{{$stt++}}</td>
                                             <td>{{$item->name}}</td>
                                             <td>{{$item->email}}</td>
-                                            <td>{{$item->roleName()}}</td>
+                                            <td>
+                                                <span @if ($item->role)
+                                                @switch($item->role)
+                                                    @case(0)
+                                                    class="label label-primary"
+                                                    @break
+                                                    @case(1)
+                                                    class="label label-success"
+                                                    @break
+                                                    @case(2)
+                                                    class="label label-warning"
+                                                    @break
+                                                    @case(3)
+                                                    class="label label-info"
+                                                    @break
+                                                @endswitch
+                                                @endif>
+                                                {{ $item->roleName() }}
+
+                                                </span>
+                                            </td>
                                             @if(Auth::guard('admin')->user()->role == config('common.role.Admin'))
                                             <td>
                                                 <input type="checkbox" data-id="{{ $item->id }}" name="status" class="js-switch" {{ $item->status == 1 ? 'checked' : '' }}>

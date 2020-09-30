@@ -119,6 +119,7 @@ return [
         'url' => 'Vui lòng nhập thông tin đường dẫn liên kết',
         'position' =>  'Vui lòng nhập thông tin vị trí',
         'search' =>  'Nhập từ khóa',
+        'role' => 'Chọn Chức Vụ'
     ],
 
     'button' => [
