@@ -86,7 +86,6 @@ class EvaluateController extends Controller
             $dataUser =$this->candidateRepository->show($candidateById->id);
             $dataAdmin = $this->adminRepository->all();
             $data = Event::where('user_id', $candidateById->id)->get();
-            // $color = Config::get('common.color');
             
 
             return view('admin.evaluate.evaluate_process' , compact('allProcess','processById','data','candidateById','calendar','dataUser','dataAdmin','jobById'));
