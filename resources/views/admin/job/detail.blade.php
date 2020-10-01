@@ -154,11 +154,11 @@
                                                                 @if ($candidate->process[$i]->step == '3' && $candidate->result == 1)
                                                                     <span class="label label-success">Ứng viên đã chấp nhận
                                                                         công việc</span>
-                                                                @elseif($candidate->process[$i]->step == '3' && $candidate->result == 0 )
+                                                                @elseif($candidate->process[$i]->step == '3' && $candidate->result == 2 && $candidate->result != null)
                                                                     <span class="label label-primary">Ứng viên đã không nhận
                                                                         công việc</span>
-                                                                {{-- @elseif($candidate->process[$i]->step == '3' && $candidate->result == null)
-                                                                    <span class="label label-success">Đang chờ ứng viên phản hồi</span> --}}
+                                                                @elseif($candidate->process[$i]->step == '3' && $candidate->result == null)
+                                                                    <span class="label label-success">Đang chờ ứng viên phản hồi</span>
                                                                 @endif
                                                             @elseif($candidate->process[$i]->step = 4)
                                                                 <p class="label label-danger">

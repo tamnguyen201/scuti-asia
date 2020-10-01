@@ -344,7 +344,7 @@ class EvaluateController extends Controller
         $user_job_id =$processById->user_job->id;
         
         UserJob::find($user_job_id)->update([
-            'result' => ($request->status) ? 1 : 0
+            'result' => ($request->status) ? 1 : 2
         ]);
 
         return redirect()->route('admin.home');
