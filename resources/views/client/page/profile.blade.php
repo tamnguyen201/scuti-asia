@@ -177,7 +177,7 @@
                                             </tbody>
                                         </table>
                                         @else
-                                        <p>@lang('client.page.profile.empty_cv') <a href="{{route('client.create_cv')}}" class="btn btn-primary mx-5 btn-upload-form">@lang('client.page.profile.create_cv')</a></p>
+                                        <p>@lang('client.page.profile.empty_cv') <a href="{{route('client.create_cv')}}" class="btn btn-primary mx-5 text-white btn-upload-form">@lang('client.page.profile.create_cv')</a></p>
                                         @endif
                                     </div>
                                 </div>

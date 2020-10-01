@@ -107,7 +107,7 @@ class EvaluateController extends Controller
 
             $user_job_id = $processById->user_job->id;
             UserJob::find($user_job_id)->update([
-                'status' =>1
+                'status' =>1,
             ]);
 
             return view('admin.evaluate.evaluate_process' , compact('allProcess','processById','data','candidateById','calendar','dataUser','dataAdmin','jobById'));
@@ -344,7 +344,7 @@ class EvaluateController extends Controller
         $user_job_id =$processById->user_job->id;
         
         UserJob::find($user_job_id)->update([
-            'result' => ($request->status) ? 1 : 2
+            'result' => ($request->status) ? 1 : 0
         ]);
 
         return redirect()->route('admin.home');

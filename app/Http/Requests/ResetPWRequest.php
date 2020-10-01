@@ -3,8 +3,9 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Symfony\Component\HttpFoundation\Request;
 
-class NewSpaperUpdateRequest extends FormRequest
+class ResetPWRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,10 +25,7 @@ class NewSpaperUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required|unique:new_spapers,title,' . $this->new_spaper,
-            'image' => 'nullable|mimes:jpeg,jpg,png,gif|max:10000',
-            'url' => 'required',
-            'description' => 'required',
+            'new_password' => 'required|min:6|confirmed'
         ];
     }
 
@@ -35,8 +33,8 @@ class NewSpaperUpdateRequest extends FormRequest
     {
         return [
             'required' => trans('validation.required'),
-            'mimes' => trans('validation.mimes'),
-            'max' => trans('validation.max'),
+            'confirmed' => trans('validation.confirmed'),
+            'min' => trans('validation.min'),
         ];
     }
 }

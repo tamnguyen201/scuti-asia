@@ -155,13 +155,9 @@
                                                                     <span class="label label-success">Ứng viên đã chấp nhận
                                                                         công việc</span>
                                                                 @elseif($candidate->process[$i]->step == '3' &&
-                                                                    $candidate->result == 2 && $candidate->result != null)
-                                                                    <span class="label label-primary">Ứng viên đã không nhận
-                                                                        công việc</span>
-                                                                @elseif($candidate->process[$i]->step == '3' &&
-                                                                    $candidate->result == null)
-                                                                    <span class="label label-success">Đang chờ ứng viên phản
-                                                                        hồi</span>
+                                                                    $candidate->result == 0)
+                                                                    <span class="label label-danger">Ứng viên đã bị loại</span>
+        
                                                                 @endif
                                                             @elseif($candidate->process[$i]->step = 4)
                                                                 <p class="label label-danger">
@@ -241,11 +237,7 @@
                         url: "{{ route('candidates.search') }}",
                         data: {
                             'keyword': keyword,
-                            'job_id': {
-                                {
-                                    $jobById - > id
-                                }
-                            }
+                            'job_id': {{ $jobById -> id }}
                         },
                         method: "POST",
                     }).done(function(results) {
@@ -256,6 +248,7 @@
 
             $('.view-profile').on('click', function(event) {
                 event.preventDefault();
+                console.log(1);
                 let url = $(this).attr('href');
                 $.get(url)
                     .done(function(results) {
