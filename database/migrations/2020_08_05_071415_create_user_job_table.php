@@ -20,7 +20,7 @@ class CreateUserJobTable extends Migration
             $table->string('cv_file');
             $table->boolean('status')->default(0);
             $table->string('letter')->nullable();
-            $table->boolean('result')->default(0);
+            $table->boolean('result')->nullable();
             $table->timestamps();
             
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');

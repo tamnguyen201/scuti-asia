@@ -1,0 +1,11 @@
+.content p{
+    word-break: break-all;
+}
+
+td {
+    text-align: center;
+}
+
+th{
+    text-align: center;
+}
