@@ -331,12 +331,12 @@ class RoleSeeder extends Seeder
             ['id'=>5,'user_id' => 5, 'cv_name' => 'CV5', 'cv_url' => 'cvs/cv5.pdf'],
         ]);
         DB::table('user_job')->insert([
-            ['id'=>1, 'user_id' => 1, 'cv_file' => 'cvs/cv.pdf', 'job_id' => 1, 'letter' => 'Cảm ơn', 'status' => 0, 'result' => 0, 'created_at' => \Carbon\Carbon::parse('11-06-2020 03:26:49')->format('Y-m-d H:i:s')],
-            ['id'=>2, 'user_id' => 2, 'cv_file' => 'cvs/cv2.pdf', 'job_id' => 2, 'letter' => 'Cảm ơn', 'status' => 0, 'result' => 0, 'created_at' => \Carbon\Carbon::parse('12-07-2020 03:26:49')->format('Y-m-d H:i:s')],
-            ['id'=>3, 'user_id' => 2, 'cv_file' => 'cvs/cv2.pdf', 'job_id' => 3, 'letter' => 'Cảm ơn', 'status' => 0, 'result' => 0, 'created_at' => \Carbon\Carbon::parse('20-08-2020 03:26:49')->format('Y-m-d H:i:s')],
-            ['id'=>4, 'user_id' => 3, 'cv_file' => 'cvs/cv3.pdf', 'job_id' => 4, 'letter' => 'Cảm ơn', 'status' => 0, 'result' => 0, 'created_at' => \Carbon\Carbon::parse('01-09-2020 03:26:49')->format('Y-m-d H:i:s')],
-            ['id'=>5, 'user_id' => 4, 'cv_file' => 'cvs/cv4.pdf', 'job_id' => 5, 'letter' => 'Cảm ơn', 'status' => 1, 'result' => 1, 'created_at' => \Carbon\Carbon::parse('09-09-2020 03:26:49')->format('Y-m-d H:i:s')],
-            ['id'=>6, 'user_id' => 5, 'cv_file' => 'cvs/cv5.pdf', 'job_id' => 1, 'letter' => 'Cảm ơn', 'status' => 0, 'result' => 0, 'created_at' => \Carbon\Carbon::parse('28-09-2020 03:26:49')->format('Y-m-d H:i:s')],
+            ['id'=>1, 'user_id' => 1, 'cv_file' => 'cvs/cv.pdf', 'job_id' => 1, 'letter' => 'Cảm ơn', 'status' => 0,  'created_at' => \Carbon\Carbon::parse('11-06-2020 03:26:49')->format('Y-m-d H:i:s')],
+            ['id'=>2, 'user_id' => 2, 'cv_file' => 'cvs/cv2.pdf', 'job_id' => 2, 'letter' => 'Cảm ơn', 'status' => 0,  'created_at' => \Carbon\Carbon::parse('12-07-2020 03:26:49')->format('Y-m-d H:i:s')],
+            ['id'=>3, 'user_id' => 2, 'cv_file' => 'cvs/cv2.pdf', 'job_id' => 3, 'letter' => 'Cảm ơn', 'status' => 0,  'created_at' => \Carbon\Carbon::parse('20-08-2020 03:26:49')->format('Y-m-d H:i:s')],
+            ['id'=>4, 'user_id' => 3, 'cv_file' => 'cvs/cv3.pdf', 'job_id' => 4, 'letter' => 'Cảm ơn', 'status' => 0,  'created_at' => \Carbon\Carbon::parse('01-09-2020 03:26:49')->format('Y-m-d H:i:s')],
+            ['id'=>5, 'user_id' => 4, 'cv_file' => 'cvs/cv4.pdf', 'job_id' => 5, 'letter' => 'Cảm ơn', 'status' => 1,  'created_at' => \Carbon\Carbon::parse('09-09-2020 03:26:49')->format('Y-m-d H:i:s')],
+            ['id'=>6, 'user_id' => 5, 'cv_file' => 'cvs/cv5.pdf', 'job_id' => 1, 'letter' => 'Cảm ơn', 'status' => 0,  'created_at' => \Carbon\Carbon::parse('28-09-2020 03:26:49')->format('Y-m-d H:i:s')],
         ]);
         DB::table('process')->insert([
             ['id'=>1, 'step' => 1, 'name' => 'Đánh Giá', 'user_job_id' => 1, 'created_at' => \Carbon\Carbon::parse('11-06-2020 03:26:49')->format('Y-m-d H:i:s')],

@@ -201,6 +201,8 @@ return [
         'same' => 'Mật khẩu mới trùng với mật khẩu hiện tại! Vui lòng thử lại.',
         'not_same' => 'Mật khẩu hiện tại không chính sác! Vui lòng thử lại.',
         'warning_limit_cv' => 'Cảnh báo bạn đã có số hồ sơ đạt giới hạn, vui lòng không tạo mới!',
+        'reason_required'=>'Bạn phải nhập lý do trước khi gửi email cho ứng viên',
+        'content_required'=>'Bạn phải nhập nội dung trước khi gửi email cho ứng viên',
         'contact_alert' => [
             'title' => 'Thành Công',
             'text' => 'Chúng tôi sẽ trả lời bạn sớm nhất có thể!'
