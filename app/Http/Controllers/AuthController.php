@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Requests\ChangePasswordRequest;
-use App\Http\Requests\ChangePWRequest;
+use App\Http\Requests\ResetPWRequest;
 use App\Http\Requests\ForgotPasswordRequest;
 use App\Http\Requests\LoginRequest;
 use App\Http\Requests\OTPRequest;
@@ -123,11 +123,11 @@ class AuthController extends Controller
         }
     }
 
-    public function storeResetPW(ChangePWRequest $request, $token)
+    public function storeResetPW(ResetPWRequest $request, $token)
     {
-        $dataChangPW = $this->forgotPasswordRepository->storeNewPW($request->new_password, $token);
+        $dataChangePW = $this->forgotPasswordRepository->storeNewPW($request->new_password, $token);
 
-        if ($dataChangPW == true) {
+        if ($dataChangePW == true) {
             return redirect()->route('client.login')->with('success', trans('custom.alert_messages.success'));
         } else {
             return redirect()-back()>withErrors(['message' => trans('custom.alert_messages.fail')]);

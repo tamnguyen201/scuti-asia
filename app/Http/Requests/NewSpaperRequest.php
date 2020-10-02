@@ -25,7 +25,7 @@ class NewSpaperRequest extends FormRequest
     {
         return [
             'title' => 'required|unique:new_spapers,title',
-            'image_url' => 'required|mimes:jpeg,jpg,png,gif|max:10000',
+            'image' => 'required|mimes:jpeg,jpg,png,gif|max:10000',
             'url' => 'required',
             'description' => 'required',
         ];

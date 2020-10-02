@@ -26,7 +26,7 @@ class ChangePasswordRequest extends FormRequest
     {
         return [
             'password' => 'required',
-            'new_password' => 'required|confirmed'
+            'new_password' => 'required|min:6|confirmed'
         ];
     }
 
@@ -35,6 +35,7 @@ class ChangePasswordRequest extends FormRequest
         return [
             'required' => trans('validation.required'),
             'confirmed' => trans('validation.confirmed'),
+            'min' => trans('validation.min'),
         ];
     }
 }

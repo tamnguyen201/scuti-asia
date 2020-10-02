@@ -11,3 +11,6 @@ h5#exampleModalLabel {
     display: inline-block;
 }
 
+input{
+    width: 100%;
+}

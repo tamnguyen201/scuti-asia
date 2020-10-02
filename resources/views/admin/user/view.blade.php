@@ -1,3 +1,4 @@
+@if($user->cv->count() > 0)
 <div class="col-lg-6 text-center">
     <img src="{{asset($user->avatar)}}" class="img-responsive" style="margin-bottom: 2rem;max-height:22rem;margin-left: auto!important;margin-right: auto!important;border-radius: 5%!important;" alt="">
     <h3><b>{{$user->name}}</b></h3>
@@ -5,7 +6,6 @@
     <p><b>{{$user->phone}}</b></p>
     <p><b>{{$user->address}}</b></p>
 </div>
-@if($user->cv->count() > 0)
 <div class="col-lg-6 text-center">
     <h4>Thông tin CV</h4>  
     <table class="table table-hover">
@@ -32,5 +32,13 @@
             @endforeach
         </tbody>
     </table>
+</div>
+@else
+<div class="col-lg-12 text-center">
+    <img src="{{asset($user->avatar)}}" class="img-responsive" style="margin-bottom: 2rem;max-height:22rem;margin-left: auto!important;margin-right: auto!important;border-radius: 5%!important;" alt="">
+    <h3><b>{{$user->name}}</b></h3>
+    <p><b>{{$user->email}}</b></p>
+    <p><b>{{$user->phone}}</b></p>
+    <p><b>{{$user->address}}</b></p>
 </div>
 @endif

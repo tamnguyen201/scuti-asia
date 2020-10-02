@@ -23,7 +23,7 @@ class UserResetPWRepository extends Repository implements UserResetPWRepositoryI
 
     public function getForgotPassword ($email)
     {
-        $user = $this->user->where('email', '=' , $email)->first();
+        $user = $this->user->where('email', '=' , $email)->where('password', '<>', '')->first();
 
         if ($user != null) {
             $dataEmail = $this->model->where('email', '=', $email)->first();

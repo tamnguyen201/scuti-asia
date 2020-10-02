@@ -24,8 +24,21 @@ class JobUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' =>'min:5',
-            'description'=>'min:100'
+            'name' =>'required|unique:jobs,name',
+            'location_id'=>'required',
+            'category_id'=>'required',
+            'expire_date'=>'required',
+            'description'=>'required',
+            'salary'=>'required',
+            'content'=>'required|min:100'
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'required' => trans('validation.required'),
+            'unique' => trans('validation.unique'),
         ];
     }
 }

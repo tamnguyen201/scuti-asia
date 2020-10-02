@@ -1,3 +1,6 @@
+<link rel="stylesheet" href="{{ asset('adminAsset/css/job.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/switchery/0.8.2/switchery.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css"> 
 <table class="table table-hover">
     <thead>
         <tr>
@@ -30,7 +33,7 @@
             <td>{{$stt++}}</td>
             <td>{{$item->category_name}}</td>
             <td>
-                <input data-id="{{$item->id}}" class="toggle-class" type="checkbox" data-onstyle="success" data-offstyle="danger" data-toggle="toggle" data-on="Active" data-off="InActive" {{ $item->status ? 'checked' : '' }}>
+                <input data-id="{{$item->id}}" class="toggle-class js-switch" type="checkbox" data-onstyle="success" data-offstyle="danger" data-toggle="toggle" data-on="Active" data-off="InActive" {{ $item->status ? 'checked' : '' }}>
             </td>
             <td>{{Auth::guard('admin')->user()->name}}</td>
             <td class="text-center">
@@ -50,4 +53,11 @@
         {{$categories->links()}}
     </div>
 </div>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/switchery/0.8.2/switchery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script type="text/javascript">
+        let elems = Array.prototype.slice.call(document.querySelectorAll('.js-switch'));
+        elems.forEach(function(html) {
+            let switchery = new Switchery(html,  { size: 'small' });
+        });
+    </script>

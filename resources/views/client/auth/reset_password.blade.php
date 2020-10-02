@@ -21,7 +21,7 @@
                 </div>
                 <div class="form-group">
                     <label class="label-required">@lang('client.page.auth.new_password_confirm')</label>
-                    <input type="password" class="form-control" name="new_confirm_password" placeholder="@lang('custom.placeholder.password')">
+                    <input type="password" class="form-control" name="new_password_confirmation" placeholder="@lang('custom.placeholder.password')">
                 </div>
                 <div class="form-group">
                     <button type="submit" class="form-control-submit-button">@lang('client.page.auth.reset_pw.submit')</button>

@@ -63,7 +63,7 @@ class CategoryController extends Controller
     public function update(CategoryUpdateRequest $request)
     {
         $this->categoryRepository->update([
-            'category_name' => $request->name,
+            'category_name' => $request->category_name,
         ], $request->id);
         $categories = $this->categoryRepository->paginate();
         $html = view('admin.category.list', compact('categories'))->render();

@@ -63,7 +63,7 @@
 							</div>
 							<div class="form-group @error('cv_url') has-error @enderror">
                                 <label class="label-required">@lang('custom.cv_url')</label>
-                                <input type="file" name="cv_url" accept="application/pdf,.doc,.docx,application/msword,application/vnd.ms-excel">
+                                <input type="file" name="cv_url" accept="application/pdf,.doc,.docx,.xlsx,.xls,.csv,application/msword,application/vnd.ms-excel">
                                 @error('cv_url') 
                                 <span class="help-block"> {{$message}} </span>
                                 @enderror

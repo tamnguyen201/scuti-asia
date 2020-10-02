@@ -35,7 +35,7 @@
                                                 <div class="th-inner">@lang('custom.name')</div>
                                             </th>
                                             <th>
-                                                <div class="th-inner">@lang('custom.image_url')</div>
+                                                <div class="th-inner">@lang('custom.avatar')</div>
                                             </th>
                                             <th>
                                                 <div class="th-inner">@lang('custom.role')</div>
