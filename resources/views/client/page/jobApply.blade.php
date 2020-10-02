@@ -270,9 +270,9 @@
                                                 @else
                                                 <li step="2" id="payment"><strong>@lang('client.page.apply.process.interview')</strong></li>
                                                 @endif
-                                                @if(isset($data['apply']->process[2]->evaluate) && $data['apply']->process[2]->evaluate->status == 1)
+                                                @if(isset($data['apply']->process[2]) && $data['apply']->process[2]->step == 3 && $data['apply']->status == 1 && $data['apply']->result == 1)
                                                 <li class="active" step="3" id="confirm"><strong>@lang('client.page.apply.process.finish')</strong><br> <span>{{\Carbon\Carbon::parse($data['apply']->process[2]->created_at)->format('d/m/Y')}}</span></li>
-                                                @elseif(isset($data['apply']->process[2]->evaluate) && $data['apply']->process[2]->evaluate->status == 0)
+                                                @elseif(isset($data['apply']->process[2]) && $data['apply']->process[2]->step == 3 && $data['apply']->status == 1 && $data['apply']->result == 0)
                                                 <li class="inactive" step="3" id="confirm"><strong>@lang('client.page.apply.process.finish')</strong><br> <span>{{\Carbon\Carbon::parse($data['apply']->process[2]->created_at)->format('d/m/Y')}}</span></li>
                                                 @else
                                                 <li step="3" id="confirm"><strong>@lang('client.page.apply.process.finish')</strong></li>
@@ -354,7 +354,7 @@
                                                         <div class="col-3"> <img src="https://www.suunto.com/contentassets/1fda3e7d222d45e49282f7d13439c7db/icon-success.png" class="fit-image"> </div>
                                                     </div> <br><br>
                                                     <div class="row justify-content-center">
-                                                        <div class="col-7 text-center">
+                                                        <div class="col-10 text-center">
                                                             <h5 class="purple-text text-center">{{($data['apply']->process[2]->evaluate) ? $data['apply']->process[2]->evaluate->reason : trans('client.page.apply.process.finish_fail_message')}}</h5>
                                                         </div>
                                                     </div>
@@ -376,7 +376,7 @@
                                                         <div class="col-3"> <img src="https://www.suunto.com/contentassets/1fda3e7d222d45e49282f7d13439c7db/icon-success.png" class="fit-image"> </div>
                                                     </div> <br><br>
                                                     <div class="row justify-content-center">
-                                                        <div class="col-7 text-center">
+                                                        <div class="col-10 text-center">
                                                             <h5 class="purple-text text-center">{{($data['apply']->process[2]->evaluate) ? $data['apply']->process[2]->evaluate->reason : trans('client.page.apply.finish')}}</h5>
                                                         </div>
                                                     </div>
